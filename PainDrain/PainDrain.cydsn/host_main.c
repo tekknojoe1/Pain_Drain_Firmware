@@ -47,6 +47,9 @@
 #include "ias.h"
 #include "power.h"
 #include "debug.h"
+#include "temp.h"
+#include <stdlib.h>
+
 //#include 
 
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
@@ -54,7 +57,8 @@ static volatile uint32_t           mainTimer  = 1u;
 
 static int loopcount = 0;
 
-int newValue = 0;
+uint8 newBatteryLevel = 0;
+uint8 val;
 /*******************************************************************************
 * Function Name: AppCallBack
 ********************************************************************************
@@ -70,6 +74,7 @@ int newValue = 0;
 void AppCallBack(uint32 event, void *eventParam)
 {
     static int CHAR_MAX_LEN = 20;
+    cy_en_ble_gatt_err_code_t gattErr = CY_BLE_GATT_ERR_NONE;
     static cy_stc_ble_gap_sec_key_info_t keyInfo =
     {
         .localKeysFlag    = CY_BLE_GAP_SMP_INIT_ENC_KEY_DIST | 
@@ -203,50 +208,46 @@ void AppCallBack(uint32 event, void *eventParam)
         case CY_BLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ:
         {
             //call a function to update the characteristic that was read if we need to send more data to the host
-            /*
-            cy_stc_ble_gatts_char_val_read_req_t *readReqParam = (cy_stc_ble_gatts_char_val_read_req_t *)eventParam;
-
-            if (readReqParam->attrHandle == CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE)
-            {
-                // Prepare the characteristic value that should be sent in response to the read request
-                uint8_t preparedValue = ...; // Your prepared value
-                
-                // Set the prepared value using Cy_BLE_GATTS_WriteAttributeValue
-                cy_stc_ble_gatts_db_attr_val_info_t attrValueInfo = {
-                    .handleValuePair = {.attrHandle = readReqParam->attrHandle, .value = {.val = &preparedValue, .len = sizeof(preparedValue)}},
-                    .connHandle = readReqParam->connHandle,
-                    .flags = CY_BLE_GATT_DB_LOCALLY_INITIATED, // Assuming this is a locally initiated operation
-                    .offset = 0u
-                };
-                
-                Cy_BLE_GATTS_WriteAttributeValue(&attrValueInfo);
-                
-                // Optionally, update the characteristic value for future reads
-                // ...
-            }
-            */
-            /*
-            cy_stc_ble_gatts_char_val_read_req_t *readReqParam = (cy_stc_ble_gatts_char_val_read_req_t *) eventParam;
-            if( readReqParam->attrHandle == CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE ){
-               
-                
-                Cy_BLE_GATTS_ReadAttributeValue(eventParam);
-            }
-            */
-            
+            cy_stc_ble_gatts_char_val_read_req_t *readReq = (cy_stc_ble_gatts_char_val_read_req_t *)eventParam;
             cy_stc_ble_gatt_handle_value_pair_t handleValuePair;
-            uint8_t value;
-            handleValuePair.attrHandle = CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE;
-            handleValuePair.value.len = CHAR_MAX_LEN;
-            handleValuePair.value.val = &value;
-            
-            if( CY_BLE_GATT_ERR_NONE == Cy_BLE_GATTS_ReadAttributeValue(eventParam) ){
-                value++;
-                
-                Cy_BLE_GATTS_WriteAttributeValue(eventParam);
-                
+            if (readReq->attrHandle == cy_ble_basConfigPtr->bass->batteryLevelHandle)
+            {
+                // Update your local battery level value (example: increment by 1)
+                newBatteryLevel++;
+                DBG_PRINTF("entered read case\r\n");
+                // Provide the updated value as the response to the read request
+                handleValuePair.value.val = &newBatteryLevel;
+                handleValuePair.value.len = sizeof(newBatteryLevel);
+                handleValuePair.attrHandle = cy_ble_basConfigPtr->bass->batteryLevelHandle;
+                gattErr = Cy_BLE_GATTS_WriteAttributeValueLocal(&handleValuePair);
+
+                if (gattErr != CY_BLE_GATT_ERR_NONE)
+                {
+                    // Handle error
+                    DBG_PRINTF("Read error\r\n");
+                }
             }
             
+            // Checks to see if its requesting the custom service characteristic
+            if(CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE == readReq->attrHandle)
+            {
+                // Increments the value by 1 each time central device is read
+                
+                val++;
+                handleValuePair.value.val = &val;
+                handleValuePair.value.len = sizeof(val);
+                handleValuePair.attrHandle = CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE;
+                // Writes the value to central device and returns an error code if there is one
+                gattErr = Cy_BLE_GATTS_WriteAttributeValueLocal(&handleValuePair);
+                if (gattErr != CY_BLE_GATT_ERR_NONE)
+                {
+                    // Handle error
+                    DBG_PRINTF("Read error\r\n");
+                }
+                DBG_PRINTF("entered read case custom service\r\n");
+
+                
+            }
             break;
         }
 
@@ -255,36 +256,37 @@ void AppCallBack(uint32 event, void *eventParam)
             
         case CY_BLE_EVT_GATTS_WRITE_REQ:  
             {
-                /*
-                cy_stc_ble_conn_handle_t *connHandleParam = (cy_stc_ble_conn_handle_t *)eventParam;
-                // Store the connection handle in your application's context
-                memcpy(&cy_ble_connHandle, connHandleParam, sizeof(cy_stc_ble_conn_handle_t));
-                uint8_t readValue;
-                cy_stc_ble_gatts_db_attr_val_info_t attrValueInfo;
-
-                attrValueInfo.handleValuePair.attrHandle = CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE;
-                attrValueInfo.handleValuePair.value.len = sizeof(readValue);
-                attrValueInfo.handleValuePair.value.val = &readValue;
-                attrValueInfo.connHandle = *connHandleParam;
-                attrValueInfo.flags = CY_BLE_GATT_DB_LOCALLY_INITIATED;
-                attrValueInfo.offset = 0u;
-
-                cy_en_ble_gatt_err_code_t writeResult = Cy_BLE_GATTS_WriteAttributeValue(&attrValueInfo);
-
-                if (writeResult == CY_BLE_GATT_ERR_NONE) {
-                    // Attribute value write successful
-                } else {
-                    // Attribute value write failed
+                cy_stc_ble_gatts_write_cmd_req_param_t *writeReq = (cy_stc_ble_gatts_write_cmd_req_param_t *)eventParam;
+                int length = writeReq->handleValPair.value.len;
+                char receivedCommand[length + 1];
+                // Checks to see if its requesting the custom service characteristic
+                if(CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE == writeReq->handleValPair.attrHandle)
+                {
+                    //DBG_PRINTF("entered write case\r\n");
+                    // Finds value in database of the peer device and stores it to value
+                    //sprintf(receivedCommand, "%d", integerValue);
+                     //DBG_PRINTF("size %d\r\n", writeReq->handleValPair.value.len);
+                    // DBG_PRINTF("size %d\r\n", sizeof(*writeReq->handleValPair.value.val));
+                    
+                    for(int i = 0; i < length; i++ )
+                    {
+                        //DBG_PRINTF("index value %d\r\n", writeReq->handleValPair.value.val[i]);
+                        receivedCommand[i] = (char)writeReq->handleValPair.value.val[i];
+                    }
+                    receivedCommand[length] = '\0';
+                    //DBG_PRINTF("Received string: %s\r\n", receivedCommand);
+                    if(receivedCommand[0] == 't')
+                    {
+                        int temperatureValue = atoi(&receivedCommand[1]); // Convert the numeric part after 't'
+                        //DBG_PRINTF("t value: %d\r\n", temperatureValue);
+                        set_temp(temperatureValue);
+                        //DBG_PRINTF("t value: %d \r\n",writeReq->handleValPair.value.val[1]);
+                    }
+                    val = writeReq->handleValPair.value.val[0];
+                    //DBG_PRINTF("value %d\r\n", val);
+                    // Sends a write with response command
+                    Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
                 }
-
-                */
-               /* 
-            cy_stc_ble_gatts_write_cmd_req_param_t *writeReqParam = (cy_stc_ble_gatts_write_cmd_req_param_t *) eventParam;
-            if ( writeReqParam->handleValPair.attrHandle == CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE ){
-                newValue = writeReqParam->handleValPair.value.val[0];
-                newValue++;
-            }
-                */
             //call a function to process the data received in the eventParam
                 
             }
@@ -360,7 +362,7 @@ int HostMain(void)
     ***************************************************************************/
     while(1)
     {
-        DBG_PRINTF("Loops from main %d\r\n", loopcount++);
+        //DBG_PRINTF("Loops from main %d\r\n", loopcount++);
         
         
         /* Cy_BLE_ProcessEvents() allows BLE stack to process pending events */

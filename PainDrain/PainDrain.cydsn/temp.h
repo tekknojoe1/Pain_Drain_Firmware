@@ -9,5 +9,7 @@
  *
  * ========================================
 */
+void set_temp(int temperatureValue);
+
 
 /* [] END OF FILE */
