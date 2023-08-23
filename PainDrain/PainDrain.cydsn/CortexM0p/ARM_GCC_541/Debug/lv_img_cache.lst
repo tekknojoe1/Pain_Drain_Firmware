@@ -1,0 +1,2396 @@
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"lv_img_cache.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text._lv_img_cache_open,"ax",%progbits
+  20              		.align	2
+  21              		.global	_lv_img_cache_open
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	_lv_img_cache_open, %function
+  25              	_lv_img_cache_open:
+  26              	.LFB56:
+  27              		.file 1 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\lv_img_cache.c"
+   1:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** /**
+   2:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  * @file lv_img_cache.c
+   3:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  *
+   4:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  */
+   5:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+   6:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** /*********************
+   7:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  *      INCLUDES
+   8:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  *********************/
+   9:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #include "../misc/lv_assert.h"
+  10:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #include "lv_img_cache.h"
+  11:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #include "lv_img_decoder.h"
+  12:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #include "lv_draw_img.h"
+  13:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #include "../hal/lv_hal_tick.h"
+  14:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #include "../misc/lv_gc.h"
+  15:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+  16:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** /*********************
+  17:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  *      DEFINES
+  18:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  *********************/
+  19:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** /*Decrement life with this value on every open*/
+  20:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #define LV_IMG_CACHE_AGING 1
+  21:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+  22:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** /*Boost life by this factor (multiply time_to_open with this value)*/
+  23:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #define LV_IMG_CACHE_LIFE_GAIN 1
+  24:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+  25:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** /*Don't let life to be greater than this limit because it would require a lot of time to
+  26:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  * "die" from very high values*/
+  27:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #define LV_IMG_CACHE_LIFE_LIMIT 1000
+  28:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+  29:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** /**********************
+  30:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  *      TYPEDEFS
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 2
+
+
+  31:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  **********************/
+  32:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+  33:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** /**********************
+  34:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  *  STATIC PROTOTYPES
+  35:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  **********************/
+  36:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #if LV_IMG_CACHE_DEF_SIZE
+  37:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     static bool lv_img_cache_match(const void * src1, const void * src2);
+  38:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #endif
+  39:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+  40:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** /**********************
+  41:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  *  STATIC VARIABLES
+  42:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  **********************/
+  43:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #if LV_IMG_CACHE_DEF_SIZE
+  44:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     static uint16_t entry_cnt;
+  45:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #endif
+  46:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+  47:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** /**********************
+  48:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  *      MACROS
+  49:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  **********************/
+  50:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+  51:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** /**********************
+  52:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  *   GLOBAL FUNCTIONS
+  53:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  **********************/
+  54:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+  55:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** /**
+  56:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  * Open an image using the image decoder interface and cache it.
+  57:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  * The image will be left open meaning if the image decoder open callback allocated memory then it 
+  58:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  * The image is closed if a new image is opened and the new image takes its place in the cache.
+  59:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  * @param src source of the image. Path to file or pointer to an `lv_img_dsc_t` variable
+  60:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  * @param color color The color of the image with `LV_IMG_CF_ALPHA_...`
+  61:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  * @return pointer to the cache entry or NULL if can open the image
+  62:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  */
+  63:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** _lv_img_cache_entry_t * _lv_img_cache_open(const void * src, lv_color_t color, int32_t frame_id)
+  64:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** {
+  28              		.loc 1 64 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  34              		.cfi_def_cfa_offset 24
+  35              		.cfi_offset 3, -24
+  36              		.cfi_offset 4, -20
+  37              		.cfi_offset 5, -16
+  38              		.cfi_offset 6, -12
+  39              		.cfi_offset 7, -8
+  40              		.cfi_offset 14, -4
+  41 0002 0400     		movs	r4, r0
+  42 0004 0E1C     		adds	r6, r1, #0
+  43 0006 1700     		movs	r7, r2
+  44              	.LVL1:
+  65:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     /*Is the image cached?*/
+  66:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     _lv_img_cache_entry_t * cached_src = NULL;
+  67:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+  68:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #if LV_IMG_CACHE_DEF_SIZE
+  69:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     if(entry_cnt == 0) {
+  70:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         LV_LOG_WARN("lv_img_cache_open: the cache size is 0");
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 3
+
+
+  71:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         return NULL;
+  72:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     }
+  73:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+  74:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     _lv_img_cache_entry_t * cache = LV_GC_ROOT(_lv_img_cache_array);
+  75:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+  76:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     /*Decrement all lifes. Make the entries older*/
+  77:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     uint16_t i;
+  78:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     for(i = 0; i < entry_cnt; i++) {
+  79:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         if(cache[i].life > INT32_MIN + LV_IMG_CACHE_AGING) {
+  80:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****             cache[i].life -= LV_IMG_CACHE_AGING;
+  81:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         }
+  82:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     }
+  83:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+  84:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     for(i = 0; i < entry_cnt; i++) {
+  85:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         if(color.full == cache[i].dec_dsc.color.full &&
+  86:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****            frame_id == cache[i].dec_dsc.frame_id &&
+  87:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****            lv_img_cache_match(src, cache[i].dec_dsc.src)) {
+  88:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****             /*If opened increment its life.
+  89:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****              *Image difficult to open should live longer to keep avoid frequent their recaching.
+  90:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****              *Therefore increase `life` with `time_to_open`*/
+  91:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****             cached_src = &cache[i];
+  92:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****             cached_src->life += cached_src->dec_dsc.time_to_open * LV_IMG_CACHE_LIFE_GAIN;
+  93:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****             if(cached_src->life > LV_IMG_CACHE_LIFE_LIMIT) cached_src->life = LV_IMG_CACHE_LIFE_LIM
+  94:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****             LV_LOG_TRACE("image source found in the cache");
+  95:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****             break;
+  96:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         }
+  97:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     }
+  98:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+  99:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     /*The image is not cached then cache it now*/
+ 100:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     if(cached_src) return cached_src;
+ 101:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+ 102:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     /*Find an entry to reuse. Select the entry with the least life*/
+ 103:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     cached_src = &cache[0];
+ 104:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     for(i = 1; i < entry_cnt; i++) {
+ 105:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         if(cache[i].life < cached_src->life) {
+ 106:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****             cached_src = &cache[i];
+ 107:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         }
+ 108:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     }
+ 109:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+ 110:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     /*Close the decoder to reuse if it was opened (has a valid source)*/
+ 111:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     if(cached_src->dec_dsc.src) {
+ 112:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         lv_img_decoder_close(&cached_src->dec_dsc);
+ 113:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         LV_LOG_INFO("image draw: cache miss, close and reuse an entry");
+ 114:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     }
+ 115:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     else {
+ 116:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         LV_LOG_INFO("image draw: cache miss, cached to an empty entry");
+ 117:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     }
+ 118:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #else
+ 119:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     cached_src = &LV_GC_ROOT(_lv_img_cache_single);
+ 120:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #endif
+ 121:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     /*Open the image and measure the time to open*/
+ 122:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     uint32_t t_start  = lv_tick_get();
+  45              		.loc 1 122 0
+  46 0008 FFF7FEFF 		bl	lv_tick_get
+  47              	.LVL2:
+  48 000c 0500     		movs	r5, r0
+  49              	.LVL3:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 4
+
+
+ 123:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     lv_res_t open_res = lv_img_decoder_open(&cached_src->dec_dsc, src, color, frame_id);
+  50              		.loc 1 123 0
+  51 000e 3B00     		movs	r3, r7
+  52              	.LVL4:
+  53 0010 321C     		adds	r2, r6, #0
+  54 0012 2100     		movs	r1, r4
+  55 0014 1148     		ldr	r0, .L6
+  56              	.LVL5:
+  57 0016 FFF7FEFF 		bl	lv_img_decoder_open
+  58              	.LVL6:
+ 124:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     if(open_res == LV_RES_INV) {
+  59              		.loc 1 124 0
+  60 001a 0028     		cmp	r0, #0
+  61 001c 09D1     		bne	.L2
+ 125:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         LV_LOG_WARN("Image draw cannot open the image resource");
+ 126:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         lv_memset_00(cached_src, sizeof(_lv_img_cache_entry_t));
+  62              		.loc 1 126 0
+  63 001e 0F4C     		ldr	r4, .L6
+  64              	.LVL7:
+  65 0020 2C21     		movs	r1, #44
+  66 0022 2000     		movs	r0, r4
+  67              	.LVL8:
+  68 0024 FFF7FEFF 		bl	lv_memset_00
+  69              	.LVL9:
+ 127:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         cached_src->life = INT32_MIN; /*Make the empty entry very "weak" to force its us*/
+  70              		.loc 1 127 0
+  71 0028 8023     		movs	r3, #128
+  72 002a 1B06     		lsls	r3, r3, #24
+  73 002c A362     		str	r3, [r4, #40]
+ 128:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         return NULL;
+  74              		.loc 1 128 0
+  75 002e 0020     		movs	r0, #0
+  76 0030 13E0     		b	.L3
+  77              	.LVL10:
+  78              	.L2:
+ 129:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     }
+ 130:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+ 131:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     cached_src->life = 0;
+  79              		.loc 1 131 0
+  80 0032 0A4B     		ldr	r3, .L6
+  81 0034 0022     		movs	r2, #0
+  82 0036 9A62     		str	r2, [r3, #40]
+ 132:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+ 133:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     /*If `time_to_open` was not set in the open function set it here*/
+ 134:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     if(cached_src->dec_dsc.time_to_open == 0) {
+  83              		.loc 1 134 0
+  84 0038 DB69     		ldr	r3, [r3, #28]
+  85 003a 002B     		cmp	r3, #0
+  86 003c 04D1     		bne	.L4
+ 135:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         cached_src->dec_dsc.time_to_open = lv_tick_elaps(t_start);
+  87              		.loc 1 135 0
+  88 003e 2800     		movs	r0, r5
+  89              	.LVL11:
+  90 0040 FFF7FEFF 		bl	lv_tick_elaps
+  91              	.LVL12:
+  92 0044 054B     		ldr	r3, .L6
+  93 0046 D861     		str	r0, [r3, #28]
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 5
+
+
+  94              	.L4:
+ 136:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     }
+ 137:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+ 138:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     if(cached_src->dec_dsc.time_to_open == 0) cached_src->dec_dsc.time_to_open = 1;
+  95              		.loc 1 138 0
+  96 0048 044B     		ldr	r3, .L6
+  97 004a DB69     		ldr	r3, [r3, #28]
+  98 004c 002B     		cmp	r3, #0
+  99 004e 03D1     		bne	.L5
+ 100              		.loc 1 138 0 is_stmt 0 discriminator 1
+ 101 0050 0248     		ldr	r0, .L6
+ 102 0052 0133     		adds	r3, r3, #1
+ 103 0054 C361     		str	r3, [r0, #28]
+ 104 0056 00E0     		b	.L3
+ 105              	.L5:
+ 139:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+ 140:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     return cached_src;
+ 106              		.loc 1 140 0 is_stmt 1
+ 107 0058 0048     		ldr	r0, .L6
+ 108              	.LVL13:
+ 109              	.L3:
+ 141:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** }
+ 110              		.loc 1 141 0
+ 111              		@ sp needed
+ 112              	.LVL14:
+ 113              	.LVL15:
+ 114              	.LVL16:
+ 115 005a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 116              	.L7:
+ 117              		.align	2
+ 118              	.L6:
+ 119 005c 00000000 		.word	_lv_img_cache_single
+ 120              		.cfi_endproc
+ 121              	.LFE56:
+ 122              		.size	_lv_img_cache_open, .-_lv_img_cache_open
+ 123              		.section	.text.lv_img_cache_set_size,"ax",%progbits
+ 124              		.align	2
+ 125              		.global	lv_img_cache_set_size
+ 126              		.code	16
+ 127              		.thumb_func
+ 128              		.type	lv_img_cache_set_size, %function
+ 129              	lv_img_cache_set_size:
+ 130              	.LFB57:
+ 142:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+ 143:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** /**
+ 144:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  * Set the number of images to be cached.
+ 145:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  * More cached images mean more opened image at same time which might mean more memory usage.
+ 146:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  * E.g. if 20 PNG or JPG images are open in the RAM they consume memory while opened in the cache.
+ 147:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  * @param new_entry_cnt number of image to cache
+ 148:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  */
+ 149:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** void lv_img_cache_set_size(uint16_t new_entry_cnt)
+ 150:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** {
+ 131              		.loc 1 150 0
+ 132              		.cfi_startproc
+ 133              		@ args = 0, pretend = 0, frame = 0
+ 134              		@ frame_needed = 0, uses_anonymous_args = 0
+ 135              		@ link register save eliminated.
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 6
+
+
+ 136              	.LVL17:
+ 151:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #if LV_IMG_CACHE_DEF_SIZE == 0
+ 152:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     LV_UNUSED(new_entry_cnt);
+ 153:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     LV_LOG_WARN("Can't change cache size because it's disabled by LV_IMG_CACHE_DEF_SIZE = 0");
+ 154:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #else
+ 155:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     if(LV_GC_ROOT(_lv_img_cache_array) != NULL) {
+ 156:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         /*Clean the cache before free it*/
+ 157:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         lv_img_cache_invalidate_src(NULL);
+ 158:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         lv_mem_free(LV_GC_ROOT(_lv_img_cache_array));
+ 159:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     }
+ 160:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+ 161:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     /*Reallocate the cache*/
+ 162:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     LV_GC_ROOT(_lv_img_cache_array) = lv_mem_alloc(sizeof(_lv_img_cache_entry_t) * new_entry_cnt);
+ 163:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     LV_ASSERT_MALLOC(LV_GC_ROOT(_lv_img_cache_array));
+ 164:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     if(LV_GC_ROOT(_lv_img_cache_array) == NULL) {
+ 165:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         entry_cnt = 0;
+ 166:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         return;
+ 167:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     }
+ 168:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     entry_cnt = new_entry_cnt;
+ 169:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+ 170:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     /*Clean the cache*/
+ 171:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     lv_memset_00(LV_GC_ROOT(_lv_img_cache_array), entry_cnt * sizeof(_lv_img_cache_entry_t));
+ 172:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #endif
+ 173:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** }
+ 137              		.loc 1 173 0
+ 138              		@ sp needed
+ 139 0000 7047     		bx	lr
+ 140              		.cfi_endproc
+ 141              	.LFE57:
+ 142              		.size	lv_img_cache_set_size, .-lv_img_cache_set_size
+ 143 0002 C046     		.section	.text.lv_img_cache_invalidate_src,"ax",%progbits
+ 144              		.align	2
+ 145              		.global	lv_img_cache_invalidate_src
+ 146              		.code	16
+ 147              		.thumb_func
+ 148              		.type	lv_img_cache_invalidate_src, %function
+ 149              	lv_img_cache_invalidate_src:
+ 150              	.LFB58:
+ 174:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+ 175:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** /**
+ 176:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  * Invalidate an image source in the cache.
+ 177:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  * Useful if the image source is updated therefore it needs to be cached again.
+ 178:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  * @param src an image source path to a file or pointer to an `lv_img_dsc_t` variable.
+ 179:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****  */
+ 180:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** void lv_img_cache_invalidate_src(const void * src)
+ 181:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** {
+ 151              		.loc 1 181 0
+ 152              		.cfi_startproc
+ 153              		@ args = 0, pretend = 0, frame = 0
+ 154              		@ frame_needed = 0, uses_anonymous_args = 0
+ 155              		@ link register save eliminated.
+ 156              	.LVL18:
+ 182:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     LV_UNUSED(src);
+ 183:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #if LV_IMG_CACHE_DEF_SIZE
+ 184:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     _lv_img_cache_entry_t * cache = LV_GC_ROOT(_lv_img_cache_array);
+ 185:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+ 186:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     uint16_t i;
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 7
+
+
+ 187:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     for(i = 0; i < entry_cnt; i++) {
+ 188:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         if(src == NULL || lv_img_cache_match(src, cache[i].dec_dsc.src)) {
+ 189:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****             if(cache[i].dec_dsc.src != NULL) {
+ 190:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****                 lv_img_decoder_close(&cache[i].dec_dsc);
+ 191:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****             }
+ 192:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** 
+ 193:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****             lv_memset_00(&cache[i], sizeof(_lv_img_cache_entry_t));
+ 194:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****         }
+ 195:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c ****     }
+ 196:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** #endif
+ 197:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw/lv_img_cache.c **** }
+ 157              		.loc 1 197 0
+ 158              		@ sp needed
+ 159 0000 7047     		bx	lr
+ 160              		.cfi_endproc
+ 161              	.LFE58:
+ 162              		.size	lv_img_cache_invalidate_src, .-lv_img_cache_invalidate_src
+ 163 0002 C046     		.text
+ 164              	.Letext0:
+ 165              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 166              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 167              		.file 4 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\../misc/lv_types.h"
+ 168              		.file 5 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\../misc/lv_color.h"
+ 169              		.file 6 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\../misc/lv_area.h"
+ 170              		.file 7 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\lv_img_buf.h"
+ 171              		.file 8 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\lv_img_decoder.h"
+ 172              		.file 9 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\lv_img_cache.h"
+ 173              		.file 10 "c:\\projects\\paindrain\\arduinolcd\\test\\pain drain\\libraries\\lvgl\\src\\font\\lv_fo
+ 174              		.file 11 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\../misc/lv_gc.h"
+ 175              		.file 12 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\../hal/lv_hal_tick
+ 176              		.file 13 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\../misc/lv_mem.h"
+ 177              		.section	.debug_info,"",%progbits
+ 178              	.Ldebug_info0:
+ 179 0000 AE060000 		.4byte	0x6ae
+ 180 0004 0400     		.2byte	0x4
+ 181 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 182 000a 04       		.byte	0x4
+ 183 000b 01       		.uleb128 0x1
+ 184 000c A5000000 		.4byte	.LASF91
+ 185 0010 0C       		.byte	0xc
+ 186 0011 92040000 		.4byte	.LASF92
+ 187 0015 DD040000 		.4byte	.LASF93
+ 188 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 189 001d 00000000 		.4byte	0
+ 190 0021 00000000 		.4byte	.Ldebug_line0
+ 191 0025 02       		.uleb128 0x2
+ 192 0026 B5030000 		.4byte	.LASF0
+ 193 002a 02       		.byte	0x2
+ 194 002b 1B       		.byte	0x1b
+ 195 002c 30000000 		.4byte	0x30
+ 196 0030 03       		.uleb128 0x3
+ 197 0031 01       		.byte	0x1
+ 198 0032 06       		.byte	0x6
+ 199 0033 3B030000 		.4byte	.LASF2
+ 200 0037 02       		.uleb128 0x2
+ 201 0038 93050000 		.4byte	.LASF1
+ 202 003c 02       		.byte	0x2
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 8
+
+
+ 203 003d 1D       		.byte	0x1d
+ 204 003e 42000000 		.4byte	0x42
+ 205 0042 03       		.uleb128 0x3
+ 206 0043 01       		.byte	0x1
+ 207 0044 08       		.byte	0x8
+ 208 0045 23030000 		.4byte	.LASF3
+ 209 0049 02       		.uleb128 0x2
+ 210 004a 88040000 		.4byte	.LASF4
+ 211 004e 02       		.byte	0x2
+ 212 004f 29       		.byte	0x29
+ 213 0050 54000000 		.4byte	0x54
+ 214 0054 03       		.uleb128 0x3
+ 215 0055 02       		.byte	0x2
+ 216 0056 05       		.byte	0x5
+ 217 0057 73000000 		.4byte	.LASF5
+ 218 005b 02       		.uleb128 0x2
+ 219 005c 5C010000 		.4byte	.LASF6
+ 220 0060 02       		.byte	0x2
+ 221 0061 2B       		.byte	0x2b
+ 222 0062 66000000 		.4byte	0x66
+ 223 0066 03       		.uleb128 0x3
+ 224 0067 02       		.byte	0x2
+ 225 0068 07       		.byte	0x7
+ 226 0069 E2030000 		.4byte	.LASF7
+ 227 006d 02       		.uleb128 0x2
+ 228 006e 31030000 		.4byte	.LASF8
+ 229 0072 02       		.byte	0x2
+ 230 0073 3F       		.byte	0x3f
+ 231 0074 78000000 		.4byte	0x78
+ 232 0078 03       		.uleb128 0x3
+ 233 0079 04       		.byte	0x4
+ 234 007a 05       		.byte	0x5
+ 235 007b B2020000 		.4byte	.LASF9
+ 236 007f 02       		.uleb128 0x2
+ 237 0080 51010000 		.4byte	.LASF10
+ 238 0084 02       		.byte	0x2
+ 239 0085 41       		.byte	0x41
+ 240 0086 8A000000 		.4byte	0x8a
+ 241 008a 03       		.uleb128 0x3
+ 242 008b 04       		.byte	0x4
+ 243 008c 07       		.byte	0x7
+ 244 008d 50040000 		.4byte	.LASF11
+ 245 0091 03       		.uleb128 0x3
+ 246 0092 08       		.byte	0x8
+ 247 0093 05       		.byte	0x5
+ 248 0094 5C020000 		.4byte	.LASF12
+ 249 0098 03       		.uleb128 0x3
+ 250 0099 08       		.byte	0x8
+ 251 009a 07       		.byte	0x7
+ 252 009b 47030000 		.4byte	.LASF13
+ 253 009f 04       		.uleb128 0x4
+ 254 00a0 04       		.byte	0x4
+ 255 00a1 05       		.byte	0x5
+ 256 00a2 696E7400 		.ascii	"int\000"
+ 257 00a6 03       		.uleb128 0x3
+ 258 00a7 04       		.byte	0x4
+ 259 00a8 07       		.byte	0x7
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 9
+
+
+ 260 00a9 43020000 		.4byte	.LASF14
+ 261 00ad 02       		.uleb128 0x2
+ 262 00ae 4F000000 		.4byte	.LASF15
+ 263 00b2 03       		.byte	0x3
+ 264 00b3 14       		.byte	0x14
+ 265 00b4 25000000 		.4byte	0x25
+ 266 00b8 02       		.uleb128 0x2
+ 267 00b9 BD010000 		.4byte	.LASF16
+ 268 00bd 03       		.byte	0x3
+ 269 00be 18       		.byte	0x18
+ 270 00bf 37000000 		.4byte	0x37
+ 271 00c3 02       		.uleb128 0x2
+ 272 00c4 F5030000 		.4byte	.LASF17
+ 273 00c8 03       		.byte	0x3
+ 274 00c9 20       		.byte	0x20
+ 275 00ca 49000000 		.4byte	0x49
+ 276 00ce 02       		.uleb128 0x2
+ 277 00cf 7B030000 		.4byte	.LASF18
+ 278 00d3 03       		.byte	0x3
+ 279 00d4 24       		.byte	0x24
+ 280 00d5 5B000000 		.4byte	0x5b
+ 281 00d9 02       		.uleb128 0x2
+ 282 00da C3030000 		.4byte	.LASF19
+ 283 00de 03       		.byte	0x3
+ 284 00df 2C       		.byte	0x2c
+ 285 00e0 6D000000 		.4byte	0x6d
+ 286 00e4 02       		.uleb128 0x2
+ 287 00e5 5E030000 		.4byte	.LASF20
+ 288 00e9 03       		.byte	0x3
+ 289 00ea 30       		.byte	0x30
+ 290 00eb 7F000000 		.4byte	0x7f
+ 291 00ef 05       		.uleb128 0x5
+ 292 00f0 01       		.byte	0x1
+ 293 00f1 42000000 		.4byte	0x42
+ 294 00f5 04       		.byte	0x4
+ 295 00f6 2A       		.byte	0x2a
+ 296 00f7 08010000 		.4byte	0x108
+ 297 00fb 06       		.uleb128 0x6
+ 298 00fc 88050000 		.4byte	.LASF21
+ 299 0100 00       		.byte	0
+ 300 0101 06       		.uleb128 0x6
+ 301 0102 24040000 		.4byte	.LASF22
+ 302 0106 01       		.byte	0x1
+ 303 0107 00       		.byte	0
+ 304 0108 02       		.uleb128 0x2
+ 305 0109 6A020000 		.4byte	.LASF23
+ 306 010d 04       		.byte	0x4
+ 307 010e 2F       		.byte	0x2f
+ 308 010f B8000000 		.4byte	0xb8
+ 309 0113 03       		.uleb128 0x3
+ 310 0114 08       		.byte	0x8
+ 311 0115 04       		.byte	0x4
+ 312 0116 17030000 		.4byte	.LASF24
+ 313 011a 03       		.uleb128 0x3
+ 314 011b 04       		.byte	0x4
+ 315 011c 07       		.byte	0x7
+ 316 011d 7D000000 		.4byte	.LASF25
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 10
+
+
+ 317 0121 07       		.uleb128 0x7
+ 318 0122 04       		.byte	0x4
+ 319 0123 03       		.uleb128 0x3
+ 320 0124 01       		.byte	0x1
+ 321 0125 08       		.byte	0x8
+ 322 0126 BE030000 		.4byte	.LASF26
+ 323 012a 08       		.uleb128 0x8
+ 324 012b 04       		.byte	0x4
+ 325 012c 30010000 		.4byte	0x130
+ 326 0130 09       		.uleb128 0x9
+ 327 0131 23010000 		.4byte	0x123
+ 328 0135 0A       		.uleb128 0xa
+ 329 0136 02       		.byte	0x2
+ 330 0137 05       		.byte	0x5
+ 331 0138 D1       		.byte	0xd1
+ 332 0139 6B010000 		.4byte	0x16b
+ 333 013d 0B       		.uleb128 0xb
+ 334 013e 95010000 		.4byte	.LASF27
+ 335 0142 05       		.byte	0x5
+ 336 0143 D3       		.byte	0xd3
+ 337 0144 CE000000 		.4byte	0xce
+ 338 0148 02       		.byte	0x2
+ 339 0149 05       		.byte	0x5
+ 340 014a 0B       		.byte	0xb
+ 341 014b 00       		.byte	0
+ 342 014c 0B       		.uleb128 0xb
+ 343 014d C3020000 		.4byte	.LASF28
+ 344 0151 05       		.byte	0x5
+ 345 0152 D4       		.byte	0xd4
+ 346 0153 CE000000 		.4byte	0xce
+ 347 0157 02       		.byte	0x2
+ 348 0158 06       		.byte	0x6
+ 349 0159 05       		.byte	0x5
+ 350 015a 00       		.byte	0
+ 351 015b 0C       		.uleb128 0xc
+ 352 015c 72656400 		.ascii	"red\000"
+ 353 0160 05       		.byte	0x5
+ 354 0161 D5       		.byte	0xd5
+ 355 0162 CE000000 		.4byte	0xce
+ 356 0166 02       		.byte	0x2
+ 357 0167 05       		.byte	0x5
+ 358 0168 00       		.byte	0
+ 359 0169 00       		.byte	0
+ 360 016a 00       		.byte	0
+ 361 016b 0D       		.uleb128 0xd
+ 362 016c 02       		.byte	0x2
+ 363 016d 05       		.byte	0x5
+ 364 016e D0       		.byte	0xd0
+ 365 016f 89010000 		.4byte	0x189
+ 366 0173 0E       		.uleb128 0xe
+ 367 0174 636800   		.ascii	"ch\000"
+ 368 0177 05       		.byte	0x5
+ 369 0178 DC       		.byte	0xdc
+ 370 0179 35010000 		.4byte	0x135
+ 371 017d 0F       		.uleb128 0xf
+ 372 017e 83040000 		.4byte	.LASF29
+ 373 0182 05       		.byte	0x5
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 11
+
+
+ 374 0183 DD       		.byte	0xdd
+ 375 0184 CE000000 		.4byte	0xce
+ 376 0188 00       		.byte	0
+ 377 0189 02       		.uleb128 0x2
+ 378 018a 10020000 		.4byte	.LASF30
+ 379 018e 05       		.byte	0x5
+ 380 018f DE       		.byte	0xde
+ 381 0190 6B010000 		.4byte	0x16b
+ 382 0194 02       		.uleb128 0x2
+ 383 0195 70030000 		.4byte	.LASF31
+ 384 0199 05       		.byte	0x5
+ 385 019a EB       		.byte	0xeb
+ 386 019b 89010000 		.4byte	0x189
+ 387 019f 02       		.uleb128 0x2
+ 388 01a0 35000000 		.4byte	.LASF32
+ 389 01a4 06       		.byte	0x6
+ 390 01a5 1B       		.byte	0x1b
+ 391 01a6 C3000000 		.4byte	0xc3
+ 392 01aa 0A       		.uleb128 0xa
+ 393 01ab 04       		.byte	0x4
+ 394 01ac 07       		.byte	0x7
+ 395 01ad 7E       		.byte	0x7e
+ 396 01ae F9010000 		.4byte	0x1f9
+ 397 01b2 0C       		.uleb128 0xc
+ 398 01b3 636600   		.ascii	"cf\000"
+ 399 01b6 07       		.byte	0x7
+ 400 01b7 80       		.byte	0x80
+ 401 01b8 E4000000 		.4byte	0xe4
+ 402 01bc 04       		.byte	0x4
+ 403 01bd 05       		.byte	0x5
+ 404 01be 1B       		.byte	0x1b
+ 405 01bf 00       		.byte	0
+ 406 01c0 0B       		.uleb128 0xb
+ 407 01c1 62040000 		.4byte	.LASF33
+ 408 01c5 07       		.byte	0x7
+ 409 01c6 81       		.byte	0x81
+ 410 01c7 E4000000 		.4byte	0xe4
+ 411 01cb 04       		.byte	0x4
+ 412 01cc 03       		.byte	0x3
+ 413 01cd 18       		.byte	0x18
+ 414 01ce 00       		.byte	0
+ 415 01cf 0B       		.uleb128 0xb
+ 416 01d0 6E040000 		.4byte	.LASF34
+ 417 01d4 07       		.byte	0x7
+ 418 01d5 84       		.byte	0x84
+ 419 01d6 E4000000 		.4byte	0xe4
+ 420 01da 04       		.byte	0x4
+ 421 01db 02       		.byte	0x2
+ 422 01dc 16       		.byte	0x16
+ 423 01dd 00       		.byte	0
+ 424 01de 0C       		.uleb128 0xc
+ 425 01df 7700     		.ascii	"w\000"
+ 426 01e1 07       		.byte	0x7
+ 427 01e2 86       		.byte	0x86
+ 428 01e3 E4000000 		.4byte	0xe4
+ 429 01e7 04       		.byte	0x4
+ 430 01e8 0B       		.byte	0xb
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 12
+
+
+ 431 01e9 0B       		.byte	0xb
+ 432 01ea 00       		.byte	0
+ 433 01eb 0C       		.uleb128 0xc
+ 434 01ec 6800     		.ascii	"h\000"
+ 435 01ee 07       		.byte	0x7
+ 436 01ef 87       		.byte	0x87
+ 437 01f0 E4000000 		.4byte	0xe4
+ 438 01f4 04       		.byte	0x4
+ 439 01f5 0B       		.byte	0xb
+ 440 01f6 00       		.byte	0
+ 441 01f7 00       		.byte	0
+ 442 01f8 00       		.byte	0
+ 443 01f9 02       		.uleb128 0x2
+ 444 01fa 91030000 		.4byte	.LASF35
+ 445 01fe 07       		.byte	0x7
+ 446 01ff 88       		.byte	0x88
+ 447 0200 AA010000 		.4byte	0x1aa
+ 448 0204 08       		.uleb128 0x8
+ 449 0205 04       		.byte	0x4
+ 450 0206 0A020000 		.4byte	0x20a
+ 451 020a 09       		.uleb128 0x9
+ 452 020b B8000000 		.4byte	0xb8
+ 453 020f 03       		.uleb128 0x3
+ 454 0210 01       		.byte	0x1
+ 455 0211 02       		.byte	0x2
+ 456 0212 FD030000 		.4byte	.LASF36
+ 457 0216 08       		.uleb128 0x8
+ 458 0217 04       		.byte	0x4
+ 459 0218 1C020000 		.4byte	0x21c
+ 460 021c 10       		.uleb128 0x10
+ 461 021d 02       		.uleb128 0x2
+ 462 021e F3020000 		.4byte	.LASF37
+ 463 0222 08       		.byte	0x8
+ 464 0223 29       		.byte	0x29
+ 465 0224 B8000000 		.4byte	0xb8
+ 466 0228 02       		.uleb128 0x2
+ 467 0229 7D010000 		.4byte	.LASF38
+ 468 022d 08       		.byte	0x8
+ 469 022e 36       		.byte	0x36
+ 470 022f 33020000 		.4byte	0x233
+ 471 0233 08       		.uleb128 0x8
+ 472 0234 04       		.byte	0x4
+ 473 0235 39020000 		.4byte	0x239
+ 474 0239 11       		.uleb128 0x11
+ 475 023a 08010000 		.4byte	0x108
+ 476 023e 52020000 		.4byte	0x252
+ 477 0242 12       		.uleb128 0x12
+ 478 0243 52020000 		.4byte	0x252
+ 479 0247 12       		.uleb128 0x12
+ 480 0248 16020000 		.4byte	0x216
+ 481 024c 12       		.uleb128 0x12
+ 482 024d A1020000 		.4byte	0x2a1
+ 483 0251 00       		.byte	0
+ 484 0252 08       		.uleb128 0x8
+ 485 0253 04       		.byte	0x4
+ 486 0254 58020000 		.4byte	0x258
+ 487 0258 13       		.uleb128 0x13
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 13
+
+
+ 488 0259 C5010000 		.4byte	.LASF45
+ 489 025d 14       		.byte	0x14
+ 490 025e 08       		.byte	0x8
+ 491 025f 56       		.byte	0x56
+ 492 0260 A1020000 		.4byte	0x2a1
+ 493 0264 14       		.uleb128 0x14
+ 494 0265 6B000000 		.4byte	.LASF39
+ 495 0269 08       		.byte	0x8
+ 496 026a 57       		.byte	0x57
+ 497 026b 28020000 		.4byte	0x228
+ 498 026f 00       		.byte	0
+ 499 0270 14       		.uleb128 0x14
+ 500 0271 9A010000 		.4byte	.LASF40
+ 501 0275 08       		.byte	0x8
+ 502 0276 58       		.byte	0x58
+ 503 0277 A7020000 		.4byte	0x2a7
+ 504 027b 04       		.byte	0x4
+ 505 027c 14       		.uleb128 0x14
+ 506 027d 84030000 		.4byte	.LASF41
+ 507 0281 08       		.byte	0x8
+ 508 0282 59       		.byte	0x59
+ 509 0283 57030000 		.4byte	0x357
+ 510 0287 08       		.byte	0x8
+ 511 0288 14       		.uleb128 0x14
+ 512 0289 16050000 		.4byte	.LASF42
+ 513 028d 08       		.byte	0x8
+ 514 028e 5A       		.byte	0x5a
+ 515 028f 96030000 		.4byte	0x396
+ 516 0293 0C       		.byte	0xc
+ 517 0294 14       		.uleb128 0x14
+ 518 0295 1D020000 		.4byte	.LASF43
+ 519 0299 08       		.byte	0x8
+ 520 029a 5D       		.byte	0x5d
+ 521 029b 21010000 		.4byte	0x121
+ 522 029f 10       		.byte	0x10
+ 523 02a0 00       		.byte	0
+ 524 02a1 08       		.uleb128 0x8
+ 525 02a2 04       		.byte	0x4
+ 526 02a3 F9010000 		.4byte	0x1f9
+ 527 02a7 02       		.uleb128 0x2
+ 528 02a8 16000000 		.4byte	.LASF44
+ 529 02ac 08       		.byte	0x8
+ 530 02ad 3E       		.byte	0x3e
+ 531 02ae B2020000 		.4byte	0x2b2
+ 532 02b2 08       		.uleb128 0x8
+ 533 02b3 04       		.byte	0x4
+ 534 02b4 B8020000 		.4byte	0x2b8
+ 535 02b8 11       		.uleb128 0x11
+ 536 02b9 08010000 		.4byte	0x108
+ 537 02bd CC020000 		.4byte	0x2cc
+ 538 02c1 12       		.uleb128 0x12
+ 539 02c2 52020000 		.4byte	0x252
+ 540 02c6 12       		.uleb128 0x12
+ 541 02c7 CC020000 		.4byte	0x2cc
+ 542 02cb 00       		.byte	0
+ 543 02cc 08       		.uleb128 0x8
+ 544 02cd 04       		.byte	0x4
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 14
+
+
+ 545 02ce D2020000 		.4byte	0x2d2
+ 546 02d2 13       		.uleb128 0x13
+ 547 02d3 00000000 		.4byte	.LASF46
+ 548 02d7 28       		.byte	0x28
+ 549 02d8 08       		.byte	0x8
+ 550 02d9 63       		.byte	0x63
+ 551 02da 57030000 		.4byte	0x357
+ 552 02de 14       		.uleb128 0x14
+ 553 02df BB020000 		.4byte	.LASF47
+ 554 02e3 08       		.byte	0x8
+ 555 02e4 65       		.byte	0x65
+ 556 02e5 C2030000 		.4byte	0x3c2
+ 557 02e9 00       		.byte	0
+ 558 02ea 15       		.uleb128 0x15
+ 559 02eb 73726300 		.ascii	"src\000"
+ 560 02ef 08       		.byte	0x8
+ 561 02f0 68       		.byte	0x68
+ 562 02f1 16020000 		.4byte	0x216
+ 563 02f5 04       		.byte	0x4
+ 564 02f6 14       		.uleb128 0x14
+ 565 02f7 00030000 		.4byte	.LASF48
+ 566 02fb 08       		.byte	0x8
+ 567 02fc 6B       		.byte	0x6b
+ 568 02fd 94010000 		.4byte	0x194
+ 569 0301 08       		.byte	0x8
+ 570 0302 14       		.uleb128 0x14
+ 571 0303 47040000 		.4byte	.LASF49
+ 572 0307 08       		.byte	0x8
+ 573 0308 6E       		.byte	0x6e
+ 574 0309 D9000000 		.4byte	0xd9
+ 575 030d 0C       		.byte	0xc
+ 576 030e 14       		.uleb128 0x14
+ 577 030f 40000000 		.4byte	.LASF50
+ 578 0313 08       		.byte	0x8
+ 579 0314 71       		.byte	0x71
+ 580 0315 1D020000 		.4byte	0x21d
+ 581 0319 10       		.byte	0x10
+ 582 031a 14       		.uleb128 0x14
+ 583 031b 2E000000 		.4byte	.LASF51
+ 584 031f 08       		.byte	0x8
+ 585 0320 74       		.byte	0x74
+ 586 0321 F9010000 		.4byte	0x1f9
+ 587 0325 14       		.byte	0x14
+ 588 0326 14       		.uleb128 0x14
+ 589 0327 67030000 		.4byte	.LASF52
+ 590 032b 08       		.byte	0x8
+ 591 032c 78       		.byte	0x78
+ 592 032d 04020000 		.4byte	0x204
+ 593 0331 18       		.byte	0x18
+ 594 0332 14       		.uleb128 0x14
+ 595 0333 8C020000 		.4byte	.LASF53
+ 596 0337 08       		.byte	0x8
+ 597 0338 7C       		.byte	0x7c
+ 598 0339 E4000000 		.4byte	0xe4
+ 599 033d 1C       		.byte	0x1c
+ 600 033e 14       		.uleb128 0x14
+ 601 033f AB030000 		.4byte	.LASF54
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 15
+
+
+ 602 0343 08       		.byte	0x8
+ 603 0344 80       		.byte	0x80
+ 604 0345 2A010000 		.4byte	0x12a
+ 605 0349 20       		.byte	0x20
+ 606 034a 14       		.uleb128 0x14
+ 607 034b 1D020000 		.4byte	.LASF43
+ 608 034f 08       		.byte	0x8
+ 609 0350 83       		.byte	0x83
+ 610 0351 21010000 		.4byte	0x121
+ 611 0355 24       		.byte	0x24
+ 612 0356 00       		.byte	0
+ 613 0357 02       		.uleb128 0x2
+ 614 0358 D7010000 		.4byte	.LASF55
+ 615 035c 08       		.byte	0x8
+ 616 035d 4B       		.byte	0x4b
+ 617 035e 62030000 		.4byte	0x362
+ 618 0362 08       		.uleb128 0x8
+ 619 0363 04       		.byte	0x4
+ 620 0364 68030000 		.4byte	0x368
+ 621 0368 11       		.uleb128 0x11
+ 622 0369 08010000 		.4byte	0x108
+ 623 036d 90030000 		.4byte	0x390
+ 624 0371 12       		.uleb128 0x12
+ 625 0372 52020000 		.4byte	0x252
+ 626 0376 12       		.uleb128 0x12
+ 627 0377 CC020000 		.4byte	0x2cc
+ 628 037b 12       		.uleb128 0x12
+ 629 037c 9F010000 		.4byte	0x19f
+ 630 0380 12       		.uleb128 0x12
+ 631 0381 9F010000 		.4byte	0x19f
+ 632 0385 12       		.uleb128 0x12
+ 633 0386 9F010000 		.4byte	0x19f
+ 634 038a 12       		.uleb128 0x12
+ 635 038b 90030000 		.4byte	0x390
+ 636 038f 00       		.byte	0
+ 637 0390 08       		.uleb128 0x8
+ 638 0391 04       		.byte	0x4
+ 639 0392 B8000000 		.4byte	0xb8
+ 640 0396 02       		.uleb128 0x2
+ 641 0397 99020000 		.4byte	.LASF56
+ 642 039b 08       		.byte	0x8
+ 643 039c 53       		.byte	0x53
+ 644 039d A1030000 		.4byte	0x3a1
+ 645 03a1 08       		.uleb128 0x8
+ 646 03a2 04       		.byte	0x4
+ 647 03a3 A7030000 		.4byte	0x3a7
+ 648 03a7 16       		.uleb128 0x16
+ 649 03a8 B7030000 		.4byte	0x3b7
+ 650 03ac 12       		.uleb128 0x12
+ 651 03ad 52020000 		.4byte	0x252
+ 652 03b1 12       		.uleb128 0x12
+ 653 03b2 CC020000 		.4byte	0x2cc
+ 654 03b6 00       		.byte	0
+ 655 03b7 02       		.uleb128 0x2
+ 656 03b8 73020000 		.4byte	.LASF57
+ 657 03bc 08       		.byte	0x8
+ 658 03bd 5F       		.byte	0x5f
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 16
+
+
+ 659 03be 58020000 		.4byte	0x258
+ 660 03c2 08       		.uleb128 0x8
+ 661 03c3 04       		.byte	0x4
+ 662 03c4 B7030000 		.4byte	0x3b7
+ 663 03c8 02       		.uleb128 0x2
+ 664 03c9 A2010000 		.4byte	.LASF58
+ 665 03cd 08       		.byte	0x8
+ 666 03ce 84       		.byte	0x84
+ 667 03cf D2020000 		.4byte	0x2d2
+ 668 03d3 0A       		.uleb128 0xa
+ 669 03d4 2C       		.byte	0x2c
+ 670 03d5 09       		.byte	0x9
+ 671 03d6 1F       		.byte	0x1f
+ 672 03d7 F4030000 		.4byte	0x3f4
+ 673 03db 14       		.uleb128 0x14
+ 674 03dc 1F050000 		.4byte	.LASF59
+ 675 03e0 09       		.byte	0x9
+ 676 03e1 20       		.byte	0x20
+ 677 03e2 C8030000 		.4byte	0x3c8
+ 678 03e6 00       		.byte	0
+ 679 03e7 14       		.uleb128 0x14
+ 680 03e8 37010000 		.4byte	.LASF60
+ 681 03ec 09       		.byte	0x9
+ 682 03ed 25       		.byte	0x25
+ 683 03ee D9000000 		.4byte	0xd9
+ 684 03f2 28       		.byte	0x28
+ 685 03f3 00       		.byte	0
+ 686 03f4 02       		.uleb128 0x2
+ 687 03f5 C9020000 		.4byte	.LASF61
+ 688 03f9 09       		.byte	0x9
+ 689 03fa 26       		.byte	0x26
+ 690 03fb D3030000 		.4byte	0x3d3
+ 691 03ff 0A       		.uleb128 0xa
+ 692 0400 10       		.byte	0x10
+ 693 0401 0A       		.byte	0xa
+ 694 0402 29       		.byte	0x29
+ 695 0403 6E040000 		.4byte	0x46e
+ 696 0407 14       		.uleb128 0x14
+ 697 0408 27050000 		.4byte	.LASF62
+ 698 040c 0A       		.byte	0xa
+ 699 040d 2B       		.byte	0x2b
+ 700 040e F6040000 		.4byte	0x4f6
+ 701 0412 00       		.byte	0
+ 702 0413 14       		.uleb128 0x14
+ 703 0414 4B010000 		.4byte	.LASF63
+ 704 0418 0A       		.byte	0xa
+ 705 0419 2C       		.byte	0x2c
+ 706 041a CE000000 		.4byte	0xce
+ 707 041e 04       		.byte	0x4
+ 708 041f 14       		.uleb128 0x14
+ 709 0420 91000000 		.4byte	.LASF64
+ 710 0424 0A       		.byte	0xa
+ 711 0425 2D       		.byte	0x2d
+ 712 0426 CE000000 		.4byte	0xce
+ 713 042a 06       		.byte	0x6
+ 714 042b 14       		.uleb128 0x14
+ 715 042c 49000000 		.4byte	.LASF65
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 17
+
+
+ 716 0430 0A       		.byte	0xa
+ 717 0431 2E       		.byte	0x2e
+ 718 0432 CE000000 		.4byte	0xce
+ 719 0436 08       		.byte	0x8
+ 720 0437 14       		.uleb128 0x14
+ 721 0438 68050000 		.4byte	.LASF66
+ 722 043c 0A       		.byte	0xa
+ 723 043d 2F       		.byte	0x2f
+ 724 043e C3000000 		.4byte	0xc3
+ 725 0442 0A       		.byte	0xa
+ 726 0443 14       		.uleb128 0x14
+ 727 0444 6E050000 		.4byte	.LASF67
+ 728 0448 0A       		.byte	0xa
+ 729 0449 30       		.byte	0x30
+ 730 044a C3000000 		.4byte	0xc3
+ 731 044e 0C       		.byte	0xc
+ 732 044f 0C       		.uleb128 0xc
+ 733 0450 62707000 		.ascii	"bpp\000"
+ 734 0454 0A       		.byte	0xa
+ 735 0455 31       		.byte	0x31
+ 736 0456 B8000000 		.4byte	0xb8
+ 737 045a 01       		.byte	0x1
+ 738 045b 04       		.byte	0x4
+ 739 045c 04       		.byte	0x4
+ 740 045d 0E       		.byte	0xe
+ 741 045e 0B       		.uleb128 0xb
+ 742 045f 3C010000 		.4byte	.LASF68
+ 743 0463 0A       		.byte	0xa
+ 744 0464 32       		.byte	0x32
+ 745 0465 B8000000 		.4byte	0xb8
+ 746 0469 01       		.byte	0x1
+ 747 046a 01       		.byte	0x1
+ 748 046b 03       		.byte	0x3
+ 749 046c 0E       		.byte	0xe
+ 750 046d 00       		.byte	0
+ 751 046e 13       		.uleb128 0x13
+ 752 046f 2E040000 		.4byte	.LASF69
+ 753 0473 1C       		.byte	0x1c
+ 754 0474 0A       		.byte	0xa
+ 755 0475 40       		.byte	0x40
+ 756 0476 F6040000 		.4byte	0x4f6
+ 757 047a 14       		.uleb128 0x14
+ 758 047b 39040000 		.4byte	.LASF70
+ 759 047f 0A       		.byte	0xa
+ 760 0480 42       		.byte	0x42
+ 761 0481 30050000 		.4byte	0x530
+ 762 0485 00       		.byte	0
+ 763 0486 14       		.uleb128 0x14
+ 764 0487 06030000 		.4byte	.LASF71
+ 765 048b 0A       		.byte	0xa
+ 766 048c 45       		.byte	0x45
+ 767 048d 4A050000 		.4byte	0x54a
+ 768 0491 04       		.byte	0x4
+ 769 0492 14       		.uleb128 0x14
+ 770 0493 77040000 		.4byte	.LASF72
+ 771 0497 0A       		.byte	0xa
+ 772 0498 48       		.byte	0x48
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 18
+
+
+ 773 0499 9F010000 		.4byte	0x19f
+ 774 049d 08       		.byte	0x8
+ 775 049e 14       		.uleb128 0x14
+ 776 049f A1030000 		.4byte	.LASF73
+ 777 04a3 0A       		.byte	0xa
+ 778 04a4 49       		.byte	0x49
+ 779 04a5 9F010000 		.4byte	0x19f
+ 780 04a9 0A       		.byte	0xa
+ 781 04aa 0B       		.uleb128 0xb
+ 782 04ab B7010000 		.4byte	.LASF74
+ 783 04af 0A       		.byte	0xa
+ 784 04b0 4A       		.byte	0x4a
+ 785 04b1 B8000000 		.4byte	0xb8
+ 786 04b5 01       		.byte	0x1
+ 787 04b6 02       		.byte	0x2
+ 788 04b7 06       		.byte	0x6
+ 789 04b8 0C       		.byte	0xc
+ 790 04b9 14       		.uleb128 0x14
+ 791 04ba 35050000 		.4byte	.LASF75
+ 792 04be 0A       		.byte	0xa
+ 793 04bf 4C       		.byte	0x4c
+ 794 04c0 AD000000 		.4byte	0xad
+ 795 04c4 0D       		.byte	0xd
+ 796 04c5 14       		.uleb128 0x14
+ 797 04c6 DF020000 		.4byte	.LASF76
+ 798 04ca 0A       		.byte	0xa
+ 799 04cb 4D       		.byte	0x4d
+ 800 04cc AD000000 		.4byte	0xad
+ 801 04d0 0E       		.byte	0xe
+ 802 04d1 15       		.uleb128 0x15
+ 803 04d2 64736300 		.ascii	"dsc\000"
+ 804 04d6 0A       		.byte	0xa
+ 805 04d7 4F       		.byte	0x4f
+ 806 04d8 16020000 		.4byte	0x216
+ 807 04dc 10       		.byte	0x10
+ 808 04dd 14       		.uleb128 0x14
+ 809 04de D9030000 		.4byte	.LASF77
+ 810 04e2 0A       		.byte	0xa
+ 811 04e3 50       		.byte	0x50
+ 812 04e4 F6040000 		.4byte	0x4f6
+ 813 04e8 14       		.byte	0x14
+ 814 04e9 14       		.uleb128 0x14
+ 815 04ea 1D020000 		.4byte	.LASF43
+ 816 04ee 0A       		.byte	0xa
+ 817 04ef 52       		.byte	0x52
+ 818 04f0 21010000 		.4byte	0x121
+ 819 04f4 18       		.byte	0x18
+ 820 04f5 00       		.byte	0
+ 821 04f6 08       		.uleb128 0x8
+ 822 04f7 04       		.byte	0x4
+ 823 04f8 FC040000 		.4byte	0x4fc
+ 824 04fc 09       		.uleb128 0x9
+ 825 04fd 6E040000 		.4byte	0x46e
+ 826 0501 02       		.uleb128 0x2
+ 827 0502 74050000 		.4byte	.LASF78
+ 828 0506 0A       		.byte	0xa
+ 829 0507 33       		.byte	0x33
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 19
+
+
+ 830 0508 FF030000 		.4byte	0x3ff
+ 831 050c 11       		.uleb128 0x11
+ 832 050d 0F020000 		.4byte	0x20f
+ 833 0511 2A050000 		.4byte	0x52a
+ 834 0515 12       		.uleb128 0x12
+ 835 0516 F6040000 		.4byte	0x4f6
+ 836 051a 12       		.uleb128 0x12
+ 837 051b 2A050000 		.4byte	0x52a
+ 838 051f 12       		.uleb128 0x12
+ 839 0520 E4000000 		.4byte	0xe4
+ 840 0524 12       		.uleb128 0x12
+ 841 0525 E4000000 		.4byte	0xe4
+ 842 0529 00       		.byte	0
+ 843 052a 08       		.uleb128 0x8
+ 844 052b 04       		.byte	0x4
+ 845 052c 01050000 		.4byte	0x501
+ 846 0530 08       		.uleb128 0x8
+ 847 0531 04       		.byte	0x4
+ 848 0532 0C050000 		.4byte	0x50c
+ 849 0536 11       		.uleb128 0x11
+ 850 0537 04020000 		.4byte	0x204
+ 851 053b 4A050000 		.4byte	0x54a
+ 852 053f 12       		.uleb128 0x12
+ 853 0540 F6040000 		.4byte	0x4f6
+ 854 0544 12       		.uleb128 0x12
+ 855 0545 E4000000 		.4byte	0xe4
+ 856 0549 00       		.byte	0
+ 857 054a 08       		.uleb128 0x8
+ 858 054b 04       		.byte	0x4
+ 859 054c 36050000 		.4byte	0x536
+ 860 0550 02       		.uleb128 0x2
+ 861 0551 48050000 		.4byte	.LASF79
+ 862 0555 0A       		.byte	0xa
+ 863 0556 54       		.byte	0x54
+ 864 0557 6E040000 		.4byte	0x46e
+ 865 055b 17       		.uleb128 0x17
+ 866 055c 27020000 		.4byte	.LASF94
+ 867 0560 01       		.byte	0x1
+ 868 0561 3F       		.byte	0x3f
+ 869 0562 1E060000 		.4byte	0x61e
+ 870 0566 00000000 		.4byte	.LFB56
+ 871 056a 60000000 		.4byte	.LFE56-.LFB56
+ 872 056e 01       		.uleb128 0x1
+ 873 056f 9C       		.byte	0x9c
+ 874 0570 1E060000 		.4byte	0x61e
+ 875 0574 18       		.uleb128 0x18
+ 876 0575 73726300 		.ascii	"src\000"
+ 877 0579 01       		.byte	0x1
+ 878 057a 3F       		.byte	0x3f
+ 879 057b 16020000 		.4byte	0x216
+ 880 057f 00000000 		.4byte	.LLST0
+ 881 0583 19       		.uleb128 0x19
+ 882 0584 00030000 		.4byte	.LASF48
+ 883 0588 01       		.byte	0x1
+ 884 0589 3F       		.byte	0x3f
+ 885 058a 94010000 		.4byte	0x194
+ 886 058e 45000000 		.4byte	.LLST1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 20
+
+
+ 887 0592 19       		.uleb128 0x19
+ 888 0593 47040000 		.4byte	.LASF49
+ 889 0597 01       		.byte	0x1
+ 890 0598 3F       		.byte	0x3f
+ 891 0599 D9000000 		.4byte	0xd9
+ 892 059d 63000000 		.4byte	.LLST2
+ 893 05a1 1A       		.uleb128 0x1a
+ 894 05a2 86000000 		.4byte	.LASF95
+ 895 05a6 01       		.byte	0x1
+ 896 05a7 42       		.byte	0x42
+ 897 05a8 1E060000 		.4byte	0x61e
+ 898 05ac 1B       		.uleb128 0x1b
+ 899 05ad 84020000 		.4byte	.LASF80
+ 900 05b1 01       		.byte	0x1
+ 901 05b2 7A       		.byte	0x7a
+ 902 05b3 E4000000 		.4byte	0xe4
+ 903 05b7 8F000000 		.4byte	.LLST3
+ 904 05bb 1B       		.uleb128 0x1b
+ 905 05bc 3A020000 		.4byte	.LASF81
+ 906 05c0 01       		.byte	0x1
+ 907 05c1 7B       		.byte	0x7b
+ 908 05c2 08010000 		.4byte	0x108
+ 909 05c6 AD000000 		.4byte	.LLST4
+ 910 05ca 1C       		.uleb128 0x1c
+ 911 05cb 0C000000 		.4byte	.LVL2
+ 912 05cf 85060000 		.4byte	0x685
+ 913 05d3 1D       		.uleb128 0x1d
+ 914 05d4 1A000000 		.4byte	.LVL6
+ 915 05d8 90060000 		.4byte	0x690
+ 916 05dc F3050000 		.4byte	0x5f3
+ 917 05e0 1E       		.uleb128 0x1e
+ 918 05e1 01       		.uleb128 0x1
+ 919 05e2 51       		.byte	0x51
+ 920 05e3 02       		.uleb128 0x2
+ 921 05e4 74       		.byte	0x74
+ 922 05e5 00       		.sleb128 0
+ 923 05e6 1E       		.uleb128 0x1e
+ 924 05e7 01       		.uleb128 0x1
+ 925 05e8 52       		.byte	0x52
+ 926 05e9 02       		.uleb128 0x2
+ 927 05ea 76       		.byte	0x76
+ 928 05eb 00       		.sleb128 0
+ 929 05ec 1E       		.uleb128 0x1e
+ 930 05ed 01       		.uleb128 0x1
+ 931 05ee 53       		.byte	0x53
+ 932 05ef 02       		.uleb128 0x2
+ 933 05f0 77       		.byte	0x77
+ 934 05f1 00       		.sleb128 0
+ 935 05f2 00       		.byte	0
+ 936 05f3 1D       		.uleb128 0x1d
+ 937 05f4 28000000 		.4byte	.LVL9
+ 938 05f8 9B060000 		.4byte	0x69b
+ 939 05fc 0D060000 		.4byte	0x60d
+ 940 0600 1E       		.uleb128 0x1e
+ 941 0601 01       		.uleb128 0x1
+ 942 0602 50       		.byte	0x50
+ 943 0603 02       		.uleb128 0x2
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 21
+
+
+ 944 0604 74       		.byte	0x74
+ 945 0605 00       		.sleb128 0
+ 946 0606 1E       		.uleb128 0x1e
+ 947 0607 01       		.uleb128 0x1
+ 948 0608 51       		.byte	0x51
+ 949 0609 02       		.uleb128 0x2
+ 950 060a 08       		.byte	0x8
+ 951 060b 2C       		.byte	0x2c
+ 952 060c 00       		.byte	0
+ 953 060d 1F       		.uleb128 0x1f
+ 954 060e 44000000 		.4byte	.LVL12
+ 955 0612 A6060000 		.4byte	0x6a6
+ 956 0616 1E       		.uleb128 0x1e
+ 957 0617 01       		.uleb128 0x1
+ 958 0618 50       		.byte	0x50
+ 959 0619 02       		.uleb128 0x2
+ 960 061a 75       		.byte	0x75
+ 961 061b 00       		.sleb128 0
+ 962 061c 00       		.byte	0
+ 963 061d 00       		.byte	0
+ 964 061e 08       		.uleb128 0x8
+ 965 061f 04       		.byte	0x4
+ 966 0620 F4030000 		.4byte	0x3f4
+ 967 0624 20       		.uleb128 0x20
+ 968 0625 52050000 		.4byte	.LASF83
+ 969 0629 01       		.byte	0x1
+ 970 062a 95       		.byte	0x95
+ 971 062b 00000000 		.4byte	.LFB57
+ 972 062f 02000000 		.4byte	.LFE57-.LFB57
+ 973 0633 01       		.uleb128 0x1
+ 974 0634 9C       		.byte	0x9c
+ 975 0635 47060000 		.4byte	0x647
+ 976 0639 21       		.uleb128 0x21
+ 977 063a CB030000 		.4byte	.LASF82
+ 978 063e 01       		.byte	0x1
+ 979 063f 95       		.byte	0x95
+ 980 0640 CE000000 		.4byte	0xce
+ 981 0644 01       		.uleb128 0x1
+ 982 0645 50       		.byte	0x50
+ 983 0646 00       		.byte	0
+ 984 0647 20       		.uleb128 0x20
+ 985 0648 F4010000 		.4byte	.LASF84
+ 986 064c 01       		.byte	0x1
+ 987 064d B4       		.byte	0xb4
+ 988 064e 00000000 		.4byte	.LFB58
+ 989 0652 02000000 		.4byte	.LFE58-.LFB58
+ 990 0656 01       		.uleb128 0x1
+ 991 0657 9C       		.byte	0x9c
+ 992 0658 6A060000 		.4byte	0x66a
+ 993 065c 22       		.uleb128 0x22
+ 994 065d 73726300 		.ascii	"src\000"
+ 995 0661 01       		.byte	0x1
+ 996 0662 B4       		.byte	0xb4
+ 997 0663 16020000 		.4byte	0x216
+ 998 0667 01       		.uleb128 0x1
+ 999 0668 50       		.byte	0x50
+ 1000 0669 00       		.byte	0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 22
+
+
+ 1001 066a 23       		.uleb128 0x23
+ 1002 066b 67010000 		.4byte	.LASF85
+ 1003 066f 0A       		.byte	0xa
+ 1004 0670 94       		.byte	0x94
+ 1005 0671 75060000 		.4byte	0x675
+ 1006 0675 09       		.uleb128 0x9
+ 1007 0676 50050000 		.4byte	0x550
+ 1008 067a 23       		.uleb128 0x23
+ 1009 067b 56000000 		.4byte	.LASF86
+ 1010 067f 0B       		.byte	0xb
+ 1011 0680 4C       		.byte	0x4c
+ 1012 0681 F4030000 		.4byte	0x3f4
+ 1013 0685 24       		.uleb128 0x24
+ 1014 0686 50020000 		.4byte	.LASF87
+ 1015 068a 50020000 		.4byte	.LASF87
+ 1016 068e 0C       		.byte	0xc
+ 1017 068f 34       		.byte	0x34
+ 1018 0690 24       		.uleb128 0x24
+ 1019 0691 03040000 		.4byte	.LASF88
+ 1020 0695 03040000 		.4byte	.LASF88
+ 1021 0699 08       		.byte	0x8
+ 1022 069a A8       		.byte	0xa8
+ 1023 069b 24       		.uleb128 0x24
+ 1024 069c 17040000 		.4byte	.LASF89
+ 1025 06a0 17040000 		.4byte	.LASF89
+ 1026 06a4 0D       		.byte	0xd
+ 1027 06a5 DE       		.byte	0xde
+ 1028 06a6 24       		.uleb128 0x24
+ 1029 06a7 97000000 		.4byte	.LASF90
+ 1030 06ab 97000000 		.4byte	.LASF90
+ 1031 06af 0C       		.byte	0xc
+ 1032 06b0 3B       		.byte	0x3b
+ 1033 06b1 00       		.byte	0
+ 1034              		.section	.debug_abbrev,"",%progbits
+ 1035              	.Ldebug_abbrev0:
+ 1036 0000 01       		.uleb128 0x1
+ 1037 0001 11       		.uleb128 0x11
+ 1038 0002 01       		.byte	0x1
+ 1039 0003 25       		.uleb128 0x25
+ 1040 0004 0E       		.uleb128 0xe
+ 1041 0005 13       		.uleb128 0x13
+ 1042 0006 0B       		.uleb128 0xb
+ 1043 0007 03       		.uleb128 0x3
+ 1044 0008 0E       		.uleb128 0xe
+ 1045 0009 1B       		.uleb128 0x1b
+ 1046 000a 0E       		.uleb128 0xe
+ 1047 000b 55       		.uleb128 0x55
+ 1048 000c 17       		.uleb128 0x17
+ 1049 000d 11       		.uleb128 0x11
+ 1050 000e 01       		.uleb128 0x1
+ 1051 000f 10       		.uleb128 0x10
+ 1052 0010 17       		.uleb128 0x17
+ 1053 0011 00       		.byte	0
+ 1054 0012 00       		.byte	0
+ 1055 0013 02       		.uleb128 0x2
+ 1056 0014 16       		.uleb128 0x16
+ 1057 0015 00       		.byte	0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 23
+
+
+ 1058 0016 03       		.uleb128 0x3
+ 1059 0017 0E       		.uleb128 0xe
+ 1060 0018 3A       		.uleb128 0x3a
+ 1061 0019 0B       		.uleb128 0xb
+ 1062 001a 3B       		.uleb128 0x3b
+ 1063 001b 0B       		.uleb128 0xb
+ 1064 001c 49       		.uleb128 0x49
+ 1065 001d 13       		.uleb128 0x13
+ 1066 001e 00       		.byte	0
+ 1067 001f 00       		.byte	0
+ 1068 0020 03       		.uleb128 0x3
+ 1069 0021 24       		.uleb128 0x24
+ 1070 0022 00       		.byte	0
+ 1071 0023 0B       		.uleb128 0xb
+ 1072 0024 0B       		.uleb128 0xb
+ 1073 0025 3E       		.uleb128 0x3e
+ 1074 0026 0B       		.uleb128 0xb
+ 1075 0027 03       		.uleb128 0x3
+ 1076 0028 0E       		.uleb128 0xe
+ 1077 0029 00       		.byte	0
+ 1078 002a 00       		.byte	0
+ 1079 002b 04       		.uleb128 0x4
+ 1080 002c 24       		.uleb128 0x24
+ 1081 002d 00       		.byte	0
+ 1082 002e 0B       		.uleb128 0xb
+ 1083 002f 0B       		.uleb128 0xb
+ 1084 0030 3E       		.uleb128 0x3e
+ 1085 0031 0B       		.uleb128 0xb
+ 1086 0032 03       		.uleb128 0x3
+ 1087 0033 08       		.uleb128 0x8
+ 1088 0034 00       		.byte	0
+ 1089 0035 00       		.byte	0
+ 1090 0036 05       		.uleb128 0x5
+ 1091 0037 04       		.uleb128 0x4
+ 1092 0038 01       		.byte	0x1
+ 1093 0039 0B       		.uleb128 0xb
+ 1094 003a 0B       		.uleb128 0xb
+ 1095 003b 49       		.uleb128 0x49
+ 1096 003c 13       		.uleb128 0x13
+ 1097 003d 3A       		.uleb128 0x3a
+ 1098 003e 0B       		.uleb128 0xb
+ 1099 003f 3B       		.uleb128 0x3b
+ 1100 0040 0B       		.uleb128 0xb
+ 1101 0041 01       		.uleb128 0x1
+ 1102 0042 13       		.uleb128 0x13
+ 1103 0043 00       		.byte	0
+ 1104 0044 00       		.byte	0
+ 1105 0045 06       		.uleb128 0x6
+ 1106 0046 28       		.uleb128 0x28
+ 1107 0047 00       		.byte	0
+ 1108 0048 03       		.uleb128 0x3
+ 1109 0049 0E       		.uleb128 0xe
+ 1110 004a 1C       		.uleb128 0x1c
+ 1111 004b 0B       		.uleb128 0xb
+ 1112 004c 00       		.byte	0
+ 1113 004d 00       		.byte	0
+ 1114 004e 07       		.uleb128 0x7
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 24
+
+
+ 1115 004f 0F       		.uleb128 0xf
+ 1116 0050 00       		.byte	0
+ 1117 0051 0B       		.uleb128 0xb
+ 1118 0052 0B       		.uleb128 0xb
+ 1119 0053 00       		.byte	0
+ 1120 0054 00       		.byte	0
+ 1121 0055 08       		.uleb128 0x8
+ 1122 0056 0F       		.uleb128 0xf
+ 1123 0057 00       		.byte	0
+ 1124 0058 0B       		.uleb128 0xb
+ 1125 0059 0B       		.uleb128 0xb
+ 1126 005a 49       		.uleb128 0x49
+ 1127 005b 13       		.uleb128 0x13
+ 1128 005c 00       		.byte	0
+ 1129 005d 00       		.byte	0
+ 1130 005e 09       		.uleb128 0x9
+ 1131 005f 26       		.uleb128 0x26
+ 1132 0060 00       		.byte	0
+ 1133 0061 49       		.uleb128 0x49
+ 1134 0062 13       		.uleb128 0x13
+ 1135 0063 00       		.byte	0
+ 1136 0064 00       		.byte	0
+ 1137 0065 0A       		.uleb128 0xa
+ 1138 0066 13       		.uleb128 0x13
+ 1139 0067 01       		.byte	0x1
+ 1140 0068 0B       		.uleb128 0xb
+ 1141 0069 0B       		.uleb128 0xb
+ 1142 006a 3A       		.uleb128 0x3a
+ 1143 006b 0B       		.uleb128 0xb
+ 1144 006c 3B       		.uleb128 0x3b
+ 1145 006d 0B       		.uleb128 0xb
+ 1146 006e 01       		.uleb128 0x1
+ 1147 006f 13       		.uleb128 0x13
+ 1148 0070 00       		.byte	0
+ 1149 0071 00       		.byte	0
+ 1150 0072 0B       		.uleb128 0xb
+ 1151 0073 0D       		.uleb128 0xd
+ 1152 0074 00       		.byte	0
+ 1153 0075 03       		.uleb128 0x3
+ 1154 0076 0E       		.uleb128 0xe
+ 1155 0077 3A       		.uleb128 0x3a
+ 1156 0078 0B       		.uleb128 0xb
+ 1157 0079 3B       		.uleb128 0x3b
+ 1158 007a 0B       		.uleb128 0xb
+ 1159 007b 49       		.uleb128 0x49
+ 1160 007c 13       		.uleb128 0x13
+ 1161 007d 0B       		.uleb128 0xb
+ 1162 007e 0B       		.uleb128 0xb
+ 1163 007f 0D       		.uleb128 0xd
+ 1164 0080 0B       		.uleb128 0xb
+ 1165 0081 0C       		.uleb128 0xc
+ 1166 0082 0B       		.uleb128 0xb
+ 1167 0083 38       		.uleb128 0x38
+ 1168 0084 0B       		.uleb128 0xb
+ 1169 0085 00       		.byte	0
+ 1170 0086 00       		.byte	0
+ 1171 0087 0C       		.uleb128 0xc
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 25
+
+
+ 1172 0088 0D       		.uleb128 0xd
+ 1173 0089 00       		.byte	0
+ 1174 008a 03       		.uleb128 0x3
+ 1175 008b 08       		.uleb128 0x8
+ 1176 008c 3A       		.uleb128 0x3a
+ 1177 008d 0B       		.uleb128 0xb
+ 1178 008e 3B       		.uleb128 0x3b
+ 1179 008f 0B       		.uleb128 0xb
+ 1180 0090 49       		.uleb128 0x49
+ 1181 0091 13       		.uleb128 0x13
+ 1182 0092 0B       		.uleb128 0xb
+ 1183 0093 0B       		.uleb128 0xb
+ 1184 0094 0D       		.uleb128 0xd
+ 1185 0095 0B       		.uleb128 0xb
+ 1186 0096 0C       		.uleb128 0xc
+ 1187 0097 0B       		.uleb128 0xb
+ 1188 0098 38       		.uleb128 0x38
+ 1189 0099 0B       		.uleb128 0xb
+ 1190 009a 00       		.byte	0
+ 1191 009b 00       		.byte	0
+ 1192 009c 0D       		.uleb128 0xd
+ 1193 009d 17       		.uleb128 0x17
+ 1194 009e 01       		.byte	0x1
+ 1195 009f 0B       		.uleb128 0xb
+ 1196 00a0 0B       		.uleb128 0xb
+ 1197 00a1 3A       		.uleb128 0x3a
+ 1198 00a2 0B       		.uleb128 0xb
+ 1199 00a3 3B       		.uleb128 0x3b
+ 1200 00a4 0B       		.uleb128 0xb
+ 1201 00a5 01       		.uleb128 0x1
+ 1202 00a6 13       		.uleb128 0x13
+ 1203 00a7 00       		.byte	0
+ 1204 00a8 00       		.byte	0
+ 1205 00a9 0E       		.uleb128 0xe
+ 1206 00aa 0D       		.uleb128 0xd
+ 1207 00ab 00       		.byte	0
+ 1208 00ac 03       		.uleb128 0x3
+ 1209 00ad 08       		.uleb128 0x8
+ 1210 00ae 3A       		.uleb128 0x3a
+ 1211 00af 0B       		.uleb128 0xb
+ 1212 00b0 3B       		.uleb128 0x3b
+ 1213 00b1 0B       		.uleb128 0xb
+ 1214 00b2 49       		.uleb128 0x49
+ 1215 00b3 13       		.uleb128 0x13
+ 1216 00b4 00       		.byte	0
+ 1217 00b5 00       		.byte	0
+ 1218 00b6 0F       		.uleb128 0xf
+ 1219 00b7 0D       		.uleb128 0xd
+ 1220 00b8 00       		.byte	0
+ 1221 00b9 03       		.uleb128 0x3
+ 1222 00ba 0E       		.uleb128 0xe
+ 1223 00bb 3A       		.uleb128 0x3a
+ 1224 00bc 0B       		.uleb128 0xb
+ 1225 00bd 3B       		.uleb128 0x3b
+ 1226 00be 0B       		.uleb128 0xb
+ 1227 00bf 49       		.uleb128 0x49
+ 1228 00c0 13       		.uleb128 0x13
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 26
+
+
+ 1229 00c1 00       		.byte	0
+ 1230 00c2 00       		.byte	0
+ 1231 00c3 10       		.uleb128 0x10
+ 1232 00c4 26       		.uleb128 0x26
+ 1233 00c5 00       		.byte	0
+ 1234 00c6 00       		.byte	0
+ 1235 00c7 00       		.byte	0
+ 1236 00c8 11       		.uleb128 0x11
+ 1237 00c9 15       		.uleb128 0x15
+ 1238 00ca 01       		.byte	0x1
+ 1239 00cb 27       		.uleb128 0x27
+ 1240 00cc 19       		.uleb128 0x19
+ 1241 00cd 49       		.uleb128 0x49
+ 1242 00ce 13       		.uleb128 0x13
+ 1243 00cf 01       		.uleb128 0x1
+ 1244 00d0 13       		.uleb128 0x13
+ 1245 00d1 00       		.byte	0
+ 1246 00d2 00       		.byte	0
+ 1247 00d3 12       		.uleb128 0x12
+ 1248 00d4 05       		.uleb128 0x5
+ 1249 00d5 00       		.byte	0
+ 1250 00d6 49       		.uleb128 0x49
+ 1251 00d7 13       		.uleb128 0x13
+ 1252 00d8 00       		.byte	0
+ 1253 00d9 00       		.byte	0
+ 1254 00da 13       		.uleb128 0x13
+ 1255 00db 13       		.uleb128 0x13
+ 1256 00dc 01       		.byte	0x1
+ 1257 00dd 03       		.uleb128 0x3
+ 1258 00de 0E       		.uleb128 0xe
+ 1259 00df 0B       		.uleb128 0xb
+ 1260 00e0 0B       		.uleb128 0xb
+ 1261 00e1 3A       		.uleb128 0x3a
+ 1262 00e2 0B       		.uleb128 0xb
+ 1263 00e3 3B       		.uleb128 0x3b
+ 1264 00e4 0B       		.uleb128 0xb
+ 1265 00e5 01       		.uleb128 0x1
+ 1266 00e6 13       		.uleb128 0x13
+ 1267 00e7 00       		.byte	0
+ 1268 00e8 00       		.byte	0
+ 1269 00e9 14       		.uleb128 0x14
+ 1270 00ea 0D       		.uleb128 0xd
+ 1271 00eb 00       		.byte	0
+ 1272 00ec 03       		.uleb128 0x3
+ 1273 00ed 0E       		.uleb128 0xe
+ 1274 00ee 3A       		.uleb128 0x3a
+ 1275 00ef 0B       		.uleb128 0xb
+ 1276 00f0 3B       		.uleb128 0x3b
+ 1277 00f1 0B       		.uleb128 0xb
+ 1278 00f2 49       		.uleb128 0x49
+ 1279 00f3 13       		.uleb128 0x13
+ 1280 00f4 38       		.uleb128 0x38
+ 1281 00f5 0B       		.uleb128 0xb
+ 1282 00f6 00       		.byte	0
+ 1283 00f7 00       		.byte	0
+ 1284 00f8 15       		.uleb128 0x15
+ 1285 00f9 0D       		.uleb128 0xd
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 27
+
+
+ 1286 00fa 00       		.byte	0
+ 1287 00fb 03       		.uleb128 0x3
+ 1288 00fc 08       		.uleb128 0x8
+ 1289 00fd 3A       		.uleb128 0x3a
+ 1290 00fe 0B       		.uleb128 0xb
+ 1291 00ff 3B       		.uleb128 0x3b
+ 1292 0100 0B       		.uleb128 0xb
+ 1293 0101 49       		.uleb128 0x49
+ 1294 0102 13       		.uleb128 0x13
+ 1295 0103 38       		.uleb128 0x38
+ 1296 0104 0B       		.uleb128 0xb
+ 1297 0105 00       		.byte	0
+ 1298 0106 00       		.byte	0
+ 1299 0107 16       		.uleb128 0x16
+ 1300 0108 15       		.uleb128 0x15
+ 1301 0109 01       		.byte	0x1
+ 1302 010a 27       		.uleb128 0x27
+ 1303 010b 19       		.uleb128 0x19
+ 1304 010c 01       		.uleb128 0x1
+ 1305 010d 13       		.uleb128 0x13
+ 1306 010e 00       		.byte	0
+ 1307 010f 00       		.byte	0
+ 1308 0110 17       		.uleb128 0x17
+ 1309 0111 2E       		.uleb128 0x2e
+ 1310 0112 01       		.byte	0x1
+ 1311 0113 3F       		.uleb128 0x3f
+ 1312 0114 19       		.uleb128 0x19
+ 1313 0115 03       		.uleb128 0x3
+ 1314 0116 0E       		.uleb128 0xe
+ 1315 0117 3A       		.uleb128 0x3a
+ 1316 0118 0B       		.uleb128 0xb
+ 1317 0119 3B       		.uleb128 0x3b
+ 1318 011a 0B       		.uleb128 0xb
+ 1319 011b 27       		.uleb128 0x27
+ 1320 011c 19       		.uleb128 0x19
+ 1321 011d 49       		.uleb128 0x49
+ 1322 011e 13       		.uleb128 0x13
+ 1323 011f 11       		.uleb128 0x11
+ 1324 0120 01       		.uleb128 0x1
+ 1325 0121 12       		.uleb128 0x12
+ 1326 0122 06       		.uleb128 0x6
+ 1327 0123 40       		.uleb128 0x40
+ 1328 0124 18       		.uleb128 0x18
+ 1329 0125 9742     		.uleb128 0x2117
+ 1330 0127 19       		.uleb128 0x19
+ 1331 0128 01       		.uleb128 0x1
+ 1332 0129 13       		.uleb128 0x13
+ 1333 012a 00       		.byte	0
+ 1334 012b 00       		.byte	0
+ 1335 012c 18       		.uleb128 0x18
+ 1336 012d 05       		.uleb128 0x5
+ 1337 012e 00       		.byte	0
+ 1338 012f 03       		.uleb128 0x3
+ 1339 0130 08       		.uleb128 0x8
+ 1340 0131 3A       		.uleb128 0x3a
+ 1341 0132 0B       		.uleb128 0xb
+ 1342 0133 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 28
+
+
+ 1343 0134 0B       		.uleb128 0xb
+ 1344 0135 49       		.uleb128 0x49
+ 1345 0136 13       		.uleb128 0x13
+ 1346 0137 02       		.uleb128 0x2
+ 1347 0138 17       		.uleb128 0x17
+ 1348 0139 00       		.byte	0
+ 1349 013a 00       		.byte	0
+ 1350 013b 19       		.uleb128 0x19
+ 1351 013c 05       		.uleb128 0x5
+ 1352 013d 00       		.byte	0
+ 1353 013e 03       		.uleb128 0x3
+ 1354 013f 0E       		.uleb128 0xe
+ 1355 0140 3A       		.uleb128 0x3a
+ 1356 0141 0B       		.uleb128 0xb
+ 1357 0142 3B       		.uleb128 0x3b
+ 1358 0143 0B       		.uleb128 0xb
+ 1359 0144 49       		.uleb128 0x49
+ 1360 0145 13       		.uleb128 0x13
+ 1361 0146 02       		.uleb128 0x2
+ 1362 0147 17       		.uleb128 0x17
+ 1363 0148 00       		.byte	0
+ 1364 0149 00       		.byte	0
+ 1365 014a 1A       		.uleb128 0x1a
+ 1366 014b 34       		.uleb128 0x34
+ 1367 014c 00       		.byte	0
+ 1368 014d 03       		.uleb128 0x3
+ 1369 014e 0E       		.uleb128 0xe
+ 1370 014f 3A       		.uleb128 0x3a
+ 1371 0150 0B       		.uleb128 0xb
+ 1372 0151 3B       		.uleb128 0x3b
+ 1373 0152 0B       		.uleb128 0xb
+ 1374 0153 49       		.uleb128 0x49
+ 1375 0154 13       		.uleb128 0x13
+ 1376 0155 00       		.byte	0
+ 1377 0156 00       		.byte	0
+ 1378 0157 1B       		.uleb128 0x1b
+ 1379 0158 34       		.uleb128 0x34
+ 1380 0159 00       		.byte	0
+ 1381 015a 03       		.uleb128 0x3
+ 1382 015b 0E       		.uleb128 0xe
+ 1383 015c 3A       		.uleb128 0x3a
+ 1384 015d 0B       		.uleb128 0xb
+ 1385 015e 3B       		.uleb128 0x3b
+ 1386 015f 0B       		.uleb128 0xb
+ 1387 0160 49       		.uleb128 0x49
+ 1388 0161 13       		.uleb128 0x13
+ 1389 0162 02       		.uleb128 0x2
+ 1390 0163 17       		.uleb128 0x17
+ 1391 0164 00       		.byte	0
+ 1392 0165 00       		.byte	0
+ 1393 0166 1C       		.uleb128 0x1c
+ 1394 0167 898201   		.uleb128 0x4109
+ 1395 016a 00       		.byte	0
+ 1396 016b 11       		.uleb128 0x11
+ 1397 016c 01       		.uleb128 0x1
+ 1398 016d 31       		.uleb128 0x31
+ 1399 016e 13       		.uleb128 0x13
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 29
+
+
+ 1400 016f 00       		.byte	0
+ 1401 0170 00       		.byte	0
+ 1402 0171 1D       		.uleb128 0x1d
+ 1403 0172 898201   		.uleb128 0x4109
+ 1404 0175 01       		.byte	0x1
+ 1405 0176 11       		.uleb128 0x11
+ 1406 0177 01       		.uleb128 0x1
+ 1407 0178 31       		.uleb128 0x31
+ 1408 0179 13       		.uleb128 0x13
+ 1409 017a 01       		.uleb128 0x1
+ 1410 017b 13       		.uleb128 0x13
+ 1411 017c 00       		.byte	0
+ 1412 017d 00       		.byte	0
+ 1413 017e 1E       		.uleb128 0x1e
+ 1414 017f 8A8201   		.uleb128 0x410a
+ 1415 0182 00       		.byte	0
+ 1416 0183 02       		.uleb128 0x2
+ 1417 0184 18       		.uleb128 0x18
+ 1418 0185 9142     		.uleb128 0x2111
+ 1419 0187 18       		.uleb128 0x18
+ 1420 0188 00       		.byte	0
+ 1421 0189 00       		.byte	0
+ 1422 018a 1F       		.uleb128 0x1f
+ 1423 018b 898201   		.uleb128 0x4109
+ 1424 018e 01       		.byte	0x1
+ 1425 018f 11       		.uleb128 0x11
+ 1426 0190 01       		.uleb128 0x1
+ 1427 0191 31       		.uleb128 0x31
+ 1428 0192 13       		.uleb128 0x13
+ 1429 0193 00       		.byte	0
+ 1430 0194 00       		.byte	0
+ 1431 0195 20       		.uleb128 0x20
+ 1432 0196 2E       		.uleb128 0x2e
+ 1433 0197 01       		.byte	0x1
+ 1434 0198 3F       		.uleb128 0x3f
+ 1435 0199 19       		.uleb128 0x19
+ 1436 019a 03       		.uleb128 0x3
+ 1437 019b 0E       		.uleb128 0xe
+ 1438 019c 3A       		.uleb128 0x3a
+ 1439 019d 0B       		.uleb128 0xb
+ 1440 019e 3B       		.uleb128 0x3b
+ 1441 019f 0B       		.uleb128 0xb
+ 1442 01a0 27       		.uleb128 0x27
+ 1443 01a1 19       		.uleb128 0x19
+ 1444 01a2 11       		.uleb128 0x11
+ 1445 01a3 01       		.uleb128 0x1
+ 1446 01a4 12       		.uleb128 0x12
+ 1447 01a5 06       		.uleb128 0x6
+ 1448 01a6 40       		.uleb128 0x40
+ 1449 01a7 18       		.uleb128 0x18
+ 1450 01a8 9742     		.uleb128 0x2117
+ 1451 01aa 19       		.uleb128 0x19
+ 1452 01ab 01       		.uleb128 0x1
+ 1453 01ac 13       		.uleb128 0x13
+ 1454 01ad 00       		.byte	0
+ 1455 01ae 00       		.byte	0
+ 1456 01af 21       		.uleb128 0x21
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 30
+
+
+ 1457 01b0 05       		.uleb128 0x5
+ 1458 01b1 00       		.byte	0
+ 1459 01b2 03       		.uleb128 0x3
+ 1460 01b3 0E       		.uleb128 0xe
+ 1461 01b4 3A       		.uleb128 0x3a
+ 1462 01b5 0B       		.uleb128 0xb
+ 1463 01b6 3B       		.uleb128 0x3b
+ 1464 01b7 0B       		.uleb128 0xb
+ 1465 01b8 49       		.uleb128 0x49
+ 1466 01b9 13       		.uleb128 0x13
+ 1467 01ba 02       		.uleb128 0x2
+ 1468 01bb 18       		.uleb128 0x18
+ 1469 01bc 00       		.byte	0
+ 1470 01bd 00       		.byte	0
+ 1471 01be 22       		.uleb128 0x22
+ 1472 01bf 05       		.uleb128 0x5
+ 1473 01c0 00       		.byte	0
+ 1474 01c1 03       		.uleb128 0x3
+ 1475 01c2 08       		.uleb128 0x8
+ 1476 01c3 3A       		.uleb128 0x3a
+ 1477 01c4 0B       		.uleb128 0xb
+ 1478 01c5 3B       		.uleb128 0x3b
+ 1479 01c6 0B       		.uleb128 0xb
+ 1480 01c7 49       		.uleb128 0x49
+ 1481 01c8 13       		.uleb128 0x13
+ 1482 01c9 02       		.uleb128 0x2
+ 1483 01ca 18       		.uleb128 0x18
+ 1484 01cb 00       		.byte	0
+ 1485 01cc 00       		.byte	0
+ 1486 01cd 23       		.uleb128 0x23
+ 1487 01ce 34       		.uleb128 0x34
+ 1488 01cf 00       		.byte	0
+ 1489 01d0 03       		.uleb128 0x3
+ 1490 01d1 0E       		.uleb128 0xe
+ 1491 01d2 3A       		.uleb128 0x3a
+ 1492 01d3 0B       		.uleb128 0xb
+ 1493 01d4 3B       		.uleb128 0x3b
+ 1494 01d5 0B       		.uleb128 0xb
+ 1495 01d6 49       		.uleb128 0x49
+ 1496 01d7 13       		.uleb128 0x13
+ 1497 01d8 3F       		.uleb128 0x3f
+ 1498 01d9 19       		.uleb128 0x19
+ 1499 01da 3C       		.uleb128 0x3c
+ 1500 01db 19       		.uleb128 0x19
+ 1501 01dc 00       		.byte	0
+ 1502 01dd 00       		.byte	0
+ 1503 01de 24       		.uleb128 0x24
+ 1504 01df 2E       		.uleb128 0x2e
+ 1505 01e0 00       		.byte	0
+ 1506 01e1 3F       		.uleb128 0x3f
+ 1507 01e2 19       		.uleb128 0x19
+ 1508 01e3 3C       		.uleb128 0x3c
+ 1509 01e4 19       		.uleb128 0x19
+ 1510 01e5 6E       		.uleb128 0x6e
+ 1511 01e6 0E       		.uleb128 0xe
+ 1512 01e7 03       		.uleb128 0x3
+ 1513 01e8 0E       		.uleb128 0xe
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 31
+
+
+ 1514 01e9 3A       		.uleb128 0x3a
+ 1515 01ea 0B       		.uleb128 0xb
+ 1516 01eb 3B       		.uleb128 0x3b
+ 1517 01ec 0B       		.uleb128 0xb
+ 1518 01ed 00       		.byte	0
+ 1519 01ee 00       		.byte	0
+ 1520 01ef 00       		.byte	0
+ 1521              		.section	.debug_loc,"",%progbits
+ 1522              	.Ldebug_loc0:
+ 1523              	.LLST0:
+ 1524 0000 00000000 		.4byte	.LVL0
+ 1525 0004 0B000000 		.4byte	.LVL2-1
+ 1526 0008 0100     		.2byte	0x1
+ 1527 000a 50       		.byte	0x50
+ 1528 000b 0B000000 		.4byte	.LVL2-1
+ 1529 000f 20000000 		.4byte	.LVL7
+ 1530 0013 0100     		.2byte	0x1
+ 1531 0015 54       		.byte	0x54
+ 1532 0016 20000000 		.4byte	.LVL7
+ 1533 001a 32000000 		.4byte	.LVL10
+ 1534 001e 0400     		.2byte	0x4
+ 1535 0020 F3       		.byte	0xf3
+ 1536 0021 01       		.uleb128 0x1
+ 1537 0022 50       		.byte	0x50
+ 1538 0023 9F       		.byte	0x9f
+ 1539 0024 32000000 		.4byte	.LVL10
+ 1540 0028 5A000000 		.4byte	.LVL13
+ 1541 002c 0100     		.2byte	0x1
+ 1542 002e 54       		.byte	0x54
+ 1543 002f 5A000000 		.4byte	.LVL13
+ 1544 0033 60000000 		.4byte	.LFE56
+ 1545 0037 0400     		.2byte	0x4
+ 1546 0039 F3       		.byte	0xf3
+ 1547 003a 01       		.uleb128 0x1
+ 1548 003b 50       		.byte	0x50
+ 1549 003c 9F       		.byte	0x9f
+ 1550 003d 00000000 		.4byte	0
+ 1551 0041 00000000 		.4byte	0
+ 1552              	.LLST1:
+ 1553 0045 00000000 		.4byte	.LVL0
+ 1554 0049 0B000000 		.4byte	.LVL2-1
+ 1555 004d 0100     		.2byte	0x1
+ 1556 004f 51       		.byte	0x51
+ 1557 0050 10000000 		.4byte	.LVL4
+ 1558 0054 5A000000 		.4byte	.LVL15
+ 1559 0058 0100     		.2byte	0x1
+ 1560 005a 56       		.byte	0x56
+ 1561 005b 00000000 		.4byte	0
+ 1562 005f 00000000 		.4byte	0
+ 1563              	.LLST2:
+ 1564 0063 00000000 		.4byte	.LVL0
+ 1565 0067 0B000000 		.4byte	.LVL2-1
+ 1566 006b 0100     		.2byte	0x1
+ 1567 006d 52       		.byte	0x52
+ 1568 006e 0B000000 		.4byte	.LVL2-1
+ 1569 0072 5A000000 		.4byte	.LVL16
+ 1570 0076 0100     		.2byte	0x1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 32
+
+
+ 1571 0078 57       		.byte	0x57
+ 1572 0079 5A000000 		.4byte	.LVL16
+ 1573 007d 60000000 		.4byte	.LFE56
+ 1574 0081 0400     		.2byte	0x4
+ 1575 0083 F3       		.byte	0xf3
+ 1576 0084 01       		.uleb128 0x1
+ 1577 0085 52       		.byte	0x52
+ 1578 0086 9F       		.byte	0x9f
+ 1579 0087 00000000 		.4byte	0
+ 1580 008b 00000000 		.4byte	0
+ 1581              	.LLST3:
+ 1582 008f 0E000000 		.4byte	.LVL3
+ 1583 0093 16000000 		.4byte	.LVL5
+ 1584 0097 0100     		.2byte	0x1
+ 1585 0099 50       		.byte	0x50
+ 1586 009a 16000000 		.4byte	.LVL5
+ 1587 009e 5A000000 		.4byte	.LVL14
+ 1588 00a2 0100     		.2byte	0x1
+ 1589 00a4 55       		.byte	0x55
+ 1590 00a5 00000000 		.4byte	0
+ 1591 00a9 00000000 		.4byte	0
+ 1592              	.LLST4:
+ 1593 00ad 1A000000 		.4byte	.LVL6
+ 1594 00b1 24000000 		.4byte	.LVL8
+ 1595 00b5 0100     		.2byte	0x1
+ 1596 00b7 50       		.byte	0x50
+ 1597 00b8 32000000 		.4byte	.LVL10
+ 1598 00bc 40000000 		.4byte	.LVL11
+ 1599 00c0 0100     		.2byte	0x1
+ 1600 00c2 50       		.byte	0x50
+ 1601 00c3 00000000 		.4byte	0
+ 1602 00c7 00000000 		.4byte	0
+ 1603              		.section	.debug_aranges,"",%progbits
+ 1604 0000 2C000000 		.4byte	0x2c
+ 1605 0004 0200     		.2byte	0x2
+ 1606 0006 00000000 		.4byte	.Ldebug_info0
+ 1607 000a 04       		.byte	0x4
+ 1608 000b 00       		.byte	0
+ 1609 000c 0000     		.2byte	0
+ 1610 000e 0000     		.2byte	0
+ 1611 0010 00000000 		.4byte	.LFB56
+ 1612 0014 60000000 		.4byte	.LFE56-.LFB56
+ 1613 0018 00000000 		.4byte	.LFB57
+ 1614 001c 02000000 		.4byte	.LFE57-.LFB57
+ 1615 0020 00000000 		.4byte	.LFB58
+ 1616 0024 02000000 		.4byte	.LFE58-.LFB58
+ 1617 0028 00000000 		.4byte	0
+ 1618 002c 00000000 		.4byte	0
+ 1619              		.section	.debug_ranges,"",%progbits
+ 1620              	.Ldebug_ranges0:
+ 1621 0000 00000000 		.4byte	.LFB56
+ 1622 0004 60000000 		.4byte	.LFE56
+ 1623 0008 00000000 		.4byte	.LFB57
+ 1624 000c 02000000 		.4byte	.LFE57
+ 1625 0010 00000000 		.4byte	.LFB58
+ 1626 0014 02000000 		.4byte	.LFE58
+ 1627 0018 00000000 		.4byte	0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 33
+
+
+ 1628 001c 00000000 		.4byte	0
+ 1629              		.section	.debug_line,"",%progbits
+ 1630              	.Ldebug_line0:
+ 1631 0000 12030000 		.section	.debug_str,"MS",%progbits,1
+ 1631      0200C202 
+ 1631      00000201 
+ 1631      FB0E0D00 
+ 1631      01010101 
+ 1632              	.LASF46:
+ 1633 0000 5F6C765F 		.ascii	"_lv_img_decoder_dsc_t\000"
+ 1633      696D675F 
+ 1633      6465636F 
+ 1633      6465725F 
+ 1633      6473635F 
+ 1634              	.LASF44:
+ 1635 0016 6C765F69 		.ascii	"lv_img_decoder_open_f_t\000"
+ 1635      6D675F64 
+ 1635      65636F64 
+ 1635      65725F6F 
+ 1635      70656E5F 
+ 1636              	.LASF51:
+ 1637 002e 68656164 		.ascii	"header\000"
+ 1637      657200
+ 1638              	.LASF32:
+ 1639 0035 6C765F63 		.ascii	"lv_coord_t\000"
+ 1639      6F6F7264 
+ 1639      5F7400
+ 1640              	.LASF50:
+ 1641 0040 7372635F 		.ascii	"src_type\000"
+ 1641      74797065 
+ 1641      00
+ 1642              	.LASF65:
+ 1643 0049 626F785F 		.ascii	"box_h\000"
+ 1643      6800
+ 1644              	.LASF15:
+ 1645 004f 696E7438 		.ascii	"int8_t\000"
+ 1645      5F7400
+ 1646              	.LASF86:
+ 1647 0056 5F6C765F 		.ascii	"_lv_img_cache_single\000"
+ 1647      696D675F 
+ 1647      63616368 
+ 1647      655F7369 
+ 1647      6E676C65 
+ 1648              	.LASF39:
+ 1649 006b 696E666F 		.ascii	"info_cb\000"
+ 1649      5F636200 
+ 1650              	.LASF5:
+ 1651 0073 73686F72 		.ascii	"short int\000"
+ 1651      7420696E 
+ 1651      7400
+ 1652              	.LASF25:
+ 1653 007d 73697A65 		.ascii	"sizetype\000"
+ 1653      74797065 
+ 1653      00
+ 1654              	.LASF95:
+ 1655 0086 63616368 		.ascii	"cached_src\000"
+ 1655      65645F73 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 34
+
+
+ 1655      726300
+ 1656              	.LASF64:
+ 1657 0091 626F785F 		.ascii	"box_w\000"
+ 1657      7700
+ 1658              	.LASF90:
+ 1659 0097 6C765F74 		.ascii	"lv_tick_elaps\000"
+ 1659      69636B5F 
+ 1659      656C6170 
+ 1659      7300
+ 1660              	.LASF91:
+ 1661 00a5 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1661      43313120 
+ 1661      352E342E 
+ 1661      31203230 
+ 1661      31363036 
+ 1662 00d8 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 1662      20726576 
+ 1662      6973696F 
+ 1662      6E203233 
+ 1662      37373135 
+ 1663 010b 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 1663      67202D66 
+ 1663      66756E63 
+ 1663      74696F6E 
+ 1663      2D736563 
+ 1664              	.LASF60:
+ 1665 0137 6C696665 		.ascii	"life\000"
+ 1665      00
+ 1666              	.LASF68:
+ 1667 013c 69735F70 		.ascii	"is_placeholder\000"
+ 1667      6C616365 
+ 1667      686F6C64 
+ 1667      657200
+ 1668              	.LASF63:
+ 1669 014b 6164765F 		.ascii	"adv_w\000"
+ 1669      7700
+ 1670              	.LASF10:
+ 1671 0151 5F5F7569 		.ascii	"__uint32_t\000"
+ 1671      6E743332 
+ 1671      5F7400
+ 1672              	.LASF6:
+ 1673 015c 5F5F7569 		.ascii	"__uint16_t\000"
+ 1673      6E743136 
+ 1673      5F7400
+ 1674              	.LASF85:
+ 1675 0167 6C765F66 		.ascii	"lv_font_montserrat_14\000"
+ 1675      6F6E745F 
+ 1675      6D6F6E74 
+ 1675      73657272 
+ 1675      61745F31 
+ 1676              	.LASF38:
+ 1677 017d 6C765F69 		.ascii	"lv_img_decoder_info_f_t\000"
+ 1677      6D675F64 
+ 1677      65636F64 
+ 1677      65725F69 
+ 1677      6E666F5F 
+ 1678              	.LASF27:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 35
+
+
+ 1679 0195 626C7565 		.ascii	"blue\000"
+ 1679      00
+ 1680              	.LASF40:
+ 1681 019a 6F70656E 		.ascii	"open_cb\000"
+ 1681      5F636200 
+ 1682              	.LASF58:
+ 1683 01a2 6C765F69 		.ascii	"lv_img_decoder_dsc_t\000"
+ 1683      6D675F64 
+ 1683      65636F64 
+ 1683      65725F64 
+ 1683      73635F74 
+ 1684              	.LASF74:
+ 1685 01b7 73756270 		.ascii	"subpx\000"
+ 1685      7800
+ 1686              	.LASF16:
+ 1687 01bd 75696E74 		.ascii	"uint8_t\000"
+ 1687      385F7400 
+ 1688              	.LASF45:
+ 1689 01c5 5F6C765F 		.ascii	"_lv_img_decoder_t\000"
+ 1689      696D675F 
+ 1689      6465636F 
+ 1689      6465725F 
+ 1689      7400
+ 1690              	.LASF55:
+ 1691 01d7 6C765F69 		.ascii	"lv_img_decoder_read_line_f_t\000"
+ 1691      6D675F64 
+ 1691      65636F64 
+ 1691      65725F72 
+ 1691      6561645F 
+ 1692              	.LASF84:
+ 1693 01f4 6C765F69 		.ascii	"lv_img_cache_invalidate_src\000"
+ 1693      6D675F63 
+ 1693      61636865 
+ 1693      5F696E76 
+ 1693      616C6964 
+ 1694              	.LASF30:
+ 1695 0210 6C765F63 		.ascii	"lv_color16_t\000"
+ 1695      6F6C6F72 
+ 1695      31365F74 
+ 1695      00
+ 1696              	.LASF43:
+ 1697 021d 75736572 		.ascii	"user_data\000"
+ 1697      5F646174 
+ 1697      6100
+ 1698              	.LASF94:
+ 1699 0227 5F6C765F 		.ascii	"_lv_img_cache_open\000"
+ 1699      696D675F 
+ 1699      63616368 
+ 1699      655F6F70 
+ 1699      656E00
+ 1700              	.LASF81:
+ 1701 023a 6F70656E 		.ascii	"open_res\000"
+ 1701      5F726573 
+ 1701      00
+ 1702              	.LASF14:
+ 1703 0243 756E7369 		.ascii	"unsigned int\000"
+ 1703      676E6564 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 36
+
+
+ 1703      20696E74 
+ 1703      00
+ 1704              	.LASF87:
+ 1705 0250 6C765F74 		.ascii	"lv_tick_get\000"
+ 1705      69636B5F 
+ 1705      67657400 
+ 1706              	.LASF12:
+ 1707 025c 6C6F6E67 		.ascii	"long long int\000"
+ 1707      206C6F6E 
+ 1707      6720696E 
+ 1707      7400
+ 1708              	.LASF23:
+ 1709 026a 6C765F72 		.ascii	"lv_res_t\000"
+ 1709      65735F74 
+ 1709      00
+ 1710              	.LASF57:
+ 1711 0273 6C765F69 		.ascii	"lv_img_decoder_t\000"
+ 1711      6D675F64 
+ 1711      65636F64 
+ 1711      65725F74 
+ 1711      00
+ 1712              	.LASF80:
+ 1713 0284 745F7374 		.ascii	"t_start\000"
+ 1713      61727400 
+ 1714              	.LASF53:
+ 1715 028c 74696D65 		.ascii	"time_to_open\000"
+ 1715      5F746F5F 
+ 1715      6F70656E 
+ 1715      00
+ 1716              	.LASF56:
+ 1717 0299 6C765F69 		.ascii	"lv_img_decoder_close_f_t\000"
+ 1717      6D675F64 
+ 1717      65636F64 
+ 1717      65725F63 
+ 1717      6C6F7365 
+ 1718              	.LASF9:
+ 1719 02b2 6C6F6E67 		.ascii	"long int\000"
+ 1719      20696E74 
+ 1719      00
+ 1720              	.LASF47:
+ 1721 02bb 6465636F 		.ascii	"decoder\000"
+ 1721      64657200 
+ 1722              	.LASF28:
+ 1723 02c3 67726565 		.ascii	"green\000"
+ 1723      6E00
+ 1724              	.LASF61:
+ 1725 02c9 5F6C765F 		.ascii	"_lv_img_cache_entry_t\000"
+ 1725      696D675F 
+ 1725      63616368 
+ 1725      655F656E 
+ 1725      7472795F 
+ 1726              	.LASF76:
+ 1727 02df 756E6465 		.ascii	"underline_thickness\000"
+ 1727      726C696E 
+ 1727      655F7468 
+ 1727      69636B6E 
+ 1727      65737300 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 37
+
+
+ 1728              	.LASF37:
+ 1729 02f3 6C765F69 		.ascii	"lv_img_src_t\000"
+ 1729      6D675F73 
+ 1729      72635F74 
+ 1729      00
+ 1730              	.LASF48:
+ 1731 0300 636F6C6F 		.ascii	"color\000"
+ 1731      7200
+ 1732              	.LASF71:
+ 1733 0306 6765745F 		.ascii	"get_glyph_bitmap\000"
+ 1733      676C7970 
+ 1733      685F6269 
+ 1733      746D6170 
+ 1733      00
+ 1734              	.LASF24:
+ 1735 0317 6C6F6E67 		.ascii	"long double\000"
+ 1735      20646F75 
+ 1735      626C6500 
+ 1736              	.LASF3:
+ 1737 0323 756E7369 		.ascii	"unsigned char\000"
+ 1737      676E6564 
+ 1737      20636861 
+ 1737      7200
+ 1738              	.LASF8:
+ 1739 0331 5F5F696E 		.ascii	"__int32_t\000"
+ 1739      7433325F 
+ 1739      7400
+ 1740              	.LASF2:
+ 1741 033b 7369676E 		.ascii	"signed char\000"
+ 1741      65642063 
+ 1741      68617200 
+ 1742              	.LASF13:
+ 1743 0347 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1743      206C6F6E 
+ 1743      6720756E 
+ 1743      7369676E 
+ 1743      65642069 
+ 1744              	.LASF20:
+ 1745 035e 75696E74 		.ascii	"uint32_t\000"
+ 1745      33325F74 
+ 1745      00
+ 1746              	.LASF52:
+ 1747 0367 696D675F 		.ascii	"img_data\000"
+ 1747      64617461 
+ 1747      00
+ 1748              	.LASF31:
+ 1749 0370 6C765F63 		.ascii	"lv_color_t\000"
+ 1749      6F6C6F72 
+ 1749      5F7400
+ 1750              	.LASF18:
+ 1751 037b 75696E74 		.ascii	"uint16_t\000"
+ 1751      31365F74 
+ 1751      00
+ 1752              	.LASF41:
+ 1753 0384 72656164 		.ascii	"read_line_cb\000"
+ 1753      5F6C696E 
+ 1753      655F6362 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 38
+
+
+ 1753      00
+ 1754              	.LASF35:
+ 1755 0391 6C765F69 		.ascii	"lv_img_header_t\000"
+ 1755      6D675F68 
+ 1755      65616465 
+ 1755      725F7400 
+ 1756              	.LASF73:
+ 1757 03a1 62617365 		.ascii	"base_line\000"
+ 1757      5F6C696E 
+ 1757      6500
+ 1758              	.LASF54:
+ 1759 03ab 6572726F 		.ascii	"error_msg\000"
+ 1759      725F6D73 
+ 1759      6700
+ 1760              	.LASF0:
+ 1761 03b5 5F5F696E 		.ascii	"__int8_t\000"
+ 1761      74385F74 
+ 1761      00
+ 1762              	.LASF26:
+ 1763 03be 63686172 		.ascii	"char\000"
+ 1763      00
+ 1764              	.LASF19:
+ 1765 03c3 696E7433 		.ascii	"int32_t\000"
+ 1765      325F7400 
+ 1766              	.LASF82:
+ 1767 03cb 6E65775F 		.ascii	"new_entry_cnt\000"
+ 1767      656E7472 
+ 1767      795F636E 
+ 1767      7400
+ 1768              	.LASF77:
+ 1769 03d9 66616C6C 		.ascii	"fallback\000"
+ 1769      6261636B 
+ 1769      00
+ 1770              	.LASF7:
+ 1771 03e2 73686F72 		.ascii	"short unsigned int\000"
+ 1771      7420756E 
+ 1771      7369676E 
+ 1771      65642069 
+ 1771      6E7400
+ 1772              	.LASF17:
+ 1773 03f5 696E7431 		.ascii	"int16_t\000"
+ 1773      365F7400 
+ 1774              	.LASF36:
+ 1775 03fd 5F426F6F 		.ascii	"_Bool\000"
+ 1775      6C00
+ 1776              	.LASF88:
+ 1777 0403 6C765F69 		.ascii	"lv_img_decoder_open\000"
+ 1777      6D675F64 
+ 1777      65636F64 
+ 1777      65725F6F 
+ 1777      70656E00 
+ 1778              	.LASF89:
+ 1779 0417 6C765F6D 		.ascii	"lv_memset_00\000"
+ 1779      656D7365 
+ 1779      745F3030 
+ 1779      00
+ 1780              	.LASF22:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 39
+
+
+ 1781 0424 4C565F52 		.ascii	"LV_RES_OK\000"
+ 1781      45535F4F 
+ 1781      4B00
+ 1782              	.LASF69:
+ 1783 042e 5F6C765F 		.ascii	"_lv_font_t\000"
+ 1783      666F6E74 
+ 1783      5F7400
+ 1784              	.LASF70:
+ 1785 0439 6765745F 		.ascii	"get_glyph_dsc\000"
+ 1785      676C7970 
+ 1785      685F6473 
+ 1785      6300
+ 1786              	.LASF49:
+ 1787 0447 6672616D 		.ascii	"frame_id\000"
+ 1787      655F6964 
+ 1787      00
+ 1788              	.LASF11:
+ 1789 0450 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1789      20756E73 
+ 1789      69676E65 
+ 1789      6420696E 
+ 1789      7400
+ 1790              	.LASF33:
+ 1791 0462 616C7761 		.ascii	"always_zero\000"
+ 1791      79735F7A 
+ 1791      65726F00 
+ 1792              	.LASF34:
+ 1793 046e 72657365 		.ascii	"reserved\000"
+ 1793      72766564 
+ 1793      00
+ 1794              	.LASF72:
+ 1795 0477 6C696E65 		.ascii	"line_height\000"
+ 1795      5F686569 
+ 1795      67687400 
+ 1796              	.LASF29:
+ 1797 0483 66756C6C 		.ascii	"full\000"
+ 1797      00
+ 1798              	.LASF4:
+ 1799 0488 5F5F696E 		.ascii	"__int16_t\000"
+ 1799      7431365F 
+ 1799      7400
+ 1800              	.LASF92:
+ 1801 0492 2E2E5C2E 		.ascii	"..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries"
+ 1801      2E5C2E2E 
+ 1801      5C617264 
+ 1801      75696E6F 
+ 1801      4C43445C 
+ 1802 04bf 5C6C7667 		.ascii	"\\lvgl\\src\\draw\\lv_img_cache.c\000"
+ 1802      6C5C7372 
+ 1802      635C6472 
+ 1802      61775C6C 
+ 1802      765F696D 
+ 1803              	.LASF93:
+ 1804 04dd 433A5C50 		.ascii	"C:\\Projects\\PainDrain\\firmware\\PainDrain\\PainD"
+ 1804      726F6A65 
+ 1804      6374735C 
+ 1804      5061696E 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8Td3a1.s 			page 40
+
+
+ 1804      44726169 
+ 1805 050b 7261696E 		.ascii	"rain.cydsn\000"
+ 1805      2E637964 
+ 1805      736E00
+ 1806              	.LASF42:
+ 1807 0516 636C6F73 		.ascii	"close_cb\000"
+ 1807      655F6362 
+ 1807      00
+ 1808              	.LASF59:
+ 1809 051f 6465635F 		.ascii	"dec_dsc\000"
+ 1809      64736300 
+ 1810              	.LASF62:
+ 1811 0527 7265736F 		.ascii	"resolved_font\000"
+ 1811      6C766564 
+ 1811      5F666F6E 
+ 1811      7400
+ 1812              	.LASF75:
+ 1813 0535 756E6465 		.ascii	"underline_position\000"
+ 1813      726C696E 
+ 1813      655F706F 
+ 1813      73697469 
+ 1813      6F6E00
+ 1814              	.LASF79:
+ 1815 0548 6C765F66 		.ascii	"lv_font_t\000"
+ 1815      6F6E745F 
+ 1815      7400
+ 1816              	.LASF83:
+ 1817 0552 6C765F69 		.ascii	"lv_img_cache_set_size\000"
+ 1817      6D675F63 
+ 1817      61636865 
+ 1817      5F736574 
+ 1817      5F73697A 
+ 1818              	.LASF66:
+ 1819 0568 6F66735F 		.ascii	"ofs_x\000"
+ 1819      7800
+ 1820              	.LASF67:
+ 1821 056e 6F66735F 		.ascii	"ofs_y\000"
+ 1821      7900
+ 1822              	.LASF78:
+ 1823 0574 6C765F66 		.ascii	"lv_font_glyph_dsc_t\000"
+ 1823      6F6E745F 
+ 1823      676C7970 
+ 1823      685F6473 
+ 1823      635F7400 
+ 1824              	.LASF21:
+ 1825 0588 4C565F52 		.ascii	"LV_RES_INV\000"
+ 1825      45535F49 
+ 1825      4E5600
+ 1826              	.LASF1:
+ 1827 0593 5F5F7569 		.ascii	"__uint8_t\000"
+ 1827      6E74385F 
+ 1827      7400
+ 1828              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

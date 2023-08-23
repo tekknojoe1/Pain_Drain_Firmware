@@ -1,0 +1,1720 @@
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"lv_async.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.lv_async_timer_cb,"ax",%progbits
+  20              		.align	2
+  21              		.code	16
+  22              		.thumb_func
+  23              		.type	lv_async_timer_cb, %function
+  24              	lv_async_timer_cb:
+  25              	.LFB4:
+  26              		.file 1 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\misc\\lv_async.c"
+   1:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** /**
+   2:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  * @file lv_async.c
+   3:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  *
+   4:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  */
+   5:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+   6:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** /*********************
+   7:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  *      INCLUDES
+   8:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  *********************/
+   9:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  10:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** #include "lv_async.h"
+  11:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** #include "lv_mem.h"
+  12:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** #include "lv_timer.h"
+  13:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  14:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** /*********************
+  15:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  *      DEFINES
+  16:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  *********************/
+  17:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  18:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** /**********************
+  19:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  *      TYPEDEFS
+  20:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  **********************/
+  21:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  22:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** typedef struct _lv_async_info_t {
+  23:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     lv_async_cb_t cb;
+  24:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     void * user_data;
+  25:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** } lv_async_info_t;
+  26:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  27:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** /**********************
+  28:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  *  STATIC PROTOTYPES
+  29:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  **********************/
+  30:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  31:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** static void lv_async_timer_cb(lv_timer_t * timer);
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 2
+
+
+  32:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  33:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** /**********************
+  34:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  *  STATIC VARIABLES
+  35:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  **********************/
+  36:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  37:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** /**********************
+  38:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  *      MACROS
+  39:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  **********************/
+  40:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  41:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** /**********************
+  42:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  *   GLOBAL FUNCTIONS
+  43:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  **********************/
+  44:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  45:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** lv_res_t lv_async_call(lv_async_cb_t async_xcb, void * user_data)
+  46:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** {
+  47:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     /*Allocate an info structure*/
+  48:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     lv_async_info_t * info = lv_mem_alloc(sizeof(lv_async_info_t));
+  49:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  50:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     if(info == NULL)
+  51:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****         return LV_RES_INV;
+  52:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  53:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     /*Create a new timer*/
+  54:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     lv_timer_t * timer = lv_timer_create(lv_async_timer_cb, 0, info);
+  55:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  56:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     if(timer == NULL) {
+  57:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****         lv_mem_free(info);
+  58:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****         return LV_RES_INV;
+  59:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     }
+  60:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  61:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     info->cb = async_xcb;
+  62:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     info->user_data = user_data;
+  63:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  64:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     lv_timer_set_repeat_count(timer, 1);
+  65:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     return LV_RES_OK;
+  66:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** }
+  67:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  68:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** lv_res_t lv_async_call_cancel(lv_async_cb_t async_xcb, void * user_data)
+  69:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** {
+  70:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     lv_timer_t * timer = lv_timer_get_next(NULL);
+  71:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     lv_res_t res = LV_RES_INV;
+  72:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  73:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     while(timer != NULL) {
+  74:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****         /*Find the next timer node*/
+  75:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****         lv_timer_t * timer_next = lv_timer_get_next(timer);
+  76:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  77:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****         /*Find async timer callback*/
+  78:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****         if(timer->timer_cb == lv_async_timer_cb) {
+  79:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****             lv_async_info_t * info = (lv_async_info_t *)timer->user_data;
+  80:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  81:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****             /*Match user function callback and user data*/
+  82:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****             if(info->cb == async_xcb && info->user_data == user_data) {
+  83:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****                 lv_timer_del(timer);
+  84:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****                 lv_mem_free(info);
+  85:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****                 res = LV_RES_OK;
+  86:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****             }
+  87:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****         }
+  88:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 3
+
+
+  89:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****         timer = timer_next;
+  90:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     }
+  91:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  92:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     return res;
+  93:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** }
+  94:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  95:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** /**********************
+  96:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  *   STATIC FUNCTIONS
+  97:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****  **********************/
+  98:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  99:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** static void lv_async_timer_cb(lv_timer_t * timer)
+ 100:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** {
+  27              		.loc 1 100 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+ 101:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     lv_async_info_t * info = (lv_async_info_t *)timer->user_data;
+  36              		.loc 1 101 0
+  37 0002 C468     		ldr	r4, [r0, #12]
+  38              	.LVL1:
+ 102:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+ 103:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     info->cb(info->user_data);
+  39              		.loc 1 103 0
+  40 0004 6068     		ldr	r0, [r4, #4]
+  41              	.LVL2:
+  42 0006 2368     		ldr	r3, [r4]
+  43 0008 9847     		blx	r3
+  44              	.LVL3:
+ 104:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     lv_mem_free(info);
+  45              		.loc 1 104 0
+  46 000a 2000     		movs	r0, r4
+  47 000c FFF7FEFF 		bl	lv_mem_free
+  48              	.LVL4:
+ 105:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** }
+  49              		.loc 1 105 0
+  50              		@ sp needed
+  51              	.LVL5:
+  52 0010 10BD     		pop	{r4, pc}
+  53              		.cfi_endproc
+  54              	.LFE4:
+  55              		.size	lv_async_timer_cb, .-lv_async_timer_cb
+  56 0012 C046     		.section	.text.lv_async_call,"ax",%progbits
+  57              		.align	2
+  58              		.global	lv_async_call
+  59              		.code	16
+  60              		.thumb_func
+  61              		.type	lv_async_call, %function
+  62              	lv_async_call:
+  63              	.LFB2:
+  46:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     /*Allocate an info structure*/
+  64              		.loc 1 46 0
+  65              		.cfi_startproc
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 4
+
+
+  66              		@ args = 0, pretend = 0, frame = 0
+  67              		@ frame_needed = 0, uses_anonymous_args = 0
+  68              	.LVL6:
+  69 0000 70B5     		push	{r4, r5, r6, lr}
+  70              		.cfi_def_cfa_offset 16
+  71              		.cfi_offset 4, -16
+  72              		.cfi_offset 5, -12
+  73              		.cfi_offset 6, -8
+  74              		.cfi_offset 14, -4
+  75 0002 0600     		movs	r6, r0
+  76 0004 0D00     		movs	r5, r1
+  48:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  77              		.loc 1 48 0
+  78 0006 0820     		movs	r0, #8
+  79              	.LVL7:
+  80 0008 FFF7FEFF 		bl	lv_mem_alloc
+  81              	.LVL8:
+  82 000c 041E     		subs	r4, r0, #0
+  83              	.LVL9:
+  50:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****         return LV_RES_INV;
+  84              		.loc 1 50 0
+  85 000e 12D0     		beq	.L5
+  54:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+  86              		.loc 1 54 0
+  87 0010 0200     		movs	r2, r0
+  88 0012 0021     		movs	r1, #0
+  89 0014 0948     		ldr	r0, .L6
+  90              	.LVL10:
+  91 0016 FFF7FEFF 		bl	lv_timer_create
+  92              	.LVL11:
+  56:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****         lv_mem_free(info);
+  93              		.loc 1 56 0
+  94 001a 0028     		cmp	r0, #0
+  95 001c 04D1     		bne	.L4
+  57:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****         return LV_RES_INV;
+  96              		.loc 1 57 0
+  97 001e 2000     		movs	r0, r4
+  98              	.LVL12:
+  99 0020 FFF7FEFF 		bl	lv_mem_free
+ 100              	.LVL13:
+  58:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     }
+ 101              		.loc 1 58 0
+ 102 0024 0020     		movs	r0, #0
+ 103 0026 07E0     		b	.L3
+ 104              	.LVL14:
+ 105              	.L4:
+  61:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     info->user_data = user_data;
+ 106              		.loc 1 61 0
+ 107 0028 2660     		str	r6, [r4]
+  62:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+ 108              		.loc 1 62 0
+ 109 002a 6560     		str	r5, [r4, #4]
+  64:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     return LV_RES_OK;
+ 110              		.loc 1 64 0
+ 111 002c 0121     		movs	r1, #1
+ 112 002e FFF7FEFF 		bl	lv_timer_set_repeat_count
+ 113              	.LVL15:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 5
+
+
+  65:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** }
+ 114              		.loc 1 65 0
+ 115 0032 0120     		movs	r0, #1
+ 116 0034 00E0     		b	.L3
+ 117              	.LVL16:
+ 118              	.L5:
+  51:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+ 119              		.loc 1 51 0
+ 120 0036 0020     		movs	r0, #0
+ 121              	.LVL17:
+ 122              	.L3:
+  66:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+ 123              		.loc 1 66 0
+ 124              		@ sp needed
+ 125              	.LVL18:
+ 126              	.LVL19:
+ 127              	.LVL20:
+ 128 0038 70BD     		pop	{r4, r5, r6, pc}
+ 129              	.L7:
+ 130 003a C046     		.align	2
+ 131              	.L6:
+ 132 003c 00000000 		.word	lv_async_timer_cb
+ 133              		.cfi_endproc
+ 134              	.LFE2:
+ 135              		.size	lv_async_call, .-lv_async_call
+ 136              		.section	.text.lv_async_call_cancel,"ax",%progbits
+ 137              		.align	2
+ 138              		.global	lv_async_call_cancel
+ 139              		.code	16
+ 140              		.thumb_func
+ 141              		.type	lv_async_call_cancel, %function
+ 142              	lv_async_call_cancel:
+ 143              	.LFB3:
+  69:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     lv_timer_t * timer = lv_timer_get_next(NULL);
+ 144              		.loc 1 69 0
+ 145              		.cfi_startproc
+ 146              		@ args = 0, pretend = 0, frame = 8
+ 147              		@ frame_needed = 0, uses_anonymous_args = 0
+ 148              	.LVL21:
+ 149 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 150              		.cfi_def_cfa_offset 20
+ 151              		.cfi_offset 4, -20
+ 152              		.cfi_offset 5, -16
+ 153              		.cfi_offset 6, -12
+ 154              		.cfi_offset 7, -8
+ 155              		.cfi_offset 14, -4
+ 156 0002 83B0     		sub	sp, sp, #12
+ 157              		.cfi_def_cfa_offset 32
+ 158 0004 0700     		movs	r7, r0
+ 159 0006 0191     		str	r1, [sp, #4]
+  70:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****     lv_res_t res = LV_RES_INV;
+ 160              		.loc 1 70 0
+ 161 0008 0020     		movs	r0, #0
+ 162              	.LVL22:
+ 163 000a FFF7FEFF 		bl	lv_timer_get_next
+ 164              	.LVL23:
+ 165 000e 0400     		movs	r4, r0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 6
+
+
+ 166              	.LVL24:
+  71:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+ 167              		.loc 1 71 0
+ 168 0010 0023     		movs	r3, #0
+ 169 0012 0093     		str	r3, [sp]
+  73:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****         /*Find the next timer node*/
+ 170              		.loc 1 73 0
+ 171 0014 18E0     		b	.L9
+ 172              	.LVL25:
+ 173              	.L11:
+ 174              	.LBB2:
+  75:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+ 175              		.loc 1 75 0
+ 176 0016 2000     		movs	r0, r4
+ 177 0018 FFF7FEFF 		bl	lv_timer_get_next
+ 178              	.LVL26:
+ 179 001c 0500     		movs	r5, r0
+ 180              	.LVL27:
+  78:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****             lv_async_info_t * info = (lv_async_info_t *)timer->user_data;
+ 181              		.loc 1 78 0
+ 182 001e 0D4B     		ldr	r3, .L12
+ 183 0020 A268     		ldr	r2, [r4, #8]
+ 184 0022 9A42     		cmp	r2, r3
+ 185 0024 0FD1     		bne	.L10
+ 186              	.LBB3:
+  79:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+ 187              		.loc 1 79 0
+ 188 0026 E668     		ldr	r6, [r4, #12]
+ 189              	.LVL28:
+  82:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****                 lv_timer_del(timer);
+ 190              		.loc 1 82 0
+ 191 0028 3368     		ldr	r3, [r6]
+ 192 002a BB42     		cmp	r3, r7
+ 193 002c 0BD1     		bne	.L10
+  82:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****                 lv_timer_del(timer);
+ 194              		.loc 1 82 0 is_stmt 0 discriminator 1
+ 195 002e 7368     		ldr	r3, [r6, #4]
+ 196 0030 019A     		ldr	r2, [sp, #4]
+ 197 0032 9342     		cmp	r3, r2
+ 198 0034 07D1     		bne	.L10
+  83:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****                 lv_mem_free(info);
+ 199              		.loc 1 83 0 is_stmt 1
+ 200 0036 2000     		movs	r0, r4
+ 201              	.LVL29:
+ 202 0038 FFF7FEFF 		bl	lv_timer_del
+ 203              	.LVL30:
+  84:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****                 res = LV_RES_OK;
+ 204              		.loc 1 84 0
+ 205 003c 3000     		movs	r0, r6
+ 206 003e FFF7FEFF 		bl	lv_mem_free
+ 207              	.LVL31:
+  85:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****             }
+ 208              		.loc 1 85 0
+ 209 0042 0123     		movs	r3, #1
+ 210 0044 0093     		str	r3, [sp]
+ 211              	.LVL32:
+ 212              	.L10:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 7
+
+
+ 213 0046 2C00     		movs	r4, r5
+ 214              	.LVL33:
+ 215              	.L9:
+ 216              	.LBE3:
+ 217              	.LBE2:
+  73:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c ****         /*Find the next timer node*/
+ 218              		.loc 1 73 0
+ 219 0048 002C     		cmp	r4, #0
+ 220 004a E4D1     		bne	.L11
+  93:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_async.c **** 
+ 221              		.loc 1 93 0
+ 222 004c 0098     		ldr	r0, [sp]
+ 223 004e 03B0     		add	sp, sp, #12
+ 224              	.LVL34:
+ 225              		@ sp needed
+ 226              	.LVL35:
+ 227              	.LVL36:
+ 228 0050 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 229              	.L13:
+ 230 0052 C046     		.align	2
+ 231              	.L12:
+ 232 0054 00000000 		.word	lv_async_timer_cb
+ 233              		.cfi_endproc
+ 234              	.LFE3:
+ 235              		.size	lv_async_call_cancel, .-lv_async_call_cancel
+ 236              		.text
+ 237              	.Letext0:
+ 238              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 239              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 240              		.file 4 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\misc\\lv_types.h"
+ 241              		.file 5 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\misc\\lv_async.h"
+ 242              		.file 6 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\misc\\lv_timer.h"
+ 243              		.file 7 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\misc\\lv_mem.h"
+ 244              		.section	.debug_info,"",%progbits
+ 245              	.Ldebug_info0:
+ 246 0000 C8030000 		.4byte	0x3c8
+ 247 0004 0400     		.2byte	0x4
+ 248 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 249 000a 04       		.byte	0x4
+ 250 000b 01       		.uleb128 0x1
+ 251 000c 98020000 		.4byte	.LASF44
+ 252 0010 0C       		.byte	0xc
+ 253 0011 92000000 		.4byte	.LASF45
+ 254 0015 F2010000 		.4byte	.LASF46
+ 255 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 256 001d 00000000 		.4byte	0
+ 257 0021 00000000 		.4byte	.Ldebug_line0
+ 258 0025 02       		.uleb128 0x2
+ 259 0026 01       		.byte	0x1
+ 260 0027 06       		.byte	0x6
+ 261 0028 2A030000 		.4byte	.LASF0
+ 262 002c 03       		.uleb128 0x3
+ 263 002d 0A000000 		.4byte	.LASF4
+ 264 0031 02       		.byte	0x2
+ 265 0032 1D       		.byte	0x1d
+ 266 0033 37000000 		.4byte	0x37
+ 267 0037 02       		.uleb128 0x2
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 8
+
+
+ 268 0038 01       		.byte	0x1
+ 269 0039 08       		.byte	0x8
+ 270 003a E3000000 		.4byte	.LASF1
+ 271 003e 02       		.uleb128 0x2
+ 272 003f 02       		.byte	0x2
+ 273 0040 05       		.byte	0x5
+ 274 0041 45020000 		.4byte	.LASF2
+ 275 0045 02       		.uleb128 0x2
+ 276 0046 02       		.byte	0x2
+ 277 0047 07       		.byte	0x7
+ 278 0048 16010000 		.4byte	.LASF3
+ 279 004c 03       		.uleb128 0x3
+ 280 004d 2E000000 		.4byte	.LASF5
+ 281 0051 02       		.byte	0x2
+ 282 0052 3F       		.byte	0x3f
+ 283 0053 57000000 		.4byte	0x57
+ 284 0057 02       		.uleb128 0x2
+ 285 0058 04       		.byte	0x4
+ 286 0059 05       		.byte	0x5
+ 287 005a 75020000 		.4byte	.LASF6
+ 288 005e 03       		.uleb128 0x3
+ 289 005f 38010000 		.4byte	.LASF7
+ 290 0063 02       		.byte	0x2
+ 291 0064 41       		.byte	0x41
+ 292 0065 69000000 		.4byte	0x69
+ 293 0069 02       		.uleb128 0x2
+ 294 006a 04       		.byte	0x4
+ 295 006b 07       		.byte	0x7
+ 296 006c 04010000 		.4byte	.LASF8
+ 297 0070 02       		.uleb128 0x2
+ 298 0071 08       		.byte	0x8
+ 299 0072 05       		.byte	0x5
+ 300 0073 DF010000 		.4byte	.LASF9
+ 301 0077 02       		.uleb128 0x2
+ 302 0078 08       		.byte	0x8
+ 303 0079 07       		.byte	0x7
+ 304 007a 6B010000 		.4byte	.LASF10
+ 305 007e 04       		.uleb128 0x4
+ 306 007f 04       		.byte	0x4
+ 307 0080 05       		.byte	0x5
+ 308 0081 696E7400 		.ascii	"int\000"
+ 309 0085 02       		.uleb128 0x2
+ 310 0086 04       		.byte	0x4
+ 311 0087 07       		.byte	0x7
+ 312 0088 4C010000 		.4byte	.LASF11
+ 313 008c 03       		.uleb128 0x3
+ 314 008d D7010000 		.4byte	.LASF12
+ 315 0091 03       		.byte	0x3
+ 316 0092 18       		.byte	0x18
+ 317 0093 2C000000 		.4byte	0x2c
+ 318 0097 03       		.uleb128 0x3
+ 319 0098 8A000000 		.4byte	.LASF13
+ 320 009c 03       		.byte	0x3
+ 321 009d 2C       		.byte	0x2c
+ 322 009e 4C000000 		.4byte	0x4c
+ 323 00a2 03       		.uleb128 0x3
+ 324 00a3 6C020000 		.4byte	.LASF14
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 9
+
+
+ 325 00a7 03       		.byte	0x3
+ 326 00a8 30       		.byte	0x30
+ 327 00a9 5E000000 		.4byte	0x5e
+ 328 00ad 05       		.uleb128 0x5
+ 329 00ae 01       		.byte	0x1
+ 330 00af 37000000 		.4byte	0x37
+ 331 00b3 04       		.byte	0x4
+ 332 00b4 2A       		.byte	0x2a
+ 333 00b5 C6000000 		.4byte	0xc6
+ 334 00b9 06       		.uleb128 0x6
+ 335 00ba 36030000 		.4byte	.LASF15
+ 336 00be 00       		.byte	0
+ 337 00bf 06       		.uleb128 0x6
+ 338 00c0 00000000 		.4byte	.LASF16
+ 339 00c4 01       		.byte	0x1
+ 340 00c5 00       		.byte	0
+ 341 00c6 03       		.uleb128 0x3
+ 342 00c7 9C010000 		.4byte	.LASF17
+ 343 00cb 04       		.byte	0x4
+ 344 00cc 2F       		.byte	0x2f
+ 345 00cd 8C000000 		.4byte	0x8c
+ 346 00d1 03       		.uleb128 0x3
+ 347 00d2 5F000000 		.4byte	.LASF18
+ 348 00d6 05       		.byte	0x5
+ 349 00d7 1E       		.byte	0x1e
+ 350 00d8 DC000000 		.4byte	0xdc
+ 351 00dc 07       		.uleb128 0x7
+ 352 00dd 04       		.byte	0x4
+ 353 00de E2000000 		.4byte	0xe2
+ 354 00e2 08       		.uleb128 0x8
+ 355 00e3 ED000000 		.4byte	0xed
+ 356 00e7 09       		.uleb128 0x9
+ 357 00e8 ED000000 		.4byte	0xed
+ 358 00ec 00       		.byte	0
+ 359 00ed 0A       		.uleb128 0xa
+ 360 00ee 04       		.byte	0x4
+ 361 00ef 02       		.uleb128 0x2
+ 362 00f0 08       		.byte	0x8
+ 363 00f1 04       		.byte	0x4
+ 364 00f2 8C020000 		.4byte	.LASF19
+ 365 00f6 02       		.uleb128 0x2
+ 366 00f7 04       		.byte	0x4
+ 367 00f8 07       		.byte	0x7
+ 368 00f9 CE010000 		.4byte	.LASF20
+ 369 00fd 02       		.uleb128 0x2
+ 370 00fe 01       		.byte	0x1
+ 371 00ff 08       		.byte	0x8
+ 372 0100 ED010000 		.4byte	.LASF21
+ 373 0104 03       		.uleb128 0x3
+ 374 0105 7E020000 		.4byte	.LASF22
+ 375 0109 06       		.byte	0x6
+ 376 010a 27       		.byte	0x27
+ 377 010b 0F010000 		.4byte	0x10f
+ 378 010f 07       		.uleb128 0x7
+ 379 0110 04       		.byte	0x4
+ 380 0111 15010000 		.4byte	0x115
+ 381 0115 08       		.uleb128 0x8
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 10
+
+
+ 382 0116 20010000 		.4byte	0x120
+ 383 011a 09       		.uleb128 0x9
+ 384 011b 20010000 		.4byte	0x120
+ 385 011f 00       		.byte	0
+ 386 0120 07       		.uleb128 0x7
+ 387 0121 04       		.byte	0x4
+ 388 0122 26010000 		.4byte	0x126
+ 389 0126 0B       		.uleb128 0xb
+ 390 0127 A5010000 		.4byte	.LASF29
+ 391 012b 18       		.byte	0x18
+ 392 012c 06       		.byte	0x6
+ 393 012d 2C       		.byte	0x2c
+ 394 012e 7E010000 		.4byte	0x17e
+ 395 0132 0C       		.uleb128 0xc
+ 396 0133 38000000 		.4byte	.LASF23
+ 397 0137 06       		.byte	0x6
+ 398 0138 2D       		.byte	0x2d
+ 399 0139 A2000000 		.4byte	0xa2
+ 400 013d 00       		.byte	0
+ 401 013e 0C       		.uleb128 0xc
+ 402 013f 43010000 		.4byte	.LASF24
+ 403 0143 06       		.byte	0x6
+ 404 0144 2E       		.byte	0x2e
+ 405 0145 A2000000 		.4byte	0xa2
+ 406 0149 04       		.byte	0x4
+ 407 014a 0C       		.uleb128 0xc
+ 408 014b 25000000 		.4byte	.LASF25
+ 409 014f 06       		.byte	0x6
+ 410 0150 2F       		.byte	0x2f
+ 411 0151 04010000 		.4byte	0x104
+ 412 0155 08       		.byte	0x8
+ 413 0156 0C       		.uleb128 0xc
+ 414 0157 D9000000 		.4byte	.LASF26
+ 415 015b 06       		.byte	0x6
+ 416 015c 30       		.byte	0x30
+ 417 015d ED000000 		.4byte	0xed
+ 418 0161 0C       		.byte	0xc
+ 419 0162 0C       		.uleb128 0xc
+ 420 0163 F1000000 		.4byte	.LASF27
+ 421 0167 06       		.byte	0x6
+ 422 0168 31       		.byte	0x31
+ 423 0169 97000000 		.4byte	0x97
+ 424 016d 10       		.byte	0x10
+ 425 016e 0D       		.uleb128 0xd
+ 426 016f 41030000 		.4byte	.LASF47
+ 427 0173 06       		.byte	0x6
+ 428 0174 32       		.byte	0x32
+ 429 0175 A2000000 		.4byte	0xa2
+ 430 0179 04       		.byte	0x4
+ 431 017a 01       		.byte	0x1
+ 432 017b 1F       		.byte	0x1f
+ 433 017c 14       		.byte	0x14
+ 434 017d 00       		.byte	0
+ 435 017e 03       		.uleb128 0x3
+ 436 017f 7F000000 		.4byte	.LASF28
+ 437 0183 06       		.byte	0x6
+ 438 0184 33       		.byte	0x33
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 11
+
+
+ 439 0185 26010000 		.4byte	0x126
+ 440 0189 0B       		.uleb128 0xb
+ 441 018a 14000000 		.4byte	.LASF30
+ 442 018e 08       		.byte	0x8
+ 443 018f 01       		.byte	0x1
+ 444 0190 16       		.byte	0x16
+ 445 0191 AD010000 		.4byte	0x1ad
+ 446 0195 0E       		.uleb128 0xe
+ 447 0196 636200   		.ascii	"cb\000"
+ 448 0199 01       		.byte	0x1
+ 449 019a 17       		.byte	0x17
+ 450 019b D1000000 		.4byte	0xd1
+ 451 019f 00       		.byte	0
+ 452 01a0 0C       		.uleb128 0xc
+ 453 01a1 D9000000 		.4byte	.LASF26
+ 454 01a5 01       		.byte	0x1
+ 455 01a6 18       		.byte	0x18
+ 456 01a7 ED000000 		.4byte	0xed
+ 457 01ab 04       		.byte	0x4
+ 458 01ac 00       		.byte	0
+ 459 01ad 03       		.uleb128 0x3
+ 460 01ae 4F020000 		.4byte	.LASF31
+ 461 01b2 01       		.byte	0x1
+ 462 01b3 19       		.byte	0x19
+ 463 01b4 89010000 		.4byte	0x189
+ 464 01b8 0F       		.uleb128 0xf
+ 465 01b9 6D000000 		.4byte	.LASF48
+ 466 01bd 01       		.byte	0x1
+ 467 01be 63       		.byte	0x63
+ 468 01bf 00000000 		.4byte	.LFB4
+ 469 01c3 12000000 		.4byte	.LFE4-.LFB4
+ 470 01c7 01       		.uleb128 0x1
+ 471 01c8 9C       		.byte	0x9c
+ 472 01c9 FC010000 		.4byte	0x1fc
+ 473 01cd 10       		.uleb128 0x10
+ 474 01ce FE000000 		.4byte	.LASF32
+ 475 01d2 01       		.byte	0x1
+ 476 01d3 63       		.byte	0x63
+ 477 01d4 FC010000 		.4byte	0x1fc
+ 478 01d8 00000000 		.4byte	.LLST0
+ 479 01dc 11       		.uleb128 0x11
+ 480 01dd 33010000 		.4byte	.LASF34
+ 481 01e1 01       		.byte	0x1
+ 482 01e2 65       		.byte	0x65
+ 483 01e3 02020000 		.4byte	0x202
+ 484 01e7 21000000 		.4byte	.LLST1
+ 485 01eb 12       		.uleb128 0x12
+ 486 01ec 10000000 		.4byte	.LVL4
+ 487 01f0 89030000 		.4byte	0x389
+ 488 01f4 13       		.uleb128 0x13
+ 489 01f5 01       		.uleb128 0x1
+ 490 01f6 50       		.byte	0x50
+ 491 01f7 02       		.uleb128 0x2
+ 492 01f8 74       		.byte	0x74
+ 493 01f9 00       		.sleb128 0
+ 494 01fa 00       		.byte	0
+ 495 01fb 00       		.byte	0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 12
+
+
+ 496 01fc 07       		.uleb128 0x7
+ 497 01fd 04       		.byte	0x4
+ 498 01fe 7E010000 		.4byte	0x17e
+ 499 0202 07       		.uleb128 0x7
+ 500 0203 04       		.byte	0x4
+ 501 0204 AD010000 		.4byte	0x1ad
+ 502 0208 14       		.uleb128 0x14
+ 503 0209 8E010000 		.4byte	.LASF35
+ 504 020d 01       		.byte	0x1
+ 505 020e 2D       		.byte	0x2d
+ 506 020f C6000000 		.4byte	0xc6
+ 507 0213 00000000 		.4byte	.LFB2
+ 508 0217 40000000 		.4byte	.LFE2-.LFB2
+ 509 021b 01       		.uleb128 0x1
+ 510 021c 9C       		.byte	0x9c
+ 511 021d B6020000 		.4byte	0x2b6
+ 512 0221 10       		.uleb128 0x10
+ 513 0222 29010000 		.4byte	.LASF33
+ 514 0226 01       		.byte	0x1
+ 515 0227 2D       		.byte	0x2d
+ 516 0228 D1000000 		.4byte	0xd1
+ 517 022c 34000000 		.4byte	.LLST2
+ 518 0230 10       		.uleb128 0x10
+ 519 0231 D9000000 		.4byte	.LASF26
+ 520 0235 01       		.byte	0x1
+ 521 0236 2D       		.byte	0x2d
+ 522 0237 ED000000 		.4byte	0xed
+ 523 023b 60000000 		.4byte	.LLST3
+ 524 023f 11       		.uleb128 0x11
+ 525 0240 33010000 		.4byte	.LASF34
+ 526 0244 01       		.byte	0x1
+ 527 0245 30       		.byte	0x30
+ 528 0246 02020000 		.4byte	0x202
+ 529 024a 8C000000 		.4byte	.LLST4
+ 530 024e 11       		.uleb128 0x11
+ 531 024f FE000000 		.4byte	.LASF32
+ 532 0253 01       		.byte	0x1
+ 533 0254 36       		.byte	0x36
+ 534 0255 FC010000 		.4byte	0x1fc
+ 535 0259 CB000000 		.4byte	.LLST5
+ 536 025d 15       		.uleb128 0x15
+ 537 025e 0C000000 		.4byte	.LVL8
+ 538 0262 94030000 		.4byte	0x394
+ 539 0266 70020000 		.4byte	0x270
+ 540 026a 13       		.uleb128 0x13
+ 541 026b 01       		.uleb128 0x1
+ 542 026c 50       		.byte	0x50
+ 543 026d 01       		.uleb128 0x1
+ 544 026e 38       		.byte	0x38
+ 545 026f 00       		.byte	0
+ 546 0270 15       		.uleb128 0x15
+ 547 0271 1A000000 		.4byte	.LVL11
+ 548 0275 9F030000 		.4byte	0x39f
+ 549 0279 92020000 		.4byte	0x292
+ 550 027d 13       		.uleb128 0x13
+ 551 027e 01       		.uleb128 0x1
+ 552 027f 50       		.byte	0x50
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 13
+
+
+ 553 0280 05       		.uleb128 0x5
+ 554 0281 03       		.byte	0x3
+ 555 0282 00000000 		.4byte	lv_async_timer_cb
+ 556 0286 13       		.uleb128 0x13
+ 557 0287 01       		.uleb128 0x1
+ 558 0288 51       		.byte	0x51
+ 559 0289 01       		.uleb128 0x1
+ 560 028a 30       		.byte	0x30
+ 561 028b 13       		.uleb128 0x13
+ 562 028c 01       		.uleb128 0x1
+ 563 028d 52       		.byte	0x52
+ 564 028e 02       		.uleb128 0x2
+ 565 028f 74       		.byte	0x74
+ 566 0290 00       		.sleb128 0
+ 567 0291 00       		.byte	0
+ 568 0292 15       		.uleb128 0x15
+ 569 0293 24000000 		.4byte	.LVL13
+ 570 0297 89030000 		.4byte	0x389
+ 571 029b A6020000 		.4byte	0x2a6
+ 572 029f 13       		.uleb128 0x13
+ 573 02a0 01       		.uleb128 0x1
+ 574 02a1 50       		.byte	0x50
+ 575 02a2 02       		.uleb128 0x2
+ 576 02a3 74       		.byte	0x74
+ 577 02a4 00       		.sleb128 0
+ 578 02a5 00       		.byte	0
+ 579 02a6 12       		.uleb128 0x12
+ 580 02a7 32000000 		.4byte	.LVL15
+ 581 02ab AA030000 		.4byte	0x3aa
+ 582 02af 13       		.uleb128 0x13
+ 583 02b0 01       		.uleb128 0x1
+ 584 02b1 51       		.byte	0x51
+ 585 02b2 01       		.uleb128 0x1
+ 586 02b3 31       		.byte	0x31
+ 587 02b4 00       		.byte	0
+ 588 02b5 00       		.byte	0
+ 589 02b6 14       		.uleb128 0x14
+ 590 02b7 3F000000 		.4byte	.LASF36
+ 591 02bb 01       		.byte	0x1
+ 592 02bc 44       		.byte	0x44
+ 593 02bd C6000000 		.4byte	0xc6
+ 594 02c1 00000000 		.4byte	.LFB3
+ 595 02c5 58000000 		.4byte	.LFE3-.LFB3
+ 596 02c9 01       		.uleb128 0x1
+ 597 02ca 9C       		.byte	0x9c
+ 598 02cb 89030000 		.4byte	0x389
+ 599 02cf 10       		.uleb128 0x10
+ 600 02d0 29010000 		.4byte	.LASF33
+ 601 02d4 01       		.byte	0x1
+ 602 02d5 44       		.byte	0x44
+ 603 02d6 D1000000 		.4byte	0xd1
+ 604 02da E9000000 		.4byte	.LLST6
+ 605 02de 10       		.uleb128 0x10
+ 606 02df D9000000 		.4byte	.LASF26
+ 607 02e3 01       		.byte	0x1
+ 608 02e4 44       		.byte	0x44
+ 609 02e5 ED000000 		.4byte	0xed
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 14
+
+
+ 610 02e9 15010000 		.4byte	.LLST7
+ 611 02ed 11       		.uleb128 0x11
+ 612 02ee FE000000 		.4byte	.LASF32
+ 613 02f2 01       		.byte	0x1
+ 614 02f3 46       		.byte	0x46
+ 615 02f4 FC010000 		.4byte	0x1fc
+ 616 02f8 34010000 		.4byte	.LLST8
+ 617 02fc 16       		.uleb128 0x16
+ 618 02fd 72657300 		.ascii	"res\000"
+ 619 0301 01       		.byte	0x1
+ 620 0302 47       		.byte	0x47
+ 621 0303 C6000000 		.4byte	0xc6
+ 622 0307 52010000 		.4byte	.LLST9
+ 623 030b 17       		.uleb128 0x17
+ 624 030c 16000000 		.4byte	.LBB2
+ 625 0310 32000000 		.4byte	.LBE2-.LBB2
+ 626 0314 79030000 		.4byte	0x379
+ 627 0318 11       		.uleb128 0x11
+ 628 0319 54000000 		.4byte	.LASF37
+ 629 031d 01       		.byte	0x1
+ 630 031e 4B       		.byte	0x4b
+ 631 031f FC010000 		.4byte	0x1fc
+ 632 0323 96010000 		.4byte	.LLST10
+ 633 0327 17       		.uleb128 0x17
+ 634 0328 26000000 		.4byte	.LBB3
+ 635 032c 22000000 		.4byte	.LBE3-.LBB3
+ 636 0330 68030000 		.4byte	0x368
+ 637 0334 11       		.uleb128 0x11
+ 638 0335 33010000 		.4byte	.LASF34
+ 639 0339 01       		.byte	0x1
+ 640 033a 4F       		.byte	0x4f
+ 641 033b 02020000 		.4byte	0x202
+ 642 033f B4010000 		.4byte	.LLST11
+ 643 0343 15       		.uleb128 0x15
+ 644 0344 3C000000 		.4byte	.LVL30
+ 645 0348 B5030000 		.4byte	0x3b5
+ 646 034c 57030000 		.4byte	0x357
+ 647 0350 13       		.uleb128 0x13
+ 648 0351 01       		.uleb128 0x1
+ 649 0352 50       		.byte	0x50
+ 650 0353 02       		.uleb128 0x2
+ 651 0354 74       		.byte	0x74
+ 652 0355 00       		.sleb128 0
+ 653 0356 00       		.byte	0
+ 654 0357 12       		.uleb128 0x12
+ 655 0358 42000000 		.4byte	.LVL31
+ 656 035c 89030000 		.4byte	0x389
+ 657 0360 13       		.uleb128 0x13
+ 658 0361 01       		.uleb128 0x1
+ 659 0362 50       		.byte	0x50
+ 660 0363 02       		.uleb128 0x2
+ 661 0364 76       		.byte	0x76
+ 662 0365 00       		.sleb128 0
+ 663 0366 00       		.byte	0
+ 664 0367 00       		.byte	0
+ 665 0368 12       		.uleb128 0x12
+ 666 0369 1C000000 		.4byte	.LVL26
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 15
+
+
+ 667 036d C0030000 		.4byte	0x3c0
+ 668 0371 13       		.uleb128 0x13
+ 669 0372 01       		.uleb128 0x1
+ 670 0373 50       		.byte	0x50
+ 671 0374 02       		.uleb128 0x2
+ 672 0375 74       		.byte	0x74
+ 673 0376 00       		.sleb128 0
+ 674 0377 00       		.byte	0
+ 675 0378 00       		.byte	0
+ 676 0379 12       		.uleb128 0x12
+ 677 037a 0E000000 		.4byte	.LVL23
+ 678 037e C0030000 		.4byte	0x3c0
+ 679 0382 13       		.uleb128 0x13
+ 680 0383 01       		.uleb128 0x1
+ 681 0384 50       		.byte	0x50
+ 682 0385 01       		.uleb128 0x1
+ 683 0386 30       		.byte	0x30
+ 684 0387 00       		.byte	0
+ 685 0388 00       		.byte	0
+ 686 0389 18       		.uleb128 0x18
+ 687 038a 82010000 		.4byte	.LASF38
+ 688 038e 82010000 		.4byte	.LASF38
+ 689 0392 07       		.byte	0x7
+ 690 0393 50       		.byte	0x50
+ 691 0394 18       		.uleb128 0x18
+ 692 0395 C1010000 		.4byte	.LASF39
+ 693 0399 C1010000 		.4byte	.LASF39
+ 694 039d 07       		.byte	0x7
+ 695 039e 4A       		.byte	0x4a
+ 696 039f 18       		.uleb128 0x18
+ 697 03a0 B1010000 		.4byte	.LASF40
+ 698 03a4 B1010000 		.4byte	.LASF40
+ 699 03a8 06       		.byte	0x6
+ 700 03a9 6A       		.byte	0x6a
+ 701 03aa 18       		.uleb128 0x18
+ 702 03ab 2B020000 		.4byte	.LASF41
+ 703 03af 2B020000 		.4byte	.LASF41
+ 704 03b3 06       		.byte	0x6
+ 705 03b4 93       		.byte	0x93
+ 706 03b5 18       		.uleb128 0x18
+ 707 03b6 5F020000 		.4byte	.LASF42
+ 708 03ba 5F020000 		.4byte	.LASF42
+ 709 03be 06       		.byte	0x6
+ 710 03bf 70       		.byte	0x70
+ 711 03c0 18       		.uleb128 0x18
+ 712 03c1 59010000 		.4byte	.LASF43
+ 713 03c5 59010000 		.4byte	.LASF43
+ 714 03c9 06       		.byte	0x6
+ 715 03ca AD       		.byte	0xad
+ 716 03cb 00       		.byte	0
+ 717              		.section	.debug_abbrev,"",%progbits
+ 718              	.Ldebug_abbrev0:
+ 719 0000 01       		.uleb128 0x1
+ 720 0001 11       		.uleb128 0x11
+ 721 0002 01       		.byte	0x1
+ 722 0003 25       		.uleb128 0x25
+ 723 0004 0E       		.uleb128 0xe
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 16
+
+
+ 724 0005 13       		.uleb128 0x13
+ 725 0006 0B       		.uleb128 0xb
+ 726 0007 03       		.uleb128 0x3
+ 727 0008 0E       		.uleb128 0xe
+ 728 0009 1B       		.uleb128 0x1b
+ 729 000a 0E       		.uleb128 0xe
+ 730 000b 55       		.uleb128 0x55
+ 731 000c 17       		.uleb128 0x17
+ 732 000d 11       		.uleb128 0x11
+ 733 000e 01       		.uleb128 0x1
+ 734 000f 10       		.uleb128 0x10
+ 735 0010 17       		.uleb128 0x17
+ 736 0011 00       		.byte	0
+ 737 0012 00       		.byte	0
+ 738 0013 02       		.uleb128 0x2
+ 739 0014 24       		.uleb128 0x24
+ 740 0015 00       		.byte	0
+ 741 0016 0B       		.uleb128 0xb
+ 742 0017 0B       		.uleb128 0xb
+ 743 0018 3E       		.uleb128 0x3e
+ 744 0019 0B       		.uleb128 0xb
+ 745 001a 03       		.uleb128 0x3
+ 746 001b 0E       		.uleb128 0xe
+ 747 001c 00       		.byte	0
+ 748 001d 00       		.byte	0
+ 749 001e 03       		.uleb128 0x3
+ 750 001f 16       		.uleb128 0x16
+ 751 0020 00       		.byte	0
+ 752 0021 03       		.uleb128 0x3
+ 753 0022 0E       		.uleb128 0xe
+ 754 0023 3A       		.uleb128 0x3a
+ 755 0024 0B       		.uleb128 0xb
+ 756 0025 3B       		.uleb128 0x3b
+ 757 0026 0B       		.uleb128 0xb
+ 758 0027 49       		.uleb128 0x49
+ 759 0028 13       		.uleb128 0x13
+ 760 0029 00       		.byte	0
+ 761 002a 00       		.byte	0
+ 762 002b 04       		.uleb128 0x4
+ 763 002c 24       		.uleb128 0x24
+ 764 002d 00       		.byte	0
+ 765 002e 0B       		.uleb128 0xb
+ 766 002f 0B       		.uleb128 0xb
+ 767 0030 3E       		.uleb128 0x3e
+ 768 0031 0B       		.uleb128 0xb
+ 769 0032 03       		.uleb128 0x3
+ 770 0033 08       		.uleb128 0x8
+ 771 0034 00       		.byte	0
+ 772 0035 00       		.byte	0
+ 773 0036 05       		.uleb128 0x5
+ 774 0037 04       		.uleb128 0x4
+ 775 0038 01       		.byte	0x1
+ 776 0039 0B       		.uleb128 0xb
+ 777 003a 0B       		.uleb128 0xb
+ 778 003b 49       		.uleb128 0x49
+ 779 003c 13       		.uleb128 0x13
+ 780 003d 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 17
+
+
+ 781 003e 0B       		.uleb128 0xb
+ 782 003f 3B       		.uleb128 0x3b
+ 783 0040 0B       		.uleb128 0xb
+ 784 0041 01       		.uleb128 0x1
+ 785 0042 13       		.uleb128 0x13
+ 786 0043 00       		.byte	0
+ 787 0044 00       		.byte	0
+ 788 0045 06       		.uleb128 0x6
+ 789 0046 28       		.uleb128 0x28
+ 790 0047 00       		.byte	0
+ 791 0048 03       		.uleb128 0x3
+ 792 0049 0E       		.uleb128 0xe
+ 793 004a 1C       		.uleb128 0x1c
+ 794 004b 0B       		.uleb128 0xb
+ 795 004c 00       		.byte	0
+ 796 004d 00       		.byte	0
+ 797 004e 07       		.uleb128 0x7
+ 798 004f 0F       		.uleb128 0xf
+ 799 0050 00       		.byte	0
+ 800 0051 0B       		.uleb128 0xb
+ 801 0052 0B       		.uleb128 0xb
+ 802 0053 49       		.uleb128 0x49
+ 803 0054 13       		.uleb128 0x13
+ 804 0055 00       		.byte	0
+ 805 0056 00       		.byte	0
+ 806 0057 08       		.uleb128 0x8
+ 807 0058 15       		.uleb128 0x15
+ 808 0059 01       		.byte	0x1
+ 809 005a 27       		.uleb128 0x27
+ 810 005b 19       		.uleb128 0x19
+ 811 005c 01       		.uleb128 0x1
+ 812 005d 13       		.uleb128 0x13
+ 813 005e 00       		.byte	0
+ 814 005f 00       		.byte	0
+ 815 0060 09       		.uleb128 0x9
+ 816 0061 05       		.uleb128 0x5
+ 817 0062 00       		.byte	0
+ 818 0063 49       		.uleb128 0x49
+ 819 0064 13       		.uleb128 0x13
+ 820 0065 00       		.byte	0
+ 821 0066 00       		.byte	0
+ 822 0067 0A       		.uleb128 0xa
+ 823 0068 0F       		.uleb128 0xf
+ 824 0069 00       		.byte	0
+ 825 006a 0B       		.uleb128 0xb
+ 826 006b 0B       		.uleb128 0xb
+ 827 006c 00       		.byte	0
+ 828 006d 00       		.byte	0
+ 829 006e 0B       		.uleb128 0xb
+ 830 006f 13       		.uleb128 0x13
+ 831 0070 01       		.byte	0x1
+ 832 0071 03       		.uleb128 0x3
+ 833 0072 0E       		.uleb128 0xe
+ 834 0073 0B       		.uleb128 0xb
+ 835 0074 0B       		.uleb128 0xb
+ 836 0075 3A       		.uleb128 0x3a
+ 837 0076 0B       		.uleb128 0xb
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 18
+
+
+ 838 0077 3B       		.uleb128 0x3b
+ 839 0078 0B       		.uleb128 0xb
+ 840 0079 01       		.uleb128 0x1
+ 841 007a 13       		.uleb128 0x13
+ 842 007b 00       		.byte	0
+ 843 007c 00       		.byte	0
+ 844 007d 0C       		.uleb128 0xc
+ 845 007e 0D       		.uleb128 0xd
+ 846 007f 00       		.byte	0
+ 847 0080 03       		.uleb128 0x3
+ 848 0081 0E       		.uleb128 0xe
+ 849 0082 3A       		.uleb128 0x3a
+ 850 0083 0B       		.uleb128 0xb
+ 851 0084 3B       		.uleb128 0x3b
+ 852 0085 0B       		.uleb128 0xb
+ 853 0086 49       		.uleb128 0x49
+ 854 0087 13       		.uleb128 0x13
+ 855 0088 38       		.uleb128 0x38
+ 856 0089 0B       		.uleb128 0xb
+ 857 008a 00       		.byte	0
+ 858 008b 00       		.byte	0
+ 859 008c 0D       		.uleb128 0xd
+ 860 008d 0D       		.uleb128 0xd
+ 861 008e 00       		.byte	0
+ 862 008f 03       		.uleb128 0x3
+ 863 0090 0E       		.uleb128 0xe
+ 864 0091 3A       		.uleb128 0x3a
+ 865 0092 0B       		.uleb128 0xb
+ 866 0093 3B       		.uleb128 0x3b
+ 867 0094 0B       		.uleb128 0xb
+ 868 0095 49       		.uleb128 0x49
+ 869 0096 13       		.uleb128 0x13
+ 870 0097 0B       		.uleb128 0xb
+ 871 0098 0B       		.uleb128 0xb
+ 872 0099 0D       		.uleb128 0xd
+ 873 009a 0B       		.uleb128 0xb
+ 874 009b 0C       		.uleb128 0xc
+ 875 009c 0B       		.uleb128 0xb
+ 876 009d 38       		.uleb128 0x38
+ 877 009e 0B       		.uleb128 0xb
+ 878 009f 00       		.byte	0
+ 879 00a0 00       		.byte	0
+ 880 00a1 0E       		.uleb128 0xe
+ 881 00a2 0D       		.uleb128 0xd
+ 882 00a3 00       		.byte	0
+ 883 00a4 03       		.uleb128 0x3
+ 884 00a5 08       		.uleb128 0x8
+ 885 00a6 3A       		.uleb128 0x3a
+ 886 00a7 0B       		.uleb128 0xb
+ 887 00a8 3B       		.uleb128 0x3b
+ 888 00a9 0B       		.uleb128 0xb
+ 889 00aa 49       		.uleb128 0x49
+ 890 00ab 13       		.uleb128 0x13
+ 891 00ac 38       		.uleb128 0x38
+ 892 00ad 0B       		.uleb128 0xb
+ 893 00ae 00       		.byte	0
+ 894 00af 00       		.byte	0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 19
+
+
+ 895 00b0 0F       		.uleb128 0xf
+ 896 00b1 2E       		.uleb128 0x2e
+ 897 00b2 01       		.byte	0x1
+ 898 00b3 03       		.uleb128 0x3
+ 899 00b4 0E       		.uleb128 0xe
+ 900 00b5 3A       		.uleb128 0x3a
+ 901 00b6 0B       		.uleb128 0xb
+ 902 00b7 3B       		.uleb128 0x3b
+ 903 00b8 0B       		.uleb128 0xb
+ 904 00b9 27       		.uleb128 0x27
+ 905 00ba 19       		.uleb128 0x19
+ 906 00bb 11       		.uleb128 0x11
+ 907 00bc 01       		.uleb128 0x1
+ 908 00bd 12       		.uleb128 0x12
+ 909 00be 06       		.uleb128 0x6
+ 910 00bf 40       		.uleb128 0x40
+ 911 00c0 18       		.uleb128 0x18
+ 912 00c1 9642     		.uleb128 0x2116
+ 913 00c3 19       		.uleb128 0x19
+ 914 00c4 01       		.uleb128 0x1
+ 915 00c5 13       		.uleb128 0x13
+ 916 00c6 00       		.byte	0
+ 917 00c7 00       		.byte	0
+ 918 00c8 10       		.uleb128 0x10
+ 919 00c9 05       		.uleb128 0x5
+ 920 00ca 00       		.byte	0
+ 921 00cb 03       		.uleb128 0x3
+ 922 00cc 0E       		.uleb128 0xe
+ 923 00cd 3A       		.uleb128 0x3a
+ 924 00ce 0B       		.uleb128 0xb
+ 925 00cf 3B       		.uleb128 0x3b
+ 926 00d0 0B       		.uleb128 0xb
+ 927 00d1 49       		.uleb128 0x49
+ 928 00d2 13       		.uleb128 0x13
+ 929 00d3 02       		.uleb128 0x2
+ 930 00d4 17       		.uleb128 0x17
+ 931 00d5 00       		.byte	0
+ 932 00d6 00       		.byte	0
+ 933 00d7 11       		.uleb128 0x11
+ 934 00d8 34       		.uleb128 0x34
+ 935 00d9 00       		.byte	0
+ 936 00da 03       		.uleb128 0x3
+ 937 00db 0E       		.uleb128 0xe
+ 938 00dc 3A       		.uleb128 0x3a
+ 939 00dd 0B       		.uleb128 0xb
+ 940 00de 3B       		.uleb128 0x3b
+ 941 00df 0B       		.uleb128 0xb
+ 942 00e0 49       		.uleb128 0x49
+ 943 00e1 13       		.uleb128 0x13
+ 944 00e2 02       		.uleb128 0x2
+ 945 00e3 17       		.uleb128 0x17
+ 946 00e4 00       		.byte	0
+ 947 00e5 00       		.byte	0
+ 948 00e6 12       		.uleb128 0x12
+ 949 00e7 898201   		.uleb128 0x4109
+ 950 00ea 01       		.byte	0x1
+ 951 00eb 11       		.uleb128 0x11
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 20
+
+
+ 952 00ec 01       		.uleb128 0x1
+ 953 00ed 31       		.uleb128 0x31
+ 954 00ee 13       		.uleb128 0x13
+ 955 00ef 00       		.byte	0
+ 956 00f0 00       		.byte	0
+ 957 00f1 13       		.uleb128 0x13
+ 958 00f2 8A8201   		.uleb128 0x410a
+ 959 00f5 00       		.byte	0
+ 960 00f6 02       		.uleb128 0x2
+ 961 00f7 18       		.uleb128 0x18
+ 962 00f8 9142     		.uleb128 0x2111
+ 963 00fa 18       		.uleb128 0x18
+ 964 00fb 00       		.byte	0
+ 965 00fc 00       		.byte	0
+ 966 00fd 14       		.uleb128 0x14
+ 967 00fe 2E       		.uleb128 0x2e
+ 968 00ff 01       		.byte	0x1
+ 969 0100 3F       		.uleb128 0x3f
+ 970 0101 19       		.uleb128 0x19
+ 971 0102 03       		.uleb128 0x3
+ 972 0103 0E       		.uleb128 0xe
+ 973 0104 3A       		.uleb128 0x3a
+ 974 0105 0B       		.uleb128 0xb
+ 975 0106 3B       		.uleb128 0x3b
+ 976 0107 0B       		.uleb128 0xb
+ 977 0108 27       		.uleb128 0x27
+ 978 0109 19       		.uleb128 0x19
+ 979 010a 49       		.uleb128 0x49
+ 980 010b 13       		.uleb128 0x13
+ 981 010c 11       		.uleb128 0x11
+ 982 010d 01       		.uleb128 0x1
+ 983 010e 12       		.uleb128 0x12
+ 984 010f 06       		.uleb128 0x6
+ 985 0110 40       		.uleb128 0x40
+ 986 0111 18       		.uleb128 0x18
+ 987 0112 9742     		.uleb128 0x2117
+ 988 0114 19       		.uleb128 0x19
+ 989 0115 01       		.uleb128 0x1
+ 990 0116 13       		.uleb128 0x13
+ 991 0117 00       		.byte	0
+ 992 0118 00       		.byte	0
+ 993 0119 15       		.uleb128 0x15
+ 994 011a 898201   		.uleb128 0x4109
+ 995 011d 01       		.byte	0x1
+ 996 011e 11       		.uleb128 0x11
+ 997 011f 01       		.uleb128 0x1
+ 998 0120 31       		.uleb128 0x31
+ 999 0121 13       		.uleb128 0x13
+ 1000 0122 01       		.uleb128 0x1
+ 1001 0123 13       		.uleb128 0x13
+ 1002 0124 00       		.byte	0
+ 1003 0125 00       		.byte	0
+ 1004 0126 16       		.uleb128 0x16
+ 1005 0127 34       		.uleb128 0x34
+ 1006 0128 00       		.byte	0
+ 1007 0129 03       		.uleb128 0x3
+ 1008 012a 08       		.uleb128 0x8
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 21
+
+
+ 1009 012b 3A       		.uleb128 0x3a
+ 1010 012c 0B       		.uleb128 0xb
+ 1011 012d 3B       		.uleb128 0x3b
+ 1012 012e 0B       		.uleb128 0xb
+ 1013 012f 49       		.uleb128 0x49
+ 1014 0130 13       		.uleb128 0x13
+ 1015 0131 02       		.uleb128 0x2
+ 1016 0132 17       		.uleb128 0x17
+ 1017 0133 00       		.byte	0
+ 1018 0134 00       		.byte	0
+ 1019 0135 17       		.uleb128 0x17
+ 1020 0136 0B       		.uleb128 0xb
+ 1021 0137 01       		.byte	0x1
+ 1022 0138 11       		.uleb128 0x11
+ 1023 0139 01       		.uleb128 0x1
+ 1024 013a 12       		.uleb128 0x12
+ 1025 013b 06       		.uleb128 0x6
+ 1026 013c 01       		.uleb128 0x1
+ 1027 013d 13       		.uleb128 0x13
+ 1028 013e 00       		.byte	0
+ 1029 013f 00       		.byte	0
+ 1030 0140 18       		.uleb128 0x18
+ 1031 0141 2E       		.uleb128 0x2e
+ 1032 0142 00       		.byte	0
+ 1033 0143 3F       		.uleb128 0x3f
+ 1034 0144 19       		.uleb128 0x19
+ 1035 0145 3C       		.uleb128 0x3c
+ 1036 0146 19       		.uleb128 0x19
+ 1037 0147 6E       		.uleb128 0x6e
+ 1038 0148 0E       		.uleb128 0xe
+ 1039 0149 03       		.uleb128 0x3
+ 1040 014a 0E       		.uleb128 0xe
+ 1041 014b 3A       		.uleb128 0x3a
+ 1042 014c 0B       		.uleb128 0xb
+ 1043 014d 3B       		.uleb128 0x3b
+ 1044 014e 0B       		.uleb128 0xb
+ 1045 014f 00       		.byte	0
+ 1046 0150 00       		.byte	0
+ 1047 0151 00       		.byte	0
+ 1048              		.section	.debug_loc,"",%progbits
+ 1049              	.Ldebug_loc0:
+ 1050              	.LLST0:
+ 1051 0000 00000000 		.4byte	.LVL0
+ 1052 0004 06000000 		.4byte	.LVL2
+ 1053 0008 0100     		.2byte	0x1
+ 1054 000a 50       		.byte	0x50
+ 1055 000b 06000000 		.4byte	.LVL2
+ 1056 000f 12000000 		.4byte	.LFE4
+ 1057 0013 0400     		.2byte	0x4
+ 1058 0015 F3       		.byte	0xf3
+ 1059 0016 01       		.uleb128 0x1
+ 1060 0017 50       		.byte	0x50
+ 1061 0018 9F       		.byte	0x9f
+ 1062 0019 00000000 		.4byte	0
+ 1063 001d 00000000 		.4byte	0
+ 1064              	.LLST1:
+ 1065 0021 04000000 		.4byte	.LVL1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 22
+
+
+ 1066 0025 10000000 		.4byte	.LVL5
+ 1067 0029 0100     		.2byte	0x1
+ 1068 002b 54       		.byte	0x54
+ 1069 002c 00000000 		.4byte	0
+ 1070 0030 00000000 		.4byte	0
+ 1071              	.LLST2:
+ 1072 0034 00000000 		.4byte	.LVL6
+ 1073 0038 08000000 		.4byte	.LVL7
+ 1074 003c 0100     		.2byte	0x1
+ 1075 003e 50       		.byte	0x50
+ 1076 003f 08000000 		.4byte	.LVL7
+ 1077 0043 38000000 		.4byte	.LVL20
+ 1078 0047 0100     		.2byte	0x1
+ 1079 0049 56       		.byte	0x56
+ 1080 004a 38000000 		.4byte	.LVL20
+ 1081 004e 40000000 		.4byte	.LFE2
+ 1082 0052 0400     		.2byte	0x4
+ 1083 0054 F3       		.byte	0xf3
+ 1084 0055 01       		.uleb128 0x1
+ 1085 0056 50       		.byte	0x50
+ 1086 0057 9F       		.byte	0x9f
+ 1087 0058 00000000 		.4byte	0
+ 1088 005c 00000000 		.4byte	0
+ 1089              	.LLST3:
+ 1090 0060 00000000 		.4byte	.LVL6
+ 1091 0064 0B000000 		.4byte	.LVL8-1
+ 1092 0068 0100     		.2byte	0x1
+ 1093 006a 51       		.byte	0x51
+ 1094 006b 0B000000 		.4byte	.LVL8-1
+ 1095 006f 38000000 		.4byte	.LVL19
+ 1096 0073 0100     		.2byte	0x1
+ 1097 0075 55       		.byte	0x55
+ 1098 0076 38000000 		.4byte	.LVL19
+ 1099 007a 40000000 		.4byte	.LFE2
+ 1100 007e 0400     		.2byte	0x4
+ 1101 0080 F3       		.byte	0xf3
+ 1102 0081 01       		.uleb128 0x1
+ 1103 0082 51       		.byte	0x51
+ 1104 0083 9F       		.byte	0x9f
+ 1105 0084 00000000 		.4byte	0
+ 1106 0088 00000000 		.4byte	0
+ 1107              	.LLST4:
+ 1108 008c 0E000000 		.4byte	.LVL9
+ 1109 0090 16000000 		.4byte	.LVL10
+ 1110 0094 0100     		.2byte	0x1
+ 1111 0096 50       		.byte	0x50
+ 1112 0097 16000000 		.4byte	.LVL10
+ 1113 009b 19000000 		.4byte	.LVL11-1
+ 1114 009f 0100     		.2byte	0x1
+ 1115 00a1 52       		.byte	0x52
+ 1116 00a2 19000000 		.4byte	.LVL11-1
+ 1117 00a6 36000000 		.4byte	.LVL16
+ 1118 00aa 0100     		.2byte	0x1
+ 1119 00ac 54       		.byte	0x54
+ 1120 00ad 36000000 		.4byte	.LVL16
+ 1121 00b1 38000000 		.4byte	.LVL17
+ 1122 00b5 0100     		.2byte	0x1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 23
+
+
+ 1123 00b7 50       		.byte	0x50
+ 1124 00b8 38000000 		.4byte	.LVL17
+ 1125 00bc 38000000 		.4byte	.LVL18
+ 1126 00c0 0100     		.2byte	0x1
+ 1127 00c2 54       		.byte	0x54
+ 1128 00c3 00000000 		.4byte	0
+ 1129 00c7 00000000 		.4byte	0
+ 1130              	.LLST5:
+ 1131 00cb 1A000000 		.4byte	.LVL11
+ 1132 00cf 20000000 		.4byte	.LVL12
+ 1133 00d3 0100     		.2byte	0x1
+ 1134 00d5 50       		.byte	0x50
+ 1135 00d6 28000000 		.4byte	.LVL14
+ 1136 00da 31000000 		.4byte	.LVL15-1
+ 1137 00de 0100     		.2byte	0x1
+ 1138 00e0 50       		.byte	0x50
+ 1139 00e1 00000000 		.4byte	0
+ 1140 00e5 00000000 		.4byte	0
+ 1141              	.LLST6:
+ 1142 00e9 00000000 		.4byte	.LVL21
+ 1143 00ed 0A000000 		.4byte	.LVL22
+ 1144 00f1 0100     		.2byte	0x1
+ 1145 00f3 50       		.byte	0x50
+ 1146 00f4 0A000000 		.4byte	.LVL22
+ 1147 00f8 50000000 		.4byte	.LVL36
+ 1148 00fc 0100     		.2byte	0x1
+ 1149 00fe 57       		.byte	0x57
+ 1150 00ff 50000000 		.4byte	.LVL36
+ 1151 0103 58000000 		.4byte	.LFE3
+ 1152 0107 0400     		.2byte	0x4
+ 1153 0109 F3       		.byte	0xf3
+ 1154 010a 01       		.uleb128 0x1
+ 1155 010b 50       		.byte	0x50
+ 1156 010c 9F       		.byte	0x9f
+ 1157 010d 00000000 		.4byte	0
+ 1158 0111 00000000 		.4byte	0
+ 1159              	.LLST7:
+ 1160 0115 00000000 		.4byte	.LVL21
+ 1161 0119 0D000000 		.4byte	.LVL23-1
+ 1162 011d 0100     		.2byte	0x1
+ 1163 011f 51       		.byte	0x51
+ 1164 0120 0D000000 		.4byte	.LVL23-1
+ 1165 0124 58000000 		.4byte	.LFE3
+ 1166 0128 0200     		.2byte	0x2
+ 1167 012a 91       		.byte	0x91
+ 1168 012b 64       		.sleb128 -28
+ 1169 012c 00000000 		.4byte	0
+ 1170 0130 00000000 		.4byte	0
+ 1171              	.LLST8:
+ 1172 0134 10000000 		.4byte	.LVL24
+ 1173 0138 16000000 		.4byte	.LVL25
+ 1174 013c 0100     		.2byte	0x1
+ 1175 013e 50       		.byte	0x50
+ 1176 013f 16000000 		.4byte	.LVL25
+ 1177 0143 50000000 		.4byte	.LVL35
+ 1178 0147 0100     		.2byte	0x1
+ 1179 0149 54       		.byte	0x54
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 24
+
+
+ 1180 014a 00000000 		.4byte	0
+ 1181 014e 00000000 		.4byte	0
+ 1182              	.LLST9:
+ 1183 0152 10000000 		.4byte	.LVL24
+ 1184 0156 16000000 		.4byte	.LVL25
+ 1185 015a 0200     		.2byte	0x2
+ 1186 015c 30       		.byte	0x30
+ 1187 015d 9F       		.byte	0x9f
+ 1188 015e 16000000 		.4byte	.LVL25
+ 1189 0162 42000000 		.4byte	.LVL31
+ 1190 0166 0200     		.2byte	0x2
+ 1191 0168 7D       		.byte	0x7d
+ 1192 0169 00       		.sleb128 0
+ 1193 016a 42000000 		.4byte	.LVL31
+ 1194 016e 46000000 		.4byte	.LVL32
+ 1195 0172 0200     		.2byte	0x2
+ 1196 0174 31       		.byte	0x31
+ 1197 0175 9F       		.byte	0x9f
+ 1198 0176 48000000 		.4byte	.LVL33
+ 1199 017a 50000000 		.4byte	.LVL34
+ 1200 017e 0200     		.2byte	0x2
+ 1201 0180 7D       		.byte	0x7d
+ 1202 0181 00       		.sleb128 0
+ 1203 0182 50000000 		.4byte	.LVL34
+ 1204 0186 58000000 		.4byte	.LFE3
+ 1205 018a 0200     		.2byte	0x2
+ 1206 018c 91       		.byte	0x91
+ 1207 018d 60       		.sleb128 -32
+ 1208 018e 00000000 		.4byte	0
+ 1209 0192 00000000 		.4byte	0
+ 1210              	.LLST10:
+ 1211 0196 1E000000 		.4byte	.LVL27
+ 1212 019a 38000000 		.4byte	.LVL29
+ 1213 019e 0100     		.2byte	0x1
+ 1214 01a0 50       		.byte	0x50
+ 1215 01a1 38000000 		.4byte	.LVL29
+ 1216 01a5 48000000 		.4byte	.LVL33
+ 1217 01a9 0100     		.2byte	0x1
+ 1218 01ab 55       		.byte	0x55
+ 1219 01ac 00000000 		.4byte	0
+ 1220 01b0 00000000 		.4byte	0
+ 1221              	.LLST11:
+ 1222 01b4 28000000 		.4byte	.LVL28
+ 1223 01b8 46000000 		.4byte	.LVL32
+ 1224 01bc 0100     		.2byte	0x1
+ 1225 01be 56       		.byte	0x56
+ 1226 01bf 00000000 		.4byte	0
+ 1227 01c3 00000000 		.4byte	0
+ 1228              		.section	.debug_aranges,"",%progbits
+ 1229 0000 2C000000 		.4byte	0x2c
+ 1230 0004 0200     		.2byte	0x2
+ 1231 0006 00000000 		.4byte	.Ldebug_info0
+ 1232 000a 04       		.byte	0x4
+ 1233 000b 00       		.byte	0
+ 1234 000c 0000     		.2byte	0
+ 1235 000e 0000     		.2byte	0
+ 1236 0010 00000000 		.4byte	.LFB4
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 25
+
+
+ 1237 0014 12000000 		.4byte	.LFE4-.LFB4
+ 1238 0018 00000000 		.4byte	.LFB2
+ 1239 001c 40000000 		.4byte	.LFE2-.LFB2
+ 1240 0020 00000000 		.4byte	.LFB3
+ 1241 0024 58000000 		.4byte	.LFE3-.LFB3
+ 1242 0028 00000000 		.4byte	0
+ 1243 002c 00000000 		.4byte	0
+ 1244              		.section	.debug_ranges,"",%progbits
+ 1245              	.Ldebug_ranges0:
+ 1246 0000 00000000 		.4byte	.LFB4
+ 1247 0004 12000000 		.4byte	.LFE4
+ 1248 0008 00000000 		.4byte	.LFB2
+ 1249 000c 40000000 		.4byte	.LFE2
+ 1250 0010 00000000 		.4byte	.LFB3
+ 1251 0014 58000000 		.4byte	.LFE3
+ 1252 0018 00000000 		.4byte	0
+ 1253 001c 00000000 		.4byte	0
+ 1254              		.section	.debug_line,"",%progbits
+ 1255              	.Ldebug_line0:
+ 1256 0000 F0010000 		.section	.debug_str,"MS",%progbits,1
+ 1256      02009001 
+ 1256      00000201 
+ 1256      FB0E0D00 
+ 1256      01010101 
+ 1257              	.LASF16:
+ 1258 0000 4C565F52 		.ascii	"LV_RES_OK\000"
+ 1258      45535F4F 
+ 1258      4B00
+ 1259              	.LASF4:
+ 1260 000a 5F5F7569 		.ascii	"__uint8_t\000"
+ 1260      6E74385F 
+ 1260      7400
+ 1261              	.LASF30:
+ 1262 0014 5F6C765F 		.ascii	"_lv_async_info_t\000"
+ 1262      6173796E 
+ 1262      635F696E 
+ 1262      666F5F74 
+ 1262      00
+ 1263              	.LASF25:
+ 1264 0025 74696D65 		.ascii	"timer_cb\000"
+ 1264      725F6362 
+ 1264      00
+ 1265              	.LASF5:
+ 1266 002e 5F5F696E 		.ascii	"__int32_t\000"
+ 1266      7433325F 
+ 1266      7400
+ 1267              	.LASF23:
+ 1268 0038 70657269 		.ascii	"period\000"
+ 1268      6F6400
+ 1269              	.LASF36:
+ 1270 003f 6C765F61 		.ascii	"lv_async_call_cancel\000"
+ 1270      73796E63 
+ 1270      5F63616C 
+ 1270      6C5F6361 
+ 1270      6E63656C 
+ 1271              	.LASF37:
+ 1272 0054 74696D65 		.ascii	"timer_next\000"
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 26
+
+
+ 1272      725F6E65 
+ 1272      787400
+ 1273              	.LASF18:
+ 1274 005f 6C765F61 		.ascii	"lv_async_cb_t\000"
+ 1274      73796E63 
+ 1274      5F63625F 
+ 1274      7400
+ 1275              	.LASF48:
+ 1276 006d 6C765F61 		.ascii	"lv_async_timer_cb\000"
+ 1276      73796E63 
+ 1276      5F74696D 
+ 1276      65725F63 
+ 1276      6200
+ 1277              	.LASF28:
+ 1278 007f 6C765F74 		.ascii	"lv_timer_t\000"
+ 1278      696D6572 
+ 1278      5F7400
+ 1279              	.LASF13:
+ 1280 008a 696E7433 		.ascii	"int32_t\000"
+ 1280      325F7400 
+ 1281              	.LASF45:
+ 1282 0092 2E2E5C2E 		.ascii	"..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries"
+ 1282      2E5C2E2E 
+ 1282      5C617264 
+ 1282      75696E6F 
+ 1282      4C43445C 
+ 1283 00bf 5C6C7667 		.ascii	"\\lvgl\\src\\misc\\lv_async.c\000"
+ 1283      6C5C7372 
+ 1283      635C6D69 
+ 1283      73635C6C 
+ 1283      765F6173 
+ 1284              	.LASF26:
+ 1285 00d9 75736572 		.ascii	"user_data\000"
+ 1285      5F646174 
+ 1285      6100
+ 1286              	.LASF1:
+ 1287 00e3 756E7369 		.ascii	"unsigned char\000"
+ 1287      676E6564 
+ 1287      20636861 
+ 1287      7200
+ 1288              	.LASF27:
+ 1289 00f1 72657065 		.ascii	"repeat_count\000"
+ 1289      61745F63 
+ 1289      6F756E74 
+ 1289      00
+ 1290              	.LASF32:
+ 1291 00fe 74696D65 		.ascii	"timer\000"
+ 1291      7200
+ 1292              	.LASF8:
+ 1293 0104 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1293      20756E73 
+ 1293      69676E65 
+ 1293      6420696E 
+ 1293      7400
+ 1294              	.LASF3:
+ 1295 0116 73686F72 		.ascii	"short unsigned int\000"
+ 1295      7420756E 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 27
+
+
+ 1295      7369676E 
+ 1295      65642069 
+ 1295      6E7400
+ 1296              	.LASF33:
+ 1297 0129 6173796E 		.ascii	"async_xcb\000"
+ 1297      635F7863 
+ 1297      6200
+ 1298              	.LASF34:
+ 1299 0133 696E666F 		.ascii	"info\000"
+ 1299      00
+ 1300              	.LASF7:
+ 1301 0138 5F5F7569 		.ascii	"__uint32_t\000"
+ 1301      6E743332 
+ 1301      5F7400
+ 1302              	.LASF24:
+ 1303 0143 6C617374 		.ascii	"last_run\000"
+ 1303      5F72756E 
+ 1303      00
+ 1304              	.LASF11:
+ 1305 014c 756E7369 		.ascii	"unsigned int\000"
+ 1305      676E6564 
+ 1305      20696E74 
+ 1305      00
+ 1306              	.LASF43:
+ 1307 0159 6C765F74 		.ascii	"lv_timer_get_next\000"
+ 1307      696D6572 
+ 1307      5F676574 
+ 1307      5F6E6578 
+ 1307      7400
+ 1308              	.LASF10:
+ 1309 016b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1309      206C6F6E 
+ 1309      6720756E 
+ 1309      7369676E 
+ 1309      65642069 
+ 1310              	.LASF38:
+ 1311 0182 6C765F6D 		.ascii	"lv_mem_free\000"
+ 1311      656D5F66 
+ 1311      72656500 
+ 1312              	.LASF35:
+ 1313 018e 6C765F61 		.ascii	"lv_async_call\000"
+ 1313      73796E63 
+ 1313      5F63616C 
+ 1313      6C00
+ 1314              	.LASF17:
+ 1315 019c 6C765F72 		.ascii	"lv_res_t\000"
+ 1315      65735F74 
+ 1315      00
+ 1316              	.LASF29:
+ 1317 01a5 5F6C765F 		.ascii	"_lv_timer_t\000"
+ 1317      74696D65 
+ 1317      725F7400 
+ 1318              	.LASF40:
+ 1319 01b1 6C765F74 		.ascii	"lv_timer_create\000"
+ 1319      696D6572 
+ 1319      5F637265 
+ 1319      61746500 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 28
+
+
+ 1320              	.LASF39:
+ 1321 01c1 6C765F6D 		.ascii	"lv_mem_alloc\000"
+ 1321      656D5F61 
+ 1321      6C6C6F63 
+ 1321      00
+ 1322              	.LASF20:
+ 1323 01ce 73697A65 		.ascii	"sizetype\000"
+ 1323      74797065 
+ 1323      00
+ 1324              	.LASF12:
+ 1325 01d7 75696E74 		.ascii	"uint8_t\000"
+ 1325      385F7400 
+ 1326              	.LASF9:
+ 1327 01df 6C6F6E67 		.ascii	"long long int\000"
+ 1327      206C6F6E 
+ 1327      6720696E 
+ 1327      7400
+ 1328              	.LASF21:
+ 1329 01ed 63686172 		.ascii	"char\000"
+ 1329      00
+ 1330              	.LASF46:
+ 1331 01f2 433A5C50 		.ascii	"C:\\Projects\\PainDrain\\firmware\\PainDrain\\PainD"
+ 1331      726F6A65 
+ 1331      6374735C 
+ 1331      5061696E 
+ 1331      44726169 
+ 1332 0220 7261696E 		.ascii	"rain.cydsn\000"
+ 1332      2E637964 
+ 1332      736E00
+ 1333              	.LASF41:
+ 1334 022b 6C765F74 		.ascii	"lv_timer_set_repeat_count\000"
+ 1334      696D6572 
+ 1334      5F736574 
+ 1334      5F726570 
+ 1334      6561745F 
+ 1335              	.LASF2:
+ 1336 0245 73686F72 		.ascii	"short int\000"
+ 1336      7420696E 
+ 1336      7400
+ 1337              	.LASF31:
+ 1338 024f 6C765F61 		.ascii	"lv_async_info_t\000"
+ 1338      73796E63 
+ 1338      5F696E66 
+ 1338      6F5F7400 
+ 1339              	.LASF42:
+ 1340 025f 6C765F74 		.ascii	"lv_timer_del\000"
+ 1340      696D6572 
+ 1340      5F64656C 
+ 1340      00
+ 1341              	.LASF14:
+ 1342 026c 75696E74 		.ascii	"uint32_t\000"
+ 1342      33325F74 
+ 1342      00
+ 1343              	.LASF6:
+ 1344 0275 6C6F6E67 		.ascii	"long int\000"
+ 1344      20696E74 
+ 1344      00
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccwHV2LW.s 			page 29
+
+
+ 1345              	.LASF22:
+ 1346 027e 6C765F74 		.ascii	"lv_timer_cb_t\000"
+ 1346      696D6572 
+ 1346      5F63625F 
+ 1346      7400
+ 1347              	.LASF19:
+ 1348 028c 6C6F6E67 		.ascii	"long double\000"
+ 1348      20646F75 
+ 1348      626C6500 
+ 1349              	.LASF44:
+ 1350 0298 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1350      43313120 
+ 1350      352E342E 
+ 1350      31203230 
+ 1350      31363036 
+ 1351 02cb 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 1351      20726576 
+ 1351      6973696F 
+ 1351      6E203233 
+ 1351      37373135 
+ 1352 02fe 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 1352      67202D66 
+ 1352      66756E63 
+ 1352      74696F6E 
+ 1352      2D736563 
+ 1353              	.LASF0:
+ 1354 032a 7369676E 		.ascii	"signed char\000"
+ 1354      65642063 
+ 1354      68617200 
+ 1355              	.LASF15:
+ 1356 0336 4C565F52 		.ascii	"LV_RES_INV\000"
+ 1356      45535F49 
+ 1356      4E5600
+ 1357              	.LASF47:
+ 1358 0341 70617573 		.ascii	"paused\000"
+ 1358      656400
+ 1359              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

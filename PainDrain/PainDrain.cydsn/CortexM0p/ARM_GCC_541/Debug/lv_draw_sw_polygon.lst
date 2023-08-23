@@ -1,0 +1,5264 @@
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"lv_draw_sw_polygon.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.lv_draw_sw_polygon,"ax",%progbits
+  20              		.align	2
+  21              		.global	lv_draw_sw_polygon
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	lv_draw_sw_polygon, %function
+  25              	lv_draw_sw_polygon:
+  26              	.LFB56:
+  27              		.file 1 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\sw\\lv_draw_sw_poly
+   1:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** /**
+   2:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  * @file lv_draw_sw_polygon.c
+   3:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  *
+   4:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  */
+   5:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+   6:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** /*********************
+   7:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  *      INCLUDES
+   8:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  *********************/
+   9:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** #include "lv_draw_sw.h"
+  10:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** #include "../../misc/lv_math.h"
+  11:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** #include "../../misc/lv_mem.h"
+  12:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** #include "../../misc/lv_area.h"
+  13:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** #include "../../misc/lv_color.h"
+  14:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** #include "../lv_draw_rect.h"
+  15:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+  16:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** /*********************
+  17:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  *      DEFINES
+  18:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  *********************/
+  19:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+  20:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** /**********************
+  21:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  *      TYPEDEFS
+  22:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  **********************/
+  23:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+  24:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** /**********************
+  25:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  *  STATIC PROTOTYPES
+  26:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  **********************/
+  27:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+  28:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** /**********************
+  29:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  *  STATIC VARIABLES
+  30:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  **********************/
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 2
+
+
+  31:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+  32:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** /**********************
+  33:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  *      MACROS
+  34:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  **********************/
+  35:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+  36:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** /**********************
+  37:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  *   GLOBAL FUNCTIONS
+  38:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  **********************/
+  39:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+  40:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** /**
+  41:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  * Draw a polygon. Only convex polygons are supported
+  42:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  * @param points an array of points
+  43:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  * @param point_cnt number of points
+  44:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  * @param clip_area polygon will be drawn only in this area
+  45:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  * @param draw_dsc pointer to an initialized `lv_draw_rect_dsc_t` variable
+  46:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****  */
+  47:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** void lv_draw_sw_polygon(lv_draw_ctx_t * draw_ctx, const lv_draw_rect_dsc_t * draw_dsc, const lv_poi
+  48:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****                         uint16_t point_cnt)
+  49:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** {
+  28              		.loc 1 49 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 48
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  34              		.cfi_def_cfa_offset 20
+  35              		.cfi_offset 4, -20
+  36              		.cfi_offset 5, -16
+  37              		.cfi_offset 6, -12
+  38              		.cfi_offset 7, -8
+  39              		.cfi_offset 14, -4
+  40 0002 5F46     		mov	r7, fp
+  41 0004 5646     		mov	r6, r10
+  42 0006 4D46     		mov	r5, r9
+  43 0008 4446     		mov	r4, r8
+  44 000a F0B4     		push	{r4, r5, r6, r7}
+  45              		.cfi_def_cfa_offset 36
+  46              		.cfi_offset 8, -36
+  47              		.cfi_offset 9, -32
+  48              		.cfi_offset 10, -28
+  49              		.cfi_offset 11, -24
+  50 000c 8FB0     		sub	sp, sp, #60
+  51              		.cfi_def_cfa_offset 96
+  52 000e 0490     		str	r0, [sp, #16]
+  53 0010 0691     		str	r1, [sp, #24]
+  54 0012 1700     		movs	r7, r2
+  55 0014 9846     		mov	r8, r3
+  50:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** #if LV_DRAW_COMPLEX
+  51:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     if(point_cnt < 3) return;
+  56              		.loc 1 51 0
+  57 0016 022B     		cmp	r3, #2
+  58 0018 00D8     		bhi	.LCB32
+  59 001a 57E1     		b	.L1	@long jump
+  60              	.LCB32:
+  52:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     if(points == NULL) return;
+  61              		.loc 1 52 0
+  62 001c 002A     		cmp	r2, #0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 3
+
+
+  63 001e 00D1     		bne	.LCB34
+  64 0020 54E1     		b	.L1	@long jump
+  65              	.LCB34:
+  53:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+  54:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     /*Join adjacent points if they are on the same coordinate*/
+  55:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     lv_point_t * p = lv_mem_buf_get(point_cnt * sizeof(lv_point_t));
+  66              		.loc 1 55 0
+  67 0022 9800     		lsls	r0, r3, #2
+  68              	.LVL1:
+  69 0024 FFF7FEFF 		bl	lv_mem_buf_get
+  70              	.LVL2:
+  71 0028 041E     		subs	r4, r0, #0
+  72              	.LVL3:
+  56:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     if(p == NULL) return;
+  73              		.loc 1 56 0
+  74 002a 00D1     		bne	.LCB45
+  75 002c 4EE1     		b	.L1	@long jump
+  76              	.LCB45:
+  77              	.LVL4:
+  57:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     uint16_t i;
+  58:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     uint16_t pcnt = 0;
+  59:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     p[0] = points[0];
+  78              		.loc 1 59 0
+  79 002e 0422     		movs	r2, #4
+  80 0030 3900     		movs	r1, r7
+  81 0032 FFF7FEFF 		bl	memcpy
+  82              	.LVL5:
+  58:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     p[0] = points[0];
+  83              		.loc 1 58 0
+  84 0036 0026     		movs	r6, #0
+  60:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     for(i = 0; i < point_cnt - 1; i++) {
+  85              		.loc 1 60 0
+  86 0038 0025     		movs	r5, #0
+  87 003a 4346     		mov	r3, r8
+  88 003c A046     		mov	r8, r4
+  89 003e 9946     		mov	r9, r3
+  90 0040 19E0     		b	.L3
+  91              	.LVL6:
+  92              	.L6:
+  61:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         if(points[i].x != points[i + 1].x || points[i].y != points[i + 1].y) {
+  93              		.loc 1 61 0
+  94 0042 A900     		lsls	r1, r5, #2
+  95 0044 7918     		adds	r1, r7, r1
+  96 0046 0023     		movs	r3, #0
+  97 0048 C85E     		ldrsh	r0, [r1, r3]
+  98 004a 6B1C     		adds	r3, r5, #1
+  99 004c 9B00     		lsls	r3, r3, #2
+ 100 004e FB18     		adds	r3, r7, r3
+ 101 0050 0024     		movs	r4, #0
+ 102 0052 1A5F     		ldrsh	r2, [r3, r4]
+ 103 0054 9042     		cmp	r0, r2
+ 104 0056 05D1     		bne	.L4
+ 105              		.loc 1 61 0 is_stmt 0 discriminator 1
+ 106 0058 0220     		movs	r0, #2
+ 107 005a 0A5E     		ldrsh	r2, [r1, r0]
+ 108 005c 0220     		movs	r0, #2
+ 109 005e 1B5E     		ldrsh	r3, [r3, r0]
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 4
+
+
+ 110 0060 9A42     		cmp	r2, r3
+ 111 0062 06D0     		beq	.L5
+ 112              	.L4:
+  62:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             p[pcnt] = points[i];
+ 113              		.loc 1 62 0 is_stmt 1
+ 114 0064 B000     		lsls	r0, r6, #2
+ 115 0066 4044     		add	r0, r0, r8
+ 116 0068 0422     		movs	r2, #4
+ 117 006a FFF7FEFF 		bl	memcpy
+ 118              	.LVL7:
+  63:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             pcnt++;
+ 119              		.loc 1 63 0
+ 120 006e 0136     		adds	r6, r6, #1
+ 121              	.LVL8:
+ 122 0070 B6B2     		uxth	r6, r6
+ 123              	.LVL9:
+ 124              	.L5:
+  60:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         if(points[i].x != points[i + 1].x || points[i].y != points[i + 1].y) {
+ 125              		.loc 1 60 0 discriminator 2
+ 126 0072 0135     		adds	r5, r5, #1
+ 127              	.LVL10:
+ 128 0074 ADB2     		uxth	r5, r5
+ 129              	.LVL11:
+ 130              	.L3:
+  60:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         if(points[i].x != points[i + 1].x || points[i].y != points[i + 1].y) {
+ 131              		.loc 1 60 0 is_stmt 0 discriminator 1
+ 132 0076 4B46     		mov	r3, r9
+ 133 0078 013B     		subs	r3, r3, #1
+ 134 007a 9D42     		cmp	r5, r3
+ 135 007c E1DB     		blt	.L6
+ 136 007e 4446     		mov	r4, r8
+  64:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         }
+  65:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     }
+  66:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     /*The first and the last points are also adjacent*/
+  67:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     if(points[0].x != points[point_cnt - 1].x || points[0].y != points[point_cnt - 1].y) {
+ 137              		.loc 1 67 0 is_stmt 1
+ 138 0080 0023     		movs	r3, #0
+ 139 0082 FA5E     		ldrsh	r2, [r7, r3]
+ 140 0084 9549     		ldr	r1, .L38
+ 141 0086 4944     		add	r1, r1, r9
+ 142 0088 8900     		lsls	r1, r1, #2
+ 143 008a 7918     		adds	r1, r7, r1
+ 144 008c 0020     		movs	r0, #0
+ 145 008e 0B5E     		ldrsh	r3, [r1, r0]
+ 146 0090 9A42     		cmp	r2, r3
+ 147 0092 05D1     		bne	.L7
+ 148              	.LVL12:
+ 149              		.loc 1 67 0 is_stmt 0 discriminator 1
+ 150 0094 0223     		movs	r3, #2
+ 151 0096 FA5E     		ldrsh	r2, [r7, r3]
+ 152 0098 0220     		movs	r0, #2
+ 153 009a 0B5E     		ldrsh	r3, [r1, r0]
+ 154 009c 9A42     		cmp	r2, r3
+ 155 009e 06D0     		beq	.L8
+ 156              	.L7:
+  68:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         p[pcnt] = points[point_cnt - 1];
+ 157              		.loc 1 68 0 is_stmt 1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 5
+
+
+ 158 00a0 B000     		lsls	r0, r6, #2
+ 159 00a2 2018     		adds	r0, r4, r0
+ 160 00a4 0422     		movs	r2, #4
+ 161 00a6 FFF7FEFF 		bl	memcpy
+ 162              	.LVL13:
+  69:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         pcnt++;
+ 163              		.loc 1 69 0
+ 164 00aa 0136     		adds	r6, r6, #1
+ 165              	.LVL14:
+ 166 00ac B6B2     		uxth	r6, r6
+ 167              	.LVL15:
+ 168              	.L8:
+  70:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     }
+  71:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+  72:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     point_cnt = pcnt;
+  73:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     if(point_cnt < 3) {
+ 169              		.loc 1 73 0
+ 170 00ae 022E     		cmp	r6, #2
+ 171 00b0 03D8     		bhi	.L9
+  74:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         lv_mem_buf_release(p);
+ 172              		.loc 1 74 0
+ 173 00b2 2000     		movs	r0, r4
+ 174 00b4 FFF7FEFF 		bl	lv_mem_buf_release
+ 175              	.LVL16:
+  75:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         return;
+ 176              		.loc 1 75 0
+ 177 00b8 08E1     		b	.L1
+ 178              	.L9:
+  76:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     }
+  77:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+  78:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     lv_area_t poly_coords = {.x1 = LV_COORD_MAX, .y1 = LV_COORD_MAX, .x2 = LV_COORD_MIN, .y2 = LV_C
+ 179              		.loc 1 78 0
+ 180 00ba 0822     		movs	r2, #8
+ 181 00bc 8849     		ldr	r1, .L38+4
+ 182 00be 0CA8     		add	r0, sp, #48
+ 183 00c0 FFF7FEFF 		bl	memcpy
+ 184              	.LVL17:
+  79:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+  80:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     for(i = 0; i < point_cnt; i++) {
+ 185              		.loc 1 80 0
+ 186 00c4 0022     		movs	r2, #0
+ 187 00c6 2CE0     		b	.L10
+ 188              	.LVL18:
+ 189              	.L15:
+  81:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         poly_coords.x1 = LV_MIN(poly_coords.x1, p[i].x);
+ 190              		.loc 1 81 0 discriminator 3
+ 191 00c8 9300     		lsls	r3, r2, #2
+ 192 00ca E318     		adds	r3, r4, r3
+ 193 00cc 0020     		movs	r0, #0
+ 194 00ce 195E     		ldrsh	r1, [r3, r0]
+ 195 00d0 0CA8     		add	r0, sp, #48
+ 196 00d2 0025     		movs	r5, #0
+ 197 00d4 405F     		ldrsh	r0, [r0, r5]
+ 198 00d6 0D1C     		adds	r5, r1, #0
+ 199 00d8 8142     		cmp	r1, r0
+ 200 00da 00DD     		ble	.L11
+ 201 00dc 051C     		adds	r5, r0, #0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 6
+
+
+ 202              	.L11:
+ 203 00de 0CA8     		add	r0, sp, #48
+ 204 00e0 0580     		strh	r5, [r0]
+  82:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         poly_coords.y1 = LV_MIN(poly_coords.y1, p[i].y);
+ 205              		.loc 1 82 0 discriminator 3
+ 206 00e2 0225     		movs	r5, #2
+ 207 00e4 595F     		ldrsh	r1, [r3, r5]
+ 208 00e6 0225     		movs	r5, #2
+ 209 00e8 405F     		ldrsh	r0, [r0, r5]
+ 210 00ea 0D1C     		adds	r5, r1, #0
+ 211 00ec 8142     		cmp	r1, r0
+ 212 00ee 00DD     		ble	.L12
+ 213 00f0 051C     		adds	r5, r0, #0
+ 214              	.L12:
+ 215 00f2 0CA8     		add	r0, sp, #48
+ 216 00f4 4580     		strh	r5, [r0, #2]
+  83:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         poly_coords.x2 = LV_MAX(poly_coords.x2, p[i].x);
+ 217              		.loc 1 83 0 discriminator 3
+ 218 00f6 0025     		movs	r5, #0
+ 219 00f8 595F     		ldrsh	r1, [r3, r5]
+ 220 00fa 0425     		movs	r5, #4
+ 221 00fc 455F     		ldrsh	r5, [r0, r5]
+ 222 00fe 081C     		adds	r0, r1, #0
+ 223 0100 A942     		cmp	r1, r5
+ 224 0102 00DA     		bge	.L13
+ 225 0104 281C     		adds	r0, r5, #0
+ 226              	.L13:
+ 227 0106 0CA9     		add	r1, sp, #48
+ 228 0108 8880     		strh	r0, [r1, #4]
+  84:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         poly_coords.y2 = LV_MAX(poly_coords.y2, p[i].y);
+ 229              		.loc 1 84 0 discriminator 3
+ 230 010a 0220     		movs	r0, #2
+ 231 010c 1B5E     		ldrsh	r3, [r3, r0]
+ 232 010e 0620     		movs	r0, #6
+ 233 0110 085E     		ldrsh	r0, [r1, r0]
+ 234 0112 191C     		adds	r1, r3, #0
+ 235 0114 8342     		cmp	r3, r0
+ 236 0116 00DA     		bge	.L14
+ 237 0118 011C     		adds	r1, r0, #0
+ 238              	.L14:
+ 239 011a 0CAB     		add	r3, sp, #48
+ 240 011c D980     		strh	r1, [r3, #6]
+  80:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         poly_coords.x1 = LV_MIN(poly_coords.x1, p[i].x);
+ 241              		.loc 1 80 0 discriminator 3
+ 242 011e 0132     		adds	r2, r2, #1
+ 243              	.LVL19:
+ 244 0120 92B2     		uxth	r2, r2
+ 245              	.LVL20:
+ 246              	.L10:
+  80:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         poly_coords.x1 = LV_MIN(poly_coords.x1, p[i].x);
+ 247              		.loc 1 80 0 is_stmt 0 discriminator 1
+ 248 0122 B242     		cmp	r2, r6
+ 249 0124 D0D3     		bcc	.L15
+  85:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     }
+  86:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+  87:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     bool is_common;
+  88:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     lv_area_t clip_area;
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 7
+
+
+  89:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     is_common = _lv_area_intersect(&clip_area, &poly_coords, draw_ctx->clip_area);
+ 250              		.loc 1 89 0 is_stmt 1
+ 251 0126 049B     		ldr	r3, [sp, #16]
+ 252 0128 9B68     		ldr	r3, [r3, #8]
+ 253 012a 0293     		str	r3, [sp, #8]
+ 254 012c 1A00     		movs	r2, r3
+ 255              	.LVL21:
+ 256 012e 0CA9     		add	r1, sp, #48
+ 257 0130 0AA8     		add	r0, sp, #40
+ 258 0132 FFF7FEFF 		bl	_lv_area_intersect
+ 259              	.LVL22:
+  90:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     if(!is_common) {
+ 260              		.loc 1 90 0
+ 261 0136 0028     		cmp	r0, #0
+ 262 0138 03D1     		bne	.L16
+  91:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         lv_mem_buf_release(p);
+ 263              		.loc 1 91 0
+ 264 013a 2000     		movs	r0, r4
+ 265              	.LVL23:
+ 266 013c FFF7FEFF 		bl	lv_mem_buf_release
+ 267              	.LVL24:
+  92:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         return;
+ 268              		.loc 1 92 0
+ 269 0140 C4E0     		b	.L1
+ 270              	.LVL25:
+ 271              	.L16:
+  93:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     }
+  94:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+  95:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     const lv_area_t * clip_area_ori = draw_ctx->clip_area;
+ 272              		.loc 1 95 0
+ 273 0142 049A     		ldr	r2, [sp, #16]
+ 274 0144 9368     		ldr	r3, [r2, #8]
+ 275 0146 0993     		str	r3, [sp, #36]
+ 276              	.LVL26:
+  96:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     draw_ctx->clip_area = &clip_area;
+ 277              		.loc 1 96 0
+ 278 0148 0AAB     		add	r3, sp, #40
+ 279              	.LVL27:
+ 280 014a 9360     		str	r3, [r2, #8]
+ 281              	.LVL28:
+  97:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+  98:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     /*Find the lowest point*/
+  99:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     lv_coord_t y_min = p[0].y;
+ 282              		.loc 1 99 0
+ 283 014c 0223     		movs	r3, #2
+ 284 014e E15E     		ldrsh	r1, [r4, r3]
+ 285              	.LVL29:
+ 100:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     int16_t y_min_i = 0;
+ 286              		.loc 1 100 0
+ 287 0150 0025     		movs	r5, #0
+ 101:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 102:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     for(i = 1; i < point_cnt; i++) {
+ 288              		.loc 1 102 0
+ 289 0152 0123     		movs	r3, #1
+ 290 0154 09E0     		b	.L17
+ 291              	.LVL30:
+ 292              	.L19:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 8
+
+
+ 103:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         if(p[i].y < y_min) {
+ 293              		.loc 1 103 0
+ 294 0156 9A00     		lsls	r2, r3, #2
+ 295 0158 A218     		adds	r2, r4, r2
+ 296 015a 0220     		movs	r0, #2
+ 297 015c 125E     		ldrsh	r2, [r2, r0]
+ 298 015e 9142     		cmp	r1, r2
+ 299 0160 01DD     		ble	.L18
+ 300              	.LVL31:
+ 104:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             y_min = p[i].y;
+ 105:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             y_min_i = i;
+ 301              		.loc 1 105 0
+ 302 0162 1DB2     		sxth	r5, r3
+ 303              	.LVL32:
+ 104:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             y_min = p[i].y;
+ 304              		.loc 1 104 0
+ 305 0164 1100     		movs	r1, r2
+ 306              	.LVL33:
+ 307              	.L18:
+ 102:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         if(p[i].y < y_min) {
+ 308              		.loc 1 102 0 discriminator 2
+ 309 0166 0133     		adds	r3, r3, #1
+ 310              	.LVL34:
+ 311 0168 9BB2     		uxth	r3, r3
+ 312              	.LVL35:
+ 313              	.L17:
+ 102:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         if(p[i].y < y_min) {
+ 314              		.loc 1 102 0 is_stmt 0 discriminator 1
+ 315 016a B342     		cmp	r3, r6
+ 316 016c F3D3     		bcc	.L19
+ 106:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         }
+ 107:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     }
+ 108:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 109:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     lv_draw_mask_line_param_t * mp = lv_mem_buf_get(sizeof(lv_draw_mask_line_param_t) * point_cnt);
+ 317              		.loc 1 109 0 is_stmt 1
+ 318 016e B246     		mov	r10, r6
+ 319 0170 2C20     		movs	r0, #44
+ 320 0172 7043     		muls	r0, r6
+ 321 0174 FFF7FEFF 		bl	lv_mem_buf_get
+ 322              	.LVL36:
+ 323 0178 0790     		str	r0, [sp, #28]
+ 324              	.LVL37:
+ 110:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     lv_draw_mask_line_param_t * mp_next = mp;
+ 111:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 112:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     int32_t i_prev_left = y_min_i;
+ 325              		.loc 1 112 0
+ 326 017a A846     		mov	r8, r5
+ 327              	.LVL38:
+ 113:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     int32_t i_prev_right = y_min_i;
+ 114:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     int32_t i_next_left;
+ 115:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     int32_t i_next_right;
+ 116:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     uint32_t mask_cnt = 0;
+ 117:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 118:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     /*Get the index of the left and right points*/
+ 119:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     i_next_left = y_min_i - 1;
+ 120:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     if(i_next_left < 0) i_next_left = point_cnt + i_next_left;
+ 328              		.loc 1 120 0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 9
+
+
+ 329 017c 681E     		subs	r0, r5, #1
+ 330 017e 00D5     		bpl	.L20
+ 331              	.LVL39:
+ 332              		.loc 1 120 0 is_stmt 0 discriminator 1
+ 333 0180 8019     		adds	r0, r0, r6
+ 334              	.LVL40:
+ 335              	.L20:
+ 121:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 122:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     i_next_right = y_min_i + 1;
+ 336              		.loc 1 122 0 is_stmt 1
+ 337 0182 4346     		mov	r3, r8
+ 338 0184 0133     		adds	r3, r3, #1
+ 339              	.LVL41:
+ 123:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     if(i_next_right > point_cnt - 1) i_next_right = 0;
+ 340              		.loc 1 123 0
+ 341 0186 0896     		str	r6, [sp, #32]
+ 342 0188 721E     		subs	r2, r6, #1
+ 343 018a 9346     		mov	fp, r2
+ 344 018c 9342     		cmp	r3, r2
+ 345 018e 00DD     		ble	.L21
+ 346 0190 0023     		movs	r3, #0
+ 347              	.LVL42:
+ 348              	.L21:
+ 124:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 125:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     /**
+ 126:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****      * Check if the order of points is inverted or not.
+ 127:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****      * The normal case is when the left point is on `y_min_i - 1`
+ 128:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****      * Explanation:
+ 129:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****      *   if angle(p_left) < angle(p_right) -> inverted
+ 130:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****      *   dy_left/dx_left < dy_right/dx_right
+ 131:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****      *   dy_left * dx_right < dy_right * dx_left
+ 132:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****      */
+ 133:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     lv_coord_t dxl = p[i_next_left].x - p[y_min_i].x;
+ 349              		.loc 1 133 0
+ 350 0192 8000     		lsls	r0, r0, #2
+ 351              	.LVL43:
+ 352 0194 2018     		adds	r0, r4, r0
+ 353 0196 0021     		movs	r1, #0
+ 354 0198 425E     		ldrsh	r2, [r0, r1]
+ 355 019a AD00     		lsls	r5, r5, #2
+ 356              	.LVL44:
+ 357 019c 6519     		adds	r5, r4, r5
+ 358 019e 2E88     		ldrh	r6, [r5]
+ 359              	.LVL45:
+ 360 01a0 921B     		subs	r2, r2, r6
+ 361 01a2 12B2     		sxth	r2, r2
+ 362              	.LVL46:
+ 134:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     lv_coord_t dxr = p[i_next_right].x - p[y_min_i].x;
+ 363              		.loc 1 134 0
+ 364 01a4 9B00     		lsls	r3, r3, #2
+ 365              	.LVL47:
+ 366 01a6 E318     		adds	r3, r4, r3
+ 367 01a8 0027     		movs	r7, #0
+ 368 01aa D95F     		ldrsh	r1, [r3, r7]
+ 369              	.LVL48:
+ 370 01ac 891B     		subs	r1, r1, r6
+ 371 01ae 09B2     		sxth	r1, r1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 10
+
+
+ 372              	.LVL49:
+ 135:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     lv_coord_t dyl = p[i_next_left].y - p[y_min_i].y;
+ 373              		.loc 1 135 0
+ 374 01b0 0226     		movs	r6, #2
+ 375 01b2 805F     		ldrsh	r0, [r0, r6]
+ 376 01b4 6D88     		ldrh	r5, [r5, #2]
+ 377 01b6 401B     		subs	r0, r0, r5
+ 378 01b8 06B2     		sxth	r6, r0
+ 379              	.LVL50:
+ 136:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     lv_coord_t dyr = p[i_next_right].y - p[y_min_i].y;
+ 380              		.loc 1 136 0
+ 381 01ba 0220     		movs	r0, #2
+ 382 01bc 1B5E     		ldrsh	r3, [r3, r0]
+ 383 01be 5D1B     		subs	r5, r3, r5
+ 384 01c0 2DB2     		sxth	r5, r5
+ 385              	.LVL51:
+ 137:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 138:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     bool inv = false;
+ 139:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     if(dyl * dxr < dyr * dxl) inv = true;
+ 386              		.loc 1 139 0
+ 387 01c2 7143     		muls	r1, r6
+ 388              	.LVL52:
+ 389 01c4 5543     		muls	r5, r2
+ 390              	.LVL53:
+ 391 01c6 A942     		cmp	r1, r5
+ 392 01c8 02DB     		blt	.L35
+ 138:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     if(dyl * dxr < dyr * dxl) inv = true;
+ 393              		.loc 1 138 0
+ 394 01ca 0023     		movs	r3, #0
+ 395              	.LVL54:
+ 396 01cc 0393     		str	r3, [sp, #12]
+ 397 01ce 01E0     		b	.L22
+ 398              	.LVL55:
+ 399              	.L35:
+ 400              		.loc 1 139 0
+ 401 01d0 0123     		movs	r3, #1
+ 402              	.LVL56:
+ 403 01d2 0393     		str	r3, [sp, #12]
+ 404              	.L22:
+ 405 01d4 C146     		mov	r9, r8
+ 406 01d6 079B     		ldr	r3, [sp, #28]
+ 407 01d8 0593     		str	r3, [sp, #20]
+ 408 01da 0025     		movs	r5, #0
+ 409              	.LVL57:
+ 410              	.L32:
+ 140:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 141:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     do {
+ 142:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         if(!inv) {
+ 411              		.loc 1 142 0
+ 412 01dc 039B     		ldr	r3, [sp, #12]
+ 413 01de 002B     		cmp	r3, #0
+ 414 01e0 0AD1     		bne	.L23
+ 415              	.LVL58:
+ 143:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             i_next_left = i_prev_left - 1;
+ 144:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             if(i_next_left < 0) i_next_left = point_cnt + i_next_left;
+ 416              		.loc 1 144 0
+ 417 01e2 4346     		mov	r3, r8
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 11
+
+
+ 418 01e4 5E1E     		subs	r6, r3, #1
+ 419 01e6 02D5     		bpl	.L24
+ 420              	.LVL59:
+ 421              		.loc 1 144 0 is_stmt 0 discriminator 1
+ 422 01e8 089B     		ldr	r3, [sp, #32]
+ 423 01ea 9C46     		mov	ip, r3
+ 424 01ec 6644     		add	r6, r6, ip
+ 425              	.LVL60:
+ 426              	.L24:
+ 145:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 146:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             i_next_right = i_prev_right + 1;
+ 427              		.loc 1 146 0 is_stmt 1
+ 428 01ee 4B46     		mov	r3, r9
+ 429 01f0 5F1C     		adds	r7, r3, #1
+ 430              	.LVL61:
+ 147:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             if(i_next_right > point_cnt - 1) i_next_right = 0;
+ 431              		.loc 1 147 0
+ 432 01f2 BB45     		cmp	fp, r7
+ 433 01f4 0CDB     		blt	.L36
+ 434              	.LVL62:
+ 435 01f6 0CE0     		b	.L25
+ 436              	.LVL63:
+ 437              	.L23:
+ 148:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         }
+ 149:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         else {
+ 150:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             i_next_left = i_prev_left + 1;
+ 438              		.loc 1 150 0
+ 439 01f8 4346     		mov	r3, r8
+ 440 01fa 5E1C     		adds	r6, r3, #1
+ 441              	.LVL64:
+ 151:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             if(i_next_left > point_cnt - 1) i_next_left = 0;
+ 442              		.loc 1 151 0
+ 443 01fc B345     		cmp	fp, r6
+ 444 01fe 00DA     		bge	.L26
+ 445              	.LVL65:
+ 446 0200 0026     		movs	r6, #0
+ 447              	.LVL66:
+ 448              	.L26:
+ 152:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 153:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             i_next_right = i_prev_right - 1;
+ 154:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             if(i_next_right < 0) i_next_right = point_cnt + i_next_right;
+ 449              		.loc 1 154 0
+ 450 0202 4B46     		mov	r3, r9
+ 451              	.LVL67:
+ 452 0204 5F1E     		subs	r7, r3, #1
+ 453 0206 04D5     		bpl	.L25
+ 454              	.LVL68:
+ 455              		.loc 1 154 0 is_stmt 0 discriminator 1
+ 456 0208 089B     		ldr	r3, [sp, #32]
+ 457              	.LVL69:
+ 458 020a 9C46     		mov	ip, r3
+ 459 020c 6744     		add	r7, r7, ip
+ 460              	.LVL70:
+ 461 020e 00E0     		b	.L25
+ 462              	.LVL71:
+ 463              	.L36:
+ 147:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         }
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 12
+
+
+ 464              		.loc 1 147 0 is_stmt 1
+ 465 0210 0027     		movs	r7, #0
+ 466              	.LVL72:
+ 467              	.L25:
+ 155:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         }
+ 156:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 157:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         if(p[i_next_left].y >= p[i_prev_left].y) {
+ 468              		.loc 1 157 0
+ 469 0212 B300     		lsls	r3, r6, #2
+ 470 0214 E318     		adds	r3, r4, r3
+ 471 0216 0222     		movs	r2, #2
+ 472 0218 985E     		ldrsh	r0, [r3, r2]
+ 473 021a 0290     		str	r0, [sp, #8]
+ 474 021c 4246     		mov	r2, r8
+ 475 021e 9100     		lsls	r1, r2, #2
+ 476 0220 6118     		adds	r1, r4, r1
+ 477 0222 0220     		movs	r0, #2
+ 478 0224 0A5E     		ldrsh	r2, [r1, r0]
+ 479 0226 0298     		ldr	r0, [sp, #8]
+ 480 0228 9042     		cmp	r0, r2
+ 481 022a 17DB     		blt	.L27
+ 158:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             if(p[i_next_left].y != p[i_prev_left].y &&
+ 482              		.loc 1 158 0
+ 483 022c 14D0     		beq	.L28
+ 159:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****                p[i_next_left].x != p[i_prev_left].x) {
+ 484              		.loc 1 159 0 discriminator 1
+ 485 022e 0020     		movs	r0, #0
+ 486 0230 1B5E     		ldrsh	r3, [r3, r0]
+ 487 0232 0020     		movs	r0, #0
+ 488 0234 095E     		ldrsh	r1, [r1, r0]
+ 158:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             if(p[i_next_left].y != p[i_prev_left].y &&
+ 489              		.loc 1 158 0 discriminator 1
+ 490 0236 8B42     		cmp	r3, r1
+ 491 0238 0ED0     		beq	.L28
+ 160:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****                 lv_draw_mask_line_points_init(mp_next, p[i_prev_left].x, p[i_prev_left].y,
+ 492              		.loc 1 160 0
+ 493 023a 0120     		movs	r0, #1
+ 494 023c 0190     		str	r0, [sp, #4]
+ 495 023e 0298     		ldr	r0, [sp, #8]
+ 496 0240 0090     		str	r0, [sp]
+ 497 0242 0598     		ldr	r0, [sp, #20]
+ 498 0244 8046     		mov	r8, r0
+ 499              	.LVL73:
+ 500 0246 FFF7FEFF 		bl	lv_draw_mask_line_points_init
+ 501              	.LVL74:
+ 161:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****                                               p[i_next_left].x, p[i_next_left].y,
+ 162:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****                                               LV_DRAW_MASK_LINE_SIDE_RIGHT);
+ 163:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****                 lv_draw_mask_add(mp_next, mp);
+ 502              		.loc 1 163 0
+ 503 024a 0799     		ldr	r1, [sp, #28]
+ 504 024c 4046     		mov	r0, r8
+ 505 024e FFF7FEFF 		bl	lv_draw_mask_add
+ 506              	.LVL75:
+ 164:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****                 mp_next++;
+ 507              		.loc 1 164 0
+ 508 0252 4346     		mov	r3, r8
+ 509 0254 2C33     		adds	r3, r3, #44
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 13
+
+
+ 510 0256 0593     		str	r3, [sp, #20]
+ 511              	.LVL76:
+ 512              	.L28:
+ 165:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             }
+ 166:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             mask_cnt++;
+ 513              		.loc 1 166 0
+ 514 0258 0135     		adds	r5, r5, #1
+ 515              	.LVL77:
+ 167:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             i_prev_left = i_next_left;
+ 516              		.loc 1 167 0
+ 517 025a B046     		mov	r8, r6
+ 518              	.LVL78:
+ 519              	.L27:
+ 168:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         }
+ 169:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 170:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         if(mask_cnt == point_cnt) break;
+ 520              		.loc 1 170 0
+ 521 025c 5545     		cmp	r5, r10
+ 522 025e 23D0     		beq	.L29
+ 171:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 172:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         if(p[i_next_right].y >= p[i_prev_right].y) {
+ 523              		.loc 1 172 0
+ 524 0260 BB00     		lsls	r3, r7, #2
+ 525 0262 E318     		adds	r3, r4, r3
+ 526 0264 0222     		movs	r2, #2
+ 527 0266 985E     		ldrsh	r0, [r3, r2]
+ 528 0268 4A46     		mov	r2, r9
+ 529 026a 9100     		lsls	r1, r2, #2
+ 530 026c 6118     		adds	r1, r4, r1
+ 531 026e 0226     		movs	r6, #2
+ 532 0270 8A5F     		ldrsh	r2, [r1, r6]
+ 533              	.LVL79:
+ 534 0272 9042     		cmp	r0, r2
+ 535 0274 16DB     		blt	.L30
+ 173:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             if(p[i_next_right].y != p[i_prev_right].y &&
+ 536              		.loc 1 173 0
+ 537 0276 13D0     		beq	.L31
+ 174:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****                p[i_next_right].x != p[i_prev_right].x) {
+ 538              		.loc 1 174 0 discriminator 1
+ 539 0278 0026     		movs	r6, #0
+ 540 027a 9B5F     		ldrsh	r3, [r3, r6]
+ 541 027c 0026     		movs	r6, #0
+ 542 027e 895F     		ldrsh	r1, [r1, r6]
+ 173:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             if(p[i_next_right].y != p[i_prev_right].y &&
+ 543              		.loc 1 173 0 discriminator 1
+ 544 0280 8B42     		cmp	r3, r1
+ 545 0282 0DD0     		beq	.L31
+ 175:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 176:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****                 lv_draw_mask_line_points_init(mp_next, p[i_prev_right].x, p[i_prev_right].y,
+ 546              		.loc 1 176 0
+ 547 0284 0026     		movs	r6, #0
+ 548 0286 0196     		str	r6, [sp, #4]
+ 549 0288 0090     		str	r0, [sp]
+ 550 028a 059E     		ldr	r6, [sp, #20]
+ 551 028c 3000     		movs	r0, r6
+ 552 028e FFF7FEFF 		bl	lv_draw_mask_line_points_init
+ 553              	.LVL80:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 14
+
+
+ 177:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****                                               p[i_next_right].x, p[i_next_right].y,
+ 178:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****                                               LV_DRAW_MASK_LINE_SIDE_LEFT);
+ 179:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****                 lv_draw_mask_add(mp_next, mp);
+ 554              		.loc 1 179 0
+ 555 0292 0799     		ldr	r1, [sp, #28]
+ 556 0294 3000     		movs	r0, r6
+ 557 0296 FFF7FEFF 		bl	lv_draw_mask_add
+ 558              	.LVL81:
+ 180:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****                 mp_next++;
+ 559              		.loc 1 180 0
+ 560 029a 3300     		movs	r3, r6
+ 561 029c 2C33     		adds	r3, r3, #44
+ 562 029e 0593     		str	r3, [sp, #20]
+ 563              	.LVL82:
+ 564              	.L31:
+ 181:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             }
+ 182:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             mask_cnt++;
+ 565              		.loc 1 182 0
+ 566 02a0 0135     		adds	r5, r5, #1
+ 567              	.LVL83:
+ 183:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****             i_prev_right = i_next_right;
+ 568              		.loc 1 183 0
+ 569 02a2 B946     		mov	r9, r7
+ 570              	.LVL84:
+ 571              	.L30:
+ 184:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****         }
+ 185:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 186:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     } while(mask_cnt < point_cnt);
+ 572              		.loc 1 186 0
+ 573 02a4 5545     		cmp	r5, r10
+ 574 02a6 99D3     		bcc	.L32
+ 575              	.L29:
+ 187:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 188:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     lv_draw_rect(draw_ctx, draw_dsc, &poly_coords);
+ 576              		.loc 1 188 0
+ 577 02a8 0CAA     		add	r2, sp, #48
+ 578 02aa 0699     		ldr	r1, [sp, #24]
+ 579 02ac 049E     		ldr	r6, [sp, #16]
+ 580 02ae 3000     		movs	r0, r6
+ 581 02b0 FFF7FEFF 		bl	lv_draw_rect
+ 582              	.LVL85:
+ 189:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 190:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     lv_draw_mask_remove_custom(mp);
+ 583              		.loc 1 190 0
+ 584 02b4 079D     		ldr	r5, [sp, #28]
+ 585              	.LVL86:
+ 586 02b6 2800     		movs	r0, r5
+ 587 02b8 FFF7FEFF 		bl	lv_draw_mask_remove_custom
+ 588              	.LVL87:
+ 191:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 192:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     lv_mem_buf_release(mp);
+ 589              		.loc 1 192 0
+ 590 02bc 2800     		movs	r0, r5
+ 591 02be FFF7FEFF 		bl	lv_mem_buf_release
+ 592              	.LVL88:
+ 193:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     lv_mem_buf_release(p);
+ 593              		.loc 1 193 0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 15
+
+
+ 594 02c2 2000     		movs	r0, r4
+ 595 02c4 FFF7FEFF 		bl	lv_mem_buf_release
+ 596              	.LVL89:
+ 194:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** 
+ 195:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     draw_ctx->clip_area = clip_area_ori;
+ 597              		.loc 1 195 0
+ 598 02c8 099A     		ldr	r2, [sp, #36]
+ 599 02ca B260     		str	r2, [r6, #8]
+ 600              	.LVL90:
+ 601              	.L1:
+ 196:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** #else
+ 197:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     LV_UNUSED(points);
+ 198:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     LV_UNUSED(point_cnt);
+ 199:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     LV_UNUSED(draw_ctx);
+ 200:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     LV_UNUSED(draw_dsc);
+ 201:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c ****     LV_LOG_WARN("Can't draw polygon with LV_DRAW_COMPLEX == 0");
+ 202:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** #endif /*LV_DRAW_COMPLEX*/
+ 203:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\draw\sw/lv_draw_sw_polygon.c **** }
+ 602              		.loc 1 203 0
+ 603 02cc 0FB0     		add	sp, sp, #60
+ 604              		@ sp needed
+ 605 02ce 3CBC     		pop	{r2, r3, r4, r5}
+ 606 02d0 9046     		mov	r8, r2
+ 607 02d2 9946     		mov	r9, r3
+ 608 02d4 A246     		mov	r10, r4
+ 609 02d6 AB46     		mov	fp, r5
+ 610 02d8 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 611              	.L39:
+ 612 02da C046     		.align	2
+ 613              	.L38:
+ 614 02dc FFFFFF3F 		.word	1073741823
+ 615 02e0 00000000 		.word	.LANCHOR0
+ 616              		.cfi_endproc
+ 617              	.LFE56:
+ 618              		.size	lv_draw_sw_polygon, .-lv_draw_sw_polygon
+ 619              		.section	.rodata
+ 620              		.align	2
+ 621              		.set	.LANCHOR0,. + 0
+ 622              	.LC0:
+ 623 0000 FF1F     		.short	8191
+ 624 0002 FF1F     		.short	8191
+ 625 0004 01E0     		.short	-8191
+ 626 0006 01E0     		.short	-8191
+ 627              		.text
+ 628              	.Letext0:
+ 629              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 630              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 631              		.file 4 "c:\\projects\\paindrain\\arduinolcd\\test\\pain drain\\libraries\\lvgl\\src\\misc\\lv_typ
+ 632              		.file 5 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 633              		.file 6 "c:\\projects\\paindrain\\arduinolcd\\test\\pain drain\\libraries\\lvgl\\src\\misc\\lv_col
+ 634              		.file 7 "c:\\projects\\paindrain\\arduinolcd\\test\\pain drain\\libraries\\lvgl\\src\\misc\\lv_are
+ 635              		.file 8 "c:\\projects\\paindrain\\arduinolcd\\test\\pain drain\\libraries\\lvgl\\src\\font\\lv_fon
+ 636              		.file 9 "c:\\projects\\paindrain\\arduinolcd\\test\\pain drain\\libraries\\lvgl\\src\\misc\\lv_txt
+ 637              		.file 10 "c:\\projects\\paindrain\\arduinolcd\\test\\pain drain\\libraries\\lvgl\\src\\misc\\lv_bi
+ 638              		.file 11 "c:\\projects\\paindrain\\arduinolcd\\test\\pain drain\\libraries\\lvgl\\src\\misc\\lv_st
+ 639              		.file 12 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\sw\\../lv_draw_mas
+ 640              		.file 13 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\sw\\../lv_img_buf.
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 16
+
+
+ 641              		.file 14 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\sw\\../lv_draw_rec
+ 642              		.file 15 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\sw\\../lv_draw_lab
+ 643              		.file 16 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\sw\\../lv_draw_img
+ 644              		.file 17 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\sw\\../lv_draw_lin
+ 645              		.file 18 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\sw\\../lv_draw_arc
+ 646              		.file 19 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\sw\\../lv_draw_lay
+ 647              		.file 20 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\draw\\sw\\../lv_draw.h"
+ 648              		.file 21 "c:\\projects\\paindrain\\arduinolcd\\test\\pain drain\\libraries\\lvgl\\src\\misc\\lv_me
+ 649              		.section	.debug_info,"",%progbits
+ 650              	.Ldebug_info0:
+ 651 0000 5D110000 		.4byte	0x115d
+ 652 0004 0400     		.2byte	0x4
+ 653 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 654 000a 04       		.byte	0x4
+ 655 000b 01       		.uleb128 0x1
+ 656 000c CE070000 		.4byte	.LASF203
+ 657 0010 0C       		.byte	0xc
+ 658 0011 0F010000 		.4byte	.LASF204
+ 659 0015 A1040000 		.4byte	.LASF205
+ 660 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 661 001d 00000000 		.4byte	0
+ 662 0021 00000000 		.4byte	.Ldebug_line0
+ 663 0025 02       		.uleb128 0x2
+ 664 0026 78010000 		.4byte	.LASF0
+ 665 002a 02       		.byte	0x2
+ 666 002b 1B       		.byte	0x1b
+ 667 002c 30000000 		.4byte	0x30
+ 668 0030 03       		.uleb128 0x3
+ 669 0031 01       		.byte	0x1
+ 670 0032 06       		.byte	0x6
+ 671 0033 BA010000 		.4byte	.LASF2
+ 672 0037 02       		.uleb128 0x2
+ 673 0038 AE000000 		.4byte	.LASF1
+ 674 003c 02       		.byte	0x2
+ 675 003d 1D       		.byte	0x1d
+ 676 003e 42000000 		.4byte	0x42
+ 677 0042 03       		.uleb128 0x3
+ 678 0043 01       		.byte	0x1
+ 679 0044 08       		.byte	0x8
+ 680 0045 B1060000 		.4byte	.LASF3
+ 681 0049 02       		.uleb128 0x2
+ 682 004a 8A030000 		.4byte	.LASF4
+ 683 004e 02       		.byte	0x2
+ 684 004f 29       		.byte	0x29
+ 685 0050 54000000 		.4byte	0x54
+ 686 0054 03       		.uleb128 0x3
+ 687 0055 02       		.byte	0x2
+ 688 0056 05       		.byte	0x5
+ 689 0057 BF060000 		.4byte	.LASF5
+ 690 005b 02       		.uleb128 0x2
+ 691 005c B9080000 		.4byte	.LASF6
+ 692 0060 02       		.byte	0x2
+ 693 0061 2B       		.byte	0x2b
+ 694 0062 66000000 		.4byte	0x66
+ 695 0066 03       		.uleb128 0x3
+ 696 0067 02       		.byte	0x2
+ 697 0068 07       		.byte	0x7
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 17
+
+
+ 698 0069 74040000 		.4byte	.LASF7
+ 699 006d 02       		.uleb128 0x2
+ 700 006e 2F050000 		.4byte	.LASF8
+ 701 0072 02       		.byte	0x2
+ 702 0073 3F       		.byte	0x3f
+ 703 0074 78000000 		.4byte	0x78
+ 704 0078 03       		.uleb128 0x3
+ 705 0079 04       		.byte	0x4
+ 706 007a 05       		.byte	0x5
+ 707 007b 8B020000 		.4byte	.LASF9
+ 708 007f 02       		.uleb128 0x2
+ 709 0080 CB030000 		.4byte	.LASF10
+ 710 0084 02       		.byte	0x2
+ 711 0085 41       		.byte	0x41
+ 712 0086 8A000000 		.4byte	0x8a
+ 713 008a 03       		.uleb128 0x3
+ 714 008b 04       		.byte	0x4
+ 715 008c 07       		.byte	0x7
+ 716 008d 1B060000 		.4byte	.LASF11
+ 717 0091 03       		.uleb128 0x3
+ 718 0092 08       		.byte	0x8
+ 719 0093 05       		.byte	0x5
+ 720 0094 AC010000 		.4byte	.LASF12
+ 721 0098 03       		.uleb128 0x3
+ 722 0099 08       		.byte	0x8
+ 723 009a 07       		.byte	0x7
+ 724 009b 0E020000 		.4byte	.LASF13
+ 725 009f 04       		.uleb128 0x4
+ 726 00a0 04       		.byte	0x4
+ 727 00a1 05       		.byte	0x5
+ 728 00a2 696E7400 		.ascii	"int\000"
+ 729 00a6 03       		.uleb128 0x3
+ 730 00a7 04       		.byte	0x4
+ 731 00a8 07       		.byte	0x7
+ 732 00a9 E1030000 		.4byte	.LASF14
+ 733 00ad 02       		.uleb128 0x2
+ 734 00ae 37090000 		.4byte	.LASF15
+ 735 00b2 03       		.byte	0x3
+ 736 00b3 14       		.byte	0x14
+ 737 00b4 25000000 		.4byte	0x25
+ 738 00b8 02       		.uleb128 0x2
+ 739 00b9 05070000 		.4byte	.LASF16
+ 740 00bd 03       		.byte	0x3
+ 741 00be 18       		.byte	0x18
+ 742 00bf 37000000 		.4byte	0x37
+ 743 00c3 02       		.uleb128 0x2
+ 744 00c4 E30A0000 		.4byte	.LASF17
+ 745 00c8 03       		.byte	0x3
+ 746 00c9 20       		.byte	0x20
+ 747 00ca 49000000 		.4byte	0x49
+ 748 00ce 02       		.uleb128 0x2
+ 749 00cf D1020000 		.4byte	.LASF18
+ 750 00d3 03       		.byte	0x3
+ 751 00d4 24       		.byte	0x24
+ 752 00d5 5B000000 		.4byte	0x5b
+ 753 00d9 02       		.uleb128 0x2
+ 754 00da A9060000 		.4byte	.LASF19
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 18
+
+
+ 755 00de 03       		.byte	0x3
+ 756 00df 2C       		.byte	0x2c
+ 757 00e0 6D000000 		.4byte	0x6d
+ 758 00e4 02       		.uleb128 0x2
+ 759 00e5 B7070000 		.4byte	.LASF20
+ 760 00e9 03       		.byte	0x3
+ 761 00ea 30       		.byte	0x30
+ 762 00eb 7F000000 		.4byte	0x7f
+ 763 00ef 02       		.uleb128 0x2
+ 764 00f0 A2030000 		.4byte	.LASF21
+ 765 00f4 04       		.byte	0x4
+ 766 00f5 2F       		.byte	0x2f
+ 767 00f6 B8000000 		.4byte	0xb8
+ 768 00fa 02       		.uleb128 0x2
+ 769 00fb 4C000000 		.4byte	.LASF22
+ 770 00ff 05       		.byte	0x5
+ 771 0100 D8       		.byte	0xd8
+ 772 0101 A6000000 		.4byte	0xa6
+ 773 0105 03       		.uleb128 0x3
+ 774 0106 08       		.byte	0x8
+ 775 0107 04       		.byte	0x4
+ 776 0108 33030000 		.4byte	.LASF23
+ 777 010c 03       		.uleb128 0x3
+ 778 010d 04       		.byte	0x4
+ 779 010e 07       		.byte	0x7
+ 780 010f 61050000 		.4byte	.LASF24
+ 781 0113 05       		.uleb128 0x5
+ 782 0114 04       		.byte	0x4
+ 783 0115 03       		.uleb128 0x3
+ 784 0116 01       		.byte	0x1
+ 785 0117 08       		.byte	0x8
+ 786 0118 74080000 		.4byte	.LASF25
+ 787 011c 06       		.uleb128 0x6
+ 788 011d 02       		.byte	0x2
+ 789 011e 06       		.byte	0x6
+ 790 011f D1       		.byte	0xd1
+ 791 0120 52010000 		.4byte	0x152
+ 792 0124 07       		.uleb128 0x7
+ 793 0125 60080000 		.4byte	.LASF26
+ 794 0129 06       		.byte	0x6
+ 795 012a D3       		.byte	0xd3
+ 796 012b CE000000 		.4byte	0xce
+ 797 012f 02       		.byte	0x2
+ 798 0130 05       		.byte	0x5
+ 799 0131 0B       		.byte	0xb
+ 800 0132 00       		.byte	0
+ 801 0133 07       		.uleb128 0x7
+ 802 0134 BC090000 		.4byte	.LASF27
+ 803 0138 06       		.byte	0x6
+ 804 0139 D4       		.byte	0xd4
+ 805 013a CE000000 		.4byte	0xce
+ 806 013e 02       		.byte	0x2
+ 807 013f 06       		.byte	0x6
+ 808 0140 05       		.byte	0x5
+ 809 0141 00       		.byte	0
+ 810 0142 08       		.uleb128 0x8
+ 811 0143 72656400 		.ascii	"red\000"
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 19
+
+
+ 812 0147 06       		.byte	0x6
+ 813 0148 D5       		.byte	0xd5
+ 814 0149 CE000000 		.4byte	0xce
+ 815 014d 02       		.byte	0x2
+ 816 014e 05       		.byte	0x5
+ 817 014f 00       		.byte	0
+ 818 0150 00       		.byte	0
+ 819 0151 00       		.byte	0
+ 820 0152 09       		.uleb128 0x9
+ 821 0153 02       		.byte	0x2
+ 822 0154 06       		.byte	0x6
+ 823 0155 D0       		.byte	0xd0
+ 824 0156 70010000 		.4byte	0x170
+ 825 015a 0A       		.uleb128 0xa
+ 826 015b 636800   		.ascii	"ch\000"
+ 827 015e 06       		.byte	0x6
+ 828 015f DC       		.byte	0xdc
+ 829 0160 1C010000 		.4byte	0x11c
+ 830 0164 0B       		.uleb128 0xb
+ 831 0165 91050000 		.4byte	.LASF28
+ 832 0169 06       		.byte	0x6
+ 833 016a DD       		.byte	0xdd
+ 834 016b CE000000 		.4byte	0xce
+ 835 016f 00       		.byte	0
+ 836 0170 02       		.uleb128 0x2
+ 837 0171 74060000 		.4byte	.LASF29
+ 838 0175 06       		.byte	0x6
+ 839 0176 DE       		.byte	0xde
+ 840 0177 52010000 		.4byte	0x152
+ 841 017b 02       		.uleb128 0x2
+ 842 017c 99000000 		.4byte	.LASF30
+ 843 0180 06       		.byte	0x6
+ 844 0181 EB       		.byte	0xeb
+ 845 0182 70010000 		.4byte	0x170
+ 846 0186 02       		.uleb128 0x2
+ 847 0187 3F050000 		.4byte	.LASF31
+ 848 018b 06       		.byte	0x6
+ 849 018c F5       		.byte	0xf5
+ 850 018d B8000000 		.4byte	0xb8
+ 851 0191 02       		.uleb128 0x2
+ 852 0192 6C090000 		.4byte	.LASF32
+ 853 0196 07       		.byte	0x7
+ 854 0197 1B       		.byte	0x1b
+ 855 0198 C3000000 		.4byte	0xc3
+ 856 019c 06       		.uleb128 0x6
+ 857 019d 04       		.byte	0x4
+ 858 019e 07       		.byte	0x7
+ 859 019f 25       		.byte	0x25
+ 860 01a0 B9010000 		.4byte	0x1b9
+ 861 01a4 0C       		.uleb128 0xc
+ 862 01a5 7800     		.ascii	"x\000"
+ 863 01a7 07       		.byte	0x7
+ 864 01a8 26       		.byte	0x26
+ 865 01a9 91010000 		.4byte	0x191
+ 866 01ad 00       		.byte	0
+ 867 01ae 0C       		.uleb128 0xc
+ 868 01af 7900     		.ascii	"y\000"
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 20
+
+
+ 869 01b1 07       		.byte	0x7
+ 870 01b2 27       		.byte	0x27
+ 871 01b3 91010000 		.4byte	0x191
+ 872 01b7 02       		.byte	0x2
+ 873 01b8 00       		.byte	0
+ 874 01b9 02       		.uleb128 0x2
+ 875 01ba FE090000 		.4byte	.LASF33
+ 876 01be 07       		.byte	0x7
+ 877 01bf 28       		.byte	0x28
+ 878 01c0 9C010000 		.4byte	0x19c
+ 879 01c4 06       		.uleb128 0x6
+ 880 01c5 08       		.byte	0x8
+ 881 01c6 07       		.byte	0x7
+ 882 01c7 2B       		.byte	0x2b
+ 883 01c8 F9010000 		.4byte	0x1f9
+ 884 01cc 0C       		.uleb128 0xc
+ 885 01cd 783100   		.ascii	"x1\000"
+ 886 01d0 07       		.byte	0x7
+ 887 01d1 2C       		.byte	0x2c
+ 888 01d2 91010000 		.4byte	0x191
+ 889 01d6 00       		.byte	0
+ 890 01d7 0C       		.uleb128 0xc
+ 891 01d8 793100   		.ascii	"y1\000"
+ 892 01db 07       		.byte	0x7
+ 893 01dc 2D       		.byte	0x2d
+ 894 01dd 91010000 		.4byte	0x191
+ 895 01e1 02       		.byte	0x2
+ 896 01e2 0C       		.uleb128 0xc
+ 897 01e3 783200   		.ascii	"x2\000"
+ 898 01e6 07       		.byte	0x7
+ 899 01e7 2E       		.byte	0x2e
+ 900 01e8 91010000 		.4byte	0x191
+ 901 01ec 04       		.byte	0x4
+ 902 01ed 0C       		.uleb128 0xc
+ 903 01ee 793200   		.ascii	"y2\000"
+ 904 01f1 07       		.byte	0x7
+ 905 01f2 2F       		.byte	0x2f
+ 906 01f3 91010000 		.4byte	0x191
+ 907 01f7 06       		.byte	0x6
+ 908 01f8 00       		.byte	0
+ 909 01f9 02       		.uleb128 0x2
+ 910 01fa 81020000 		.4byte	.LASF34
+ 911 01fe 07       		.byte	0x7
+ 912 01ff 30       		.byte	0x30
+ 913 0200 C4010000 		.4byte	0x1c4
+ 914 0204 06       		.uleb128 0x6
+ 915 0205 10       		.byte	0x10
+ 916 0206 08       		.byte	0x8
+ 917 0207 29       		.byte	0x29
+ 918 0208 73020000 		.4byte	0x273
+ 919 020c 0D       		.uleb128 0xd
+ 920 020d 94030000 		.4byte	.LASF35
+ 921 0211 08       		.byte	0x8
+ 922 0212 2B       		.byte	0x2b
+ 923 0213 FB020000 		.4byte	0x2fb
+ 924 0217 00       		.byte	0
+ 925 0218 0D       		.uleb128 0xd
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 21
+
+
+ 926 0219 10090000 		.4byte	.LASF36
+ 927 021d 08       		.byte	0x8
+ 928 021e 2C       		.byte	0x2c
+ 929 021f CE000000 		.4byte	0xce
+ 930 0223 04       		.byte	0x4
+ 931 0224 0D       		.uleb128 0xd
+ 932 0225 8A090000 		.4byte	.LASF37
+ 933 0229 08       		.byte	0x8
+ 934 022a 2D       		.byte	0x2d
+ 935 022b CE000000 		.4byte	0xce
+ 936 022f 06       		.byte	0x6
+ 937 0230 0D       		.uleb128 0xd
+ 938 0231 31090000 		.4byte	.LASF38
+ 939 0235 08       		.byte	0x8
+ 940 0236 2E       		.byte	0x2e
+ 941 0237 CE000000 		.4byte	0xce
+ 942 023b 08       		.byte	0x8
+ 943 023c 0D       		.uleb128 0xd
+ 944 023d 560A0000 		.4byte	.LASF39
+ 945 0241 08       		.byte	0x8
+ 946 0242 2F       		.byte	0x2f
+ 947 0243 C3000000 		.4byte	0xc3
+ 948 0247 0A       		.byte	0xa
+ 949 0248 0D       		.uleb128 0xd
+ 950 0249 A6010000 		.4byte	.LASF40
+ 951 024d 08       		.byte	0x8
+ 952 024e 30       		.byte	0x30
+ 953 024f C3000000 		.4byte	0xc3
+ 954 0253 0C       		.byte	0xc
+ 955 0254 08       		.uleb128 0x8
+ 956 0255 62707000 		.ascii	"bpp\000"
+ 957 0259 08       		.byte	0x8
+ 958 025a 31       		.byte	0x31
+ 959 025b B8000000 		.4byte	0xb8
+ 960 025f 01       		.byte	0x1
+ 961 0260 04       		.byte	0x4
+ 962 0261 04       		.byte	0x4
+ 963 0262 0E       		.byte	0xe
+ 964 0263 07       		.uleb128 0x7
+ 965 0264 BC030000 		.4byte	.LASF41
+ 966 0268 08       		.byte	0x8
+ 967 0269 32       		.byte	0x32
+ 968 026a B8000000 		.4byte	0xb8
+ 969 026e 01       		.byte	0x1
+ 970 026f 01       		.byte	0x1
+ 971 0270 03       		.byte	0x3
+ 972 0271 0E       		.byte	0xe
+ 973 0272 00       		.byte	0
+ 974 0273 0E       		.uleb128 0xe
+ 975 0274 D6030000 		.4byte	.LASF153
+ 976 0278 1C       		.byte	0x1c
+ 977 0279 08       		.byte	0x8
+ 978 027a 40       		.byte	0x40
+ 979 027b FB020000 		.4byte	0x2fb
+ 980 027f 0D       		.uleb128 0xd
+ 981 0280 25030000 		.4byte	.LASF42
+ 982 0284 08       		.byte	0x8
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 22
+
+
+ 983 0285 42       		.byte	0x42
+ 984 0286 3C030000 		.4byte	0x33c
+ 985 028a 00       		.byte	0
+ 986 028b 0D       		.uleb128 0xd
+ 987 028c 27000000 		.4byte	.LASF43
+ 988 0290 08       		.byte	0x8
+ 989 0291 45       		.byte	0x45
+ 990 0292 61030000 		.4byte	0x361
+ 991 0296 04       		.byte	0x4
+ 992 0297 0D       		.uleb128 0xd
+ 993 0298 87040000 		.4byte	.LASF44
+ 994 029c 08       		.byte	0x8
+ 995 029d 48       		.byte	0x48
+ 996 029e 91010000 		.4byte	0x191
+ 997 02a2 08       		.byte	0x8
+ 998 02a3 0D       		.uleb128 0xd
+ 999 02a4 0F050000 		.4byte	.LASF45
+ 1000 02a8 08       		.byte	0x8
+ 1001 02a9 49       		.byte	0x49
+ 1002 02aa 91010000 		.4byte	0x191
+ 1003 02ae 0A       		.byte	0xa
+ 1004 02af 07       		.uleb128 0x7
+ 1005 02b0 EE040000 		.4byte	.LASF46
+ 1006 02b4 08       		.byte	0x8
+ 1007 02b5 4A       		.byte	0x4a
+ 1008 02b6 B8000000 		.4byte	0xb8
+ 1009 02ba 01       		.byte	0x1
+ 1010 02bb 02       		.byte	0x2
+ 1011 02bc 06       		.byte	0x6
+ 1012 02bd 0C       		.byte	0xc
+ 1013 02be 0D       		.uleb128 0xd
+ 1014 02bf D2010000 		.4byte	.LASF47
+ 1015 02c3 08       		.byte	0x8
+ 1016 02c4 4C       		.byte	0x4c
+ 1017 02c5 AD000000 		.4byte	0xad
+ 1018 02c9 0D       		.byte	0xd
+ 1019 02ca 0D       		.uleb128 0xd
+ 1020 02cb 21070000 		.4byte	.LASF48
+ 1021 02cf 08       		.byte	0x8
+ 1022 02d0 4D       		.byte	0x4d
+ 1023 02d1 AD000000 		.4byte	0xad
+ 1024 02d5 0E       		.byte	0xe
+ 1025 02d6 0C       		.uleb128 0xc
+ 1026 02d7 64736300 		.ascii	"dsc\000"
+ 1027 02db 08       		.byte	0x8
+ 1028 02dc 4F       		.byte	0x4f
+ 1029 02dd 67030000 		.4byte	0x367
+ 1030 02e1 10       		.byte	0x10
+ 1031 02e2 0D       		.uleb128 0xd
+ 1032 02e3 3B040000 		.4byte	.LASF49
+ 1033 02e7 08       		.byte	0x8
+ 1034 02e8 50       		.byte	0x50
+ 1035 02e9 FB020000 		.4byte	0x2fb
+ 1036 02ed 14       		.byte	0x14
+ 1037 02ee 0D       		.uleb128 0xd
+ 1038 02ef 10000000 		.4byte	.LASF50
+ 1039 02f3 08       		.byte	0x8
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 23
+
+
+ 1040 02f4 52       		.byte	0x52
+ 1041 02f5 13010000 		.4byte	0x113
+ 1042 02f9 18       		.byte	0x18
+ 1043 02fa 00       		.byte	0
+ 1044 02fb 0F       		.uleb128 0xf
+ 1045 02fc 04       		.byte	0x4
+ 1046 02fd 01030000 		.4byte	0x301
+ 1047 0301 10       		.uleb128 0x10
+ 1048 0302 73020000 		.4byte	0x273
+ 1049 0306 02       		.uleb128 0x2
+ 1050 0307 A3020000 		.4byte	.LASF51
+ 1051 030b 08       		.byte	0x8
+ 1052 030c 33       		.byte	0x33
+ 1053 030d 04020000 		.4byte	0x204
+ 1054 0311 11       		.uleb128 0x11
+ 1055 0312 2F030000 		.4byte	0x32f
+ 1056 0316 2F030000 		.4byte	0x32f
+ 1057 031a 12       		.uleb128 0x12
+ 1058 031b FB020000 		.4byte	0x2fb
+ 1059 031f 12       		.uleb128 0x12
+ 1060 0320 36030000 		.4byte	0x336
+ 1061 0324 12       		.uleb128 0x12
+ 1062 0325 E4000000 		.4byte	0xe4
+ 1063 0329 12       		.uleb128 0x12
+ 1064 032a E4000000 		.4byte	0xe4
+ 1065 032e 00       		.byte	0
+ 1066 032f 03       		.uleb128 0x3
+ 1067 0330 01       		.byte	0x1
+ 1068 0331 02       		.byte	0x2
+ 1069 0332 A3060000 		.4byte	.LASF52
+ 1070 0336 0F       		.uleb128 0xf
+ 1071 0337 04       		.byte	0x4
+ 1072 0338 06030000 		.4byte	0x306
+ 1073 033c 0F       		.uleb128 0xf
+ 1074 033d 04       		.byte	0x4
+ 1075 033e 11030000 		.4byte	0x311
+ 1076 0342 11       		.uleb128 0x11
+ 1077 0343 56030000 		.4byte	0x356
+ 1078 0347 56030000 		.4byte	0x356
+ 1079 034b 12       		.uleb128 0x12
+ 1080 034c FB020000 		.4byte	0x2fb
+ 1081 0350 12       		.uleb128 0x12
+ 1082 0351 E4000000 		.4byte	0xe4
+ 1083 0355 00       		.byte	0
+ 1084 0356 0F       		.uleb128 0xf
+ 1085 0357 04       		.byte	0x4
+ 1086 0358 5C030000 		.4byte	0x35c
+ 1087 035c 10       		.uleb128 0x10
+ 1088 035d B8000000 		.4byte	0xb8
+ 1089 0361 0F       		.uleb128 0xf
+ 1090 0362 04       		.byte	0x4
+ 1091 0363 42030000 		.4byte	0x342
+ 1092 0367 0F       		.uleb128 0xf
+ 1093 0368 04       		.byte	0x4
+ 1094 0369 6D030000 		.4byte	0x36d
+ 1095 036d 13       		.uleb128 0x13
+ 1096 036e 02       		.uleb128 0x2
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 24
+
+
+ 1097 036f FC000000 		.4byte	.LASF53
+ 1098 0373 08       		.byte	0x8
+ 1099 0374 54       		.byte	0x54
+ 1100 0375 73020000 		.4byte	0x273
+ 1101 0379 02       		.uleb128 0x2
+ 1102 037a 96050000 		.4byte	.LASF54
+ 1103 037e 09       		.byte	0x9
+ 1104 037f 30       		.byte	0x30
+ 1105 0380 B8000000 		.4byte	0xb8
+ 1106 0384 02       		.uleb128 0x2
+ 1107 0385 7A030000 		.4byte	.LASF55
+ 1108 0389 09       		.byte	0x9
+ 1109 038a 42       		.byte	0x42
+ 1110 038b B8000000 		.4byte	0xb8
+ 1111 038f 02       		.uleb128 0x2
+ 1112 0390 43020000 		.4byte	.LASF56
+ 1113 0394 0A       		.byte	0xa
+ 1114 0395 2A       		.byte	0x2a
+ 1115 0396 B8000000 		.4byte	0xb8
+ 1116 039a 02       		.uleb128 0x2
+ 1117 039b 1D0A0000 		.4byte	.LASF57
+ 1118 039f 0B       		.byte	0xb
+ 1119 03a0 5E       		.byte	0x5e
+ 1120 03a1 B8000000 		.4byte	0xb8
+ 1121 03a5 02       		.uleb128 0x2
+ 1122 03a6 00000000 		.4byte	.LASF58
+ 1123 03aa 0B       		.byte	0xb
+ 1124 03ab 6A       		.byte	0x6a
+ 1125 03ac B8000000 		.4byte	0xb8
+ 1126 03b0 02       		.uleb128 0x2
+ 1127 03b1 8A060000 		.4byte	.LASF59
+ 1128 03b5 0B       		.byte	0xb
+ 1129 03b6 79       		.byte	0x79
+ 1130 03b7 B8000000 		.4byte	0xb8
+ 1131 03bb 02       		.uleb128 0x2
+ 1132 03bc 480A0000 		.4byte	.LASF60
+ 1133 03c0 0B       		.byte	0xb
+ 1134 03c1 84       		.byte	0x84
+ 1135 03c2 B8000000 		.4byte	0xb8
+ 1136 03c6 02       		.uleb128 0x2
+ 1137 03c7 AB090000 		.4byte	.LASF61
+ 1138 03cb 0B       		.byte	0xb
+ 1139 03cc 90       		.byte	0x90
+ 1140 03cd B8000000 		.4byte	0xb8
+ 1141 03d1 06       		.uleb128 0x6
+ 1142 03d2 04       		.byte	0x4
+ 1143 03d3 0B       		.byte	0xb
+ 1144 03d4 95       		.byte	0x95
+ 1145 03d5 F2030000 		.4byte	0x3f2
+ 1146 03d9 0D       		.uleb128 0xd
+ 1147 03da 6E080000 		.4byte	.LASF62
+ 1148 03de 0B       		.byte	0xb
+ 1149 03df 96       		.byte	0x96
+ 1150 03e0 7B010000 		.4byte	0x17b
+ 1151 03e4 00       		.byte	0
+ 1152 03e5 0D       		.uleb128 0xd
+ 1153 03e6 58060000 		.4byte	.LASF63
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 25
+
+
+ 1154 03ea 0B       		.byte	0xb
+ 1155 03eb 97       		.byte	0x97
+ 1156 03ec B8000000 		.4byte	0xb8
+ 1157 03f0 02       		.byte	0x2
+ 1158 03f1 00       		.byte	0
+ 1159 03f2 02       		.uleb128 0x2
+ 1160 03f3 190B0000 		.4byte	.LASF64
+ 1161 03f7 0B       		.byte	0xb
+ 1162 03f8 98       		.byte	0x98
+ 1163 03f9 D1030000 		.4byte	0x3d1
+ 1164 03fd 06       		.uleb128 0x6
+ 1165 03fe 0A       		.byte	0xa
+ 1166 03ff 0B       		.byte	0xb
+ 1167 0400 9B       		.byte	0x9b
+ 1168 0401 3C040000 		.4byte	0x43c
+ 1169 0405 0D       		.uleb128 0xd
+ 1170 0406 08020000 		.4byte	.LASF65
+ 1171 040a 0B       		.byte	0xb
+ 1172 040b 9C       		.byte	0x9c
+ 1173 040c 3C040000 		.4byte	0x43c
+ 1174 0410 00       		.byte	0
+ 1175 0411 0D       		.uleb128 0xd
+ 1176 0412 DA020000 		.4byte	.LASF66
+ 1177 0416 0B       		.byte	0xb
+ 1178 0417 9D       		.byte	0x9d
+ 1179 0418 B8000000 		.4byte	0xb8
+ 1180 041c 08       		.byte	0x8
+ 1181 041d 08       		.uleb128 0x8
+ 1182 041e 64697200 		.ascii	"dir\000"
+ 1183 0422 0B       		.byte	0xb
+ 1184 0423 9E       		.byte	0x9e
+ 1185 0424 BB030000 		.4byte	0x3bb
+ 1186 0428 01       		.byte	0x1
+ 1187 0429 03       		.byte	0x3
+ 1188 042a 05       		.byte	0x5
+ 1189 042b 09       		.byte	0x9
+ 1190 042c 07       		.uleb128 0x7
+ 1191 042d AE050000 		.4byte	.LASF67
+ 1192 0431 0B       		.byte	0xb
+ 1193 0432 A0       		.byte	0xa0
+ 1194 0433 C6030000 		.4byte	0x3c6
+ 1195 0437 01       		.byte	0x1
+ 1196 0438 03       		.byte	0x3
+ 1197 0439 02       		.byte	0x2
+ 1198 043a 09       		.byte	0x9
+ 1199 043b 00       		.byte	0
+ 1200 043c 14       		.uleb128 0x14
+ 1201 043d F2030000 		.4byte	0x3f2
+ 1202 0441 4C040000 		.4byte	0x44c
+ 1203 0445 15       		.uleb128 0x15
+ 1204 0446 0C010000 		.4byte	0x10c
+ 1205 044a 01       		.byte	0x1
+ 1206 044b 00       		.byte	0
+ 1207 044c 02       		.uleb128 0x2
+ 1208 044d C0070000 		.4byte	.LASF68
+ 1209 0451 0B       		.byte	0xb
+ 1210 0452 A2       		.byte	0xa2
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 26
+
+
+ 1211 0453 FD030000 		.4byte	0x3fd
+ 1212 0457 02       		.uleb128 0x2
+ 1213 0458 77090000 		.4byte	.LASF69
+ 1214 045c 0C       		.byte	0xc
+ 1215 045d 2B       		.byte	0x2b
+ 1216 045e B8000000 		.4byte	0xb8
+ 1217 0462 02       		.uleb128 0x2
+ 1218 0463 A3070000 		.4byte	.LASF70
+ 1219 0467 0C       		.byte	0xc
+ 1220 0468 4F       		.byte	0x4f
+ 1221 0469 B8000000 		.4byte	0xb8
+ 1222 046d 16       		.uleb128 0x16
+ 1223 046e 01       		.byte	0x1
+ 1224 046f 42000000 		.4byte	0x42
+ 1225 0473 0C       		.byte	0xc
+ 1226 0474 51       		.byte	0x51
+ 1227 0475 92040000 		.4byte	0x492
+ 1228 0479 17       		.uleb128 0x17
+ 1229 047a E2090000 		.4byte	.LASF71
+ 1230 047e 00       		.byte	0
+ 1231 047f 17       		.uleb128 0x17
+ 1232 0480 2D060000 		.4byte	.LASF72
+ 1233 0484 01       		.byte	0x1
+ 1234 0485 17       		.uleb128 0x17
+ 1235 0486 2D0A0000 		.4byte	.LASF73
+ 1236 048a 02       		.byte	0x2
+ 1237 048b 17       		.uleb128 0x17
+ 1238 048c 25020000 		.4byte	.LASF74
+ 1239 0490 03       		.byte	0x3
+ 1240 0491 00       		.byte	0
+ 1241 0492 02       		.uleb128 0x2
+ 1242 0493 F1050000 		.4byte	.LASF75
+ 1243 0497 0C       		.byte	0xc
+ 1244 0498 5C       		.byte	0x5c
+ 1245 0499 9D040000 		.4byte	0x49d
+ 1246 049d 0F       		.uleb128 0xf
+ 1247 049e 04       		.byte	0x4
+ 1248 049f A3040000 		.4byte	0x4a3
+ 1249 04a3 11       		.uleb128 0x11
+ 1250 04a4 57040000 		.4byte	0x457
+ 1251 04a8 C6040000 		.4byte	0x4c6
+ 1252 04ac 12       		.uleb128 0x12
+ 1253 04ad C6040000 		.4byte	0x4c6
+ 1254 04b1 12       		.uleb128 0x12
+ 1255 04b2 91010000 		.4byte	0x191
+ 1256 04b6 12       		.uleb128 0x12
+ 1257 04b7 91010000 		.4byte	0x191
+ 1258 04bb 12       		.uleb128 0x12
+ 1259 04bc 91010000 		.4byte	0x191
+ 1260 04c0 12       		.uleb128 0x12
+ 1261 04c1 13010000 		.4byte	0x113
+ 1262 04c5 00       		.byte	0
+ 1263 04c6 0F       		.uleb128 0xf
+ 1264 04c7 04       		.byte	0x4
+ 1265 04c8 86010000 		.4byte	0x186
+ 1266 04cc 02       		.uleb128 0x2
+ 1267 04cd E6020000 		.4byte	.LASF76
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 27
+
+
+ 1268 04d1 0C       		.byte	0xc
+ 1269 04d2 60       		.byte	0x60
+ 1270 04d3 B8000000 		.4byte	0xb8
+ 1271 04d7 06       		.uleb128 0x6
+ 1272 04d8 08       		.byte	0x8
+ 1273 04d9 0C       		.byte	0xc
+ 1274 04da 62       		.byte	0x62
+ 1275 04db F7040000 		.4byte	0x4f7
+ 1276 04df 0C       		.uleb128 0xc
+ 1277 04e0 636200   		.ascii	"cb\000"
+ 1278 04e3 0C       		.byte	0xc
+ 1279 04e4 63       		.byte	0x63
+ 1280 04e5 92040000 		.4byte	0x492
+ 1281 04e9 00       		.byte	0
+ 1282 04ea 0D       		.uleb128 0xd
+ 1283 04eb CF000000 		.4byte	.LASF77
+ 1284 04ef 0C       		.byte	0xc
+ 1285 04f0 64       		.byte	0x64
+ 1286 04f1 62040000 		.4byte	0x462
+ 1287 04f5 04       		.byte	0x4
+ 1288 04f6 00       		.byte	0
+ 1289 04f7 02       		.uleb128 0x2
+ 1290 04f8 B30A0000 		.4byte	.LASF78
+ 1291 04fc 0C       		.byte	0xc
+ 1292 04fd 65       		.byte	0x65
+ 1293 04fe D7040000 		.4byte	0x4d7
+ 1294 0502 06       		.uleb128 0x6
+ 1295 0503 0A       		.byte	0xa
+ 1296 0504 0C       		.byte	0xc
+ 1297 0505 6B       		.byte	0x6b
+ 1298 0506 30050000 		.4byte	0x530
+ 1299 050a 0C       		.uleb128 0xc
+ 1300 050b 703100   		.ascii	"p1\000"
+ 1301 050e 0C       		.byte	0xc
+ 1302 050f 6D       		.byte	0x6d
+ 1303 0510 B9010000 		.4byte	0x1b9
+ 1304 0514 00       		.byte	0
+ 1305 0515 0C       		.uleb128 0xc
+ 1306 0516 703200   		.ascii	"p2\000"
+ 1307 0519 0C       		.byte	0xc
+ 1308 051a 70       		.byte	0x70
+ 1309 051b B9010000 		.4byte	0x1b9
+ 1310 051f 04       		.byte	0x4
+ 1311 0520 07       		.uleb128 0x7
+ 1312 0521 5C050000 		.4byte	.LASF79
+ 1313 0525 0C       		.byte	0xc
+ 1314 0526 73       		.byte	0x73
+ 1315 0527 CC040000 		.4byte	0x4cc
+ 1316 052b 01       		.byte	0x1
+ 1317 052c 02       		.byte	0x2
+ 1318 052d 06       		.byte	0x6
+ 1319 052e 08       		.byte	0x8
+ 1320 052f 00       		.byte	0
+ 1321 0530 06       		.uleb128 0x6
+ 1322 0531 2C       		.byte	0x2c
+ 1323 0532 0C       		.byte	0xc
+ 1324 0533 67       		.byte	0x67
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 28
+
+
+ 1325 0534 AB050000 		.4byte	0x5ab
+ 1326 0538 0C       		.uleb128 0xc
+ 1327 0539 64736300 		.ascii	"dsc\000"
+ 1328 053d 0C       		.byte	0xc
+ 1329 053e 69       		.byte	0x69
+ 1330 053f F7040000 		.4byte	0x4f7
+ 1331 0543 00       		.byte	0
+ 1332 0544 0C       		.uleb128 0xc
+ 1333 0545 63666700 		.ascii	"cfg\000"
+ 1334 0549 0C       		.byte	0xc
+ 1335 054a 74       		.byte	0x74
+ 1336 054b 02050000 		.4byte	0x502
+ 1337 054f 08       		.byte	0x8
+ 1338 0550 0D       		.uleb128 0xd
+ 1339 0551 39050000 		.4byte	.LASF80
+ 1340 0555 0C       		.byte	0xc
+ 1341 0556 77       		.byte	0x77
+ 1342 0557 B9010000 		.4byte	0x1b9
+ 1343 055b 12       		.byte	0x12
+ 1344 055c 0D       		.uleb128 0xd
+ 1345 055d 16090000 		.4byte	.LASF81
+ 1346 0561 0C       		.byte	0xc
+ 1347 0562 7A       		.byte	0x7a
+ 1348 0563 D9000000 		.4byte	0xd9
+ 1349 0567 18       		.byte	0x18
+ 1350 0568 0D       		.uleb128 0xd
+ 1351 0569 100B0000 		.4byte	.LASF82
+ 1352 056d 0C       		.byte	0xc
+ 1353 056e 7D       		.byte	0x7d
+ 1354 056f D9000000 		.4byte	0xd9
+ 1355 0573 1C       		.byte	0x1c
+ 1356 0574 0D       		.uleb128 0xd
+ 1357 0575 8B050000 		.4byte	.LASF83
+ 1358 0579 0C       		.byte	0xc
+ 1359 057a 80       		.byte	0x80
+ 1360 057b D9000000 		.4byte	0xd9
+ 1361 057f 20       		.byte	0x20
+ 1362 0580 0C       		.uleb128 0xc
+ 1363 0581 73707800 		.ascii	"spx\000"
+ 1364 0585 0C       		.byte	0xc
+ 1365 0586 83       		.byte	0x83
+ 1366 0587 D9000000 		.4byte	0xd9
+ 1367 058b 24       		.byte	0x24
+ 1368 058c 07       		.uleb128 0x7
+ 1369 058d EB080000 		.4byte	.LASF84
+ 1370 0591 0C       		.byte	0xc
+ 1371 0592 86       		.byte	0x86
+ 1372 0593 B8000000 		.4byte	0xb8
+ 1373 0597 01       		.byte	0x1
+ 1374 0598 01       		.byte	0x1
+ 1375 0599 07       		.byte	0x7
+ 1376 059a 28       		.byte	0x28
+ 1377 059b 08       		.uleb128 0x8
+ 1378 059c 696E7600 		.ascii	"inv\000"
+ 1379 05a0 0C       		.byte	0xc
+ 1380 05a1 8A       		.byte	0x8a
+ 1381 05a2 B8000000 		.4byte	0xb8
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 29
+
+
+ 1382 05a6 01       		.byte	0x1
+ 1383 05a7 01       		.byte	0x1
+ 1384 05a8 06       		.byte	0x6
+ 1385 05a9 28       		.byte	0x28
+ 1386 05aa 00       		.byte	0
+ 1387 05ab 02       		.uleb128 0x2
+ 1388 05ac 96080000 		.4byte	.LASF85
+ 1389 05b0 0C       		.byte	0xc
+ 1390 05b1 8B       		.byte	0x8b
+ 1391 05b2 30050000 		.4byte	0x530
+ 1392 05b6 0F       		.uleb128 0xf
+ 1393 05b7 04       		.byte	0x4
+ 1394 05b8 B9010000 		.4byte	0x1b9
+ 1395 05bc 0F       		.uleb128 0xf
+ 1396 05bd 04       		.byte	0x4
+ 1397 05be C2050000 		.4byte	0x5c2
+ 1398 05c2 10       		.uleb128 0x10
+ 1399 05c3 F9010000 		.4byte	0x1f9
+ 1400 05c7 02       		.uleb128 0x2
+ 1401 05c8 CE0A0000 		.4byte	.LASF86
+ 1402 05cc 0D       		.byte	0xd
+ 1403 05cd 69       		.byte	0x69
+ 1404 05ce B8000000 		.4byte	0xb8
+ 1405 05d2 0F       		.uleb128 0xf
+ 1406 05d3 04       		.byte	0x4
+ 1407 05d4 7B010000 		.4byte	0x17b
+ 1408 05d8 06       		.uleb128 0x6
+ 1409 05d9 38       		.byte	0x38
+ 1410 05da 0E       		.byte	0xe
+ 1411 05db 20       		.byte	0x20
+ 1412 05dc 1F070000 		.4byte	0x71f
+ 1413 05e0 0D       		.uleb128 0xd
+ 1414 05e1 48050000 		.4byte	.LASF87
+ 1415 05e5 0E       		.byte	0xe
+ 1416 05e6 21       		.byte	0x21
+ 1417 05e7 91010000 		.4byte	0x191
+ 1418 05eb 00       		.byte	0
+ 1419 05ec 0D       		.uleb128 0xd
+ 1420 05ed 5C0A0000 		.4byte	.LASF88
+ 1421 05f1 0E       		.byte	0xe
+ 1422 05f2 22       		.byte	0x22
+ 1423 05f3 9A030000 		.4byte	0x39a
+ 1424 05f7 02       		.byte	0x2
+ 1425 05f8 0D       		.uleb128 0xd
+ 1426 05f9 04060000 		.4byte	.LASF89
+ 1427 05fd 0E       		.byte	0xe
+ 1428 05fe 25       		.byte	0x25
+ 1429 05ff 86010000 		.4byte	0x186
+ 1430 0603 03       		.byte	0x3
+ 1431 0604 0D       		.uleb128 0xd
+ 1432 0605 A5050000 		.4byte	.LASF90
+ 1433 0609 0E       		.byte	0xe
+ 1434 060a 26       		.byte	0x26
+ 1435 060b 7B010000 		.4byte	0x17b
+ 1436 060f 04       		.byte	0x4
+ 1437 0610 0D       		.uleb128 0xd
+ 1438 0611 38000000 		.4byte	.LASF91
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 30
+
+
+ 1439 0615 0E       		.byte	0xe
+ 1440 0616 27       		.byte	0x27
+ 1441 0617 4C040000 		.4byte	0x44c
+ 1442 061b 06       		.byte	0x6
+ 1443 061c 0D       		.uleb128 0xd
+ 1444 061d 1F090000 		.4byte	.LASF92
+ 1445 0621 0E       		.byte	0xe
+ 1446 0622 2A       		.byte	0x2a
+ 1447 0623 67030000 		.4byte	0x367
+ 1448 0627 10       		.byte	0x10
+ 1449 0628 0D       		.uleb128 0xd
+ 1450 0629 0B040000 		.4byte	.LASF93
+ 1451 062d 0E       		.byte	0xe
+ 1452 062e 2B       		.byte	0x2b
+ 1453 062f 67030000 		.4byte	0x367
+ 1454 0633 14       		.byte	0x14
+ 1455 0634 0D       		.uleb128 0xd
+ 1456 0635 94020000 		.4byte	.LASF94
+ 1457 0639 0E       		.byte	0xe
+ 1458 063a 2C       		.byte	0x2c
+ 1459 063b 7B010000 		.4byte	0x17b
+ 1460 063f 18       		.byte	0x18
+ 1461 0640 0D       		.uleb128 0xd
+ 1462 0641 3F030000 		.4byte	.LASF95
+ 1463 0645 0E       		.byte	0xe
+ 1464 0646 2D       		.byte	0x2d
+ 1465 0647 86010000 		.4byte	0x186
+ 1466 064b 1A       		.byte	0x1a
+ 1467 064c 0D       		.uleb128 0xd
+ 1468 064d 44040000 		.4byte	.LASF96
+ 1469 0651 0E       		.byte	0xe
+ 1470 0652 2E       		.byte	0x2e
+ 1471 0653 86010000 		.4byte	0x186
+ 1472 0657 1B       		.byte	0x1b
+ 1473 0658 0D       		.uleb128 0xd
+ 1474 0659 C2090000 		.4byte	.LASF97
+ 1475 065d 0E       		.byte	0xe
+ 1476 065e 2F       		.byte	0x2f
+ 1477 065f B8000000 		.4byte	0xb8
+ 1478 0663 1C       		.byte	0x1c
+ 1479 0664 0D       		.uleb128 0xd
+ 1480 0665 74020000 		.4byte	.LASF98
+ 1481 0669 0E       		.byte	0xe
+ 1482 066a 32       		.byte	0x32
+ 1483 066b 7B010000 		.4byte	0x17b
+ 1484 066f 1E       		.byte	0x1e
+ 1485 0670 0D       		.uleb128 0xd
+ 1486 0671 6A050000 		.4byte	.LASF99
+ 1487 0675 0E       		.byte	0xe
+ 1488 0676 33       		.byte	0x33
+ 1489 0677 91010000 		.4byte	0x191
+ 1490 067b 20       		.byte	0x20
+ 1491 067c 0D       		.uleb128 0xd
+ 1492 067d C4080000 		.4byte	.LASF100
+ 1493 0681 0E       		.byte	0xe
+ 1494 0682 34       		.byte	0x34
+ 1495 0683 86010000 		.4byte	0x186
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 31
+
+
+ 1496 0687 22       		.byte	0x22
+ 1497 0688 07       		.uleb128 0x7
+ 1498 0689 68060000 		.4byte	.LASF101
+ 1499 068d 0E       		.byte	0xe
+ 1500 068e 35       		.byte	0x35
+ 1501 068f B8000000 		.4byte	0xb8
+ 1502 0693 01       		.byte	0x1
+ 1503 0694 01       		.byte	0x1
+ 1504 0695 07       		.byte	0x7
+ 1505 0696 23       		.byte	0x23
+ 1506 0697 07       		.uleb128 0x7
+ 1507 0698 1E040000 		.4byte	.LASF102
+ 1508 069c 0E       		.byte	0xe
+ 1509 069d 36       		.byte	0x36
+ 1510 069e B0030000 		.4byte	0x3b0
+ 1511 06a2 01       		.byte	0x1
+ 1512 06a3 05       		.byte	0x5
+ 1513 06a4 02       		.byte	0x2
+ 1514 06a5 23       		.byte	0x23
+ 1515 06a6 0D       		.uleb128 0xd
+ 1516 06a7 4A060000 		.4byte	.LASF103
+ 1517 06ab 0E       		.byte	0xe
+ 1518 06ac 39       		.byte	0x39
+ 1519 06ad 7B010000 		.4byte	0x17b
+ 1520 06b1 24       		.byte	0x24
+ 1521 06b2 0D       		.uleb128 0xd
+ 1522 06b3 51090000 		.4byte	.LASF104
+ 1523 06b7 0E       		.byte	0xe
+ 1524 06b8 3A       		.byte	0x3a
+ 1525 06b9 91010000 		.4byte	0x191
+ 1526 06bd 26       		.byte	0x26
+ 1527 06be 0D       		.uleb128 0xd
+ 1528 06bf 9A090000 		.4byte	.LASF105
+ 1529 06c3 0E       		.byte	0xe
+ 1530 06c4 3B       		.byte	0x3b
+ 1531 06c5 91010000 		.4byte	0x191
+ 1532 06c9 28       		.byte	0x28
+ 1533 06ca 0D       		.uleb128 0xd
+ 1534 06cb 40000000 		.4byte	.LASF106
+ 1535 06cf 0E       		.byte	0xe
+ 1536 06d0 3C       		.byte	0x3c
+ 1537 06d1 86010000 		.4byte	0x186
+ 1538 06d5 2A       		.byte	0x2a
+ 1539 06d6 0D       		.uleb128 0xd
+ 1540 06d7 62070000 		.4byte	.LASF107
+ 1541 06db 0E       		.byte	0xe
+ 1542 06dc 3F       		.byte	0x3f
+ 1543 06dd 7B010000 		.4byte	0x17b
+ 1544 06e1 2C       		.byte	0x2c
+ 1545 06e2 0D       		.uleb128 0xd
+ 1546 06e3 E5010000 		.4byte	.LASF108
+ 1547 06e7 0E       		.byte	0xe
+ 1548 06e8 40       		.byte	0x40
+ 1549 06e9 91010000 		.4byte	0x191
+ 1550 06ed 2E       		.byte	0x2e
+ 1551 06ee 0D       		.uleb128 0xd
+ 1552 06ef 67040000 		.4byte	.LASF109
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 32
+
+
+ 1553 06f3 0E       		.byte	0xe
+ 1554 06f4 41       		.byte	0x41
+ 1555 06f5 91010000 		.4byte	0x191
+ 1556 06f9 30       		.byte	0x30
+ 1557 06fa 0D       		.uleb128 0xd
+ 1558 06fb 4F050000 		.4byte	.LASF110
+ 1559 06ff 0E       		.byte	0xe
+ 1560 0700 42       		.byte	0x42
+ 1561 0701 91010000 		.4byte	0x191
+ 1562 0705 32       		.byte	0x32
+ 1563 0706 0D       		.uleb128 0xd
+ 1564 0707 E3050000 		.4byte	.LASF111
+ 1565 070b 0E       		.byte	0xe
+ 1566 070c 43       		.byte	0x43
+ 1567 070d 91010000 		.4byte	0x191
+ 1568 0711 34       		.byte	0x34
+ 1569 0712 0D       		.uleb128 0xd
+ 1570 0713 AB030000 		.4byte	.LASF112
+ 1571 0717 0E       		.byte	0xe
+ 1572 0718 44       		.byte	0x44
+ 1573 0719 86010000 		.4byte	0x186
+ 1574 071d 36       		.byte	0x36
+ 1575 071e 00       		.byte	0
+ 1576 071f 02       		.uleb128 0x2
+ 1577 0720 CF090000 		.4byte	.LASF113
+ 1578 0724 0E       		.byte	0xe
+ 1579 0725 45       		.byte	0x45
+ 1580 0726 D8050000 		.4byte	0x5d8
+ 1581 072a 06       		.uleb128 0x6
+ 1582 072b 20       		.byte	0x20
+ 1583 072c 0F       		.byte	0xf
+ 1584 072d 1E       		.byte	0x1e
+ 1585 072e F9070000 		.4byte	0x7f9
+ 1586 0732 0D       		.uleb128 0xd
+ 1587 0733 A6090000 		.4byte	.LASF114
+ 1588 0737 0F       		.byte	0xf
+ 1589 0738 1F       		.byte	0x1f
+ 1590 0739 F9070000 		.4byte	0x7f9
+ 1591 073d 00       		.byte	0
+ 1592 073e 0D       		.uleb128 0xd
+ 1593 073f 0D070000 		.4byte	.LASF115
+ 1594 0743 0F       		.byte	0xf
+ 1595 0744 20       		.byte	0x20
+ 1596 0745 E4000000 		.4byte	0xe4
+ 1597 0749 04       		.byte	0x4
+ 1598 074a 0D       		.uleb128 0xd
+ 1599 074b EE030000 		.4byte	.LASF116
+ 1600 074f 0F       		.byte	0xf
+ 1601 0750 21       		.byte	0x21
+ 1602 0751 E4000000 		.4byte	0xe4
+ 1603 0755 08       		.byte	0x8
+ 1604 0756 0D       		.uleb128 0xd
+ 1605 0757 6E080000 		.4byte	.LASF62
+ 1606 075b 0F       		.byte	0xf
+ 1607 075c 22       		.byte	0x22
+ 1608 075d 7B010000 		.4byte	0x17b
+ 1609 0761 0C       		.byte	0xc
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 33
+
+
+ 1610 0762 0D       		.uleb128 0xd
+ 1611 0763 FA080000 		.4byte	.LASF117
+ 1612 0767 0F       		.byte	0xf
+ 1613 0768 23       		.byte	0x23
+ 1614 0769 7B010000 		.4byte	0x17b
+ 1615 076d 0E       		.byte	0xe
+ 1616 076e 0D       		.uleb128 0xd
+ 1617 076f 5B030000 		.4byte	.LASF118
+ 1618 0773 0F       		.byte	0xf
+ 1619 0774 24       		.byte	0x24
+ 1620 0775 7B010000 		.4byte	0x17b
+ 1621 0779 10       		.byte	0x10
+ 1622 077a 0D       		.uleb128 0xd
+ 1623 077b 5D060000 		.4byte	.LASF119
+ 1624 077f 0F       		.byte	0xf
+ 1625 0780 25       		.byte	0x25
+ 1626 0781 91010000 		.4byte	0x191
+ 1627 0785 12       		.byte	0x12
+ 1628 0786 0D       		.uleb128 0xd
+ 1629 0787 C9050000 		.4byte	.LASF120
+ 1630 078b 0F       		.byte	0xf
+ 1631 078c 26       		.byte	0x26
+ 1632 078d 91010000 		.4byte	0x191
+ 1633 0791 14       		.byte	0x14
+ 1634 0792 0D       		.uleb128 0xd
+ 1635 0793 560A0000 		.4byte	.LASF39
+ 1636 0797 0F       		.byte	0xf
+ 1637 0798 27       		.byte	0x27
+ 1638 0799 91010000 		.4byte	0x191
+ 1639 079d 16       		.byte	0x16
+ 1640 079e 0D       		.uleb128 0xd
+ 1641 079f A6010000 		.4byte	.LASF40
+ 1642 07a3 0F       		.byte	0xf
+ 1643 07a4 28       		.byte	0x28
+ 1644 07a5 91010000 		.4byte	0x191
+ 1645 07a9 18       		.byte	0x18
+ 1646 07aa 0C       		.uleb128 0xc
+ 1647 07ab 6F706100 		.ascii	"opa\000"
+ 1648 07af 0F       		.byte	0xf
+ 1649 07b0 29       		.byte	0x29
+ 1650 07b1 86010000 		.4byte	0x186
+ 1651 07b5 1A       		.byte	0x1a
+ 1652 07b6 0D       		.uleb128 0xd
+ 1653 07b7 DA0A0000 		.4byte	.LASF121
+ 1654 07bb 0F       		.byte	0xf
+ 1655 07bc 2A       		.byte	0x2a
+ 1656 07bd 8F030000 		.4byte	0x38f
+ 1657 07c1 1B       		.byte	0x1b
+ 1658 07c2 0D       		.uleb128 0xd
+ 1659 07c3 B6030000 		.4byte	.LASF122
+ 1660 07c7 0F       		.byte	0xf
+ 1661 07c8 2B       		.byte	0x2b
+ 1662 07c9 84030000 		.4byte	0x384
+ 1663 07cd 1C       		.byte	0x1c
+ 1664 07ce 0D       		.uleb128 0xd
+ 1665 07cf 00070000 		.4byte	.LASF123
+ 1666 07d3 0F       		.byte	0xf
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 34
+
+
+ 1667 07d4 2C       		.byte	0x2c
+ 1668 07d5 79030000 		.4byte	0x379
+ 1669 07d9 1D       		.byte	0x1d
+ 1670 07da 07       		.uleb128 0x7
+ 1671 07db 8A070000 		.4byte	.LASF124
+ 1672 07df 0F       		.byte	0xf
+ 1673 07e0 2D       		.byte	0x2d
+ 1674 07e1 A5030000 		.4byte	0x3a5
+ 1675 07e5 01       		.byte	0x1
+ 1676 07e6 03       		.byte	0x3
+ 1677 07e7 05       		.byte	0x5
+ 1678 07e8 1E       		.byte	0x1e
+ 1679 07e9 07       		.uleb128 0x7
+ 1680 07ea 5C0A0000 		.4byte	.LASF88
+ 1681 07ee 0F       		.byte	0xf
+ 1682 07ef 2E       		.byte	0x2e
+ 1683 07f0 9A030000 		.4byte	0x39a
+ 1684 07f4 01       		.byte	0x1
+ 1685 07f5 03       		.byte	0x3
+ 1686 07f6 02       		.byte	0x2
+ 1687 07f7 1E       		.byte	0x1e
+ 1688 07f8 00       		.byte	0
+ 1689 07f9 0F       		.uleb128 0xf
+ 1690 07fa 04       		.byte	0x4
+ 1691 07fb FF070000 		.4byte	0x7ff
+ 1692 07ff 10       		.uleb128 0x10
+ 1693 0800 6E030000 		.4byte	0x36e
+ 1694 0804 02       		.uleb128 0x2
+ 1695 0805 DA040000 		.4byte	.LASF125
+ 1696 0809 0F       		.byte	0xf
+ 1697 080a 2F       		.byte	0x2f
+ 1698 080b 2A070000 		.4byte	0x72a
+ 1699 080f 06       		.uleb128 0x6
+ 1700 0810 18       		.byte	0x18
+ 1701 0811 10       		.byte	0x10
+ 1702 0812 20       		.byte	0x20
+ 1703 0813 8A080000 		.4byte	0x88a
+ 1704 0817 0D       		.uleb128 0xd
+ 1705 0818 74030000 		.4byte	.LASF126
+ 1706 081c 10       		.byte	0x10
+ 1707 081d 22       		.byte	0x22
+ 1708 081e C3000000 		.4byte	0xc3
+ 1709 0822 00       		.byte	0
+ 1710 0823 0D       		.uleb128 0xd
+ 1711 0824 63010000 		.4byte	.LASF127
+ 1712 0828 10       		.byte	0x10
+ 1713 0829 23       		.byte	0x23
+ 1714 082a CE000000 		.4byte	0xce
+ 1715 082e 02       		.byte	0x2
+ 1716 082f 0D       		.uleb128 0xd
+ 1717 0830 81010000 		.4byte	.LASF128
+ 1718 0834 10       		.byte	0x10
+ 1719 0835 24       		.byte	0x24
+ 1720 0836 B9010000 		.4byte	0x1b9
+ 1721 083a 04       		.byte	0x4
+ 1722 083b 0D       		.uleb128 0xd
+ 1723 083c 090A0000 		.4byte	.LASF129
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 35
+
+
+ 1724 0840 10       		.byte	0x10
+ 1725 0841 26       		.byte	0x26
+ 1726 0842 7B010000 		.4byte	0x17b
+ 1727 0846 08       		.byte	0x8
+ 1728 0847 0D       		.uleb128 0xd
+ 1729 0848 110A0000 		.4byte	.LASF130
+ 1730 084c 10       		.byte	0x10
+ 1731 084d 27       		.byte	0x27
+ 1732 084e 86010000 		.4byte	0x186
+ 1733 0852 0A       		.byte	0xa
+ 1734 0853 0C       		.uleb128 0xc
+ 1735 0854 6F706100 		.ascii	"opa\000"
+ 1736 0858 10       		.byte	0x10
+ 1737 0859 29       		.byte	0x29
+ 1738 085a 86010000 		.4byte	0x186
+ 1739 085e 0B       		.byte	0xb
+ 1740 085f 07       		.uleb128 0x7
+ 1741 0860 5C0A0000 		.4byte	.LASF88
+ 1742 0864 10       		.byte	0x10
+ 1743 0865 2A       		.byte	0x2a
+ 1744 0866 9A030000 		.4byte	0x39a
+ 1745 086a 01       		.byte	0x1
+ 1746 086b 04       		.byte	0x4
+ 1747 086c 04       		.byte	0x4
+ 1748 086d 0C       		.byte	0xc
+ 1749 086e 0D       		.uleb128 0xd
+ 1750 086f 65080000 		.4byte	.LASF131
+ 1751 0873 10       		.byte	0x10
+ 1752 0874 2C       		.byte	0x2c
+ 1753 0875 D9000000 		.4byte	0xd9
+ 1754 0879 10       		.byte	0x10
+ 1755 087a 07       		.uleb128 0x7
+ 1756 087b F0080000 		.4byte	.LASF132
+ 1757 087f 10       		.byte	0x10
+ 1758 0880 2D       		.byte	0x2d
+ 1759 0881 B8000000 		.4byte	0xb8
+ 1760 0885 01       		.byte	0x1
+ 1761 0886 01       		.byte	0x1
+ 1762 0887 07       		.byte	0x7
+ 1763 0888 14       		.byte	0x14
+ 1764 0889 00       		.byte	0
+ 1765 088a 02       		.uleb128 0x2
+ 1766 088b 6F070000 		.4byte	.LASF133
+ 1767 088f 10       		.byte	0x10
+ 1768 0890 2E       		.byte	0x2e
+ 1769 0891 0F080000 		.4byte	0x80f
+ 1770 0895 06       		.uleb128 0x6
+ 1771 0896 0A       		.byte	0xa
+ 1772 0897 11       		.byte	0x11
+ 1773 0898 1C       		.byte	0x1c
+ 1774 0899 16090000 		.4byte	0x916
+ 1775 089d 0D       		.uleb128 0xd
+ 1776 089e 6E080000 		.4byte	.LASF62
+ 1777 08a2 11       		.byte	0x11
+ 1778 08a3 1D       		.byte	0x1d
+ 1779 08a4 7B010000 		.4byte	0x17b
+ 1780 08a8 00       		.byte	0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 36
+
+
+ 1781 08a9 0D       		.uleb128 0xd
+ 1782 08aa 61040000 		.4byte	.LASF134
+ 1783 08ae 11       		.byte	0x11
+ 1784 08af 1E       		.byte	0x1e
+ 1785 08b0 91010000 		.4byte	0x191
+ 1786 08b4 02       		.byte	0x2
+ 1787 08b5 0D       		.uleb128 0xd
+ 1788 08b6 2C0B0000 		.4byte	.LASF135
+ 1789 08ba 11       		.byte	0x11
+ 1790 08bb 1F       		.byte	0x1f
+ 1791 08bc 91010000 		.4byte	0x191
+ 1792 08c0 04       		.byte	0x4
+ 1793 08c1 0D       		.uleb128 0xd
+ 1794 08c2 81060000 		.4byte	.LASF136
+ 1795 08c6 11       		.byte	0x11
+ 1796 08c7 20       		.byte	0x20
+ 1797 08c8 91010000 		.4byte	0x191
+ 1798 08cc 06       		.byte	0x6
+ 1799 08cd 0C       		.uleb128 0xc
+ 1800 08ce 6F706100 		.ascii	"opa\000"
+ 1801 08d2 11       		.byte	0x11
+ 1802 08d3 21       		.byte	0x21
+ 1803 08d4 86010000 		.4byte	0x186
+ 1804 08d8 08       		.byte	0x8
+ 1805 08d9 07       		.uleb128 0x7
+ 1806 08da 5C0A0000 		.4byte	.LASF88
+ 1807 08de 11       		.byte	0x11
+ 1808 08df 22       		.byte	0x22
+ 1809 08e0 9A030000 		.4byte	0x39a
+ 1810 08e4 01       		.byte	0x1
+ 1811 08e5 02       		.byte	0x2
+ 1812 08e6 06       		.byte	0x6
+ 1813 08e7 09       		.byte	0x9
+ 1814 08e8 07       		.uleb128 0x7
+ 1815 08e9 F0000000 		.4byte	.LASF137
+ 1816 08ed 11       		.byte	0x11
+ 1817 08ee 23       		.byte	0x23
+ 1818 08ef B8000000 		.4byte	0xb8
+ 1819 08f3 01       		.byte	0x1
+ 1820 08f4 01       		.byte	0x1
+ 1821 08f5 05       		.byte	0x5
+ 1822 08f6 09       		.byte	0x9
+ 1823 08f7 07       		.uleb128 0x7
+ 1824 08f8 17070000 		.4byte	.LASF138
+ 1825 08fc 11       		.byte	0x11
+ 1826 08fd 24       		.byte	0x24
+ 1827 08fe B8000000 		.4byte	0xb8
+ 1828 0902 01       		.byte	0x1
+ 1829 0903 01       		.byte	0x1
+ 1830 0904 04       		.byte	0x4
+ 1831 0905 09       		.byte	0x9
+ 1832 0906 07       		.uleb128 0x7
+ 1833 0907 0B060000 		.4byte	.LASF139
+ 1834 090b 11       		.byte	0x11
+ 1835 090c 25       		.byte	0x25
+ 1836 090d B8000000 		.4byte	0xb8
+ 1837 0911 01       		.byte	0x1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 37
+
+
+ 1838 0912 01       		.byte	0x1
+ 1839 0913 03       		.byte	0x3
+ 1840 0914 09       		.byte	0x9
+ 1841 0915 00       		.byte	0
+ 1842 0916 02       		.uleb128 0x2
+ 1843 0917 90070000 		.4byte	.LASF140
+ 1844 091b 11       		.byte	0x11
+ 1845 091c 26       		.byte	0x26
+ 1846 091d 95080000 		.4byte	0x895
+ 1847 0921 06       		.uleb128 0x6
+ 1848 0922 10       		.byte	0x10
+ 1849 0923 12       		.byte	0x12
+ 1850 0924 1C       		.byte	0x1c
+ 1851 0925 90090000 		.4byte	0x990
+ 1852 0929 0D       		.uleb128 0xd
+ 1853 092a 6E080000 		.4byte	.LASF62
+ 1854 092e 12       		.byte	0x12
+ 1855 092f 1D       		.byte	0x1d
+ 1856 0930 7B010000 		.4byte	0x17b
+ 1857 0934 00       		.byte	0
+ 1858 0935 0D       		.uleb128 0xd
+ 1859 0936 61040000 		.4byte	.LASF134
+ 1860 093a 12       		.byte	0x12
+ 1861 093b 1E       		.byte	0x1e
+ 1862 093c 91010000 		.4byte	0x191
+ 1863 0940 02       		.byte	0x2
+ 1864 0941 0D       		.uleb128 0xd
+ 1865 0942 C6010000 		.4byte	.LASF141
+ 1866 0946 12       		.byte	0x12
+ 1867 0947 1F       		.byte	0x1f
+ 1868 0948 CE000000 		.4byte	0xce
+ 1869 094c 04       		.byte	0x4
+ 1870 094d 0D       		.uleb128 0xd
+ 1871 094e 77050000 		.4byte	.LASF142
+ 1872 0952 12       		.byte	0x12
+ 1873 0953 20       		.byte	0x20
+ 1874 0954 CE000000 		.4byte	0xce
+ 1875 0958 06       		.byte	0x6
+ 1876 0959 0D       		.uleb128 0xd
+ 1877 095a BF020000 		.4byte	.LASF143
+ 1878 095e 12       		.byte	0x12
+ 1879 095f 21       		.byte	0x21
+ 1880 0960 67030000 		.4byte	0x367
+ 1881 0964 08       		.byte	0x8
+ 1882 0965 0C       		.uleb128 0xc
+ 1883 0966 6F706100 		.ascii	"opa\000"
+ 1884 096a 12       		.byte	0x12
+ 1885 096b 22       		.byte	0x22
+ 1886 096c 86010000 		.4byte	0x186
+ 1887 0970 0C       		.byte	0xc
+ 1888 0971 07       		.uleb128 0x7
+ 1889 0972 5C0A0000 		.4byte	.LASF88
+ 1890 0976 12       		.byte	0x12
+ 1891 0977 23       		.byte	0x23
+ 1892 0978 9A030000 		.4byte	0x39a
+ 1893 097c 01       		.byte	0x1
+ 1894 097d 02       		.byte	0x2
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 38
+
+
+ 1895 097e 06       		.byte	0x6
+ 1896 097f 0D       		.byte	0xd
+ 1897 0980 07       		.uleb128 0x7
+ 1898 0981 13060000 		.4byte	.LASF144
+ 1899 0985 12       		.byte	0x12
+ 1900 0986 24       		.byte	0x24
+ 1901 0987 B8000000 		.4byte	0xb8
+ 1902 098b 01       		.byte	0x1
+ 1903 098c 01       		.byte	0x1
+ 1904 098d 05       		.byte	0x5
+ 1905 098e 0D       		.byte	0xd
+ 1906 098f 00       		.byte	0
+ 1907 0990 02       		.uleb128 0x2
+ 1908 0991 A10A0000 		.4byte	.LASF145
+ 1909 0995 12       		.byte	0x12
+ 1910 0996 25       		.byte	0x25
+ 1911 0997 21090000 		.4byte	0x921
+ 1912 099b 16       		.uleb128 0x16
+ 1913 099c 01       		.byte	0x1
+ 1914 099d 42000000 		.4byte	0x42
+ 1915 09a1 13       		.byte	0x13
+ 1916 09a2 1C       		.byte	0x1c
+ 1917 09a3 BA090000 		.4byte	0x9ba
+ 1918 09a7 17       		.uleb128 0x17
+ 1919 09a8 5C020000 		.4byte	.LASF146
+ 1920 09ac 00       		.byte	0
+ 1921 09ad 17       		.uleb128 0x17
+ 1922 09ae 79080000 		.4byte	.LASF147
+ 1923 09b2 01       		.byte	0x1
+ 1924 09b3 17       		.uleb128 0x17
+ 1925 09b4 78000000 		.4byte	.LASF148
+ 1926 09b8 02       		.byte	0x2
+ 1927 09b9 00       		.byte	0
+ 1928 09ba 02       		.uleb128 0x2
+ 1929 09bb 19050000 		.4byte	.LASF149
+ 1930 09bf 13       		.byte	0x13
+ 1931 09c0 20       		.byte	0x20
+ 1932 09c1 9B090000 		.4byte	0x99b
+ 1933 09c5 06       		.uleb128 0x6
+ 1934 09c6 10       		.byte	0x10
+ 1935 09c7 14       		.byte	0x14
+ 1936 09c8 33       		.byte	0x33
+ 1937 09c9 FE090000 		.4byte	0x9fe
+ 1938 09cd 0D       		.uleb128 0xd
+ 1939 09ce C7020000 		.4byte	.LASF150
+ 1940 09d2 14       		.byte	0x14
+ 1941 09d3 34       		.byte	0x34
+ 1942 09d4 BC050000 		.4byte	0x5bc
+ 1943 09d8 00       		.byte	0
+ 1944 09d9 0D       		.uleb128 0xd
+ 1945 09da 06010000 		.4byte	.LASF151
+ 1946 09de 14       		.byte	0x14
+ 1947 09df 35       		.byte	0x35
+ 1948 09e0 FE090000 		.4byte	0x9fe
+ 1949 09e4 04       		.byte	0x4
+ 1950 09e5 0C       		.uleb128 0xc
+ 1951 09e6 62756600 		.ascii	"buf\000"
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 39
+
+
+ 1952 09ea 14       		.byte	0x14
+ 1953 09eb 36       		.byte	0x36
+ 1954 09ec 13010000 		.4byte	0x113
+ 1955 09f0 08       		.byte	0x8
+ 1956 09f1 0D       		.uleb128 0xd
+ 1957 09f2 93040000 		.4byte	.LASF152
+ 1958 09f6 14       		.byte	0x14
+ 1959 09f7 37       		.byte	0x37
+ 1960 09f8 2F030000 		.4byte	0x32f
+ 1961 09fc 0C       		.byte	0xc
+ 1962 09fd 00       		.byte	0
+ 1963 09fe 0F       		.uleb128 0xf
+ 1964 09ff 04       		.byte	0x4
+ 1965 0a00 F9010000 		.4byte	0x1f9
+ 1966 0a04 0E       		.uleb128 0xe
+ 1967 0a05 F6030000 		.4byte	.LASF154
+ 1968 0a09 28       		.byte	0x28
+ 1969 0a0a 14       		.byte	0x14
+ 1970 0a0b 2D       		.byte	0x2d
+ 1971 0a0c 590A0000 		.4byte	0xa59
+ 1972 0a10 0D       		.uleb128 0xd
+ 1973 0a11 90090000 		.4byte	.LASF155
+ 1974 0a15 14       		.byte	0x14
+ 1975 0a16 2E       		.byte	0x2e
+ 1976 0a17 F9010000 		.4byte	0x1f9
+ 1977 0a1b 00       		.byte	0
+ 1978 0a1c 0D       		.uleb128 0xd
+ 1979 0a1d B8000000 		.4byte	.LASF156
+ 1980 0a21 14       		.byte	0x14
+ 1981 0a22 2F       		.byte	0x2f
+ 1982 0a23 F9010000 		.4byte	0x1f9
+ 1983 0a27 08       		.byte	0x8
+ 1984 0a28 0D       		.uleb128 0xd
+ 1985 0a29 ED060000 		.4byte	.LASF157
+ 1986 0a2d 14       		.byte	0x14
+ 1987 0a2e 30       		.byte	0x30
+ 1988 0a2f 91010000 		.4byte	0x191
+ 1989 0a33 10       		.byte	0x10
+ 1990 0a34 0D       		.uleb128 0xd
+ 1991 0a35 90010000 		.4byte	.LASF158
+ 1992 0a39 14       		.byte	0x14
+ 1993 0a3a 31       		.byte	0x31
+ 1994 0a3b 91010000 		.4byte	0x191
+ 1995 0a3f 12       		.byte	0x12
+ 1996 0a40 0C       		.uleb128 0xc
+ 1997 0a41 62756600 		.ascii	"buf\000"
+ 1998 0a45 14       		.byte	0x14
+ 1999 0a46 32       		.byte	0x32
+ 2000 0a47 13010000 		.4byte	0x113
+ 2001 0a4b 14       		.byte	0x14
+ 2002 0a4c 0D       		.uleb128 0xd
+ 2003 0a4d FF020000 		.4byte	.LASF159
+ 2004 0a51 14       		.byte	0x14
+ 2005 0a52 38       		.byte	0x38
+ 2006 0a53 C5090000 		.4byte	0x9c5
+ 2007 0a57 18       		.byte	0x18
+ 2008 0a58 00       		.byte	0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 40
+
+
+ 2009 0a59 02       		.uleb128 0x2
+ 2010 0a5a B5050000 		.4byte	.LASF160
+ 2011 0a5e 14       		.byte	0x14
+ 2012 0a5f 39       		.byte	0x39
+ 2013 0a60 040A0000 		.4byte	0xa04
+ 2014 0a64 0E       		.uleb128 0xe
+ 2015 0a65 53000000 		.4byte	.LASF161
+ 2016 0a69 54       		.byte	0x54
+ 2017 0a6a 14       		.byte	0x14
+ 2018 0a6b 3B       		.byte	0x3b
+ 2019 0a6c 6D0B0000 		.4byte	0xb6d
+ 2020 0a70 0C       		.uleb128 0xc
+ 2021 0a71 62756600 		.ascii	"buf\000"
+ 2022 0a75 14       		.byte	0x14
+ 2023 0a76 3F       		.byte	0x3f
+ 2024 0a77 13010000 		.4byte	0x113
+ 2025 0a7b 00       		.byte	0
+ 2026 0a7c 0D       		.uleb128 0xd
+ 2027 0a7d 06010000 		.4byte	.LASF151
+ 2028 0a81 14       		.byte	0x14
+ 2029 0a82 44       		.byte	0x44
+ 2030 0a83 FE090000 		.4byte	0x9fe
+ 2031 0a87 04       		.byte	0x4
+ 2032 0a88 0D       		.uleb128 0xd
+ 2033 0a89 C7020000 		.4byte	.LASF150
+ 2034 0a8d 14       		.byte	0x14
+ 2035 0a8e 49       		.byte	0x49
+ 2036 0a8f BC050000 		.4byte	0x5bc
+ 2037 0a93 08       		.byte	0x8
+ 2038 0a94 0D       		.uleb128 0xd
+ 2039 0a95 B0080000 		.4byte	.LASF162
+ 2040 0a99 14       		.byte	0x14
+ 2041 0a9a 4B       		.byte	0x4b
+ 2042 0a9b 7E0B0000 		.4byte	0xb7e
+ 2043 0a9f 0C       		.byte	0xc
+ 2044 0aa0 0D       		.uleb128 0xd
+ 2045 0aa1 F2010000 		.4byte	.LASF163
+ 2046 0aa5 14       		.byte	0x14
+ 2047 0aa6 4D       		.byte	0x4d
+ 2048 0aa7 A40B0000 		.4byte	0xba4
+ 2049 0aab 10       		.byte	0x10
+ 2050 0aac 0D       		.uleb128 0xd
+ 2051 0aad 87010000 		.4byte	.LASF164
+ 2052 0ab1 14       		.byte	0x14
+ 2053 0ab2 4F       		.byte	0x4f
+ 2054 0ab3 E40B0000 		.4byte	0xbe4
+ 2055 0ab7 14       		.byte	0x14
+ 2056 0ab8 0D       		.uleb128 0xd
+ 2057 0ab9 4A030000 		.4byte	.LASF165
+ 2058 0abd 14       		.byte	0x14
+ 2059 0abe 52       		.byte	0x52
+ 2060 0abf 140C0000 		.4byte	0xc14
+ 2061 0ac3 18       		.byte	0x18
+ 2062 0ac4 0D       		.uleb128 0xd
+ 2063 0ac5 62000000 		.4byte	.LASF166
+ 2064 0ac9 14       		.byte	0x14
+ 2065 0aca 55       		.byte	0x55
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 41
+
+
+ 2066 0acb 380C0000 		.4byte	0xc38
+ 2067 0acf 1C       		.byte	0x1c
+ 2068 0ad0 0D       		.uleb128 0xd
+ 2069 0ad1 040B0000 		.4byte	.LASF167
+ 2070 0ad5 14       		.byte	0x14
+ 2071 0ad6 58       		.byte	0x58
+ 2072 0ad7 630C0000 		.4byte	0xc63
+ 2073 0adb 20       		.byte	0x20
+ 2074 0adc 0D       		.uleb128 0xd
+ 2075 0add 81050000 		.4byte	.LASF168
+ 2076 0ae1 14       		.byte	0x14
+ 2077 0ae2 5C       		.byte	0x5c
+ 2078 0ae3 8E0C0000 		.4byte	0xc8e
+ 2079 0ae7 24       		.byte	0x24
+ 2080 0ae8 0D       		.uleb128 0xd
+ 2081 0ae9 6B000000 		.4byte	.LASF169
+ 2082 0aed 14       		.byte	0x14
+ 2083 0aee 60       		.byte	0x60
+ 2084 0aef AE0C0000 		.4byte	0xcae
+ 2085 0af3 28       		.byte	0x28
+ 2086 0af4 0D       		.uleb128 0xd
+ 2087 0af5 7A0A0000 		.4byte	.LASF170
+ 2088 0af9 14       		.byte	0x14
+ 2089 0afa 71       		.byte	0x71
+ 2090 0afb EC0C0000 		.4byte	0xcec
+ 2091 0aff 2C       		.byte	0x2c
+ 2092 0b00 0D       		.uleb128 0xd
+ 2093 0b01 C9060000 		.4byte	.LASF171
+ 2094 0b05 14       		.byte	0x14
+ 2095 0b06 78       		.byte	0x78
+ 2096 0b07 A40B0000 		.4byte	0xba4
+ 2097 0b0b 30       		.byte	0x30
+ 2098 0b0c 0D       		.uleb128 0xd
+ 2099 0b0d 68010000 		.4byte	.LASF172
+ 2100 0b11 14       		.byte	0x14
+ 2101 0b12 7D       		.byte	0x7d
+ 2102 0b13 7E0B0000 		.4byte	0xb7e
+ 2103 0b17 34       		.byte	0x34
+ 2104 0b18 0D       		.uleb128 0xd
+ 2105 0b19 68030000 		.4byte	.LASF173
+ 2106 0b1d 14       		.byte	0x14
+ 2107 0b1e 8D       		.byte	0x8d
+ 2108 0b1f 1B0D0000 		.4byte	0xd1b
+ 2109 0b23 38       		.byte	0x38
+ 2110 0b24 0D       		.uleb128 0xd
+ 2111 0b25 51020000 		.4byte	.LASF174
+ 2112 0b29 14       		.byte	0x14
+ 2113 0b2a 99       		.byte	0x99
+ 2114 0b2b 400D0000 		.4byte	0xd40
+ 2115 0b2f 3C       		.byte	0x3c
+ 2116 0b30 0D       		.uleb128 0xd
+ 2117 0b31 D6050000 		.4byte	.LASF175
+ 2118 0b35 14       		.byte	0x14
+ 2119 0b36 A3       		.byte	0xa3
+ 2120 0b37 5B0D0000 		.4byte	0xd5b
+ 2121 0b3b 40       		.byte	0x40
+ 2122 0b3c 0D       		.uleb128 0xd
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 42
+
+
+ 2123 0b3d FC010000 		.4byte	.LASF176
+ 2124 0b41 14       		.byte	0x14
+ 2125 0b42 AC       		.byte	0xac
+ 2126 0b43 760D0000 		.4byte	0xd76
+ 2127 0b47 44       		.byte	0x44
+ 2128 0b48 0D       		.uleb128 0xd
+ 2129 0b49 CF080000 		.4byte	.LASF177
+ 2130 0b4d 14       		.byte	0x14
+ 2131 0b4e B5       		.byte	0xb5
+ 2132 0b4f 920D0000 		.4byte	0xd92
+ 2133 0b53 48       		.byte	0x48
+ 2134 0b54 0D       		.uleb128 0xd
+ 2135 0b55 08030000 		.4byte	.LASF178
+ 2136 0b59 14       		.byte	0x14
+ 2137 0b5a BA       		.byte	0xba
+ 2138 0b5b FA000000 		.4byte	0xfa
+ 2139 0b5f 4C       		.byte	0x4c
+ 2140 0b60 0D       		.uleb128 0xd
+ 2141 0b61 10000000 		.4byte	.LASF50
+ 2142 0b65 14       		.byte	0x14
+ 2143 0b66 BD       		.byte	0xbd
+ 2144 0b67 13010000 		.4byte	0x113
+ 2145 0b6b 50       		.byte	0x50
+ 2146 0b6c 00       		.byte	0
+ 2147 0b6d 18       		.uleb128 0x18
+ 2148 0b6e 780B0000 		.4byte	0xb78
+ 2149 0b72 12       		.uleb128 0x12
+ 2150 0b73 780B0000 		.4byte	0xb78
+ 2151 0b77 00       		.byte	0
+ 2152 0b78 0F       		.uleb128 0xf
+ 2153 0b79 04       		.byte	0x4
+ 2154 0b7a 640A0000 		.4byte	0xa64
+ 2155 0b7e 0F       		.uleb128 0xf
+ 2156 0b7f 04       		.byte	0x4
+ 2157 0b80 6D0B0000 		.4byte	0xb6d
+ 2158 0b84 18       		.uleb128 0x18
+ 2159 0b85 990B0000 		.4byte	0xb99
+ 2160 0b89 12       		.uleb128 0x12
+ 2161 0b8a 780B0000 		.4byte	0xb78
+ 2162 0b8e 12       		.uleb128 0x12
+ 2163 0b8f 990B0000 		.4byte	0xb99
+ 2164 0b93 12       		.uleb128 0x12
+ 2165 0b94 BC050000 		.4byte	0x5bc
+ 2166 0b98 00       		.byte	0
+ 2167 0b99 0F       		.uleb128 0xf
+ 2168 0b9a 04       		.byte	0x4
+ 2169 0b9b 9F0B0000 		.4byte	0xb9f
+ 2170 0b9f 10       		.uleb128 0x10
+ 2171 0ba0 1F070000 		.4byte	0x71f
+ 2172 0ba4 0F       		.uleb128 0xf
+ 2173 0ba5 04       		.byte	0x4
+ 2174 0ba6 840B0000 		.4byte	0xb84
+ 2175 0baa 18       		.uleb128 0x18
+ 2176 0bab CE0B0000 		.4byte	0xbce
+ 2177 0baf 12       		.uleb128 0x12
+ 2178 0bb0 780B0000 		.4byte	0xb78
+ 2179 0bb4 12       		.uleb128 0x12
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 43
+
+
+ 2180 0bb5 CE0B0000 		.4byte	0xbce
+ 2181 0bb9 12       		.uleb128 0x12
+ 2182 0bba D90B0000 		.4byte	0xbd9
+ 2183 0bbe 12       		.uleb128 0x12
+ 2184 0bbf CE000000 		.4byte	0xce
+ 2185 0bc3 12       		.uleb128 0x12
+ 2186 0bc4 CE000000 		.4byte	0xce
+ 2187 0bc8 12       		.uleb128 0x12
+ 2188 0bc9 CE000000 		.4byte	0xce
+ 2189 0bcd 00       		.byte	0
+ 2190 0bce 0F       		.uleb128 0xf
+ 2191 0bcf 04       		.byte	0x4
+ 2192 0bd0 D40B0000 		.4byte	0xbd4
+ 2193 0bd4 10       		.uleb128 0x10
+ 2194 0bd5 90090000 		.4byte	0x990
+ 2195 0bd9 0F       		.uleb128 0xf
+ 2196 0bda 04       		.byte	0x4
+ 2197 0bdb DF0B0000 		.4byte	0xbdf
+ 2198 0bdf 10       		.uleb128 0x10
+ 2199 0be0 B9010000 		.4byte	0x1b9
+ 2200 0be4 0F       		.uleb128 0xf
+ 2201 0be5 04       		.byte	0x4
+ 2202 0be6 AA0B0000 		.4byte	0xbaa
+ 2203 0bea 18       		.uleb128 0x18
+ 2204 0beb 090C0000 		.4byte	0xc09
+ 2205 0bef 12       		.uleb128 0x12
+ 2206 0bf0 780B0000 		.4byte	0xb78
+ 2207 0bf4 12       		.uleb128 0x12
+ 2208 0bf5 090C0000 		.4byte	0xc09
+ 2209 0bf9 12       		.uleb128 0x12
+ 2210 0bfa BC050000 		.4byte	0x5bc
+ 2211 0bfe 12       		.uleb128 0x12
+ 2212 0bff 56030000 		.4byte	0x356
+ 2213 0c03 12       		.uleb128 0x12
+ 2214 0c04 C7050000 		.4byte	0x5c7
+ 2215 0c08 00       		.byte	0
+ 2216 0c09 0F       		.uleb128 0xf
+ 2217 0c0a 04       		.byte	0x4
+ 2218 0c0b 0F0C0000 		.4byte	0xc0f
+ 2219 0c0f 10       		.uleb128 0x10
+ 2220 0c10 8A080000 		.4byte	0x88a
+ 2221 0c14 0F       		.uleb128 0xf
+ 2222 0c15 04       		.byte	0x4
+ 2223 0c16 EA0B0000 		.4byte	0xbea
+ 2224 0c1a 11       		.uleb128 0x11
+ 2225 0c1b EF000000 		.4byte	0xef
+ 2226 0c1f 380C0000 		.4byte	0xc38
+ 2227 0c23 12       		.uleb128 0x12
+ 2228 0c24 780B0000 		.4byte	0xb78
+ 2229 0c28 12       		.uleb128 0x12
+ 2230 0c29 090C0000 		.4byte	0xc09
+ 2231 0c2d 12       		.uleb128 0x12
+ 2232 0c2e BC050000 		.4byte	0x5bc
+ 2233 0c32 12       		.uleb128 0x12
+ 2234 0c33 67030000 		.4byte	0x367
+ 2235 0c37 00       		.byte	0
+ 2236 0c38 0F       		.uleb128 0xf
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 44
+
+
+ 2237 0c39 04       		.byte	0x4
+ 2238 0c3a 1A0C0000 		.4byte	0xc1a
+ 2239 0c3e 18       		.uleb128 0x18
+ 2240 0c3f 580C0000 		.4byte	0xc58
+ 2241 0c43 12       		.uleb128 0x12
+ 2242 0c44 780B0000 		.4byte	0xb78
+ 2243 0c48 12       		.uleb128 0x12
+ 2244 0c49 580C0000 		.4byte	0xc58
+ 2245 0c4d 12       		.uleb128 0x12
+ 2246 0c4e D90B0000 		.4byte	0xbd9
+ 2247 0c52 12       		.uleb128 0x12
+ 2248 0c53 E4000000 		.4byte	0xe4
+ 2249 0c57 00       		.byte	0
+ 2250 0c58 0F       		.uleb128 0xf
+ 2251 0c59 04       		.byte	0x4
+ 2252 0c5a 5E0C0000 		.4byte	0xc5e
+ 2253 0c5e 10       		.uleb128 0x10
+ 2254 0c5f 04080000 		.4byte	0x804
+ 2255 0c63 0F       		.uleb128 0xf
+ 2256 0c64 04       		.byte	0x4
+ 2257 0c65 3E0C0000 		.4byte	0xc3e
+ 2258 0c69 18       		.uleb128 0x18
+ 2259 0c6a 830C0000 		.4byte	0xc83
+ 2260 0c6e 12       		.uleb128 0x12
+ 2261 0c6f 780B0000 		.4byte	0xb78
+ 2262 0c73 12       		.uleb128 0x12
+ 2263 0c74 830C0000 		.4byte	0xc83
+ 2264 0c78 12       		.uleb128 0x12
+ 2265 0c79 D90B0000 		.4byte	0xbd9
+ 2266 0c7d 12       		.uleb128 0x12
+ 2267 0c7e D90B0000 		.4byte	0xbd9
+ 2268 0c82 00       		.byte	0
+ 2269 0c83 0F       		.uleb128 0xf
+ 2270 0c84 04       		.byte	0x4
+ 2271 0c85 890C0000 		.4byte	0xc89
+ 2272 0c89 10       		.uleb128 0x10
+ 2273 0c8a 16090000 		.4byte	0x916
+ 2274 0c8e 0F       		.uleb128 0xf
+ 2275 0c8f 04       		.byte	0x4
+ 2276 0c90 690C0000 		.4byte	0xc69
+ 2277 0c94 18       		.uleb128 0x18
+ 2278 0c95 AE0C0000 		.4byte	0xcae
+ 2279 0c99 12       		.uleb128 0x12
+ 2280 0c9a 780B0000 		.4byte	0xb78
+ 2281 0c9e 12       		.uleb128 0x12
+ 2282 0c9f 990B0000 		.4byte	0xb99
+ 2283 0ca3 12       		.uleb128 0x12
+ 2284 0ca4 D90B0000 		.4byte	0xbd9
+ 2285 0ca8 12       		.uleb128 0x12
+ 2286 0ca9 CE000000 		.4byte	0xce
+ 2287 0cad 00       		.byte	0
+ 2288 0cae 0F       		.uleb128 0xf
+ 2289 0caf 04       		.byte	0x4
+ 2290 0cb0 940C0000 		.4byte	0xc94
+ 2291 0cb4 18       		.uleb128 0x18
+ 2292 0cb5 EC0C0000 		.4byte	0xcec
+ 2293 0cb9 12       		.uleb128 0x12
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 45
+
+
+ 2294 0cba 780B0000 		.4byte	0xb78
+ 2295 0cbe 12       		.uleb128 0x12
+ 2296 0cbf BC050000 		.4byte	0x5bc
+ 2297 0cc3 12       		.uleb128 0x12
+ 2298 0cc4 67030000 		.4byte	0x367
+ 2299 0cc8 12       		.uleb128 0x12
+ 2300 0cc9 91010000 		.4byte	0x191
+ 2301 0ccd 12       		.uleb128 0x12
+ 2302 0cce 91010000 		.4byte	0x191
+ 2303 0cd2 12       		.uleb128 0x12
+ 2304 0cd3 91010000 		.4byte	0x191
+ 2305 0cd7 12       		.uleb128 0x12
+ 2306 0cd8 090C0000 		.4byte	0xc09
+ 2307 0cdc 12       		.uleb128 0x12
+ 2308 0cdd C7050000 		.4byte	0x5c7
+ 2309 0ce1 12       		.uleb128 0x12
+ 2310 0ce2 D2050000 		.4byte	0x5d2
+ 2311 0ce6 12       		.uleb128 0x12
+ 2312 0ce7 C6040000 		.4byte	0x4c6
+ 2313 0ceb 00       		.byte	0
+ 2314 0cec 0F       		.uleb128 0xf
+ 2315 0ced 04       		.byte	0x4
+ 2316 0cee B40C0000 		.4byte	0xcb4
+ 2317 0cf2 18       		.uleb128 0x18
+ 2318 0cf3 1B0D0000 		.4byte	0xd1b
+ 2319 0cf7 12       		.uleb128 0x12
+ 2320 0cf8 780B0000 		.4byte	0xb78
+ 2321 0cfc 12       		.uleb128 0x12
+ 2322 0cfd 13010000 		.4byte	0x113
+ 2323 0d01 12       		.uleb128 0x12
+ 2324 0d02 91010000 		.4byte	0x191
+ 2325 0d06 12       		.uleb128 0x12
+ 2326 0d07 BC050000 		.4byte	0x5bc
+ 2327 0d0b 12       		.uleb128 0x12
+ 2328 0d0c 13010000 		.4byte	0x113
+ 2329 0d10 12       		.uleb128 0x12
+ 2330 0d11 91010000 		.4byte	0x191
+ 2331 0d15 12       		.uleb128 0x12
+ 2332 0d16 BC050000 		.4byte	0x5bc
+ 2333 0d1a 00       		.byte	0
+ 2334 0d1b 0F       		.uleb128 0xf
+ 2335 0d1c 04       		.byte	0x4
+ 2336 0d1d F20C0000 		.4byte	0xcf2
+ 2337 0d21 11       		.uleb128 0x11
+ 2338 0d22 3A0D0000 		.4byte	0xd3a
+ 2339 0d26 3A0D0000 		.4byte	0xd3a
+ 2340 0d2a 12       		.uleb128 0x12
+ 2341 0d2b 780B0000 		.4byte	0xb78
+ 2342 0d2f 12       		.uleb128 0x12
+ 2343 0d30 3A0D0000 		.4byte	0xd3a
+ 2344 0d34 12       		.uleb128 0x12
+ 2345 0d35 BA090000 		.4byte	0x9ba
+ 2346 0d39 00       		.byte	0
+ 2347 0d3a 0F       		.uleb128 0xf
+ 2348 0d3b 04       		.byte	0x4
+ 2349 0d3c 040A0000 		.4byte	0xa04
+ 2350 0d40 0F       		.uleb128 0xf
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 46
+
+
+ 2351 0d41 04       		.byte	0x4
+ 2352 0d42 210D0000 		.4byte	0xd21
+ 2353 0d46 18       		.uleb128 0x18
+ 2354 0d47 5B0D0000 		.4byte	0xd5b
+ 2355 0d4b 12       		.uleb128 0x12
+ 2356 0d4c 780B0000 		.4byte	0xb78
+ 2357 0d50 12       		.uleb128 0x12
+ 2358 0d51 3A0D0000 		.4byte	0xd3a
+ 2359 0d55 12       		.uleb128 0x12
+ 2360 0d56 BA090000 		.4byte	0x9ba
+ 2361 0d5a 00       		.byte	0
+ 2362 0d5b 0F       		.uleb128 0xf
+ 2363 0d5c 04       		.byte	0x4
+ 2364 0d5d 460D0000 		.4byte	0xd46
+ 2365 0d61 18       		.uleb128 0x18
+ 2366 0d62 760D0000 		.4byte	0xd76
+ 2367 0d66 12       		.uleb128 0x12
+ 2368 0d67 780B0000 		.4byte	0xb78
+ 2369 0d6b 12       		.uleb128 0x12
+ 2370 0d6c 3A0D0000 		.4byte	0xd3a
+ 2371 0d70 12       		.uleb128 0x12
+ 2372 0d71 090C0000 		.4byte	0xc09
+ 2373 0d75 00       		.byte	0
+ 2374 0d76 0F       		.uleb128 0xf
+ 2375 0d77 04       		.byte	0x4
+ 2376 0d78 610D0000 		.4byte	0xd61
+ 2377 0d7c 18       		.uleb128 0x18
+ 2378 0d7d 8C0D0000 		.4byte	0xd8c
+ 2379 0d81 12       		.uleb128 0x12
+ 2380 0d82 780B0000 		.4byte	0xb78
+ 2381 0d86 12       		.uleb128 0x12
+ 2382 0d87 8C0D0000 		.4byte	0xd8c
+ 2383 0d8b 00       		.byte	0
+ 2384 0d8c 0F       		.uleb128 0xf
+ 2385 0d8d 04       		.byte	0x4
+ 2386 0d8e 590A0000 		.4byte	0xa59
+ 2387 0d92 0F       		.uleb128 0xf
+ 2388 0d93 04       		.byte	0x4
+ 2389 0d94 7C0D0000 		.4byte	0xd7c
+ 2390 0d98 02       		.uleb128 0x2
+ 2391 0d99 C1000000 		.4byte	.LASF179
+ 2392 0d9d 14       		.byte	0x14
+ 2393 0d9e C0       		.byte	0xc0
+ 2394 0d9f 640A0000 		.4byte	0xa64
+ 2395 0da3 0F       		.uleb128 0xf
+ 2396 0da4 04       		.byte	0x4
+ 2397 0da5 980D0000 		.4byte	0xd98
+ 2398 0da9 19       		.uleb128 0x19
+ 2399 0daa 670A0000 		.4byte	.LASF206
+ 2400 0dae 01       		.byte	0x1
+ 2401 0daf 2F       		.byte	0x2f
+ 2402 0db0 00000000 		.4byte	.LFB56
+ 2403 0db4 E4020000 		.4byte	.LFE56-.LFB56
+ 2404 0db8 01       		.uleb128 0x1
+ 2405 0db9 9C       		.byte	0x9c
+ 2406 0dba F7100000 		.4byte	0x10f7
+ 2407 0dbe 1A       		.uleb128 0x1a
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 47
+
+
+ 2408 0dbf E7000000 		.4byte	.LASF180
+ 2409 0dc3 01       		.byte	0x1
+ 2410 0dc4 2F       		.byte	0x2f
+ 2411 0dc5 A30D0000 		.4byte	0xda3
+ 2412 0dc9 00000000 		.4byte	.LLST0
+ 2413 0dcd 1A       		.uleb128 0x1a
+ 2414 0dce 81070000 		.4byte	.LASF181
+ 2415 0dd2 01       		.byte	0x1
+ 2416 0dd3 2F       		.byte	0x2f
+ 2417 0dd4 990B0000 		.4byte	0xb99
+ 2418 0dd8 20000000 		.4byte	.LLST1
+ 2419 0ddc 1A       		.uleb128 0x1a
+ 2420 0ddd 3E090000 		.4byte	.LASF182
+ 2421 0de1 01       		.byte	0x1
+ 2422 0de2 2F       		.byte	0x2f
+ 2423 0de3 D90B0000 		.4byte	0xbd9
+ 2424 0de7 40000000 		.4byte	.LLST2
+ 2425 0deb 1A       		.uleb128 0x1a
+ 2426 0dec 57040000 		.4byte	.LASF183
+ 2427 0df0 01       		.byte	0x1
+ 2428 0df1 30       		.byte	0x30
+ 2429 0df2 CE000000 		.4byte	0xce
+ 2430 0df6 6C000000 		.4byte	.LLST3
+ 2431 0dfa 1B       		.uleb128 0x1b
+ 2432 0dfb 7000     		.ascii	"p\000"
+ 2433 0dfd 01       		.byte	0x1
+ 2434 0dfe 37       		.byte	0x37
+ 2435 0dff B6050000 		.4byte	0x5b6
+ 2436 0e03 98000000 		.4byte	.LLST4
+ 2437 0e07 1B       		.uleb128 0x1b
+ 2438 0e08 6900     		.ascii	"i\000"
+ 2439 0e0a 01       		.byte	0x1
+ 2440 0e0b 39       		.byte	0x39
+ 2441 0e0c CE000000 		.4byte	0xce
+ 2442 0e10 CC000000 		.4byte	.LLST5
+ 2443 0e14 1C       		.uleb128 0x1c
+ 2444 0e15 890A0000 		.4byte	.LASF184
+ 2445 0e19 01       		.byte	0x1
+ 2446 0e1a 3A       		.byte	0x3a
+ 2447 0e1b CE000000 		.4byte	0xce
+ 2448 0e1f 3A010000 		.4byte	.LLST6
+ 2449 0e23 1D       		.uleb128 0x1d
+ 2450 0e24 04090000 		.4byte	.LASF185
+ 2451 0e28 01       		.byte	0x1
+ 2452 0e29 4E       		.byte	0x4e
+ 2453 0e2a F9010000 		.4byte	0x1f9
+ 2454 0e2e 02       		.uleb128 0x2
+ 2455 0e2f 91       		.byte	0x91
+ 2456 0e30 50       		.sleb128 -48
+ 2457 0e31 1C       		.uleb128 0x1c
+ 2458 0e32 A4000000 		.4byte	.LASF186
+ 2459 0e36 01       		.byte	0x1
+ 2460 0e37 57       		.byte	0x57
+ 2461 0e38 2F030000 		.4byte	0x32f
+ 2462 0e3c 6F010000 		.4byte	.LLST7
+ 2463 0e40 1D       		.uleb128 0x1d
+ 2464 0e41 C7020000 		.4byte	.LASF150
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 48
+
+
+ 2465 0e45 01       		.byte	0x1
+ 2466 0e46 58       		.byte	0x58
+ 2467 0e47 F9010000 		.4byte	0x1f9
+ 2468 0e4b 02       		.uleb128 0x2
+ 2469 0e4c 91       		.byte	0x91
+ 2470 0e4d 48       		.sleb128 -56
+ 2471 0e4e 1C       		.uleb128 0x1c
+ 2472 0e4f DD080000 		.4byte	.LASF187
+ 2473 0e53 01       		.byte	0x1
+ 2474 0e54 5F       		.byte	0x5f
+ 2475 0e55 BC050000 		.4byte	0x5bc
+ 2476 0e59 8D010000 		.4byte	.LLST8
+ 2477 0e5d 1C       		.uleb128 0x1c
+ 2478 0e5e D1060000 		.4byte	.LASF188
+ 2479 0e62 01       		.byte	0x1
+ 2480 0e63 63       		.byte	0x63
+ 2481 0e64 91010000 		.4byte	0x191
+ 2482 0e68 B8010000 		.4byte	.LLST9
+ 2483 0e6c 1C       		.uleb128 0x1c
+ 2484 0e6d 9B060000 		.4byte	.LASF189
+ 2485 0e71 01       		.byte	0x1
+ 2486 0e72 64       		.byte	0x64
+ 2487 0e73 C3000000 		.4byte	0xc3
+ 2488 0e77 E1010000 		.4byte	.LLST10
+ 2489 0e7b 1B       		.uleb128 0x1b
+ 2490 0e7c 6D7000   		.ascii	"mp\000"
+ 2491 0e7f 01       		.byte	0x1
+ 2492 0e80 6D       		.byte	0x6d
+ 2493 0e81 F7100000 		.4byte	0x10f7
+ 2494 0e85 00020000 		.4byte	.LLST11
+ 2495 0e89 1C       		.uleb128 0x1c
+ 2496 0e8a B7020000 		.4byte	.LASF190
+ 2497 0e8e 01       		.byte	0x1
+ 2498 0e8f 6E       		.byte	0x6e
+ 2499 0e90 F7100000 		.4byte	0x10f7
+ 2500 0e94 20020000 		.4byte	.LLST12
+ 2501 0e98 1C       		.uleb128 0x1c
+ 2502 0e99 F80A0000 		.4byte	.LASF191
+ 2503 0e9d 01       		.byte	0x1
+ 2504 0e9e 70       		.byte	0x70
+ 2505 0e9f D9000000 		.4byte	0xd9
+ 2506 0ea3 4D020000 		.4byte	.LLST13
+ 2507 0ea7 1C       		.uleb128 0x1c
+ 2508 0ea8 EB0A0000 		.4byte	.LASF192
+ 2509 0eac 01       		.byte	0x1
+ 2510 0ead 71       		.byte	0x71
+ 2511 0eae D9000000 		.4byte	0xd9
+ 2512 0eb2 97020000 		.4byte	.LLST14
+ 2513 0eb6 1C       		.uleb128 0x1c
+ 2514 0eb7 45090000 		.4byte	.LASF193
+ 2515 0ebb 01       		.byte	0x1
+ 2516 0ebc 72       		.byte	0x72
+ 2517 0ebd D9000000 		.4byte	0xd9
+ 2518 0ec1 18030000 		.4byte	.LLST15
+ 2519 0ec5 1C       		.uleb128 0x1c
+ 2520 0ec6 5F090000 		.4byte	.LASF194
+ 2521 0eca 01       		.byte	0x1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 49
+
+
+ 2522 0ecb 73       		.byte	0x73
+ 2523 0ecc D9000000 		.4byte	0xd9
+ 2524 0ed0 5B030000 		.4byte	.LLST16
+ 2525 0ed4 1C       		.uleb128 0x1c
+ 2526 0ed5 1C030000 		.4byte	.LASF195
+ 2527 0ed9 01       		.byte	0x1
+ 2528 0eda 74       		.byte	0x74
+ 2529 0edb E4000000 		.4byte	0xe4
+ 2530 0edf 91030000 		.4byte	.LLST17
+ 2531 0ee3 1B       		.uleb128 0x1b
+ 2532 0ee4 64786C00 		.ascii	"dxl\000"
+ 2533 0ee8 01       		.byte	0x1
+ 2534 0ee9 85       		.byte	0x85
+ 2535 0eea 91010000 		.4byte	0x191
+ 2536 0eee B0030000 		.4byte	.LLST18
+ 2537 0ef2 1B       		.uleb128 0x1b
+ 2538 0ef3 64787200 		.ascii	"dxr\000"
+ 2539 0ef7 01       		.byte	0x1
+ 2540 0ef8 86       		.byte	0x86
+ 2541 0ef9 91010000 		.4byte	0x191
+ 2542 0efd C3030000 		.4byte	.LLST19
+ 2543 0f01 1B       		.uleb128 0x1b
+ 2544 0f02 64796C00 		.ascii	"dyl\000"
+ 2545 0f06 01       		.byte	0x1
+ 2546 0f07 87       		.byte	0x87
+ 2547 0f08 91010000 		.4byte	0x191
+ 2548 0f0c D6030000 		.4byte	.LLST20
+ 2549 0f10 1B       		.uleb128 0x1b
+ 2550 0f11 64797200 		.ascii	"dyr\000"
+ 2551 0f15 01       		.byte	0x1
+ 2552 0f16 88       		.byte	0x88
+ 2553 0f17 91010000 		.4byte	0x191
+ 2554 0f1b E9030000 		.4byte	.LLST21
+ 2555 0f1f 1B       		.uleb128 0x1b
+ 2556 0f20 696E7600 		.ascii	"inv\000"
+ 2557 0f24 01       		.byte	0x1
+ 2558 0f25 8A       		.byte	0x8a
+ 2559 0f26 2F030000 		.4byte	0x32f
+ 2560 0f2a 36040000 		.4byte	.LLST22
+ 2561 0f2e 1E       		.uleb128 0x1e
+ 2562 0f2f 28000000 		.4byte	.LVL2
+ 2563 0f33 08110000 		.4byte	0x1108
+ 2564 0f37 440F0000 		.4byte	0xf44
+ 2565 0f3b 1F       		.uleb128 0x1f
+ 2566 0f3c 01       		.uleb128 0x1
+ 2567 0f3d 50       		.byte	0x50
+ 2568 0f3e 04       		.uleb128 0x4
+ 2569 0f3f 78       		.byte	0x78
+ 2570 0f40 00       		.sleb128 0
+ 2571 0f41 32       		.byte	0x32
+ 2572 0f42 24       		.byte	0x24
+ 2573 0f43 00       		.byte	0
+ 2574 0f44 1E       		.uleb128 0x1e
+ 2575 0f45 36000000 		.4byte	.LVL5
+ 2576 0f49 13110000 		.4byte	0x1113
+ 2577 0f4d 630F0000 		.4byte	0xf63
+ 2578 0f51 1F       		.uleb128 0x1f
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 50
+
+
+ 2579 0f52 01       		.uleb128 0x1
+ 2580 0f53 50       		.byte	0x50
+ 2581 0f54 02       		.uleb128 0x2
+ 2582 0f55 74       		.byte	0x74
+ 2583 0f56 00       		.sleb128 0
+ 2584 0f57 1F       		.uleb128 0x1f
+ 2585 0f58 01       		.uleb128 0x1
+ 2586 0f59 51       		.byte	0x51
+ 2587 0f5a 02       		.uleb128 0x2
+ 2588 0f5b 77       		.byte	0x77
+ 2589 0f5c 00       		.sleb128 0
+ 2590 0f5d 1F       		.uleb128 0x1f
+ 2591 0f5e 01       		.uleb128 0x1
+ 2592 0f5f 52       		.byte	0x52
+ 2593 0f60 01       		.uleb128 0x1
+ 2594 0f61 34       		.byte	0x34
+ 2595 0f62 00       		.byte	0
+ 2596 0f63 1E       		.uleb128 0x1e
+ 2597 0f64 6E000000 		.4byte	.LVL7
+ 2598 0f68 13110000 		.4byte	0x1113
+ 2599 0f6c 810F0000 		.4byte	0xf81
+ 2600 0f70 1F       		.uleb128 0x1f
+ 2601 0f71 01       		.uleb128 0x1
+ 2602 0f72 50       		.byte	0x50
+ 2603 0f73 07       		.uleb128 0x7
+ 2604 0f74 76       		.byte	0x76
+ 2605 0f75 00       		.sleb128 0
+ 2606 0f76 32       		.byte	0x32
+ 2607 0f77 24       		.byte	0x24
+ 2608 0f78 78       		.byte	0x78
+ 2609 0f79 00       		.sleb128 0
+ 2610 0f7a 22       		.byte	0x22
+ 2611 0f7b 1F       		.uleb128 0x1f
+ 2612 0f7c 01       		.uleb128 0x1
+ 2613 0f7d 52       		.byte	0x52
+ 2614 0f7e 01       		.uleb128 0x1
+ 2615 0f7f 34       		.byte	0x34
+ 2616 0f80 00       		.byte	0
+ 2617 0f81 1E       		.uleb128 0x1e
+ 2618 0f82 AA000000 		.4byte	.LVL13
+ 2619 0f86 13110000 		.4byte	0x1113
+ 2620 0f8a 9F0F0000 		.4byte	0xf9f
+ 2621 0f8e 1F       		.uleb128 0x1f
+ 2622 0f8f 01       		.uleb128 0x1
+ 2623 0f90 50       		.byte	0x50
+ 2624 0f91 07       		.uleb128 0x7
+ 2625 0f92 76       		.byte	0x76
+ 2626 0f93 00       		.sleb128 0
+ 2627 0f94 32       		.byte	0x32
+ 2628 0f95 24       		.byte	0x24
+ 2629 0f96 74       		.byte	0x74
+ 2630 0f97 00       		.sleb128 0
+ 2631 0f98 22       		.byte	0x22
+ 2632 0f99 1F       		.uleb128 0x1f
+ 2633 0f9a 01       		.uleb128 0x1
+ 2634 0f9b 52       		.byte	0x52
+ 2635 0f9c 01       		.uleb128 0x1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 51
+
+
+ 2636 0f9d 34       		.byte	0x34
+ 2637 0f9e 00       		.byte	0
+ 2638 0f9f 1E       		.uleb128 0x1e
+ 2639 0fa0 B8000000 		.4byte	.LVL16
+ 2640 0fa4 1C110000 		.4byte	0x111c
+ 2641 0fa8 B30F0000 		.4byte	0xfb3
+ 2642 0fac 1F       		.uleb128 0x1f
+ 2643 0fad 01       		.uleb128 0x1
+ 2644 0fae 50       		.byte	0x50
+ 2645 0faf 02       		.uleb128 0x2
+ 2646 0fb0 74       		.byte	0x74
+ 2647 0fb1 00       		.sleb128 0
+ 2648 0fb2 00       		.byte	0
+ 2649 0fb3 1E       		.uleb128 0x1e
+ 2650 0fb4 C4000000 		.4byte	.LVL17
+ 2651 0fb8 13110000 		.4byte	0x1113
+ 2652 0fbc D50F0000 		.4byte	0xfd5
+ 2653 0fc0 1F       		.uleb128 0x1f
+ 2654 0fc1 01       		.uleb128 0x1
+ 2655 0fc2 50       		.byte	0x50
+ 2656 0fc3 02       		.uleb128 0x2
+ 2657 0fc4 91       		.byte	0x91
+ 2658 0fc5 50       		.sleb128 -48
+ 2659 0fc6 1F       		.uleb128 0x1f
+ 2660 0fc7 01       		.uleb128 0x1
+ 2661 0fc8 51       		.byte	0x51
+ 2662 0fc9 05       		.uleb128 0x5
+ 2663 0fca 03       		.byte	0x3
+ 2664 0fcb 00000000 		.4byte	.LANCHOR0
+ 2665 0fcf 1F       		.uleb128 0x1f
+ 2666 0fd0 01       		.uleb128 0x1
+ 2667 0fd1 52       		.byte	0x52
+ 2668 0fd2 01       		.uleb128 0x1
+ 2669 0fd3 38       		.byte	0x38
+ 2670 0fd4 00       		.byte	0
+ 2671 0fd5 1E       		.uleb128 0x1e
+ 2672 0fd6 36010000 		.4byte	.LVL22
+ 2673 0fda 27110000 		.4byte	0x1127
+ 2674 0fde F70F0000 		.4byte	0xff7
+ 2675 0fe2 1F       		.uleb128 0x1f
+ 2676 0fe3 01       		.uleb128 0x1
+ 2677 0fe4 50       		.byte	0x50
+ 2678 0fe5 02       		.uleb128 0x2
+ 2679 0fe6 91       		.byte	0x91
+ 2680 0fe7 48       		.sleb128 -56
+ 2681 0fe8 1F       		.uleb128 0x1f
+ 2682 0fe9 01       		.uleb128 0x1
+ 2683 0fea 51       		.byte	0x51
+ 2684 0feb 02       		.uleb128 0x2
+ 2685 0fec 91       		.byte	0x91
+ 2686 0fed 50       		.sleb128 -48
+ 2687 0fee 1F       		.uleb128 0x1f
+ 2688 0fef 01       		.uleb128 0x1
+ 2689 0ff0 52       		.byte	0x52
+ 2690 0ff1 04       		.uleb128 0x4
+ 2691 0ff2 91       		.byte	0x91
+ 2692 0ff3 A87F     		.sleb128 -88
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 52
+
+
+ 2693 0ff5 06       		.byte	0x6
+ 2694 0ff6 00       		.byte	0
+ 2695 0ff7 1E       		.uleb128 0x1e
+ 2696 0ff8 40010000 		.4byte	.LVL24
+ 2697 0ffc 1C110000 		.4byte	0x111c
+ 2698 1000 0B100000 		.4byte	0x100b
+ 2699 1004 1F       		.uleb128 0x1f
+ 2700 1005 01       		.uleb128 0x1
+ 2701 1006 50       		.byte	0x50
+ 2702 1007 02       		.uleb128 0x2
+ 2703 1008 74       		.byte	0x74
+ 2704 1009 00       		.sleb128 0
+ 2705 100a 00       		.byte	0
+ 2706 100b 1E       		.uleb128 0x1e
+ 2707 100c 78010000 		.4byte	.LVL36
+ 2708 1010 08110000 		.4byte	0x1108
+ 2709 1014 22100000 		.4byte	0x1022
+ 2710 1018 1F       		.uleb128 0x1f
+ 2711 1019 01       		.uleb128 0x1
+ 2712 101a 50       		.byte	0x50
+ 2713 101b 05       		.uleb128 0x5
+ 2714 101c 76       		.byte	0x76
+ 2715 101d 00       		.sleb128 0
+ 2716 101e 08       		.byte	0x8
+ 2717 101f 2C       		.byte	0x2c
+ 2718 1020 1E       		.byte	0x1e
+ 2719 1021 00       		.byte	0
+ 2720 1022 1E       		.uleb128 0x1e
+ 2721 1023 4A020000 		.4byte	.LVL74
+ 2722 1027 32110000 		.4byte	0x1132
+ 2723 102b 46100000 		.4byte	0x1046
+ 2724 102f 1F       		.uleb128 0x1f
+ 2725 1030 01       		.uleb128 0x1
+ 2726 1031 50       		.byte	0x50
+ 2727 1032 02       		.uleb128 0x2
+ 2728 1033 78       		.byte	0x78
+ 2729 1034 00       		.sleb128 0
+ 2730 1035 1F       		.uleb128 0x1f
+ 2731 1036 02       		.uleb128 0x2
+ 2732 1037 7D       		.byte	0x7d
+ 2733 1038 00       		.sleb128 0
+ 2734 1039 05       		.uleb128 0x5
+ 2735 103a 91       		.byte	0x91
+ 2736 103b A87F     		.sleb128 -88
+ 2737 103d 94       		.byte	0x94
+ 2738 103e 02       		.byte	0x2
+ 2739 103f 1F       		.uleb128 0x1f
+ 2740 1040 02       		.uleb128 0x2
+ 2741 1041 7D       		.byte	0x7d
+ 2742 1042 04       		.sleb128 4
+ 2743 1043 01       		.uleb128 0x1
+ 2744 1044 31       		.byte	0x31
+ 2745 1045 00       		.byte	0
+ 2746 1046 1E       		.uleb128 0x1e
+ 2747 1047 52020000 		.4byte	.LVL75
+ 2748 104b 3E110000 		.4byte	0x113e
+ 2749 104f 62100000 		.4byte	0x1062
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 53
+
+
+ 2750 1053 1F       		.uleb128 0x1f
+ 2751 1054 01       		.uleb128 0x1
+ 2752 1055 50       		.byte	0x50
+ 2753 1056 02       		.uleb128 0x2
+ 2754 1057 78       		.byte	0x78
+ 2755 1058 00       		.sleb128 0
+ 2756 1059 1F       		.uleb128 0x1f
+ 2757 105a 01       		.uleb128 0x1
+ 2758 105b 51       		.byte	0x51
+ 2759 105c 04       		.uleb128 0x4
+ 2760 105d 91       		.byte	0x91
+ 2761 105e BC7F     		.sleb128 -68
+ 2762 1060 06       		.byte	0x6
+ 2763 1061 00       		.byte	0
+ 2764 1062 1E       		.uleb128 0x1e
+ 2765 1063 92020000 		.4byte	.LVL80
+ 2766 1067 32110000 		.4byte	0x1132
+ 2767 106b 7E100000 		.4byte	0x107e
+ 2768 106f 1F       		.uleb128 0x1f
+ 2769 1070 01       		.uleb128 0x1
+ 2770 1071 50       		.byte	0x50
+ 2771 1072 04       		.uleb128 0x4
+ 2772 1073 91       		.byte	0x91
+ 2773 1074 B47F     		.sleb128 -76
+ 2774 1076 06       		.byte	0x6
+ 2775 1077 1F       		.uleb128 0x1f
+ 2776 1078 02       		.uleb128 0x2
+ 2777 1079 7D       		.byte	0x7d
+ 2778 107a 04       		.sleb128 4
+ 2779 107b 01       		.uleb128 0x1
+ 2780 107c 30       		.byte	0x30
+ 2781 107d 00       		.byte	0
+ 2782 107e 1E       		.uleb128 0x1e
+ 2783 107f 9A020000 		.4byte	.LVL81
+ 2784 1083 3E110000 		.4byte	0x113e
+ 2785 1087 9C100000 		.4byte	0x109c
+ 2786 108b 1F       		.uleb128 0x1f
+ 2787 108c 01       		.uleb128 0x1
+ 2788 108d 50       		.byte	0x50
+ 2789 108e 04       		.uleb128 0x4
+ 2790 108f 91       		.byte	0x91
+ 2791 1090 B47F     		.sleb128 -76
+ 2792 1092 06       		.byte	0x6
+ 2793 1093 1F       		.uleb128 0x1f
+ 2794 1094 01       		.uleb128 0x1
+ 2795 1095 51       		.byte	0x51
+ 2796 1096 04       		.uleb128 0x4
+ 2797 1097 91       		.byte	0x91
+ 2798 1098 BC7F     		.sleb128 -68
+ 2799 109a 06       		.byte	0x6
+ 2800 109b 00       		.byte	0
+ 2801 109c 1E       		.uleb128 0x1e
+ 2802 109d B4020000 		.4byte	.LVL85
+ 2803 10a1 49110000 		.4byte	0x1149
+ 2804 10a5 BE100000 		.4byte	0x10be
+ 2805 10a9 1F       		.uleb128 0x1f
+ 2806 10aa 01       		.uleb128 0x1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 54
+
+
+ 2807 10ab 50       		.byte	0x50
+ 2808 10ac 02       		.uleb128 0x2
+ 2809 10ad 76       		.byte	0x76
+ 2810 10ae 00       		.sleb128 0
+ 2811 10af 1F       		.uleb128 0x1f
+ 2812 10b0 01       		.uleb128 0x1
+ 2813 10b1 51       		.byte	0x51
+ 2814 10b2 04       		.uleb128 0x4
+ 2815 10b3 91       		.byte	0x91
+ 2816 10b4 B87F     		.sleb128 -72
+ 2817 10b6 06       		.byte	0x6
+ 2818 10b7 1F       		.uleb128 0x1f
+ 2819 10b8 01       		.uleb128 0x1
+ 2820 10b9 52       		.byte	0x52
+ 2821 10ba 02       		.uleb128 0x2
+ 2822 10bb 91       		.byte	0x91
+ 2823 10bc 50       		.sleb128 -48
+ 2824 10bd 00       		.byte	0
+ 2825 10be 1E       		.uleb128 0x1e
+ 2826 10bf BC020000 		.4byte	.LVL87
+ 2827 10c3 54110000 		.4byte	0x1154
+ 2828 10c7 D2100000 		.4byte	0x10d2
+ 2829 10cb 1F       		.uleb128 0x1f
+ 2830 10cc 01       		.uleb128 0x1
+ 2831 10cd 50       		.byte	0x50
+ 2832 10ce 02       		.uleb128 0x2
+ 2833 10cf 75       		.byte	0x75
+ 2834 10d0 00       		.sleb128 0
+ 2835 10d1 00       		.byte	0
+ 2836 10d2 1E       		.uleb128 0x1e
+ 2837 10d3 C2020000 		.4byte	.LVL88
+ 2838 10d7 1C110000 		.4byte	0x111c
+ 2839 10db E6100000 		.4byte	0x10e6
+ 2840 10df 1F       		.uleb128 0x1f
+ 2841 10e0 01       		.uleb128 0x1
+ 2842 10e1 50       		.byte	0x50
+ 2843 10e2 02       		.uleb128 0x2
+ 2844 10e3 75       		.byte	0x75
+ 2845 10e4 00       		.sleb128 0
+ 2846 10e5 00       		.byte	0
+ 2847 10e6 20       		.uleb128 0x20
+ 2848 10e7 C8020000 		.4byte	.LVL89
+ 2849 10eb 1C110000 		.4byte	0x111c
+ 2850 10ef 1F       		.uleb128 0x1f
+ 2851 10f0 01       		.uleb128 0x1
+ 2852 10f1 50       		.byte	0x50
+ 2853 10f2 02       		.uleb128 0x2
+ 2854 10f3 74       		.byte	0x74
+ 2855 10f4 00       		.sleb128 0
+ 2856 10f5 00       		.byte	0
+ 2857 10f6 00       		.byte	0
+ 2858 10f7 0F       		.uleb128 0xf
+ 2859 10f8 04       		.byte	0x4
+ 2860 10f9 AB050000 		.4byte	0x5ab
+ 2861 10fd 21       		.uleb128 0x21
+ 2862 10fe D7060000 		.4byte	.LASF207
+ 2863 1102 08       		.byte	0x8
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 55
+
+
+ 2864 1103 94       		.byte	0x94
+ 2865 1104 FF070000 		.4byte	0x7ff
+ 2866 1108 22       		.uleb128 0x22
+ 2867 1109 53070000 		.4byte	.LASF196
+ 2868 110d 53070000 		.4byte	.LASF196
+ 2869 1111 15       		.byte	0x15
+ 2870 1112 6D       		.byte	0x6d
+ 2871 1113 23       		.uleb128 0x23
+ 2872 1114 2A090000 		.4byte	.LASF208
+ 2873 1118 2A090000 		.4byte	.LASF208
+ 2874 111c 22       		.uleb128 0x22
+ 2875 111d 8E0A0000 		.4byte	.LASF197
+ 2876 1121 8E0A0000 		.4byte	.LASF197
+ 2877 1125 15       		.byte	0x15
+ 2878 1126 73       		.byte	0x73
+ 2879 1127 22       		.uleb128 0x22
+ 2880 1128 D4000000 		.4byte	.LASF198
+ 2881 112c D4000000 		.4byte	.LASF198
+ 2882 1130 07       		.byte	0x7
+ 2883 1131 B2       		.byte	0xb2
+ 2884 1132 24       		.uleb128 0x24
+ 2885 1133 35070000 		.4byte	.LASF199
+ 2886 1137 35070000 		.4byte	.LASF199
+ 2887 113b 0C       		.byte	0xc
+ 2888 113c 4501     		.2byte	0x145
+ 2889 113e 22       		.uleb128 0x22
+ 2890 113f 2A040000 		.4byte	.LASF200
+ 2891 1143 2A040000 		.4byte	.LASF200
+ 2892 1147 0C       		.byte	0xc
+ 2893 1148 E5       		.byte	0xe5
+ 2894 1149 22       		.uleb128 0x22
+ 2895 114a 1A000000 		.4byte	.LASF201
+ 2896 114e 1A000000 		.4byte	.LASF201
+ 2897 1152 0E       		.byte	0xe
+ 2898 1153 56       		.byte	0x56
+ 2899 1154 24       		.uleb128 0x24
+ 2900 1155 F4040000 		.4byte	.LASF202
+ 2901 1159 F4040000 		.4byte	.LASF202
+ 2902 115d 0C       		.byte	0xc
+ 2903 115e 1701     		.2byte	0x117
+ 2904 1160 00       		.byte	0
+ 2905              		.section	.debug_abbrev,"",%progbits
+ 2906              	.Ldebug_abbrev0:
+ 2907 0000 01       		.uleb128 0x1
+ 2908 0001 11       		.uleb128 0x11
+ 2909 0002 01       		.byte	0x1
+ 2910 0003 25       		.uleb128 0x25
+ 2911 0004 0E       		.uleb128 0xe
+ 2912 0005 13       		.uleb128 0x13
+ 2913 0006 0B       		.uleb128 0xb
+ 2914 0007 03       		.uleb128 0x3
+ 2915 0008 0E       		.uleb128 0xe
+ 2916 0009 1B       		.uleb128 0x1b
+ 2917 000a 0E       		.uleb128 0xe
+ 2918 000b 55       		.uleb128 0x55
+ 2919 000c 17       		.uleb128 0x17
+ 2920 000d 11       		.uleb128 0x11
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 56
+
+
+ 2921 000e 01       		.uleb128 0x1
+ 2922 000f 10       		.uleb128 0x10
+ 2923 0010 17       		.uleb128 0x17
+ 2924 0011 00       		.byte	0
+ 2925 0012 00       		.byte	0
+ 2926 0013 02       		.uleb128 0x2
+ 2927 0014 16       		.uleb128 0x16
+ 2928 0015 00       		.byte	0
+ 2929 0016 03       		.uleb128 0x3
+ 2930 0017 0E       		.uleb128 0xe
+ 2931 0018 3A       		.uleb128 0x3a
+ 2932 0019 0B       		.uleb128 0xb
+ 2933 001a 3B       		.uleb128 0x3b
+ 2934 001b 0B       		.uleb128 0xb
+ 2935 001c 49       		.uleb128 0x49
+ 2936 001d 13       		.uleb128 0x13
+ 2937 001e 00       		.byte	0
+ 2938 001f 00       		.byte	0
+ 2939 0020 03       		.uleb128 0x3
+ 2940 0021 24       		.uleb128 0x24
+ 2941 0022 00       		.byte	0
+ 2942 0023 0B       		.uleb128 0xb
+ 2943 0024 0B       		.uleb128 0xb
+ 2944 0025 3E       		.uleb128 0x3e
+ 2945 0026 0B       		.uleb128 0xb
+ 2946 0027 03       		.uleb128 0x3
+ 2947 0028 0E       		.uleb128 0xe
+ 2948 0029 00       		.byte	0
+ 2949 002a 00       		.byte	0
+ 2950 002b 04       		.uleb128 0x4
+ 2951 002c 24       		.uleb128 0x24
+ 2952 002d 00       		.byte	0
+ 2953 002e 0B       		.uleb128 0xb
+ 2954 002f 0B       		.uleb128 0xb
+ 2955 0030 3E       		.uleb128 0x3e
+ 2956 0031 0B       		.uleb128 0xb
+ 2957 0032 03       		.uleb128 0x3
+ 2958 0033 08       		.uleb128 0x8
+ 2959 0034 00       		.byte	0
+ 2960 0035 00       		.byte	0
+ 2961 0036 05       		.uleb128 0x5
+ 2962 0037 0F       		.uleb128 0xf
+ 2963 0038 00       		.byte	0
+ 2964 0039 0B       		.uleb128 0xb
+ 2965 003a 0B       		.uleb128 0xb
+ 2966 003b 00       		.byte	0
+ 2967 003c 00       		.byte	0
+ 2968 003d 06       		.uleb128 0x6
+ 2969 003e 13       		.uleb128 0x13
+ 2970 003f 01       		.byte	0x1
+ 2971 0040 0B       		.uleb128 0xb
+ 2972 0041 0B       		.uleb128 0xb
+ 2973 0042 3A       		.uleb128 0x3a
+ 2974 0043 0B       		.uleb128 0xb
+ 2975 0044 3B       		.uleb128 0x3b
+ 2976 0045 0B       		.uleb128 0xb
+ 2977 0046 01       		.uleb128 0x1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 57
+
+
+ 2978 0047 13       		.uleb128 0x13
+ 2979 0048 00       		.byte	0
+ 2980 0049 00       		.byte	0
+ 2981 004a 07       		.uleb128 0x7
+ 2982 004b 0D       		.uleb128 0xd
+ 2983 004c 00       		.byte	0
+ 2984 004d 03       		.uleb128 0x3
+ 2985 004e 0E       		.uleb128 0xe
+ 2986 004f 3A       		.uleb128 0x3a
+ 2987 0050 0B       		.uleb128 0xb
+ 2988 0051 3B       		.uleb128 0x3b
+ 2989 0052 0B       		.uleb128 0xb
+ 2990 0053 49       		.uleb128 0x49
+ 2991 0054 13       		.uleb128 0x13
+ 2992 0055 0B       		.uleb128 0xb
+ 2993 0056 0B       		.uleb128 0xb
+ 2994 0057 0D       		.uleb128 0xd
+ 2995 0058 0B       		.uleb128 0xb
+ 2996 0059 0C       		.uleb128 0xc
+ 2997 005a 0B       		.uleb128 0xb
+ 2998 005b 38       		.uleb128 0x38
+ 2999 005c 0B       		.uleb128 0xb
+ 3000 005d 00       		.byte	0
+ 3001 005e 00       		.byte	0
+ 3002 005f 08       		.uleb128 0x8
+ 3003 0060 0D       		.uleb128 0xd
+ 3004 0061 00       		.byte	0
+ 3005 0062 03       		.uleb128 0x3
+ 3006 0063 08       		.uleb128 0x8
+ 3007 0064 3A       		.uleb128 0x3a
+ 3008 0065 0B       		.uleb128 0xb
+ 3009 0066 3B       		.uleb128 0x3b
+ 3010 0067 0B       		.uleb128 0xb
+ 3011 0068 49       		.uleb128 0x49
+ 3012 0069 13       		.uleb128 0x13
+ 3013 006a 0B       		.uleb128 0xb
+ 3014 006b 0B       		.uleb128 0xb
+ 3015 006c 0D       		.uleb128 0xd
+ 3016 006d 0B       		.uleb128 0xb
+ 3017 006e 0C       		.uleb128 0xc
+ 3018 006f 0B       		.uleb128 0xb
+ 3019 0070 38       		.uleb128 0x38
+ 3020 0071 0B       		.uleb128 0xb
+ 3021 0072 00       		.byte	0
+ 3022 0073 00       		.byte	0
+ 3023 0074 09       		.uleb128 0x9
+ 3024 0075 17       		.uleb128 0x17
+ 3025 0076 01       		.byte	0x1
+ 3026 0077 0B       		.uleb128 0xb
+ 3027 0078 0B       		.uleb128 0xb
+ 3028 0079 3A       		.uleb128 0x3a
+ 3029 007a 0B       		.uleb128 0xb
+ 3030 007b 3B       		.uleb128 0x3b
+ 3031 007c 0B       		.uleb128 0xb
+ 3032 007d 01       		.uleb128 0x1
+ 3033 007e 13       		.uleb128 0x13
+ 3034 007f 00       		.byte	0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 58
+
+
+ 3035 0080 00       		.byte	0
+ 3036 0081 0A       		.uleb128 0xa
+ 3037 0082 0D       		.uleb128 0xd
+ 3038 0083 00       		.byte	0
+ 3039 0084 03       		.uleb128 0x3
+ 3040 0085 08       		.uleb128 0x8
+ 3041 0086 3A       		.uleb128 0x3a
+ 3042 0087 0B       		.uleb128 0xb
+ 3043 0088 3B       		.uleb128 0x3b
+ 3044 0089 0B       		.uleb128 0xb
+ 3045 008a 49       		.uleb128 0x49
+ 3046 008b 13       		.uleb128 0x13
+ 3047 008c 00       		.byte	0
+ 3048 008d 00       		.byte	0
+ 3049 008e 0B       		.uleb128 0xb
+ 3050 008f 0D       		.uleb128 0xd
+ 3051 0090 00       		.byte	0
+ 3052 0091 03       		.uleb128 0x3
+ 3053 0092 0E       		.uleb128 0xe
+ 3054 0093 3A       		.uleb128 0x3a
+ 3055 0094 0B       		.uleb128 0xb
+ 3056 0095 3B       		.uleb128 0x3b
+ 3057 0096 0B       		.uleb128 0xb
+ 3058 0097 49       		.uleb128 0x49
+ 3059 0098 13       		.uleb128 0x13
+ 3060 0099 00       		.byte	0
+ 3061 009a 00       		.byte	0
+ 3062 009b 0C       		.uleb128 0xc
+ 3063 009c 0D       		.uleb128 0xd
+ 3064 009d 00       		.byte	0
+ 3065 009e 03       		.uleb128 0x3
+ 3066 009f 08       		.uleb128 0x8
+ 3067 00a0 3A       		.uleb128 0x3a
+ 3068 00a1 0B       		.uleb128 0xb
+ 3069 00a2 3B       		.uleb128 0x3b
+ 3070 00a3 0B       		.uleb128 0xb
+ 3071 00a4 49       		.uleb128 0x49
+ 3072 00a5 13       		.uleb128 0x13
+ 3073 00a6 38       		.uleb128 0x38
+ 3074 00a7 0B       		.uleb128 0xb
+ 3075 00a8 00       		.byte	0
+ 3076 00a9 00       		.byte	0
+ 3077 00aa 0D       		.uleb128 0xd
+ 3078 00ab 0D       		.uleb128 0xd
+ 3079 00ac 00       		.byte	0
+ 3080 00ad 03       		.uleb128 0x3
+ 3081 00ae 0E       		.uleb128 0xe
+ 3082 00af 3A       		.uleb128 0x3a
+ 3083 00b0 0B       		.uleb128 0xb
+ 3084 00b1 3B       		.uleb128 0x3b
+ 3085 00b2 0B       		.uleb128 0xb
+ 3086 00b3 49       		.uleb128 0x49
+ 3087 00b4 13       		.uleb128 0x13
+ 3088 00b5 38       		.uleb128 0x38
+ 3089 00b6 0B       		.uleb128 0xb
+ 3090 00b7 00       		.byte	0
+ 3091 00b8 00       		.byte	0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 59
+
+
+ 3092 00b9 0E       		.uleb128 0xe
+ 3093 00ba 13       		.uleb128 0x13
+ 3094 00bb 01       		.byte	0x1
+ 3095 00bc 03       		.uleb128 0x3
+ 3096 00bd 0E       		.uleb128 0xe
+ 3097 00be 0B       		.uleb128 0xb
+ 3098 00bf 0B       		.uleb128 0xb
+ 3099 00c0 3A       		.uleb128 0x3a
+ 3100 00c1 0B       		.uleb128 0xb
+ 3101 00c2 3B       		.uleb128 0x3b
+ 3102 00c3 0B       		.uleb128 0xb
+ 3103 00c4 01       		.uleb128 0x1
+ 3104 00c5 13       		.uleb128 0x13
+ 3105 00c6 00       		.byte	0
+ 3106 00c7 00       		.byte	0
+ 3107 00c8 0F       		.uleb128 0xf
+ 3108 00c9 0F       		.uleb128 0xf
+ 3109 00ca 00       		.byte	0
+ 3110 00cb 0B       		.uleb128 0xb
+ 3111 00cc 0B       		.uleb128 0xb
+ 3112 00cd 49       		.uleb128 0x49
+ 3113 00ce 13       		.uleb128 0x13
+ 3114 00cf 00       		.byte	0
+ 3115 00d0 00       		.byte	0
+ 3116 00d1 10       		.uleb128 0x10
+ 3117 00d2 26       		.uleb128 0x26
+ 3118 00d3 00       		.byte	0
+ 3119 00d4 49       		.uleb128 0x49
+ 3120 00d5 13       		.uleb128 0x13
+ 3121 00d6 00       		.byte	0
+ 3122 00d7 00       		.byte	0
+ 3123 00d8 11       		.uleb128 0x11
+ 3124 00d9 15       		.uleb128 0x15
+ 3125 00da 01       		.byte	0x1
+ 3126 00db 27       		.uleb128 0x27
+ 3127 00dc 19       		.uleb128 0x19
+ 3128 00dd 49       		.uleb128 0x49
+ 3129 00de 13       		.uleb128 0x13
+ 3130 00df 01       		.uleb128 0x1
+ 3131 00e0 13       		.uleb128 0x13
+ 3132 00e1 00       		.byte	0
+ 3133 00e2 00       		.byte	0
+ 3134 00e3 12       		.uleb128 0x12
+ 3135 00e4 05       		.uleb128 0x5
+ 3136 00e5 00       		.byte	0
+ 3137 00e6 49       		.uleb128 0x49
+ 3138 00e7 13       		.uleb128 0x13
+ 3139 00e8 00       		.byte	0
+ 3140 00e9 00       		.byte	0
+ 3141 00ea 13       		.uleb128 0x13
+ 3142 00eb 26       		.uleb128 0x26
+ 3143 00ec 00       		.byte	0
+ 3144 00ed 00       		.byte	0
+ 3145 00ee 00       		.byte	0
+ 3146 00ef 14       		.uleb128 0x14
+ 3147 00f0 01       		.uleb128 0x1
+ 3148 00f1 01       		.byte	0x1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 60
+
+
+ 3149 00f2 49       		.uleb128 0x49
+ 3150 00f3 13       		.uleb128 0x13
+ 3151 00f4 01       		.uleb128 0x1
+ 3152 00f5 13       		.uleb128 0x13
+ 3153 00f6 00       		.byte	0
+ 3154 00f7 00       		.byte	0
+ 3155 00f8 15       		.uleb128 0x15
+ 3156 00f9 21       		.uleb128 0x21
+ 3157 00fa 00       		.byte	0
+ 3158 00fb 49       		.uleb128 0x49
+ 3159 00fc 13       		.uleb128 0x13
+ 3160 00fd 2F       		.uleb128 0x2f
+ 3161 00fe 0B       		.uleb128 0xb
+ 3162 00ff 00       		.byte	0
+ 3163 0100 00       		.byte	0
+ 3164 0101 16       		.uleb128 0x16
+ 3165 0102 04       		.uleb128 0x4
+ 3166 0103 01       		.byte	0x1
+ 3167 0104 0B       		.uleb128 0xb
+ 3168 0105 0B       		.uleb128 0xb
+ 3169 0106 49       		.uleb128 0x49
+ 3170 0107 13       		.uleb128 0x13
+ 3171 0108 3A       		.uleb128 0x3a
+ 3172 0109 0B       		.uleb128 0xb
+ 3173 010a 3B       		.uleb128 0x3b
+ 3174 010b 0B       		.uleb128 0xb
+ 3175 010c 01       		.uleb128 0x1
+ 3176 010d 13       		.uleb128 0x13
+ 3177 010e 00       		.byte	0
+ 3178 010f 00       		.byte	0
+ 3179 0110 17       		.uleb128 0x17
+ 3180 0111 28       		.uleb128 0x28
+ 3181 0112 00       		.byte	0
+ 3182 0113 03       		.uleb128 0x3
+ 3183 0114 0E       		.uleb128 0xe
+ 3184 0115 1C       		.uleb128 0x1c
+ 3185 0116 0B       		.uleb128 0xb
+ 3186 0117 00       		.byte	0
+ 3187 0118 00       		.byte	0
+ 3188 0119 18       		.uleb128 0x18
+ 3189 011a 15       		.uleb128 0x15
+ 3190 011b 01       		.byte	0x1
+ 3191 011c 27       		.uleb128 0x27
+ 3192 011d 19       		.uleb128 0x19
+ 3193 011e 01       		.uleb128 0x1
+ 3194 011f 13       		.uleb128 0x13
+ 3195 0120 00       		.byte	0
+ 3196 0121 00       		.byte	0
+ 3197 0122 19       		.uleb128 0x19
+ 3198 0123 2E       		.uleb128 0x2e
+ 3199 0124 01       		.byte	0x1
+ 3200 0125 3F       		.uleb128 0x3f
+ 3201 0126 19       		.uleb128 0x19
+ 3202 0127 03       		.uleb128 0x3
+ 3203 0128 0E       		.uleb128 0xe
+ 3204 0129 3A       		.uleb128 0x3a
+ 3205 012a 0B       		.uleb128 0xb
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 61
+
+
+ 3206 012b 3B       		.uleb128 0x3b
+ 3207 012c 0B       		.uleb128 0xb
+ 3208 012d 27       		.uleb128 0x27
+ 3209 012e 19       		.uleb128 0x19
+ 3210 012f 11       		.uleb128 0x11
+ 3211 0130 01       		.uleb128 0x1
+ 3212 0131 12       		.uleb128 0x12
+ 3213 0132 06       		.uleb128 0x6
+ 3214 0133 40       		.uleb128 0x40
+ 3215 0134 18       		.uleb128 0x18
+ 3216 0135 9742     		.uleb128 0x2117
+ 3217 0137 19       		.uleb128 0x19
+ 3218 0138 01       		.uleb128 0x1
+ 3219 0139 13       		.uleb128 0x13
+ 3220 013a 00       		.byte	0
+ 3221 013b 00       		.byte	0
+ 3222 013c 1A       		.uleb128 0x1a
+ 3223 013d 05       		.uleb128 0x5
+ 3224 013e 00       		.byte	0
+ 3225 013f 03       		.uleb128 0x3
+ 3226 0140 0E       		.uleb128 0xe
+ 3227 0141 3A       		.uleb128 0x3a
+ 3228 0142 0B       		.uleb128 0xb
+ 3229 0143 3B       		.uleb128 0x3b
+ 3230 0144 0B       		.uleb128 0xb
+ 3231 0145 49       		.uleb128 0x49
+ 3232 0146 13       		.uleb128 0x13
+ 3233 0147 02       		.uleb128 0x2
+ 3234 0148 17       		.uleb128 0x17
+ 3235 0149 00       		.byte	0
+ 3236 014a 00       		.byte	0
+ 3237 014b 1B       		.uleb128 0x1b
+ 3238 014c 34       		.uleb128 0x34
+ 3239 014d 00       		.byte	0
+ 3240 014e 03       		.uleb128 0x3
+ 3241 014f 08       		.uleb128 0x8
+ 3242 0150 3A       		.uleb128 0x3a
+ 3243 0151 0B       		.uleb128 0xb
+ 3244 0152 3B       		.uleb128 0x3b
+ 3245 0153 0B       		.uleb128 0xb
+ 3246 0154 49       		.uleb128 0x49
+ 3247 0155 13       		.uleb128 0x13
+ 3248 0156 02       		.uleb128 0x2
+ 3249 0157 17       		.uleb128 0x17
+ 3250 0158 00       		.byte	0
+ 3251 0159 00       		.byte	0
+ 3252 015a 1C       		.uleb128 0x1c
+ 3253 015b 34       		.uleb128 0x34
+ 3254 015c 00       		.byte	0
+ 3255 015d 03       		.uleb128 0x3
+ 3256 015e 0E       		.uleb128 0xe
+ 3257 015f 3A       		.uleb128 0x3a
+ 3258 0160 0B       		.uleb128 0xb
+ 3259 0161 3B       		.uleb128 0x3b
+ 3260 0162 0B       		.uleb128 0xb
+ 3261 0163 49       		.uleb128 0x49
+ 3262 0164 13       		.uleb128 0x13
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 62
+
+
+ 3263 0165 02       		.uleb128 0x2
+ 3264 0166 17       		.uleb128 0x17
+ 3265 0167 00       		.byte	0
+ 3266 0168 00       		.byte	0
+ 3267 0169 1D       		.uleb128 0x1d
+ 3268 016a 34       		.uleb128 0x34
+ 3269 016b 00       		.byte	0
+ 3270 016c 03       		.uleb128 0x3
+ 3271 016d 0E       		.uleb128 0xe
+ 3272 016e 3A       		.uleb128 0x3a
+ 3273 016f 0B       		.uleb128 0xb
+ 3274 0170 3B       		.uleb128 0x3b
+ 3275 0171 0B       		.uleb128 0xb
+ 3276 0172 49       		.uleb128 0x49
+ 3277 0173 13       		.uleb128 0x13
+ 3278 0174 02       		.uleb128 0x2
+ 3279 0175 18       		.uleb128 0x18
+ 3280 0176 00       		.byte	0
+ 3281 0177 00       		.byte	0
+ 3282 0178 1E       		.uleb128 0x1e
+ 3283 0179 898201   		.uleb128 0x4109
+ 3284 017c 01       		.byte	0x1
+ 3285 017d 11       		.uleb128 0x11
+ 3286 017e 01       		.uleb128 0x1
+ 3287 017f 31       		.uleb128 0x31
+ 3288 0180 13       		.uleb128 0x13
+ 3289 0181 01       		.uleb128 0x1
+ 3290 0182 13       		.uleb128 0x13
+ 3291 0183 00       		.byte	0
+ 3292 0184 00       		.byte	0
+ 3293 0185 1F       		.uleb128 0x1f
+ 3294 0186 8A8201   		.uleb128 0x410a
+ 3295 0189 00       		.byte	0
+ 3296 018a 02       		.uleb128 0x2
+ 3297 018b 18       		.uleb128 0x18
+ 3298 018c 9142     		.uleb128 0x2111
+ 3299 018e 18       		.uleb128 0x18
+ 3300 018f 00       		.byte	0
+ 3301 0190 00       		.byte	0
+ 3302 0191 20       		.uleb128 0x20
+ 3303 0192 898201   		.uleb128 0x4109
+ 3304 0195 01       		.byte	0x1
+ 3305 0196 11       		.uleb128 0x11
+ 3306 0197 01       		.uleb128 0x1
+ 3307 0198 31       		.uleb128 0x31
+ 3308 0199 13       		.uleb128 0x13
+ 3309 019a 00       		.byte	0
+ 3310 019b 00       		.byte	0
+ 3311 019c 21       		.uleb128 0x21
+ 3312 019d 34       		.uleb128 0x34
+ 3313 019e 00       		.byte	0
+ 3314 019f 03       		.uleb128 0x3
+ 3315 01a0 0E       		.uleb128 0xe
+ 3316 01a1 3A       		.uleb128 0x3a
+ 3317 01a2 0B       		.uleb128 0xb
+ 3318 01a3 3B       		.uleb128 0x3b
+ 3319 01a4 0B       		.uleb128 0xb
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 63
+
+
+ 3320 01a5 49       		.uleb128 0x49
+ 3321 01a6 13       		.uleb128 0x13
+ 3322 01a7 3F       		.uleb128 0x3f
+ 3323 01a8 19       		.uleb128 0x19
+ 3324 01a9 3C       		.uleb128 0x3c
+ 3325 01aa 19       		.uleb128 0x19
+ 3326 01ab 00       		.byte	0
+ 3327 01ac 00       		.byte	0
+ 3328 01ad 22       		.uleb128 0x22
+ 3329 01ae 2E       		.uleb128 0x2e
+ 3330 01af 00       		.byte	0
+ 3331 01b0 3F       		.uleb128 0x3f
+ 3332 01b1 19       		.uleb128 0x19
+ 3333 01b2 3C       		.uleb128 0x3c
+ 3334 01b3 19       		.uleb128 0x19
+ 3335 01b4 6E       		.uleb128 0x6e
+ 3336 01b5 0E       		.uleb128 0xe
+ 3337 01b6 03       		.uleb128 0x3
+ 3338 01b7 0E       		.uleb128 0xe
+ 3339 01b8 3A       		.uleb128 0x3a
+ 3340 01b9 0B       		.uleb128 0xb
+ 3341 01ba 3B       		.uleb128 0x3b
+ 3342 01bb 0B       		.uleb128 0xb
+ 3343 01bc 00       		.byte	0
+ 3344 01bd 00       		.byte	0
+ 3345 01be 23       		.uleb128 0x23
+ 3346 01bf 2E       		.uleb128 0x2e
+ 3347 01c0 00       		.byte	0
+ 3348 01c1 3F       		.uleb128 0x3f
+ 3349 01c2 19       		.uleb128 0x19
+ 3350 01c3 3C       		.uleb128 0x3c
+ 3351 01c4 19       		.uleb128 0x19
+ 3352 01c5 6E       		.uleb128 0x6e
+ 3353 01c6 0E       		.uleb128 0xe
+ 3354 01c7 03       		.uleb128 0x3
+ 3355 01c8 0E       		.uleb128 0xe
+ 3356 01c9 00       		.byte	0
+ 3357 01ca 00       		.byte	0
+ 3358 01cb 24       		.uleb128 0x24
+ 3359 01cc 2E       		.uleb128 0x2e
+ 3360 01cd 00       		.byte	0
+ 3361 01ce 3F       		.uleb128 0x3f
+ 3362 01cf 19       		.uleb128 0x19
+ 3363 01d0 3C       		.uleb128 0x3c
+ 3364 01d1 19       		.uleb128 0x19
+ 3365 01d2 6E       		.uleb128 0x6e
+ 3366 01d3 0E       		.uleb128 0xe
+ 3367 01d4 03       		.uleb128 0x3
+ 3368 01d5 0E       		.uleb128 0xe
+ 3369 01d6 3A       		.uleb128 0x3a
+ 3370 01d7 0B       		.uleb128 0xb
+ 3371 01d8 3B       		.uleb128 0x3b
+ 3372 01d9 05       		.uleb128 0x5
+ 3373 01da 00       		.byte	0
+ 3374 01db 00       		.byte	0
+ 3375 01dc 00       		.byte	0
+ 3376              		.section	.debug_loc,"",%progbits
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 64
+
+
+ 3377              	.Ldebug_loc0:
+ 3378              	.LLST0:
+ 3379 0000 00000000 		.4byte	.LVL0
+ 3380 0004 24000000 		.4byte	.LVL1
+ 3381 0008 0100     		.2byte	0x1
+ 3382 000a 50       		.byte	0x50
+ 3383 000b 24000000 		.4byte	.LVL1
+ 3384 000f E4020000 		.4byte	.LFE56
+ 3385 0013 0300     		.2byte	0x3
+ 3386 0015 91       		.byte	0x91
+ 3387 0016 B07F     		.sleb128 -80
+ 3388 0018 00000000 		.4byte	0
+ 3389 001c 00000000 		.4byte	0
+ 3390              	.LLST1:
+ 3391 0020 00000000 		.4byte	.LVL0
+ 3392 0024 27000000 		.4byte	.LVL2-1
+ 3393 0028 0100     		.2byte	0x1
+ 3394 002a 51       		.byte	0x51
+ 3395 002b 27000000 		.4byte	.LVL2-1
+ 3396 002f E4020000 		.4byte	.LFE56
+ 3397 0033 0300     		.2byte	0x3
+ 3398 0035 91       		.byte	0x91
+ 3399 0036 B87F     		.sleb128 -72
+ 3400 0038 00000000 		.4byte	0
+ 3401 003c 00000000 		.4byte	0
+ 3402              	.LLST2:
+ 3403 0040 00000000 		.4byte	.LVL0
+ 3404 0044 27000000 		.4byte	.LVL2-1
+ 3405 0048 0100     		.2byte	0x1
+ 3406 004a 52       		.byte	0x52
+ 3407 004b 27000000 		.4byte	.LVL2-1
+ 3408 004f AC010000 		.4byte	.LVL48
+ 3409 0053 0100     		.2byte	0x1
+ 3410 0055 57       		.byte	0x57
+ 3411 0056 AC010000 		.4byte	.LVL48
+ 3412 005a E4020000 		.4byte	.LFE56
+ 3413 005e 0400     		.2byte	0x4
+ 3414 0060 F3       		.byte	0xf3
+ 3415 0061 01       		.uleb128 0x1
+ 3416 0062 52       		.byte	0x52
+ 3417 0063 9F       		.byte	0x9f
+ 3418 0064 00000000 		.4byte	0
+ 3419 0068 00000000 		.4byte	0
+ 3420              	.LLST3:
+ 3421 006c 00000000 		.4byte	.LVL0
+ 3422 0070 27000000 		.4byte	.LVL2-1
+ 3423 0074 0100     		.2byte	0x1
+ 3424 0076 53       		.byte	0x53
+ 3425 0077 27000000 		.4byte	.LVL2-1
+ 3426 007b AE000000 		.4byte	.LVL15
+ 3427 007f 0400     		.2byte	0x4
+ 3428 0081 F3       		.byte	0xf3
+ 3429 0082 01       		.uleb128 0x1
+ 3430 0083 53       		.byte	0x53
+ 3431 0084 9F       		.byte	0x9f
+ 3432 0085 AE000000 		.4byte	.LVL15
+ 3433 0089 A0010000 		.4byte	.LVL45
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 65
+
+
+ 3434 008d 0100     		.2byte	0x1
+ 3435 008f 56       		.byte	0x56
+ 3436 0090 00000000 		.4byte	0
+ 3437 0094 00000000 		.4byte	0
+ 3438              	.LLST4:
+ 3439 0098 2A000000 		.4byte	.LVL3
+ 3440 009c 35000000 		.4byte	.LVL5-1
+ 3441 00a0 0100     		.2byte	0x1
+ 3442 00a2 50       		.byte	0x50
+ 3443 00a3 35000000 		.4byte	.LVL5-1
+ 3444 00a7 42000000 		.4byte	.LVL6
+ 3445 00ab 0100     		.2byte	0x1
+ 3446 00ad 54       		.byte	0x54
+ 3447 00ae 42000000 		.4byte	.LVL6
+ 3448 00b2 94000000 		.4byte	.LVL12
+ 3449 00b6 0100     		.2byte	0x1
+ 3450 00b8 58       		.byte	0x58
+ 3451 00b9 94000000 		.4byte	.LVL12
+ 3452 00bd CC020000 		.4byte	.LVL90
+ 3453 00c1 0100     		.2byte	0x1
+ 3454 00c3 54       		.byte	0x54
+ 3455 00c4 00000000 		.4byte	0
+ 3456 00c8 00000000 		.4byte	0
+ 3457              	.LLST5:
+ 3458 00cc 36000000 		.4byte	.LVL5
+ 3459 00d0 42000000 		.4byte	.LVL6
+ 3460 00d4 0200     		.2byte	0x2
+ 3461 00d6 30       		.byte	0x30
+ 3462 00d7 9F       		.byte	0x9f
+ 3463 00d8 42000000 		.4byte	.LVL6
+ 3464 00dc 74000000 		.4byte	.LVL10
+ 3465 00e0 0100     		.2byte	0x1
+ 3466 00e2 55       		.byte	0x55
+ 3467 00e3 76000000 		.4byte	.LVL11
+ 3468 00e7 C4000000 		.4byte	.LVL17
+ 3469 00eb 0100     		.2byte	0x1
+ 3470 00ed 55       		.byte	0x55
+ 3471 00ee C4000000 		.4byte	.LVL17
+ 3472 00f2 C8000000 		.4byte	.LVL18
+ 3473 00f6 0200     		.2byte	0x2
+ 3474 00f8 30       		.byte	0x30
+ 3475 00f9 9F       		.byte	0x9f
+ 3476 00fa C8000000 		.4byte	.LVL18
+ 3477 00fe 20010000 		.4byte	.LVL19
+ 3478 0102 0100     		.2byte	0x1
+ 3479 0104 52       		.byte	0x52
+ 3480 0105 22010000 		.4byte	.LVL20
+ 3481 0109 2E010000 		.4byte	.LVL21
+ 3482 010d 0100     		.2byte	0x1
+ 3483 010f 52       		.byte	0x52
+ 3484 0110 50010000 		.4byte	.LVL29
+ 3485 0114 56010000 		.4byte	.LVL30
+ 3486 0118 0200     		.2byte	0x2
+ 3487 011a 31       		.byte	0x31
+ 3488 011b 9F       		.byte	0x9f
+ 3489 011c 56010000 		.4byte	.LVL30
+ 3490 0120 68010000 		.4byte	.LVL34
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 66
+
+
+ 3491 0124 0100     		.2byte	0x1
+ 3492 0126 53       		.byte	0x53
+ 3493 0127 6A010000 		.4byte	.LVL35
+ 3494 012b 77010000 		.4byte	.LVL36-1
+ 3495 012f 0100     		.2byte	0x1
+ 3496 0131 53       		.byte	0x53
+ 3497 0132 00000000 		.4byte	0
+ 3498 0136 00000000 		.4byte	0
+ 3499              	.LLST6:
+ 3500 013a 2E000000 		.4byte	.LVL4
+ 3501 013e 42000000 		.4byte	.LVL6
+ 3502 0142 0200     		.2byte	0x2
+ 3503 0144 30       		.byte	0x30
+ 3504 0145 9F       		.byte	0x9f
+ 3505 0146 42000000 		.4byte	.LVL6
+ 3506 014a 70000000 		.4byte	.LVL8
+ 3507 014e 0100     		.2byte	0x1
+ 3508 0150 56       		.byte	0x56
+ 3509 0151 72000000 		.4byte	.LVL9
+ 3510 0155 AC000000 		.4byte	.LVL14
+ 3511 0159 0100     		.2byte	0x1
+ 3512 015b 56       		.byte	0x56
+ 3513 015c AE000000 		.4byte	.LVL15
+ 3514 0160 A0010000 		.4byte	.LVL45
+ 3515 0164 0100     		.2byte	0x1
+ 3516 0166 56       		.byte	0x56
+ 3517 0167 00000000 		.4byte	0
+ 3518 016b 00000000 		.4byte	0
+ 3519              	.LLST7:
+ 3520 016f 36010000 		.4byte	.LVL22
+ 3521 0173 3C010000 		.4byte	.LVL23
+ 3522 0177 0100     		.2byte	0x1
+ 3523 0179 50       		.byte	0x50
+ 3524 017a 42010000 		.4byte	.LVL25
+ 3525 017e 56010000 		.4byte	.LVL30
+ 3526 0182 0100     		.2byte	0x1
+ 3527 0184 50       		.byte	0x50
+ 3528 0185 00000000 		.4byte	0
+ 3529 0189 00000000 		.4byte	0
+ 3530              	.LLST8:
+ 3531 018d 48010000 		.4byte	.LVL26
+ 3532 0191 4A010000 		.4byte	.LVL27
+ 3533 0195 0100     		.2byte	0x1
+ 3534 0197 53       		.byte	0x53
+ 3535 0198 4A010000 		.4byte	.LVL27
+ 3536 019c 4C010000 		.4byte	.LVL28
+ 3537 01a0 0200     		.2byte	0x2
+ 3538 01a2 72       		.byte	0x72
+ 3539 01a3 08       		.sleb128 8
+ 3540 01a4 4C010000 		.4byte	.LVL28
+ 3541 01a8 CC020000 		.4byte	.LVL90
+ 3542 01ac 0200     		.2byte	0x2
+ 3543 01ae 91       		.byte	0x91
+ 3544 01af 44       		.sleb128 -60
+ 3545 01b0 00000000 		.4byte	0
+ 3546 01b4 00000000 		.4byte	0
+ 3547              	.LLST9:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 67
+
+
+ 3548 01b8 50010000 		.4byte	.LVL29
+ 3549 01bc 62010000 		.4byte	.LVL31
+ 3550 01c0 0100     		.2byte	0x1
+ 3551 01c2 51       		.byte	0x51
+ 3552 01c3 62010000 		.4byte	.LVL31
+ 3553 01c7 66010000 		.4byte	.LVL33
+ 3554 01cb 0100     		.2byte	0x1
+ 3555 01cd 52       		.byte	0x52
+ 3556 01ce 66010000 		.4byte	.LVL33
+ 3557 01d2 77010000 		.4byte	.LVL36-1
+ 3558 01d6 0100     		.2byte	0x1
+ 3559 01d8 51       		.byte	0x51
+ 3560 01d9 00000000 		.4byte	0
+ 3561 01dd 00000000 		.4byte	0
+ 3562              	.LLST10:
+ 3563 01e1 50010000 		.4byte	.LVL29
+ 3564 01e5 56010000 		.4byte	.LVL30
+ 3565 01e9 0200     		.2byte	0x2
+ 3566 01eb 30       		.byte	0x30
+ 3567 01ec 9F       		.byte	0x9f
+ 3568 01ed 56010000 		.4byte	.LVL30
+ 3569 01f1 9C010000 		.4byte	.LVL44
+ 3570 01f5 0100     		.2byte	0x1
+ 3571 01f7 55       		.byte	0x55
+ 3572 01f8 00000000 		.4byte	0
+ 3573 01fc 00000000 		.4byte	0
+ 3574              	.LLST11:
+ 3575 0200 7A010000 		.4byte	.LVL37
+ 3576 0204 80010000 		.4byte	.LVL39
+ 3577 0208 0100     		.2byte	0x1
+ 3578 020a 50       		.byte	0x50
+ 3579 020b 80010000 		.4byte	.LVL39
+ 3580 020f CC020000 		.4byte	.LVL90
+ 3581 0213 0300     		.2byte	0x3
+ 3582 0215 91       		.byte	0x91
+ 3583 0216 BC7F     		.sleb128 -68
+ 3584 0218 00000000 		.4byte	0
+ 3585 021c 00000000 		.4byte	0
+ 3586              	.LLST12:
+ 3587 0220 7A010000 		.4byte	.LVL37
+ 3588 0224 80010000 		.4byte	.LVL39
+ 3589 0228 0100     		.2byte	0x1
+ 3590 022a 50       		.byte	0x50
+ 3591 022b 80010000 		.4byte	.LVL39
+ 3592 022f DC010000 		.4byte	.LVL57
+ 3593 0233 0300     		.2byte	0x3
+ 3594 0235 91       		.byte	0x91
+ 3595 0236 BC7F     		.sleb128 -68
+ 3596 0238 DC010000 		.4byte	.LVL57
+ 3597 023c CC020000 		.4byte	.LVL90
+ 3598 0240 0300     		.2byte	0x3
+ 3599 0242 91       		.byte	0x91
+ 3600 0243 B47F     		.sleb128 -76
+ 3601 0245 00000000 		.4byte	0
+ 3602 0249 00000000 		.4byte	0
+ 3603              	.LLST13:
+ 3604 024d 7C010000 		.4byte	.LVL38
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 68
+
+
+ 3605 0251 9C010000 		.4byte	.LVL44
+ 3606 0255 0100     		.2byte	0x1
+ 3607 0257 55       		.byte	0x55
+ 3608 0258 9C010000 		.4byte	.LVL44
+ 3609 025c 00020000 		.4byte	.LVL65
+ 3610 0260 0100     		.2byte	0x1
+ 3611 0262 58       		.byte	0x58
+ 3612 0263 00020000 		.4byte	.LVL65
+ 3613 0267 04020000 		.4byte	.LVL67
+ 3614 026b 0100     		.2byte	0x1
+ 3615 026d 53       		.byte	0x53
+ 3616 026e 04020000 		.4byte	.LVL67
+ 3617 0272 46020000 		.4byte	.LVL73
+ 3618 0276 0100     		.2byte	0x1
+ 3619 0278 58       		.byte	0x58
+ 3620 0279 5A020000 		.4byte	.LVL77
+ 3621 027d 5C020000 		.4byte	.LVL78
+ 3622 0281 0100     		.2byte	0x1
+ 3623 0283 56       		.byte	0x56
+ 3624 0284 5C020000 		.4byte	.LVL78
+ 3625 0288 CC020000 		.4byte	.LVL90
+ 3626 028c 0100     		.2byte	0x1
+ 3627 028e 58       		.byte	0x58
+ 3628 028f 00000000 		.4byte	0
+ 3629 0293 00000000 		.4byte	0
+ 3630              	.LLST14:
+ 3631 0297 7C010000 		.4byte	.LVL38
+ 3632 029b 9C010000 		.4byte	.LVL44
+ 3633 029f 0100     		.2byte	0x1
+ 3634 02a1 55       		.byte	0x55
+ 3635 02a2 9C010000 		.4byte	.LVL44
+ 3636 02a6 DC010000 		.4byte	.LVL57
+ 3637 02aa 0100     		.2byte	0x1
+ 3638 02ac 58       		.byte	0x58
+ 3639 02ad DC010000 		.4byte	.LVL57
+ 3640 02b1 F6010000 		.4byte	.LVL62
+ 3641 02b5 0100     		.2byte	0x1
+ 3642 02b7 59       		.byte	0x59
+ 3643 02b8 F6010000 		.4byte	.LVL62
+ 3644 02bc F8010000 		.4byte	.LVL63
+ 3645 02c0 0100     		.2byte	0x1
+ 3646 02c2 53       		.byte	0x53
+ 3647 02c3 F8010000 		.4byte	.LVL63
+ 3648 02c7 08020000 		.4byte	.LVL68
+ 3649 02cb 0100     		.2byte	0x1
+ 3650 02cd 59       		.byte	0x59
+ 3651 02ce 08020000 		.4byte	.LVL68
+ 3652 02d2 0A020000 		.4byte	.LVL69
+ 3653 02d6 0100     		.2byte	0x1
+ 3654 02d8 53       		.byte	0x53
+ 3655 02d9 0A020000 		.4byte	.LVL69
+ 3656 02dd 10020000 		.4byte	.LVL71
+ 3657 02e1 0100     		.2byte	0x1
+ 3658 02e3 59       		.byte	0x59
+ 3659 02e4 10020000 		.4byte	.LVL71
+ 3660 02e8 12020000 		.4byte	.LVL72
+ 3661 02ec 0100     		.2byte	0x1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 69
+
+
+ 3662 02ee 53       		.byte	0x53
+ 3663 02ef 12020000 		.4byte	.LVL72
+ 3664 02f3 A2020000 		.4byte	.LVL83
+ 3665 02f7 0100     		.2byte	0x1
+ 3666 02f9 59       		.byte	0x59
+ 3667 02fa A2020000 		.4byte	.LVL83
+ 3668 02fe A4020000 		.4byte	.LVL84
+ 3669 0302 0100     		.2byte	0x1
+ 3670 0304 57       		.byte	0x57
+ 3671 0305 A4020000 		.4byte	.LVL84
+ 3672 0309 CC020000 		.4byte	.LVL90
+ 3673 030d 0100     		.2byte	0x1
+ 3674 030f 59       		.byte	0x59
+ 3675 0310 00000000 		.4byte	0
+ 3676 0314 00000000 		.4byte	0
+ 3677              	.LLST15:
+ 3678 0318 7C010000 		.4byte	.LVL38
+ 3679 031c 80010000 		.4byte	.LVL39
+ 3680 0320 0300     		.2byte	0x3
+ 3681 0322 75       		.byte	0x75
+ 3682 0323 7F       		.sleb128 -1
+ 3683 0324 9F       		.byte	0x9f
+ 3684 0325 80010000 		.4byte	.LVL39
+ 3685 0329 94010000 		.4byte	.LVL43
+ 3686 032d 0100     		.2byte	0x1
+ 3687 032f 50       		.byte	0x50
+ 3688 0330 E2010000 		.4byte	.LVL58
+ 3689 0334 E8010000 		.4byte	.LVL59
+ 3690 0338 0300     		.2byte	0x3
+ 3691 033a 78       		.byte	0x78
+ 3692 033b 7F       		.sleb128 -1
+ 3693 033c 9F       		.byte	0x9f
+ 3694 033d E8010000 		.4byte	.LVL59
+ 3695 0341 F8010000 		.4byte	.LVL63
+ 3696 0345 0100     		.2byte	0x1
+ 3697 0347 56       		.byte	0x56
+ 3698 0348 FC010000 		.4byte	.LVL64
+ 3699 034c 72020000 		.4byte	.LVL79
+ 3700 0350 0100     		.2byte	0x1
+ 3701 0352 56       		.byte	0x56
+ 3702 0353 00000000 		.4byte	0
+ 3703 0357 00000000 		.4byte	0
+ 3704              	.LLST16:
+ 3705 035b 86010000 		.4byte	.LVL41
+ 3706 035f A6010000 		.4byte	.LVL47
+ 3707 0363 0100     		.2byte	0x1
+ 3708 0365 53       		.byte	0x53
+ 3709 0366 F2010000 		.4byte	.LVL61
+ 3710 036a F8010000 		.4byte	.LVL63
+ 3711 036e 0100     		.2byte	0x1
+ 3712 0370 57       		.byte	0x57
+ 3713 0371 02020000 		.4byte	.LVL66
+ 3714 0375 08020000 		.4byte	.LVL68
+ 3715 0379 0300     		.2byte	0x3
+ 3716 037b 79       		.byte	0x79
+ 3717 037c 7F       		.sleb128 -1
+ 3718 037d 9F       		.byte	0x9f
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 70
+
+
+ 3719 037e 08020000 		.4byte	.LVL68
+ 3720 0382 CC020000 		.4byte	.LVL90
+ 3721 0386 0100     		.2byte	0x1
+ 3722 0388 57       		.byte	0x57
+ 3723 0389 00000000 		.4byte	0
+ 3724 038d 00000000 		.4byte	0
+ 3725              	.LLST17:
+ 3726 0391 7C010000 		.4byte	.LVL38
+ 3727 0395 DC010000 		.4byte	.LVL57
+ 3728 0399 0200     		.2byte	0x2
+ 3729 039b 30       		.byte	0x30
+ 3730 039c 9F       		.byte	0x9f
+ 3731 039d DC010000 		.4byte	.LVL57
+ 3732 03a1 B6020000 		.4byte	.LVL86
+ 3733 03a5 0100     		.2byte	0x1
+ 3734 03a7 55       		.byte	0x55
+ 3735 03a8 00000000 		.4byte	0
+ 3736 03ac 00000000 		.4byte	0
+ 3737              	.LLST18:
+ 3738 03b0 A4010000 		.4byte	.LVL46
+ 3739 03b4 DC010000 		.4byte	.LVL57
+ 3740 03b8 0100     		.2byte	0x1
+ 3741 03ba 52       		.byte	0x52
+ 3742 03bb 00000000 		.4byte	0
+ 3743 03bf 00000000 		.4byte	0
+ 3744              	.LLST19:
+ 3745 03c3 B0010000 		.4byte	.LVL49
+ 3746 03c7 C4010000 		.4byte	.LVL52
+ 3747 03cb 0100     		.2byte	0x1
+ 3748 03cd 51       		.byte	0x51
+ 3749 03ce 00000000 		.4byte	0
+ 3750 03d2 00000000 		.4byte	0
+ 3751              	.LLST20:
+ 3752 03d6 BA010000 		.4byte	.LVL50
+ 3753 03da DC010000 		.4byte	.LVL57
+ 3754 03de 0100     		.2byte	0x1
+ 3755 03e0 56       		.byte	0x56
+ 3756 03e1 00000000 		.4byte	0
+ 3757 03e5 00000000 		.4byte	0
+ 3758              	.LLST21:
+ 3759 03e9 C2010000 		.4byte	.LVL51
+ 3760 03ed C6010000 		.4byte	.LVL53
+ 3761 03f1 0100     		.2byte	0x1
+ 3762 03f3 55       		.byte	0x55
+ 3763 03f4 C6010000 		.4byte	.LVL53
+ 3764 03f8 CC010000 		.4byte	.LVL54
+ 3765 03fc 1300     		.2byte	0x13
+ 3766 03fe 73       		.byte	0x73
+ 3767 03ff 00       		.sleb128 0
+ 3768 0400 78       		.byte	0x78
+ 3769 0401 00       		.sleb128 0
+ 3770 0402 32       		.byte	0x32
+ 3771 0403 24       		.byte	0x24
+ 3772 0404 74       		.byte	0x74
+ 3773 0405 00       		.sleb128 0
+ 3774 0406 22       		.byte	0x22
+ 3775 0407 23       		.byte	0x23
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 71
+
+
+ 3776 0408 02       		.uleb128 0x2
+ 3777 0409 94       		.byte	0x94
+ 3778 040a 02       		.byte	0x2
+ 3779 040b 0A       		.byte	0xa
+ 3780 040c FFFF     		.2byte	0xffff
+ 3781 040e 1A       		.byte	0x1a
+ 3782 040f 1C       		.byte	0x1c
+ 3783 0410 9F       		.byte	0x9f
+ 3784 0411 D0010000 		.4byte	.LVL55
+ 3785 0415 D2010000 		.4byte	.LVL56
+ 3786 0419 1300     		.2byte	0x13
+ 3787 041b 73       		.byte	0x73
+ 3788 041c 00       		.sleb128 0
+ 3789 041d 78       		.byte	0x78
+ 3790 041e 00       		.sleb128 0
+ 3791 041f 32       		.byte	0x32
+ 3792 0420 24       		.byte	0x24
+ 3793 0421 74       		.byte	0x74
+ 3794 0422 00       		.sleb128 0
+ 3795 0423 22       		.byte	0x22
+ 3796 0424 23       		.byte	0x23
+ 3797 0425 02       		.uleb128 0x2
+ 3798 0426 94       		.byte	0x94
+ 3799 0427 02       		.byte	0x2
+ 3800 0428 0A       		.byte	0xa
+ 3801 0429 FFFF     		.2byte	0xffff
+ 3802 042b 1A       		.byte	0x1a
+ 3803 042c 1C       		.byte	0x1c
+ 3804 042d 9F       		.byte	0x9f
+ 3805 042e 00000000 		.4byte	0
+ 3806 0432 00000000 		.4byte	0
+ 3807              	.LLST22:
+ 3808 0436 C2010000 		.4byte	.LVL51
+ 3809 043a DC010000 		.4byte	.LVL57
+ 3810 043e 0200     		.2byte	0x2
+ 3811 0440 30       		.byte	0x30
+ 3812 0441 9F       		.byte	0x9f
+ 3813 0442 DC010000 		.4byte	.LVL57
+ 3814 0446 CC020000 		.4byte	.LVL90
+ 3815 044a 0300     		.2byte	0x3
+ 3816 044c 91       		.byte	0x91
+ 3817 044d AC7F     		.sleb128 -84
+ 3818 044f 00000000 		.4byte	0
+ 3819 0453 00000000 		.4byte	0
+ 3820              		.section	.debug_aranges,"",%progbits
+ 3821 0000 1C000000 		.4byte	0x1c
+ 3822 0004 0200     		.2byte	0x2
+ 3823 0006 00000000 		.4byte	.Ldebug_info0
+ 3824 000a 04       		.byte	0x4
+ 3825 000b 00       		.byte	0
+ 3826 000c 0000     		.2byte	0
+ 3827 000e 0000     		.2byte	0
+ 3828 0010 00000000 		.4byte	.LFB56
+ 3829 0014 E4020000 		.4byte	.LFE56-.LFB56
+ 3830 0018 00000000 		.4byte	0
+ 3831 001c 00000000 		.4byte	0
+ 3832              		.section	.debug_ranges,"",%progbits
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 72
+
+
+ 3833              	.Ldebug_ranges0:
+ 3834 0000 00000000 		.4byte	.LFB56
+ 3835 0004 E4020000 		.4byte	.LFE56
+ 3836 0008 00000000 		.4byte	0
+ 3837 000c 00000000 		.4byte	0
+ 3838              		.section	.debug_line,"",%progbits
+ 3839              	.Ldebug_line0:
+ 3840 0000 95040000 		.section	.debug_str,"MS",%progbits,1
+ 3840      0200C103 
+ 3840      00000201 
+ 3840      FB0E0D00 
+ 3840      01010101 
+ 3841              	.LASF58:
+ 3842 0000 6C765F74 		.ascii	"lv_text_decor_t\000"
+ 3842      6578745F 
+ 3842      6465636F 
+ 3842      725F7400 
+ 3843              	.LASF50:
+ 3844 0010 75736572 		.ascii	"user_data\000"
+ 3844      5F646174 
+ 3844      6100
+ 3845              	.LASF201:
+ 3846 001a 6C765F64 		.ascii	"lv_draw_rect\000"
+ 3846      7261775F 
+ 3846      72656374 
+ 3846      00
+ 3847              	.LASF43:
+ 3848 0027 6765745F 		.ascii	"get_glyph_bitmap\000"
+ 3848      676C7970 
+ 3848      685F6269 
+ 3848      746D6170 
+ 3848      00
+ 3849              	.LASF91:
+ 3850 0038 62675F67 		.ascii	"bg_grad\000"
+ 3850      72616400 
+ 3851              	.LASF106:
+ 3852 0040 6F75746C 		.ascii	"outline_opa\000"
+ 3852      696E655F 
+ 3852      6F706100 
+ 3853              	.LASF22:
+ 3854 004c 73697A65 		.ascii	"size_t\000"
+ 3854      5F7400
+ 3855              	.LASF161:
+ 3856 0053 5F6C765F 		.ascii	"_lv_draw_ctx_t\000"
+ 3856      64726177 
+ 3856      5F637478 
+ 3856      5F7400
+ 3857              	.LASF166:
+ 3858 0062 64726177 		.ascii	"draw_img\000"
+ 3858      5F696D67 
+ 3858      00
+ 3859              	.LASF169:
+ 3860 006b 64726177 		.ascii	"draw_polygon\000"
+ 3860      5F706F6C 
+ 3860      79676F6E 
+ 3860      00
+ 3861              	.LASF148:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 73
+
+
+ 3862 0078 4C565F44 		.ascii	"LV_DRAW_LAYER_FLAG_CAN_SUBDIVIDE\000"
+ 3862      5241575F 
+ 3862      4C415945 
+ 3862      525F464C 
+ 3862      41475F43 
+ 3863              	.LASF30:
+ 3864 0099 6C765F63 		.ascii	"lv_color_t\000"
+ 3864      6F6C6F72 
+ 3864      5F7400
+ 3865              	.LASF186:
+ 3866 00a4 69735F63 		.ascii	"is_common\000"
+ 3866      6F6D6D6F 
+ 3866      6E00
+ 3867              	.LASF1:
+ 3868 00ae 5F5F7569 		.ascii	"__uint8_t\000"
+ 3868      6E74385F 
+ 3868      7400
+ 3869              	.LASF156:
+ 3870 00b8 61726561 		.ascii	"area_act\000"
+ 3870      5F616374 
+ 3870      00
+ 3871              	.LASF179:
+ 3872 00c1 6C765F64 		.ascii	"lv_draw_ctx_t\000"
+ 3872      7261775F 
+ 3872      6374785F 
+ 3872      7400
+ 3873              	.LASF77:
+ 3874 00cf 74797065 		.ascii	"type\000"
+ 3874      00
+ 3875              	.LASF198:
+ 3876 00d4 5F6C765F 		.ascii	"_lv_area_intersect\000"
+ 3876      61726561 
+ 3876      5F696E74 
+ 3876      65727365 
+ 3876      637400
+ 3877              	.LASF180:
+ 3878 00e7 64726177 		.ascii	"draw_ctx\000"
+ 3878      5F637478 
+ 3878      00
+ 3879              	.LASF137:
+ 3880 00f0 726F756E 		.ascii	"round_start\000"
+ 3880      645F7374 
+ 3880      61727400 
+ 3881              	.LASF53:
+ 3882 00fc 6C765F66 		.ascii	"lv_font_t\000"
+ 3882      6F6E745F 
+ 3882      7400
+ 3883              	.LASF151:
+ 3884 0106 6275665F 		.ascii	"buf_area\000"
+ 3884      61726561 
+ 3884      00
+ 3885              	.LASF204:
+ 3886 010f 2E2E5C2E 		.ascii	"..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries"
+ 3886      2E5C2E2E 
+ 3886      5C617264 
+ 3886      75696E6F 
+ 3886      4C43445C 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 74
+
+
+ 3887 013c 5C6C7667 		.ascii	"\\lvgl\\src\\draw\\sw\\lv_draw_sw_polygon.c\000"
+ 3887      6C5C7372 
+ 3887      635C6472 
+ 3887      61775C73 
+ 3887      775C6C76 
+ 3888              	.LASF127:
+ 3889 0163 7A6F6F6D 		.ascii	"zoom\000"
+ 3889      00
+ 3890              	.LASF172:
+ 3891 0168 77616974 		.ascii	"wait_for_finish\000"
+ 3891      5F666F72 
+ 3891      5F66696E 
+ 3891      69736800 
+ 3892              	.LASF0:
+ 3893 0178 5F5F696E 		.ascii	"__int8_t\000"
+ 3893      74385F74 
+ 3893      00
+ 3894              	.LASF128:
+ 3895 0181 7069766F 		.ascii	"pivot\000"
+ 3895      7400
+ 3896              	.LASF164:
+ 3897 0187 64726177 		.ascii	"draw_arc\000"
+ 3897      5F617263 
+ 3897      00
+ 3898              	.LASF158:
+ 3899 0190 6D61785F 		.ascii	"max_row_with_no_alpha\000"
+ 3899      726F775F 
+ 3899      77697468 
+ 3899      5F6E6F5F 
+ 3899      616C7068 
+ 3900              	.LASF40:
+ 3901 01a6 6F66735F 		.ascii	"ofs_y\000"
+ 3901      7900
+ 3902              	.LASF12:
+ 3903 01ac 6C6F6E67 		.ascii	"long long int\000"
+ 3903      206C6F6E 
+ 3903      6720696E 
+ 3903      7400
+ 3904              	.LASF2:
+ 3905 01ba 7369676E 		.ascii	"signed char\000"
+ 3905      65642063 
+ 3905      68617200 
+ 3906              	.LASF141:
+ 3907 01c6 73746172 		.ascii	"start_angle\000"
+ 3907      745F616E 
+ 3907      676C6500 
+ 3908              	.LASF47:
+ 3909 01d2 756E6465 		.ascii	"underline_position\000"
+ 3909      726C696E 
+ 3909      655F706F 
+ 3909      73697469 
+ 3909      6F6E00
+ 3910              	.LASF108:
+ 3911 01e5 73686164 		.ascii	"shadow_width\000"
+ 3911      6F775F77 
+ 3911      69647468 
+ 3911      00
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 75
+
+
+ 3912              	.LASF163:
+ 3913 01f2 64726177 		.ascii	"draw_rect\000"
+ 3913      5F726563 
+ 3913      7400
+ 3914              	.LASF176:
+ 3915 01fc 6C617965 		.ascii	"layer_blend\000"
+ 3915      725F626C 
+ 3915      656E6400 
+ 3916              	.LASF65:
+ 3917 0208 73746F70 		.ascii	"stops\000"
+ 3917      7300
+ 3918              	.LASF13:
+ 3919 020e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3919      206C6F6E 
+ 3919      6720756E 
+ 3919      7369676E 
+ 3919      65642069 
+ 3920              	.LASF74:
+ 3921 0225 4C565F44 		.ascii	"LV_DRAW_MASK_LINE_SIDE_BOTTOM\000"
+ 3921      5241575F 
+ 3921      4D41534B 
+ 3921      5F4C494E 
+ 3921      455F5349 
+ 3922              	.LASF56:
+ 3923 0243 6C765F62 		.ascii	"lv_base_dir_t\000"
+ 3923      6173655F 
+ 3923      6469725F 
+ 3923      7400
+ 3924              	.LASF174:
+ 3925 0251 6C617965 		.ascii	"layer_init\000"
+ 3925      725F696E 
+ 3925      697400
+ 3926              	.LASF146:
+ 3927 025c 4C565F44 		.ascii	"LV_DRAW_LAYER_FLAG_NONE\000"
+ 3927      5241575F 
+ 3927      4C415945 
+ 3927      525F464C 
+ 3927      41475F4E 
+ 3928              	.LASF98:
+ 3929 0274 626F7264 		.ascii	"border_color\000"
+ 3929      65725F63 
+ 3929      6F6C6F72 
+ 3929      00
+ 3930              	.LASF34:
+ 3931 0281 6C765F61 		.ascii	"lv_area_t\000"
+ 3931      7265615F 
+ 3931      7400
+ 3932              	.LASF9:
+ 3933 028b 6C6F6E67 		.ascii	"long int\000"
+ 3933      20696E74 
+ 3933      00
+ 3934              	.LASF94:
+ 3935 0294 62675F69 		.ascii	"bg_img_recolor\000"
+ 3935      6D675F72 
+ 3935      65636F6C 
+ 3935      6F7200
+ 3936              	.LASF51:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 76
+
+
+ 3937 02a3 6C765F66 		.ascii	"lv_font_glyph_dsc_t\000"
+ 3937      6F6E745F 
+ 3937      676C7970 
+ 3937      685F6473 
+ 3937      635F7400 
+ 3938              	.LASF190:
+ 3939 02b7 6D705F6E 		.ascii	"mp_next\000"
+ 3939      65787400 
+ 3940              	.LASF143:
+ 3941 02bf 696D675F 		.ascii	"img_src\000"
+ 3941      73726300 
+ 3942              	.LASF150:
+ 3943 02c7 636C6970 		.ascii	"clip_area\000"
+ 3943      5F617265 
+ 3943      6100
+ 3944              	.LASF18:
+ 3945 02d1 75696E74 		.ascii	"uint16_t\000"
+ 3945      31365F74 
+ 3945      00
+ 3946              	.LASF66:
+ 3947 02da 73746F70 		.ascii	"stops_count\000"
+ 3947      735F636F 
+ 3947      756E7400 
+ 3948              	.LASF76:
+ 3949 02e6 6C765F64 		.ascii	"lv_draw_mask_line_side_t\000"
+ 3949      7261775F 
+ 3949      6D61736B 
+ 3949      5F6C696E 
+ 3949      655F7369 
+ 3950              	.LASF159:
+ 3951 02ff 6F726967 		.ascii	"original\000"
+ 3951      696E616C 
+ 3951      00
+ 3952              	.LASF178:
+ 3953 0308 6C617965 		.ascii	"layer_instance_size\000"
+ 3953      725F696E 
+ 3953      7374616E 
+ 3953      63655F73 
+ 3953      697A6500 
+ 3954              	.LASF195:
+ 3955 031c 6D61736B 		.ascii	"mask_cnt\000"
+ 3955      5F636E74 
+ 3955      00
+ 3956              	.LASF42:
+ 3957 0325 6765745F 		.ascii	"get_glyph_dsc\000"
+ 3957      676C7970 
+ 3957      685F6473 
+ 3957      6300
+ 3958              	.LASF23:
+ 3959 0333 6C6F6E67 		.ascii	"long double\000"
+ 3959      20646F75 
+ 3959      626C6500 
+ 3960              	.LASF95:
+ 3961 033f 62675F69 		.ascii	"bg_img_opa\000"
+ 3961      6D675F6F 
+ 3961      706100
+ 3962              	.LASF165:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 77
+
+
+ 3963 034a 64726177 		.ascii	"draw_img_decoded\000"
+ 3963      5F696D67 
+ 3963      5F646563 
+ 3963      6F646564 
+ 3963      00
+ 3964              	.LASF118:
+ 3965 035b 73656C5F 		.ascii	"sel_bg_color\000"
+ 3965      62675F63 
+ 3965      6F6C6F72 
+ 3965      00
+ 3966              	.LASF173:
+ 3967 0368 62756666 		.ascii	"buffer_copy\000"
+ 3967      65725F63 
+ 3967      6F707900 
+ 3968              	.LASF126:
+ 3969 0374 616E676C 		.ascii	"angle\000"
+ 3969      6500
+ 3970              	.LASF55:
+ 3971 037a 6C765F74 		.ascii	"lv_text_align_t\000"
+ 3971      6578745F 
+ 3971      616C6967 
+ 3971      6E5F7400 
+ 3972              	.LASF4:
+ 3973 038a 5F5F696E 		.ascii	"__int16_t\000"
+ 3973      7431365F 
+ 3973      7400
+ 3974              	.LASF35:
+ 3975 0394 7265736F 		.ascii	"resolved_font\000"
+ 3975      6C766564 
+ 3975      5F666F6E 
+ 3975      7400
+ 3976              	.LASF21:
+ 3977 03a2 6C765F72 		.ascii	"lv_res_t\000"
+ 3977      65735F74 
+ 3977      00
+ 3978              	.LASF112:
+ 3979 03ab 73686164 		.ascii	"shadow_opa\000"
+ 3979      6F775F6F 
+ 3979      706100
+ 3980              	.LASF122:
+ 3981 03b6 616C6967 		.ascii	"align\000"
+ 3981      6E00
+ 3982              	.LASF41:
+ 3983 03bc 69735F70 		.ascii	"is_placeholder\000"
+ 3983      6C616365 
+ 3983      686F6C64 
+ 3983      657200
+ 3984              	.LASF10:
+ 3985 03cb 5F5F7569 		.ascii	"__uint32_t\000"
+ 3985      6E743332 
+ 3985      5F7400
+ 3986              	.LASF153:
+ 3987 03d6 5F6C765F 		.ascii	"_lv_font_t\000"
+ 3987      666F6E74 
+ 3987      5F7400
+ 3988              	.LASF14:
+ 3989 03e1 756E7369 		.ascii	"unsigned int\000"
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 78
+
+
+ 3989      676E6564 
+ 3989      20696E74 
+ 3989      00
+ 3990              	.LASF116:
+ 3991 03ee 73656C5F 		.ascii	"sel_end\000"
+ 3991      656E6400 
+ 3992              	.LASF154:
+ 3993 03f6 5F6C765F 		.ascii	"_lv_draw_layer_ctx_t\000"
+ 3993      64726177 
+ 3993      5F6C6179 
+ 3993      65725F63 
+ 3993      74785F74 
+ 3994              	.LASF93:
+ 3995 040b 62675F69 		.ascii	"bg_img_symbol_font\000"
+ 3995      6D675F73 
+ 3995      796D626F 
+ 3995      6C5F666F 
+ 3995      6E7400
+ 3996              	.LASF102:
+ 3997 041e 626F7264 		.ascii	"border_side\000"
+ 3997      65725F73 
+ 3997      69646500 
+ 3998              	.LASF200:
+ 3999 042a 6C765F64 		.ascii	"lv_draw_mask_add\000"
+ 3999      7261775F 
+ 3999      6D61736B 
+ 3999      5F616464 
+ 3999      00
+ 4000              	.LASF49:
+ 4001 043b 66616C6C 		.ascii	"fallback\000"
+ 4001      6261636B 
+ 4001      00
+ 4002              	.LASF96:
+ 4003 0444 62675F69 		.ascii	"bg_img_recolor_opa\000"
+ 4003      6D675F72 
+ 4003      65636F6C 
+ 4003      6F725F6F 
+ 4003      706100
+ 4004              	.LASF183:
+ 4005 0457 706F696E 		.ascii	"point_cnt\000"
+ 4005      745F636E 
+ 4005      7400
+ 4006              	.LASF134:
+ 4007 0461 77696474 		.ascii	"width\000"
+ 4007      6800
+ 4008              	.LASF109:
+ 4009 0467 73686164 		.ascii	"shadow_ofs_x\000"
+ 4009      6F775F6F 
+ 4009      66735F78 
+ 4009      00
+ 4010              	.LASF7:
+ 4011 0474 73686F72 		.ascii	"short unsigned int\000"
+ 4011      7420756E 
+ 4011      7369676E 
+ 4011      65642069 
+ 4011      6E7400
+ 4012              	.LASF44:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 79
+
+
+ 4013 0487 6C696E65 		.ascii	"line_height\000"
+ 4013      5F686569 
+ 4013      67687400 
+ 4014              	.LASF152:
+ 4015 0493 73637265 		.ascii	"screen_transp\000"
+ 4015      656E5F74 
+ 4015      72616E73 
+ 4015      7000
+ 4016              	.LASF205:
+ 4017 04a1 433A5C50 		.ascii	"C:\\Projects\\PainDrain\\firmware\\PainDrain\\PainD"
+ 4017      726F6A65 
+ 4017      6374735C 
+ 4017      5061696E 
+ 4017      44726169 
+ 4018 04cf 7261696E 		.ascii	"rain.cydsn\000"
+ 4018      2E637964 
+ 4018      736E00
+ 4019              	.LASF125:
+ 4020 04da 6C765F64 		.ascii	"lv_draw_label_dsc_t\000"
+ 4020      7261775F 
+ 4020      6C616265 
+ 4020      6C5F6473 
+ 4020      635F7400 
+ 4021              	.LASF46:
+ 4022 04ee 73756270 		.ascii	"subpx\000"
+ 4022      7800
+ 4023              	.LASF202:
+ 4024 04f4 6C765F64 		.ascii	"lv_draw_mask_remove_custom\000"
+ 4024      7261775F 
+ 4024      6D61736B 
+ 4024      5F72656D 
+ 4024      6F76655F 
+ 4025              	.LASF45:
+ 4026 050f 62617365 		.ascii	"base_line\000"
+ 4026      5F6C696E 
+ 4026      6500
+ 4027              	.LASF149:
+ 4028 0519 6C765F64 		.ascii	"lv_draw_layer_flags_t\000"
+ 4028      7261775F 
+ 4028      6C617965 
+ 4028      725F666C 
+ 4028      6167735F 
+ 4029              	.LASF8:
+ 4030 052f 5F5F696E 		.ascii	"__int32_t\000"
+ 4030      7433325F 
+ 4030      7400
+ 4031              	.LASF80:
+ 4032 0539 6F726967 		.ascii	"origo\000"
+ 4032      6F00
+ 4033              	.LASF31:
+ 4034 053f 6C765F6F 		.ascii	"lv_opa_t\000"
+ 4034      70615F74 
+ 4034      00
+ 4035              	.LASF87:
+ 4036 0548 72616469 		.ascii	"radius\000"
+ 4036      757300
+ 4037              	.LASF110:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 80
+
+
+ 4038 054f 73686164 		.ascii	"shadow_ofs_y\000"
+ 4038      6F775F6F 
+ 4038      66735F79 
+ 4038      00
+ 4039              	.LASF79:
+ 4040 055c 73696465 		.ascii	"side\000"
+ 4040      00
+ 4041              	.LASF24:
+ 4042 0561 73697A65 		.ascii	"sizetype\000"
+ 4042      74797065 
+ 4042      00
+ 4043              	.LASF99:
+ 4044 056a 626F7264 		.ascii	"border_width\000"
+ 4044      65725F77 
+ 4044      69647468 
+ 4044      00
+ 4045              	.LASF142:
+ 4046 0577 656E645F 		.ascii	"end_angle\000"
+ 4046      616E676C 
+ 4046      6500
+ 4047              	.LASF168:
+ 4048 0581 64726177 		.ascii	"draw_line\000"
+ 4048      5F6C696E 
+ 4048      6500
+ 4049              	.LASF83:
+ 4050 058b 73746565 		.ascii	"steep\000"
+ 4050      7000
+ 4051              	.LASF28:
+ 4052 0591 66756C6C 		.ascii	"full\000"
+ 4052      00
+ 4053              	.LASF54:
+ 4054 0596 6C765F74 		.ascii	"lv_text_flag_t\000"
+ 4054      6578745F 
+ 4054      666C6167 
+ 4054      5F7400
+ 4055              	.LASF90:
+ 4056 05a5 62675F63 		.ascii	"bg_color\000"
+ 4056      6F6C6F72 
+ 4056      00
+ 4057              	.LASF67:
+ 4058 05ae 64697468 		.ascii	"dither\000"
+ 4058      657200
+ 4059              	.LASF160:
+ 4060 05b5 6C765F64 		.ascii	"lv_draw_layer_ctx_t\000"
+ 4060      7261775F 
+ 4060      6C617965 
+ 4060      725F6374 
+ 4060      785F7400 
+ 4061              	.LASF120:
+ 4062 05c9 6C657474 		.ascii	"letter_space\000"
+ 4062      65725F73 
+ 4062      70616365 
+ 4062      00
+ 4063              	.LASF175:
+ 4064 05d6 6C617965 		.ascii	"layer_adjust\000"
+ 4064      725F6164 
+ 4064      6A757374 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 81
+
+
+ 4064      00
+ 4065              	.LASF111:
+ 4066 05e3 73686164 		.ascii	"shadow_spread\000"
+ 4066      6F775F73 
+ 4066      70726561 
+ 4066      6400
+ 4067              	.LASF75:
+ 4068 05f1 6C765F64 		.ascii	"lv_draw_mask_xcb_t\000"
+ 4068      7261775F 
+ 4068      6D61736B 
+ 4068      5F786362 
+ 4068      5F7400
+ 4069              	.LASF89:
+ 4070 0604 62675F6F 		.ascii	"bg_opa\000"
+ 4070      706100
+ 4071              	.LASF139:
+ 4072 060b 7261775F 		.ascii	"raw_end\000"
+ 4072      656E6400 
+ 4073              	.LASF144:
+ 4074 0613 726F756E 		.ascii	"rounded\000"
+ 4074      64656400 
+ 4075              	.LASF11:
+ 4076 061b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 4076      20756E73 
+ 4076      69676E65 
+ 4076      6420696E 
+ 4076      7400
+ 4077              	.LASF72:
+ 4078 062d 4C565F44 		.ascii	"LV_DRAW_MASK_LINE_SIDE_RIGHT\000"
+ 4078      5241575F 
+ 4078      4D41534B 
+ 4078      5F4C494E 
+ 4078      455F5349 
+ 4079              	.LASF103:
+ 4080 064a 6F75746C 		.ascii	"outline_color\000"
+ 4080      696E655F 
+ 4080      636F6C6F 
+ 4080      7200
+ 4081              	.LASF63:
+ 4082 0658 66726163 		.ascii	"frac\000"
+ 4082      00
+ 4083              	.LASF119:
+ 4084 065d 6C696E65 		.ascii	"line_space\000"
+ 4084      5F737061 
+ 4084      636500
+ 4085              	.LASF101:
+ 4086 0668 626F7264 		.ascii	"border_post\000"
+ 4086      65725F70 
+ 4086      6F737400 
+ 4087              	.LASF29:
+ 4088 0674 6C765F63 		.ascii	"lv_color16_t\000"
+ 4088      6F6C6F72 
+ 4088      31365F74 
+ 4088      00
+ 4089              	.LASF136:
+ 4090 0681 64617368 		.ascii	"dash_gap\000"
+ 4090      5F676170 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 82
+
+
+ 4090      00
+ 4091              	.LASF59:
+ 4092 068a 6C765F62 		.ascii	"lv_border_side_t\000"
+ 4092      6F726465 
+ 4092      725F7369 
+ 4092      64655F74 
+ 4092      00
+ 4093              	.LASF189:
+ 4094 069b 795F6D69 		.ascii	"y_min_i\000"
+ 4094      6E5F6900 
+ 4095              	.LASF52:
+ 4096 06a3 5F426F6F 		.ascii	"_Bool\000"
+ 4096      6C00
+ 4097              	.LASF19:
+ 4098 06a9 696E7433 		.ascii	"int32_t\000"
+ 4098      325F7400 
+ 4099              	.LASF3:
+ 4100 06b1 756E7369 		.ascii	"unsigned char\000"
+ 4100      676E6564 
+ 4100      20636861 
+ 4100      7200
+ 4101              	.LASF5:
+ 4102 06bf 73686F72 		.ascii	"short int\000"
+ 4102      7420696E 
+ 4102      7400
+ 4103              	.LASF171:
+ 4104 06c9 64726177 		.ascii	"draw_bg\000"
+ 4104      5F626700 
+ 4105              	.LASF188:
+ 4106 06d1 795F6D69 		.ascii	"y_min\000"
+ 4106      6E00
+ 4107              	.LASF207:
+ 4108 06d7 6C765F66 		.ascii	"lv_font_montserrat_14\000"
+ 4108      6F6E745F 
+ 4108      6D6F6E74 
+ 4108      73657272 
+ 4108      61745F31 
+ 4109              	.LASF157:
+ 4110 06ed 6D61785F 		.ascii	"max_row_with_alpha\000"
+ 4110      726F775F 
+ 4110      77697468 
+ 4110      5F616C70 
+ 4110      686100
+ 4111              	.LASF123:
+ 4112 0700 666C6167 		.ascii	"flag\000"
+ 4112      00
+ 4113              	.LASF16:
+ 4114 0705 75696E74 		.ascii	"uint8_t\000"
+ 4114      385F7400 
+ 4115              	.LASF115:
+ 4116 070d 73656C5F 		.ascii	"sel_start\000"
+ 4116      73746172 
+ 4116      7400
+ 4117              	.LASF138:
+ 4118 0717 726F756E 		.ascii	"round_end\000"
+ 4118      645F656E 
+ 4118      6400
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 83
+
+
+ 4119              	.LASF48:
+ 4120 0721 756E6465 		.ascii	"underline_thickness\000"
+ 4120      726C696E 
+ 4120      655F7468 
+ 4120      69636B6E 
+ 4120      65737300 
+ 4121              	.LASF199:
+ 4122 0735 6C765F64 		.ascii	"lv_draw_mask_line_points_init\000"
+ 4122      7261775F 
+ 4122      6D61736B 
+ 4122      5F6C696E 
+ 4122      655F706F 
+ 4123              	.LASF196:
+ 4124 0753 6C765F6D 		.ascii	"lv_mem_buf_get\000"
+ 4124      656D5F62 
+ 4124      75665F67 
+ 4124      657400
+ 4125              	.LASF107:
+ 4126 0762 73686164 		.ascii	"shadow_color\000"
+ 4126      6F775F63 
+ 4126      6F6C6F72 
+ 4126      00
+ 4127              	.LASF133:
+ 4128 076f 6C765F64 		.ascii	"lv_draw_img_dsc_t\000"
+ 4128      7261775F 
+ 4128      696D675F 
+ 4128      6473635F 
+ 4128      7400
+ 4129              	.LASF181:
+ 4130 0781 64726177 		.ascii	"draw_dsc\000"
+ 4130      5F647363 
+ 4130      00
+ 4131              	.LASF124:
+ 4132 078a 6465636F 		.ascii	"decor\000"
+ 4132      7200
+ 4133              	.LASF140:
+ 4134 0790 6C765F64 		.ascii	"lv_draw_line_dsc_t\000"
+ 4134      7261775F 
+ 4134      6C696E65 
+ 4134      5F647363 
+ 4134      5F7400
+ 4135              	.LASF70:
+ 4136 07a3 6C765F64 		.ascii	"lv_draw_mask_type_t\000"
+ 4136      7261775F 
+ 4136      6D61736B 
+ 4136      5F747970 
+ 4136      655F7400 
+ 4137              	.LASF20:
+ 4138 07b7 75696E74 		.ascii	"uint32_t\000"
+ 4138      33325F74 
+ 4138      00
+ 4139              	.LASF68:
+ 4140 07c0 6C765F67 		.ascii	"lv_grad_dsc_t\000"
+ 4140      7261645F 
+ 4140      6473635F 
+ 4140      7400
+ 4141              	.LASF203:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 84
+
+
+ 4142 07ce 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 4142      43313120 
+ 4142      352E342E 
+ 4142      31203230 
+ 4142      31363036 
+ 4143 0801 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 4143      20726576 
+ 4143      6973696F 
+ 4143      6E203233 
+ 4143      37373135 
+ 4144 0834 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 4144      67202D66 
+ 4144      66756E63 
+ 4144      74696F6E 
+ 4144      2D736563 
+ 4145              	.LASF26:
+ 4146 0860 626C7565 		.ascii	"blue\000"
+ 4146      00
+ 4147              	.LASF131:
+ 4148 0865 6672616D 		.ascii	"frame_id\000"
+ 4148      655F6964 
+ 4148      00
+ 4149              	.LASF62:
+ 4150 086e 636F6C6F 		.ascii	"color\000"
+ 4150      7200
+ 4151              	.LASF25:
+ 4152 0874 63686172 		.ascii	"char\000"
+ 4152      00
+ 4153              	.LASF147:
+ 4154 0879 4C565F44 		.ascii	"LV_DRAW_LAYER_FLAG_HAS_ALPHA\000"
+ 4154      5241575F 
+ 4154      4C415945 
+ 4154      525F464C 
+ 4154      41475F48 
+ 4155              	.LASF85:
+ 4156 0896 6C765F64 		.ascii	"lv_draw_mask_line_param_t\000"
+ 4156      7261775F 
+ 4156      6D61736B 
+ 4156      5F6C696E 
+ 4156      655F7061 
+ 4157              	.LASF162:
+ 4158 08b0 696E6974 		.ascii	"init_buf\000"
+ 4158      5F627566 
+ 4158      00
+ 4159              	.LASF6:
+ 4160 08b9 5F5F7569 		.ascii	"__uint16_t\000"
+ 4160      6E743136 
+ 4160      5F7400
+ 4161              	.LASF100:
+ 4162 08c4 626F7264 		.ascii	"border_opa\000"
+ 4162      65725F6F 
+ 4162      706100
+ 4163              	.LASF177:
+ 4164 08cf 6C617965 		.ascii	"layer_destroy\000"
+ 4164      725F6465 
+ 4164      7374726F 
+ 4164      7900
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 85
+
+
+ 4165              	.LASF187:
+ 4166 08dd 636C6970 		.ascii	"clip_area_ori\000"
+ 4166      5F617265 
+ 4166      615F6F72 
+ 4166      6900
+ 4167              	.LASF84:
+ 4168 08eb 666C6174 		.ascii	"flat\000"
+ 4168      00
+ 4169              	.LASF132:
+ 4170 08f0 616E7469 		.ascii	"antialias\000"
+ 4170      616C6961 
+ 4170      7300
+ 4171              	.LASF117:
+ 4172 08fa 73656C5F 		.ascii	"sel_color\000"
+ 4172      636F6C6F 
+ 4172      7200
+ 4173              	.LASF185:
+ 4174 0904 706F6C79 		.ascii	"poly_coords\000"
+ 4174      5F636F6F 
+ 4174      72647300 
+ 4175              	.LASF36:
+ 4176 0910 6164765F 		.ascii	"adv_w\000"
+ 4176      7700
+ 4177              	.LASF81:
+ 4178 0916 78795F73 		.ascii	"xy_steep\000"
+ 4178      74656570 
+ 4178      00
+ 4179              	.LASF92:
+ 4180 091f 62675F69 		.ascii	"bg_img_src\000"
+ 4180      6D675F73 
+ 4180      726300
+ 4181              	.LASF208:
+ 4182 092a 6D656D63 		.ascii	"memcpy\000"
+ 4182      707900
+ 4183              	.LASF38:
+ 4184 0931 626F785F 		.ascii	"box_h\000"
+ 4184      6800
+ 4185              	.LASF15:
+ 4186 0937 696E7438 		.ascii	"int8_t\000"
+ 4186      5F7400
+ 4187              	.LASF182:
+ 4188 093e 706F696E 		.ascii	"points\000"
+ 4188      747300
+ 4189              	.LASF193:
+ 4190 0945 695F6E65 		.ascii	"i_next_left\000"
+ 4190      78745F6C 
+ 4190      65667400 
+ 4191              	.LASF104:
+ 4192 0951 6F75746C 		.ascii	"outline_width\000"
+ 4192      696E655F 
+ 4192      77696474 
+ 4192      6800
+ 4193              	.LASF194:
+ 4194 095f 695F6E65 		.ascii	"i_next_right\000"
+ 4194      78745F72 
+ 4194      69676874 
+ 4194      00
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 86
+
+
+ 4195              	.LASF32:
+ 4196 096c 6C765F63 		.ascii	"lv_coord_t\000"
+ 4196      6F6F7264 
+ 4196      5F7400
+ 4197              	.LASF69:
+ 4198 0977 6C765F64 		.ascii	"lv_draw_mask_res_t\000"
+ 4198      7261775F 
+ 4198      6D61736B 
+ 4198      5F726573 
+ 4198      5F7400
+ 4199              	.LASF37:
+ 4200 098a 626F785F 		.ascii	"box_w\000"
+ 4200      7700
+ 4201              	.LASF155:
+ 4202 0990 61726561 		.ascii	"area_full\000"
+ 4202      5F66756C 
+ 4202      6C00
+ 4203              	.LASF105:
+ 4204 099a 6F75746C 		.ascii	"outline_pad\000"
+ 4204      696E655F 
+ 4204      70616400 
+ 4205              	.LASF114:
+ 4206 09a6 666F6E74 		.ascii	"font\000"
+ 4206      00
+ 4207              	.LASF61:
+ 4208 09ab 6C765F64 		.ascii	"lv_dither_mode_t\000"
+ 4208      69746865 
+ 4208      725F6D6F 
+ 4208      64655F74 
+ 4208      00
+ 4209              	.LASF27:
+ 4210 09bc 67726565 		.ascii	"green\000"
+ 4210      6E00
+ 4211              	.LASF97:
+ 4212 09c2 62675F69 		.ascii	"bg_img_tiled\000"
+ 4212      6D675F74 
+ 4212      696C6564 
+ 4212      00
+ 4213              	.LASF113:
+ 4214 09cf 6C765F64 		.ascii	"lv_draw_rect_dsc_t\000"
+ 4214      7261775F 
+ 4214      72656374 
+ 4214      5F647363 
+ 4214      5F7400
+ 4215              	.LASF71:
+ 4216 09e2 4C565F44 		.ascii	"LV_DRAW_MASK_LINE_SIDE_LEFT\000"
+ 4216      5241575F 
+ 4216      4D41534B 
+ 4216      5F4C494E 
+ 4216      455F5349 
+ 4217              	.LASF33:
+ 4218 09fe 6C765F70 		.ascii	"lv_point_t\000"
+ 4218      6F696E74 
+ 4218      5F7400
+ 4219              	.LASF129:
+ 4220 0a09 7265636F 		.ascii	"recolor\000"
+ 4220      6C6F7200 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 87
+
+
+ 4221              	.LASF130:
+ 4222 0a11 7265636F 		.ascii	"recolor_opa\000"
+ 4222      6C6F725F 
+ 4222      6F706100 
+ 4223              	.LASF57:
+ 4224 0a1d 6C765F62 		.ascii	"lv_blend_mode_t\000"
+ 4224      6C656E64 
+ 4224      5F6D6F64 
+ 4224      655F7400 
+ 4225              	.LASF73:
+ 4226 0a2d 4C565F44 		.ascii	"LV_DRAW_MASK_LINE_SIDE_TOP\000"
+ 4226      5241575F 
+ 4226      4D41534B 
+ 4226      5F4C494E 
+ 4226      455F5349 
+ 4227              	.LASF60:
+ 4228 0a48 6C765F67 		.ascii	"lv_grad_dir_t\000"
+ 4228      7261645F 
+ 4228      6469725F 
+ 4228      7400
+ 4229              	.LASF39:
+ 4230 0a56 6F66735F 		.ascii	"ofs_x\000"
+ 4230      7800
+ 4231              	.LASF88:
+ 4232 0a5c 626C656E 		.ascii	"blend_mode\000"
+ 4232      645F6D6F 
+ 4232      646500
+ 4233              	.LASF206:
+ 4234 0a67 6C765F64 		.ascii	"lv_draw_sw_polygon\000"
+ 4234      7261775F 
+ 4234      73775F70 
+ 4234      6F6C7967 
+ 4234      6F6E00
+ 4235              	.LASF170:
+ 4236 0a7a 64726177 		.ascii	"draw_transform\000"
+ 4236      5F747261 
+ 4236      6E73666F 
+ 4236      726D00
+ 4237              	.LASF184:
+ 4238 0a89 70636E74 		.ascii	"pcnt\000"
+ 4238      00
+ 4239              	.LASF197:
+ 4240 0a8e 6C765F6D 		.ascii	"lv_mem_buf_release\000"
+ 4240      656D5F62 
+ 4240      75665F72 
+ 4240      656C6561 
+ 4240      736500
+ 4241              	.LASF145:
+ 4242 0aa1 6C765F64 		.ascii	"lv_draw_arc_dsc_t\000"
+ 4242      7261775F 
+ 4242      6172635F 
+ 4242      6473635F 
+ 4242      7400
+ 4243              	.LASF78:
+ 4244 0ab3 5F6C765F 		.ascii	"_lv_draw_mask_common_dsc_t\000"
+ 4244      64726177 
+ 4244      5F6D6173 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCwCOlb.s 			page 88
+
+
+ 4244      6B5F636F 
+ 4244      6D6D6F6E 
+ 4245              	.LASF86:
+ 4246 0ace 6C765F69 		.ascii	"lv_img_cf_t\000"
+ 4246      6D675F63 
+ 4246      665F7400 
+ 4247              	.LASF121:
+ 4248 0ada 62696469 		.ascii	"bidi_dir\000"
+ 4248      5F646972 
+ 4248      00
+ 4249              	.LASF17:
+ 4250 0ae3 696E7431 		.ascii	"int16_t\000"
+ 4250      365F7400 
+ 4251              	.LASF192:
+ 4252 0aeb 695F7072 		.ascii	"i_prev_right\000"
+ 4252      65765F72 
+ 4252      69676874 
+ 4252      00
+ 4253              	.LASF191:
+ 4254 0af8 695F7072 		.ascii	"i_prev_left\000"
+ 4254      65765F6C 
+ 4254      65667400 
+ 4255              	.LASF167:
+ 4256 0b04 64726177 		.ascii	"draw_letter\000"
+ 4256      5F6C6574 
+ 4256      74657200 
+ 4257              	.LASF82:
+ 4258 0b10 79785F73 		.ascii	"yx_steep\000"
+ 4258      74656570 
+ 4258      00
+ 4259              	.LASF64:
+ 4260 0b19 6C765F67 		.ascii	"lv_gradient_stop_t\000"
+ 4260      72616469 
+ 4260      656E745F 
+ 4260      73746F70 
+ 4260      5F7400
+ 4261              	.LASF135:
+ 4262 0b2c 64617368 		.ascii	"dash_width\000"
+ 4262      5F776964 
+ 4262      746800
+ 4263              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

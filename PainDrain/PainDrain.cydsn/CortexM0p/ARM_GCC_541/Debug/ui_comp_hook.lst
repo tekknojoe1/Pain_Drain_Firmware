@@ -1,0 +1,65 @@
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccbvRsPa.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"ui_comp_hook.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              	.Letext0:
+  20              		.section	.debug_line,"",%progbits
+  21              	.Ldebug_line0:
+  22              		.section	.debug_str,"MS",%progbits,1
+  23              	.LASF0:
+  24 0000 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+  24      43313120 
+  24      352E342E 
+  24      31203230 
+  24      31363036 
+  25 0033 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+  25      20726576 
+  25      6973696F 
+  25      6E203233 
+  25      37373135 
+  26 0066 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+  26      67202D66 
+  26      66756E63 
+  26      74696F6E 
+  26      2D736563 
+  27              	.LASF1:
+  28 0092 433A5C50 		.ascii	"C:\\Projects\\PainDrain\\firmware\\PainDrain\\PainD"
+  28      726F6A65 
+  28      6374735C 
+  28      5061696E 
+  28      44726169 
+  29 00c0 7261696E 		.ascii	"rain.cydsn\000"
+  29      2E637964 
+  29      736E00
+  30              	.LASF2:
+  31 00cb 2E2E5C2E 		.ascii	"..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries"
+  31      2E5C2E2E 
+  31      5C617264 
+  31      75696E6F 
+  31      4C43445C 
+  32 00f8 5C75695C 		.ascii	"\\ui\\src\\components\\ui_comp_hook.c\000"
+  32      7372635C 
+  32      636F6D70 
+  32      6F6E656E 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccbvRsPa.s 			page 2
+
+
+  32      74735C75 
+  33              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

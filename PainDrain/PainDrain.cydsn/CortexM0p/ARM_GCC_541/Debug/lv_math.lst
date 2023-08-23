@@ -1,0 +1,3419 @@
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"lv_math.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	__aeabi_idivmod
+  20              		.section	.text.lv_trigo_sin,"ax",%progbits
+  21              		.align	2
+  22              		.global	lv_trigo_sin
+  23              		.code	16
+  24              		.thumb_func
+  25              		.type	lv_trigo_sin, %function
+  26              	lv_trigo_sin:
+  27              	.LFB1:
+  28              		.file 1 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\misc\\lv_math.c"
+   1:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** /**
+   2:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @file lv_math.c
+   3:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  *
+   4:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  */
+   5:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+   6:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** /*********************
+   7:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  *      INCLUDES
+   8:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  *********************/
+   9:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** #include "lv_math.h"
+  10:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+  11:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** /*********************
+  12:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  *      DEFINES
+  13:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  *********************/
+  14:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+  15:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** /**********************
+  16:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  *      TYPEDEFS
+  17:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  **********************/
+  18:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+  19:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** /**********************
+  20:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  *  STATIC PROTOTYPES
+  21:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  **********************/
+  22:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+  23:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** /**********************
+  24:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  *  STATIC VARIABLES
+  25:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  **********************/
+  26:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** static const int16_t sin0_90_table[] = {
+  27:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     0,     572,   1144,  1715,  2286,  2856,  3425,  3993,  4560,  5126,  5690,  6252,  6813,  7371
+  28:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     9032,  9580,  10126, 10668, 11207, 11743, 12275, 12803, 13328, 13848, 14364, 14876, 15383, 1588
+  29:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     17364, 17846, 18323, 18794, 19260, 19720, 20173, 20621, 21062, 21497, 21925, 22347, 22762, 2317
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 2
+
+
+  30:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     24351, 24730, 25101, 25465, 25821, 26169, 26509, 26841, 27165, 27481, 27788, 28087, 28377, 2865
+  31:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     29451, 29697, 29934, 30162, 30381, 30591, 30791, 30982, 31163, 31335, 31498, 31650, 31794, 3192
+  32:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     32269, 32364, 32448, 32523, 32587, 32642, 32687, 32722, 32747, 32762, 32767
+  33:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** };
+  34:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+  35:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** /**********************
+  36:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  *      MACROS
+  37:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  **********************/
+  38:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+  39:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** /**********************
+  40:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  *   GLOBAL FUNCTIONS
+  41:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  **********************/
+  42:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+  43:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** /**
+  44:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * Return with sinus of an angle
+  45:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @param angle
+  46:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @return sinus of 'angle'. sin(-90) = -32767, sin(90) = 32767
+  47:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  */
+  48:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** LV_ATTRIBUTE_FAST_MEM int16_t lv_trigo_sin(int16_t angle)
+  49:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** {
+  29              		.loc 1 49 0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              	.LVL0:
+  34 0000 10B5     		push	{r4, lr}
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 4, -8
+  37              		.cfi_offset 14, -4
+  38              	.LVL1:
+  50:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     int16_t ret = 0;
+  51:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     angle       = angle % 360;
+  39              		.loc 1 51 0
+  40 0002 B421     		movs	r1, #180
+  41 0004 4900     		lsls	r1, r1, #1
+  42 0006 FFF7FEFF 		bl	__aeabi_idivmod
+  43              	.LVL2:
+  44 000a 09B2     		sxth	r1, r1
+  45              	.LVL3:
+  52:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+  53:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     if(angle < 0) angle = 360 + angle;
+  46              		.loc 1 53 0
+  47 000c 0029     		cmp	r1, #0
+  48 000e 02DA     		bge	.L2
+  49              		.loc 1 53 0 is_stmt 0 discriminator 1
+  50 0010 6931     		adds	r1, r1, #105
+  51              	.LVL4:
+  52 0012 FF31     		adds	r1, r1, #255
+  53              	.LVL5:
+  54 0014 09B2     		sxth	r1, r1
+  55              	.LVL6:
+  56              	.L2:
+  54:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+  55:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     if(angle < 90) {
+  57              		.loc 1 55 0 is_stmt 1
+  58 0016 5929     		cmp	r1, #89
+  59 0018 03DC     		bgt	.L3
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 3
+
+
+  56:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         ret = sin0_90_table[angle];
+  60              		.loc 1 56 0
+  61 001a 4900     		lsls	r1, r1, #1
+  62              	.LVL7:
+  63 001c 124B     		ldr	r3, .L7
+  64 001e C85E     		ldrsh	r0, [r1, r3]
+  65              	.LVL8:
+  66 0020 21E0     		b	.L4
+  67              	.LVL9:
+  68              	.L3:
+  57:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     }
+  58:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     else if(angle >= 90 && angle < 180) {
+  69              		.loc 1 58 0
+  70 0022 89B2     		uxth	r1, r1
+  71 0024 0B00     		movs	r3, r1
+  72 0026 5A3B     		subs	r3, r3, #90
+  73 0028 9BB2     		uxth	r3, r3
+  74 002a 592B     		cmp	r3, #89
+  75 002c 06D8     		bhi	.L5
+  59:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         angle = 180 - angle;
+  76              		.loc 1 59 0
+  77 002e B423     		movs	r3, #180
+  78 0030 591A     		subs	r1, r3, r1
+  79              	.LVL10:
+  80 0032 09B2     		sxth	r1, r1
+  81              	.LVL11:
+  60:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         ret   = sin0_90_table[angle];
+  82              		.loc 1 60 0
+  83 0034 4900     		lsls	r1, r1, #1
+  84              	.LVL12:
+  85 0036 0C4B     		ldr	r3, .L7
+  86 0038 C85E     		ldrsh	r0, [r1, r3]
+  87              	.LVL13:
+  88 003a 14E0     		b	.L4
+  89              	.LVL14:
+  90              	.L5:
+  61:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     }
+  62:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     else if(angle >= 180 && angle < 270) {
+  91              		.loc 1 62 0
+  92 003c 0B00     		movs	r3, r1
+  93 003e B43B     		subs	r3, r3, #180
+  94 0040 9BB2     		uxth	r3, r3
+  95 0042 592B     		cmp	r3, #89
+  96 0044 06D8     		bhi	.L6
+  63:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         angle = angle - 180;
+  97              		.loc 1 63 0
+  98 0046 1BB2     		sxth	r3, r3
+  99              	.LVL15:
+  64:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         ret   = -sin0_90_table[angle];
+ 100              		.loc 1 64 0
+ 101 0048 5B00     		lsls	r3, r3, #1
+ 102              	.LVL16:
+ 103 004a 074A     		ldr	r2, .L7
+ 104 004c 985E     		ldrsh	r0, [r3, r2]
+ 105 004e 4042     		rsbs	r0, r0, #0
+ 106 0050 00B2     		sxth	r0, r0
+ 107              	.LVL17:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 4
+
+
+ 108 0052 08E0     		b	.L4
+ 109              	.LVL18:
+ 110              	.L6:
+  65:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     }
+  66:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     else {   /*angle >=270*/
+  67:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         angle = 360 - angle;
+ 111              		.loc 1 67 0
+ 112 0054 B423     		movs	r3, #180
+ 113 0056 5B00     		lsls	r3, r3, #1
+ 114 0058 591A     		subs	r1, r3, r1
+ 115              	.LVL19:
+ 116 005a 09B2     		sxth	r1, r1
+ 117              	.LVL20:
+  68:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         ret   = -sin0_90_table[angle];
+ 118              		.loc 1 68 0
+ 119 005c 4900     		lsls	r1, r1, #1
+ 120              	.LVL21:
+ 121 005e 024B     		ldr	r3, .L7
+ 122 0060 C85E     		ldrsh	r0, [r1, r3]
+ 123 0062 4042     		rsbs	r0, r0, #0
+ 124 0064 00B2     		sxth	r0, r0
+ 125              	.LVL22:
+ 126              	.L4:
+  69:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     }
+  70:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+  71:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     return ret;
+  72:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** }
+ 127              		.loc 1 72 0
+ 128              		@ sp needed
+ 129 0066 10BD     		pop	{r4, pc}
+ 130              	.L8:
+ 131              		.align	2
+ 132              	.L7:
+ 133 0068 00000000 		.word	.LANCHOR0
+ 134              		.cfi_endproc
+ 135              	.LFE1:
+ 136              		.size	lv_trigo_sin, .-lv_trigo_sin
+ 137              		.section	.text.lv_bezier3,"ax",%progbits
+ 138              		.align	2
+ 139              		.global	lv_bezier3
+ 140              		.code	16
+ 141              		.thumb_func
+ 142              		.type	lv_bezier3, %function
+ 143              	lv_bezier3:
+ 144              	.LFB2:
+  73:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+  74:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** /**
+  75:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * Calculate a value of a Cubic Bezier function.
+  76:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @param t time in range of [0..LV_BEZIER_VAL_MAX]
+  77:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @param u0 start values in range of [0..LV_BEZIER_VAL_MAX]
+  78:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @param u1 control value 1 values in range of [0..LV_BEZIER_VAL_MAX]
+  79:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @param u2 control value 2 in range of [0..LV_BEZIER_VAL_MAX]
+  80:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @param u3 end values in range of [0..LV_BEZIER_VAL_MAX]
+  81:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @return the value calculated from the given parameters in range of [0..LV_BEZIER_VAL_MAX]
+  82:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  */
+  83:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** uint32_t lv_bezier3(uint32_t t, uint32_t u0, uint32_t u1, uint32_t u2, uint32_t u3)
+  84:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** {
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 5
+
+
+ 145              		.loc 1 84 0
+ 146              		.cfi_startproc
+ 147              		@ args = 4, pretend = 0, frame = 0
+ 148              		@ frame_needed = 0, uses_anonymous_args = 0
+ 149              	.LVL23:
+ 150 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 151              		.cfi_def_cfa_offset 20
+ 152              		.cfi_offset 4, -20
+ 153              		.cfi_offset 5, -16
+ 154              		.cfi_offset 6, -12
+ 155              		.cfi_offset 7, -8
+ 156              		.cfi_offset 14, -4
+ 157 0002 4746     		mov	r7, r8
+ 158 0004 80B4     		push	{r7}
+ 159              		.cfi_def_cfa_offset 24
+ 160              		.cfi_offset 8, -24
+ 161 0006 9846     		mov	r8, r3
+  85:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     uint32_t t_rem  = 1024 - t;
+ 162              		.loc 1 85 0
+ 163 0008 8025     		movs	r5, #128
+ 164 000a ED00     		lsls	r5, r5, #3
+ 165 000c 2F1A     		subs	r7, r5, r0
+ 166              	.LVL24:
+  86:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     uint32_t t_rem2 = (t_rem * t_rem) >> 10;
+ 167              		.loc 1 86 0
+ 168 000e 3D00     		movs	r5, r7
+ 169 0010 7D43     		muls	r5, r7
+ 170 0012 AD0A     		lsrs	r5, r5, #10
+ 171              	.LVL25:
+  87:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     uint32_t t_rem3 = (t_rem2 * t_rem) >> 10;
+ 172              		.loc 1 87 0
+ 173 0014 2C00     		movs	r4, r5
+ 174 0016 7C43     		muls	r4, r7
+ 175 0018 A40A     		lsrs	r4, r4, #10
+ 176 001a A446     		mov	ip, r4
+ 177              	.LVL26:
+  88:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     uint32_t t2     = (t * t) >> 10;
+ 178              		.loc 1 88 0
+ 179 001c 0400     		movs	r4, r0
+ 180              	.LVL27:
+ 181 001e 4443     		muls	r4, r0
+ 182 0020 A40A     		lsrs	r4, r4, #10
+ 183              	.LVL28:
+  89:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     uint32_t t3     = (t2 * t) >> 10;
+ 184              		.loc 1 89 0
+ 185 0022 2600     		movs	r6, r4
+ 186 0024 4643     		muls	r6, r0
+ 187 0026 B60A     		lsrs	r6, r6, #10
+ 188              	.LVL29:
+  90:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+  91:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     uint32_t v1 = (t_rem3 * u0) >> 10;
+ 189              		.loc 1 91 0
+ 190 0028 6346     		mov	r3, ip
+ 191              	.LVL30:
+ 192 002a 5943     		muls	r1, r3
+ 193              	.LVL31:
+ 194 002c 890A     		lsrs	r1, r1, #10
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 6
+
+
+ 195              	.LVL32:
+  92:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     uint32_t v2 = (3 * t_rem2 * t * u1) >> 20;
+ 196              		.loc 1 92 0
+ 197 002e 4543     		muls	r5, r0
+ 198              	.LVL33:
+ 199 0030 6A43     		muls	r2, r5
+ 200              	.LVL34:
+ 201 0032 5000     		lsls	r0, r2, #1
+ 202              	.LVL35:
+ 203 0034 8218     		adds	r2, r0, r2
+ 204 0036 120D     		lsrs	r2, r2, #20
+ 205              	.LVL36:
+  93:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     uint32_t v3 = (3 * t_rem * t2 * u2) >> 20;
+ 206              		.loc 1 93 0
+ 207 0038 7C43     		muls	r4, r7
+ 208              	.LVL37:
+ 209 003a 4346     		mov	r3, r8
+ 210 003c 6343     		muls	r3, r4
+ 211 003e 5800     		lsls	r0, r3, #1
+ 212 0040 C318     		adds	r3, r0, r3
+ 213 0042 1B0D     		lsrs	r3, r3, #20
+ 214              	.LVL38:
+  94:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     uint32_t v4 = (t3 * u3) >> 10;
+ 215              		.loc 1 94 0
+ 216 0044 069C     		ldr	r4, [sp, #24]
+ 217 0046 7443     		muls	r4, r6
+ 218 0048 A40A     		lsrs	r4, r4, #10
+ 219              	.LVL39:
+  95:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+  96:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     return v1 + v2 + v3 + v4;
+ 220              		.loc 1 96 0
+ 221 004a 8A18     		adds	r2, r1, r2
+ 222              	.LVL40:
+ 223 004c 9818     		adds	r0, r3, r2
+ 224 004e 2018     		adds	r0, r4, r0
+  97:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** }
+ 225              		.loc 1 97 0
+ 226              		@ sp needed
+ 227              	.LVL41:
+ 228              	.LVL42:
+ 229              	.LVL43:
+ 230              	.LVL44:
+ 231              	.LVL45:
+ 232 0050 04BC     		pop	{r2}
+ 233 0052 9046     		mov	r8, r2
+ 234 0054 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 235              		.cfi_endproc
+ 236              	.LFE2:
+ 237              		.size	lv_bezier3, .-lv_bezier3
+ 238 0056 C046     		.section	.text.lv_sqrt,"ax",%progbits
+ 239              		.align	2
+ 240              		.global	lv_sqrt
+ 241              		.code	16
+ 242              		.thumb_func
+ 243              		.type	lv_sqrt, %function
+ 244              	lv_sqrt:
+ 245              	.LFB3:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 7
+
+
+  98:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+  99:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** /**
+ 100:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * Get the square root of a number
+ 101:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @param x integer which square root should be calculated
+ 102:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @param q store the result here. q->i: integer part, q->f: fractional part in 1/256 unit
+ 103:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @param mask optional to skip some iterations if the magnitude of the root is known.
+ 104:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * Set to 0x8000 by default.
+ 105:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * If root < 16: mask = 0x80
+ 106:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * If root < 256: mask = 0x800
+ 107:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * Else: mask = 0x8000
+ 108:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  */
+ 109:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** LV_ATTRIBUTE_FAST_MEM void lv_sqrt(uint32_t x, lv_sqrt_res_t * q, uint32_t mask)
+ 110:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** {
+ 246              		.loc 1 110 0
+ 247              		.cfi_startproc
+ 248              		@ args = 0, pretend = 0, frame = 0
+ 249              		@ frame_needed = 0, uses_anonymous_args = 0
+ 250              	.LVL46:
+ 251 0000 30B5     		push	{r4, r5, lr}
+ 252              		.cfi_def_cfa_offset 12
+ 253              		.cfi_offset 4, -12
+ 254              		.cfi_offset 5, -8
+ 255              		.cfi_offset 14, -4
+ 111:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     x = x << 8; /*To get 4 bit precision. (sqrt(256) = 16 = 4 bit)*/
+ 256              		.loc 1 111 0
+ 257 0002 0002     		lsls	r0, r0, #8
+ 258              	.LVL47:
+ 112:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 113:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     uint32_t root = 0;
+ 259              		.loc 1 113 0
+ 260 0004 0024     		movs	r4, #0
+ 261              	.LVL48:
+ 262              	.L12:
+ 114:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     uint32_t trial;
+ 115:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     // http://ww1.microchip.com/...en/AppNotes/91040a.pdf
+ 116:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     do {
+ 117:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         trial = root + mask;
+ 263              		.loc 1 117 0
+ 264 0006 1319     		adds	r3, r2, r4
+ 265              	.LVL49:
+ 118:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         if(trial * trial <= x) root = trial;
+ 266              		.loc 1 118 0
+ 267 0008 1D00     		movs	r5, r3
+ 268 000a 5D43     		muls	r5, r3
+ 269 000c A842     		cmp	r0, r5
+ 270 000e 00D3     		bcc	.L11
+ 271 0010 1C00     		movs	r4, r3
+ 272              	.LVL50:
+ 273              	.L11:
+ 119:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         mask = mask >> 1;
+ 274              		.loc 1 119 0
+ 275 0012 5208     		lsrs	r2, r2, #1
+ 276              	.LVL51:
+ 120:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     } while(mask);
+ 277              		.loc 1 120 0
+ 278 0014 F7D1     		bne	.L12
+ 121:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 8
+
+
+ 122:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     q->i = root >> 4;
+ 279              		.loc 1 122 0
+ 280 0016 2309     		lsrs	r3, r4, #4
+ 281              	.LVL52:
+ 282 0018 0B80     		strh	r3, [r1]
+ 123:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     q->f = (root & 0xf) << 4;
+ 283              		.loc 1 123 0
+ 284 001a 2401     		lsls	r4, r4, #4
+ 285              	.LVL53:
+ 286 001c FF23     		movs	r3, #255
+ 287 001e 1C40     		ands	r4, r3
+ 288 0020 4C80     		strh	r4, [r1, #2]
+ 124:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** }
+ 289              		.loc 1 124 0
+ 290              		@ sp needed
+ 291 0022 30BD     		pop	{r4, r5, pc}
+ 292              		.cfi_endproc
+ 293              	.LFE3:
+ 294              		.size	lv_sqrt, .-lv_sqrt
+ 295              		.global	__aeabi_uidiv
+ 296              		.section	.text.lv_atan2,"ax",%progbits
+ 297              		.align	2
+ 298              		.global	lv_atan2
+ 299              		.code	16
+ 300              		.thumb_func
+ 301              		.type	lv_atan2, %function
+ 302              	lv_atan2:
+ 303              	.LFB4:
+ 125:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 126:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** /**
+ 127:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * Calculate the atan2 of a vector.
+ 128:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @param x
+ 129:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @param y
+ 130:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @return the angle in degree calculated from the given parameters in range of [0..360]
+ 131:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  */
+ 132:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** uint16_t lv_atan2(int x, int y)
+ 133:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** {
+ 304              		.loc 1 133 0
+ 305              		.cfi_startproc
+ 306              		@ args = 0, pretend = 0, frame = 0
+ 307              		@ frame_needed = 0, uses_anonymous_args = 0
+ 308              	.LVL54:
+ 309 0000 10B5     		push	{r4, lr}
+ 310              		.cfi_def_cfa_offset 8
+ 311              		.cfi_offset 4, -8
+ 312              		.cfi_offset 14, -4
+ 313              	.LVL55:
+ 134:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     // Fast XY vector to integer degree algorithm - Jan 2011 www.RomanBlack.com
+ 135:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     // Converts any XY values including 0 to a degree value that should be
+ 136:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     // within +/- 1 degree of the accurate value without needing
+ 137:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     // large slow trig functions like ArcTan() or ArcCos().
+ 138:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     // NOTE! at least one of the X or Y values must be non-zero!
+ 139:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     // This is the full version, for all 4 quadrants and will generate
+ 140:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     // the angle in integer degrees from 0-360.
+ 141:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     // Any values of X and Y are usable including negative values provided
+ 142:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     // they are between -1456 and 1456 so the 16bit multiply does not overflow.
+ 143:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 9
+
+
+ 144:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     unsigned char negflag;
+ 145:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     unsigned char tempdegree;
+ 146:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     unsigned char comp;
+ 147:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     unsigned int degree;     // this will hold the result
+ 148:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     unsigned int ux;
+ 149:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     unsigned int uy;
+ 150:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 151:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     // Save the sign flags then remove signs and get XY as unsigned ints
+ 152:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     negflag = 0;
+ 153:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     if(x < 0) {
+ 314              		.loc 1 153 0
+ 315 0002 0028     		cmp	r0, #0
+ 316 0004 02DA     		bge	.L31
+ 317              	.LVL56:
+ 154:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         negflag += 0x01;    // x flag bit
+ 155:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         x = (0 - x);        // is now +
+ 318              		.loc 1 155 0
+ 319 0006 4042     		rsbs	r0, r0, #0
+ 320              	.LVL57:
+ 154:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         negflag += 0x01;    // x flag bit
+ 321              		.loc 1 154 0
+ 322 0008 0124     		movs	r4, #1
+ 323 000a 00E0     		b	.L15
+ 324              	.LVL58:
+ 325              	.L31:
+ 152:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     if(x < 0) {
+ 326              		.loc 1 152 0
+ 327 000c 0024     		movs	r4, #0
+ 328              	.LVL59:
+ 329              	.L15:
+ 156:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     }
+ 157:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     ux = x;                // copy to unsigned var before multiply
+ 158:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     if(y < 0) {
+ 330              		.loc 1 158 0
+ 331 000e 0029     		cmp	r1, #0
+ 332 0010 02DA     		bge	.L16
+ 159:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         negflag += 0x02;    // y flag bit
+ 333              		.loc 1 159 0
+ 334 0012 0234     		adds	r4, r4, #2
+ 335              	.LVL60:
+ 336 0014 E4B2     		uxtb	r4, r4
+ 337              	.LVL61:
+ 160:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         y = (0 - y);        // is now +
+ 338              		.loc 1 160 0
+ 339 0016 4942     		rsbs	r1, r1, #0
+ 340              	.LVL62:
+ 341              	.L16:
+ 161:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     }
+ 162:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     uy = y;                // copy to unsigned var before multiply
+ 163:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 164:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     // 1. Calc the scaled "degrees"
+ 165:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     if(ux > uy) {
+ 342              		.loc 1 165 0
+ 343 0018 8842     		cmp	r0, r1
+ 344 001a 0BD9     		bls	.L17
+ 166:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         degree = (uy * 45) / ux;   // degree result will be 0-45 range
+ 345              		.loc 1 166 0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 10
+
+
+ 346 001c 4B00     		lsls	r3, r1, #1
+ 347 001e 5918     		adds	r1, r3, r1
+ 348              	.LVL63:
+ 349 0020 0B01     		lsls	r3, r1, #4
+ 350 0022 5B1A     		subs	r3, r3, r1
+ 351 0024 0100     		movs	r1, r0
+ 352 0026 1800     		movs	r0, r3
+ 353              	.LVL64:
+ 354 0028 FFF7FEFF 		bl	__aeabi_uidiv
+ 355              	.LVL65:
+ 356 002c 0300     		movs	r3, r0
+ 357              	.LVL66:
+ 167:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         negflag += 0x10;    // octant flag bit
+ 358              		.loc 1 167 0
+ 359 002e 1034     		adds	r4, r4, #16
+ 360              	.LVL67:
+ 361 0030 E4B2     		uxtb	r4, r4
+ 362              	.LVL68:
+ 363 0032 06E0     		b	.L18
+ 364              	.LVL69:
+ 365              	.L17:
+ 168:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     }
+ 169:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     else {
+ 170:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         degree = (ux * 45) / uy;   // degree result will be 0-45 range
+ 366              		.loc 1 170 0
+ 367 0034 4300     		lsls	r3, r0, #1
+ 368 0036 1818     		adds	r0, r3, r0
+ 369              	.LVL70:
+ 370 0038 0301     		lsls	r3, r0, #4
+ 371 003a 181A     		subs	r0, r3, r0
+ 372 003c FFF7FEFF 		bl	__aeabi_uidiv
+ 373              	.LVL71:
+ 374 0040 0300     		movs	r3, r0
+ 375              	.LVL72:
+ 376              	.L18:
+ 171:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     }
+ 172:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 173:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     // 2. Compensate for the 4 degree error curve
+ 174:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     comp = 0;
+ 175:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     tempdegree = degree;    // use an unsigned char for speed!
+ 377              		.loc 1 175 0
+ 378 0042 DAB2     		uxtb	r2, r3
+ 379              	.LVL73:
+ 176:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     if(tempdegree > 22) {    // if top half of range
+ 380              		.loc 1 176 0
+ 381 0044 162A     		cmp	r2, #22
+ 382 0046 11D9     		bls	.L19
+ 177:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         if(tempdegree <= 44) comp++;
+ 383              		.loc 1 177 0
+ 384 0048 2C2A     		cmp	r2, #44
+ 385 004a 01D9     		bls	.L32
+ 174:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     tempdegree = degree;    // use an unsigned char for speed!
+ 386              		.loc 1 174 0
+ 387 004c 0020     		movs	r0, #0
+ 388              	.LVL74:
+ 389 004e 00E0     		b	.L20
+ 390              	.LVL75:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 11
+
+
+ 391              	.L32:
+ 392              		.loc 1 177 0
+ 393 0050 0120     		movs	r0, #1
+ 394              	.LVL76:
+ 395              	.L20:
+ 178:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         if(tempdegree <= 41) comp++;
+ 396              		.loc 1 178 0
+ 397 0052 292A     		cmp	r2, #41
+ 398 0054 01D8     		bhi	.L21
+ 399              		.loc 1 178 0 is_stmt 0 discriminator 1
+ 400 0056 0130     		adds	r0, r0, #1
+ 401              	.LVL77:
+ 402 0058 C0B2     		uxtb	r0, r0
+ 403              	.LVL78:
+ 404              	.L21:
+ 179:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         if(tempdegree <= 37) comp++;
+ 405              		.loc 1 179 0 is_stmt 1
+ 406 005a 252A     		cmp	r2, #37
+ 407 005c 01D8     		bhi	.L22
+ 408              		.loc 1 179 0 is_stmt 0 discriminator 1
+ 409 005e 0130     		adds	r0, r0, #1
+ 410              	.LVL79:
+ 411 0060 C0B2     		uxtb	r0, r0
+ 412              	.LVL80:
+ 413              	.L22:
+ 180:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         if(tempdegree <= 32) comp++;  // max is 4 degrees compensated
+ 414              		.loc 1 180 0 is_stmt 1
+ 415 0062 202A     		cmp	r2, #32
+ 416 0064 13D8     		bhi	.L23
+ 417              		.loc 1 180 0 is_stmt 0 discriminator 1
+ 418 0066 0130     		adds	r0, r0, #1
+ 419              	.LVL81:
+ 420 0068 C0B2     		uxtb	r0, r0
+ 421              	.LVL82:
+ 422 006a 10E0     		b	.L23
+ 423              	.LVL83:
+ 424              	.L19:
+ 181:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     }
+ 182:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     else {   // else is lower half of range
+ 183:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         if(tempdegree >= 2) comp++;
+ 425              		.loc 1 183 0 is_stmt 1
+ 426 006c 012A     		cmp	r2, #1
+ 427 006e 01D8     		bhi	.L33
+ 174:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     tempdegree = degree;    // use an unsigned char for speed!
+ 428              		.loc 1 174 0
+ 429 0070 0020     		movs	r0, #0
+ 430              	.LVL84:
+ 431 0072 00E0     		b	.L24
+ 432              	.LVL85:
+ 433              	.L33:
+ 434              		.loc 1 183 0
+ 435 0074 0120     		movs	r0, #1
+ 436              	.LVL86:
+ 437              	.L24:
+ 184:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         if(tempdegree >= 6) comp++;
+ 438              		.loc 1 184 0
+ 439 0076 052A     		cmp	r2, #5
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 12
+
+
+ 440 0078 01D9     		bls	.L25
+ 441              		.loc 1 184 0 is_stmt 0 discriminator 1
+ 442 007a 0130     		adds	r0, r0, #1
+ 443              	.LVL87:
+ 444 007c C0B2     		uxtb	r0, r0
+ 445              	.LVL88:
+ 446              	.L25:
+ 185:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         if(tempdegree >= 10) comp++;
+ 447              		.loc 1 185 0 is_stmt 1
+ 448 007e 092A     		cmp	r2, #9
+ 449 0080 01D9     		bls	.L26
+ 450              		.loc 1 185 0 is_stmt 0 discriminator 1
+ 451 0082 0130     		adds	r0, r0, #1
+ 452              	.LVL89:
+ 453 0084 C0B2     		uxtb	r0, r0
+ 454              	.LVL90:
+ 455              	.L26:
+ 186:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         if(tempdegree >= 15) comp++;  // max is 4 degrees compensated
+ 456              		.loc 1 186 0 is_stmt 1
+ 457 0086 0E2A     		cmp	r2, #14
+ 458 0088 01D9     		bls	.L23
+ 459              		.loc 1 186 0 is_stmt 0 discriminator 1
+ 460 008a 0130     		adds	r0, r0, #1
+ 461              	.LVL91:
+ 462 008c C0B2     		uxtb	r0, r0
+ 463              	.LVL92:
+ 464              	.L23:
+ 187:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     }
+ 188:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     degree += comp;   // degree is now accurate to +/- 1 degree!
+ 465              		.loc 1 188 0 is_stmt 1
+ 466 008e C018     		adds	r0, r0, r3
+ 467              	.LVL93:
+ 189:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 190:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     // Invert degree if it was X>Y octant, makes 0-45 into 90-45
+ 191:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     if(negflag & 0x10) degree = (90 - degree);
+ 468              		.loc 1 191 0
+ 469 0090 E306     		lsls	r3, r4, #27
+ 470 0092 01D5     		bpl	.L27
+ 471              		.loc 1 191 0 is_stmt 0 discriminator 1
+ 472 0094 5A23     		movs	r3, #90
+ 473 0096 181A     		subs	r0, r3, r0
+ 474              	.LVL94:
+ 475              	.L27:
+ 192:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 193:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     // 3. Degree is now 0-90 range for this quadrant,
+ 194:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     // need to invert it for whichever quadrant it was in
+ 195:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     if(negflag & 0x02) { // if -Y
+ 476              		.loc 1 195 0 is_stmt 1
+ 477 0098 A307     		lsls	r3, r4, #30
+ 478 009a 06D5     		bpl	.L28
+ 196:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         if(negflag & 0x01)   // if -Y -X
+ 479              		.loc 1 196 0
+ 480 009c E307     		lsls	r3, r4, #31
+ 481 009e 01D5     		bpl	.L29
+ 197:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****             degree = (180 + degree);
+ 482              		.loc 1 197 0
+ 483 00a0 B430     		adds	r0, r0, #180
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 13
+
+
+ 484              	.LVL95:
+ 485 00a2 07E0     		b	.L30
+ 486              	.L29:
+ 198:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         else        // else is -Y +X
+ 199:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****             degree = (180 - degree);
+ 487              		.loc 1 199 0
+ 488 00a4 B423     		movs	r3, #180
+ 489 00a6 181A     		subs	r0, r3, r0
+ 490              	.LVL96:
+ 491 00a8 04E0     		b	.L30
+ 492              	.L28:
+ 200:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     }
+ 201:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     else {   // else is +Y
+ 202:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         if(negflag & 0x01)   // if +Y -X
+ 493              		.loc 1 202 0
+ 494 00aa E307     		lsls	r3, r4, #31
+ 495 00ac 02D5     		bpl	.L30
+ 203:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****             degree = (360 - degree);
+ 496              		.loc 1 203 0
+ 497 00ae B423     		movs	r3, #180
+ 498 00b0 5B00     		lsls	r3, r3, #1
+ 499 00b2 181A     		subs	r0, r3, r0
+ 500              	.LVL97:
+ 501              	.L30:
+ 204:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     }
+ 205:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     return degree;
+ 502              		.loc 1 205 0
+ 503 00b4 80B2     		uxth	r0, r0
+ 504              	.LVL98:
+ 206:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** }
+ 505              		.loc 1 206 0
+ 506              		@ sp needed
+ 507              	.LVL99:
+ 508 00b6 10BD     		pop	{r4, pc}
+ 509              		.cfi_endproc
+ 510              	.LFE4:
+ 511              		.size	lv_atan2, .-lv_atan2
+ 512              		.global	__aeabi_lmul
+ 513              		.section	.text.lv_pow,"ax",%progbits
+ 514              		.align	2
+ 515              		.global	lv_pow
+ 516              		.code	16
+ 517              		.thumb_func
+ 518              		.type	lv_pow, %function
+ 519              	lv_pow:
+ 520              	.LFB5:
+ 207:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 208:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** /**
+ 209:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * Calculate the integer exponents.
+ 210:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @param base
+ 211:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @param power
+ 212:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @return base raised to the power exponent
+ 213:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  */
+ 214:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** int64_t lv_pow(int64_t base, int8_t exp)
+ 215:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** {
+ 521              		.loc 1 215 0
+ 522              		.cfi_startproc
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 14
+
+
+ 523              		@ args = 0, pretend = 0, frame = 8
+ 524              		@ frame_needed = 0, uses_anonymous_args = 0
+ 525              	.LVL100:
+ 526 0000 70B5     		push	{r4, r5, r6, lr}
+ 527              		.cfi_def_cfa_offset 16
+ 528              		.cfi_offset 4, -16
+ 529              		.cfi_offset 5, -12
+ 530              		.cfi_offset 6, -8
+ 531              		.cfi_offset 14, -4
+ 532 0002 82B0     		sub	sp, sp, #8
+ 533              		.cfi_def_cfa_offset 24
+ 534 0004 0400     		movs	r4, r0
+ 535 0006 0D00     		movs	r5, r1
+ 536 0008 1600     		movs	r6, r2
+ 537              	.LVL101:
+ 216:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     int64_t result = 1;
+ 538              		.loc 1 216 0
+ 539 000a 0122     		movs	r2, #1
+ 540              	.LVL102:
+ 541 000c 0023     		movs	r3, #0
+ 542 000e 0092     		str	r2, [sp]
+ 543 0010 0193     		str	r3, [sp, #4]
+ 217:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     while(exp) {
+ 544              		.loc 1 217 0
+ 545 0012 12E0     		b	.L35
+ 546              	.LVL103:
+ 547              	.L37:
+ 218:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         if(exp & 1)
+ 548              		.loc 1 218 0
+ 549 0014 F307     		lsls	r3, r6, #31
+ 550 0016 07D5     		bpl	.L36
+ 219:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****             result *= base;
+ 551              		.loc 1 219 0
+ 552 0018 2200     		movs	r2, r4
+ 553 001a 2B00     		movs	r3, r5
+ 554 001c 0098     		ldr	r0, [sp]
+ 555 001e 0199     		ldr	r1, [sp, #4]
+ 556 0020 FFF7FEFF 		bl	__aeabi_lmul
+ 557              	.LVL104:
+ 558 0024 0090     		str	r0, [sp]
+ 559 0026 0191     		str	r1, [sp, #4]
+ 560              	.LVL105:
+ 561              	.L36:
+ 220:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         exp >>= 1;
+ 562              		.loc 1 220 0
+ 563 0028 7610     		asrs	r6, r6, #1
+ 564              	.LVL106:
+ 221:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         base *= base;
+ 565              		.loc 1 221 0
+ 566 002a 2200     		movs	r2, r4
+ 567 002c 2B00     		movs	r3, r5
+ 568 002e 2000     		movs	r0, r4
+ 569 0030 2900     		movs	r1, r5
+ 570 0032 FFF7FEFF 		bl	__aeabi_lmul
+ 571              	.LVL107:
+ 572 0036 0400     		movs	r4, r0
+ 573              	.LVL108:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 15
+
+
+ 574 0038 0D00     		movs	r5, r1
+ 575              	.LVL109:
+ 576              	.L35:
+ 217:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****         if(exp & 1)
+ 577              		.loc 1 217 0
+ 578 003a 002E     		cmp	r6, #0
+ 579 003c EAD1     		bne	.L37
+ 222:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     }
+ 223:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 224:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     return result;
+ 225:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** }
+ 580              		.loc 1 225 0
+ 581 003e 0098     		ldr	r0, [sp]
+ 582 0040 0199     		ldr	r1, [sp, #4]
+ 583 0042 02B0     		add	sp, sp, #8
+ 584              	.LVL110:
+ 585              		@ sp needed
+ 586              	.LVL111:
+ 587              	.LVL112:
+ 588 0044 70BD     		pop	{r4, r5, r6, pc}
+ 589              		.cfi_endproc
+ 590              	.LFE5:
+ 591              		.size	lv_pow, .-lv_pow
+ 592              		.global	__aeabi_idiv
+ 593 0046 C046     		.section	.text.lv_map,"ax",%progbits
+ 594              		.align	2
+ 595              		.global	lv_map
+ 596              		.code	16
+ 597              		.thumb_func
+ 598              		.type	lv_map, %function
+ 599              	lv_map:
+ 600              	.LFB6:
+ 226:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 227:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** /**
+ 228:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * Get the mapped of a number given an input and output range
+ 229:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @param x integer which mapped value should be calculated
+ 230:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @param min_in min input range
+ 231:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @param max_in max input range
+ 232:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @param min_out max output range
+ 233:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @param max_out max output range
+ 234:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  * @return the mapped number
+ 235:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****  */
+ 236:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** int32_t lv_map(int32_t x, int32_t min_in, int32_t max_in, int32_t min_out, int32_t max_out)
+ 237:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** {
+ 601              		.loc 1 237 0
+ 602              		.cfi_startproc
+ 603              		@ args = 4, pretend = 0, frame = 0
+ 604              		@ frame_needed = 0, uses_anonymous_args = 0
+ 605              	.LVL113:
+ 606 0000 10B5     		push	{r4, lr}
+ 607              		.cfi_def_cfa_offset 8
+ 608              		.cfi_offset 4, -8
+ 609              		.cfi_offset 14, -4
+ 610 0002 1C00     		movs	r4, r3
+ 238:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     if(max_in >= min_in && x >= max_in) return max_out;
+ 611              		.loc 1 238 0
+ 612 0004 8A42     		cmp	r2, r1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 16
+
+
+ 613 0006 01DB     		blt	.L39
+ 614              		.loc 1 238 0 is_stmt 0 discriminator 1
+ 615 0008 8242     		cmp	r2, r0
+ 616 000a 16DD     		ble	.L44
+ 617              	.L39:
+ 239:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     if(max_in >= min_in && x <= min_in) return min_out;
+ 618              		.loc 1 239 0 is_stmt 1
+ 619 000c 8A42     		cmp	r2, r1
+ 620 000e 01DB     		blt	.L41
+ 621              		.loc 1 239 0 is_stmt 0 discriminator 1
+ 622 0010 8142     		cmp	r1, r0
+ 623 0012 14DA     		bge	.L45
+ 624              	.L41:
+ 240:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 241:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     if(max_in <= min_in && x <= max_in) return max_out;
+ 625              		.loc 1 241 0 is_stmt 1
+ 626 0014 8A42     		cmp	r2, r1
+ 627 0016 01DC     		bgt	.L42
+ 628              		.loc 1 241 0 is_stmt 0 discriminator 1
+ 629 0018 8242     		cmp	r2, r0
+ 630 001a 12DA     		bge	.L46
+ 631              	.L42:
+ 242:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     if(max_in <= min_in && x >= min_in) return min_out;
+ 632              		.loc 1 242 0 is_stmt 1
+ 633 001c 8A42     		cmp	r2, r1
+ 634 001e 01DC     		bgt	.L43
+ 635              		.loc 1 242 0 is_stmt 0 discriminator 1
+ 636 0020 8142     		cmp	r1, r0
+ 637 0022 10DD     		ble	.L47
+ 638              	.L43:
+ 243:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 244:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     /**
+ 245:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****      * The equation should be:
+ 246:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****      *   ((x - min_in) * delta_out) / delta in) + min_out
+ 247:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****      * To avoid rounding error reorder the operations:
+ 248:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****      *   (x - min_in) * (delta_out / delta_min) + min_out
+ 249:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****      */
+ 250:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 251:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     int32_t delta_in = max_in - min_in;
+ 639              		.loc 1 251 0 is_stmt 1
+ 640 0024 521A     		subs	r2, r2, r1
+ 641              	.LVL114:
+ 252:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     int32_t delta_out = max_out - min_out;
+ 642              		.loc 1 252 0
+ 643 0026 029B     		ldr	r3, [sp, #8]
+ 644              	.LVL115:
+ 645 0028 1B1B     		subs	r3, r3, r4
+ 646              	.LVL116:
+ 253:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 254:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     return ((x - min_in) * delta_out) / delta_in + min_out;
+ 647              		.loc 1 254 0
+ 648 002a 411A     		subs	r1, r0, r1
+ 649              	.LVL117:
+ 650 002c 5943     		muls	r1, r3
+ 651 002e 0800     		movs	r0, r1
+ 652              	.LVL118:
+ 653 0030 1100     		movs	r1, r2
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 17
+
+
+ 654 0032 FFF7FEFF 		bl	__aeabi_idiv
+ 655              	.LVL119:
+ 656 0036 2018     		adds	r0, r4, r0
+ 657 0038 06E0     		b	.L40
+ 658              	.LVL120:
+ 659              	.L44:
+ 238:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     if(max_in >= min_in && x <= min_in) return min_out;
+ 660              		.loc 1 238 0
+ 661 003a 0298     		ldr	r0, [sp, #8]
+ 662              	.LVL121:
+ 663 003c 04E0     		b	.L40
+ 664              	.LVL122:
+ 665              	.L45:
+ 239:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 666              		.loc 1 239 0
+ 667 003e 2000     		movs	r0, r4
+ 668              	.LVL123:
+ 669 0040 02E0     		b	.L40
+ 670              	.LVL124:
+ 671              	.L46:
+ 241:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     if(max_in <= min_in && x >= min_in) return min_out;
+ 672              		.loc 1 241 0
+ 673 0042 0298     		ldr	r0, [sp, #8]
+ 674              	.LVL125:
+ 675 0044 00E0     		b	.L40
+ 676              	.LVL126:
+ 677              	.L47:
+ 242:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 678              		.loc 1 242 0
+ 679 0046 2000     		movs	r0, r4
+ 680              	.LVL127:
+ 681              	.L40:
+ 255:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** }
+ 682              		.loc 1 255 0
+ 683              		@ sp needed
+ 684              	.LVL128:
+ 685 0048 10BD     		pop	{r4, pc}
+ 686              		.cfi_endproc
+ 687              	.LFE6:
+ 688              		.size	lv_map, .-lv_map
+ 689              		.global	__aeabi_uidivmod
+ 690 004a C046     		.section	.text.lv_rand,"ax",%progbits
+ 691              		.align	2
+ 692              		.global	lv_rand
+ 693              		.code	16
+ 694              		.thumb_func
+ 695              		.type	lv_rand, %function
+ 696              	lv_rand:
+ 697              	.LFB7:
+ 256:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 257:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** uint32_t lv_rand(uint32_t min, uint32_t max)
+ 258:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** {
+ 698              		.loc 1 258 0
+ 699              		.cfi_startproc
+ 700              		@ args = 0, pretend = 0, frame = 0
+ 701              		@ frame_needed = 0, uses_anonymous_args = 0
+ 702              	.LVL129:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 18
+
+
+ 703 0000 10B5     		push	{r4, lr}
+ 704              		.cfi_def_cfa_offset 8
+ 705              		.cfi_offset 4, -8
+ 706              		.cfi_offset 14, -4
+ 707 0002 0400     		movs	r4, r0
+ 259:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     static uint32_t a = 0x1234ABCD; /*Seed*/
+ 260:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 261:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     /*Algorithm "xor" from p. 4 of Marsaglia, "Xorshift RNGs"*/
+ 262:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     uint32_t x = a;
+ 708              		.loc 1 262 0
+ 709 0004 074A     		ldr	r2, .L49
+ 710 0006 1368     		ldr	r3, [r2]
+ 711              	.LVL130:
+ 263:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     x ^= x << 13;
+ 712              		.loc 1 263 0
+ 713 0008 5803     		lsls	r0, r3, #13
+ 714              	.LVL131:
+ 715 000a 5840     		eors	r0, r3
+ 716              	.LVL132:
+ 264:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     x ^= x >> 17;
+ 717              		.loc 1 264 0
+ 718 000c 430C     		lsrs	r3, r0, #17
+ 719 000e 5840     		eors	r0, r3
+ 720              	.LVL133:
+ 265:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     x ^= x << 5;
+ 721              		.loc 1 265 0
+ 722 0010 4301     		lsls	r3, r0, #5
+ 723 0012 5840     		eors	r0, r3
+ 724              	.LVL134:
+ 266:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     a = x;
+ 725              		.loc 1 266 0
+ 726 0014 1060     		str	r0, [r2]
+ 267:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** 
+ 268:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c ****     return (a % (max - min + 1)) + min;
+ 727              		.loc 1 268 0
+ 728 0016 091B     		subs	r1, r1, r4
+ 729              	.LVL135:
+ 730 0018 0131     		adds	r1, r1, #1
+ 731 001a FFF7FEFF 		bl	__aeabi_uidivmod
+ 732              	.LVL136:
+ 733 001e 6018     		adds	r0, r4, r1
+ 269:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_math.c **** }
+ 734              		.loc 1 269 0
+ 735              		@ sp needed
+ 736              	.LVL137:
+ 737 0020 10BD     		pop	{r4, pc}
+ 738              	.L50:
+ 739 0022 C046     		.align	2
+ 740              	.L49:
+ 741 0024 00000000 		.word	.LANCHOR1
+ 742              		.cfi_endproc
+ 743              	.LFE7:
+ 744              		.size	lv_rand, .-lv_rand
+ 745              		.section	.rodata
+ 746              		.align	2
+ 747              		.set	.LANCHOR0,. + 0
+ 748              		.type	sin0_90_table, %object
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 19
+
+
+ 749              		.size	sin0_90_table, 182
+ 750              	sin0_90_table:
+ 751 0000 0000     		.short	0
+ 752 0002 3C02     		.short	572
+ 753 0004 7804     		.short	1144
+ 754 0006 B306     		.short	1715
+ 755 0008 EE08     		.short	2286
+ 756 000a 280B     		.short	2856
+ 757 000c 610D     		.short	3425
+ 758 000e 990F     		.short	3993
+ 759 0010 D011     		.short	4560
+ 760 0012 0614     		.short	5126
+ 761 0014 3A16     		.short	5690
+ 762 0016 6C18     		.short	6252
+ 763 0018 9D1A     		.short	6813
+ 764 001a CB1C     		.short	7371
+ 765 001c F71E     		.short	7927
+ 766 001e 2121     		.short	8481
+ 767 0020 4823     		.short	9032
+ 768 0022 6C25     		.short	9580
+ 769 0024 8E27     		.short	10126
+ 770 0026 AC29     		.short	10668
+ 771 0028 C72B     		.short	11207
+ 772 002a DF2D     		.short	11743
+ 773 002c F32F     		.short	12275
+ 774 002e 0332     		.short	12803
+ 775 0030 1034     		.short	13328
+ 776 0032 1836     		.short	13848
+ 777 0034 1C38     		.short	14364
+ 778 0036 1C3A     		.short	14876
+ 779 0038 173C     		.short	15383
+ 780 003a 0E3E     		.short	15886
+ 781 003c FF3F     		.short	16383
+ 782 003e EC41     		.short	16876
+ 783 0040 D443     		.short	17364
+ 784 0042 B645     		.short	17846
+ 785 0044 9347     		.short	18323
+ 786 0046 6A49     		.short	18794
+ 787 0048 3C4B     		.short	19260
+ 788 004a 084D     		.short	19720
+ 789 004c CD4E     		.short	20173
+ 790 004e 8D50     		.short	20621
+ 791 0050 4652     		.short	21062
+ 792 0052 F953     		.short	21497
+ 793 0054 A555     		.short	21925
+ 794 0056 4B57     		.short	22347
+ 795 0058 EA58     		.short	22762
+ 796 005a 825A     		.short	23170
+ 797 005c 135C     		.short	23571
+ 798 005e 9C5D     		.short	23964
+ 799 0060 1F5F     		.short	24351
+ 800 0062 9A60     		.short	24730
+ 801 0064 0D62     		.short	25101
+ 802 0066 7963     		.short	25465
+ 803 0068 DD64     		.short	25821
+ 804 006a 3966     		.short	26169
+ 805 006c 8D67     		.short	26509
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 20
+
+
+ 806 006e D968     		.short	26841
+ 807 0070 1D6A     		.short	27165
+ 808 0072 596B     		.short	27481
+ 809 0074 8C6C     		.short	27788
+ 810 0076 B76D     		.short	28087
+ 811 0078 D96E     		.short	28377
+ 812 007a F36F     		.short	28659
+ 813 007c 0471     		.short	28932
+ 814 007e 0C72     		.short	29196
+ 815 0080 0B73     		.short	29451
+ 816 0082 0174     		.short	29697
+ 817 0084 EE74     		.short	29934
+ 818 0086 D275     		.short	30162
+ 819 0088 AD76     		.short	30381
+ 820 008a 7F77     		.short	30591
+ 821 008c 4778     		.short	30791
+ 822 008e 0679     		.short	30982
+ 823 0090 BB79     		.short	31163
+ 824 0092 677A     		.short	31335
+ 825 0094 0A7B     		.short	31498
+ 826 0096 A27B     		.short	31650
+ 827 0098 327C     		.short	31794
+ 828 009a B77C     		.short	31927
+ 829 009c 337D     		.short	32051
+ 830 009e A57D     		.short	32165
+ 831 00a0 0D7E     		.short	32269
+ 832 00a2 6C7E     		.short	32364
+ 833 00a4 C07E     		.short	32448
+ 834 00a6 0B7F     		.short	32523
+ 835 00a8 4B7F     		.short	32587
+ 836 00aa 827F     		.short	32642
+ 837 00ac AF7F     		.short	32687
+ 838 00ae D27F     		.short	32722
+ 839 00b0 EB7F     		.short	32747
+ 840 00b2 FA7F     		.short	32762
+ 841 00b4 FF7F     		.short	32767
+ 842              		.data
+ 843              		.align	2
+ 844              		.set	.LANCHOR1,. + 0
+ 845              		.type	a.4305, %object
+ 846              		.size	a.4305, 4
+ 847              	a.4305:
+ 848 0000 CDAB3412 		.word	305441741
+ 849              		.text
+ 850              	.Letext0:
+ 851              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 852              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 853              		.file 4 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\misc\\lv_math.h"
+ 854              		.section	.debug_info,"",%progbits
+ 855              	.Ldebug_info0:
+ 856 0000 64040000 		.4byte	0x464
+ 857 0004 0400     		.2byte	0x4
+ 858 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 859 000a 04       		.byte	0x4
+ 860 000b 01       		.uleb128 0x1
+ 861 000c 32000000 		.4byte	.LASF49
+ 862 0010 0C       		.byte	0xc
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 21
+
+
+ 863 0011 F1000000 		.4byte	.LASF50
+ 864 0015 76010000 		.4byte	.LASF51
+ 865 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 866 001d 00000000 		.4byte	0
+ 867 0021 00000000 		.4byte	.Ldebug_line0
+ 868 0025 02       		.uleb128 0x2
+ 869 0026 21020000 		.4byte	.LASF2
+ 870 002a 02       		.byte	0x2
+ 871 002b 1B       		.byte	0x1b
+ 872 002c 30000000 		.4byte	0x30
+ 873 0030 03       		.uleb128 0x3
+ 874 0031 01       		.byte	0x1
+ 875 0032 06       		.byte	0x6
+ 876 0033 B6010000 		.4byte	.LASF0
+ 877 0037 03       		.uleb128 0x3
+ 878 0038 01       		.byte	0x1
+ 879 0039 08       		.byte	0x8
+ 880 003a 68010000 		.4byte	.LASF1
+ 881 003e 02       		.uleb128 0x2
+ 882 003f 9D020000 		.4byte	.LASF3
+ 883 0043 02       		.byte	0x2
+ 884 0044 29       		.byte	0x29
+ 885 0045 49000000 		.4byte	0x49
+ 886 0049 03       		.uleb128 0x3
+ 887 004a 02       		.byte	0x2
+ 888 004b 05       		.byte	0x5
+ 889 004c 28000000 		.4byte	.LASF4
+ 890 0050 02       		.uleb128 0x2
+ 891 0051 D6000000 		.4byte	.LASF5
+ 892 0055 02       		.byte	0x2
+ 893 0056 2B       		.byte	0x2b
+ 894 0057 5B000000 		.4byte	0x5b
+ 895 005b 03       		.uleb128 0x3
+ 896 005c 02       		.byte	0x2
+ 897 005d 07       		.byte	0x7
+ 898 005e 0E020000 		.4byte	.LASF6
+ 899 0062 02       		.uleb128 0x2
+ 900 0063 8C020000 		.4byte	.LASF7
+ 901 0067 02       		.byte	0x2
+ 902 0068 3F       		.byte	0x3f
+ 903 0069 6D000000 		.4byte	0x6d
+ 904 006d 03       		.uleb128 0x3
+ 905 006e 04       		.byte	0x4
+ 906 006f 05       		.byte	0x5
+ 907 0070 4C010000 		.4byte	.LASF8
+ 908 0074 02       		.uleb128 0x2
+ 909 0075 CB000000 		.4byte	.LASF9
+ 910 0079 02       		.byte	0x2
+ 911 007a 41       		.byte	0x41
+ 912 007b 7F000000 		.4byte	0x7f
+ 913 007f 03       		.uleb128 0x3
+ 914 0080 04       		.byte	0x4
+ 915 0081 07       		.byte	0x7
+ 916 0082 6F020000 		.4byte	.LASF10
+ 917 0086 02       		.uleb128 0x2
+ 918 0087 55010000 		.4byte	.LASF11
+ 919 008b 02       		.byte	0x2
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 22
+
+
+ 920 008c 59       		.byte	0x59
+ 921 008d 91000000 		.4byte	0x91
+ 922 0091 03       		.uleb128 0x3
+ 923 0092 08       		.byte	0x8
+ 924 0093 05       		.byte	0x5
+ 925 0094 3E010000 		.4byte	.LASF12
+ 926 0098 03       		.uleb128 0x3
+ 927 0099 08       		.byte	0x8
+ 928 009a 07       		.byte	0x7
+ 929 009b C2010000 		.4byte	.LASF13
+ 930 009f 04       		.uleb128 0x4
+ 931 00a0 04       		.byte	0x4
+ 932 00a1 05       		.byte	0x5
+ 933 00a2 696E7400 		.ascii	"int\000"
+ 934 00a6 03       		.uleb128 0x3
+ 935 00a7 04       		.byte	0x4
+ 936 00a8 07       		.byte	0x7
+ 937 00a9 E2010000 		.4byte	.LASF14
+ 938 00ad 02       		.uleb128 0x2
+ 939 00ae 21000000 		.4byte	.LASF15
+ 940 00b2 03       		.byte	0x3
+ 941 00b3 14       		.byte	0x14
+ 942 00b4 25000000 		.4byte	0x25
+ 943 00b8 02       		.uleb128 0x2
+ 944 00b9 40020000 		.4byte	.LASF16
+ 945 00bd 03       		.byte	0x3
+ 946 00be 20       		.byte	0x20
+ 947 00bf 3E000000 		.4byte	0x3e
+ 948 00c3 02       		.uleb128 0x2
+ 949 00c4 FC010000 		.4byte	.LASF17
+ 950 00c8 03       		.byte	0x3
+ 951 00c9 24       		.byte	0x24
+ 952 00ca 50000000 		.4byte	0x50
+ 953 00ce 02       		.uleb128 0x2
+ 954 00cf 2A020000 		.4byte	.LASF18
+ 955 00d3 03       		.byte	0x3
+ 956 00d4 2C       		.byte	0x2c
+ 957 00d5 62000000 		.4byte	0x62
+ 958 00d9 02       		.uleb128 0x2
+ 959 00da D9010000 		.4byte	.LASF19
+ 960 00de 03       		.byte	0x3
+ 961 00df 30       		.byte	0x30
+ 962 00e0 74000000 		.4byte	0x74
+ 963 00e4 02       		.uleb128 0x2
+ 964 00e5 E9000000 		.4byte	.LASF20
+ 965 00e9 03       		.byte	0x3
+ 966 00ea 38       		.byte	0x38
+ 967 00eb 86000000 		.4byte	0x86
+ 968 00ef 05       		.uleb128 0x5
+ 969 00f0 04       		.byte	0x4
+ 970 00f1 04       		.byte	0x4
+ 971 00f2 20       		.byte	0x20
+ 972 00f3 0C010000 		.4byte	0x10c
+ 973 00f7 06       		.uleb128 0x6
+ 974 00f8 6900     		.ascii	"i\000"
+ 975 00fa 04       		.byte	0x4
+ 976 00fb 21       		.byte	0x21
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 23
+
+
+ 977 00fc C3000000 		.4byte	0xc3
+ 978 0100 00       		.byte	0
+ 979 0101 06       		.uleb128 0x6
+ 980 0102 6600     		.ascii	"f\000"
+ 981 0104 04       		.byte	0x4
+ 982 0105 22       		.byte	0x22
+ 983 0106 C3000000 		.4byte	0xc3
+ 984 010a 02       		.byte	0x2
+ 985 010b 00       		.byte	0
+ 986 010c 02       		.uleb128 0x2
+ 987 010d 48020000 		.4byte	.LASF21
+ 988 0111 04       		.byte	0x4
+ 989 0112 23       		.byte	0x23
+ 990 0113 EF000000 		.4byte	0xef
+ 991 0117 07       		.uleb128 0x7
+ 992 0118 EF010000 		.4byte	.LASF22
+ 993 011c 01       		.byte	0x1
+ 994 011d 30       		.byte	0x30
+ 995 011e B8000000 		.4byte	0xb8
+ 996 0122 00000000 		.4byte	.LFB1
+ 997 0126 6C000000 		.4byte	.LFE1-.LFB1
+ 998 012a 01       		.uleb128 0x1
+ 999 012b 9C       		.byte	0x9c
+ 1000 012c 4F010000 		.4byte	0x14f
+ 1001 0130 08       		.uleb128 0x8
+ 1002 0131 B8020000 		.4byte	.LASF24
+ 1003 0135 01       		.byte	0x1
+ 1004 0136 30       		.byte	0x30
+ 1005 0137 B8000000 		.4byte	0xb8
+ 1006 013b 00000000 		.4byte	.LLST0
+ 1007 013f 09       		.uleb128 0x9
+ 1008 0140 72657400 		.ascii	"ret\000"
+ 1009 0144 01       		.byte	0x1
+ 1010 0145 32       		.byte	0x32
+ 1011 0146 B8000000 		.4byte	0xb8
+ 1012 014a A3000000 		.4byte	.LLST1
+ 1013 014e 00       		.byte	0
+ 1014 014f 0A       		.uleb128 0xa
+ 1015 0150 BE020000 		.4byte	.LASF23
+ 1016 0154 01       		.byte	0x1
+ 1017 0155 53       		.byte	0x53
+ 1018 0156 D9000000 		.4byte	0xd9
+ 1019 015a 00000000 		.4byte	.LFB2
+ 1020 015e 56000000 		.4byte	.LFE2-.LFB2
+ 1021 0162 01       		.uleb128 0x1
+ 1022 0163 9C       		.byte	0x9c
+ 1023 0164 2A020000 		.4byte	0x22a
+ 1024 0168 0B       		.uleb128 0xb
+ 1025 0169 7400     		.ascii	"t\000"
+ 1026 016b 01       		.byte	0x1
+ 1027 016c 53       		.byte	0x53
+ 1028 016d D9000000 		.4byte	0xd9
+ 1029 0171 07010000 		.4byte	.LLST2
+ 1030 0175 0B       		.uleb128 0xb
+ 1031 0176 753000   		.ascii	"u0\000"
+ 1032 0179 01       		.byte	0x1
+ 1033 017a 53       		.byte	0x53
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 24
+
+
+ 1034 017b D9000000 		.4byte	0xd9
+ 1035 017f 28010000 		.4byte	.LLST3
+ 1036 0183 0B       		.uleb128 0xb
+ 1037 0184 753100   		.ascii	"u1\000"
+ 1038 0187 01       		.byte	0x1
+ 1039 0188 53       		.byte	0x53
+ 1040 0189 D9000000 		.4byte	0xd9
+ 1041 018d 49010000 		.4byte	.LLST4
+ 1042 0191 0B       		.uleb128 0xb
+ 1043 0192 753200   		.ascii	"u2\000"
+ 1044 0195 01       		.byte	0x1
+ 1045 0196 53       		.byte	0x53
+ 1046 0197 D9000000 		.4byte	0xd9
+ 1047 019b 6A010000 		.4byte	.LLST5
+ 1048 019f 0C       		.uleb128 0xc
+ 1049 01a0 753300   		.ascii	"u3\000"
+ 1050 01a3 01       		.byte	0x1
+ 1051 01a4 53       		.byte	0x53
+ 1052 01a5 D9000000 		.4byte	0xd9
+ 1053 01a9 02       		.uleb128 0x2
+ 1054 01aa 91       		.byte	0x91
+ 1055 01ab 00       		.sleb128 0
+ 1056 01ac 0D       		.uleb128 0xd
+ 1057 01ad 1B000000 		.4byte	.LASF25
+ 1058 01b1 01       		.byte	0x1
+ 1059 01b2 55       		.byte	0x55
+ 1060 01b3 D9000000 		.4byte	0xd9
+ 1061 01b7 96010000 		.4byte	.LLST6
+ 1062 01bb 0D       		.uleb128 0xd
+ 1063 01bc 60020000 		.4byte	.LASF26
+ 1064 01c0 01       		.byte	0x1
+ 1065 01c1 56       		.byte	0x56
+ 1066 01c2 D9000000 		.4byte	0xd9
+ 1067 01c6 BB010000 		.4byte	.LLST7
+ 1068 01ca 0D       		.uleb128 0xd
+ 1069 01cb AF010000 		.4byte	.LASF27
+ 1070 01cf 01       		.byte	0x1
+ 1071 01d0 57       		.byte	0x57
+ 1072 01d1 D9000000 		.4byte	0xd9
+ 1073 01d5 FC010000 		.4byte	.LLST8
+ 1074 01d9 09       		.uleb128 0x9
+ 1075 01da 743200   		.ascii	"t2\000"
+ 1076 01dd 01       		.byte	0x1
+ 1077 01de 58       		.byte	0x58
+ 1078 01df D9000000 		.4byte	0xd9
+ 1079 01e3 1A020000 		.4byte	.LLST9
+ 1080 01e7 09       		.uleb128 0x9
+ 1081 01e8 743300   		.ascii	"t3\000"
+ 1082 01eb 01       		.byte	0x1
+ 1083 01ec 59       		.byte	0x59
+ 1084 01ed D9000000 		.4byte	0xd9
+ 1085 01f1 41020000 		.4byte	.LLST10
+ 1086 01f5 0E       		.uleb128 0xe
+ 1087 01f6 763100   		.ascii	"v1\000"
+ 1088 01f9 01       		.byte	0x1
+ 1089 01fa 5B       		.byte	0x5b
+ 1090 01fb D9000000 		.4byte	0xd9
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 25
+
+
+ 1091 01ff 01       		.uleb128 0x1
+ 1092 0200 51       		.byte	0x51
+ 1093 0201 09       		.uleb128 0x9
+ 1094 0202 763200   		.ascii	"v2\000"
+ 1095 0205 01       		.byte	0x1
+ 1096 0206 5C       		.byte	0x5c
+ 1097 0207 D9000000 		.4byte	0xd9
+ 1098 020b 6E020000 		.4byte	.LLST11
+ 1099 020f 0E       		.uleb128 0xe
+ 1100 0210 763300   		.ascii	"v3\000"
+ 1101 0213 01       		.byte	0x1
+ 1102 0214 5D       		.byte	0x5d
+ 1103 0215 D9000000 		.4byte	0xd9
+ 1104 0219 01       		.uleb128 0x1
+ 1105 021a 53       		.byte	0x53
+ 1106 021b 09       		.uleb128 0x9
+ 1107 021c 763400   		.ascii	"v4\000"
+ 1108 021f 01       		.byte	0x1
+ 1109 0220 5E       		.byte	0x5e
+ 1110 0221 D9000000 		.4byte	0xd9
+ 1111 0225 0D030000 		.4byte	.LLST12
+ 1112 0229 00       		.byte	0
+ 1113 022a 0F       		.uleb128 0xf
+ 1114 022b 67020000 		.4byte	.LASF52
+ 1115 022f 01       		.byte	0x1
+ 1116 0230 6D       		.byte	0x6d
+ 1117 0231 00000000 		.4byte	.LFB3
+ 1118 0235 24000000 		.4byte	.LFE3-.LFB3
+ 1119 0239 01       		.uleb128 0x1
+ 1120 023a 9C       		.byte	0x9c
+ 1121 023b 85020000 		.4byte	0x285
+ 1122 023f 0B       		.uleb128 0xb
+ 1123 0240 7800     		.ascii	"x\000"
+ 1124 0242 01       		.byte	0x1
+ 1125 0243 6D       		.byte	0x6d
+ 1126 0244 D9000000 		.4byte	0xd9
+ 1127 0248 53030000 		.4byte	.LLST13
+ 1128 024c 0C       		.uleb128 0xc
+ 1129 024d 7100     		.ascii	"q\000"
+ 1130 024f 01       		.byte	0x1
+ 1131 0250 6D       		.byte	0x6d
+ 1132 0251 85020000 		.4byte	0x285
+ 1133 0255 01       		.uleb128 0x1
+ 1134 0256 51       		.byte	0x51
+ 1135 0257 08       		.uleb128 0x8
+ 1136 0258 E8020000 		.4byte	.LASF28
+ 1137 025c 01       		.byte	0x1
+ 1138 025d 6D       		.byte	0x6d
+ 1139 025e D9000000 		.4byte	0xd9
+ 1140 0262 71030000 		.4byte	.LLST14
+ 1141 0266 0D       		.uleb128 0xd
+ 1142 0267 DB020000 		.4byte	.LASF29
+ 1143 026b 01       		.byte	0x1
+ 1144 026c 71       		.byte	0x71
+ 1145 026d D9000000 		.4byte	0xd9
+ 1146 0271 8F030000 		.4byte	.LLST15
+ 1147 0275 0D       		.uleb128 0xd
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 26
+
+
+ 1148 0276 D5020000 		.4byte	.LASF30
+ 1149 027a 01       		.byte	0x1
+ 1150 027b 72       		.byte	0x72
+ 1151 027c D9000000 		.4byte	0xd9
+ 1152 0280 AE030000 		.4byte	.LLST16
+ 1153 0284 00       		.byte	0
+ 1154 0285 10       		.uleb128 0x10
+ 1155 0286 04       		.byte	0x4
+ 1156 0287 0C010000 		.4byte	0x10c
+ 1157 028b 07       		.uleb128 0x7
+ 1158 028c 05020000 		.4byte	.LASF31
+ 1159 0290 01       		.byte	0x1
+ 1160 0291 84       		.byte	0x84
+ 1161 0292 C3000000 		.4byte	0xc3
+ 1162 0296 00000000 		.4byte	.LFB4
+ 1163 029a B8000000 		.4byte	.LFE4-.LFB4
+ 1164 029e 01       		.uleb128 0x1
+ 1165 029f 9C       		.byte	0x9c
+ 1166 02a0 15030000 		.4byte	0x315
+ 1167 02a4 0B       		.uleb128 0xb
+ 1168 02a5 7800     		.ascii	"x\000"
+ 1169 02a7 01       		.byte	0x1
+ 1170 02a8 84       		.byte	0x84
+ 1171 02a9 9F000000 		.4byte	0x9f
+ 1172 02ad C1030000 		.4byte	.LLST17
+ 1173 02b1 0B       		.uleb128 0xb
+ 1174 02b2 7900     		.ascii	"y\000"
+ 1175 02b4 01       		.byte	0x1
+ 1176 02b5 84       		.byte	0x84
+ 1177 02b6 9F000000 		.4byte	0x9f
+ 1178 02ba F5030000 		.4byte	.LLST18
+ 1179 02be 0D       		.uleb128 0xd
+ 1180 02bf A7020000 		.4byte	.LASF32
+ 1181 02c3 01       		.byte	0x1
+ 1182 02c4 90       		.byte	0x90
+ 1183 02c5 37000000 		.4byte	0x37
+ 1184 02c9 1E040000 		.4byte	.LLST19
+ 1185 02cd 11       		.uleb128 0x11
+ 1186 02ce 81020000 		.4byte	.LASF33
+ 1187 02d2 01       		.byte	0x1
+ 1188 02d3 91       		.byte	0x91
+ 1189 02d4 37000000 		.4byte	0x37
+ 1190 02d8 01       		.uleb128 0x1
+ 1191 02d9 52       		.byte	0x52
+ 1192 02da 0D       		.uleb128 0xd
+ 1193 02db 0E000000 		.4byte	.LASF34
+ 1194 02df 01       		.byte	0x1
+ 1195 02e0 92       		.byte	0x92
+ 1196 02e1 37000000 		.4byte	0x37
+ 1197 02e5 6B040000 		.4byte	.LLST20
+ 1198 02e9 0D       		.uleb128 0xd
+ 1199 02ea C9020000 		.4byte	.LASF35
+ 1200 02ee 01       		.byte	0x1
+ 1201 02ef 93       		.byte	0x93
+ 1202 02f0 A6000000 		.4byte	0xa6
+ 1203 02f4 E3040000 		.4byte	.LLST21
+ 1204 02f8 09       		.uleb128 0x9
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 27
+
+
+ 1205 02f9 757800   		.ascii	"ux\000"
+ 1206 02fc 01       		.byte	0x1
+ 1207 02fd 94       		.byte	0x94
+ 1208 02fe A6000000 		.4byte	0xa6
+ 1209 0302 59050000 		.4byte	.LLST22
+ 1210 0306 09       		.uleb128 0x9
+ 1211 0307 757900   		.ascii	"uy\000"
+ 1212 030a 01       		.byte	0x1
+ 1213 030b 95       		.byte	0x95
+ 1214 030c A6000000 		.4byte	0xa6
+ 1215 0310 82050000 		.4byte	.LLST23
+ 1216 0314 00       		.byte	0
+ 1217 0315 07       		.uleb128 0x7
+ 1218 0316 37010000 		.4byte	.LASF36
+ 1219 031a 01       		.byte	0x1
+ 1220 031b D6       		.byte	0xd6
+ 1221 031c E4000000 		.4byte	0xe4
+ 1222 0320 00000000 		.4byte	.LFB5
+ 1223 0324 46000000 		.4byte	.LFE5-.LFB5
+ 1224 0328 01       		.uleb128 0x1
+ 1225 0329 9C       		.byte	0x9c
+ 1226 032a 5C030000 		.4byte	0x35c
+ 1227 032e 08       		.uleb128 0x8
+ 1228 032f D0020000 		.4byte	.LASF37
+ 1229 0333 01       		.byte	0x1
+ 1230 0334 D6       		.byte	0xd6
+ 1231 0335 E4000000 		.4byte	0xe4
+ 1232 0339 A0050000 		.4byte	.LLST24
+ 1233 033d 0B       		.uleb128 0xb
+ 1234 033e 65787000 		.ascii	"exp\000"
+ 1235 0342 01       		.byte	0x1
+ 1236 0343 D6       		.byte	0xd6
+ 1237 0344 AD000000 		.4byte	0xad
+ 1238 0348 D8050000 		.4byte	.LLST25
+ 1239 034c 0D       		.uleb128 0xd
+ 1240 034d 00000000 		.4byte	.LASF38
+ 1241 0351 01       		.byte	0x1
+ 1242 0352 D8       		.byte	0xd8
+ 1243 0353 E4000000 		.4byte	0xe4
+ 1244 0357 04060000 		.4byte	.LLST26
+ 1245 035b 00       		.byte	0
+ 1246 035c 07       		.uleb128 0x7
+ 1247 035d 96020000 		.4byte	.LASF39
+ 1248 0361 01       		.byte	0x1
+ 1249 0362 EC       		.byte	0xec
+ 1250 0363 CE000000 		.4byte	0xce
+ 1251 0367 00000000 		.4byte	.LFB6
+ 1252 036b 4A000000 		.4byte	.LFE6-.LFB6
+ 1253 036f 01       		.uleb128 0x1
+ 1254 0370 9C       		.byte	0x9c
+ 1255 0371 DC030000 		.4byte	0x3dc
+ 1256 0375 0B       		.uleb128 0xb
+ 1257 0376 7800     		.ascii	"x\000"
+ 1258 0378 01       		.byte	0x1
+ 1259 0379 EC       		.byte	0xec
+ 1260 037a CE000000 		.4byte	0xce
+ 1261 037e 3C060000 		.4byte	.LLST27
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 28
+
+
+ 1262 0382 08       		.uleb128 0x8
+ 1263 0383 07000000 		.4byte	.LASF40
+ 1264 0387 01       		.byte	0x1
+ 1265 0388 EC       		.byte	0xec
+ 1266 0389 CE000000 		.4byte	0xce
+ 1267 038d C1060000 		.4byte	.LLST28
+ 1268 0391 08       		.uleb128 0x8
+ 1269 0392 C4000000 		.4byte	.LASF41
+ 1270 0396 01       		.byte	0x1
+ 1271 0397 EC       		.byte	0xec
+ 1272 0398 CE000000 		.4byte	0xce
+ 1273 039c FB060000 		.4byte	.LLST29
+ 1274 03a0 08       		.uleb128 0x8
+ 1275 03a1 E0020000 		.4byte	.LASF42
+ 1276 03a5 01       		.byte	0x1
+ 1277 03a6 EC       		.byte	0xec
+ 1278 03a7 CE000000 		.4byte	0xce
+ 1279 03ab 35070000 		.4byte	.LLST30
+ 1280 03af 12       		.uleb128 0x12
+ 1281 03b0 13000000 		.4byte	.LASF43
+ 1282 03b4 01       		.byte	0x1
+ 1283 03b5 EC       		.byte	0xec
+ 1284 03b6 CE000000 		.4byte	0xce
+ 1285 03ba 02       		.uleb128 0x2
+ 1286 03bb 91       		.byte	0x91
+ 1287 03bc 00       		.sleb128 0
+ 1288 03bd 0D       		.uleb128 0xd
+ 1289 03be 5F010000 		.4byte	.LASF44
+ 1290 03c2 01       		.byte	0x1
+ 1291 03c3 FB       		.byte	0xfb
+ 1292 03c4 CE000000 		.4byte	0xce
+ 1293 03c8 77070000 		.4byte	.LLST31
+ 1294 03cc 0D       		.uleb128 0xd
+ 1295 03cd 56020000 		.4byte	.LASF45
+ 1296 03d1 01       		.byte	0x1
+ 1297 03d2 FC       		.byte	0xfc
+ 1298 03d3 CE000000 		.4byte	0xce
+ 1299 03d7 9C070000 		.4byte	.LLST32
+ 1300 03db 00       		.byte	0
+ 1301 03dc 13       		.uleb128 0x13
+ 1302 03dd E1000000 		.4byte	.LASF46
+ 1303 03e1 01       		.byte	0x1
+ 1304 03e2 0101     		.2byte	0x101
+ 1305 03e4 D9000000 		.4byte	0xd9
+ 1306 03e8 00000000 		.4byte	.LFB7
+ 1307 03ec 28000000 		.4byte	.LFE7-.LFB7
+ 1308 03f0 01       		.uleb128 0x1
+ 1309 03f1 9C       		.byte	0x9c
+ 1310 03f2 35040000 		.4byte	0x435
+ 1311 03f6 14       		.uleb128 0x14
+ 1312 03f7 6D696E00 		.ascii	"min\000"
+ 1313 03fb 01       		.byte	0x1
+ 1314 03fc 0101     		.2byte	0x101
+ 1315 03fe D9000000 		.4byte	0xd9
+ 1316 0402 C0070000 		.4byte	.LLST33
+ 1317 0406 14       		.uleb128 0x14
+ 1318 0407 6D617800 		.ascii	"max\000"
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 29
+
+
+ 1319 040b 01       		.byte	0x1
+ 1320 040c 0101     		.2byte	0x101
+ 1321 040e D9000000 		.4byte	0xd9
+ 1322 0412 EC070000 		.4byte	.LLST34
+ 1323 0416 15       		.uleb128 0x15
+ 1324 0417 6100     		.ascii	"a\000"
+ 1325 0419 01       		.byte	0x1
+ 1326 041a 0301     		.2byte	0x103
+ 1327 041c D9000000 		.4byte	0xd9
+ 1328 0420 05       		.uleb128 0x5
+ 1329 0421 03       		.byte	0x3
+ 1330 0422 00000000 		.4byte	a.4305
+ 1331 0426 16       		.uleb128 0x16
+ 1332 0427 7800     		.ascii	"x\000"
+ 1333 0429 01       		.byte	0x1
+ 1334 042a 0601     		.2byte	0x106
+ 1335 042c D9000000 		.4byte	0xd9
+ 1336 0430 0D080000 		.4byte	.LLST35
+ 1337 0434 00       		.byte	0
+ 1338 0435 17       		.uleb128 0x17
+ 1339 0436 4C040000 		.4byte	0x44c
+ 1340 043a 45040000 		.4byte	0x445
+ 1341 043e 18       		.uleb128 0x18
+ 1342 043f 45040000 		.4byte	0x445
+ 1343 0443 5A       		.byte	0x5a
+ 1344 0444 00       		.byte	0
+ 1345 0445 03       		.uleb128 0x3
+ 1346 0446 04       		.byte	0x4
+ 1347 0447 07       		.byte	0x7
+ 1348 0448 AF020000 		.4byte	.LASF47
+ 1349 044c 19       		.uleb128 0x19
+ 1350 044d B8000000 		.4byte	0xb8
+ 1351 0451 11       		.uleb128 0x11
+ 1352 0452 32020000 		.4byte	.LASF48
+ 1353 0456 01       		.byte	0x1
+ 1354 0457 1A       		.byte	0x1a
+ 1355 0458 62040000 		.4byte	0x462
+ 1356 045c 05       		.uleb128 0x5
+ 1357 045d 03       		.byte	0x3
+ 1358 045e 00000000 		.4byte	sin0_90_table
+ 1359 0462 19       		.uleb128 0x19
+ 1360 0463 35040000 		.4byte	0x435
+ 1361 0467 00       		.byte	0
+ 1362              		.section	.debug_abbrev,"",%progbits
+ 1363              	.Ldebug_abbrev0:
+ 1364 0000 01       		.uleb128 0x1
+ 1365 0001 11       		.uleb128 0x11
+ 1366 0002 01       		.byte	0x1
+ 1367 0003 25       		.uleb128 0x25
+ 1368 0004 0E       		.uleb128 0xe
+ 1369 0005 13       		.uleb128 0x13
+ 1370 0006 0B       		.uleb128 0xb
+ 1371 0007 03       		.uleb128 0x3
+ 1372 0008 0E       		.uleb128 0xe
+ 1373 0009 1B       		.uleb128 0x1b
+ 1374 000a 0E       		.uleb128 0xe
+ 1375 000b 55       		.uleb128 0x55
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 30
+
+
+ 1376 000c 17       		.uleb128 0x17
+ 1377 000d 11       		.uleb128 0x11
+ 1378 000e 01       		.uleb128 0x1
+ 1379 000f 10       		.uleb128 0x10
+ 1380 0010 17       		.uleb128 0x17
+ 1381 0011 00       		.byte	0
+ 1382 0012 00       		.byte	0
+ 1383 0013 02       		.uleb128 0x2
+ 1384 0014 16       		.uleb128 0x16
+ 1385 0015 00       		.byte	0
+ 1386 0016 03       		.uleb128 0x3
+ 1387 0017 0E       		.uleb128 0xe
+ 1388 0018 3A       		.uleb128 0x3a
+ 1389 0019 0B       		.uleb128 0xb
+ 1390 001a 3B       		.uleb128 0x3b
+ 1391 001b 0B       		.uleb128 0xb
+ 1392 001c 49       		.uleb128 0x49
+ 1393 001d 13       		.uleb128 0x13
+ 1394 001e 00       		.byte	0
+ 1395 001f 00       		.byte	0
+ 1396 0020 03       		.uleb128 0x3
+ 1397 0021 24       		.uleb128 0x24
+ 1398 0022 00       		.byte	0
+ 1399 0023 0B       		.uleb128 0xb
+ 1400 0024 0B       		.uleb128 0xb
+ 1401 0025 3E       		.uleb128 0x3e
+ 1402 0026 0B       		.uleb128 0xb
+ 1403 0027 03       		.uleb128 0x3
+ 1404 0028 0E       		.uleb128 0xe
+ 1405 0029 00       		.byte	0
+ 1406 002a 00       		.byte	0
+ 1407 002b 04       		.uleb128 0x4
+ 1408 002c 24       		.uleb128 0x24
+ 1409 002d 00       		.byte	0
+ 1410 002e 0B       		.uleb128 0xb
+ 1411 002f 0B       		.uleb128 0xb
+ 1412 0030 3E       		.uleb128 0x3e
+ 1413 0031 0B       		.uleb128 0xb
+ 1414 0032 03       		.uleb128 0x3
+ 1415 0033 08       		.uleb128 0x8
+ 1416 0034 00       		.byte	0
+ 1417 0035 00       		.byte	0
+ 1418 0036 05       		.uleb128 0x5
+ 1419 0037 13       		.uleb128 0x13
+ 1420 0038 01       		.byte	0x1
+ 1421 0039 0B       		.uleb128 0xb
+ 1422 003a 0B       		.uleb128 0xb
+ 1423 003b 3A       		.uleb128 0x3a
+ 1424 003c 0B       		.uleb128 0xb
+ 1425 003d 3B       		.uleb128 0x3b
+ 1426 003e 0B       		.uleb128 0xb
+ 1427 003f 01       		.uleb128 0x1
+ 1428 0040 13       		.uleb128 0x13
+ 1429 0041 00       		.byte	0
+ 1430 0042 00       		.byte	0
+ 1431 0043 06       		.uleb128 0x6
+ 1432 0044 0D       		.uleb128 0xd
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 31
+
+
+ 1433 0045 00       		.byte	0
+ 1434 0046 03       		.uleb128 0x3
+ 1435 0047 08       		.uleb128 0x8
+ 1436 0048 3A       		.uleb128 0x3a
+ 1437 0049 0B       		.uleb128 0xb
+ 1438 004a 3B       		.uleb128 0x3b
+ 1439 004b 0B       		.uleb128 0xb
+ 1440 004c 49       		.uleb128 0x49
+ 1441 004d 13       		.uleb128 0x13
+ 1442 004e 38       		.uleb128 0x38
+ 1443 004f 0B       		.uleb128 0xb
+ 1444 0050 00       		.byte	0
+ 1445 0051 00       		.byte	0
+ 1446 0052 07       		.uleb128 0x7
+ 1447 0053 2E       		.uleb128 0x2e
+ 1448 0054 01       		.byte	0x1
+ 1449 0055 3F       		.uleb128 0x3f
+ 1450 0056 19       		.uleb128 0x19
+ 1451 0057 03       		.uleb128 0x3
+ 1452 0058 0E       		.uleb128 0xe
+ 1453 0059 3A       		.uleb128 0x3a
+ 1454 005a 0B       		.uleb128 0xb
+ 1455 005b 3B       		.uleb128 0x3b
+ 1456 005c 0B       		.uleb128 0xb
+ 1457 005d 27       		.uleb128 0x27
+ 1458 005e 19       		.uleb128 0x19
+ 1459 005f 49       		.uleb128 0x49
+ 1460 0060 13       		.uleb128 0x13
+ 1461 0061 11       		.uleb128 0x11
+ 1462 0062 01       		.uleb128 0x1
+ 1463 0063 12       		.uleb128 0x12
+ 1464 0064 06       		.uleb128 0x6
+ 1465 0065 40       		.uleb128 0x40
+ 1466 0066 18       		.uleb128 0x18
+ 1467 0067 9642     		.uleb128 0x2116
+ 1468 0069 19       		.uleb128 0x19
+ 1469 006a 01       		.uleb128 0x1
+ 1470 006b 13       		.uleb128 0x13
+ 1471 006c 00       		.byte	0
+ 1472 006d 00       		.byte	0
+ 1473 006e 08       		.uleb128 0x8
+ 1474 006f 05       		.uleb128 0x5
+ 1475 0070 00       		.byte	0
+ 1476 0071 03       		.uleb128 0x3
+ 1477 0072 0E       		.uleb128 0xe
+ 1478 0073 3A       		.uleb128 0x3a
+ 1479 0074 0B       		.uleb128 0xb
+ 1480 0075 3B       		.uleb128 0x3b
+ 1481 0076 0B       		.uleb128 0xb
+ 1482 0077 49       		.uleb128 0x49
+ 1483 0078 13       		.uleb128 0x13
+ 1484 0079 02       		.uleb128 0x2
+ 1485 007a 17       		.uleb128 0x17
+ 1486 007b 00       		.byte	0
+ 1487 007c 00       		.byte	0
+ 1488 007d 09       		.uleb128 0x9
+ 1489 007e 34       		.uleb128 0x34
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 32
+
+
+ 1490 007f 00       		.byte	0
+ 1491 0080 03       		.uleb128 0x3
+ 1492 0081 08       		.uleb128 0x8
+ 1493 0082 3A       		.uleb128 0x3a
+ 1494 0083 0B       		.uleb128 0xb
+ 1495 0084 3B       		.uleb128 0x3b
+ 1496 0085 0B       		.uleb128 0xb
+ 1497 0086 49       		.uleb128 0x49
+ 1498 0087 13       		.uleb128 0x13
+ 1499 0088 02       		.uleb128 0x2
+ 1500 0089 17       		.uleb128 0x17
+ 1501 008a 00       		.byte	0
+ 1502 008b 00       		.byte	0
+ 1503 008c 0A       		.uleb128 0xa
+ 1504 008d 2E       		.uleb128 0x2e
+ 1505 008e 01       		.byte	0x1
+ 1506 008f 3F       		.uleb128 0x3f
+ 1507 0090 19       		.uleb128 0x19
+ 1508 0091 03       		.uleb128 0x3
+ 1509 0092 0E       		.uleb128 0xe
+ 1510 0093 3A       		.uleb128 0x3a
+ 1511 0094 0B       		.uleb128 0xb
+ 1512 0095 3B       		.uleb128 0x3b
+ 1513 0096 0B       		.uleb128 0xb
+ 1514 0097 27       		.uleb128 0x27
+ 1515 0098 19       		.uleb128 0x19
+ 1516 0099 49       		.uleb128 0x49
+ 1517 009a 13       		.uleb128 0x13
+ 1518 009b 11       		.uleb128 0x11
+ 1519 009c 01       		.uleb128 0x1
+ 1520 009d 12       		.uleb128 0x12
+ 1521 009e 06       		.uleb128 0x6
+ 1522 009f 40       		.uleb128 0x40
+ 1523 00a0 18       		.uleb128 0x18
+ 1524 00a1 9742     		.uleb128 0x2117
+ 1525 00a3 19       		.uleb128 0x19
+ 1526 00a4 01       		.uleb128 0x1
+ 1527 00a5 13       		.uleb128 0x13
+ 1528 00a6 00       		.byte	0
+ 1529 00a7 00       		.byte	0
+ 1530 00a8 0B       		.uleb128 0xb
+ 1531 00a9 05       		.uleb128 0x5
+ 1532 00aa 00       		.byte	0
+ 1533 00ab 03       		.uleb128 0x3
+ 1534 00ac 08       		.uleb128 0x8
+ 1535 00ad 3A       		.uleb128 0x3a
+ 1536 00ae 0B       		.uleb128 0xb
+ 1537 00af 3B       		.uleb128 0x3b
+ 1538 00b0 0B       		.uleb128 0xb
+ 1539 00b1 49       		.uleb128 0x49
+ 1540 00b2 13       		.uleb128 0x13
+ 1541 00b3 02       		.uleb128 0x2
+ 1542 00b4 17       		.uleb128 0x17
+ 1543 00b5 00       		.byte	0
+ 1544 00b6 00       		.byte	0
+ 1545 00b7 0C       		.uleb128 0xc
+ 1546 00b8 05       		.uleb128 0x5
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 33
+
+
+ 1547 00b9 00       		.byte	0
+ 1548 00ba 03       		.uleb128 0x3
+ 1549 00bb 08       		.uleb128 0x8
+ 1550 00bc 3A       		.uleb128 0x3a
+ 1551 00bd 0B       		.uleb128 0xb
+ 1552 00be 3B       		.uleb128 0x3b
+ 1553 00bf 0B       		.uleb128 0xb
+ 1554 00c0 49       		.uleb128 0x49
+ 1555 00c1 13       		.uleb128 0x13
+ 1556 00c2 02       		.uleb128 0x2
+ 1557 00c3 18       		.uleb128 0x18
+ 1558 00c4 00       		.byte	0
+ 1559 00c5 00       		.byte	0
+ 1560 00c6 0D       		.uleb128 0xd
+ 1561 00c7 34       		.uleb128 0x34
+ 1562 00c8 00       		.byte	0
+ 1563 00c9 03       		.uleb128 0x3
+ 1564 00ca 0E       		.uleb128 0xe
+ 1565 00cb 3A       		.uleb128 0x3a
+ 1566 00cc 0B       		.uleb128 0xb
+ 1567 00cd 3B       		.uleb128 0x3b
+ 1568 00ce 0B       		.uleb128 0xb
+ 1569 00cf 49       		.uleb128 0x49
+ 1570 00d0 13       		.uleb128 0x13
+ 1571 00d1 02       		.uleb128 0x2
+ 1572 00d2 17       		.uleb128 0x17
+ 1573 00d3 00       		.byte	0
+ 1574 00d4 00       		.byte	0
+ 1575 00d5 0E       		.uleb128 0xe
+ 1576 00d6 34       		.uleb128 0x34
+ 1577 00d7 00       		.byte	0
+ 1578 00d8 03       		.uleb128 0x3
+ 1579 00d9 08       		.uleb128 0x8
+ 1580 00da 3A       		.uleb128 0x3a
+ 1581 00db 0B       		.uleb128 0xb
+ 1582 00dc 3B       		.uleb128 0x3b
+ 1583 00dd 0B       		.uleb128 0xb
+ 1584 00de 49       		.uleb128 0x49
+ 1585 00df 13       		.uleb128 0x13
+ 1586 00e0 02       		.uleb128 0x2
+ 1587 00e1 18       		.uleb128 0x18
+ 1588 00e2 00       		.byte	0
+ 1589 00e3 00       		.byte	0
+ 1590 00e4 0F       		.uleb128 0xf
+ 1591 00e5 2E       		.uleb128 0x2e
+ 1592 00e6 01       		.byte	0x1
+ 1593 00e7 3F       		.uleb128 0x3f
+ 1594 00e8 19       		.uleb128 0x19
+ 1595 00e9 03       		.uleb128 0x3
+ 1596 00ea 0E       		.uleb128 0xe
+ 1597 00eb 3A       		.uleb128 0x3a
+ 1598 00ec 0B       		.uleb128 0xb
+ 1599 00ed 3B       		.uleb128 0x3b
+ 1600 00ee 0B       		.uleb128 0xb
+ 1601 00ef 27       		.uleb128 0x27
+ 1602 00f0 19       		.uleb128 0x19
+ 1603 00f1 11       		.uleb128 0x11
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 34
+
+
+ 1604 00f2 01       		.uleb128 0x1
+ 1605 00f3 12       		.uleb128 0x12
+ 1606 00f4 06       		.uleb128 0x6
+ 1607 00f5 40       		.uleb128 0x40
+ 1608 00f6 18       		.uleb128 0x18
+ 1609 00f7 9742     		.uleb128 0x2117
+ 1610 00f9 19       		.uleb128 0x19
+ 1611 00fa 01       		.uleb128 0x1
+ 1612 00fb 13       		.uleb128 0x13
+ 1613 00fc 00       		.byte	0
+ 1614 00fd 00       		.byte	0
+ 1615 00fe 10       		.uleb128 0x10
+ 1616 00ff 0F       		.uleb128 0xf
+ 1617 0100 00       		.byte	0
+ 1618 0101 0B       		.uleb128 0xb
+ 1619 0102 0B       		.uleb128 0xb
+ 1620 0103 49       		.uleb128 0x49
+ 1621 0104 13       		.uleb128 0x13
+ 1622 0105 00       		.byte	0
+ 1623 0106 00       		.byte	0
+ 1624 0107 11       		.uleb128 0x11
+ 1625 0108 34       		.uleb128 0x34
+ 1626 0109 00       		.byte	0
+ 1627 010a 03       		.uleb128 0x3
+ 1628 010b 0E       		.uleb128 0xe
+ 1629 010c 3A       		.uleb128 0x3a
+ 1630 010d 0B       		.uleb128 0xb
+ 1631 010e 3B       		.uleb128 0x3b
+ 1632 010f 0B       		.uleb128 0xb
+ 1633 0110 49       		.uleb128 0x49
+ 1634 0111 13       		.uleb128 0x13
+ 1635 0112 02       		.uleb128 0x2
+ 1636 0113 18       		.uleb128 0x18
+ 1637 0114 00       		.byte	0
+ 1638 0115 00       		.byte	0
+ 1639 0116 12       		.uleb128 0x12
+ 1640 0117 05       		.uleb128 0x5
+ 1641 0118 00       		.byte	0
+ 1642 0119 03       		.uleb128 0x3
+ 1643 011a 0E       		.uleb128 0xe
+ 1644 011b 3A       		.uleb128 0x3a
+ 1645 011c 0B       		.uleb128 0xb
+ 1646 011d 3B       		.uleb128 0x3b
+ 1647 011e 0B       		.uleb128 0xb
+ 1648 011f 49       		.uleb128 0x49
+ 1649 0120 13       		.uleb128 0x13
+ 1650 0121 02       		.uleb128 0x2
+ 1651 0122 18       		.uleb128 0x18
+ 1652 0123 00       		.byte	0
+ 1653 0124 00       		.byte	0
+ 1654 0125 13       		.uleb128 0x13
+ 1655 0126 2E       		.uleb128 0x2e
+ 1656 0127 01       		.byte	0x1
+ 1657 0128 3F       		.uleb128 0x3f
+ 1658 0129 19       		.uleb128 0x19
+ 1659 012a 03       		.uleb128 0x3
+ 1660 012b 0E       		.uleb128 0xe
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 35
+
+
+ 1661 012c 3A       		.uleb128 0x3a
+ 1662 012d 0B       		.uleb128 0xb
+ 1663 012e 3B       		.uleb128 0x3b
+ 1664 012f 05       		.uleb128 0x5
+ 1665 0130 27       		.uleb128 0x27
+ 1666 0131 19       		.uleb128 0x19
+ 1667 0132 49       		.uleb128 0x49
+ 1668 0133 13       		.uleb128 0x13
+ 1669 0134 11       		.uleb128 0x11
+ 1670 0135 01       		.uleb128 0x1
+ 1671 0136 12       		.uleb128 0x12
+ 1672 0137 06       		.uleb128 0x6
+ 1673 0138 40       		.uleb128 0x40
+ 1674 0139 18       		.uleb128 0x18
+ 1675 013a 9642     		.uleb128 0x2116
+ 1676 013c 19       		.uleb128 0x19
+ 1677 013d 01       		.uleb128 0x1
+ 1678 013e 13       		.uleb128 0x13
+ 1679 013f 00       		.byte	0
+ 1680 0140 00       		.byte	0
+ 1681 0141 14       		.uleb128 0x14
+ 1682 0142 05       		.uleb128 0x5
+ 1683 0143 00       		.byte	0
+ 1684 0144 03       		.uleb128 0x3
+ 1685 0145 08       		.uleb128 0x8
+ 1686 0146 3A       		.uleb128 0x3a
+ 1687 0147 0B       		.uleb128 0xb
+ 1688 0148 3B       		.uleb128 0x3b
+ 1689 0149 05       		.uleb128 0x5
+ 1690 014a 49       		.uleb128 0x49
+ 1691 014b 13       		.uleb128 0x13
+ 1692 014c 02       		.uleb128 0x2
+ 1693 014d 17       		.uleb128 0x17
+ 1694 014e 00       		.byte	0
+ 1695 014f 00       		.byte	0
+ 1696 0150 15       		.uleb128 0x15
+ 1697 0151 34       		.uleb128 0x34
+ 1698 0152 00       		.byte	0
+ 1699 0153 03       		.uleb128 0x3
+ 1700 0154 08       		.uleb128 0x8
+ 1701 0155 3A       		.uleb128 0x3a
+ 1702 0156 0B       		.uleb128 0xb
+ 1703 0157 3B       		.uleb128 0x3b
+ 1704 0158 05       		.uleb128 0x5
+ 1705 0159 49       		.uleb128 0x49
+ 1706 015a 13       		.uleb128 0x13
+ 1707 015b 02       		.uleb128 0x2
+ 1708 015c 18       		.uleb128 0x18
+ 1709 015d 00       		.byte	0
+ 1710 015e 00       		.byte	0
+ 1711 015f 16       		.uleb128 0x16
+ 1712 0160 34       		.uleb128 0x34
+ 1713 0161 00       		.byte	0
+ 1714 0162 03       		.uleb128 0x3
+ 1715 0163 08       		.uleb128 0x8
+ 1716 0164 3A       		.uleb128 0x3a
+ 1717 0165 0B       		.uleb128 0xb
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 36
+
+
+ 1718 0166 3B       		.uleb128 0x3b
+ 1719 0167 05       		.uleb128 0x5
+ 1720 0168 49       		.uleb128 0x49
+ 1721 0169 13       		.uleb128 0x13
+ 1722 016a 02       		.uleb128 0x2
+ 1723 016b 17       		.uleb128 0x17
+ 1724 016c 00       		.byte	0
+ 1725 016d 00       		.byte	0
+ 1726 016e 17       		.uleb128 0x17
+ 1727 016f 01       		.uleb128 0x1
+ 1728 0170 01       		.byte	0x1
+ 1729 0171 49       		.uleb128 0x49
+ 1730 0172 13       		.uleb128 0x13
+ 1731 0173 01       		.uleb128 0x1
+ 1732 0174 13       		.uleb128 0x13
+ 1733 0175 00       		.byte	0
+ 1734 0176 00       		.byte	0
+ 1735 0177 18       		.uleb128 0x18
+ 1736 0178 21       		.uleb128 0x21
+ 1737 0179 00       		.byte	0
+ 1738 017a 49       		.uleb128 0x49
+ 1739 017b 13       		.uleb128 0x13
+ 1740 017c 2F       		.uleb128 0x2f
+ 1741 017d 0B       		.uleb128 0xb
+ 1742 017e 00       		.byte	0
+ 1743 017f 00       		.byte	0
+ 1744 0180 19       		.uleb128 0x19
+ 1745 0181 26       		.uleb128 0x26
+ 1746 0182 00       		.byte	0
+ 1747 0183 49       		.uleb128 0x49
+ 1748 0184 13       		.uleb128 0x13
+ 1749 0185 00       		.byte	0
+ 1750 0186 00       		.byte	0
+ 1751 0187 00       		.byte	0
+ 1752              		.section	.debug_loc,"",%progbits
+ 1753              	.Ldebug_loc0:
+ 1754              	.LLST0:
+ 1755 0000 00000000 		.4byte	.LVL0
+ 1756 0004 09000000 		.4byte	.LVL2-1
+ 1757 0008 0100     		.2byte	0x1
+ 1758 000a 50       		.byte	0x50
+ 1759 000b 09000000 		.4byte	.LVL2-1
+ 1760 000f 0C000000 		.4byte	.LVL3
+ 1761 0013 0400     		.2byte	0x4
+ 1762 0015 F3       		.byte	0xf3
+ 1763 0016 01       		.uleb128 0x1
+ 1764 0017 50       		.byte	0x50
+ 1765 0018 9F       		.byte	0x9f
+ 1766 0019 0C000000 		.4byte	.LVL3
+ 1767 001d 12000000 		.4byte	.LVL4
+ 1768 0021 0100     		.2byte	0x1
+ 1769 0023 51       		.byte	0x51
+ 1770 0024 12000000 		.4byte	.LVL4
+ 1771 0028 14000000 		.4byte	.LVL5
+ 1772 002c 0400     		.2byte	0x4
+ 1773 002e 71       		.byte	0x71
+ 1774 002f 977F     		.sleb128 -105
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 37
+
+
+ 1775 0031 9F       		.byte	0x9f
+ 1776 0032 14000000 		.4byte	.LVL5
+ 1777 0036 16000000 		.4byte	.LVL6
+ 1778 003a 0400     		.2byte	0x4
+ 1779 003c 71       		.byte	0x71
+ 1780 003d 987D     		.sleb128 -360
+ 1781 003f 9F       		.byte	0x9f
+ 1782 0040 16000000 		.4byte	.LVL6
+ 1783 0044 1C000000 		.4byte	.LVL7
+ 1784 0048 0100     		.2byte	0x1
+ 1785 004a 51       		.byte	0x51
+ 1786 004b 22000000 		.4byte	.LVL9
+ 1787 004f 32000000 		.4byte	.LVL10
+ 1788 0053 0100     		.2byte	0x1
+ 1789 0055 51       		.byte	0x51
+ 1790 0056 34000000 		.4byte	.LVL11
+ 1791 005a 36000000 		.4byte	.LVL12
+ 1792 005e 0100     		.2byte	0x1
+ 1793 0060 51       		.byte	0x51
+ 1794 0061 3C000000 		.4byte	.LVL14
+ 1795 0065 48000000 		.4byte	.LVL15
+ 1796 0069 0100     		.2byte	0x1
+ 1797 006b 51       		.byte	0x51
+ 1798 006c 48000000 		.4byte	.LVL15
+ 1799 0070 4A000000 		.4byte	.LVL16
+ 1800 0074 0100     		.2byte	0x1
+ 1801 0076 53       		.byte	0x53
+ 1802 0077 4A000000 		.4byte	.LVL16
+ 1803 007b 54000000 		.4byte	.LVL18
+ 1804 007f 0400     		.2byte	0x4
+ 1805 0081 71       		.byte	0x71
+ 1806 0082 CC7E     		.sleb128 -180
+ 1807 0084 9F       		.byte	0x9f
+ 1808 0085 54000000 		.4byte	.LVL18
+ 1809 0089 5A000000 		.4byte	.LVL19
+ 1810 008d 0100     		.2byte	0x1
+ 1811 008f 51       		.byte	0x51
+ 1812 0090 5C000000 		.4byte	.LVL20
+ 1813 0094 5E000000 		.4byte	.LVL21
+ 1814 0098 0100     		.2byte	0x1
+ 1815 009a 51       		.byte	0x51
+ 1816 009b 00000000 		.4byte	0
+ 1817 009f 00000000 		.4byte	0
+ 1818              	.LLST1:
+ 1819 00a3 02000000 		.4byte	.LVL1
+ 1820 00a7 20000000 		.4byte	.LVL8
+ 1821 00ab 0200     		.2byte	0x2
+ 1822 00ad 30       		.byte	0x30
+ 1823 00ae 9F       		.byte	0x9f
+ 1824 00af 20000000 		.4byte	.LVL8
+ 1825 00b3 22000000 		.4byte	.LVL9
+ 1826 00b7 0100     		.2byte	0x1
+ 1827 00b9 50       		.byte	0x50
+ 1828 00ba 22000000 		.4byte	.LVL9
+ 1829 00be 3A000000 		.4byte	.LVL13
+ 1830 00c2 0200     		.2byte	0x2
+ 1831 00c4 30       		.byte	0x30
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 38
+
+
+ 1832 00c5 9F       		.byte	0x9f
+ 1833 00c6 3A000000 		.4byte	.LVL13
+ 1834 00ca 3C000000 		.4byte	.LVL14
+ 1835 00ce 0100     		.2byte	0x1
+ 1836 00d0 50       		.byte	0x50
+ 1837 00d1 3C000000 		.4byte	.LVL14
+ 1838 00d5 52000000 		.4byte	.LVL17
+ 1839 00d9 0200     		.2byte	0x2
+ 1840 00db 30       		.byte	0x30
+ 1841 00dc 9F       		.byte	0x9f
+ 1842 00dd 52000000 		.4byte	.LVL17
+ 1843 00e1 54000000 		.4byte	.LVL18
+ 1844 00e5 0100     		.2byte	0x1
+ 1845 00e7 50       		.byte	0x50
+ 1846 00e8 54000000 		.4byte	.LVL18
+ 1847 00ec 66000000 		.4byte	.LVL22
+ 1848 00f0 0200     		.2byte	0x2
+ 1849 00f2 30       		.byte	0x30
+ 1850 00f3 9F       		.byte	0x9f
+ 1851 00f4 66000000 		.4byte	.LVL22
+ 1852 00f8 6C000000 		.4byte	.LFE1
+ 1853 00fc 0100     		.2byte	0x1
+ 1854 00fe 50       		.byte	0x50
+ 1855 00ff 00000000 		.4byte	0
+ 1856 0103 00000000 		.4byte	0
+ 1857              	.LLST2:
+ 1858 0107 00000000 		.4byte	.LVL23
+ 1859 010b 34000000 		.4byte	.LVL35
+ 1860 010f 0100     		.2byte	0x1
+ 1861 0111 50       		.byte	0x50
+ 1862 0112 34000000 		.4byte	.LVL35
+ 1863 0116 56000000 		.4byte	.LFE2
+ 1864 011a 0400     		.2byte	0x4
+ 1865 011c F3       		.byte	0xf3
+ 1866 011d 01       		.uleb128 0x1
+ 1867 011e 50       		.byte	0x50
+ 1868 011f 9F       		.byte	0x9f
+ 1869 0120 00000000 		.4byte	0
+ 1870 0124 00000000 		.4byte	0
+ 1871              	.LLST3:
+ 1872 0128 00000000 		.4byte	.LVL23
+ 1873 012c 2C000000 		.4byte	.LVL31
+ 1874 0130 0100     		.2byte	0x1
+ 1875 0132 51       		.byte	0x51
+ 1876 0133 2C000000 		.4byte	.LVL31
+ 1877 0137 56000000 		.4byte	.LFE2
+ 1878 013b 0400     		.2byte	0x4
+ 1879 013d F3       		.byte	0xf3
+ 1880 013e 01       		.uleb128 0x1
+ 1881 013f 51       		.byte	0x51
+ 1882 0140 9F       		.byte	0x9f
+ 1883 0141 00000000 		.4byte	0
+ 1884 0145 00000000 		.4byte	0
+ 1885              	.LLST4:
+ 1886 0149 00000000 		.4byte	.LVL23
+ 1887 014d 32000000 		.4byte	.LVL34
+ 1888 0151 0100     		.2byte	0x1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 39
+
+
+ 1889 0153 52       		.byte	0x52
+ 1890 0154 32000000 		.4byte	.LVL34
+ 1891 0158 56000000 		.4byte	.LFE2
+ 1892 015c 0400     		.2byte	0x4
+ 1893 015e F3       		.byte	0xf3
+ 1894 015f 01       		.uleb128 0x1
+ 1895 0160 52       		.byte	0x52
+ 1896 0161 9F       		.byte	0x9f
+ 1897 0162 00000000 		.4byte	0
+ 1898 0166 00000000 		.4byte	0
+ 1899              	.LLST5:
+ 1900 016a 00000000 		.4byte	.LVL23
+ 1901 016e 2A000000 		.4byte	.LVL30
+ 1902 0172 0100     		.2byte	0x1
+ 1903 0174 53       		.byte	0x53
+ 1904 0175 2A000000 		.4byte	.LVL30
+ 1905 0179 50000000 		.4byte	.LVL45
+ 1906 017d 0100     		.2byte	0x1
+ 1907 017f 58       		.byte	0x58
+ 1908 0180 50000000 		.4byte	.LVL45
+ 1909 0184 56000000 		.4byte	.LFE2
+ 1910 0188 0400     		.2byte	0x4
+ 1911 018a F3       		.byte	0xf3
+ 1912 018b 01       		.uleb128 0x1
+ 1913 018c 53       		.byte	0x53
+ 1914 018d 9F       		.byte	0x9f
+ 1915 018e 00000000 		.4byte	0
+ 1916 0192 00000000 		.4byte	0
+ 1917              	.LLST6:
+ 1918 0196 0E000000 		.4byte	.LVL24
+ 1919 019a 50000000 		.4byte	.LVL44
+ 1920 019e 0100     		.2byte	0x1
+ 1921 01a0 57       		.byte	0x57
+ 1922 01a1 50000000 		.4byte	.LVL44
+ 1923 01a5 56000000 		.4byte	.LFE2
+ 1924 01a9 0800     		.2byte	0x8
+ 1925 01ab 0A       		.byte	0xa
+ 1926 01ac 0004     		.2byte	0x400
+ 1927 01ae F3       		.byte	0xf3
+ 1928 01af 01       		.uleb128 0x1
+ 1929 01b0 50       		.byte	0x50
+ 1930 01b1 1C       		.byte	0x1c
+ 1931 01b2 9F       		.byte	0x9f
+ 1932 01b3 00000000 		.4byte	0
+ 1933 01b7 00000000 		.4byte	0
+ 1934              	.LLST7:
+ 1935 01bb 14000000 		.4byte	.LVL25
+ 1936 01bf 30000000 		.4byte	.LVL33
+ 1937 01c3 0100     		.2byte	0x1
+ 1938 01c5 55       		.byte	0x55
+ 1939 01c6 30000000 		.4byte	.LVL33
+ 1940 01ca 50000000 		.4byte	.LVL44
+ 1941 01ce 0800     		.2byte	0x8
+ 1942 01d0 77       		.byte	0x77
+ 1943 01d1 00       		.sleb128 0
+ 1944 01d2 77       		.byte	0x77
+ 1945 01d3 00       		.sleb128 0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 40
+
+
+ 1946 01d4 1E       		.byte	0x1e
+ 1947 01d5 3A       		.byte	0x3a
+ 1948 01d6 25       		.byte	0x25
+ 1949 01d7 9F       		.byte	0x9f
+ 1950 01d8 50000000 		.4byte	.LVL44
+ 1951 01dc 56000000 		.4byte	.LFE2
+ 1952 01e0 1200     		.2byte	0x12
+ 1953 01e2 0A       		.byte	0xa
+ 1954 01e3 0004     		.2byte	0x400
+ 1955 01e5 F3       		.byte	0xf3
+ 1956 01e6 01       		.uleb128 0x1
+ 1957 01e7 50       		.byte	0x50
+ 1958 01e8 1C       		.byte	0x1c
+ 1959 01e9 0A       		.byte	0xa
+ 1960 01ea 0004     		.2byte	0x400
+ 1961 01ec F3       		.byte	0xf3
+ 1962 01ed 01       		.uleb128 0x1
+ 1963 01ee 50       		.byte	0x50
+ 1964 01ef 1C       		.byte	0x1c
+ 1965 01f0 1E       		.byte	0x1e
+ 1966 01f1 3A       		.byte	0x3a
+ 1967 01f2 25       		.byte	0x25
+ 1968 01f3 9F       		.byte	0x9f
+ 1969 01f4 00000000 		.4byte	0
+ 1970 01f8 00000000 		.4byte	0
+ 1971              	.LLST8:
+ 1972 01fc 1C000000 		.4byte	.LVL26
+ 1973 0200 1E000000 		.4byte	.LVL27
+ 1974 0204 0100     		.2byte	0x1
+ 1975 0206 54       		.byte	0x54
+ 1976 0207 1E000000 		.4byte	.LVL27
+ 1977 020b 56000000 		.4byte	.LFE2
+ 1978 020f 0100     		.2byte	0x1
+ 1979 0211 5C       		.byte	0x5c
+ 1980 0212 00000000 		.4byte	0
+ 1981 0216 00000000 		.4byte	0
+ 1982              	.LLST9:
+ 1983 021a 22000000 		.4byte	.LVL28
+ 1984 021e 3A000000 		.4byte	.LVL37
+ 1985 0222 0100     		.2byte	0x1
+ 1986 0224 54       		.byte	0x54
+ 1987 0225 3A000000 		.4byte	.LVL37
+ 1988 0229 56000000 		.4byte	.LFE2
+ 1989 022d 0A00     		.2byte	0xa
+ 1990 022f F3       		.byte	0xf3
+ 1991 0230 01       		.uleb128 0x1
+ 1992 0231 50       		.byte	0x50
+ 1993 0232 F3       		.byte	0xf3
+ 1994 0233 01       		.uleb128 0x1
+ 1995 0234 50       		.byte	0x50
+ 1996 0235 1E       		.byte	0x1e
+ 1997 0236 3A       		.byte	0x3a
+ 1998 0237 25       		.byte	0x25
+ 1999 0238 9F       		.byte	0x9f
+ 2000 0239 00000000 		.4byte	0
+ 2001 023d 00000000 		.4byte	0
+ 2002              	.LLST10:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 41
+
+
+ 2003 0241 28000000 		.4byte	.LVL29
+ 2004 0245 50000000 		.4byte	.LVL43
+ 2005 0249 0100     		.2byte	0x1
+ 2006 024b 56       		.byte	0x56
+ 2007 024c 50000000 		.4byte	.LVL43
+ 2008 0250 56000000 		.4byte	.LFE2
+ 2009 0254 1000     		.2byte	0x10
+ 2010 0256 F3       		.byte	0xf3
+ 2011 0257 01       		.uleb128 0x1
+ 2012 0258 50       		.byte	0x50
+ 2013 0259 F3       		.byte	0xf3
+ 2014 025a 01       		.uleb128 0x1
+ 2015 025b 50       		.byte	0x50
+ 2016 025c 1E       		.byte	0x1e
+ 2017 025d 3A       		.byte	0x3a
+ 2018 025e 25       		.byte	0x25
+ 2019 025f F3       		.byte	0xf3
+ 2020 0260 01       		.uleb128 0x1
+ 2021 0261 50       		.byte	0x50
+ 2022 0262 1E       		.byte	0x1e
+ 2023 0263 3A       		.byte	0x3a
+ 2024 0264 25       		.byte	0x25
+ 2025 0265 9F       		.byte	0x9f
+ 2026 0266 00000000 		.4byte	0
+ 2027 026a 00000000 		.4byte	0
+ 2028              	.LLST11:
+ 2029 026e 38000000 		.4byte	.LVL36
+ 2030 0272 4C000000 		.4byte	.LVL40
+ 2031 0276 0100     		.2byte	0x1
+ 2032 0278 52       		.byte	0x52
+ 2033 0279 4C000000 		.4byte	.LVL40
+ 2034 027d 50000000 		.4byte	.LVL42
+ 2035 0281 1200     		.2byte	0x12
+ 2036 0283 F3       		.byte	0xf3
+ 2037 0284 01       		.uleb128 0x1
+ 2038 0285 52       		.byte	0x52
+ 2039 0286 75       		.byte	0x75
+ 2040 0287 00       		.sleb128 0
+ 2041 0288 1E       		.byte	0x1e
+ 2042 0289 F3       		.byte	0xf3
+ 2043 028a 01       		.uleb128 0x1
+ 2044 028b 52       		.byte	0x52
+ 2045 028c 75       		.byte	0x75
+ 2046 028d 00       		.sleb128 0
+ 2047 028e 1E       		.byte	0x1e
+ 2048 028f 31       		.byte	0x31
+ 2049 0290 24       		.byte	0x24
+ 2050 0291 22       		.byte	0x22
+ 2051 0292 44       		.byte	0x44
+ 2052 0293 25       		.byte	0x25
+ 2053 0294 9F       		.byte	0x9f
+ 2054 0295 50000000 		.4byte	.LVL42
+ 2055 0299 50000000 		.4byte	.LVL44
+ 2056 029d 2400     		.2byte	0x24
+ 2057 029f 77       		.byte	0x77
+ 2058 02a0 00       		.sleb128 0
+ 2059 02a1 77       		.byte	0x77
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 42
+
+
+ 2060 02a2 00       		.sleb128 0
+ 2061 02a3 1E       		.byte	0x1e
+ 2062 02a4 3A       		.byte	0x3a
+ 2063 02a5 25       		.byte	0x25
+ 2064 02a6 F3       		.byte	0xf3
+ 2065 02a7 01       		.uleb128 0x1
+ 2066 02a8 50       		.byte	0x50
+ 2067 02a9 1E       		.byte	0x1e
+ 2068 02aa F3       		.byte	0xf3
+ 2069 02ab 01       		.uleb128 0x1
+ 2070 02ac 52       		.byte	0x52
+ 2071 02ad 1E       		.byte	0x1e
+ 2072 02ae 77       		.byte	0x77
+ 2073 02af 00       		.sleb128 0
+ 2074 02b0 77       		.byte	0x77
+ 2075 02b1 00       		.sleb128 0
+ 2076 02b2 1E       		.byte	0x1e
+ 2077 02b3 3A       		.byte	0x3a
+ 2078 02b4 25       		.byte	0x25
+ 2079 02b5 F3       		.byte	0xf3
+ 2080 02b6 01       		.uleb128 0x1
+ 2081 02b7 50       		.byte	0x50
+ 2082 02b8 1E       		.byte	0x1e
+ 2083 02b9 F3       		.byte	0xf3
+ 2084 02ba 01       		.uleb128 0x1
+ 2085 02bb 52       		.byte	0x52
+ 2086 02bc 1E       		.byte	0x1e
+ 2087 02bd 31       		.byte	0x31
+ 2088 02be 24       		.byte	0x24
+ 2089 02bf 22       		.byte	0x22
+ 2090 02c0 44       		.byte	0x44
+ 2091 02c1 25       		.byte	0x25
+ 2092 02c2 9F       		.byte	0x9f
+ 2093 02c3 50000000 		.4byte	.LVL44
+ 2094 02c7 56000000 		.4byte	.LFE2
+ 2095 02cb 3800     		.2byte	0x38
+ 2096 02cd 0A       		.byte	0xa
+ 2097 02ce 0004     		.2byte	0x400
+ 2098 02d0 F3       		.byte	0xf3
+ 2099 02d1 01       		.uleb128 0x1
+ 2100 02d2 50       		.byte	0x50
+ 2101 02d3 1C       		.byte	0x1c
+ 2102 02d4 0A       		.byte	0xa
+ 2103 02d5 0004     		.2byte	0x400
+ 2104 02d7 F3       		.byte	0xf3
+ 2105 02d8 01       		.uleb128 0x1
+ 2106 02d9 50       		.byte	0x50
+ 2107 02da 1C       		.byte	0x1c
+ 2108 02db 1E       		.byte	0x1e
+ 2109 02dc 3A       		.byte	0x3a
+ 2110 02dd 25       		.byte	0x25
+ 2111 02de F3       		.byte	0xf3
+ 2112 02df 01       		.uleb128 0x1
+ 2113 02e0 50       		.byte	0x50
+ 2114 02e1 1E       		.byte	0x1e
+ 2115 02e2 F3       		.byte	0xf3
+ 2116 02e3 01       		.uleb128 0x1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 43
+
+
+ 2117 02e4 52       		.byte	0x52
+ 2118 02e5 1E       		.byte	0x1e
+ 2119 02e6 0A       		.byte	0xa
+ 2120 02e7 0004     		.2byte	0x400
+ 2121 02e9 F3       		.byte	0xf3
+ 2122 02ea 01       		.uleb128 0x1
+ 2123 02eb 50       		.byte	0x50
+ 2124 02ec 1C       		.byte	0x1c
+ 2125 02ed 0A       		.byte	0xa
+ 2126 02ee 0004     		.2byte	0x400
+ 2127 02f0 F3       		.byte	0xf3
+ 2128 02f1 01       		.uleb128 0x1
+ 2129 02f2 50       		.byte	0x50
+ 2130 02f3 1C       		.byte	0x1c
+ 2131 02f4 1E       		.byte	0x1e
+ 2132 02f5 3A       		.byte	0x3a
+ 2133 02f6 25       		.byte	0x25
+ 2134 02f7 F3       		.byte	0xf3
+ 2135 02f8 01       		.uleb128 0x1
+ 2136 02f9 50       		.byte	0x50
+ 2137 02fa 1E       		.byte	0x1e
+ 2138 02fb F3       		.byte	0xf3
+ 2139 02fc 01       		.uleb128 0x1
+ 2140 02fd 52       		.byte	0x52
+ 2141 02fe 1E       		.byte	0x1e
+ 2142 02ff 31       		.byte	0x31
+ 2143 0300 24       		.byte	0x24
+ 2144 0301 22       		.byte	0x22
+ 2145 0302 44       		.byte	0x44
+ 2146 0303 25       		.byte	0x25
+ 2147 0304 9F       		.byte	0x9f
+ 2148 0305 00000000 		.4byte	0
+ 2149 0309 00000000 		.4byte	0
+ 2150              	.LLST12:
+ 2151 030d 4A000000 		.4byte	.LVL39
+ 2152 0311 50000000 		.4byte	.LVL41
+ 2153 0315 0100     		.2byte	0x1
+ 2154 0317 54       		.byte	0x54
+ 2155 0318 50000000 		.4byte	.LVL41
+ 2156 031c 50000000 		.4byte	.LVL43
+ 2157 0320 0900     		.2byte	0x9
+ 2158 0322 91       		.byte	0x91
+ 2159 0323 00       		.sleb128 0
+ 2160 0324 06       		.byte	0x6
+ 2161 0325 76       		.byte	0x76
+ 2162 0326 00       		.sleb128 0
+ 2163 0327 1E       		.byte	0x1e
+ 2164 0328 3A       		.byte	0x3a
+ 2165 0329 25       		.byte	0x25
+ 2166 032a 9F       		.byte	0x9f
+ 2167 032b 50000000 		.4byte	.LVL43
+ 2168 032f 56000000 		.4byte	.LFE2
+ 2169 0333 1600     		.2byte	0x16
+ 2170 0335 F3       		.byte	0xf3
+ 2171 0336 01       		.uleb128 0x1
+ 2172 0337 50       		.byte	0x50
+ 2173 0338 F3       		.byte	0xf3
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 44
+
+
+ 2174 0339 01       		.uleb128 0x1
+ 2175 033a 50       		.byte	0x50
+ 2176 033b 1E       		.byte	0x1e
+ 2177 033c 3A       		.byte	0x3a
+ 2178 033d 25       		.byte	0x25
+ 2179 033e F3       		.byte	0xf3
+ 2180 033f 01       		.uleb128 0x1
+ 2181 0340 50       		.byte	0x50
+ 2182 0341 1E       		.byte	0x1e
+ 2183 0342 3A       		.byte	0x3a
+ 2184 0343 25       		.byte	0x25
+ 2185 0344 91       		.byte	0x91
+ 2186 0345 00       		.sleb128 0
+ 2187 0346 06       		.byte	0x6
+ 2188 0347 1E       		.byte	0x1e
+ 2189 0348 3A       		.byte	0x3a
+ 2190 0349 25       		.byte	0x25
+ 2191 034a 9F       		.byte	0x9f
+ 2192 034b 00000000 		.4byte	0
+ 2193 034f 00000000 		.4byte	0
+ 2194              	.LLST13:
+ 2195 0353 00000000 		.4byte	.LVL46
+ 2196 0357 04000000 		.4byte	.LVL47
+ 2197 035b 0100     		.2byte	0x1
+ 2198 035d 50       		.byte	0x50
+ 2199 035e 04000000 		.4byte	.LVL47
+ 2200 0362 24000000 		.4byte	.LFE3
+ 2201 0366 0100     		.2byte	0x1
+ 2202 0368 50       		.byte	0x50
+ 2203 0369 00000000 		.4byte	0
+ 2204 036d 00000000 		.4byte	0
+ 2205              	.LLST14:
+ 2206 0371 00000000 		.4byte	.LVL46
+ 2207 0375 14000000 		.4byte	.LVL51
+ 2208 0379 0100     		.2byte	0x1
+ 2209 037b 52       		.byte	0x52
+ 2210 037c 14000000 		.4byte	.LVL51
+ 2211 0380 24000000 		.4byte	.LFE3
+ 2212 0384 0100     		.2byte	0x1
+ 2213 0386 52       		.byte	0x52
+ 2214 0387 00000000 		.4byte	0
+ 2215 038b 00000000 		.4byte	0
+ 2216              	.LLST15:
+ 2217 038f 04000000 		.4byte	.LVL47
+ 2218 0393 06000000 		.4byte	.LVL48
+ 2219 0397 0200     		.2byte	0x2
+ 2220 0399 30       		.byte	0x30
+ 2221 039a 9F       		.byte	0x9f
+ 2222 039b 06000000 		.4byte	.LVL48
+ 2223 039f 1C000000 		.4byte	.LVL53
+ 2224 03a3 0100     		.2byte	0x1
+ 2225 03a5 54       		.byte	0x54
+ 2226 03a6 00000000 		.4byte	0
+ 2227 03aa 00000000 		.4byte	0
+ 2228              	.LLST16:
+ 2229 03ae 08000000 		.4byte	.LVL49
+ 2230 03b2 18000000 		.4byte	.LVL52
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 45
+
+
+ 2231 03b6 0100     		.2byte	0x1
+ 2232 03b8 53       		.byte	0x53
+ 2233 03b9 00000000 		.4byte	0
+ 2234 03bd 00000000 		.4byte	0
+ 2235              	.LLST17:
+ 2236 03c1 00000000 		.4byte	.LVL54
+ 2237 03c5 08000000 		.4byte	.LVL57
+ 2238 03c9 0100     		.2byte	0x1
+ 2239 03cb 50       		.byte	0x50
+ 2240 03cc 08000000 		.4byte	.LVL57
+ 2241 03d0 28000000 		.4byte	.LVL64
+ 2242 03d4 0100     		.2byte	0x1
+ 2243 03d6 50       		.byte	0x50
+ 2244 03d7 28000000 		.4byte	.LVL64
+ 2245 03db 2B000000 		.4byte	.LVL65-1
+ 2246 03df 0100     		.2byte	0x1
+ 2247 03e1 51       		.byte	0x51
+ 2248 03e2 34000000 		.4byte	.LVL69
+ 2249 03e6 38000000 		.4byte	.LVL70
+ 2250 03ea 0100     		.2byte	0x1
+ 2251 03ec 50       		.byte	0x50
+ 2252 03ed 00000000 		.4byte	0
+ 2253 03f1 00000000 		.4byte	0
+ 2254              	.LLST18:
+ 2255 03f5 00000000 		.4byte	.LVL54
+ 2256 03f9 18000000 		.4byte	.LVL62
+ 2257 03fd 0100     		.2byte	0x1
+ 2258 03ff 51       		.byte	0x51
+ 2259 0400 18000000 		.4byte	.LVL62
+ 2260 0404 20000000 		.4byte	.LVL63
+ 2261 0408 0100     		.2byte	0x1
+ 2262 040a 51       		.byte	0x51
+ 2263 040b 34000000 		.4byte	.LVL69
+ 2264 040f 3F000000 		.4byte	.LVL71-1
+ 2265 0413 0100     		.2byte	0x1
+ 2266 0415 51       		.byte	0x51
+ 2267 0416 00000000 		.4byte	0
+ 2268 041a 00000000 		.4byte	0
+ 2269              	.LLST19:
+ 2270 041e 02000000 		.4byte	.LVL55
+ 2271 0422 06000000 		.4byte	.LVL56
+ 2272 0426 0200     		.2byte	0x2
+ 2273 0428 30       		.byte	0x30
+ 2274 0429 9F       		.byte	0x9f
+ 2275 042a 06000000 		.4byte	.LVL56
+ 2276 042e 0C000000 		.4byte	.LVL58
+ 2277 0432 0200     		.2byte	0x2
+ 2278 0434 31       		.byte	0x31
+ 2279 0435 9F       		.byte	0x9f
+ 2280 0436 0C000000 		.4byte	.LVL58
+ 2281 043a 0E000000 		.4byte	.LVL59
+ 2282 043e 0200     		.2byte	0x2
+ 2283 0440 30       		.byte	0x30
+ 2284 0441 9F       		.byte	0x9f
+ 2285 0442 0E000000 		.4byte	.LVL59
+ 2286 0446 14000000 		.4byte	.LVL60
+ 2287 044a 0100     		.2byte	0x1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 46
+
+
+ 2288 044c 54       		.byte	0x54
+ 2289 044d 16000000 		.4byte	.LVL61
+ 2290 0451 30000000 		.4byte	.LVL67
+ 2291 0455 0100     		.2byte	0x1
+ 2292 0457 54       		.byte	0x54
+ 2293 0458 32000000 		.4byte	.LVL68
+ 2294 045c B6000000 		.4byte	.LVL99
+ 2295 0460 0100     		.2byte	0x1
+ 2296 0462 54       		.byte	0x54
+ 2297 0463 00000000 		.4byte	0
+ 2298 0467 00000000 		.4byte	0
+ 2299              	.LLST20:
+ 2300 046b 42000000 		.4byte	.LVL72
+ 2301 046f 52000000 		.4byte	.LVL76
+ 2302 0473 0200     		.2byte	0x2
+ 2303 0475 30       		.byte	0x30
+ 2304 0476 9F       		.byte	0x9f
+ 2305 0477 52000000 		.4byte	.LVL76
+ 2306 047b 58000000 		.4byte	.LVL77
+ 2307 047f 0100     		.2byte	0x1
+ 2308 0481 50       		.byte	0x50
+ 2309 0482 5A000000 		.4byte	.LVL78
+ 2310 0486 60000000 		.4byte	.LVL79
+ 2311 048a 0100     		.2byte	0x1
+ 2312 048c 50       		.byte	0x50
+ 2313 048d 62000000 		.4byte	.LVL80
+ 2314 0491 68000000 		.4byte	.LVL81
+ 2315 0495 0100     		.2byte	0x1
+ 2316 0497 50       		.byte	0x50
+ 2317 0498 6A000000 		.4byte	.LVL82
+ 2318 049c 6C000000 		.4byte	.LVL83
+ 2319 04a0 0100     		.2byte	0x1
+ 2320 04a2 50       		.byte	0x50
+ 2321 04a3 6C000000 		.4byte	.LVL83
+ 2322 04a7 76000000 		.4byte	.LVL86
+ 2323 04ab 0200     		.2byte	0x2
+ 2324 04ad 30       		.byte	0x30
+ 2325 04ae 9F       		.byte	0x9f
+ 2326 04af 76000000 		.4byte	.LVL86
+ 2327 04b3 7C000000 		.4byte	.LVL87
+ 2328 04b7 0100     		.2byte	0x1
+ 2329 04b9 50       		.byte	0x50
+ 2330 04ba 7E000000 		.4byte	.LVL88
+ 2331 04be 84000000 		.4byte	.LVL89
+ 2332 04c2 0100     		.2byte	0x1
+ 2333 04c4 50       		.byte	0x50
+ 2334 04c5 86000000 		.4byte	.LVL90
+ 2335 04c9 8C000000 		.4byte	.LVL91
+ 2336 04cd 0100     		.2byte	0x1
+ 2337 04cf 50       		.byte	0x50
+ 2338 04d0 8E000000 		.4byte	.LVL92
+ 2339 04d4 90000000 		.4byte	.LVL93
+ 2340 04d8 0100     		.2byte	0x1
+ 2341 04da 50       		.byte	0x50
+ 2342 04db 00000000 		.4byte	0
+ 2343 04df 00000000 		.4byte	0
+ 2344              	.LLST21:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 47
+
+
+ 2345 04e3 2E000000 		.4byte	.LVL66
+ 2346 04e7 34000000 		.4byte	.LVL69
+ 2347 04eb 0100     		.2byte	0x1
+ 2348 04ed 50       		.byte	0x50
+ 2349 04ee 42000000 		.4byte	.LVL72
+ 2350 04f2 4E000000 		.4byte	.LVL74
+ 2351 04f6 0100     		.2byte	0x1
+ 2352 04f8 50       		.byte	0x50
+ 2353 04f9 4E000000 		.4byte	.LVL74
+ 2354 04fd 50000000 		.4byte	.LVL75
+ 2355 0501 0100     		.2byte	0x1
+ 2356 0503 53       		.byte	0x53
+ 2357 0504 50000000 		.4byte	.LVL75
+ 2358 0508 52000000 		.4byte	.LVL76
+ 2359 050c 0100     		.2byte	0x1
+ 2360 050e 50       		.byte	0x50
+ 2361 050f 52000000 		.4byte	.LVL76
+ 2362 0513 6C000000 		.4byte	.LVL83
+ 2363 0517 0100     		.2byte	0x1
+ 2364 0519 53       		.byte	0x53
+ 2365 051a 6C000000 		.4byte	.LVL83
+ 2366 051e 72000000 		.4byte	.LVL84
+ 2367 0522 0100     		.2byte	0x1
+ 2368 0524 50       		.byte	0x50
+ 2369 0525 72000000 		.4byte	.LVL84
+ 2370 0529 74000000 		.4byte	.LVL85
+ 2371 052d 0100     		.2byte	0x1
+ 2372 052f 53       		.byte	0x53
+ 2373 0530 74000000 		.4byte	.LVL85
+ 2374 0534 76000000 		.4byte	.LVL86
+ 2375 0538 0100     		.2byte	0x1
+ 2376 053a 50       		.byte	0x50
+ 2377 053b 76000000 		.4byte	.LVL86
+ 2378 053f 90000000 		.4byte	.LVL93
+ 2379 0543 0100     		.2byte	0x1
+ 2380 0545 53       		.byte	0x53
+ 2381 0546 90000000 		.4byte	.LVL93
+ 2382 054a B6000000 		.4byte	.LVL98
+ 2383 054e 0100     		.2byte	0x1
+ 2384 0550 50       		.byte	0x50
+ 2385 0551 00000000 		.4byte	0
+ 2386 0555 00000000 		.4byte	0
+ 2387              	.LLST22:
+ 2388 0559 0E000000 		.4byte	.LVL59
+ 2389 055d 28000000 		.4byte	.LVL64
+ 2390 0561 0100     		.2byte	0x1
+ 2391 0563 50       		.byte	0x50
+ 2392 0564 28000000 		.4byte	.LVL64
+ 2393 0568 2B000000 		.4byte	.LVL65-1
+ 2394 056c 0100     		.2byte	0x1
+ 2395 056e 51       		.byte	0x51
+ 2396 056f 34000000 		.4byte	.LVL69
+ 2397 0573 38000000 		.4byte	.LVL70
+ 2398 0577 0100     		.2byte	0x1
+ 2399 0579 50       		.byte	0x50
+ 2400 057a 00000000 		.4byte	0
+ 2401 057e 00000000 		.4byte	0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 48
+
+
+ 2402              	.LLST23:
+ 2403 0582 18000000 		.4byte	.LVL62
+ 2404 0586 20000000 		.4byte	.LVL63
+ 2405 058a 0100     		.2byte	0x1
+ 2406 058c 51       		.byte	0x51
+ 2407 058d 34000000 		.4byte	.LVL69
+ 2408 0591 3F000000 		.4byte	.LVL71-1
+ 2409 0595 0100     		.2byte	0x1
+ 2410 0597 51       		.byte	0x51
+ 2411 0598 00000000 		.4byte	0
+ 2412 059c 00000000 		.4byte	0
+ 2413              	.LLST24:
+ 2414 05a0 00000000 		.4byte	.LVL100
+ 2415 05a4 14000000 		.4byte	.LVL103
+ 2416 05a8 0600     		.2byte	0x6
+ 2417 05aa 50       		.byte	0x50
+ 2418 05ab 93       		.byte	0x93
+ 2419 05ac 04       		.uleb128 0x4
+ 2420 05ad 51       		.byte	0x51
+ 2421 05ae 93       		.byte	0x93
+ 2422 05af 04       		.uleb128 0x4
+ 2423 05b0 14000000 		.4byte	.LVL103
+ 2424 05b4 38000000 		.4byte	.LVL108
+ 2425 05b8 0600     		.2byte	0x6
+ 2426 05ba 54       		.byte	0x54
+ 2427 05bb 93       		.byte	0x93
+ 2428 05bc 04       		.uleb128 0x4
+ 2429 05bd 55       		.byte	0x55
+ 2430 05be 93       		.byte	0x93
+ 2431 05bf 04       		.uleb128 0x4
+ 2432 05c0 3A000000 		.4byte	.LVL109
+ 2433 05c4 44000000 		.4byte	.LVL111
+ 2434 05c8 0600     		.2byte	0x6
+ 2435 05ca 54       		.byte	0x54
+ 2436 05cb 93       		.byte	0x93
+ 2437 05cc 04       		.uleb128 0x4
+ 2438 05cd 55       		.byte	0x55
+ 2439 05ce 93       		.byte	0x93
+ 2440 05cf 04       		.uleb128 0x4
+ 2441 05d0 00000000 		.4byte	0
+ 2442 05d4 00000000 		.4byte	0
+ 2443              	.LLST25:
+ 2444 05d8 00000000 		.4byte	.LVL100
+ 2445 05dc 0C000000 		.4byte	.LVL102
+ 2446 05e0 0100     		.2byte	0x1
+ 2447 05e2 52       		.byte	0x52
+ 2448 05e3 0C000000 		.4byte	.LVL102
+ 2449 05e7 14000000 		.4byte	.LVL103
+ 2450 05eb 0400     		.2byte	0x4
+ 2451 05ed F3       		.byte	0xf3
+ 2452 05ee 01       		.uleb128 0x1
+ 2453 05ef 52       		.byte	0x52
+ 2454 05f0 9F       		.byte	0x9f
+ 2455 05f1 14000000 		.4byte	.LVL103
+ 2456 05f5 44000000 		.4byte	.LVL112
+ 2457 05f9 0100     		.2byte	0x1
+ 2458 05fb 56       		.byte	0x56
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 49
+
+
+ 2459 05fc 00000000 		.4byte	0
+ 2460 0600 00000000 		.4byte	0
+ 2461              	.LLST26:
+ 2462 0604 0A000000 		.4byte	.LVL101
+ 2463 0608 14000000 		.4byte	.LVL103
+ 2464 060c 0A00     		.2byte	0xa
+ 2465 060e 9E       		.byte	0x9e
+ 2466 060f 08       		.uleb128 0x8
+ 2467 0610 01000000 		.8byte	0x1
+ 2467      00000000 
+ 2468 0618 14000000 		.4byte	.LVL103
+ 2469 061c 44000000 		.4byte	.LVL110
+ 2470 0620 0200     		.2byte	0x2
+ 2471 0622 7D       		.byte	0x7d
+ 2472 0623 00       		.sleb128 0
+ 2473 0624 44000000 		.4byte	.LVL110
+ 2474 0628 46000000 		.4byte	.LFE5
+ 2475 062c 0600     		.2byte	0x6
+ 2476 062e 50       		.byte	0x50
+ 2477 062f 93       		.byte	0x93
+ 2478 0630 04       		.uleb128 0x4
+ 2479 0631 51       		.byte	0x51
+ 2480 0632 93       		.byte	0x93
+ 2481 0633 04       		.uleb128 0x4
+ 2482 0634 00000000 		.4byte	0
+ 2483 0638 00000000 		.4byte	0
+ 2484              	.LLST27:
+ 2485 063c 00000000 		.4byte	.LVL113
+ 2486 0640 30000000 		.4byte	.LVL118
+ 2487 0644 0100     		.2byte	0x1
+ 2488 0646 50       		.byte	0x50
+ 2489 0647 30000000 		.4byte	.LVL118
+ 2490 064b 3A000000 		.4byte	.LVL120
+ 2491 064f 0400     		.2byte	0x4
+ 2492 0651 F3       		.byte	0xf3
+ 2493 0652 01       		.uleb128 0x1
+ 2494 0653 50       		.byte	0x50
+ 2495 0654 9F       		.byte	0x9f
+ 2496 0655 3A000000 		.4byte	.LVL120
+ 2497 0659 3C000000 		.4byte	.LVL121
+ 2498 065d 0100     		.2byte	0x1
+ 2499 065f 50       		.byte	0x50
+ 2500 0660 3C000000 		.4byte	.LVL121
+ 2501 0664 3E000000 		.4byte	.LVL122
+ 2502 0668 0400     		.2byte	0x4
+ 2503 066a F3       		.byte	0xf3
+ 2504 066b 01       		.uleb128 0x1
+ 2505 066c 50       		.byte	0x50
+ 2506 066d 9F       		.byte	0x9f
+ 2507 066e 3E000000 		.4byte	.LVL122
+ 2508 0672 40000000 		.4byte	.LVL123
+ 2509 0676 0100     		.2byte	0x1
+ 2510 0678 50       		.byte	0x50
+ 2511 0679 40000000 		.4byte	.LVL123
+ 2512 067d 42000000 		.4byte	.LVL124
+ 2513 0681 0400     		.2byte	0x4
+ 2514 0683 F3       		.byte	0xf3
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 50
+
+
+ 2515 0684 01       		.uleb128 0x1
+ 2516 0685 50       		.byte	0x50
+ 2517 0686 9F       		.byte	0x9f
+ 2518 0687 42000000 		.4byte	.LVL124
+ 2519 068b 44000000 		.4byte	.LVL125
+ 2520 068f 0100     		.2byte	0x1
+ 2521 0691 50       		.byte	0x50
+ 2522 0692 44000000 		.4byte	.LVL125
+ 2523 0696 46000000 		.4byte	.LVL126
+ 2524 069a 0400     		.2byte	0x4
+ 2525 069c F3       		.byte	0xf3
+ 2526 069d 01       		.uleb128 0x1
+ 2527 069e 50       		.byte	0x50
+ 2528 069f 9F       		.byte	0x9f
+ 2529 06a0 46000000 		.4byte	.LVL126
+ 2530 06a4 48000000 		.4byte	.LVL127
+ 2531 06a8 0100     		.2byte	0x1
+ 2532 06aa 50       		.byte	0x50
+ 2533 06ab 48000000 		.4byte	.LVL127
+ 2534 06af 4A000000 		.4byte	.LFE6
+ 2535 06b3 0400     		.2byte	0x4
+ 2536 06b5 F3       		.byte	0xf3
+ 2537 06b6 01       		.uleb128 0x1
+ 2538 06b7 50       		.byte	0x50
+ 2539 06b8 9F       		.byte	0x9f
+ 2540 06b9 00000000 		.4byte	0
+ 2541 06bd 00000000 		.4byte	0
+ 2542              	.LLST28:
+ 2543 06c1 00000000 		.4byte	.LVL113
+ 2544 06c5 2C000000 		.4byte	.LVL117
+ 2545 06c9 0100     		.2byte	0x1
+ 2546 06cb 51       		.byte	0x51
+ 2547 06cc 2C000000 		.4byte	.LVL117
+ 2548 06d0 3A000000 		.4byte	.LVL120
+ 2549 06d4 0400     		.2byte	0x4
+ 2550 06d6 F3       		.byte	0xf3
+ 2551 06d7 01       		.uleb128 0x1
+ 2552 06d8 51       		.byte	0x51
+ 2553 06d9 9F       		.byte	0x9f
+ 2554 06da 3A000000 		.4byte	.LVL120
+ 2555 06de 48000000 		.4byte	.LVL127
+ 2556 06e2 0100     		.2byte	0x1
+ 2557 06e4 51       		.byte	0x51
+ 2558 06e5 48000000 		.4byte	.LVL127
+ 2559 06e9 4A000000 		.4byte	.LFE6
+ 2560 06ed 0400     		.2byte	0x4
+ 2561 06ef F3       		.byte	0xf3
+ 2562 06f0 01       		.uleb128 0x1
+ 2563 06f1 51       		.byte	0x51
+ 2564 06f2 9F       		.byte	0x9f
+ 2565 06f3 00000000 		.4byte	0
+ 2566 06f7 00000000 		.4byte	0
+ 2567              	.LLST29:
+ 2568 06fb 00000000 		.4byte	.LVL113
+ 2569 06ff 26000000 		.4byte	.LVL114
+ 2570 0703 0100     		.2byte	0x1
+ 2571 0705 52       		.byte	0x52
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 51
+
+
+ 2572 0706 26000000 		.4byte	.LVL114
+ 2573 070a 3A000000 		.4byte	.LVL120
+ 2574 070e 0400     		.2byte	0x4
+ 2575 0710 F3       		.byte	0xf3
+ 2576 0711 01       		.uleb128 0x1
+ 2577 0712 52       		.byte	0x52
+ 2578 0713 9F       		.byte	0x9f
+ 2579 0714 3A000000 		.4byte	.LVL120
+ 2580 0718 48000000 		.4byte	.LVL127
+ 2581 071c 0100     		.2byte	0x1
+ 2582 071e 52       		.byte	0x52
+ 2583 071f 48000000 		.4byte	.LVL127
+ 2584 0723 4A000000 		.4byte	.LFE6
+ 2585 0727 0400     		.2byte	0x4
+ 2586 0729 F3       		.byte	0xf3
+ 2587 072a 01       		.uleb128 0x1
+ 2588 072b 52       		.byte	0x52
+ 2589 072c 9F       		.byte	0x9f
+ 2590 072d 00000000 		.4byte	0
+ 2591 0731 00000000 		.4byte	0
+ 2592              	.LLST30:
+ 2593 0735 00000000 		.4byte	.LVL113
+ 2594 0739 28000000 		.4byte	.LVL115
+ 2595 073d 0100     		.2byte	0x1
+ 2596 073f 53       		.byte	0x53
+ 2597 0740 28000000 		.4byte	.LVL115
+ 2598 0744 3A000000 		.4byte	.LVL120
+ 2599 0748 0100     		.2byte	0x1
+ 2600 074a 54       		.byte	0x54
+ 2601 074b 3A000000 		.4byte	.LVL120
+ 2602 074f 48000000 		.4byte	.LVL127
+ 2603 0753 0100     		.2byte	0x1
+ 2604 0755 53       		.byte	0x53
+ 2605 0756 48000000 		.4byte	.LVL127
+ 2606 075a 48000000 		.4byte	.LVL128
+ 2607 075e 0100     		.2byte	0x1
+ 2608 0760 54       		.byte	0x54
+ 2609 0761 48000000 		.4byte	.LVL128
+ 2610 0765 4A000000 		.4byte	.LFE6
+ 2611 0769 0400     		.2byte	0x4
+ 2612 076b F3       		.byte	0xf3
+ 2613 076c 01       		.uleb128 0x1
+ 2614 076d 53       		.byte	0x53
+ 2615 076e 9F       		.byte	0x9f
+ 2616 076f 00000000 		.4byte	0
+ 2617 0773 00000000 		.4byte	0
+ 2618              	.LLST31:
+ 2619 0777 26000000 		.4byte	.LVL114
+ 2620 077b 35000000 		.4byte	.LVL119-1
+ 2621 077f 0100     		.2byte	0x1
+ 2622 0781 52       		.byte	0x52
+ 2623 0782 35000000 		.4byte	.LVL119-1
+ 2624 0786 3A000000 		.4byte	.LVL120
+ 2625 078a 0800     		.2byte	0x8
+ 2626 078c F3       		.byte	0xf3
+ 2627 078d 01       		.uleb128 0x1
+ 2628 078e 52       		.byte	0x52
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 52
+
+
+ 2629 078f F3       		.byte	0xf3
+ 2630 0790 01       		.uleb128 0x1
+ 2631 0791 51       		.byte	0x51
+ 2632 0792 1C       		.byte	0x1c
+ 2633 0793 9F       		.byte	0x9f
+ 2634 0794 00000000 		.4byte	0
+ 2635 0798 00000000 		.4byte	0
+ 2636              	.LLST32:
+ 2637 079c 2A000000 		.4byte	.LVL116
+ 2638 07a0 35000000 		.4byte	.LVL119-1
+ 2639 07a4 0100     		.2byte	0x1
+ 2640 07a6 53       		.byte	0x53
+ 2641 07a7 35000000 		.4byte	.LVL119-1
+ 2642 07ab 3A000000 		.4byte	.LVL120
+ 2643 07af 0700     		.2byte	0x7
+ 2644 07b1 91       		.byte	0x91
+ 2645 07b2 00       		.sleb128 0
+ 2646 07b3 06       		.byte	0x6
+ 2647 07b4 74       		.byte	0x74
+ 2648 07b5 00       		.sleb128 0
+ 2649 07b6 1C       		.byte	0x1c
+ 2650 07b7 9F       		.byte	0x9f
+ 2651 07b8 00000000 		.4byte	0
+ 2652 07bc 00000000 		.4byte	0
+ 2653              	.LLST33:
+ 2654 07c0 00000000 		.4byte	.LVL129
+ 2655 07c4 0A000000 		.4byte	.LVL131
+ 2656 07c8 0100     		.2byte	0x1
+ 2657 07ca 50       		.byte	0x50
+ 2658 07cb 0A000000 		.4byte	.LVL131
+ 2659 07cf 20000000 		.4byte	.LVL137
+ 2660 07d3 0100     		.2byte	0x1
+ 2661 07d5 54       		.byte	0x54
+ 2662 07d6 20000000 		.4byte	.LVL137
+ 2663 07da 28000000 		.4byte	.LFE7
+ 2664 07de 0400     		.2byte	0x4
+ 2665 07e0 F3       		.byte	0xf3
+ 2666 07e1 01       		.uleb128 0x1
+ 2667 07e2 50       		.byte	0x50
+ 2668 07e3 9F       		.byte	0x9f
+ 2669 07e4 00000000 		.4byte	0
+ 2670 07e8 00000000 		.4byte	0
+ 2671              	.LLST34:
+ 2672 07ec 00000000 		.4byte	.LVL129
+ 2673 07f0 18000000 		.4byte	.LVL135
+ 2674 07f4 0100     		.2byte	0x1
+ 2675 07f6 51       		.byte	0x51
+ 2676 07f7 18000000 		.4byte	.LVL135
+ 2677 07fb 28000000 		.4byte	.LFE7
+ 2678 07ff 0400     		.2byte	0x4
+ 2679 0801 F3       		.byte	0xf3
+ 2680 0802 01       		.uleb128 0x1
+ 2681 0803 51       		.byte	0x51
+ 2682 0804 9F       		.byte	0x9f
+ 2683 0805 00000000 		.4byte	0
+ 2684 0809 00000000 		.4byte	0
+ 2685              	.LLST35:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 53
+
+
+ 2686 080d 08000000 		.4byte	.LVL130
+ 2687 0811 0C000000 		.4byte	.LVL132
+ 2688 0815 0100     		.2byte	0x1
+ 2689 0817 53       		.byte	0x53
+ 2690 0818 0C000000 		.4byte	.LVL132
+ 2691 081c 1D000000 		.4byte	.LVL136-1
+ 2692 0820 0100     		.2byte	0x1
+ 2693 0822 50       		.byte	0x50
+ 2694 0823 00000000 		.4byte	0
+ 2695 0827 00000000 		.4byte	0
+ 2696              		.section	.debug_aranges,"",%progbits
+ 2697 0000 4C000000 		.4byte	0x4c
+ 2698 0004 0200     		.2byte	0x2
+ 2699 0006 00000000 		.4byte	.Ldebug_info0
+ 2700 000a 04       		.byte	0x4
+ 2701 000b 00       		.byte	0
+ 2702 000c 0000     		.2byte	0
+ 2703 000e 0000     		.2byte	0
+ 2704 0010 00000000 		.4byte	.LFB1
+ 2705 0014 6C000000 		.4byte	.LFE1-.LFB1
+ 2706 0018 00000000 		.4byte	.LFB2
+ 2707 001c 56000000 		.4byte	.LFE2-.LFB2
+ 2708 0020 00000000 		.4byte	.LFB3
+ 2709 0024 24000000 		.4byte	.LFE3-.LFB3
+ 2710 0028 00000000 		.4byte	.LFB4
+ 2711 002c B8000000 		.4byte	.LFE4-.LFB4
+ 2712 0030 00000000 		.4byte	.LFB5
+ 2713 0034 46000000 		.4byte	.LFE5-.LFB5
+ 2714 0038 00000000 		.4byte	.LFB6
+ 2715 003c 4A000000 		.4byte	.LFE6-.LFB6
+ 2716 0040 00000000 		.4byte	.LFB7
+ 2717 0044 28000000 		.4byte	.LFE7-.LFB7
+ 2718 0048 00000000 		.4byte	0
+ 2719 004c 00000000 		.4byte	0
+ 2720              		.section	.debug_ranges,"",%progbits
+ 2721              	.Ldebug_ranges0:
+ 2722 0000 00000000 		.4byte	.LFB1
+ 2723 0004 6C000000 		.4byte	.LFE1
+ 2724 0008 00000000 		.4byte	.LFB2
+ 2725 000c 56000000 		.4byte	.LFE2
+ 2726 0010 00000000 		.4byte	.LFB3
+ 2727 0014 24000000 		.4byte	.LFE3
+ 2728 0018 00000000 		.4byte	.LFB4
+ 2729 001c B8000000 		.4byte	.LFE4
+ 2730 0020 00000000 		.4byte	.LFB5
+ 2731 0024 46000000 		.4byte	.LFE5
+ 2732 0028 00000000 		.4byte	.LFB6
+ 2733 002c 4A000000 		.4byte	.LFE6
+ 2734 0030 00000000 		.4byte	.LFB7
+ 2735 0034 28000000 		.4byte	.LFE7
+ 2736 0038 00000000 		.4byte	0
+ 2737 003c 00000000 		.4byte	0
+ 2738              		.section	.debug_line,"",%progbits
+ 2739              	.Ldebug_line0:
+ 2740 0000 9A020000 		.section	.debug_str,"MS",%progbits,1
+ 2740      02006601 
+ 2740      00000201 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 54
+
+
+ 2740      FB0E0D00 
+ 2740      01010101 
+ 2741              	.LASF38:
+ 2742 0000 72657375 		.ascii	"result\000"
+ 2742      6C7400
+ 2743              	.LASF40:
+ 2744 0007 6D696E5F 		.ascii	"min_in\000"
+ 2744      696E00
+ 2745              	.LASF34:
+ 2746 000e 636F6D70 		.ascii	"comp\000"
+ 2746      00
+ 2747              	.LASF43:
+ 2748 0013 6D61785F 		.ascii	"max_out\000"
+ 2748      6F757400 
+ 2749              	.LASF25:
+ 2750 001b 745F7265 		.ascii	"t_rem\000"
+ 2750      6D00
+ 2751              	.LASF15:
+ 2752 0021 696E7438 		.ascii	"int8_t\000"
+ 2752      5F7400
+ 2753              	.LASF4:
+ 2754 0028 73686F72 		.ascii	"short int\000"
+ 2754      7420696E 
+ 2754      7400
+ 2755              	.LASF49:
+ 2756 0032 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2756      43313120 
+ 2756      352E342E 
+ 2756      31203230 
+ 2756      31363036 
+ 2757 0065 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 2757      20726576 
+ 2757      6973696F 
+ 2757      6E203233 
+ 2757      37373135 
+ 2758 0098 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 2758      67202D66 
+ 2758      66756E63 
+ 2758      74696F6E 
+ 2758      2D736563 
+ 2759              	.LASF41:
+ 2760 00c4 6D61785F 		.ascii	"max_in\000"
+ 2760      696E00
+ 2761              	.LASF9:
+ 2762 00cb 5F5F7569 		.ascii	"__uint32_t\000"
+ 2762      6E743332 
+ 2762      5F7400
+ 2763              	.LASF5:
+ 2764 00d6 5F5F7569 		.ascii	"__uint16_t\000"
+ 2764      6E743136 
+ 2764      5F7400
+ 2765              	.LASF46:
+ 2766 00e1 6C765F72 		.ascii	"lv_rand\000"
+ 2766      616E6400 
+ 2767              	.LASF20:
+ 2768 00e9 696E7436 		.ascii	"int64_t\000"
+ 2768      345F7400 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 55
+
+
+ 2769              	.LASF50:
+ 2770 00f1 2E2E5C2E 		.ascii	"..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries"
+ 2770      2E5C2E2E 
+ 2770      5C617264 
+ 2770      75696E6F 
+ 2770      4C43445C 
+ 2771 011e 5C6C7667 		.ascii	"\\lvgl\\src\\misc\\lv_math.c\000"
+ 2771      6C5C7372 
+ 2771      635C6D69 
+ 2771      73635C6C 
+ 2771      765F6D61 
+ 2772              	.LASF36:
+ 2773 0137 6C765F70 		.ascii	"lv_pow\000"
+ 2773      6F7700
+ 2774              	.LASF12:
+ 2775 013e 6C6F6E67 		.ascii	"long long int\000"
+ 2775      206C6F6E 
+ 2775      6720696E 
+ 2775      7400
+ 2776              	.LASF8:
+ 2777 014c 6C6F6E67 		.ascii	"long int\000"
+ 2777      20696E74 
+ 2777      00
+ 2778              	.LASF11:
+ 2779 0155 5F5F696E 		.ascii	"__int64_t\000"
+ 2779      7436345F 
+ 2779      7400
+ 2780              	.LASF44:
+ 2781 015f 64656C74 		.ascii	"delta_in\000"
+ 2781      615F696E 
+ 2781      00
+ 2782              	.LASF1:
+ 2783 0168 756E7369 		.ascii	"unsigned char\000"
+ 2783      676E6564 
+ 2783      20636861 
+ 2783      7200
+ 2784              	.LASF51:
+ 2785 0176 433A5C50 		.ascii	"C:\\Projects\\PainDrain\\firmware\\PainDrain\\PainD"
+ 2785      726F6A65 
+ 2785      6374735C 
+ 2785      5061696E 
+ 2785      44726169 
+ 2786 01a4 7261696E 		.ascii	"rain.cydsn\000"
+ 2786      2E637964 
+ 2786      736E00
+ 2787              	.LASF27:
+ 2788 01af 745F7265 		.ascii	"t_rem3\000"
+ 2788      6D3300
+ 2789              	.LASF0:
+ 2790 01b6 7369676E 		.ascii	"signed char\000"
+ 2790      65642063 
+ 2790      68617200 
+ 2791              	.LASF13:
+ 2792 01c2 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2792      206C6F6E 
+ 2792      6720756E 
+ 2792      7369676E 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 56
+
+
+ 2792      65642069 
+ 2793              	.LASF19:
+ 2794 01d9 75696E74 		.ascii	"uint32_t\000"
+ 2794      33325F74 
+ 2794      00
+ 2795              	.LASF14:
+ 2796 01e2 756E7369 		.ascii	"unsigned int\000"
+ 2796      676E6564 
+ 2796      20696E74 
+ 2796      00
+ 2797              	.LASF22:
+ 2798 01ef 6C765F74 		.ascii	"lv_trigo_sin\000"
+ 2798      7269676F 
+ 2798      5F73696E 
+ 2798      00
+ 2799              	.LASF17:
+ 2800 01fc 75696E74 		.ascii	"uint16_t\000"
+ 2800      31365F74 
+ 2800      00
+ 2801              	.LASF31:
+ 2802 0205 6C765F61 		.ascii	"lv_atan2\000"
+ 2802      74616E32 
+ 2802      00
+ 2803              	.LASF6:
+ 2804 020e 73686F72 		.ascii	"short unsigned int\000"
+ 2804      7420756E 
+ 2804      7369676E 
+ 2804      65642069 
+ 2804      6E7400
+ 2805              	.LASF2:
+ 2806 0221 5F5F696E 		.ascii	"__int8_t\000"
+ 2806      74385F74 
+ 2806      00
+ 2807              	.LASF18:
+ 2808 022a 696E7433 		.ascii	"int32_t\000"
+ 2808      325F7400 
+ 2809              	.LASF48:
+ 2810 0232 73696E30 		.ascii	"sin0_90_table\000"
+ 2810      5F39305F 
+ 2810      7461626C 
+ 2810      6500
+ 2811              	.LASF16:
+ 2812 0240 696E7431 		.ascii	"int16_t\000"
+ 2812      365F7400 
+ 2813              	.LASF21:
+ 2814 0248 6C765F73 		.ascii	"lv_sqrt_res_t\000"
+ 2814      7172745F 
+ 2814      7265735F 
+ 2814      7400
+ 2815              	.LASF45:
+ 2816 0256 64656C74 		.ascii	"delta_out\000"
+ 2816      615F6F75 
+ 2816      7400
+ 2817              	.LASF26:
+ 2818 0260 745F7265 		.ascii	"t_rem2\000"
+ 2818      6D3200
+ 2819              	.LASF52:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\ccPicfbF.s 			page 57
+
+
+ 2820 0267 6C765F73 		.ascii	"lv_sqrt\000"
+ 2820      71727400 
+ 2821              	.LASF10:
+ 2822 026f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2822      20756E73 
+ 2822      69676E65 
+ 2822      6420696E 
+ 2822      7400
+ 2823              	.LASF33:
+ 2824 0281 74656D70 		.ascii	"tempdegree\000"
+ 2824      64656772 
+ 2824      656500
+ 2825              	.LASF7:
+ 2826 028c 5F5F696E 		.ascii	"__int32_t\000"
+ 2826      7433325F 
+ 2826      7400
+ 2827              	.LASF39:
+ 2828 0296 6C765F6D 		.ascii	"lv_map\000"
+ 2828      617000
+ 2829              	.LASF3:
+ 2830 029d 5F5F696E 		.ascii	"__int16_t\000"
+ 2830      7431365F 
+ 2830      7400
+ 2831              	.LASF32:
+ 2832 02a7 6E656766 		.ascii	"negflag\000"
+ 2832      6C616700 
+ 2833              	.LASF47:
+ 2834 02af 73697A65 		.ascii	"sizetype\000"
+ 2834      74797065 
+ 2834      00
+ 2835              	.LASF24:
+ 2836 02b8 616E676C 		.ascii	"angle\000"
+ 2836      6500
+ 2837              	.LASF23:
+ 2838 02be 6C765F62 		.ascii	"lv_bezier3\000"
+ 2838      657A6965 
+ 2838      723300
+ 2839              	.LASF35:
+ 2840 02c9 64656772 		.ascii	"degree\000"
+ 2840      656500
+ 2841              	.LASF37:
+ 2842 02d0 62617365 		.ascii	"base\000"
+ 2842      00
+ 2843              	.LASF30:
+ 2844 02d5 74726961 		.ascii	"trial\000"
+ 2844      6C00
+ 2845              	.LASF29:
+ 2846 02db 726F6F74 		.ascii	"root\000"
+ 2846      00
+ 2847              	.LASF42:
+ 2848 02e0 6D696E5F 		.ascii	"min_out\000"
+ 2848      6F757400 
+ 2849              	.LASF28:
+ 2850 02e8 6D61736B 		.ascii	"mask\000"
+ 2850      00
+ 2851              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
