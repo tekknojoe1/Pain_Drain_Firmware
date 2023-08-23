@@ -13307,9 +13307,9 @@
 <dependency_info name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM4" xml_contents_version="2">
 <CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021 type_name="CyDesigner.Common.Base.CyFileDeps" version="1">
 <file name=".\CortexM4\ARM_GCC_541\Debug\ui_comp_hook.o">
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\components\ui_comp_hook.c" />
+<dep name=".\ui\components\ui_comp_hook.c" />
 </file>
-<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\components\ui_comp_hook.c" />
+<file name=".\ui\components\ui_comp_hook.c" />
 <file name=".\CortexM4\ARM_GCC_541\Debug\ui_img_fire_icon_small_png.o">
 <dep name=".\lvgl-release-v8.3\lvgl.h" />
 <dep name=".\lvgl-release-v8.3\src\core\lv_disp.h" />
@@ -13347,11 +13347,11 @@
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_switch.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_table.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_textarea.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\images\ui_img_fire_icon_small_png.c" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_events.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_helpers.h" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\images\ui_img_fire_icon_small_png.c" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\ui_events.h" />
+<dep name=".\ui\ui_helpers.h" />
 </file>
 <file name=".\lvgl-release-v8.3\lvgl.h" />
 <file name=".\lvgl-release-v8.3\src\core\lv_disp.h" />
@@ -13389,10 +13389,10 @@
 <file name=".\lvgl-release-v8.3\src\widgets\lv_switch.h" />
 <file name=".\lvgl-release-v8.3\src\widgets\lv_table.h" />
 <file name=".\lvgl-release-v8.3\src\widgets\lv_textarea.h" />
-<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\images\ui_img_fire_icon_small_png.c" />
-<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_events.h" />
-<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_helpers.h" />
+<file name=".\ui\ui.h" />
+<file name=".\ui\images\ui_img_fire_icon_small_png.c" />
+<file name=".\ui\ui_events.h" />
+<file name=".\ui\ui_helpers.h" />
 <file name=".\CortexM4\ARM_GCC_541\Debug\ui_img_paindraindevicewithoutbackgroundresized_png.o">
 <dep name=".\lvgl-release-v8.3\lvgl.h" />
 <dep name=".\lvgl-release-v8.3\src\core\lv_disp.h" />
@@ -13430,13 +13430,13 @@
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_switch.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_table.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_textarea.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\images\ui_img_paindraindevicewithoutbackgroundresized_png.c" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_events.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_helpers.h" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\images\ui_img_paindraindevicewithoutbackgroundresized_png.c" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\ui_events.h" />
+<dep name=".\ui\ui_helpers.h" />
 </file>
-<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\images\ui_img_paindraindevicewithoutbackgroundresized_png.c" />
+<file name=".\ui\images\ui_img_paindraindevicewithoutbackgroundresized_png.c" />
 <file name=".\CortexM4\ARM_GCC_541\Debug\ui_img_snowflake_icon_small_png.o">
 <dep name=".\lvgl-release-v8.3\lvgl.h" />
 <dep name=".\lvgl-release-v8.3\src\core\lv_disp.h" />
@@ -13474,13 +13474,13 @@
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_switch.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_table.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_textarea.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\images\ui_img_snowflake_icon_small_png.c" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_events.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_helpers.h" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\images\ui_img_snowflake_icon_small_png.c" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\ui_events.h" />
+<dep name=".\ui\ui_helpers.h" />
 </file>
-<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\images\ui_img_snowflake_icon_small_png.c" />
+<file name=".\ui\images\ui_img_snowflake_icon_small_png.c" />
 <file name=".\CortexM4\ARM_GCC_541\Debug\ui_Brigtness_screen.o">
 <dep name=".\lvgl-release-v8.3\lvgl.h" />
 <dep name=".\lvgl-release-v8.3\src\core\lv_disp.h" />
@@ -13518,13 +13518,13 @@
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_switch.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_table.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_textarea.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Brigtness_screen.c" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_events.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_helpers.h" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\screens\ui_Brigtness_screen.c" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\ui_events.h" />
+<dep name=".\ui\ui_helpers.h" />
 </file>
-<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Brigtness_screen.c" />
+<file name=".\ui\screens\ui_Brigtness_screen.c" />
 <file name=".\CortexM4\ARM_GCC_541\Debug\ui_Presets_screen.o">
 <dep name=".\lvgl-release-v8.3\lvgl.h" />
 <dep name=".\lvgl-release-v8.3\src\core\lv_disp.h" />
@@ -13562,13 +13562,13 @@
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_switch.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_table.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_textarea.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Presets_screen.c" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_events.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_helpers.h" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\screens\ui_Presets_screen.c" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\ui_events.h" />
+<dep name=".\ui\ui_helpers.h" />
 </file>
-<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Presets_screen.c" />
+<file name=".\ui\screens\ui_Presets_screen.c" />
 <file name=".\CortexM4\ARM_GCC_541\Debug\ui_Splash_screen.o">
 <dep name=".\lvgl-release-v8.3\lvgl.h" />
 <dep name=".\lvgl-release-v8.3\src\core\lv_disp.h" />
@@ -13606,13 +13606,13 @@
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_switch.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_table.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_textarea.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Splash_screen.c" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_events.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_helpers.h" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\screens\ui_Splash_screen.c" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\ui_events.h" />
+<dep name=".\ui\ui_helpers.h" />
 </file>
-<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Splash_screen.c" />
+<file name=".\ui\screens\ui_Splash_screen.c" />
 <file name=".\CortexM4\ARM_GCC_541\Debug\ui_TENS_screen.o">
 <dep name=".\lvgl-release-v8.3\lvgl.h" />
 <dep name=".\lvgl-release-v8.3\src\core\lv_disp.h" />
@@ -13650,13 +13650,13 @@
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_switch.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_table.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_textarea.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_TENS_screen.c" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_events.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_helpers.h" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\screens\ui_TENS_screen.c" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\ui_events.h" />
+<dep name=".\ui\ui_helpers.h" />
 </file>
-<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_TENS_screen.c" />
+<file name=".\ui\screens\ui_TENS_screen.c" />
 <file name=".\CortexM4\ARM_GCC_541\Debug\ui_Temperature_screen.o">
 <dep name=".\lvgl-release-v8.3\lvgl.h" />
 <dep name=".\lvgl-release-v8.3\src\core\lv_disp.h" />
@@ -13694,13 +13694,13 @@
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_switch.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_table.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_textarea.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Temperature_screen.c" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_events.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_helpers.h" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\screens\ui_Temperature_screen.c" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\ui_events.h" />
+<dep name=".\ui\ui_helpers.h" />
 </file>
-<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Temperature_screen.c" />
+<file name=".\ui\screens\ui_Temperature_screen.c" />
 <file name=".\CortexM4\ARM_GCC_541\Debug\ui_Vibration_screen.o">
 <dep name=".\lvgl-release-v8.3\lvgl.h" />
 <dep name=".\lvgl-release-v8.3\src\core\lv_disp.h" />
@@ -13738,13 +13738,13 @@
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_switch.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_table.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_textarea.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Vibration_screen.c" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_events.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_helpers.h" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\screens\ui_Vibration_screen.c" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\ui_events.h" />
+<dep name=".\ui\ui_helpers.h" />
 </file>
-<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Vibration_screen.c" />
+<file name=".\ui\screens\ui_Vibration_screen.c" />
 <file name=".\CortexM4\ARM_GCC_541\Debug\ui.o">
 <dep name=".\lvgl-release-v8.3\lvgl.h" />
 <dep name=".\lvgl-release-v8.3\src\core\lv_disp.h" />
@@ -13782,12 +13782,12 @@
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_switch.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_table.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_textarea.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.c" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_events.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_helpers.h" />
+<dep name=".\ui\ui.c" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\ui_events.h" />
+<dep name=".\ui\ui_helpers.h" />
 </file>
-<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.c" />
+<file name=".\ui\ui.c" />
 <file name=".\CortexM4\ARM_GCC_541\Debug\ui_helpers.o">
 <dep name=".\lvgl-release-v8.3\lvgl.h" />
 <dep name=".\lvgl-release-v8.3\src\core\lv_disp.h" />
@@ -13825,11 +13825,26 @@
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_switch.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_table.h" />
 <dep name=".\lvgl-release-v8.3\src\widgets\lv_textarea.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_events.h" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_helpers.c" />
-<dep name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_helpers.h" />
+<dep name=".\ui\ui.h" />
+<dep name=".\ui\ui_events.h" />
+<dep name=".\ui\ui_helpers.c" />
+<dep name=".\ui\ui_helpers.h" />
 </file>
+<file name=".\ui\ui_helpers.c" />
+<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\components\ui_comp_hook.c" />
+<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h" />
+<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\images\ui_img_fire_icon_small_png.c" />
+<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_events.h" />
+<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_helpers.h" />
+<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\images\ui_img_paindraindevicewithoutbackgroundresized_png.c" />
+<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\images\ui_img_snowflake_icon_small_png.c" />
+<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Brigtness_screen.c" />
+<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Presets_screen.c" />
+<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Splash_screen.c" />
+<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_TENS_screen.c" />
+<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Temperature_screen.c" />
+<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Vibration_screen.c" />
+<file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.c" />
 <file name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_helpers.c" />
 <file name=".\CortexM4\ARM_GCC_541\Debug\ADC.o">
 <dep name=".\Generated_Source\PSoC6\pdl\cmsis\include\cmsis_armcc.h" />
@@ -30519,6 +30534,18 @@
 <name_val_pair name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Vibration_screen.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_helpers.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="ui\components\ui_comp_hook.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="ui\images\ui_img_fire_icon_small_png.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="ui\images\ui_img_paindraindevicewithoutbackgroundresized_png.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="ui\images\ui_img_snowflake_icon_small_png.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="ui\screens\ui_Brigtness_screen.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="ui\screens\ui_Presets_screen.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="ui\screens\ui_Splash_screen.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="ui\screens\ui_Temperature_screen.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="ui\screens\ui_TENS_screen.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="ui\screens\ui_Vibration_screen.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="ui\ui.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="ui\ui_helpers.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 </name>
 </genericCmdLineData>
 <codeGenCmdLineTag v="-.appdatapath &quot;C:\Users\haske\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4&quot; -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\PainDrain.cyprj -d CYBLE-416045-02 -s C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\Generated_Source\PSoC6 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE" />
@@ -30528,7 +30555,7 @@
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
 <link_deps_times>
 <name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM0p" v="133372939557200035" />
-<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM4" v="133372950045272371" />
+<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM4" v="133372977130034857" />
 </link_deps_times>
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>

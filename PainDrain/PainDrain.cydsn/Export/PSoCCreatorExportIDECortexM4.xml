@@ -46,6 +46,7 @@
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">cy8c6xx7_cm4_dual.ld</File>
           <File BuildType="BUILD" Toolchain="ARM IAR Generic">cy8c6xx7_cm4_dual.icf</File>
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">cy8c6xx7_cm4_dual.scat</File>
+          <File BuildType="BUILD" Toolchain="">lv_conf.h</File>
           <File BuildType="BUILD" Toolchain="">host_main.c</File>
           <File BuildType="BUILD" Toolchain="">ias.c</File>
           <File BuildType="BUILD" Toolchain="">user_interface.c</File>
@@ -78,38 +79,33 @@
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn">
         <Files Root="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn">
-          <File BuildType="BUILD" Toolchain="">..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\components\ui_comp_hook.c</File>
+          <File BuildType="BUILD" Toolchain="">ui\components\ui_comp_hook.c</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn">
         <Files Root="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn">
-          <File BuildType="BUILD" Toolchain="">..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\images\ui_img_fire_icon_small_png.c</File>
-          <File BuildType="BUILD" Toolchain="">..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\images\ui_img_paindraindevicewithoutbackgroundresized_png.c</File>
-          <File BuildType="BUILD" Toolchain="">..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\images\ui_img_snowflake_icon_small_png.c</File>
+          <File BuildType="BUILD" Toolchain="">ui\images\ui_img_fire_icon_small_png.c</File>
+          <File BuildType="BUILD" Toolchain="">ui\images\ui_img_paindraindevicewithoutbackgroundresized_png.c</File>
+          <File BuildType="BUILD" Toolchain="">ui\images\ui_img_snowflake_icon_small_png.c</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn">
         <Files Root="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn">
-          <File BuildType="BUILD" Toolchain="">..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Brigtness_screen.c</File>
-          <File BuildType="BUILD" Toolchain="">..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Presets_screen.c</File>
-          <File BuildType="BUILD" Toolchain="">..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Splash_screen.c</File>
-          <File BuildType="BUILD" Toolchain="">..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Temperature_screen.c</File>
-          <File BuildType="BUILD" Toolchain="">..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_TENS_screen.c</File>
-          <File BuildType="BUILD" Toolchain="">..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\screens\ui_Vibration_screen.c</File>
+          <File BuildType="BUILD" Toolchain="">ui\screens\ui_Brigtness_screen.c</File>
+          <File BuildType="BUILD" Toolchain="">ui\screens\ui_Presets_screen.c</File>
+          <File BuildType="BUILD" Toolchain="">ui\screens\ui_Splash_screen.c</File>
+          <File BuildType="BUILD" Toolchain="">ui\screens\ui_Temperature_screen.c</File>
+          <File BuildType="BUILD" Toolchain="">ui\screens\ui_TENS_screen.c</File>
+          <File BuildType="BUILD" Toolchain="">ui\screens\ui_Vibration_screen.c</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn">
         <Files Root="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn">
-          <File BuildType="BUILD" Toolchain="">..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.c</File>
-          <File BuildType="BUILD" Toolchain="">..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui.h</File>
-          <File BuildType="BUILD" Toolchain="">..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_events.h</File>
-          <File BuildType="BUILD" Toolchain="">..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_helpers.c</File>
-          <File BuildType="BUILD" Toolchain="">..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\src\ui_helpers.h</File>
-        </Files>
-      </Folder>
-      <Folder BuildType="STRICT" Path="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn">
-        <Files Root="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn">
-          <File BuildType="BUILD" Toolchain="">..\..\..\arduinoLCD\test\Pain Drain\libraries\ui\ui.h</File>
+          <File BuildType="BUILD" Toolchain="">ui\ui.c</File>
+          <File BuildType="BUILD" Toolchain="">ui\ui.h</File>
+          <File BuildType="BUILD" Toolchain="">ui\ui_events.h</File>
+          <File BuildType="BUILD" Toolchain="">ui\ui_helpers.c</File>
+          <File BuildType="BUILD" Toolchain="">ui\ui_helpers.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\Generated_Source\PSoC6">
