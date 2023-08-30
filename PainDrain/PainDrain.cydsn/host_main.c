@@ -59,6 +59,7 @@ static int loopcount = 0;
 
 uint8 newBatteryLevel = 0;
 uint8 val;
+uint32_t pinReadValue;
 /*******************************************************************************
 * Function Name: AppCallBack
 ********************************************************************************
@@ -214,6 +215,7 @@ void AppCallBack(uint32 event, void *eventParam)
             {
                 // Update your local battery level value (example: increment by 1)
                 newBatteryLevel++;
+                
                 DBG_PRINTF("entered read case\r\n");
                 // Provide the updated value as the response to the read request
                 handleValuePair.value.val = &newBatteryLevel;
@@ -244,6 +246,9 @@ void AppCallBack(uint32 event, void *eventParam)
                     // Handle error
                     DBG_PRINTF("Read error\r\n");
                 }
+                pinReadValue = Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM);
+                DBG_PRINTF("charge status: %d\r\n", pinReadValue);
+                
                 DBG_PRINTF("entered read case custom service\r\n");
 
                 
@@ -278,7 +283,7 @@ void AppCallBack(uint32 event, void *eventParam)
                     if(receivedCommand[0] == 't')
                     {
                         int temperatureValue = atoi(&receivedCommand[1]); // Convert the numeric part after 't'
-                        //DBG_PRINTF("t value: %d\r\n", temperatureValue);
+                        DBG_PRINTF("t value: %d\r\n", temperatureValue);
                         set_temp(temperatureValue);
                         //DBG_PRINTF("t value: %d \r\n",writeReq->handleValPair.value.val[1]);
                     }
@@ -338,7 +343,8 @@ void LowPowerImplementation(void)
 *
 *******************************************************************************/
 int HostMain(void)
-{   
+{  
+    
     
     /* Initialization the user interface: LEDs, SW2, etc.  */
     InitUserInterface();
@@ -352,6 +358,8 @@ int HostMain(void)
     PWM_FAN_Start();
     //PWM_VIBE_Start();
     PWM_TENS_Start();
+    PWM_PEL1_Start();
+    PWM_PEL2_Start();
     
     power_init();
     

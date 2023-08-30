@@ -9,7 +9,10 @@
  *
  * ========================================
 */
-void set_temp(int temperatureValue);
+#ifndef TEMP_H
+#define TEMP_H
 
+void set_temp(int value);
 
+#endif
 /* [] END OF FILE */
