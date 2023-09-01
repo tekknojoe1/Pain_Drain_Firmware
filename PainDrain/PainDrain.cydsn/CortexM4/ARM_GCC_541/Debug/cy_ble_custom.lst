@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
+>>>>>>> Isac
 
 
    1              		.syntax unified
@@ -58,7 +62,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
   28:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c **** 
   29:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c **** /***************************************
   30:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c **** * Private Function Prototypes
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 2
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 2
+>>>>>>> Isac
 
 
   31:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c **** ***************************************/
@@ -118,7 +126,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
   85:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                 {
   86:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                     if(cy_ble_serverInfo[discIdx][CY_BLE_SRVI_CUSTOMS + locServIdx].range.startHand
   87:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                        CY_BLE_GATT_INVALID_ATTR_HANDLE_VALUE)
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 3
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 3
+>>>>>>> Isac
 
 
   88:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                     {
@@ -178,7 +190,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  142:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c **** static void Cy_BLE_CUSTOMC_DiscoverServiceEventHandler(const cy_stc_ble_disc_srv_info_t *discServIn
  143:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c **** {
  144:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****     uint32_t discIdx = Cy_BLE_GetDiscoveryIdx(discServInfo->connHandle);
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 4
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 4
+>>>>>>> Isac
 
 
  145:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****     uint32_t fFlag = 0u;
@@ -238,7 +254,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  199:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****     uint32_t locReqHandle = 0u;
  200:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****     uint32_t locCharIndex;
  201:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 5
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 5
+>>>>>>> Isac
 
 
  202:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****     if((cy_ble_discovery[discIdx].servCount >= (uint32_t)CY_BLE_SRVI_CUSTOMS) &&
@@ -298,7 +318,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  256:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c **** 
  257:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                 /* Init the service index of the discovered characteristic */
  258:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                 discoveryLastServ[discIdx] = servIdx;
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 6
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 6
+>>>>>>> Isac
 
 
  259:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                 locReqHandle = 1u;
@@ -358,7 +382,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  313:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                 charRangeInfo->range.startHandle = cy_ble_customConfigPtr->customc[servIdx].customS
  314:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                                                     customServCharHandle[discIdx] + 1u;
  315:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                 charRangeInfo->range.endHandle = cy_ble_customConfigPtr->customc[servIdx].customSer
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 7
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 7
+>>>>>>> Isac
 
 
  316:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                                                   customServCharEndHandle[discIdx];
@@ -418,7 +446,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  370:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                     fFlag = 1u;
  371:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                 }
  372:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****             }
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 8
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 8
+>>>>>>> Isac
 
 
  373:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c **** 
@@ -478,7 +510,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  421:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****         switch((cy_en_ble_evt_t)eventCode)
  422:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****         {
  423:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****         #ifdef CY_BLE_CUSTOM_CLIENT
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 9
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 9
+>>>>>>> Isac
 
 
  424:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****             /* Discovery events */
@@ -538,7 +574,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  478:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                     (void)memcpy((void*)discServ128Info.uuid.uuid128.value, (void*)eventParamCast->
  479:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                                  (uint32_t)eventParamCast->value.len);
  480:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                     Cy_BLE_CUSTOMC_DiscoverServiceEventHandler(&locDiscServInfo);
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 10
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 10
+>>>>>>> Isac
 
 
  481:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c **** 
@@ -598,7 +638,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
   47              	Cy_BLE_CUSTOM_Init:
   48              	.LFB255:
   61:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****     cy_en_ble_api_result_t apiResult;
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 11
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 11
+>>>>>>> Isac
 
 
   49              		.loc 1 61 0
@@ -658,7 +702,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
   98              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
   99              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
  100              		.file 4 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/device/cy_device.h"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 12
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 12
+>>>>>>> Isac
 
 
  101              		.file 5 "Generated_Source\\PSoC6\\pdl\\middleware\\ble\\cy_ble_stack.h"
@@ -678,7 +726,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  115 000c 93210000 		.4byte	.LASF644
  116 0010 0C       		.byte	0xc
  117 0011 4D1B0000 		.4byte	.LASF645
- 118 0015 34440000 		.4byte	.LASF646
+ 118 0015 E92B0000 		.4byte	.LASF646
  119 0019 00000000 		.4byte	.Ldebug_ranges0+0
  120 001d 00000000 		.4byte	0
  121 0021 00000000 		.4byte	.Ldebug_line0
@@ -689,7 +737,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  126 002c 03       		.uleb128 0x3
  127 002d 04       		.byte	0x4
  128 002e 07       		.byte	0x7
- 129 002f E02D0000 		.4byte	.LASF0
+ 129 002f 332E0000 		.4byte	.LASF0
  130 0033 03       		.uleb128 0x3
  131 0034 08       		.byte	0x8
  132 0035 05       		.byte	0x5
@@ -697,7 +745,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  134 003a 03       		.uleb128 0x3
  135 003b 08       		.byte	0x8
  136 003c 04       		.byte	0x4
- 137 003d A0330000 		.4byte	.LASF2
+ 137 003d F3330000 		.4byte	.LASF2
  138 0041 03       		.uleb128 0x3
  139 0042 01       		.byte	0x1
  140 0043 06       		.byte	0x6
@@ -712,17 +760,21 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  149 0055 08       		.byte	0x8
  150 0056 A4120000 		.4byte	.LASF4
  151 005a 04       		.uleb128 0x4
- 152 005b 4B3B0000 		.4byte	.LASF6
+ 152 005b 9E3B0000 		.4byte	.LASF6
  153 005f 02       		.byte	0x2
  154 0060 29       		.byte	0x29
  155 0061 65000000 		.4byte	0x65
  156 0065 03       		.uleb128 0x3
  157 0066 02       		.byte	0x2
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 13
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 13
+>>>>>>> Isac
 
 
  158 0067 05       		.byte	0x5
- 159 0068 71400000 		.4byte	.LASF7
+ 159 0068 C4400000 		.4byte	.LASF7
  160 006c 04       		.uleb128 0x4
  161 006d 87160000 		.4byte	.LASF8
  162 0071 02       		.byte	0x2
@@ -731,9 +783,9 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  165 0077 03       		.uleb128 0x3
  166 0078 02       		.byte	0x2
  167 0079 07       		.byte	0x7
- 168 007a 7D480000 		.4byte	.LASF9
+ 168 007a 97480000 		.4byte	.LASF9
  169 007e 04       		.uleb128 0x4
- 170 007f 5C4A0000 		.4byte	.LASF10
+ 170 007f 764A0000 		.4byte	.LASF10
  171 0083 02       		.byte	0x2
  172 0084 3F       		.byte	0x3f
  173 0085 89000000 		.4byte	0x89
@@ -770,25 +822,29 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  204 00bf 18       		.byte	0x18
  205 00c0 48000000 		.4byte	0x48
  206 00c4 04       		.uleb128 0x4
- 207 00c5 ED410000 		.4byte	.LASF18
+ 207 00c5 40420000 		.4byte	.LASF18
  208 00c9 03       		.byte	0x3
  209 00ca 20       		.byte	0x20
  210 00cb 5A000000 		.4byte	0x5a
  211 00cf 04       		.uleb128 0x4
- 212 00d0 60370000 		.4byte	.LASF19
+ 212 00d0 B3370000 		.4byte	.LASF19
  213 00d4 03       		.byte	0x3
  214 00d5 24       		.byte	0x24
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 14
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 14
+>>>>>>> Isac
 
 
  215 00d6 6C000000 		.4byte	0x6c
  216 00da 04       		.uleb128 0x4
- 217 00db 3A3A0000 		.4byte	.LASF20
+ 217 00db 8D3A0000 		.4byte	.LASF20
  218 00df 03       		.byte	0x3
  219 00e0 2C       		.byte	0x2c
  220 00e1 7E000000 		.4byte	0x7e
  221 00e5 04       		.uleb128 0x4
- 222 00e6 4D460000 		.4byte	.LASF21
+ 222 00e6 67460000 		.4byte	.LASF21
  223 00ea 03       		.byte	0x3
  224 00eb 30       		.byte	0x30
  225 00ec 90000000 		.4byte	0x90
@@ -834,11 +890,15 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  265 013b E5000000 		.4byte	0xe5
  266 013f 14       		.byte	0x14
  267 0140 07       		.uleb128 0x7
- 268 0141 F13C0000 		.4byte	.LASF28
+ 268 0141 443D0000 		.4byte	.LASF28
  269 0145 04       		.byte	0x4
  270 0146 3D       		.byte	0x3d
  271 0147 E5000000 		.4byte	0xe5
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 15
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 15
+>>>>>>> Isac
 
 
  272 014b 18       		.byte	0x18
@@ -849,7 +909,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  277 0153 E5000000 		.4byte	0xe5
  278 0157 1C       		.byte	0x1c
  279 0158 07       		.uleb128 0x7
- 280 0159 BA480000 		.4byte	.LASF30
+ 280 0159 D4480000 		.4byte	.LASF30
  281 015d 04       		.byte	0x4
  282 015e 3F       		.byte	0x3f
  283 015f E5000000 		.4byte	0xe5
@@ -873,32 +933,36 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  301 0183 B9000000 		.4byte	0xb9
  302 0187 29       		.byte	0x29
  303 0188 07       		.uleb128 0x7
- 304 0189 C83C0000 		.4byte	.LASF34
+ 304 0189 1B3D0000 		.4byte	.LASF34
  305 018d 04       		.byte	0x4
  306 018e 45       		.byte	0x45
  307 018f B9000000 		.4byte	0xb9
  308 0193 2A       		.byte	0x2a
  309 0194 07       		.uleb128 0x7
- 310 0195 AF2D0000 		.4byte	.LASF35
+ 310 0195 022E0000 		.4byte	.LASF35
  311 0199 04       		.byte	0x4
  312 019a 46       		.byte	0x46
  313 019b B9000000 		.4byte	0xb9
  314 019f 2B       		.byte	0x2b
  315 01a0 07       		.uleb128 0x7
- 316 01a1 6D440000 		.4byte	.LASF36
+ 316 01a1 87440000 		.4byte	.LASF36
  317 01a5 04       		.byte	0x4
  318 01a6 47       		.byte	0x47
  319 01a7 B9000000 		.4byte	0xb9
  320 01ab 2C       		.byte	0x2c
  321 01ac 07       		.uleb128 0x7
- 322 01ad 8E4D0000 		.4byte	.LASF37
+ 322 01ad A84D0000 		.4byte	.LASF37
  323 01b1 04       		.byte	0x4
  324 01b2 48       		.byte	0x48
  325 01b3 B9000000 		.4byte	0xb9
  326 01b7 2D       		.byte	0x2d
  327 01b8 07       		.uleb128 0x7
  328 01b9 E5250000 		.4byte	.LASF38
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 16
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 16
+>>>>>>> Isac
 
 
  329 01bd 04       		.byte	0x4
@@ -906,7 +970,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  331 01bf B9000000 		.4byte	0xb9
  332 01c3 2E       		.byte	0x2e
  333 01c4 07       		.uleb128 0x7
- 334 01c5 20400000 		.4byte	.LASF39
+ 334 01c5 73400000 		.4byte	.LASF39
  335 01c9 04       		.byte	0x4
  336 01ca 4A       		.byte	0x4a
  337 01cb B9000000 		.4byte	0xb9
@@ -924,19 +988,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  349 01e3 B9000000 		.4byte	0xb9
  350 01e7 31       		.byte	0x31
  351 01e8 07       		.uleb128 0x7
- 352 01e9 15310000 		.4byte	.LASF42
+ 352 01e9 68310000 		.4byte	.LASF42
  353 01ed 04       		.byte	0x4
  354 01ee 4F       		.byte	0x4f
  355 01ef B9000000 		.4byte	0xb9
  356 01f3 32       		.byte	0x32
  357 01f4 07       		.uleb128 0x7
- 358 01f5 423A0000 		.4byte	.LASF43
+ 358 01f5 953A0000 		.4byte	.LASF43
  359 01f9 04       		.byte	0x4
  360 01fa 50       		.byte	0x50
  361 01fb B9000000 		.4byte	0xb9
  362 01ff 33       		.byte	0x33
  363 0200 07       		.uleb128 0x7
- 364 0201 B3370000 		.4byte	.LASF44
+ 364 0201 06380000 		.4byte	.LASF44
  365 0205 04       		.byte	0x4
  366 0206 51       		.byte	0x51
  367 0207 B9000000 		.4byte	0xb9
@@ -958,18 +1022,22 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  383 0229 04       		.byte	0x4
  384 022a 54       		.byte	0x54
  385 022b C4000000 		.4byte	0xc4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 17
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 17
+>>>>>>> Isac
 
 
  386 022f 3A       		.byte	0x3a
  387 0230 07       		.uleb128 0x7
- 388 0231 49380000 		.4byte	.LASF48
+ 388 0231 9C380000 		.4byte	.LASF48
  389 0235 04       		.byte	0x4
  390 0236 55       		.byte	0x55
  391 0237 B9000000 		.4byte	0xb9
  392 023b 3C       		.byte	0x3c
  393 023c 07       		.uleb128 0x7
- 394 023d 24350000 		.4byte	.LASF49
+ 394 023d 77350000 		.4byte	.LASF49
  395 0241 04       		.byte	0x4
  396 0242 56       		.byte	0x56
  397 0243 B9000000 		.4byte	0xb9
@@ -1005,20 +1073,25 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  427 027f B9000000 		.4byte	0xb9
  428 0283 42       		.byte	0x42
  429 0284 07       		.uleb128 0x7
- 430 0285 78450000 		.4byte	.LASF55
+ 430 0285 92450000 		.4byte	.LASF55
  431 0289 04       		.byte	0x4
  432 028a 5C       		.byte	0x5c
  433 028b B9000000 		.4byte	0xb9
  434 028f 43       		.byte	0x43
  435 0290 07       		.uleb128 0x7
- 436 0291 0C3D0000 		.4byte	.LASF56
+ 436 0291 5F3D0000 		.4byte	.LASF56
  437 0295 04       		.byte	0x4
  438 0296 5D       		.byte	0x5d
  439 0297 B9000000 		.4byte	0xb9
  440 029b 44       		.byte	0x44
  441 029c 07       		.uleb128 0x7
+<<<<<<< HEAD
  442 029d FA3C0000 		.4byte	.LASF57
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 18
+=======
+ 442 029d 4D3D0000 		.4byte	.LASF57
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 18
+>>>>>>> Isac
 
 
  443 02a1 04       		.byte	0x4
@@ -1032,19 +1105,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  451 02af E5000000 		.4byte	0xe5
  452 02b3 4C       		.byte	0x4c
  453 02b4 07       		.uleb128 0x7
- 454 02b5 F5440000 		.4byte	.LASF59
+ 454 02b5 0F450000 		.4byte	.LASF59
  455 02b9 04       		.byte	0x4
  456 02ba 60       		.byte	0x60
  457 02bb B9000000 		.4byte	0xb9
  458 02bf 50       		.byte	0x50
  459 02c0 07       		.uleb128 0x7
- 460 02c1 39430000 		.4byte	.LASF60
+ 460 02c1 8C430000 		.4byte	.LASF60
  461 02c5 04       		.byte	0x4
  462 02c6 61       		.byte	0x61
  463 02c7 B9000000 		.4byte	0xb9
  464 02cb 51       		.byte	0x51
  465 02cc 07       		.uleb128 0x7
- 466 02cd 69490000 		.4byte	.LASF61
+ 466 02cd 83490000 		.4byte	.LASF61
  467 02d1 04       		.byte	0x4
  468 02d2 62       		.byte	0x62
  469 02d3 B9000000 		.4byte	0xb9
@@ -1056,29 +1129,33 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  475 02df B9000000 		.4byte	0xb9
  476 02e3 53       		.byte	0x53
  477 02e4 07       		.uleb128 0x7
- 478 02e5 C4320000 		.4byte	.LASF63
+ 478 02e5 17330000 		.4byte	.LASF63
  479 02e9 04       		.byte	0x4
  480 02ea 64       		.byte	0x64
  481 02eb B9000000 		.4byte	0xb9
  482 02ef 54       		.byte	0x54
  483 02f0 07       		.uleb128 0x7
- 484 02f1 354D0000 		.4byte	.LASF64
+ 484 02f1 4F4D0000 		.4byte	.LASF64
  485 02f5 04       		.byte	0x4
  486 02f6 65       		.byte	0x65
  487 02f7 B9000000 		.4byte	0xb9
  488 02fb 55       		.byte	0x55
  489 02fc 07       		.uleb128 0x7
- 490 02fd 4E420000 		.4byte	.LASF65
+ 490 02fd A1420000 		.4byte	.LASF65
  491 0301 04       		.byte	0x4
  492 0302 66       		.byte	0x66
  493 0303 B9000000 		.4byte	0xb9
  494 0307 56       		.byte	0x56
  495 0308 07       		.uleb128 0x7
- 496 0309 27360000 		.4byte	.LASF66
+ 496 0309 7A360000 		.4byte	.LASF66
  497 030d 04       		.byte	0x4
  498 030e 67       		.byte	0x67
  499 030f B9000000 		.4byte	0xb9
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 19
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 19
+>>>>>>> Isac
 
 
  500 0313 57       		.byte	0x57
@@ -1095,7 +1172,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  511 0327 B9000000 		.4byte	0xb9
  512 032b 59       		.byte	0x59
  513 032c 07       		.uleb128 0x7
- 514 032d DD4D0000 		.4byte	.LASF69
+ 514 032d F74D0000 		.4byte	.LASF69
  515 0331 04       		.byte	0x4
  516 0332 6E       		.byte	0x6e
  517 0333 CF000000 		.4byte	0xcf
@@ -1107,13 +1184,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  523 033f CF000000 		.4byte	0xcf
  524 0343 5C       		.byte	0x5c
  525 0344 07       		.uleb128 0x7
- 526 0345 B3470000 		.4byte	.LASF71
+ 526 0345 CD470000 		.4byte	.LASF71
  527 0349 04       		.byte	0x4
  528 034a 70       		.byte	0x70
  529 034b B9000000 		.4byte	0xb9
  530 034f 5E       		.byte	0x5e
  531 0350 07       		.uleb128 0x7
- 532 0351 67480000 		.4byte	.LASF72
+ 532 0351 81480000 		.4byte	.LASF72
  533 0355 04       		.byte	0x4
  534 0356 71       		.byte	0x71
  535 0357 B9000000 		.4byte	0xb9
@@ -1125,20 +1202,24 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  541 0363 B9000000 		.4byte	0xb9
  542 0367 60       		.byte	0x60
  543 0368 07       		.uleb128 0x7
- 544 0369 AD310000 		.4byte	.LASF74
+ 544 0369 00320000 		.4byte	.LASF74
  545 036d 04       		.byte	0x4
  546 036e 73       		.byte	0x73
  547 036f E5000000 		.4byte	0xe5
  548 0373 64       		.byte	0x64
  549 0374 07       		.uleb128 0x7
- 550 0375 2F4A0000 		.4byte	.LASF75
+ 550 0375 494A0000 		.4byte	.LASF75
  551 0379 04       		.byte	0x4
  552 037a 76       		.byte	0x76
  553 037b CF000000 		.4byte	0xcf
  554 037f 68       		.byte	0x68
  555 0380 07       		.uleb128 0x7
  556 0381 EF0B0000 		.4byte	.LASF76
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 20
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 20
+>>>>>>> Isac
 
 
  557 0385 04       		.byte	0x4
@@ -1158,7 +1239,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  571 039f CF000000 		.4byte	0xcf
  572 03a3 6E       		.byte	0x6e
  573 03a4 07       		.uleb128 0x7
- 574 03a5 143C0000 		.4byte	.LASF79
+ 574 03a5 673C0000 		.4byte	.LASF79
  575 03a9 04       		.byte	0x4
  576 03aa 7B       		.byte	0x7b
  577 03ab B9000000 		.4byte	0xb9
@@ -1176,7 +1257,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  589 03c3 B9000000 		.4byte	0xb9
  590 03c7 72       		.byte	0x72
  591 03c8 07       		.uleb128 0x7
- 592 03c9 79490000 		.4byte	.LASF82
+ 592 03c9 93490000 		.4byte	.LASF82
  593 03cd 04       		.byte	0x4
  594 03ce 7E       		.byte	0x7e
  595 03cf B9000000 		.4byte	0xb9
@@ -1198,7 +1279,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  611 03f1 04       		.byte	0x4
  612 03f2 82       		.byte	0x82
  613 03f3 CF000000 		.4byte	0xcf
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 21
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 21
+>>>>>>> Isac
 
 
  614 03f7 78       		.byte	0x78
@@ -1233,7 +1318,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  643 042f B9000000 		.4byte	0xb9
  644 0433 7F       		.byte	0x7f
  645 0434 07       		.uleb128 0x7
- 646 0435 79440000 		.4byte	.LASF91
+ 646 0435 93440000 		.4byte	.LASF91
  647 0439 04       		.byte	0x4
  648 043a 8A       		.byte	0x8a
  649 043b B9000000 		.4byte	0xb9
@@ -1245,20 +1330,25 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  655 0447 E5000000 		.4byte	0xe5
  656 044b 84       		.byte	0x84
  657 044c 07       		.uleb128 0x7
- 658 044d FF390000 		.4byte	.LASF93
+ 658 044d 523A0000 		.4byte	.LASF93
  659 0451 04       		.byte	0x4
  660 0452 8E       		.byte	0x8e
  661 0453 E5000000 		.4byte	0xe5
  662 0457 88       		.byte	0x88
  663 0458 07       		.uleb128 0x7
- 664 0459 07480000 		.4byte	.LASF94
+ 664 0459 21480000 		.4byte	.LASF94
  665 045d 04       		.byte	0x4
  666 045e 8F       		.byte	0x8f
  667 045f E5000000 		.4byte	0xe5
  668 0463 8C       		.byte	0x8c
  669 0464 07       		.uleb128 0x7
+<<<<<<< HEAD
  670 0465 22300000 		.4byte	.LASF95
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 22
+=======
+ 670 0465 75300000 		.4byte	.LASF95
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 22
+>>>>>>> Isac
 
 
  671 0469 04       		.byte	0x4
@@ -1290,13 +1380,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  697 049b E5000000 		.4byte	0xe5
  698 049f A0       		.byte	0xa0
  699 04a0 07       		.uleb128 0x7
- 700 04a1 99350000 		.4byte	.LASF100
+ 700 04a1 EC350000 		.4byte	.LASF100
  701 04a5 04       		.byte	0x4
  702 04a6 95       		.byte	0x95
  703 04a7 CF000000 		.4byte	0xcf
  704 04ab A4       		.byte	0xa4
  705 04ac 07       		.uleb128 0x7
- 706 04ad 84350000 		.4byte	.LASF101
+ 706 04ad D7350000 		.4byte	.LASF101
  707 04b1 04       		.byte	0x4
  708 04b2 96       		.byte	0x96
  709 04b3 CF000000 		.4byte	0xcf
@@ -1314,11 +1404,15 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  721 04cb CF000000 		.4byte	0xcf
  722 04cf AA       		.byte	0xaa
  723 04d0 07       		.uleb128 0x7
- 724 04d1 472E0000 		.4byte	.LASF104
+ 724 04d1 9A2E0000 		.4byte	.LASF104
  725 04d5 04       		.byte	0x4
  726 04d6 99       		.byte	0x99
  727 04d7 CF000000 		.4byte	0xcf
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 23
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 23
+>>>>>>> Isac
 
 
  728 04db AC       		.byte	0xac
@@ -1329,7 +1423,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  733 04e3 CF000000 		.4byte	0xcf
  734 04e7 AE       		.byte	0xae
  735 04e8 07       		.uleb128 0x7
- 736 04e9 E3490000 		.4byte	.LASF106
+ 736 04e9 FD490000 		.4byte	.LASF106
  737 04ed 04       		.byte	0x4
  738 04ee 9D       		.byte	0x9d
  739 04ef CF000000 		.4byte	0xcf
@@ -1361,7 +1455,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  765 0521 5401     		.2byte	0x154
  766 0523 5A080000 		.4byte	0x85a
  767 0527 09       		.uleb128 0x9
- 768 0528 DE300000 		.4byte	.LASF111
+ 768 0528 31310000 		.4byte	.LASF111
  769 052c 00       		.byte	0
  770 052d 0A       		.uleb128 0xa
  771 052e C4200000 		.4byte	.LASF112
@@ -1378,11 +1472,15 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  782 0549 0A       		.uleb128 0xa
  783 054a 25000000 		.4byte	.LASF116
  784 054e 0410     		.2byte	0x1004
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 24
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 24
+>>>>>>> Isac
 
 
  785 0550 0A       		.uleb128 0xa
- 786 0551 164A0000 		.4byte	.LASF117
+ 786 0551 304A0000 		.4byte	.LASF117
  787 0555 0510     		.2byte	0x1005
  788 0557 0A       		.uleb128 0xa
  789 0558 BD030000 		.4byte	.LASF118
@@ -1391,58 +1489,62 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  792 055f 19040000 		.4byte	.LASF119
  793 0563 0120     		.2byte	0x2001
  794 0565 0A       		.uleb128 0xa
- 795 0566 703F0000 		.4byte	.LASF120
+ 795 0566 C33F0000 		.4byte	.LASF120
  796 056a 0220     		.2byte	0x2002
  797 056c 0A       		.uleb128 0xa
- 798 056d D63F0000 		.4byte	.LASF121
+ 798 056d 29400000 		.4byte	.LASF121
  799 0571 0320     		.2byte	0x2003
  800 0573 0A       		.uleb128 0xa
  801 0574 74030000 		.4byte	.LASF122
  802 0578 0420     		.2byte	0x2004
  803 057a 0A       		.uleb128 0xa
- 804 057b 40370000 		.4byte	.LASF123
+ 804 057b 93370000 		.4byte	.LASF123
  805 057f 0520     		.2byte	0x2005
  806 0581 0A       		.uleb128 0xa
- 807 0582 97340000 		.4byte	.LASF124
+ 807 0582 EA340000 		.4byte	.LASF124
  808 0586 0620     		.2byte	0x2006
  809 0588 0A       		.uleb128 0xa
- 810 0589 BF4C0000 		.4byte	.LASF125
+ 810 0589 D94C0000 		.4byte	.LASF125
  811 058d 0720     		.2byte	0x2007
  812 058f 0A       		.uleb128 0xa
  813 0590 532A0000 		.4byte	.LASF126
  814 0594 0820     		.2byte	0x2008
  815 0596 0A       		.uleb128 0xa
- 816 0597 A9450000 		.4byte	.LASF127
+ 816 0597 C3450000 		.4byte	.LASF127
  817 059b 0920     		.2byte	0x2009
  818 059d 0A       		.uleb128 0xa
- 819 059e 74380000 		.4byte	.LASF128
+ 819 059e C7380000 		.4byte	.LASF128
  820 05a2 0A20     		.2byte	0x200a
  821 05a4 0A       		.uleb128 0xa
- 822 05a5 AC430000 		.4byte	.LASF129
+ 822 05a5 FF430000 		.4byte	.LASF129
  823 05a9 0B20     		.2byte	0x200b
  824 05ab 0A       		.uleb128 0xa
  825 05ac 32200000 		.4byte	.LASF130
  826 05b0 0C20     		.2byte	0x200c
  827 05b2 0A       		.uleb128 0xa
- 828 05b3 E3350000 		.4byte	.LASF131
+ 828 05b3 36360000 		.4byte	.LASF131
  829 05b7 0D20     		.2byte	0x200d
  830 05b9 0A       		.uleb128 0xa
  831 05ba 080E0000 		.4byte	.LASF132
  832 05be 0E20     		.2byte	0x200e
  833 05c0 0A       		.uleb128 0xa
- 834 05c1 944C0000 		.4byte	.LASF133
+ 834 05c1 AE4C0000 		.4byte	.LASF133
  835 05c5 0F20     		.2byte	0x200f
  836 05c7 0A       		.uleb128 0xa
  837 05c8 4F0F0000 		.4byte	.LASF134
  838 05cc 1020     		.2byte	0x2010
  839 05ce 0A       		.uleb128 0xa
- 840 05cf 822D0000 		.4byte	.LASF135
+ 840 05cf D52D0000 		.4byte	.LASF135
  841 05d3 1120     		.2byte	0x2011
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 25
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 25
+>>>>>>> Isac
 
 
  842 05d5 0A       		.uleb128 0xa
- 843 05d6 624C0000 		.4byte	.LASF136
+ 843 05d6 7C4C0000 		.4byte	.LASF136
  844 05da 1220     		.2byte	0x2012
  845 05dc 0A       		.uleb128 0xa
  846 05dd C2150000 		.4byte	.LASF137
@@ -1463,22 +1565,22 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  861 0600 9C1B0000 		.4byte	.LASF142
  862 0604 0030     		.2byte	0x3000
  863 0606 0A       		.uleb128 0xa
- 864 0607 CF360000 		.4byte	.LASF143
+ 864 0607 22370000 		.4byte	.LASF143
  865 060b 0130     		.2byte	0x3001
  866 060d 0A       		.uleb128 0xa
  867 060e 0B010000 		.4byte	.LASF144
  868 0612 0230     		.2byte	0x3002
  869 0614 0A       		.uleb128 0xa
- 870 0615 7F3B0000 		.4byte	.LASF145
+ 870 0615 D23B0000 		.4byte	.LASF145
  871 0619 0330     		.2byte	0x3003
  872 061b 0A       		.uleb128 0xa
  873 061c EF1D0000 		.4byte	.LASF146
  874 0620 0430     		.2byte	0x3004
  875 0622 0A       		.uleb128 0xa
- 876 0623 C1400000 		.4byte	.LASF147
+ 876 0623 14410000 		.4byte	.LASF147
  877 0627 0530     		.2byte	0x3005
  878 0629 0A       		.uleb128 0xa
- 879 062a 8C4B0000 		.4byte	.LASF148
+ 879 062a A64B0000 		.4byte	.LASF148
  880 062e 0630     		.2byte	0x3006
  881 0630 0A       		.uleb128 0xa
  882 0631 E3020000 		.4byte	.LASF149
@@ -1487,46 +1589,50 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  885 0638 4B020000 		.4byte	.LASF150
  886 063c 0830     		.2byte	0x3008
  887 063e 0A       		.uleb128 0xa
- 888 063f BD2D0000 		.4byte	.LASF151
+ 888 063f 102E0000 		.4byte	.LASF151
  889 0643 0930     		.2byte	0x3009
  890 0645 0A       		.uleb128 0xa
- 891 0646 76300000 		.4byte	.LASF152
+ 891 0646 C9300000 		.4byte	.LASF152
  892 064a 0A30     		.2byte	0x300a
  893 064c 0A       		.uleb128 0xa
- 894 064d 8F370000 		.4byte	.LASF153
+ 894 064d E2370000 		.4byte	.LASF153
  895 0651 0B30     		.2byte	0x300b
  896 0653 0A       		.uleb128 0xa
  897 0654 20160000 		.4byte	.LASF154
  898 0658 0C30     		.2byte	0x300c
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 26
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 26
+>>>>>>> Isac
 
 
  899 065a 0A       		.uleb128 0xa
- 900 065b 99320000 		.4byte	.LASF155
+ 900 065b EC320000 		.4byte	.LASF155
  901 065f 1130     		.2byte	0x3011
  902 0661 0A       		.uleb128 0xa
- 903 0662 7B400000 		.4byte	.LASF156
+ 903 0662 CE400000 		.4byte	.LASF156
  904 0666 1230     		.2byte	0x3012
  905 0668 0A       		.uleb128 0xa
- 906 0669 4C490000 		.4byte	.LASF157
+ 906 0669 66490000 		.4byte	.LASF157
  907 066d 1330     		.2byte	0x3013
  908 066f 0A       		.uleb128 0xa
- 909 0670 EF420000 		.4byte	.LASF158
+ 909 0670 42430000 		.4byte	.LASF158
  910 0674 1430     		.2byte	0x3014
  911 0676 0A       		.uleb128 0xa
- 912 0677 57450000 		.4byte	.LASF159
+ 912 0677 71450000 		.4byte	.LASF159
  913 067b 1530     		.2byte	0x3015
  914 067d 0A       		.uleb128 0xa
  915 067e B10A0000 		.4byte	.LASF160
  916 0682 1630     		.2byte	0x3016
  917 0684 0A       		.uleb128 0xa
- 918 0685 2D320000 		.4byte	.LASF161
+ 918 0685 80320000 		.4byte	.LASF161
  919 0689 1730     		.2byte	0x3017
  920 068b 0A       		.uleb128 0xa
  921 068c 7E1A0000 		.4byte	.LASF162
  922 0690 1830     		.2byte	0x3018
  923 0692 0A       		.uleb128 0xa
- 924 0693 5E300000 		.4byte	.LASF163
+ 924 0693 B1300000 		.4byte	.LASF163
  925 0697 1930     		.2byte	0x3019
  926 0699 0A       		.uleb128 0xa
  927 069a B7160000 		.4byte	.LASF164
@@ -1535,10 +1641,10 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  930 06a1 2D2B0000 		.4byte	.LASF165
  931 06a5 0140     		.2byte	0x4001
  932 06a7 0A       		.uleb128 0xa
- 933 06a8 B9380000 		.4byte	.LASF166
+ 933 06a8 0C390000 		.4byte	.LASF166
  934 06ac 0240     		.2byte	0x4002
  935 06ae 0A       		.uleb128 0xa
- 936 06af A8360000 		.4byte	.LASF167
+ 936 06af FB360000 		.4byte	.LASF167
  937 06b3 0340     		.2byte	0x4003
  938 06b5 0A       		.uleb128 0xa
  939 06b6 19140000 		.4byte	.LASF168
@@ -1547,34 +1653,38 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  942 06bd 5F090000 		.4byte	.LASF169
  943 06c1 0540     		.2byte	0x4005
  944 06c3 0A       		.uleb128 0xa
- 945 06c4 E13D0000 		.4byte	.LASF170
+ 945 06c4 343E0000 		.4byte	.LASF170
  946 06c8 0640     		.2byte	0x4006
  947 06ca 0A       		.uleb128 0xa
- 948 06cb CF420000 		.4byte	.LASF171
+ 948 06cb 22430000 		.4byte	.LASF171
  949 06cf 0740     		.2byte	0x4007
  950 06d1 0A       		.uleb128 0xa
- 951 06d2 FD480000 		.4byte	.LASF172
+ 951 06d2 17490000 		.4byte	.LASF172
  952 06d6 0840     		.2byte	0x4008
  953 06d8 0A       		.uleb128 0xa
  954 06d9 C60D0000 		.4byte	.LASF173
  955 06dd 0940     		.2byte	0x4009
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 27
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 27
+>>>>>>> Isac
 
 
  956 06df 0A       		.uleb128 0xa
- 957 06e0 60360000 		.4byte	.LASF174
+ 957 06e0 B3360000 		.4byte	.LASF174
  958 06e4 0A40     		.2byte	0x400a
  959 06e6 0A       		.uleb128 0xa
  960 06e7 101F0000 		.4byte	.LASF175
  961 06eb 0B40     		.2byte	0x400b
  962 06ed 0A       		.uleb128 0xa
- 963 06ee BE350000 		.4byte	.LASF176
+ 963 06ee 11360000 		.4byte	.LASF176
  964 06f2 0C40     		.2byte	0x400c
  965 06f4 0A       		.uleb128 0xa
- 966 06f5 90480000 		.4byte	.LASF177
+ 966 06f5 AA480000 		.4byte	.LASF177
  967 06f9 0D40     		.2byte	0x400d
  968 06fb 0A       		.uleb128 0xa
- 969 06fc 112E0000 		.4byte	.LASF178
+ 969 06fc 642E0000 		.4byte	.LASF178
  970 0700 0E40     		.2byte	0x400e
  971 0702 0A       		.uleb128 0xa
  972 0703 381A0000 		.4byte	.LASF179
@@ -1586,31 +1696,31 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  978 0711 3A100000 		.4byte	.LASF181
  979 0715 1140     		.2byte	0x4011
  980 0717 0A       		.uleb128 0xa
- 981 0718 A33B0000 		.4byte	.LASF182
+ 981 0718 F63B0000 		.4byte	.LASF182
  982 071c 1240     		.2byte	0x4012
  983 071e 0A       		.uleb128 0xa
  984 071f D6120000 		.4byte	.LASF183
  985 0723 1340     		.2byte	0x4013
  986 0725 0A       		.uleb128 0xa
- 987 0726 37390000 		.4byte	.LASF184
+ 987 0726 8A390000 		.4byte	.LASF184
  988 072a 1440     		.2byte	0x4014
  989 072c 0A       		.uleb128 0xa
- 990 072d E8370000 		.4byte	.LASF185
+ 990 072d 3B380000 		.4byte	.LASF185
  991 0731 1540     		.2byte	0x4015
  992 0733 0A       		.uleb128 0xa
  993 0734 63080000 		.4byte	.LASF186
  994 0738 1640     		.2byte	0x4016
  995 073a 0A       		.uleb128 0xa
- 996 073b 59350000 		.4byte	.LASF187
+ 996 073b AC350000 		.4byte	.LASF187
  997 073f 1740     		.2byte	0x4017
  998 0741 0A       		.uleb128 0xa
  999 0742 DE2A0000 		.4byte	.LASF188
  1000 0746 1840     		.2byte	0x4018
  1001 0748 0A       		.uleb128 0xa
- 1002 0749 90490000 		.4byte	.LASF189
+ 1002 0749 AA490000 		.4byte	.LASF189
  1003 074d 1940     		.2byte	0x4019
  1004 074f 0A       		.uleb128 0xa
- 1005 0750 C4460000 		.4byte	.LASF190
+ 1005 0750 DE460000 		.4byte	.LASF190
  1006 0754 1A40     		.2byte	0x401a
  1007 0756 0A       		.uleb128 0xa
  1008 0757 81250000 		.4byte	.LASF191
@@ -1618,7 +1728,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1010 075d 0A       		.uleb128 0xa
  1011 075e 621A0000 		.4byte	.LASF192
  1012 0762 0150     		.2byte	0x5001
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 28
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 28
+>>>>>>> Isac
 
 
  1013 0764 0A       		.uleb128 0xa
@@ -1628,7 +1742,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1017 076c 920A0000 		.4byte	.LASF194
  1018 0770 0350     		.2byte	0x5003
  1019 0772 0A       		.uleb128 0xa
- 1020 0773 2A380000 		.4byte	.LASF195
+ 1020 0773 7D380000 		.4byte	.LASF195
  1021 0777 0450     		.2byte	0x5004
  1022 0779 0A       		.uleb128 0xa
  1023 077a 8A1E0000 		.4byte	.LASF196
@@ -1646,7 +1760,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1035 0796 4B230000 		.4byte	.LASF200
  1036 079a 0950     		.2byte	0x5009
  1037 079c 0A       		.uleb128 0xa
- 1038 079d D23C0000 		.4byte	.LASF201
+ 1038 079d 253D0000 		.4byte	.LASF201
  1039 07a1 0A50     		.2byte	0x500a
  1040 07a3 0A       		.uleb128 0xa
  1041 07a4 32060000 		.4byte	.LASF202
@@ -1658,13 +1772,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1047 07b2 05190000 		.4byte	.LASF204
  1048 07b6 0D50     		.2byte	0x500d
  1049 07b8 0A       		.uleb128 0xa
- 1050 07b9 23310000 		.4byte	.LASF205
+ 1050 07b9 76310000 		.4byte	.LASF205
  1051 07bd 0E50     		.2byte	0x500e
  1052 07bf 0A       		.uleb128 0xa
  1053 07c0 961C0000 		.4byte	.LASF206
  1054 07c4 0F50     		.2byte	0x500f
  1055 07c6 0A       		.uleb128 0xa
- 1056 07c7 BB340000 		.4byte	.LASF207
+ 1056 07c7 0E350000 		.4byte	.LASF207
  1057 07cb 1050     		.2byte	0x5010
  1058 07cd 0A       		.uleb128 0xa
  1059 07ce 0D080000 		.4byte	.LASF208
@@ -1678,17 +1792,21 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1067 07e2 0A       		.uleb128 0xa
  1068 07e3 9A110000 		.4byte	.LASF211
  1069 07e7 1450     		.2byte	0x5014
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 29
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 29
+>>>>>>> Isac
 
 
  1070 07e9 0A       		.uleb128 0xa
- 1071 07ea AA420000 		.4byte	.LASF212
+ 1071 07ea FD420000 		.4byte	.LASF212
  1072 07ee 1550     		.2byte	0x5015
  1073 07f0 0A       		.uleb128 0xa
  1074 07f1 ED140000 		.4byte	.LASF213
  1075 07f5 1650     		.2byte	0x5016
  1076 07f7 0A       		.uleb128 0xa
- 1077 07f8 203F0000 		.4byte	.LASF214
+ 1077 07f8 733F0000 		.4byte	.LASF214
  1078 07fc 1750     		.2byte	0x5017
  1079 07fe 0A       		.uleb128 0xa
  1080 07ff 93080000 		.4byte	.LASF215
@@ -1697,7 +1815,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1083 0806 3D170000 		.4byte	.LASF216
  1084 080a 0060     		.2byte	0x6000
  1085 080c 0A       		.uleb128 0xa
- 1086 080d 283C0000 		.4byte	.LASF217
+ 1086 080d 7B3C0000 		.4byte	.LASF217
  1087 0811 0160     		.2byte	0x6001
  1088 0813 0A       		.uleb128 0xa
  1089 0814 E0200000 		.4byte	.LASF218
@@ -1727,85 +1845,93 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1113 084c 0D060000 		.4byte	.LASF226
  1114 0850 0A60     		.2byte	0x600a
  1115 0852 0A       		.uleb128 0xa
- 1116 0853 1D3D0000 		.4byte	.LASF227
+ 1116 0853 703D0000 		.4byte	.LASF227
  1117 0857 FFFF     		.2byte	0xffff
  1118 0859 00       		.byte	0
  1119 085a 0B       		.uleb128 0xb
- 1120 085b B62E0000 		.4byte	.LASF228
+ 1120 085b 092F0000 		.4byte	.LASF228
  1121 085f 05       		.byte	0x5
  1122 0860 D604     		.2byte	0x4d6
  1123 0862 1A050000 		.4byte	0x51a
  1124 0866 08       		.uleb128 0x8
  1125 0867 04       		.byte	0x4
  1126 0868 2C000000 		.4byte	0x2c
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 30
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 30
+>>>>>>> Isac
 
 
  1127 086c 05       		.byte	0x5
  1128 086d E004     		.2byte	0x4e0
  1129 086f 7F090000 		.4byte	0x97f
  1130 0873 09       		.uleb128 0x9
- 1131 0874 20490000 		.4byte	.LASF229
+ 1131 0874 3A490000 		.4byte	.LASF229
  1132 0878 00       		.byte	0
  1133 0879 0C       		.uleb128 0xc
- 1134 087a F1300000 		.4byte	.LASF230
+ 1134 087a 44310000 		.4byte	.LASF230
  1135 087e 01001400 		.4byte	0x140001
  1136 0882 0C       		.uleb128 0xc
- 1137 0883 B73F0000 		.4byte	.LASF231
+ 1137 0883 0A400000 		.4byte	.LASF231
  1138 0887 01001600 		.4byte	0x160001
  1139 088b 0C       		.uleb128 0xc
- 1140 088c C2480000 		.4byte	.LASF232
+ 1140 088c DC480000 		.4byte	.LASF232
  1141 0890 02001600 		.4byte	0x160002
  1142 0894 0C       		.uleb128 0xc
- 1143 0895 8C2C0000 		.4byte	.LASF233
+ 1143 0895 DF2C0000 		.4byte	.LASF233
  1144 0899 03001600 		.4byte	0x160003
  1145 089d 0C       		.uleb128 0xc
  1146 089e 452B0000 		.4byte	.LASF234
  1147 08a2 04001600 		.4byte	0x160004
  1148 08a6 0C       		.uleb128 0xc
- 1149 08a7 494D0000 		.4byte	.LASF235
+ 1149 08a7 634D0000 		.4byte	.LASF235
  1150 08ab 05001600 		.4byte	0x160005
  1151 08af 0C       		.uleb128 0xc
  1152 08b0 C9280000 		.4byte	.LASF236
  1153 08b4 06001600 		.4byte	0x160006
  1154 08b8 0C       		.uleb128 0xc
- 1155 08b9 993F0000 		.4byte	.LASF237
+ 1155 08b9 EC3F0000 		.4byte	.LASF237
  1156 08bd 07001600 		.4byte	0x160007
  1157 08c1 0C       		.uleb128 0xc
- 1158 08c2 7B3E0000 		.4byte	.LASF238
+ 1158 08c2 CE3E0000 		.4byte	.LASF238
  1159 08c6 08001600 		.4byte	0x160008
  1160 08ca 0C       		.uleb128 0xc
  1161 08cb C9000000 		.4byte	.LASF239
  1162 08cf 09001600 		.4byte	0x160009
  1163 08d3 0C       		.uleb128 0xc
- 1164 08d4 71430000 		.4byte	.LASF240
+ 1164 08d4 C4430000 		.4byte	.LASF240
  1165 08d8 0A001600 		.4byte	0x16000a
  1166 08dc 0C       		.uleb128 0xc
  1167 08dd 201A0000 		.4byte	.LASF241
  1168 08e1 0B001600 		.4byte	0x16000b
  1169 08e5 0C       		.uleb128 0xc
- 1170 08e6 FA3F0000 		.4byte	.LASF242
+ 1170 08e6 4D400000 		.4byte	.LASF242
  1171 08ea 0C001600 		.4byte	0x16000c
  1172 08ee 0C       		.uleb128 0xc
- 1173 08ef 2F350000 		.4byte	.LASF243
+ 1173 08ef 82350000 		.4byte	.LASF243
  1174 08f3 0D001600 		.4byte	0x16000d
  1175 08f7 0C       		.uleb128 0xc
- 1176 08f8 58390000 		.4byte	.LASF244
+ 1176 08f8 AB390000 		.4byte	.LASF244
  1177 08fc 0E001600 		.4byte	0x16000e
  1178 0900 0C       		.uleb128 0xc
  1179 0901 970D0000 		.4byte	.LASF245
  1180 0905 0F001600 		.4byte	0x16000f
  1181 0909 0C       		.uleb128 0xc
- 1182 090a DB340000 		.4byte	.LASF246
+ 1182 090a 2E350000 		.4byte	.LASF246
  1183 090e 10001600 		.4byte	0x160010
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 31
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 31
+>>>>>>> Isac
 
 
  1184 0912 0C       		.uleb128 0xc
  1185 0913 5F200000 		.4byte	.LASF247
  1186 0917 11001600 		.4byte	0x160011
  1187 091b 0C       		.uleb128 0xc
- 1188 091c C12F0000 		.4byte	.LASF248
+ 1188 091c 14300000 		.4byte	.LASF248
  1189 0920 12001600 		.4byte	0x160012
  1190 0924 0C       		.uleb128 0xc
  1191 0925 1A020000 		.4byte	.LASF249
@@ -1817,7 +1943,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1197 0937 A41A0000 		.4byte	.LASF251
  1198 093b 15001600 		.4byte	0x160015
  1199 093f 0C       		.uleb128 0xc
- 1200 0940 A8440000 		.4byte	.LASF252
+ 1200 0940 C2440000 		.4byte	.LASF252
  1201 0944 16001600 		.4byte	0x160016
  1202 0948 0C       		.uleb128 0xc
  1203 0949 00240000 		.4byte	.LASF253
@@ -1829,13 +1955,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1209 095b A0180000 		.4byte	.LASF255
  1210 095f 19001600 		.4byte	0x160019
  1211 0963 0C       		.uleb128 0xc
- 1212 0964 192D0000 		.4byte	.LASF256
+ 1212 0964 6C2D0000 		.4byte	.LASF256
  1213 0968 FE001600 		.4byte	0x1600fe
  1214 096c 0C       		.uleb128 0xc
  1215 096d 93130000 		.4byte	.LASF257
  1216 0971 FF001600 		.4byte	0x1600ff
  1217 0975 0C       		.uleb128 0xc
- 1218 0976 082D0000 		.4byte	.LASF258
+ 1218 0976 5B2D0000 		.4byte	.LASF258
  1219 097a FFFF1600 		.4byte	0x16ffff
  1220 097e 00       		.byte	0
  1221 097f 0B       		.uleb128 0xb
@@ -1849,23 +1975,27 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1229 098e 6401     		.2byte	0x164
  1230 0990 AF090000 		.4byte	0x9af
  1231 0994 0E       		.uleb128 0xe
- 1232 0995 042C0000 		.4byte	.LASF260
+ 1232 0995 572C0000 		.4byte	.LASF260
  1233 0999 06       		.byte	0x6
  1234 099a 6E01     		.2byte	0x16e
  1235 099c B9000000 		.4byte	0xb9
  1236 09a0 00       		.byte	0
  1237 09a1 0E       		.uleb128 0xe
- 1238 09a2 844A0000 		.4byte	.LASF261
+ 1238 09a2 9E4A0000 		.4byte	.LASF261
  1239 09a6 06       		.byte	0x6
  1240 09a7 7201     		.2byte	0x172
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 32
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 32
+>>>>>>> Isac
 
 
  1241 09a9 B9000000 		.4byte	0xb9
  1242 09ad 01       		.byte	0x1
  1243 09ae 00       		.byte	0
  1244 09af 0B       		.uleb128 0xb
- 1245 09b0 7F3D0000 		.4byte	.LASF262
+ 1245 09b0 D23D0000 		.4byte	.LASF262
  1246 09b4 06       		.byte	0x6
  1247 09b5 7401     		.2byte	0x174
  1248 09b7 8B090000 		.4byte	0x98b
@@ -1891,7 +2021,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1268 09e0 8B040000 		.4byte	.LASF267
  1269 09e4 04       		.byte	0x4
  1270 09e5 09       		.uleb128 0x9
- 1271 09e6 9E410000 		.4byte	.LASF268
+ 1271 09e6 F1410000 		.4byte	.LASF268
  1272 09ea 05       		.byte	0x5
  1273 09eb 09       		.uleb128 0x9
  1274 09ec 31030000 		.4byte	.LASF269
@@ -1906,22 +2036,26 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1283 09fe AC050000 		.4byte	.LASF272
  1284 0a02 09       		.byte	0x9
  1285 0a03 09       		.uleb128 0x9
- 1286 0a04 993A0000 		.4byte	.LASF273
+ 1286 0a04 EC3A0000 		.4byte	.LASF273
  1287 0a08 0A       		.byte	0xa
  1288 0a09 09       		.uleb128 0x9
  1289 0a0a 8A100000 		.4byte	.LASF274
  1290 0a0e 0B       		.byte	0xb
  1291 0a0f 09       		.uleb128 0x9
- 1292 0a10 553B0000 		.4byte	.LASF275
+ 1292 0a10 A83B0000 		.4byte	.LASF275
  1293 0a14 0C       		.byte	0xc
  1294 0a15 09       		.uleb128 0x9
  1295 0a16 EA1E0000 		.4byte	.LASF276
  1296 0a1a 0D       		.byte	0xd
  1297 0a1b 09       		.uleb128 0x9
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 33
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 33
+>>>>>>> Isac
 
 
- 1298 0a1c A93C0000 		.4byte	.LASF277
+ 1298 0a1c FC3C0000 		.4byte	.LASF277
  1299 0a20 0E       		.byte	0xe
  1300 0a21 09       		.uleb128 0x9
  1301 0a22 0D0A0000 		.4byte	.LASF278
@@ -1933,37 +2067,37 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1307 0a2e 44160000 		.4byte	.LASF280
  1308 0a32 11       		.byte	0x11
  1309 0a33 09       		.uleb128 0x9
- 1310 0a34 4F3C0000 		.4byte	.LASF281
+ 1310 0a34 A23C0000 		.4byte	.LASF281
  1311 0a38 80       		.byte	0x80
  1312 0a39 09       		.uleb128 0x9
  1313 0a3a B9260000 		.4byte	.LASF282
  1314 0a3e 80       		.byte	0x80
  1315 0a3f 09       		.uleb128 0x9
- 1316 0a40 2F480000 		.4byte	.LASF283
+ 1316 0a40 49480000 		.4byte	.LASF283
  1317 0a44 80       		.byte	0x80
  1318 0a45 09       		.uleb128 0x9
- 1319 0a46 06360000 		.4byte	.LASF284
+ 1319 0a46 59360000 		.4byte	.LASF284
  1320 0a4a 80       		.byte	0x80
  1321 0a4b 09       		.uleb128 0x9
- 1322 0a4c 11370000 		.4byte	.LASF285
+ 1322 0a4c 64370000 		.4byte	.LASF285
  1323 0a50 80       		.byte	0x80
  1324 0a51 09       		.uleb128 0x9
- 1325 0a52 4F320000 		.4byte	.LASF286
+ 1325 0a52 A2320000 		.4byte	.LASF286
  1326 0a56 80       		.byte	0x80
  1327 0a57 09       		.uleb128 0x9
- 1328 0a58 6E310000 		.4byte	.LASF287
+ 1328 0a58 C1310000 		.4byte	.LASF287
  1329 0a5c 80       		.byte	0x80
  1330 0a5d 09       		.uleb128 0x9
- 1331 0a5e BE310000 		.4byte	.LASF288
+ 1331 0a5e 11320000 		.4byte	.LASF288
  1332 0a62 81       		.byte	0x81
  1333 0a63 09       		.uleb128 0x9
- 1334 0a64 10420000 		.4byte	.LASF289
+ 1334 0a64 63420000 		.4byte	.LASF289
  1335 0a68 81       		.byte	0x81
  1336 0a69 09       		.uleb128 0x9
- 1337 0a6a 302C0000 		.4byte	.LASF290
+ 1337 0a6a 832C0000 		.4byte	.LASF290
  1338 0a6e 81       		.byte	0x81
  1339 0a6f 09       		.uleb128 0x9
- 1340 0a70 08320000 		.4byte	.LASF291
+ 1340 0a70 5B320000 		.4byte	.LASF291
  1341 0a74 81       		.byte	0x81
  1342 0a75 09       		.uleb128 0x9
  1343 0a76 B10F0000 		.4byte	.LASF292
@@ -1975,13 +2109,17 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1349 0a82 301F0000 		.4byte	.LASF294
  1350 0a86 A0       		.byte	0xa0
  1351 0a87 09       		.uleb128 0x9
- 1352 0a88 F1490000 		.4byte	.LASF295
+ 1352 0a88 0B4A0000 		.4byte	.LASF295
  1353 0a8c A1       		.byte	0xa1
  1354 0a8d 09       		.uleb128 0x9
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 34
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 34
+>>>>>>> Isac
 
 
- 1355 0a8e 8C470000 		.4byte	.LASF296
+ 1355 0a8e A6470000 		.4byte	.LASF296
  1356 0a92 A2       		.byte	0xa2
  1357 0a93 09       		.uleb128 0x9
  1358 0a94 56150000 		.4byte	.LASF297
@@ -1993,16 +2131,16 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1364 0aa0 20190000 		.4byte	.LASF299
  1365 0aa4 FE       		.byte	0xfe
  1366 0aa5 09       		.uleb128 0x9
- 1367 0aa6 16450000 		.4byte	.LASF300
+ 1367 0aa6 30450000 		.4byte	.LASF300
  1368 0aaa FF       		.byte	0xff
  1369 0aab 00       		.byte	0
  1370 0aac 0B       		.uleb128 0xb
- 1371 0aad 1F430000 		.4byte	.LASF301
+ 1371 0aad 72430000 		.4byte	.LASF301
  1372 0ab1 07       		.byte	0x7
  1373 0ab2 6101     		.2byte	0x161
  1374 0ab4 BB090000 		.4byte	0x9bb
  1375 0ab8 0B       		.uleb128 0xb
- 1376 0ab9 2F490000 		.4byte	.LASF302
+ 1376 0ab9 49490000 		.4byte	.LASF302
  1377 0abd 07       		.byte	0x7
  1378 0abe 7F01     		.2byte	0x17f
  1379 0ac0 CF000000 		.4byte	0xcf
@@ -2013,7 +2151,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1384 0acb 7E       		.byte	0x7e
  1385 0acc E90A0000 		.4byte	0xae9
  1386 0ad0 09       		.uleb128 0x9
- 1387 0ad1 A82F0000 		.4byte	.LASF303
+ 1387 0ad1 FB2F0000 		.4byte	.LASF303
  1388 0ad5 00       		.byte	0
  1389 0ad6 09       		.uleb128 0x9
  1390 0ad7 6E0E0000 		.4byte	.LASF304
@@ -2022,11 +2160,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1393 0add 57030000 		.4byte	.LASF305
  1394 0ae1 02       		.byte	0x2
  1395 0ae2 09       		.uleb128 0x9
- 1396 0ae3 7E390000 		.4byte	.LASF306
+ 1396 0ae3 D1390000 		.4byte	.LASF306
  1397 0ae7 03       		.byte	0x3
  1398 0ae8 00       		.byte	0
  1399 0ae9 04       		.uleb128 0x4
- 1400 0aea 0C300000 		.4byte	.LASF307
+ 1400 0aea 5F300000 		.4byte	.LASF307
  1401 0aee 08       		.byte	0x8
  1402 0aef 83       		.byte	0x83
  1403 0af0 C40A0000 		.4byte	0xac4
@@ -2037,22 +2175,27 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1408 0afb 87       		.byte	0x87
  1409 0afc 310B0000 		.4byte	0xb31
  1410 0b00 09       		.uleb128 0x9
+<<<<<<< HEAD
  1411 0b01 2C400000 		.4byte	.LASF308
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 35
+=======
+ 1411 0b01 7F400000 		.4byte	.LASF308
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 35
+>>>>>>> Isac
 
 
  1412 0b05 00       		.byte	0
  1413 0b06 09       		.uleb128 0x9
- 1414 0b07 B22C0000 		.4byte	.LASF309
+ 1414 0b07 052D0000 		.4byte	.LASF309
  1415 0b0b 01       		.byte	0x1
  1416 0b0c 09       		.uleb128 0x9
- 1417 0b0d 58380000 		.4byte	.LASF310
+ 1417 0b0d AB380000 		.4byte	.LASF310
  1418 0b11 02       		.byte	0x2
  1419 0b12 09       		.uleb128 0x9
  1420 0b13 3D240000 		.4byte	.LASF311
  1421 0b17 03       		.byte	0x3
  1422 0b18 09       		.uleb128 0x9
- 1423 0b19 C82E0000 		.4byte	.LASF312
+ 1423 0b19 1B2F0000 		.4byte	.LASF312
  1424 0b1d 04       		.byte	0x4
  1425 0b1e 09       		.uleb128 0x9
  1426 0b1f FE120000 		.4byte	.LASF313
@@ -2065,7 +2208,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1433 0b2f 07       		.byte	0x7
  1434 0b30 00       		.byte	0
  1435 0b31 04       		.uleb128 0x4
- 1436 0b32 03390000 		.4byte	.LASF316
+ 1436 0b32 56390000 		.4byte	.LASF316
  1437 0b36 08       		.byte	0x8
  1438 0b37 90       		.byte	0x90
  1439 0b38 F40A0000 		.4byte	0xaf4
@@ -2085,7 +2228,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1453 0b52 B80A0000 		.4byte	0xab8
  1454 0b56 00       		.byte	0
  1455 0b57 07       		.uleb128 0x7
- 1456 0b58 EC390000 		.4byte	.LASF319
+ 1456 0b58 3F3A0000 		.4byte	.LASF319
  1457 0b5c 09       		.byte	0x9
  1458 0b5d 41       		.byte	0x41
  1459 0b5e 640B0000 		.4byte	0xb64
@@ -2098,11 +2241,15 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1466 0b6e A9000000 		.4byte	0xa9
  1467 0b72 00       		.byte	0
  1468 0b73 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 36
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 36
+>>>>>>> Isac
 
 
  1469 0b74 04       		.uleb128 0x4
- 1470 0b75 E0400000 		.4byte	.LASF320
+ 1470 0b75 33410000 		.4byte	.LASF320
  1471 0b79 09       		.byte	0x9
  1472 0b7a 43       		.byte	0x43
  1473 0b7b 430B0000 		.4byte	0xb43
@@ -2112,7 +2259,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1477 0b82 46       		.byte	0x46
  1478 0b83 A00B0000 		.4byte	0xba0
  1479 0b87 07       		.uleb128 0x7
- 1480 0b88 362E0000 		.4byte	.LASF321
+ 1480 0b88 892E0000 		.4byte	.LASF321
  1481 0b8c 09       		.byte	0x9
  1482 0b8d 49       		.byte	0x49
  1483 0b8e B80A0000 		.4byte	0xab8
@@ -2158,7 +2305,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1523 0be0 09       		.byte	0x9
  1524 0be1 9B       		.byte	0x9b
  1525 0be2 BB0B0000 		.4byte	0xbbb
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 37
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 37
+>>>>>>> Isac
 
 
  1526 0be6 0F       		.uleb128 0xf
@@ -2168,10 +2319,10 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1530 0bed BA       		.byte	0xba
  1531 0bee C7160000 		.4byte	0x16c7
  1532 0bf2 0C       		.uleb128 0xc
- 1533 0bf3 163A0000 		.4byte	.LASF326
+ 1533 0bf3 693A0000 		.4byte	.LASF326
  1534 0bf7 00000100 		.4byte	0x10000
  1535 0bfb 0C       		.uleb128 0xc
- 1536 0bfc C2470000 		.4byte	.LASF327
+ 1536 0bfc DC470000 		.4byte	.LASF327
  1537 0c00 01000100 		.4byte	0x10001
  1538 0c04 0C       		.uleb128 0xc
  1539 0c05 32090000 		.4byte	.LASF328
@@ -2180,16 +2331,16 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1542 0c0e F3010000 		.4byte	.LASF329
  1543 0c12 03000100 		.4byte	0x10003
  1544 0c16 0C       		.uleb128 0xc
- 1545 0c17 E5470000 		.4byte	.LASF330
+ 1545 0c17 FF470000 		.4byte	.LASF330
  1546 0c1b 04000100 		.4byte	0x10004
  1547 0c1f 0C       		.uleb128 0xc
- 1548 0c20 53410000 		.4byte	.LASF331
+ 1548 0c20 A6410000 		.4byte	.LASF331
  1549 0c24 05000100 		.4byte	0x10005
  1550 0c28 0C       		.uleb128 0xc
- 1551 0c29 742E0000 		.4byte	.LASF332
+ 1551 0c29 C72E0000 		.4byte	.LASF332
  1552 0c2d 06000100 		.4byte	0x10006
  1553 0c31 0C       		.uleb128 0xc
- 1554 0c32 E03E0000 		.4byte	.LASF333
+ 1554 0c32 333F0000 		.4byte	.LASF333
  1555 0c36 07000100 		.4byte	0x10007
  1556 0c3a 0C       		.uleb128 0xc
  1557 0c3b C1140000 		.4byte	.LASF334
@@ -2207,18 +2358,22 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1569 0c5f 9E000000 		.4byte	.LASF338
  1570 0c63 0C000100 		.4byte	0x1000c
  1571 0c67 0C       		.uleb128 0xc
- 1572 0c68 E03A0000 		.4byte	.LASF339
+ 1572 0c68 333B0000 		.4byte	.LASF339
  1573 0c6c 0D000100 		.4byte	0x1000d
  1574 0c70 0C       		.uleb128 0xc
- 1575 0c71 8A310000 		.4byte	.LASF340
+ 1575 0c71 DD310000 		.4byte	.LASF340
  1576 0c75 0E000100 		.4byte	0x1000e
  1577 0c79 0C       		.uleb128 0xc
- 1578 0c7a C3390000 		.4byte	.LASF341
+ 1578 0c7a 163A0000 		.4byte	.LASF341
  1579 0c7e 0F000100 		.4byte	0x1000f
  1580 0c82 0C       		.uleb128 0xc
  1581 0c83 020F0000 		.4byte	.LASF342
  1582 0c87 10000100 		.4byte	0x10010
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 38
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 38
+>>>>>>> Isac
 
 
  1583 0c8b 0C       		.uleb128 0xc
@@ -2237,13 +2392,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1596 0cb0 141D0000 		.4byte	.LASF347
  1597 0cb4 15000100 		.4byte	0x10015
  1598 0cb8 0C       		.uleb128 0xc
- 1599 0cb9 62420000 		.4byte	.LASF348
+ 1599 0cb9 B5420000 		.4byte	.LASF348
  1600 0cbd 16000100 		.4byte	0x10016
  1601 0cc1 0C       		.uleb128 0xc
  1602 0cc2 79150000 		.4byte	.LASF349
  1603 0cc6 17000100 		.4byte	0x10017
  1604 0cca 0C       		.uleb128 0xc
- 1605 0ccb 83450000 		.4byte	.LASF350
+ 1605 0ccb 9D450000 		.4byte	.LASF350
  1606 0ccf 18000100 		.4byte	0x10018
  1607 0cd3 0C       		.uleb128 0xc
  1608 0cd4 E4280000 		.4byte	.LASF351
@@ -2255,19 +2410,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1614 0ce6 47120000 		.4byte	.LASF353
  1615 0cea 1B000100 		.4byte	0x1001b
  1616 0cee 0C       		.uleb128 0xc
- 1617 0cef 32420000 		.4byte	.LASF354
+ 1617 0cef 85420000 		.4byte	.LASF354
  1618 0cf3 1C000100 		.4byte	0x1001c
  1619 0cf7 0C       		.uleb128 0xc
- 1620 0cf8 0A3E0000 		.4byte	.LASF355
+ 1620 0cf8 5D3E0000 		.4byte	.LASF355
  1621 0cfc 1D000100 		.4byte	0x1001d
  1622 0d00 0C       		.uleb128 0xc
- 1623 0d01 9E390000 		.4byte	.LASF356
+ 1623 0d01 F1390000 		.4byte	.LASF356
  1624 0d05 1E000100 		.4byte	0x1001e
  1625 0d09 0C       		.uleb128 0xc
  1626 0d0a 410B0000 		.4byte	.LASF357
  1627 0d0e 1F000100 		.4byte	0x1001f
  1628 0d12 0C       		.uleb128 0xc
- 1629 0d13 4A3F0000 		.4byte	.LASF358
+ 1629 0d13 9D3F0000 		.4byte	.LASF358
  1630 0d17 20000100 		.4byte	0x10020
  1631 0d1b 0C       		.uleb128 0xc
  1632 0d1c 6A1E0000 		.4byte	.LASF359
@@ -2278,7 +2433,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1637 0d2d 0C       		.uleb128 0xc
  1638 0d2e 89090000 		.4byte	.LASF361
  1639 0d32 23000100 		.4byte	0x10023
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 39
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 39
+>>>>>>> Isac
 
 
  1640 0d36 0C       		.uleb128 0xc
@@ -2288,7 +2447,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1644 0d40 82180000 		.4byte	.LASF363
  1645 0d44 25000100 		.4byte	0x10025
  1646 0d48 0C       		.uleb128 0xc
- 1647 0d49 CB3B0000 		.4byte	.LASF364
+ 1647 0d49 1E3C0000 		.4byte	.LASF364
  1648 0d4d 26000100 		.4byte	0x10026
  1649 0d51 0C       		.uleb128 0xc
  1650 0d52 5D180000 		.4byte	.LASF365
@@ -2297,7 +2456,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1653 0d5b B82A0000 		.4byte	.LASF366
  1654 0d5f 28000100 		.4byte	0x10028
  1655 0d63 0C       		.uleb128 0xc
- 1656 0d64 AC330000 		.4byte	.LASF367
+ 1656 0d64 FF330000 		.4byte	.LASF367
  1657 0d68 29000100 		.4byte	0x10029
  1658 0d6c 0C       		.uleb128 0xc
  1659 0d6d F4030000 		.4byte	.LASF368
@@ -2315,7 +2474,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1671 0d91 C31D0000 		.4byte	.LASF372
  1672 0d95 2E000100 		.4byte	0x1002e
  1673 0d99 0C       		.uleb128 0xc
- 1674 0d9a B04A0000 		.4byte	.LASF373
+ 1674 0d9a CA4A0000 		.4byte	.LASF373
  1675 0d9e 2F000100 		.4byte	0x1002f
  1676 0da2 0C       		.uleb128 0xc
  1677 0da3 D80F0000 		.4byte	.LASF374
@@ -2327,28 +2486,32 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1683 0db5 E9100000 		.4byte	.LASF376
  1684 0db9 32000100 		.4byte	0x10032
  1685 0dbd 0C       		.uleb128 0xc
- 1686 0dbe 1D4B0000 		.4byte	.LASF377
+ 1686 0dbe 374B0000 		.4byte	.LASF377
  1687 0dc2 33000100 		.4byte	0x10033
  1688 0dc6 0C       		.uleb128 0xc
  1689 0dc7 8F050000 		.4byte	.LASF378
  1690 0dcb 34000100 		.4byte	0x10034
  1691 0dcf 0C       		.uleb128 0xc
- 1692 0dd0 FA400000 		.4byte	.LASF379
+ 1692 0dd0 4D410000 		.4byte	.LASF379
  1693 0dd4 35000100 		.4byte	0x10035
  1694 0dd8 0C       		.uleb128 0xc
  1695 0dd9 C21A0000 		.4byte	.LASF380
  1696 0ddd 36000100 		.4byte	0x10036
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 40
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 40
+>>>>>>> Isac
 
 
  1697 0de1 0C       		.uleb128 0xc
- 1698 0de2 E72F0000 		.4byte	.LASF381
+ 1698 0de2 3A300000 		.4byte	.LASF381
  1699 0de6 37000100 		.4byte	0x10037
  1700 0dea 0C       		.uleb128 0xc
  1701 0deb AA010000 		.4byte	.LASF382
  1702 0def 38000100 		.4byte	0x10038
  1703 0df3 0C       		.uleb128 0xc
- 1704 0df4 434B0000 		.4byte	.LASF383
+ 1704 0df4 5D4B0000 		.4byte	.LASF383
  1705 0df8 39000100 		.4byte	0x10039
  1706 0dfc 0C       		.uleb128 0xc
  1707 0dfd CB040000 		.4byte	.LASF384
@@ -2357,19 +2520,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1710 0e06 BE230000 		.4byte	.LASF385
  1711 0e0a 3B000100 		.4byte	0x1003b
  1712 0e0e 0C       		.uleb128 0xc
- 1713 0e0f D04B0000 		.4byte	.LASF386
+ 1713 0e0f EA4B0000 		.4byte	.LASF386
  1714 0e13 3C000100 		.4byte	0x1003c
  1715 0e17 0C       		.uleb128 0xc
- 1716 0e18 86420000 		.4byte	.LASF387
+ 1716 0e18 D9420000 		.4byte	.LASF387
  1717 0e1c 3D000100 		.4byte	0x1003d
  1718 0e20 0C       		.uleb128 0xc
- 1719 0e21 4E3A0000 		.4byte	.LASF388
+ 1719 0e21 A13A0000 		.4byte	.LASF388
  1720 0e25 3E000100 		.4byte	0x1003e
  1721 0e29 0C       		.uleb128 0xc
  1722 0e2a 9A030000 		.4byte	.LASF389
  1723 0e2e 3F000100 		.4byte	0x1003f
  1724 0e32 0C       		.uleb128 0xc
- 1725 0e33 95380000 		.4byte	.LASF390
+ 1725 0e33 E8380000 		.4byte	.LASF390
  1726 0e37 40000100 		.4byte	0x10040
  1727 0e3b 0C       		.uleb128 0xc
  1728 0e3c E61A0000 		.4byte	.LASF391
@@ -2378,19 +2541,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1731 0e45 52060000 		.4byte	.LASF392
  1732 0e49 42000100 		.4byte	0x10042
  1733 0e4d 0C       		.uleb128 0xc
- 1734 0e4e 4B400000 		.4byte	.LASF393
+ 1734 0e4e 9E400000 		.4byte	.LASF393
  1735 0e52 43000100 		.4byte	0x10043
  1736 0e56 0C       		.uleb128 0xc
- 1737 0e57 32460000 		.4byte	.LASF394
+ 1737 0e57 4C460000 		.4byte	.LASF394
  1738 0e5b 44000100 		.4byte	0x10044
  1739 0e5f 0C       		.uleb128 0xc
  1740 0e60 98190000 		.4byte	.LASF395
  1741 0e64 45000100 		.4byte	0x10045
  1742 0e68 0C       		.uleb128 0xc
- 1743 0e69 9B4D0000 		.4byte	.LASF396
+ 1743 0e69 B54D0000 		.4byte	.LASF396
  1744 0e6d 46000100 		.4byte	0x10046
  1745 0e71 0C       		.uleb128 0xc
- 1746 0e72 C4370000 		.4byte	.LASF397
+ 1746 0e72 17380000 		.4byte	.LASF397
  1747 0e76 47000100 		.4byte	0x10047
  1748 0e7a 0C       		.uleb128 0xc
  1749 0e7b AF0B0000 		.4byte	.LASF398
@@ -2398,23 +2561,27 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1751 0e83 0C       		.uleb128 0xc
  1752 0e84 C61B0000 		.4byte	.LASF399
  1753 0e88 49000100 		.4byte	0x10049
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 41
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 41
+>>>>>>> Isac
 
 
  1754 0e8c 0C       		.uleb128 0xc
  1755 0e8d 14050000 		.4byte	.LASF400
  1756 0e91 4A000100 		.4byte	0x1004a
  1757 0e95 0C       		.uleb128 0xc
- 1758 0e96 2C3D0000 		.4byte	.LASF401
+ 1758 0e96 7F3D0000 		.4byte	.LASF401
  1759 0e9a 4B000100 		.4byte	0x1004b
  1760 0e9e 0C       		.uleb128 0xc
  1761 0e9f FC190000 		.4byte	.LASF402
  1762 0ea3 4C000100 		.4byte	0x1004c
  1763 0ea7 0C       		.uleb128 0xc
- 1764 0ea8 EA330000 		.4byte	.LASF403
+ 1764 0ea8 3D340000 		.4byte	.LASF403
  1765 0eac 4D000100 		.4byte	0x1004d
  1766 0eb0 0C       		.uleb128 0xc
- 1767 0eb1 0E340000 		.4byte	.LASF404
+ 1767 0eb1 61340000 		.4byte	.LASF404
  1768 0eb5 4E000100 		.4byte	0x1004e
  1769 0eb9 0C       		.uleb128 0xc
  1770 0eba C2190000 		.4byte	.LASF405
@@ -2423,7 +2590,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1773 0ec3 2D0E0000 		.4byte	.LASF406
  1774 0ec7 50000100 		.4byte	0x10050
  1775 0ecb 0C       		.uleb128 0xc
- 1776 0ecc 65470000 		.4byte	.LASF407
+ 1776 0ecc 7F470000 		.4byte	.LASF407
  1777 0ed0 51000100 		.4byte	0x10051
  1778 0ed4 0C       		.uleb128 0xc
  1779 0ed5 4F220000 		.4byte	.LASF408
@@ -2435,16 +2602,16 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1785 0ee7 0B1B0000 		.4byte	.LASF410
  1786 0eeb 54000100 		.4byte	0x10054
  1787 0eef 0C       		.uleb128 0xc
- 1788 0ef0 5F2F0000 		.4byte	.LASF411
+ 1788 0ef0 B22F0000 		.4byte	.LASF411
  1789 0ef4 55000100 		.4byte	0x10055
  1790 0ef8 0C       		.uleb128 0xc
- 1791 0ef9 674B0000 		.4byte	.LASF412
+ 1791 0ef9 814B0000 		.4byte	.LASF412
  1792 0efd 56000100 		.4byte	0x10056
  1793 0f01 0C       		.uleb128 0xc
  1794 0f02 BC290000 		.4byte	.LASF413
  1795 0f06 57000100 		.4byte	0x10057
  1796 0f0a 0C       		.uleb128 0xc
- 1797 0f0b 362D0000 		.4byte	.LASF414
+ 1797 0f0b 892D0000 		.4byte	.LASF414
  1798 0f0f 58000100 		.4byte	0x10058
  1799 0f13 0C       		.uleb128 0xc
  1800 0f14 80280000 		.4byte	.LASF415
@@ -2458,23 +2625,27 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1808 0f2e 0C       		.uleb128 0xc
  1809 0f2f 9E150000 		.4byte	.LASF418
  1810 0f33 5C000100 		.4byte	0x1005c
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 42
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 42
+>>>>>>> Isac
 
 
  1811 0f37 0C       		.uleb128 0xc
- 1812 0f38 4E340000 		.4byte	.LASF419
+ 1812 0f38 A1340000 		.4byte	.LASF419
  1813 0f3c 5D000100 		.4byte	0x1005d
  1814 0f40 0C       		.uleb128 0xc
  1815 0f41 0C1E0000 		.4byte	.LASF420
  1816 0f45 5E000100 		.4byte	0x1005e
  1817 0f49 0C       		.uleb128 0xc
- 1818 0f4a FF460000 		.4byte	.LASF421
+ 1818 0f4a 19470000 		.4byte	.LASF421
  1819 0f4e 5F000100 		.4byte	0x1005f
  1820 0f52 0C       		.uleb128 0xc
  1821 0f53 122B0000 		.4byte	.LASF422
  1822 0f57 60000100 		.4byte	0x10060
  1823 0f5b 0C       		.uleb128 0xc
- 1824 0f5c 3F4A0000 		.4byte	.LASF423
+ 1824 0f5c 594A0000 		.4byte	.LASF423
  1825 0f60 61000100 		.4byte	0x10061
  1826 0f64 0C       		.uleb128 0xc
  1827 0f65 7C0D0000 		.4byte	.LASF424
@@ -2483,22 +2654,22 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1830 0f6e C0020000 		.4byte	.LASF425
  1831 0f72 63000100 		.4byte	0x10063
  1832 0f76 0C       		.uleb128 0xc
- 1833 0f77 F22E0000 		.4byte	.LASF426
+ 1833 0f77 452F0000 		.4byte	.LASF426
  1834 0f7b 64000100 		.4byte	0x10064
  1835 0f7f 0C       		.uleb128 0xc
  1836 0f80 660B0000 		.4byte	.LASF427
  1837 0f84 65000100 		.4byte	0x10065
  1838 0f88 0C       		.uleb128 0xc
- 1839 0f89 DA460000 		.4byte	.LASF428
+ 1839 0f89 F4460000 		.4byte	.LASF428
  1840 0f8d 66000100 		.4byte	0x10066
  1841 0f91 0C       		.uleb128 0xc
  1842 0f92 39070000 		.4byte	.LASF429
  1843 0f96 67000100 		.4byte	0x10067
  1844 0f9a 0C       		.uleb128 0xc
- 1845 0f9b E84D0000 		.4byte	.LASF430
+ 1845 0f9b 024E0000 		.4byte	.LASF430
  1846 0f9f 68000100 		.4byte	0x10068
  1847 0fa3 0C       		.uleb128 0xc
- 1848 0fa4 5C2D0000 		.4byte	.LASF431
+ 1848 0fa4 AF2D0000 		.4byte	.LASF431
  1849 0fa8 69000100 		.4byte	0x10069
  1850 0fac 0C       		.uleb128 0xc
  1851 0fad 2E1E0000 		.4byte	.LASF432
@@ -2507,7 +2678,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1854 0fb6 65120000 		.4byte	.LASF433
  1855 0fba 6B000100 		.4byte	0x1006b
  1856 0fbe 0C       		.uleb128 0xc
- 1857 0fbf 832F0000 		.4byte	.LASF434
+ 1857 0fbf D62F0000 		.4byte	.LASF434
  1858 0fc3 6C000100 		.4byte	0x1006c
  1859 0fc7 0C       		.uleb128 0xc
  1860 0fc8 00290000 		.4byte	.LASF435
@@ -2516,34 +2687,38 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1863 0fd1 A5140000 		.4byte	.LASF436
  1864 0fd5 6E000100 		.4byte	0x1006e
  1865 0fd9 0C       		.uleb128 0xc
- 1866 0fda CC330000 		.4byte	.LASF437
+ 1866 0fda 1F340000 		.4byte	.LASF437
  1867 0fde 6F000100 		.4byte	0x1006f
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 43
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 43
+>>>>>>> Isac
 
 
  1868 0fe2 0C       		.uleb128 0xc
- 1869 0fe3 C7450000 		.4byte	.LASF438
+ 1869 0fe3 E1450000 		.4byte	.LASF438
  1870 0fe7 70000100 		.4byte	0x10070
  1871 0feb 0C       		.uleb128 0xc
  1872 0fec 880C0000 		.4byte	.LASF439
  1873 0ff0 71000100 		.4byte	0x10071
  1874 0ff4 0C       		.uleb128 0xc
- 1875 0ff5 22470000 		.4byte	.LASF440
+ 1875 0ff5 3C470000 		.4byte	.LASF440
  1876 0ff9 72000100 		.4byte	0x10072
  1877 0ffd 0C       		.uleb128 0xc
  1878 0ffe 21250000 		.4byte	.LASF441
  1879 1002 73000100 		.4byte	0x10073
  1880 1006 0C       		.uleb128 0xc
- 1881 1007 8A4A0000 		.4byte	.LASF442
+ 1881 1007 A44A0000 		.4byte	.LASF442
  1882 100b 74000100 		.4byte	0x10074
  1883 100f 0C       		.uleb128 0xc
- 1884 1010 4C2C0000 		.4byte	.LASF443
+ 1884 1010 9F2C0000 		.4byte	.LASF443
  1885 1014 75000100 		.4byte	0x10075
  1886 1018 0C       		.uleb128 0xc
- 1887 1019 983D0000 		.4byte	.LASF444
+ 1887 1019 EB3D0000 		.4byte	.LASF444
  1888 101d 76000100 		.4byte	0x10076
  1889 1021 0C       		.uleb128 0xc
- 1890 1022 EF320000 		.4byte	.LASF445
+ 1890 1022 42330000 		.4byte	.LASF445
  1891 1026 77000100 		.4byte	0x10077
  1892 102a 0C       		.uleb128 0xc
  1893 102b 6A160000 		.4byte	.LASF446
@@ -2561,7 +2736,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1905 104f 67240000 		.4byte	.LASF450
  1906 1053 7C000100 		.4byte	0x1007c
  1907 1057 0C       		.uleb128 0xc
- 1908 1058 162F0000 		.4byte	.LASF451
+ 1908 1058 692F0000 		.4byte	.LASF451
  1909 105c 7D000100 		.4byte	0x1007d
  1910 1060 0C       		.uleb128 0xc
  1911 1061 692B0000 		.4byte	.LASF452
@@ -2573,16 +2748,20 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1917 1073 4D260000 		.4byte	.LASF454
  1918 1077 80000100 		.4byte	0x10080
  1919 107b 0C       		.uleb128 0xc
- 1920 107c 73340000 		.4byte	.LASF455
+ 1920 107c C6340000 		.4byte	.LASF455
  1921 1080 81000100 		.4byte	0x10081
  1922 1084 0C       		.uleb128 0xc
  1923 1085 D3060000 		.4byte	.LASF456
  1924 1089 82000100 		.4byte	0x10082
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 44
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 44
+>>>>>>> Isac
 
 
  1925 108d 0C       		.uleb128 0xc
- 1926 108e 712C0000 		.4byte	.LASF457
+ 1926 108e C42C0000 		.4byte	.LASF457
  1927 1092 83000100 		.4byte	0x10083
  1928 1096 0C       		.uleb128 0xc
  1929 1097 77060000 		.4byte	.LASF458
@@ -2591,34 +2770,34 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1932 10a0 46080000 		.4byte	.LASF459
  1933 10a4 85000100 		.4byte	0x10085
  1934 10a8 0C       		.uleb128 0xc
- 1935 10a9 8D440000 		.4byte	.LASF460
+ 1935 10a9 A7440000 		.4byte	.LASF460
  1936 10ad 86000100 		.4byte	0x10086
  1937 10b1 0C       		.uleb128 0xc
  1938 10b2 2D210000 		.4byte	.LASF461
  1939 10b6 87000100 		.4byte	0x10087
  1940 10ba 0C       		.uleb128 0xc
- 1941 10bb F34B0000 		.4byte	.LASF462
+ 1941 10bb 0D4C0000 		.4byte	.LASF462
  1942 10bf 88000100 		.4byte	0x10088
  1943 10c3 0C       		.uleb128 0xc
  1944 10c4 2F2A0000 		.4byte	.LASF463
  1945 10c8 89000100 		.4byte	0x10089
  1946 10cc 0C       		.uleb128 0xc
- 1947 10cd B9300000 		.4byte	.LASF464
+ 1947 10cd 0C310000 		.4byte	.LASF464
  1948 10d1 8A000100 		.4byte	0x1008a
  1949 10d5 0C       		.uleb128 0xc
- 1950 10d6 9E3E0000 		.4byte	.LASF465
+ 1950 10d6 F13E0000 		.4byte	.LASF465
  1951 10da 8B000100 		.4byte	0x1008b
  1952 10de 0C       		.uleb128 0xc
- 1953 10df F4430000 		.4byte	.LASF466
+ 1953 10df 47440000 		.4byte	.LASF466
  1954 10e3 8C000100 		.4byte	0x1008c
  1955 10e7 0C       		.uleb128 0xc
- 1956 10e8 263B0000 		.4byte	.LASF467
+ 1956 10e8 793B0000 		.4byte	.LASF467
  1957 10ec 8D000100 		.4byte	0x1008d
  1958 10f0 0C       		.uleb128 0xc
  1959 10f1 72230000 		.4byte	.LASF468
  1960 10f5 8E000100 		.4byte	0x1008e
  1961 10f9 0C       		.uleb128 0xc
- 1962 10fa 3C4C0000 		.4byte	.LASF469
+ 1962 10fa 564C0000 		.4byte	.LASF469
  1963 10fe 8F000100 		.4byte	0x1008f
  1964 1102 0C       		.uleb128 0xc
  1965 1103 530E0000 		.4byte	.LASF470
@@ -2630,7 +2809,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1971 1115 15200000 		.4byte	.LASF472
  1972 1119 92000100 		.4byte	0x10092
  1973 111d 0C       		.uleb128 0xc
- 1974 111e BD3A0000 		.4byte	.LASF473
+ 1974 111e 103B0000 		.4byte	.LASF473
  1975 1122 93000100 		.4byte	0x10093
  1976 1126 0C       		.uleb128 0xc
  1977 1127 E40D0000 		.4byte	.LASF474
@@ -2638,41 +2817,45 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  1979 112f 0C       		.uleb128 0xc
  1980 1130 7A1F0000 		.4byte	.LASF475
  1981 1134 95000100 		.4byte	0x10095
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 45
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 45
+>>>>>>> Isac
 
 
  1982 1138 0C       		.uleb128 0xc
- 1983 1139 FF340000 		.4byte	.LASF476
+ 1983 1139 52350000 		.4byte	.LASF476
  1984 113d 96000100 		.4byte	0x10096
  1985 1141 0C       		.uleb128 0xc
  1986 1142 64100000 		.4byte	.LASF477
  1987 1146 97000100 		.4byte	0x10097
  1988 114a 0C       		.uleb128 0xc
- 1989 114b 37300000 		.4byte	.LASF478
+ 1989 114b 8A300000 		.4byte	.LASF478
  1990 114f 98000100 		.4byte	0x10098
  1991 1153 0C       		.uleb128 0xc
  1992 1154 F8130000 		.4byte	.LASF479
  1993 1158 99000100 		.4byte	0x10099
  1994 115c 0C       		.uleb128 0xc
- 1995 115d CA410000 		.4byte	.LASF480
+ 1995 115d 1D420000 		.4byte	.LASF480
  1996 1161 9A000100 		.4byte	0x1009a
  1997 1165 0C       		.uleb128 0xc
  1998 1166 8E270000 		.4byte	.LASF481
  1999 116a 9B000100 		.4byte	0x1009b
  2000 116e 0C       		.uleb128 0xc
- 2001 116f 47470000 		.4byte	.LASF482
+ 2001 116f 61470000 		.4byte	.LASF482
  2002 1173 9C000100 		.4byte	0x1009c
  2003 1177 0C       		.uleb128 0xc
- 2004 1178 0D2C0000 		.4byte	.LASF483
+ 2004 1178 602C0000 		.4byte	.LASF483
  2005 117c 9D000100 		.4byte	0x1009d
  2006 1180 0C       		.uleb128 0xc
  2007 1181 70270000 		.4byte	.LASF484
  2008 1185 9E000100 		.4byte	0x1009e
  2009 1189 0C       		.uleb128 0xc
- 2010 118a 56460000 		.4byte	.LASF485
+ 2010 118a 70460000 		.4byte	.LASF485
  2011 118e 9F000100 		.4byte	0x1009f
  2012 1192 0C       		.uleb128 0xc
- 2013 1193 87430000 		.4byte	.LASF486
+ 2013 1193 DA430000 		.4byte	.LASF486
  2014 1197 A0000100 		.4byte	0x100a0
  2015 119b 0C       		.uleb128 0xc
  2016 119c 551F0000 		.4byte	.LASF487
@@ -2684,28 +2867,32 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2022 11ae AB170000 		.4byte	.LASF489
  2023 11b2 A3000100 		.4byte	0x100a3
  2024 11b6 0C       		.uleb128 0xc
- 2025 11b7 D44A0000 		.4byte	.LASF490
+ 2025 11b7 EE4A0000 		.4byte	.LASF490
  2026 11bb A4000100 		.4byte	0x100a4
  2027 11bf 0C       		.uleb128 0xc
  2028 11c0 350A0000 		.4byte	.LASF491
  2029 11c4 A5000100 		.4byte	0x100a5
  2030 11c8 0C       		.uleb128 0xc
- 2031 11c9 1A390000 		.4byte	.LASF492
+ 2031 11c9 6D390000 		.4byte	.LASF492
  2032 11cd A6000100 		.4byte	0x100a6
  2033 11d1 0C       		.uleb128 0xc
  2034 11d2 1A240000 		.4byte	.LASF493
  2035 11d6 A7000100 		.4byte	0x100a7
  2036 11da 0C       		.uleb128 0xc
- 2037 11db 114D0000 		.4byte	.LASF494
+ 2037 11db 2B4D0000 		.4byte	.LASF494
  2038 11df A8000100 		.4byte	0x100a8
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 46
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 46
+>>>>>>> Isac
 
 
  2039 11e3 0C       		.uleb128 0xc
  2040 11e4 93060000 		.4byte	.LASF495
  2041 11e8 A9000100 		.4byte	0x100a9
  2042 11ec 0C       		.uleb128 0xc
- 2043 11ed 023B0000 		.4byte	.LASF496
+ 2043 11ed 553B0000 		.4byte	.LASF496
  2044 11f1 AA000100 		.4byte	0x100aa
  2045 11f5 0C       		.uleb128 0xc
  2046 11f6 81290000 		.4byte	.LASF497
@@ -2717,10 +2904,10 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2052 1208 50110000 		.4byte	.LASF499
  2053 120c AD000100 		.4byte	0x100ad
  2054 1210 0C       		.uleb128 0xc
- 2055 1211 992E0000 		.4byte	.LASF500
+ 2055 1211 EC2E0000 		.4byte	.LASF500
  2056 1215 AE000100 		.4byte	0x100ae
  2057 1219 0C       		.uleb128 0xc
- 2058 121a 96300000 		.4byte	.LASF501
+ 2058 121a E9300000 		.4byte	.LASF501
  2059 121e AF000100 		.4byte	0x100af
  2060 1222 0C       		.uleb128 0xc
  2061 1223 6F130000 		.4byte	.LASF502
@@ -2738,7 +2925,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2073 1247 93260000 		.4byte	.LASF506
  2074 124b B4000100 		.4byte	0x100b4
  2075 124f 0C       		.uleb128 0xc
- 2076 1250 9E400000 		.4byte	.LASF507
+ 2076 1250 F1400000 		.4byte	.LASF507
  2077 1254 B5000100 		.4byte	0x100b5
  2078 1258 0C       		.uleb128 0xc
  2079 1259 CD1F0000 		.4byte	.LASF508
@@ -2756,43 +2943,47 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2091 127d 142A0000 		.4byte	.LASF512
  2092 1281 BA000100 		.4byte	0x100ba
  2093 1285 0C       		.uleb128 0xc
- 2094 1286 863C0000 		.4byte	.LASF513
+ 2094 1286 D93C0000 		.4byte	.LASF513
  2095 128a BB000100 		.4byte	0x100bb
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 47
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 47
+>>>>>>> Isac
 
 
  2096 128e 0C       		.uleb128 0xc
  2097 128f F0040000 		.4byte	.LASF514
  2098 1293 BC000100 		.4byte	0x100bc
  2099 1297 0C       		.uleb128 0xc
- 2100 1298 ED4C0000 		.4byte	.LASF515
+ 2100 1298 074D0000 		.4byte	.LASF515
  2101 129c BD000100 		.4byte	0x100bd
  2102 12a0 0C       		.uleb128 0xc
  2103 12a1 80140000 		.4byte	.LASF516
  2104 12a5 BE000100 		.4byte	0x100be
  2105 12a9 0C       		.uleb128 0xc
- 2106 12aa 13460000 		.4byte	.LASF517
+ 2106 12aa 2D460000 		.4byte	.LASF517
  2107 12ae BF000100 		.4byte	0x100bf
  2108 12b2 0C       		.uleb128 0xc
  2109 12b3 79020000 		.4byte	.LASF518
  2110 12b7 C0000100 		.4byte	0x100c0
  2111 12bb 0C       		.uleb128 0xc
- 2112 12bc 33340000 		.4byte	.LASF519
+ 2112 12bc 86340000 		.4byte	.LASF519
  2113 12c0 C1000100 		.4byte	0x100c1
  2114 12c4 0C       		.uleb128 0xc
- 2115 12c5 552E0000 		.4byte	.LASF520
+ 2115 12c5 A82E0000 		.4byte	.LASF520
  2116 12c9 C2000100 		.4byte	0x100c2
  2117 12cd 0C       		.uleb128 0xc
  2118 12ce 0E110000 		.4byte	.LASF521
  2119 12d2 C3000100 		.4byte	0x100c3
  2120 12d6 0C       		.uleb128 0xc
- 2121 12d7 42310000 		.4byte	.LASF522
+ 2121 12d7 95310000 		.4byte	.LASF522
  2122 12db C4000100 		.4byte	0x100c4
  2123 12df 0C       		.uleb128 0xc
  2124 12e0 12180000 		.4byte	.LASF523
  2125 12e4 C5000100 		.4byte	0x100c5
  2126 12e8 0C       		.uleb128 0xc
- 2127 12e9 D1440000 		.4byte	.LASF524
+ 2127 12e9 EB440000 		.4byte	.LASF524
  2128 12ed C6000100 		.4byte	0x100c6
  2129 12f1 0C       		.uleb128 0xc
  2130 12f2 3C140000 		.4byte	.LASF525
@@ -2801,46 +2992,50 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2133 12fb 3B1D0000 		.4byte	.LASF526
  2134 12ff C8000100 		.4byte	0x100c8
  2135 1303 0C       		.uleb128 0xc
- 2136 1304 EA310000 		.4byte	.LASF527
+ 2136 1304 3D320000 		.4byte	.LASF527
  2137 1308 C9000100 		.4byte	0x100c9
  2138 130c 0C       		.uleb128 0xc
- 2139 130d 34410000 		.4byte	.LASF528
+ 2139 130d 87410000 		.4byte	.LASF528
  2140 1311 CA000100 		.4byte	0x100ca
  2141 1315 0C       		.uleb128 0xc
- 2142 1316 BE3D0000 		.4byte	.LASF529
+ 2142 1316 113E0000 		.4byte	.LASF529
  2143 131a CB000100 		.4byte	0x100cb
  2144 131e 0C       		.uleb128 0xc
  2145 131f 74190000 		.4byte	.LASF530
  2146 1323 CC000100 		.4byte	0x100cc
  2147 1327 0C       		.uleb128 0xc
- 2148 1328 EE360000 		.4byte	.LASF531
+ 2148 1328 41370000 		.4byte	.LASF531
  2149 132c CD000100 		.4byte	0x100cd
  2150 1330 0C       		.uleb128 0xc
  2151 1331 2B0F0000 		.4byte	.LASF532
  2152 1335 CE000100 		.4byte	0x100ce
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 48
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 48
+>>>>>>> Isac
 
 
  2153 1339 0C       		.uleb128 0xc
  2154 133a EF1C0000 		.4byte	.LASF533
  2155 133e CF000100 		.4byte	0x100cf
  2156 1342 0C       		.uleb128 0xc
- 2157 1343 9F460000 		.4byte	.LASF534
+ 2157 1343 B9460000 		.4byte	.LASF534
  2158 1347 D0000100 		.4byte	0x100d0
  2159 134b 0C       		.uleb128 0xc
- 2160 134c 69370000 		.4byte	.LASF535
+ 2160 134c BC370000 		.4byte	.LASF535
  2161 1350 D1000100 		.4byte	0x100d1
  2162 1354 0C       		.uleb128 0xc
  2163 1355 E70E0000 		.4byte	.LASF536
  2164 1359 D2000100 		.4byte	0x100d2
  2165 135d 0C       		.uleb128 0xc
- 2166 135e D4320000 		.4byte	.LASF537
+ 2166 135e 27330000 		.4byte	.LASF537
  2167 1362 D3000100 		.4byte	0x100d3
  2168 1366 0C       		.uleb128 0xc
  2169 1367 221C0000 		.4byte	.LASF538
  2170 136b D4000100 		.4byte	0x100d4
  2171 136f 0C       		.uleb128 0xc
- 2172 1370 0A330000 		.4byte	.LASF539
+ 2172 1370 5D330000 		.4byte	.LASF539
  2173 1374 D5000100 		.4byte	0x100d5
  2174 1378 0C       		.uleb128 0xc
  2175 1379 16280000 		.4byte	.LASF540
@@ -2852,13 +3047,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2181 138b F3160000 		.4byte	.LASF542
  2182 138f D8000100 		.4byte	0x100d8
  2183 1393 0C       		.uleb128 0xc
- 2184 1394 FC3E0000 		.4byte	.LASF543
+ 2184 1394 4F3F0000 		.4byte	.LASF543
  2185 1398 D9000100 		.4byte	0x100d9
  2186 139c 0C       		.uleb128 0xc
- 2187 139d 2D330000 		.4byte	.LASF544
+ 2187 139d 80330000 		.4byte	.LASF544
  2188 13a1 DA000100 		.4byte	0x100da
  2189 13a5 0C       		.uleb128 0xc
- 2190 13a6 77410000 		.4byte	.LASF545
+ 2190 13a6 CA410000 		.4byte	.LASF545
  2191 13aa DB000100 		.4byte	0x100db
  2192 13ae 0C       		.uleb128 0xc
  2193 13af 881D0000 		.4byte	.LASF546
@@ -2876,19 +3071,23 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2205 13d3 CD010000 		.4byte	.LASF550
  2206 13d7 E0000100 		.4byte	0x100e0
  2207 13db 0C       		.uleb128 0xc
- 2208 13dc ED2D0000 		.4byte	.LASF551
+ 2208 13dc 402E0000 		.4byte	.LASF551
  2209 13e0 E1000100 		.4byte	0x100e1
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 49
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 49
+>>>>>>> Isac
 
 
  2210 13e4 0C       		.uleb128 0xc
- 2211 13e5 7A460000 		.4byte	.LASF552
+ 2211 13e5 94460000 		.4byte	.LASF552
  2212 13e9 E2000100 		.4byte	0x100e2
  2213 13ed 0C       		.uleb128 0xc
- 2214 13ee 2E3E0000 		.4byte	.LASF553
+ 2214 13ee 813E0000 		.4byte	.LASF553
  2215 13f2 E3000100 		.4byte	0x100e3
  2216 13f6 0C       		.uleb128 0xc
- 2217 13f7 53330000 		.4byte	.LASF554
+ 2217 13f7 A6330000 		.4byte	.LASF554
  2218 13fb E4000100 		.4byte	0x100e4
  2219 13ff 0C       		.uleb128 0xc
  2220 1400 E8260000 		.4byte	.LASF555
@@ -2897,7 +3096,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2223 1409 8F170000 		.4byte	.LASF556
  2224 140d E6000100 		.4byte	0x100e6
  2225 1411 0C       		.uleb128 0xc
- 2226 1412 E1480000 		.4byte	.LASF557
+ 2226 1412 FB480000 		.4byte	.LASF557
  2227 1416 E7000100 		.4byte	0x100e7
  2228 141a 0C       		.uleb128 0xc
  2229 141b 29290000 		.4byte	.LASF558
@@ -2912,7 +3111,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2238 1436 5A1D0000 		.4byte	.LASF561
  2239 143a EB000100 		.4byte	0x100eb
  2240 143e 0C       		.uleb128 0xc
- 2241 143f E3450000 		.4byte	.LASF562
+ 2241 143f FD450000 		.4byte	.LASF562
  2242 1443 EC000100 		.4byte	0x100ec
  2243 1447 0C       		.uleb128 0xc
  2244 1448 2D080000 		.4byte	.LASF563
@@ -2921,7 +3120,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2247 1451 08100000 		.4byte	.LASF564
  2248 1455 EE000100 		.4byte	0x100ee
  2249 1459 0C       		.uleb128 0xc
- 2250 145a 543E0000 		.4byte	.LASF565
+ 2250 145a A73E0000 		.4byte	.LASF565
  2251 145e EF000100 		.4byte	0x100ef
  2252 1462 0C       		.uleb128 0xc
  2253 1463 E11B0000 		.4byte	.LASF566
@@ -2938,7 +3137,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2264 1486 0C       		.uleb128 0xc
  2265 1487 F4170000 		.4byte	.LASF570
  2266 148b F4000100 		.4byte	0x100f4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 50
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 50
+>>>>>>> Isac
 
 
  2267 148f 0C       		.uleb128 0xc
@@ -2966,7 +3169,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2289 14cf B4240000 		.4byte	.LASF578
  2290 14d3 FC000100 		.4byte	0x100fc
  2291 14d7 0C       		.uleb128 0xc
- 2292 14d8 79330000 		.4byte	.LASF579
+ 2292 14d8 CC330000 		.4byte	.LASF579
  2293 14dc FD000100 		.4byte	0x100fd
  2294 14e0 0C       		.uleb128 0xc
  2295 14e1 BD070000 		.4byte	.LASF580
@@ -2978,13 +3181,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2301 14f3 FD110000 		.4byte	.LASF582
  2302 14f7 00010100 		.4byte	0x10100
  2303 14fb 0C       		.uleb128 0xc
- 2304 14fc CE430000 		.4byte	.LASF583
+ 2304 14fc 21440000 		.4byte	.LASF583
  2305 1500 01010100 		.4byte	0x10101
  2306 1504 0C       		.uleb128 0xc
- 2307 1505 DE380000 		.4byte	.LASF584
+ 2307 1505 31390000 		.4byte	.LASF584
  2308 1509 02010100 		.4byte	0x10102
  2309 150d 0C       		.uleb128 0xc
- 2310 150e 684D0000 		.4byte	.LASF585
+ 2310 150e 824D0000 		.4byte	.LASF585
  2311 1512 03010100 		.4byte	0x10103
  2312 1516 0C       		.uleb128 0xc
  2313 1517 3A280000 		.4byte	.LASF586
@@ -2993,12 +3196,16 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2316 1520 9E1F0000 		.4byte	.LASF587
  2317 1524 05010100 		.4byte	0x10105
  2318 1528 0C       		.uleb128 0xc
- 2319 1529 75320000 		.4byte	.LASF588
+ 2319 1529 C8320000 		.4byte	.LASF588
  2320 152d 06010100 		.4byte	0x10106
  2321 1531 0C       		.uleb128 0xc
- 2322 1532 5A3D0000 		.4byte	.LASF589
+ 2322 1532 AD3D0000 		.4byte	.LASF589
  2323 1536 07010100 		.4byte	0x10107
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 51
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 51
+>>>>>>> Isac
 
 
  2324 153a 0C       		.uleb128 0xc
@@ -3008,13 +3215,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2328 1544 6F210000 		.4byte	.LASF591
  2329 1548 09010100 		.4byte	0x10109
  2330 154c 0C       		.uleb128 0xc
- 2331 154d AB4B0000 		.4byte	.LASF592
+ 2331 154d C54B0000 		.4byte	.LASF592
  2332 1551 0A010100 		.4byte	0x1010a
  2333 1555 0C       		.uleb128 0xc
  2334 1556 FD200000 		.4byte	.LASF593
  2335 155a 0B010100 		.4byte	0x1010b
  2336 155e 0C       		.uleb128 0xc
- 2337 155f 392F0000 		.4byte	.LASF594
+ 2337 155f 8C2F0000 		.4byte	.LASF594
  2338 1563 0C010100 		.4byte	0x1010c
  2339 1567 0C       		.uleb128 0xc
  2340 1568 6D010000 		.4byte	.LASF595
@@ -3023,16 +3230,16 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2343 1571 52010000 		.4byte	.LASF596
  2344 1575 0E010100 		.4byte	0x1010e
  2345 1579 0C       		.uleb128 0xc
- 2346 157a E92B0000 		.4byte	.LASF597
+ 2346 157a 3C2C0000 		.4byte	.LASF597
  2347 157e 0F010100 		.4byte	0x1010f
  2348 1582 0C       		.uleb128 0xc
  2349 1583 15090000 		.4byte	.LASF598
  2350 1587 10010100 		.4byte	0x10110
  2351 158b 0C       		.uleb128 0xc
- 2352 158c FA4A0000 		.4byte	.LASF599
+ 2352 158c 144B0000 		.4byte	.LASF599
  2353 1590 11010100 		.4byte	0x10111
  2354 1594 0C       		.uleb128 0xc
- 2355 1595 F03B0000 		.4byte	.LASF600
+ 2355 1595 433C0000 		.4byte	.LASF600
  2356 1599 12010100 		.4byte	0x10112
  2357 159d 0C       		.uleb128 0xc
  2358 159e CC180000 		.4byte	.LASF601
@@ -3041,28 +3248,32 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2361 15a7 CD270000 		.4byte	.LASF602
  2362 15ab 14010100 		.4byte	0x10114
  2363 15af 0C       		.uleb128 0xc
- 2364 15b0 BE4D0000 		.4byte	.LASF603
+ 2364 15b0 D84D0000 		.4byte	.LASF603
  2365 15b4 15010100 		.4byte	0x10115
  2366 15b8 0C       		.uleb128 0xc
- 2367 15b9 733A0000 		.4byte	.LASF604
+ 2367 15b9 C63A0000 		.4byte	.LASF604
  2368 15bd 16010100 		.4byte	0x10116
  2369 15c1 0C       		.uleb128 0xc
  2370 15c2 E6070000 		.4byte	.LASF605
  2371 15c6 17010100 		.4byte	0x10117
  2372 15ca 0C       		.uleb128 0xc
- 2373 15cb 33450000 		.4byte	.LASF606
+ 2373 15cb 4D450000 		.4byte	.LASF606
  2374 15cf 18010100 		.4byte	0x10118
  2375 15d3 0C       		.uleb128 0xc
- 2376 15d4 3B360000 		.4byte	.LASF607
+ 2376 15d4 8E360000 		.4byte	.LASF607
  2377 15d8 19010100 		.4byte	0x10119
  2378 15dc 0C       		.uleb128 0xc
  2379 15dd AD100000 		.4byte	.LASF608
  2380 15e1 1A010100 		.4byte	0x1011a
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 52
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 52
+>>>>>>> Isac
 
 
  2381 15e5 0C       		.uleb128 0xc
- 2382 15e6 18440000 		.4byte	.LASF609
+ 2382 15e6 6B440000 		.4byte	.LASF609
  2383 15ea 1B010100 		.4byte	0x1011b
  2384 15ee 0C       		.uleb128 0xc
  2385 15ef 942A0000 		.4byte	.LASF610
@@ -3077,7 +3288,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2394 160a F2270000 		.4byte	.LASF613
  2395 160e 1F010100 		.4byte	0x1011f
  2396 1612 0C       		.uleb128 0xc
- 2397 1613 E32C0000 		.4byte	.LASF614
+ 2397 1613 362D0000 		.4byte	.LASF614
  2398 1617 20010100 		.4byte	0x10120
  2399 161b 0C       		.uleb128 0xc
  2400 161c B0090000 		.4byte	.LASF615
@@ -3101,10 +3312,10 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2418 1652 531C0000 		.4byte	.LASF621
  2419 1656 27010100 		.4byte	0x10127
  2420 165a 0C       		.uleb128 0xc
- 2421 165b 174C0000 		.4byte	.LASF622
+ 2421 165b 314C0000 		.4byte	.LASF622
  2422 165f 28010100 		.4byte	0x10128
  2423 1663 0C       		.uleb128 0xc
- 2424 1664 BE490000 		.4byte	.LASF623
+ 2424 1664 D8490000 		.4byte	.LASF623
  2425 1668 29010100 		.4byte	0x10129
  2426 166c 0C       		.uleb128 0xc
  2427 166d AC0C0000 		.4byte	.LASF624
@@ -3113,40 +3324,44 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2430 1676 15260000 		.4byte	.LASF625
  2431 167a 2B010100 		.4byte	0x1012b
  2432 167e 0C       		.uleb128 0xc
- 2433 167f 664A0000 		.4byte	.LASF626
+ 2433 167f 804A0000 		.4byte	.LASF626
  2434 1683 2C010100 		.4byte	0x1012c
  2435 1687 0C       		.uleb128 0xc
- 2436 1688 C13E0000 		.4byte	.LASF627
+ 2436 1688 143F0000 		.4byte	.LASF627
  2437 168c 2D010100 		.4byte	0x1012d
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 53
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 53
+>>>>>>> Isac
 
 
  2438 1690 0C       		.uleb128 0xc
  2439 1691 D5050000 		.4byte	.LASF628
  2440 1695 2E010100 		.4byte	0x1012e
  2441 1699 0C       		.uleb128 0xc
- 2442 169a 8A360000 		.4byte	.LASF629
+ 2442 169a DD360000 		.4byte	.LASF629
  2443 169e 2F010100 		.4byte	0x1012f
  2444 16a2 0C       		.uleb128 0xc
  2445 16a3 71000000 		.4byte	.LASF630
  2446 16a7 30010100 		.4byte	0x10130
  2447 16ab 0C       		.uleb128 0xc
- 2448 16ac 0F380000 		.4byte	.LASF631
+ 2448 16ac 62380000 		.4byte	.LASF631
  2449 16b0 31010100 		.4byte	0x10131
  2450 16b4 0C       		.uleb128 0xc
  2451 16b5 E1110000 		.4byte	.LASF632
  2452 16b9 32010100 		.4byte	0x10132
  2453 16bd 0C       		.uleb128 0xc
- 2454 16be 4B430000 		.4byte	.LASF633
+ 2454 16be 9E430000 		.4byte	.LASF633
  2455 16c2 33010100 		.4byte	0x10133
  2456 16c6 00       		.byte	0
  2457 16c7 0B       		.uleb128 0xb
- 2458 16c8 AE350000 		.4byte	.LASF634
+ 2458 16c8 01360000 		.4byte	.LASF634
  2459 16cc 0A       		.byte	0xa
  2460 16cd A808     		.2byte	0x8a8
  2461 16cf E60B0000 		.4byte	0xbe6
  2462 16d3 14       		.uleb128 0x14
- 2463 16d4 F5410000 		.4byte	.LASF647
+ 2463 16d4 48420000 		.4byte	.LASF647
  2464 16d8 01       		.byte	0x1
  2465 16d9 9D01     		.2byte	0x19d
  2466 16db AC0A0000 		.4byte	0xaac
@@ -3156,7 +3371,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2470 16e8 9C       		.byte	0x9c
  2471 16e9 0C170000 		.4byte	0x170c
  2472 16ed 15       		.uleb128 0x15
- 2473 16ee 09460000 		.4byte	.LASF635
+ 2473 16ee 23460000 		.4byte	.LASF635
  2474 16f2 01       		.byte	0x1
  2475 16f3 9D01     		.2byte	0x19d
  2476 16f5 E5000000 		.4byte	0xe5
@@ -3170,7 +3385,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2484 170a 51       		.byte	0x51
  2485 170b 00       		.byte	0
  2486 170c 17       		.uleb128 0x17
- 2487 170d 1C480000 		.4byte	.LASF648
+ 2487 170d 36480000 		.4byte	.LASF648
  2488 1711 01       		.byte	0x1
  2489 1712 3C       		.byte	0x3c
  2490 1713 7F090000 		.4byte	0x97f
@@ -3178,7 +3393,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2492 171b 20000000 		.4byte	.LFE255-.LFB255
  2493 171f 01       		.uleb128 0x1
  2494 1720 9C       		.byte	0x9c
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 54
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 54
+>>>>>>> Isac
 
 
  2495 1721 57170000 		.4byte	0x1757
@@ -3209,7 +3428,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2520 1758 04       		.byte	0x4
  2521 1759 DB0B0000 		.4byte	0xbdb
  2522 175d 1C       		.uleb128 0x1c
- 2523 175e 503D0000 		.4byte	.LASF638
+ 2523 175e A33D0000 		.4byte	.LASF638
  2524 1762 04       		.byte	0x4
  2525 1763 A7       		.byte	0xa7
  2526 1764 68170000 		.4byte	0x1768
@@ -3226,7 +3445,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2537 177f 1E       		.uleb128 0x1e
  2538 1780 DA000000 		.4byte	0xda
  2539 1784 1D       		.uleb128 0x1d
- 2540 1785 06450000 		.4byte	.LASF640
+ 2540 1785 20450000 		.4byte	.LASF640
  2541 1789 08       		.byte	0x8
  2542 178a 2202     		.2byte	0x222
  2543 178c E90A0000 		.4byte	0xae9
@@ -3238,7 +3457,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2549 179e 00       		.byte	0
  2550 179f 00       		.byte	0
  2551 17a0 1D       		.uleb128 0x1d
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 55
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 55
+>>>>>>> Isac
 
 
  2552 17a1 C4130000 		.4byte	.LASF641
@@ -3253,12 +3476,12 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2561 17ba 00       		.byte	0
  2562 17bb 00       		.byte	0
  2563 17bc 1D       		.uleb128 0x1d
- 2564 17bd 0E430000 		.4byte	.LASF642
+ 2564 17bd 61430000 		.4byte	.LASF642
  2565 17c1 08       		.byte	0x8
  2566 17c2 2D02     		.2byte	0x22d
  2567 17c4 AC170000 		.4byte	0x17ac
  2568 17c8 1F       		.uleb128 0x1f
- 2569 17c9 1D410000 		.4byte	.LASF643
+ 2569 17c9 70410000 		.4byte	.LASF643
  2570 17cd 01       		.byte	0x1
  2571 17ce 1B       		.byte	0x1b
  2572 17cf 57170000 		.4byte	0x1757
@@ -3298,7 +3521,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2606 0016 0B       		.uleb128 0xb
  2607 0017 0B       		.uleb128 0xb
  2608 0018 3E       		.uleb128 0x3e
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 56
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 56
+>>>>>>> Isac
 
 
  2609 0019 0B       		.uleb128 0xb
@@ -3358,7 +3585,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2663 004f 3A       		.uleb128 0x3a
  2664 0050 0B       		.uleb128 0xb
  2665 0051 3B       		.uleb128 0x3b
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 57
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 57
+>>>>>>> Isac
 
 
  2666 0052 0B       		.uleb128 0xb
@@ -3418,7 +3649,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2720 0088 28       		.uleb128 0x28
  2721 0089 00       		.byte	0
  2722 008a 03       		.uleb128 0x3
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 58
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 58
+>>>>>>> Isac
 
 
  2723 008b 0E       		.uleb128 0xe
@@ -3478,7 +3713,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2777 00c1 13       		.uleb128 0x13
  2778 00c2 00       		.byte	0
  2779 00c3 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 59
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 59
+>>>>>>> Isac
 
 
  2780 00c4 11       		.uleb128 0x11
@@ -3538,7 +3777,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2834 00fb 0E       		.uleb128 0xe
  2835 00fc 3A       		.uleb128 0x3a
  2836 00fd 0B       		.uleb128 0xb
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 60
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 60
+>>>>>>> Isac
 
 
  2837 00fe 3B       		.uleb128 0x3b
@@ -3598,7 +3841,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2891 0135 0E       		.uleb128 0xe
  2892 0136 3A       		.uleb128 0x3a
  2893 0137 0B       		.uleb128 0xb
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 61
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 61
+>>>>>>> Isac
 
 
  2894 0138 3B       		.uleb128 0x3b
@@ -3658,7 +3905,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  2948 0173 3C       		.uleb128 0x3c
  2949 0174 19       		.uleb128 0x19
  2950 0175 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 62
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 62
+>>>>>>> Isac
 
 
  2951 0176 00       		.byte	0
@@ -3718,7 +3969,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3005 01ac 0B       		.uleb128 0xb
  3006 01ad 3B       		.uleb128 0x3b
  3007 01ae 05       		.uleb128 0x5
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 63
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 63
+>>>>>>> Isac
 
 
  3008 01af 00       		.byte	0
@@ -3778,7 +4033,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3062 0075 00000000 		.4byte	0
  3063 0079 00000000 		.4byte	0
  3064              		.section	.debug_aranges,"",%progbits
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 64
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 64
+>>>>>>> Isac
 
 
  3065 0000 24000000 		.4byte	0x24
@@ -3838,7 +4097,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3098      41545443 
  3098      5F444953 
  3099              	.LASF62:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 65
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 65
+>>>>>>> Isac
 
 
  3100 008c 666C6173 		.ascii	"flashProgramDelay\000"
@@ -3898,7 +4161,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3118      4154545F 
  3118      4552525F 
  3118      52454144 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 66
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 66
+>>>>>>> Isac
 
 
  3119              	.LASF382:
@@ -3958,7 +4225,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3140 029d 43595F42 		.ascii	"CY_BLE_EVT_WSSS_INDICATION_ENABLED\000"
  3140      4C455F45 
  3140      56545F57 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 67
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 67
+>>>>>>> Isac
 
 
  3140      5353535F 
@@ -4018,7 +4289,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3158      5453435F 
  3158      4E4F5449 
  3159              	.LASF368:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 68
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 68
+>>>>>>> Isac
 
 
  3160 03f4 43595F42 		.ascii	"CY_BLE_EVT_ANSS_NOTIFICATION_ENABLED\000"
@@ -4078,7 +4353,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3178      4C455F45 
  3178      56545F42 
  3178      4D53435F 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 69
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 69
+>>>>>>> Isac
 
 
  3178      52454144 
@@ -4138,7 +4417,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3198      5F434246 
  3199              	.LASF202:
  3200 0632 43595F42 		.ascii	"CY_BLE_EVT_GATTC_READ_MULTI_RSP\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 70
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 70
+>>>>>>> Isac
 
 
  3200      4C455F45 
@@ -4198,7 +4481,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3218      4C455F45 
  3218      56545F47 
  3218      41545443 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 71
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 71
+>>>>>>> Isac
 
 
  3218      5F434841 
@@ -4258,7 +4545,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3236      5F4C4F4E 
  3237              	.LASF270:
  3238 08b7 43595F42 		.ascii	"CY_BLE_GATT_ERR_INVALID_OFFSET\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 72
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 72
+>>>>>>> Isac
 
 
  3238      4C455F47 
@@ -4318,7 +4609,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3256      5F575249 
  3257              	.LASF323:
  3258 09d6 63795F73 		.ascii	"cy_stc_ble_customs_t\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 73
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 73
+>>>>>>> Isac
 
 
  3258      74635F62 
@@ -4378,7 +4673,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3276      53544154 
  3276      455F434C 
  3277              	.LASF448:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 74
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 74
+>>>>>>> Isac
 
 
  3278 0af8 43595F42 		.ascii	"CY_BLE_EVT_CTSC_READ_DESCR_RESPONSE\000"
@@ -4438,7 +4737,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3296 0c26 43595F42 		.ascii	"CY_BLE_GATT_ERR_ANS_COMMAND_NOT_SUPPORTED\000"
  3296      4C455F47 
  3296      4154545F 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 75
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 75
+>>>>>>> Isac
 
 
  3296      4552525F 
@@ -4498,7 +4801,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3314      50545343 
  3314      5F494E44 
  3315              	.LASF424:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 76
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 76
+>>>>>>> Isac
 
 
  3316 0d7c 43595F42 		.ascii	"CY_BLE_EVT_CPSC_INDICATION\000"
@@ -4558,7 +4865,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3334 0ea0 43595F42 		.ascii	"CY_BLE_EVT_RSCSS_INDICATION_CONFIRMATION\000"
  3334      4C455F45 
  3334      56545F52 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 77
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 77
+>>>>>>> Isac
 
 
  3334      53435353 
@@ -4618,7 +4929,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3352      52454144 
  3353              	.LASF51:
  3354 0ffc 70657269 		.ascii	"periClockNr\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 78
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 78
+>>>>>>> Isac
 
 
  3354      436C6F63 
@@ -4678,7 +4993,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3374      56545F49 
  3374      5053435F 
  3374      52454144 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 79
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 79
+>>>>>>> Isac
 
 
  3375              	.LASF102:
@@ -4738,7 +5057,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3394      4C455F45 
  3394      56545F41 
  3394      494F5343 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 80
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 80
+>>>>>>> Isac
 
 
  3394      5F4E4F54 
@@ -4798,7 +5121,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3413              	.LASF257:
  3414 1393 43595F42 		.ascii	"CY_BLE_ERROR_INVALID_STATE\000"
  3414      4C455F45 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 81
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 81
+>>>>>>> Isac
 
 
  3414      52524F52 
@@ -4858,7 +5185,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3434      4C455F45 
  3434      56545F48 
  3434      5453435F 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 82
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 82
+>>>>>>> Isac
 
 
  3434      57524954 
@@ -4918,7 +5249,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3454      4C455F45 
  3454      56545F47 
  3454      45545F50 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 83
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 83
+>>>>>>> Isac
 
 
  3454      48595F43 
@@ -4978,7 +5313,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3474 16f3 43595F42 		.ascii	"CY_BLE_EVT_LNSC_WRITE_DESCR_RESPONSE\000"
  3474      4C455F45 
  3474      56545F4C 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 84
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 84
+>>>>>>> Isac
 
 
  3474      4E53435F 
@@ -5038,7 +5377,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3492      41545443 
  3492      5F494E43 
  3493              	.LASF365:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 85
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 85
+>>>>>>> Isac
 
 
  3494 185d 43595F42 		.ascii	"CY_BLE_EVT_ANCSC_READ_DESCR_RESPONSE\000"
@@ -5098,7 +5441,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3512      657400
  3513              	.LASF530:
  3514 1974 43595F42 		.ascii	"CY_BLE_EVT_LLSC_WRITE_CHAR_RESPONSE\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 86
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 86
+>>>>>>> Isac
 
 
  3514      4C455F45 
@@ -5158,7 +5505,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3532      56545F53 
  3532      45545F43 
  3532      4F4E4E5F 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 87
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 87
+>>>>>>> Isac
 
 
  3533              	.LASF251:
@@ -5218,7 +5569,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3551      56545F42 
  3551      4D53535F 
  3551      57524954 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 88
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 88
+>>>>>>> Isac
 
 
  3552              	.LASF566:
@@ -5278,7 +5633,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3570              	.LASF533:
  3571 1cef 43595F42 		.ascii	"CY_BLE_EVT_LNSS_INDICATION_CONFIRMED\000"
  3571      4C455F45 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 89
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 89
+>>>>>>> Isac
 
 
  3571      56545F4C 
@@ -5338,7 +5697,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3591 1e0c 43595F42 		.ascii	"CY_BLE_EVT_CPSS_BROADCAST_ENABLED\000"
  3591      4C455F45 
  3591      56545F43 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 90
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 90
+>>>>>>> Isac
 
 
  3591      5053535F 
@@ -5398,7 +5761,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3609      4552525F 
  3609      414E4353 
  3610              	.LASF487:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 91
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 91
+>>>>>>> Isac
 
 
  3611 1f55 43595F42 		.ascii	"CY_BLE_EVT_HIDSC_READ_DESCR_RESPONSE\000"
@@ -5458,7 +5825,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3629      5F554E53 
  3629      5550504F 
  3630 2092 00       		.ascii	"\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 92
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 92
+>>>>>>> Isac
 
 
  3631              	.LASF345:
@@ -5518,7 +5889,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3651              	.LASF644:
  3652 2193 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  3652      43313120 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 93
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 93
+>>>>>>> Isac
 
 
  3652      352E342E 
@@ -5578,7 +5953,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3669      4C455F45 
  3669      56545F47 
  3669      41545443 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 94
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 94
+>>>>>>> Isac
 
 
  3669      5F46494E 
@@ -5638,7 +6017,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3689 241a 43595F42 		.ascii	"CY_BLE_EVT_HPSC_READ_CHAR_RESPONSE\000"
  3689      4C455F45 
  3689      56545F48 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 95
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 95
+>>>>>>> Isac
 
 
  3689      5053435F 
@@ -5698,7 +6081,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3707      70655365 
  3707      6C506F73 
  3708              	.LASF22:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 96
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 96
+>>>>>>> Isac
 
 
  3709 255b 63707573 		.ascii	"cpussBase\000"
@@ -5758,7 +6145,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3729      206C6F6E 
  3729      6720696E 
  3729      7400
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 97
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 97
+>>>>>>> Isac
 
 
  3730              	.LASF454:
@@ -5818,7 +6209,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3749      4C455F45 
  3749      56545F48 
  3749      49445343 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 98
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 98
+>>>>>>> Isac
 
 
  3749      5F4E4F54 
@@ -5878,7 +6273,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3769      56545F43 
  3769      5053535F 
  3769      4E4F5449 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 99
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 99
+>>>>>>> Isac
 
 
  3770              	.LASF559:
@@ -5938,7 +6337,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3788              	.LASF413:
  3789 29bc 43595F42 		.ascii	"CY_BLE_EVT_CGMSC_READ_DESCR_RESPONSE\000"
  3789      4C455F45 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 100
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 100
+>>>>>>> Isac
 
 
  3789      56545F43 
@@ -5998,7 +6401,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3809 2ade 43595F42 		.ascii	"CY_BLE_EVT_GAP_CONN_ESTB\000"
  3809      4C455F45 
  3809      56545F47 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 101
+=======
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 101
+>>>>>>> Isac
 
 
  3809      41505F43 
@@ -6055,6 +6462,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  3827      56545F50 
  3827      41535343 
  3827      5F4E4F54 
+<<<<<<< HEAD
  3828              	.LASF597:
  3829 2be9 43595F42 		.ascii	"CY_BLE_EVT_UDSC_INDICATION\000"
  3829      4C455F45 
@@ -7259,534 +7667,1793 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
  4221              	.LASF129:
  4222 43ac 43595F42 		.ascii	"CY_BLE_EVT_GET_LOCAL_RPA_COMPLETE\000"
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 122
+=======
+ 3828              	.LASF646:
+ 3829 2be9 433A5C55 		.ascii	"C:\\Users\\zunis\\Desktop\\WorkPainDrain\\Pain_Drai"
+ 3829      73657273 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 102
 
 
- 4222      4C455F45 
- 4222      56545F47 
- 4222      45545F4C 
- 4222      4F43414C 
- 4223              	.LASF583:
- 4224 43ce 43595F42 		.ascii	"CY_BLE_EVT_SCPSC_WRITE_DESCR_RESPONSE\000"
- 4224      4C455F45 
- 4224      56545F53 
- 4224      43505343 
- 4224      5F575249 
- 4225              	.LASF466:
- 4226 43f4 43595F42 		.ascii	"CY_BLE_EVT_GLSS_INDICATION_DISABLED\000"
- 4226      4C455F45 
- 4226      56545F47 
- 4226      4C53535F 
- 4226      494E4449 
- 4227              	.LASF609:
- 4228 4418 43595F42 		.ascii	"CY_BLE_EVT_WPTSS_WRITE_CHAR\000"
- 4228      4C455F45 
- 4228      56545F57 
- 4228      50545353 
- 4228      5F575249 
- 4229              	.LASF646:
- 4230 4434 433A5C50 		.ascii	"C:\\Projects\\PainDrain\\firmware\\PainDrain\\PainD"
- 4230      726F6A65 
- 4230      6374735C 
- 4230      5061696E 
- 4230      44726169 
- 4231 4462 7261696E 		.ascii	"rain.cydsn\000"
- 4231      2E637964 
- 4231      736E00
+ 3829      5C7A756E 
+ 3829      69735C44 
+ 3829      65736B74 
+ 3830 2c17 6E5F4669 		.ascii	"n_Firmware\\PainDrain\\PainDrain.cydsn\000"
+ 3830      726D7761 
+ 3830      72655C50 
+ 3830      61696E44 
+ 3830      7261696E 
+ 3831              	.LASF597:
+ 3832 2c3c 43595F42 		.ascii	"CY_BLE_EVT_UDSC_INDICATION\000"
+ 3832      4C455F45 
+ 3832      56545F55 
+ 3832      4453435F 
+ 3832      494E4449 
+ 3833              	.LASF260:
+ 3834 2c57 62644861 		.ascii	"bdHandle\000"
+ 3834      6E646C65 
+ 3834      00
+ 3835              	.LASF483:
+ 3836 2c60 43595F42 		.ascii	"CY_BLE_EVT_HIDSS_REPORT_WRITE_CHAR\000"
+ 3836      4C455F45 
+ 3836      56545F48 
+ 3836      49445353 
+ 3836      5F524550 
+ 3837              	.LASF290:
+ 3838 2c83 43595F42 		.ascii	"CY_BLE_GATT_ERR_INVALID_CRC\000"
+ 3838      4C455F47 
+ 3838      4154545F 
+ 3838      4552525F 
+ 3838      494E5641 
+ 3839              	.LASF443:
+ 3840 2c9f 43595F42 		.ascii	"CY_BLE_EVT_CTSS_NOTIFICATION_ENABLED\000"
+ 3840      4C455F45 
+ 3840      56545F43 
+ 3840      5453535F 
+ 3840      4E4F5449 
+ 3841              	.LASF457:
+ 3842 2cc4 43595F42 		.ascii	"CY_BLE_EVT_ESSS_WRITE_CHAR\000"
+ 3842      4C455F45 
+ 3842      56545F45 
+ 3842      5353535F 
+ 3842      57524954 
+ 3843              	.LASF233:
+ 3844 2cdf 43595F42 		.ascii	"CY_BLE_ERROR_MEMORY_ALLOCATION_FAILED\000"
+ 3844      4C455F45 
+ 3844      52524F52 
+ 3844      5F4D454D 
+ 3844      4F52595F 
+ 3845              	.LASF309:
+ 3846 2d05 43595F42 		.ascii	"CY_BLE_CONN_STATE_CLIENT_DISCONNECTED_DISCOVERED\000"
+ 3846      4C455F43 
+ 3846      4F4E4E5F 
+ 3846      53544154 
+ 3846      455F434C 
+ 3847              	.LASF614:
+ 3848 2d36 43595F42 		.ascii	"CY_BLE_EVT_WPTSC_READ_DESCR_RESPONSE\000"
+ 3848      4C455F45 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 103
+
+
+ 3848      56545F57 
+ 3848      50545343 
+ 3848      5F524541 
+ 3849              	.LASF258:
+ 3850 2d5b 43595F42 		.ascii	"CY_BLE_ERROR_MAX\000"
+ 3850      4C455F45 
+ 3850      52524F52 
+ 3850      5F4D4158 
+ 3850      00
+ 3851              	.LASF256:
+ 3852 2d6c 43595F42 		.ascii	"CY_BLE_ERROR_CONTROLLER_BUSY\000"
+ 3852      4C455F45 
+ 3852      52524F52 
+ 3852      5F434F4E 
+ 3852      54524F4C 
+ 3853              	.LASF414:
+ 3854 2d89 43595F42 		.ascii	"CY_BLE_EVT_CGMSC_WRITE_DESCR_RESPONSE\000"
+ 3854      4C455F45 
+ 3854      56545F43 
+ 3854      474D5343 
+ 3854      5F575249 
+ 3855              	.LASF431:
+ 3856 2daf 43595F42 		.ascii	"CY_BLE_EVT_CSCSS_NOTIFICATION_ENABLED\000"
+ 3856      4C455F45 
+ 3856      56545F43 
+ 3856      53435353 
+ 3856      5F4E4F54 
+ 3857              	.LASF135:
+ 3858 2dd5 43595F42 		.ascii	"CY_BLE_EVT_ADD_DEVICE_TO_WHITE_LIST_COMPLETE\000"
+ 3858      4C455F45 
+ 3858      56545F41 
+ 3858      44445F44 
+ 3858      45564943 
+ 3859              	.LASF35:
+ 3860 2e02 666C6173 		.ascii	"flashcVersion\000"
+ 3860      68635665 
+ 3860      7273696F 
+ 3860      6E00
+ 3861              	.LASF151:
+ 3862 2e10 43595F42 		.ascii	"CY_BLE_EVT_RANDOM_NUM_GEN_COMPLETE\000"
+ 3862      4C455F45 
+ 3862      56545F52 
+ 3862      414E444F 
+ 3862      4D5F4E55 
+ 3863              	.LASF0:
+ 3864 2e33 756E7369 		.ascii	"unsigned int\000"
+ 3864      676E6564 
+ 3864      20696E74 
+ 3864      00
+ 3865              	.LASF551:
+ 3866 2e40 43595F42 		.ascii	"CY_BLE_EVT_PLXSS_INDICATION_ENABLED\000"
+ 3866      4C455F45 
+ 3866      56545F50 
+ 3866      4C585353 
+ 3866      5F494E44 
+ 3867              	.LASF178:
+ 3868 2e64 43595F42 		.ascii	"CY_BLE_EVT_GAP_KEYPRESS_NOTIFICATION\000"
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 104
+
+
+ 3868      4C455F45 
+ 3868      56545F47 
+ 3868      41505F4B 
+ 3868      45595052 
+ 3869              	.LASF321:
+ 3870 2e89 63757374 		.ascii	"customServHandle\000"
+ 3870      6F6D5365 
+ 3870      72764861 
+ 3870      6E646C65 
+ 3870      00
+ 3871              	.LASF104:
+ 3872 2e9a 63707573 		.ascii	"cpussRam1Ctl0\000"
+ 3872      7352616D 
+ 3872      3143746C 
+ 3872      3000
+ 3873              	.LASF520:
+ 3874 2ea8 43595F42 		.ascii	"CY_BLE_EVT_IPSS_WRITE_CHAR_CMD\000"
+ 3874      4C455F45 
+ 3874      56545F49 
+ 3874      5053535F 
+ 3874      57524954 
+ 3875              	.LASF332:
+ 3876 2ec7 43595F42 		.ascii	"CY_BLE_EVT_GATTS_INDICATION_DISABLED\000"
+ 3876      4C455F45 
+ 3876      56545F47 
+ 3876      41545453 
+ 3876      5F494E44 
+ 3877              	.LASF500:
+ 3878 2eec 43595F42 		.ascii	"CY_BLE_EVT_HRSC_NOTIFICATION\000"
+ 3878      4C455F45 
+ 3878      56545F48 
+ 3878      5253435F 
+ 3878      4E4F5449 
+ 3879              	.LASF228:
+ 3880 2f09 63795F65 		.ascii	"cy_en_ble_event_t\000"
+ 3880      6E5F626C 
+ 3880      655F6576 
+ 3880      656E745F 
+ 3880      7400
+ 3881              	.LASF312:
+ 3882 2f1b 43595F42 		.ascii	"CY_BLE_CONN_STATE_CLIENT_INCL_DISCOVERING\000"
+ 3882      4C455F43 
+ 3882      4F4E4E5F 
+ 3882      53544154 
+ 3882      455F434C 
+ 3883              	.LASF426:
+ 3884 2f45 43595F42 		.ascii	"CY_BLE_EVT_CPSC_WRITE_CHAR_RESPONSE\000"
+ 3884      4C455F45 
+ 3884      56545F43 
+ 3884      5053435F 
+ 3884      57524954 
+ 3885              	.LASF451:
+ 3886 2f69 43595F42 		.ascii	"CY_BLE_EVT_DISC_READ_CHAR_RESPONSE\000"
+ 3886      4C455F45 
+ 3886      56545F44 
+ 3886      4953435F 
+ 3886      52454144 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 105
+
+
+ 3887              	.LASF594:
+ 3888 2f8c 43595F42 		.ascii	"CY_BLE_EVT_UDSS_NOTIFICATION_DISABLED\000"
+ 3888      4C455F45 
+ 3888      56545F55 
+ 3888      4453535F 
+ 3888      4E4F5449 
+ 3889              	.LASF411:
+ 3890 2fb2 43595F42 		.ascii	"CY_BLE_EVT_CGMSC_READ_CHAR_RESPONSE\000"
+ 3890      4C455F45 
+ 3890      56545F43 
+ 3890      474D5343 
+ 3890      5F524541 
+ 3891              	.LASF434:
+ 3892 2fd6 43595F42 		.ascii	"CY_BLE_EVT_CSCSS_INDICATION_DISABLED\000"
+ 3892      4C455F45 
+ 3892      56545F43 
+ 3892      53435353 
+ 3892      5F494E44 
+ 3893              	.LASF303:
+ 3894 2ffb 43595F42 		.ascii	"CY_BLE_ADV_STATE_STOPPED\000"
+ 3894      4C455F41 
+ 3894      44565F53 
+ 3894      54415445 
+ 3894      5F53544F 
+ 3895              	.LASF248:
+ 3896 3014 43595F42 		.ascii	"CY_BLE_ERROR_FLASH_WRITE_NOT_PERMITED\000"
+ 3896      4C455F45 
+ 3896      52524F52 
+ 3896      5F464C41 
+ 3896      53485F57 
+ 3897              	.LASF381:
+ 3898 303a 43595F42 		.ascii	"CY_BLE_EVT_BASC_WRITE_DESCR_RESPONSE\000"
+ 3898      4C455F45 
+ 3898      56545F42 
+ 3898      4153435F 
+ 3898      57524954 
+ 3899              	.LASF307:
+ 3900 305f 63795F65 		.ascii	"cy_en_ble_adv_state_t\000"
+ 3900      6E5F626C 
+ 3900      655F6164 
+ 3900      765F7374 
+ 3900      6174655F 
+ 3901              	.LASF95:
+ 3902 3075 63707573 		.ascii	"cpussCm0StatusOffset\000"
+ 3902      73436D30 
+ 3902      53746174 
+ 3902      75734F66 
+ 3902      66736574 
+ 3903              	.LASF478:
+ 3904 308a 43595F42 		.ascii	"CY_BLE_EVT_HIDSS_NOTIFICATION_DISABLED\000"
+ 3904      4C455F45 
+ 3904      56545F48 
+ 3904      49445353 
+ 3904      5F4E4F54 
+ 3905              	.LASF163:
+ 3906 30b1 43595F42 		.ascii	"CY_BLE_EVT_HCI_PKT_RCVD\000"
+ 3906      4C455F45 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 106
+
+
+ 3906      56545F48 
+ 3906      43495F50 
+ 3906      4B545F52 
+ 3907              	.LASF152:
+ 3908 30c9 43595F42 		.ascii	"CY_BLE_EVT_AES_ENCRYPT_COMPLETE\000"
+ 3908      4C455F45 
+ 3908      56545F41 
+ 3908      45535F45 
+ 3908      4E435259 
+ 3909              	.LASF501:
+ 3910 30e9 43595F42 		.ascii	"CY_BLE_EVT_HRSC_READ_CHAR_RESPONSE\000"
+ 3910      4C455F45 
+ 3910      56545F48 
+ 3910      5253435F 
+ 3910      52454144 
+ 3911              	.LASF464:
+ 3912 310c 43595F42 		.ascii	"CY_BLE_EVT_ESSC_WRITE_DESCR_RESPONSE\000"
+ 3912      4C455F45 
+ 3912      56545F45 
+ 3912      5353435F 
+ 3912      57524954 
+ 3913              	.LASF111:
+ 3914 3131 43595F42 		.ascii	"CY_BLE_EVT_INVALID\000"
+ 3914      4C455F45 
+ 3914      56545F49 
+ 3914      4E56414C 
+ 3914      494400
+ 3915              	.LASF230:
+ 3916 3144 43595F42 		.ascii	"CY_BLE_INFO_FLASH_WRITE_IN_PROGRESS\000"
+ 3916      4C455F49 
+ 3916      4E464F5F 
+ 3916      464C4153 
+ 3916      485F5752 
+ 3917              	.LASF42:
+ 3918 3168 63707573 		.ascii	"cpussIpcIrqNr\000"
+ 3918      73497063 
+ 3918      4972714E 
+ 3918      7200
+ 3919              	.LASF205:
+ 3920 3176 43595F42 		.ascii	"CY_BLE_EVT_GATTS_WRITE_CMD_REQ\000"
+ 3920      4C455F45 
+ 3920      56545F47 
+ 3920      41545453 
+ 3920      5F575249 
+ 3921              	.LASF522:
+ 3922 3195 43595F42 		.ascii	"CY_BLE_EVT_IPSC_READ_MULTIPLE_CHAR_RESPONSE\000"
+ 3922      4C455F45 
+ 3922      56545F49 
+ 3922      5053435F 
+ 3922      52454144 
+ 3923              	.LASF287:
+ 3924 31c1 43595F42 		.ascii	"CY_BLE_GATT_ERR_MISSING_CRC\000"
+ 3924      4C455F47 
+ 3924      4154545F 
+ 3924      4552525F 
+ 3924      4D495353 
+ 3925              	.LASF340:
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 107
+
+
+ 3926 31dd 43595F42 		.ascii	"CY_BLE_EVT_GATTC_DESCR_DUPLICATION\000"
+ 3926      4C455F45 
+ 3926      56545F47 
+ 3926      41545443 
+ 3926      5F444553 
+ 3927              	.LASF74:
+ 3928 3200 64775374 		.ascii	"dwStatusChIdxMsk\000"
+ 3928      61747573 
+ 3928      43684964 
+ 3928      784D736B 
+ 3928      00
+ 3929              	.LASF288:
+ 3930 3211 43595F42 		.ascii	"CY_BLE_GATTS_ERR_CCCD_IMPROPERLY_CONFIGURED\000"
+ 3930      4C455F47 
+ 3930      41545453 
+ 3930      5F455252 
+ 3930      5F434343 
+ 3931              	.LASF527:
+ 3932 323d 43595F42 		.ascii	"CY_BLE_EVT_IPSC_READ_BLOB_RSP\000"
+ 3932      4C455F45 
+ 3932      56545F49 
+ 3932      5053435F 
+ 3932      52454144 
+ 3933              	.LASF291:
+ 3934 325b 43595F42 		.ascii	"CY_BLE_GATTS_ERR_HPS_INVALID_REQUEST\000"
+ 3934      4C455F47 
+ 3934      41545453 
+ 3934      5F455252 
+ 3934      5F485053 
+ 3935              	.LASF161:
+ 3936 3280 43595F42 		.ascii	"CY_BLE_EVT_SET_CE_LENGTH_COMPLETE\000"
+ 3936      4C455F45 
+ 3936      56545F53 
+ 3936      45545F43 
+ 3936      455F4C45 
+ 3937              	.LASF286:
+ 3938 32a2 43595F42 		.ascii	"CY_BLE_GATT_ERR_OP_CODE_NOT_SUPPORTED\000"
+ 3938      4C455F47 
+ 3938      4154545F 
+ 3938      4552525F 
+ 3938      4F505F43 
+ 3939              	.LASF588:
+ 3940 32c8 43595F42 		.ascii	"CY_BLE_EVT_TPSC_READ_DESCR_RESPONSE\000"
+ 3940      4C455F45 
+ 3940      56545F54 
+ 3940      5053435F 
+ 3940      52454144 
+ 3941              	.LASF155:
+ 3942 32ec 43595F42 		.ascii	"CY_BLE_EVT_SET_SLAVE_LATENCY_MODE_COMPLETE\000"
+ 3942      4C455F45 
+ 3942      56545F53 
+ 3942      45545F53 
+ 3942      4C415645 
+ 3943              	.LASF63:
+ 3944 3317 666C6173 		.ascii	"flashEraseDelay\000"
+ 3944      68457261 
+ 3944      73654465 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 108
+
+
+ 3944      6C617900 
+ 3945              	.LASF537:
+ 3946 3327 43595F42 		.ascii	"CY_BLE_EVT_LNSC_INDICATION\000"
+ 3946      4C455F45 
+ 3946      56545F4C 
+ 3946      4E53435F 
+ 3946      494E4449 
+ 3947              	.LASF445:
+ 3948 3342 43595F42 		.ascii	"CY_BLE_EVT_CTSS_WRITE_CHAR\000"
+ 3948      4C455F45 
+ 3948      56545F43 
+ 3948      5453535F 
+ 3948      57524954 
+ 3949              	.LASF539:
+ 3950 335d 43595F42 		.ascii	"CY_BLE_EVT_LNSC_READ_CHAR_RESPONSE\000"
+ 3950      4C455F45 
+ 3950      56545F4C 
+ 3950      4E53435F 
+ 3950      52454144 
+ 3951              	.LASF544:
+ 3952 3380 43595F42 		.ascii	"CY_BLE_EVT_PASSS_NOTIFICATION_ENABLED\000"
+ 3952      4C455F45 
+ 3952      56545F50 
+ 3952      41535353 
+ 3952      5F4E4F54 
+ 3953              	.LASF554:
+ 3954 33a6 43595F42 		.ascii	"CY_BLE_EVT_PLXSS_NOTIFICATION_ENABLED\000"
+ 3954      4C455F45 
+ 3954      56545F50 
+ 3954      4C585353 
+ 3954      5F4E4F54 
+ 3955              	.LASF579:
+ 3956 33cc 43595F42 		.ascii	"CY_BLE_EVT_SCPSS_NOTIFICATION_DISABLED\000"
+ 3956      4C455F45 
+ 3956      56545F53 
+ 3956      43505353 
+ 3956      5F4E4F54 
+ 3957              	.LASF2:
+ 3958 33f3 6C6F6E67 		.ascii	"long double\000"
+ 3958      20646F75 
+ 3958      626C6500 
+ 3959              	.LASF367:
+ 3960 33ff 43595F42 		.ascii	"CY_BLE_EVT_ANCSC_ERROR_RESPONSE\000"
+ 3960      4C455F45 
+ 3960      56545F41 
+ 3960      4E435343 
+ 3960      5F455252 
+ 3961              	.LASF437:
+ 3962 341f 43595F42 		.ascii	"CY_BLE_EVT_CSCSC_NOTIFICATION\000"
+ 3962      4C455F45 
+ 3962      56545F43 
+ 3962      53435343 
+ 3962      5F4E4F54 
+ 3963              	.LASF403:
+ 3964 343d 43595F42 		.ascii	"CY_BLE_EVT_CGMSS_INDICATION_ENABLED\000"
+ 3964      4C455F45 
+ 3964      56545F43 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 109
+
+
+ 3964      474D5353 
+ 3964      5F494E44 
+ 3965              	.LASF404:
+ 3966 3461 43595F42 		.ascii	"CY_BLE_EVT_CGMSS_INDICATION_DISABLED\000"
+ 3966      4C455F45 
+ 3966      56545F43 
+ 3966      474D5353 
+ 3966      5F494E44 
+ 3967              	.LASF519:
+ 3968 3486 43595F42 		.ascii	"CY_BLE_EVT_IPSS_WRITE_CHAR\000"
+ 3968      4C455F45 
+ 3968      56545F49 
+ 3968      5053535F 
+ 3968      57524954 
+ 3969              	.LASF419:
+ 3970 34a1 43595F42 		.ascii	"CY_BLE_EVT_CPSS_INDICATION_CONFIRMED\000"
+ 3970      4C455F45 
+ 3970      56545F43 
+ 3970      5053535F 
+ 3970      494E4449 
+ 3971              	.LASF455:
+ 3972 34c6 43595F42 		.ascii	"CY_BLE_EVT_ESSS_INDICATION_DISABLED\000"
+ 3972      4C455F45 
+ 3972      56545F45 
+ 3972      5353535F 
+ 3972      494E4449 
+ 3973              	.LASF124:
+ 3974 34ea 43595F42 		.ascii	"CY_BLE_EVT_SET_DATA_LENGTH_COMPLETE\000"
+ 3974      4C455F45 
+ 3974      56545F53 
+ 3974      45545F44 
+ 3974      4154415F 
+ 3975              	.LASF207:
+ 3976 350e 43595F42 		.ascii	"CY_BLE_EVT_GATTS_EXEC_WRITE_REQ\000"
+ 3976      4C455F45 
+ 3976      56545F47 
+ 3976      41545453 
+ 3976      5F455845 
+ 3977              	.LASF246:
+ 3978 352e 43595F42 		.ascii	"CY_BLE_ERROR_L2CAP_PSM_NOT_IN_RANGE\000"
+ 3978      4C455F45 
+ 3978      52524F52 
+ 3978      5F4C3243 
+ 3978      41505F50 
+ 3979              	.LASF476:
+ 3980 3552 43595F42 		.ascii	"CY_BLE_EVT_GLSC_WRITE_DESCR_RESPONSE\000"
+ 3980      4C455F45 
+ 3980      56545F47 
+ 3980      4C53435F 
+ 3980      57524954 
+ 3981              	.LASF49:
+ 3982 3577 73727373 		.ascii	"srssNumPll\000"
+ 3982      4E756D50 
+ 3982      6C6C00
+ 3983              	.LASF243:
+ 3984 3582 43595F42 		.ascii	"CY_BLE_ERROR_L2CAP_PSM_ALREADY_REGISTERED\000"
+ 3984      4C455F45 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 110
+
+
+ 3984      52524F52 
+ 3984      5F4C3243 
+ 3984      41505F50 
+ 3985              	.LASF187:
+ 3986 35ac 43595F42 		.ascii	"CY_BLE_EVT_GAP_CREATE_CONN_CANCEL_COMPLETE\000"
+ 3986      4C455F45 
+ 3986      56545F47 
+ 3986      41505F43 
+ 3986      52454154 
+ 3987              	.LASF101:
+ 3988 35d7 63707573 		.ascii	"cpussCm4NmiCtlOffset\000"
+ 3988      73436D34 
+ 3988      4E6D6943 
+ 3988      746C4F66 
+ 3988      66736574 
+ 3989              	.LASF100:
+ 3990 35ec 63707573 		.ascii	"cpussCm0NmiCtlOffset\000"
+ 3990      73436D30 
+ 3990      4E6D6943 
+ 3990      746C4F66 
+ 3990      66736574 
+ 3991              	.LASF634:
+ 3992 3601 63795F65 		.ascii	"cy_en_ble_evt_t\000"
+ 3992      6E5F626C 
+ 3992      655F6576 
+ 3992      745F7400 
+ 3993              	.LASF176:
+ 3994 3611 43595F42 		.ascii	"CY_BLE_EVT_GAP_KEYINFO_EXCHNGE_CMPLT\000"
+ 3994      4C455F45 
+ 3994      56545F47 
+ 3994      41505F4B 
+ 3994      4559494E 
+ 3995              	.LASF131:
+ 3996 3636 43595F42 		.ascii	"CY_BLE_EVT_SET_RPA_ENABLE_COMPLETE\000"
+ 3996      4C455F45 
+ 3996      56545F53 
+ 3996      45545F52 
+ 3996      50415F45 
+ 3997              	.LASF284:
+ 3998 3659 43595F42 		.ascii	"CY_BLE_GATT_ERR_HTS_OUT_OF_RANGE\000"
+ 3998      4C455F47 
+ 3998      4154545F 
+ 3998      4552525F 
+ 3998      4854535F 
+ 3999              	.LASF66:
+ 4000 367a 666C6173 		.ascii	"flashCtlMainWs2Freq\000"
+ 4000      6843746C 
+ 4000      4D61696E 
+ 4000      57733246 
+ 4000      72657100 
+ 4001              	.LASF607:
+ 4002 368e 43595F42 		.ascii	"CY_BLE_EVT_WPTSS_INDICATION_DISABLED\000"
+ 4002      4C455F45 
+ 4002      56545F57 
+ 4002      50545353 
+ 4002      5F494E44 
+ 4003              	.LASF174:
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 111
+
+
+ 4004 36b3 43595F42 		.ascii	"CY_BLE_EVT_GAP_CONNECTION_UPDATE_COMPLETE\000"
+ 4004      4C455F45 
+ 4004      56545F47 
+ 4004      41505F43 
+ 4004      4F4E4E45 
+ 4005              	.LASF629:
+ 4006 36dd 43595F42 		.ascii	"CY_BLE_EVT_GATTC_DISC_SERVICE\000"
+ 4006      4C455F45 
+ 4006      56545F47 
+ 4006      41545443 
+ 4006      5F444953 
+ 4007              	.LASF167:
+ 4008 36fb 43595F42 		.ascii	"CY_BLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST\000"
+ 4008      4C455F45 
+ 4008      56545F47 
+ 4008      41505F50 
+ 4008      4153534B 
+ 4009              	.LASF143:
+ 4010 3722 43595F42 		.ascii	"CY_BLE_EVT_SOFT_RESET_COMPLETE\000"
+ 4010      4C455F45 
+ 4010      56545F53 
+ 4010      4F46545F 
+ 4010      52455345 
+ 4011              	.LASF531:
+ 4012 3741 43595F42 		.ascii	"CY_BLE_EVT_LNSS_INDICATION_ENABLED\000"
+ 4012      4C455F45 
+ 4012      56545F4C 
+ 4012      4E53535F 
+ 4012      494E4449 
+ 4013              	.LASF285:
+ 4014 3764 43595F42 		.ascii	"CY_BLE_GATTS_ERR_PROCEDURE_ALREADY_IN_PROGRESS\000"
+ 4014      4C455F47 
+ 4014      41545453 
+ 4014      5F455252 
+ 4014      5F50524F 
+ 4015              	.LASF123:
+ 4016 3793 43595F42 		.ascii	"CY_BLE_EVT_LE_PING_AUTH_TIMEOUT\000"
+ 4016      4C455F45 
+ 4016      56545F4C 
+ 4016      455F5049 
+ 4016      4E475F41 
+ 4017              	.LASF19:
+ 4018 37b3 75696E74 		.ascii	"uint16_t\000"
+ 4018      31365F74 
+ 4018      00
+ 4019              	.LASF535:
+ 4020 37bc 43595F42 		.ascii	"CY_BLE_EVT_LNSS_NOTIFICATION_DISABLED\000"
+ 4020      4C455F45 
+ 4020      56545F4C 
+ 4020      4E53535F 
+ 4020      4E4F5449 
+ 4021              	.LASF153:
+ 4022 37e2 43595F42 		.ascii	"CY_BLE_EVT_AES_CCM_ENCRYPT_COMPLETE\000"
+ 4022      4C455F45 
+ 4022      56545F41 
+ 4022      45535F43 
+ 4022      434D5F45 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 112
+
+
+ 4023              	.LASF44:
+ 4024 3806 63707573 		.ascii	"cpussFlashPaSize\000"
+ 4024      73466C61 
+ 4024      73685061 
+ 4024      53697A65 
+ 4024      00
+ 4025              	.LASF397:
+ 4026 3817 43595F42 		.ascii	"CY_BLE_EVT_BLSC_READ_DESCR_RESPONSE\000"
+ 4026      4C455F45 
+ 4026      56545F42 
+ 4026      4C53435F 
+ 4026      52454144 
+ 4027              	.LASF185:
+ 4028 383b 43595F42 		.ascii	"CY_BLE_EVT_GAP_RESOLVE_DEVICE_COMPLETE\000"
+ 4028      4C455F45 
+ 4028      56545F47 
+ 4028      41505F52 
+ 4028      45534F4C 
+ 4029              	.LASF631:
+ 4030 3862 43595F42 		.ascii	"CY_BLE_EVT_GATTC_DISC_CHAR\000"
+ 4030      4C455F45 
+ 4030      56545F47 
+ 4030      41545443 
+ 4030      5F444953 
+ 4031              	.LASF195:
+ 4032 387d 43595F42 		.ascii	"CY_BLE_EVT_GATTC_XCHNG_MTU_RSP\000"
+ 4032      4C455F45 
+ 4032      56545F47 
+ 4032      41545443 
+ 4032      5F584348 
+ 4033              	.LASF48:
+ 4034 389c 73727373 		.ascii	"srssNumClkpath\000"
+ 4034      4E756D43 
+ 4034      6C6B7061 
+ 4034      746800
+ 4035              	.LASF310:
+ 4036 38ab 43595F42 		.ascii	"CY_BLE_CONN_STATE_CONNECTED\000"
+ 4036      4C455F43 
+ 4036      4F4E4E5F 
+ 4036      53544154 
+ 4036      455F434F 
+ 4037              	.LASF128:
+ 4038 38c7 43595F42 		.ascii	"CY_BLE_EVT_GET_PEER_RPA_COMPLETE\000"
+ 4038      4C455F45 
+ 4038      56545F47 
+ 4038      45545F50 
+ 4038      4545525F 
+ 4039              	.LASF390:
+ 4040 38e8 43595F42 		.ascii	"CY_BLE_EVT_BLSS_INDICATION_DISABLED\000"
+ 4040      4C455F45 
+ 4040      56545F42 
+ 4040      4C53535F 
+ 4040      494E4449 
+ 4041              	.LASF166:
+ 4042 390c 43595F42 		.ascii	"CY_BLE_EVT_GAP_PASSKEY_ENTRY_REQUEST\000"
+ 4042      4C455F45 
+ 4042      56545F47 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 113
+
+
+ 4042      41505F50 
+ 4042      4153534B 
+ 4043              	.LASF584:
+ 4044 3931 43595F42 		.ascii	"CY_BLE_EVT_TPSS_NOTIFICATION_ENABLED\000"
+ 4044      4C455F45 
+ 4044      56545F54 
+ 4044      5053535F 
+ 4044      4E4F5449 
+ 4045              	.LASF316:
+ 4046 3956 63795F65 		.ascii	"cy_en_ble_conn_state_t\000"
+ 4046      6E5F626C 
+ 4046      655F636F 
+ 4046      6E6E5F73 
+ 4046      74617465 
+ 4047              	.LASF492:
+ 4048 396d 43595F42 		.ascii	"CY_BLE_EVT_HPSC_NOTIFICATION\000"
+ 4048      4C455F45 
+ 4048      56545F48 
+ 4048      5053435F 
+ 4048      4E4F5449 
+ 4049              	.LASF184:
+ 4050 398a 43595F42 		.ascii	"CY_BLE_EVT_GAP_KEYS_GEN_COMPLETE\000"
+ 4050      4C455F45 
+ 4050      56545F47 
+ 4050      41505F4B 
+ 4050      4559535F 
+ 4051              	.LASF244:
+ 4052 39ab 43595F42 		.ascii	"CY_BLE_ERROR_L2CAP_PSM_NOT_REGISTERED\000"
+ 4052      4C455F45 
+ 4052      52524F52 
+ 4052      5F4C3243 
+ 4052      41505F50 
+ 4053              	.LASF306:
+ 4054 39d1 43595F42 		.ascii	"CY_BLE_ADV_STATE_STOP_INITIATED\000"
+ 4054      4C455F41 
+ 4054      44565F53 
+ 4054      54415445 
+ 4054      5F53544F 
+ 4055              	.LASF356:
+ 4056 39f1 43595F42 		.ascii	"CY_BLE_EVT_AIOSC_WRITE_CHAR_RESPONSE\000"
+ 4056      4C455F45 
+ 4056      56545F41 
+ 4056      494F5343 
+ 4056      5F575249 
+ 4057              	.LASF341:
+ 4058 3a16 43595F42 		.ascii	"CY_BLE_EVT_GATTC_SRVC_DISCOVERY_COMPLETE\000"
+ 4058      4C455F45 
+ 4058      56545F47 
+ 4058      41545443 
+ 4058      5F535256 
+ 4059              	.LASF319:
+ 4060 3a3f 63757374 		.ascii	"customServCharDesc\000"
+ 4060      6F6D5365 
+ 4060      72764368 
+ 4060      61724465 
+ 4060      736300
+ 4061              	.LASF93:
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 114
+
+
+ 4062 3a52 63707573 		.ascii	"cpussCm4ClockCtlOffset\000"
+ 4062      73436D34 
+ 4062      436C6F63 
+ 4062      6B43746C 
+ 4062      4F666673 
+ 4063              	.LASF326:
+ 4064 3a69 43595F42 		.ascii	"CY_BLE_AUTHENTICATION_REQUEST_REPLY\000"
+ 4064      4C455F41 
+ 4064      55544845 
+ 4064      4E544943 
+ 4064      4154494F 
+ 4065              	.LASF20:
+ 4066 3a8d 696E7433 		.ascii	"int32_t\000"
+ 4066      325F7400 
+ 4067              	.LASF43:
+ 4068 3a95 63707573 		.ascii	"cpussDwChNr\000"
+ 4068      73447743 
+ 4068      684E7200 
+ 4069              	.LASF388:
+ 4070 3aa1 43595F42 		.ascii	"CY_BLE_EVT_BCSC_WRITE_DESCR_RESPONSE\000"
+ 4070      4C455F45 
+ 4070      56545F42 
+ 4070      4353435F 
+ 4070      57524954 
+ 4071              	.LASF604:
+ 4072 3ac6 43595F42 		.ascii	"CY_BLE_EVT_WPTSS_NOTIFICATION_ENABLED\000"
+ 4072      4C455F45 
+ 4072      56545F57 
+ 4072      50545353 
+ 4072      5F4E4F54 
+ 4073              	.LASF273:
+ 4074 3aec 43595F42 		.ascii	"CY_BLE_GATT_ERR_ATTRIBUTE_NOT_FOUND\000"
+ 4074      4C455F47 
+ 4074      4154545F 
+ 4074      4552525F 
+ 4074      41545452 
+ 4075              	.LASF473:
+ 4076 3b10 43595F42 		.ascii	"CY_BLE_EVT_GLSC_READ_CHAR_RESPONSE\000"
+ 4076      4C455F45 
+ 4076      56545F47 
+ 4076      4C53435F 
+ 4076      52454144 
+ 4077              	.LASF339:
+ 4078 3b33 43595F42 		.ascii	"CY_BLE_EVT_GATTC_CHAR_DUPLICATION\000"
+ 4078      4C455F45 
+ 4078      56545F47 
+ 4078      41545443 
+ 4078      5F434841 
+ 4079              	.LASF496:
+ 4080 3b55 43595F42 		.ascii	"CY_BLE_EVT_HPSC_WRITE_CHAR_RESPONSE\000"
+ 4080      4C455F45 
+ 4080      56545F48 
+ 4080      5053435F 
+ 4080      57524954 
+ 4081              	.LASF467:
+ 4082 3b79 43595F42 		.ascii	"CY_BLE_EVT_GLSS_INDICATION_CONFIRMED\000"
+ 4082      4C455F45 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 115
+
+
+ 4082      56545F47 
+ 4082      4C53535F 
+ 4082      494E4449 
+ 4083              	.LASF6:
+ 4084 3b9e 5F5F696E 		.ascii	"__int16_t\000"
+ 4084      7431365F 
+ 4084      7400
+ 4085              	.LASF275:
+ 4086 3ba8 43595F42 		.ascii	"CY_BLE_GATT_ERR_INSUFFICIENT_ENC_KEY_SIZE\000"
+ 4086      4C455F47 
+ 4086      4154545F 
+ 4086      4552525F 
+ 4086      494E5355 
+ 4087              	.LASF145:
+ 4088 3bd2 43595F42 		.ascii	"CY_BLE_EVT_GET_DEVICE_ADDR_COMPLETE\000"
+ 4088      4C455F45 
+ 4088      56545F47 
+ 4088      45545F44 
+ 4088      45564943 
+ 4089              	.LASF182:
+ 4090 3bf6 43595F42 		.ascii	"CY_BLE_EVT_GAP_SMP_NEGOTIATED_AUTH_INFO\000"
+ 4090      4C455F45 
+ 4090      56545F47 
+ 4090      41505F53 
+ 4090      4D505F4E 
+ 4091              	.LASF364:
+ 4092 3c1e 43595F42 		.ascii	"CY_BLE_EVT_ANCSC_WRITE_CHAR_RESPONSE\000"
+ 4092      4C455F45 
+ 4092      56545F41 
+ 4092      4E435343 
+ 4092      5F575249 
+ 4093              	.LASF600:
+ 4094 3c43 43595F42 		.ascii	"CY_BLE_EVT_UDSC_WRITE_CHAR_RESPONSE\000"
+ 4094      4C455F45 
+ 4094      56545F55 
+ 4094      4453435F 
+ 4094      57524954 
+ 4095              	.LASF79:
+ 4096 3c67 70657269 		.ascii	"periDivCmdDivSelMsk\000"
+ 4096      44697643 
+ 4096      6D644469 
+ 4096      7653656C 
+ 4096      4D736B00 
+ 4097              	.LASF217:
+ 4098 3c7b 43595F42 		.ascii	"CY_BLE_EVT_L2CAP_CONN_PARAM_UPDATE_RSP\000"
+ 4098      4C455F45 
+ 4098      56545F4C 
+ 4098      32434150 
+ 4098      5F434F4E 
+ 4099              	.LASF281:
+ 4100 3ca2 43595F42 		.ascii	"CY_BLE_GATT_ERR_HEART_RATE_CONTROL_POINT_NOT_SUPPOR"
+ 4100      4C455F47 
+ 4100      4154545F 
+ 4100      4552525F 
+ 4100      48454152 
+ 4101 3cd5 54454400 		.ascii	"TED\000"
+ 4102              	.LASF513:
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 116
+
+
+ 4103 3cd9 43595F42 		.ascii	"CY_BLE_EVT_HTSC_READ_CHAR_RESPONSE\000"
+ 4103      4C455F45 
+ 4103      56545F48 
+ 4103      5453435F 
+ 4103      52454144 
+ 4104              	.LASF277:
+ 4105 3cfc 43595F42 		.ascii	"CY_BLE_GATT_ERR_UNLIKELY_ERROR\000"
+ 4105      4C455F47 
+ 4105      4154545F 
+ 4105      4552525F 
+ 4105      554E4C49 
+ 4106              	.LASF34:
+ 4107 3d1b 64775665 		.ascii	"dwVersion\000"
+ 4107      7273696F 
+ 4107      6E00
+ 4108              	.LASF201:
+ 4109 3d25 43595F42 		.ascii	"CY_BLE_EVT_GATTC_READ_BLOB_RSP\000"
+ 4109      4C455F45 
+ 4109      56545F47 
+ 4109      41545443 
+ 4109      5F524541 
+ 4110              	.LASF28:
+ 4111 3d44 6770696F 		.ascii	"gpioBase\000"
+ 4111      42617365 
+ 4111      00
+ 4112              	.LASF57:
+ 4113 3d4d 70726F74 		.ascii	"protBusMasterMask\000"
+ 4113      4275734D 
+ 4113      61737465 
+ 4113      724D6173 
+ 4113      6B00
+ 4114              	.LASF56:
+ 4115 3d5f 73797350 		.ascii	"sysPmSimoPresent\000"
+ 4115      6D53696D 
+ 4115      6F507265 
+ 4115      73656E74 
+ 4115      00
+ 4116              	.LASF227:
+ 4117 3d70 43595F42 		.ascii	"CY_BLE_EVT_MAX\000"
+ 4117      4C455F45 
+ 4117      56545F4D 
+ 4117      415800
+ 4118              	.LASF401:
+ 4119 3d7f 43595F42 		.ascii	"CY_BLE_EVT_BMSC_WRITE_CHAR_RESPONSE\000"
+ 4119      4C455F45 
+ 4119      56545F42 
+ 4119      4D53435F 
+ 4119      57524954 
+ 4120              	.LASF638:
+ 4121 3da3 63795F64 		.ascii	"cy_device\000"
+ 4121      65766963 
+ 4121      6500
+ 4122              	.LASF589:
+ 4123 3dad 43595F42 		.ascii	"CY_BLE_EVT_TPSC_WRITE_DESCR_RESPONSE\000"
+ 4123      4C455F45 
+ 4123      56545F54 
+ 4123      5053435F 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 117
+
+
+ 4123      57524954 
+ 4124              	.LASF262:
+ 4125 3dd2 63795F73 		.ascii	"cy_stc_ble_conn_handle_t\000"
+ 4125      74635F62 
+ 4125      6C655F63 
+ 4125      6F6E6E5F 
+ 4125      68616E64 
+ 4126              	.LASF444:
+ 4127 3deb 43595F42 		.ascii	"CY_BLE_EVT_CTSS_NOTIFICATION_DISABLED\000"
+ 4127      4C455F45 
+ 4127      56545F43 
+ 4127      5453535F 
+ 4127      4E4F5449 
+ 4128              	.LASF529:
+ 4129 3e11 43595F42 		.ascii	"CY_BLE_EVT_LLSC_READ_CHAR_RESPONSE\000"
+ 4129      4C455F45 
+ 4129      56545F4C 
+ 4129      4C53435F 
+ 4129      52454144 
+ 4130              	.LASF170:
+ 4131 3e34 43595F42 		.ascii	"CY_BLE_EVT_GAPP_ADVERTISEMENT_START_STOP\000"
+ 4131      4C455F45 
+ 4131      56545F47 
+ 4131      4150505F 
+ 4131      41445645 
+ 4132              	.LASF355:
+ 4133 3e5d 43595F42 		.ascii	"CY_BLE_EVT_AIOSC_READ_CHAR_RESPONSE\000"
+ 4133      4C455F45 
+ 4133      56545F41 
+ 4133      494F5343 
+ 4133      5F524541 
+ 4134              	.LASF553:
+ 4135 3e81 43595F42 		.ascii	"CY_BLE_EVT_PLXSS_INDICATION_CONFIRMED\000"
+ 4135      4C455F45 
+ 4135      56545F50 
+ 4135      4C585353 
+ 4135      5F494E44 
+ 4136              	.LASF565:
+ 4137 3ea7 43595F42 		.ascii	"CY_BLE_EVT_RSCSS_NOTIFICATION_DISABLED\000"
+ 4137      4C455F45 
+ 4137      56545F52 
+ 4137      53435353 
+ 4137      5F4E4F54 
+ 4138              	.LASF238:
+ 4139 3ece 43595F42 		.ascii	"CY_BLE_ERROR_DEVICE_ALREADY_EXISTS\000"
+ 4139      4C455F45 
+ 4139      52524F52 
+ 4139      5F444556 
+ 4139      4943455F 
+ 4140              	.LASF465:
+ 4141 3ef1 43595F42 		.ascii	"CY_BLE_EVT_GLSS_INDICATION_ENABLED\000"
+ 4141      4C455F45 
+ 4141      56545F47 
+ 4141      4C53535F 
+ 4141      494E4449 
+ 4142              	.LASF627:
+ 4143 3f14 43595F42 		.ascii	"CY_BLE_EVT_BTSS_PREP_WRITE_REQ\000"
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 118
+
+
+ 4143      4C455F45 
+ 4143      56545F42 
+ 4143      5453535F 
+ 4143      50524550 
+ 4144              	.LASF333:
+ 4145 3f33 43595F42 		.ascii	"CY_BLE_EVT_GATTC_INDICATION\000"
+ 4145      4C455F45 
+ 4145      56545F47 
+ 4145      41545443 
+ 4145      5F494E44 
+ 4146              	.LASF543:
+ 4147 3f4f 43595F42 		.ascii	"CY_BLE_EVT_NDCSC_READ_CHAR_RESPONSE\000"
+ 4147      4C455F45 
+ 4147      56545F4E 
+ 4147      44435343 
+ 4147      5F524541 
+ 4148              	.LASF214:
+ 4149 3f73 43595F42 		.ascii	"CY_BLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ\000"
+ 4149      4C455F45 
+ 4149      56545F47 
+ 4149      41545453 
+ 4149      5F524541 
+ 4150              	.LASF358:
+ 4151 3f9d 43595F42 		.ascii	"CY_BLE_EVT_AIOSC_WRITE_DESCR_RESPONSE\000"
+ 4151      4C455F45 
+ 4151      56545F41 
+ 4151      494F5343 
+ 4151      5F575249 
+ 4152              	.LASF120:
+ 4153 3fc3 43595F42 		.ascii	"CY_BLE_EVT_READ_AUTH_PAYLOAD_TO_COMPLETE\000"
+ 4153      4C455F45 
+ 4153      56545F52 
+ 4153      4541445F 
+ 4153      41555448 
+ 4154              	.LASF237:
+ 4155 3fec 43595F42 		.ascii	"CY_BLE_ERROR_NO_DEVICE_ENTITY\000"
+ 4155      4C455F45 
+ 4155      52524F52 
+ 4155      5F4E4F5F 
+ 4155      44455649 
+ 4156              	.LASF231:
+ 4157 400a 43595F42 		.ascii	"CY_BLE_ERROR_INVALID_PARAMETER\000"
+ 4157      4C455F45 
+ 4157      52524F52 
+ 4157      5F494E56 
+ 4157      414C4944 
+ 4158              	.LASF121:
+ 4159 4029 43595F42 		.ascii	"CY_BLE_EVT_GET_CHANNEL_MAP_COMPLETE\000"
+ 4159      4C455F45 
+ 4159      56545F47 
+ 4159      45545F43 
+ 4159      48414E4E 
+ 4160              	.LASF242:
+ 4161 404d 43595F42 		.ascii	"CY_BLE_ERROR_L2CAP_PSM_WRONG_ENCODING\000"
+ 4161      4C455F45 
+ 4161      52524F52 
+ 4161      5F4C3243 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 119
+
+
+ 4161      41505F50 
+ 4162              	.LASF39:
+ 4163 4073 70657269 		.ascii	"periVersion\000"
+ 4163      56657273 
+ 4163      696F6E00 
+ 4164              	.LASF308:
+ 4165 407f 43595F42 		.ascii	"CY_BLE_CONN_STATE_DISCONNECTED\000"
+ 4165      4C455F43 
+ 4165      4F4E4E5F 
+ 4165      53544154 
+ 4165      455F4449 
+ 4166              	.LASF393:
+ 4167 409e 43595F42 		.ascii	"CY_BLE_EVT_BLSS_NOTIFICATION_DISABLED\000"
+ 4167      4C455F45 
+ 4167      56545F42 
+ 4167      4C53535F 
+ 4167      4E4F5449 
+ 4168              	.LASF7:
+ 4169 40c4 73686F72 		.ascii	"short int\000"
+ 4169      7420696E 
+ 4169      7400
+ 4170              	.LASF156:
+ 4171 40ce 43595F42 		.ascii	"CY_BLE_EVT_STACK_SHUTDOWN_COMPLETE\000"
+ 4171      4C455F45 
+ 4171      56545F53 
+ 4171      5441434B 
+ 4171      5F534855 
+ 4172              	.LASF507:
+ 4173 40f1 43595F42 		.ascii	"CY_BLE_EVT_HTSS_INDICATION_ENABLED\000"
+ 4173      4C455F45 
+ 4173      56545F48 
+ 4173      5453535F 
+ 4173      494E4449 
+ 4174              	.LASF147:
+ 4175 4114 43595F42 		.ascii	"CY_BLE_EVT_GET_TX_PWR_COMPLETE\000"
+ 4175      4C455F45 
+ 4175      56545F47 
+ 4175      45545F54 
+ 4175      585F5057 
+ 4176              	.LASF320:
+ 4177 4133 63795F73 		.ascii	"cy_stc_ble_customs_info_t\000"
+ 4177      74635F62 
+ 4177      6C655F63 
+ 4177      7573746F 
+ 4177      6D735F69 
+ 4178              	.LASF379:
+ 4179 414d 43595F42 		.ascii	"CY_BLE_EVT_BASC_READ_CHAR_RESPONSE\000"
+ 4179      4C455F45 
+ 4179      56545F42 
+ 4179      4153435F 
+ 4179      52454144 
+ 4180              	.LASF643:
+ 4181 4170 63795F62 		.ascii	"cy_ble_customConfigPtr\000"
+ 4181      6C655F63 
+ 4181      7573746F 
+ 4181      6D436F6E 
+ 4181      66696750 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 120
+
+
+ 4182              	.LASF528:
+ 4183 4187 43595F42 		.ascii	"CY_BLE_EVT_LLSS_WRITE_CHAR_REQ\000"
+ 4183      4C455F45 
+ 4183      56545F4C 
+ 4183      4C53535F 
+ 4183      57524954 
+ 4184              	.LASF331:
+ 4185 41a6 43595F42 		.ascii	"CY_BLE_EVT_GATTS_INDICATION_ENABLED\000"
+ 4185      4C455F45 
+ 4185      56545F47 
+ 4185      41545453 
+ 4185      5F494E44 
+ 4186              	.LASF545:
+ 4187 41ca 43595F42 		.ascii	"CY_BLE_EVT_PASSS_NOTIFICATION_DISABLED\000"
+ 4187      4C455F45 
+ 4187      56545F50 
+ 4187      41535353 
+ 4187      5F4E4F54 
+ 4188              	.LASF268:
+ 4189 41f1 43595F42 		.ascii	"CY_BLE_GATT_ERR_INSUFFICIENT_AUTHENTICATION\000"
+ 4189      4C455F47 
+ 4189      4154545F 
+ 4189      4552525F 
+ 4189      494E5355 
+ 4190              	.LASF480:
+ 4191 421d 43595F42 		.ascii	"CY_BLE_EVT_HIDSS_REPORT_MODE_ENTER\000"
+ 4191      4C455F45 
+ 4191      56545F48 
+ 4191      49445353 
+ 4191      5F524550 
+ 4192              	.LASF18:
+ 4193 4240 696E7431 		.ascii	"int16_t\000"
+ 4193      365F7400 
+ 4194              	.LASF647:
+ 4195 4248 43795F42 		.ascii	"Cy_BLE_CUSTOM_EventHandler\000"
+ 4195      4C455F43 
+ 4195      5553544F 
+ 4195      4D5F4576 
+ 4195      656E7448 
+ 4196              	.LASF289:
+ 4197 4263 43595F42 		.ascii	"CY_BLE_GATTS_ERR_OPERATION_FAILED\000"
+ 4197      4C455F47 
+ 4197      41545453 
+ 4197      5F455252 
+ 4197      5F4F5045 
+ 4198              	.LASF354:
+ 4199 4285 43595F42 		.ascii	"CY_BLE_EVT_AIOSC_INDICATION\000"
+ 4199      4C455F45 
+ 4199      56545F41 
+ 4199      494F5343 
+ 4199      5F494E44 
+ 4200              	.LASF65:
+ 4201 42a1 666C6173 		.ascii	"flashCtlMainWs1Freq\000"
+ 4201      6843746C 
+ 4201      4D61696E 
+ 4201      57733146 
+ 4201      72657100 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 121
+
+
+ 4202              	.LASF348:
+ 4203 42b5 43595F42 		.ascii	"CY_BLE_EVT_AIOSS_INDICATION_ENABLED\000"
+ 4203      4C455F45 
+ 4203      56545F41 
+ 4203      494F5353 
+ 4203      5F494E44 
+ 4204              	.LASF387:
+ 4205 42d9 43595F42 		.ascii	"CY_BLE_EVT_BCSC_READ_DESCR_RESPONSE\000"
+ 4205      4C455F45 
+ 4205      56545F42 
+ 4205      4353435F 
+ 4205      52454144 
+ 4206              	.LASF212:
+ 4207 42fd 43595F42 		.ascii	"CY_BLE_EVT_GATTS_DATA_SIGNED_CMD_REQ\000"
+ 4207      4C455F45 
+ 4207      56545F47 
+ 4207      41545453 
+ 4207      5F444154 
+ 4208              	.LASF171:
+ 4209 4322 43595F42 		.ascii	"CY_BLE_EVT_GAP_DEVICE_CONNECTED\000"
+ 4209      4C455F45 
+ 4209      56545F47 
+ 4209      41505F44 
+ 4209      45564943 
+ 4210              	.LASF158:
+ 4211 4342 43595F42 		.ascii	"CY_BLE_EVT_RADIO_VOLTAGE_LEVEL\000"
+ 4211      4C455F45 
+ 4211      56545F52 
+ 4211      4144494F 
+ 4211      5F564F4C 
+ 4212              	.LASF642:
+ 4213 4361 63795F62 		.ascii	"cy_ble_connState\000"
+ 4213      6C655F63 
+ 4213      6F6E6E53 
+ 4213      74617465 
+ 4213      00
+ 4214              	.LASF301:
+ 4215 4372 63795F65 		.ascii	"cy_en_ble_gatt_err_code_t\000"
+ 4215      6E5F626C 
+ 4215      655F6761 
+ 4215      74745F65 
+ 4215      72725F63 
+ 4216              	.LASF60:
+ 4217 438c 666C6173 		.ascii	"flashPipeRequired\000"
+ 4217      68506970 
+ 4217      65526571 
+ 4217      75697265 
+ 4217      6400
+ 4218              	.LASF633:
+ 4219 439e 43595F42 		.ascii	"CY_BLE_EVT_GATTC_DISC_DESCR_GET_RANGE\000"
+ 4219      4C455F45 
+ 4219      56545F47 
+ 4219      41545443 
+ 4219      5F444953 
+ 4220              	.LASF240:
+ 4221 43c4 43595F42 		.ascii	"CY_BLE_ERROR_GAP_ROLE\000"
+ 4221      4C455F45 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 122
+>>>>>>> Isac
+
+
+ 4221      52524F52 
+ 4221      5F474150 
+ 4221      5F524F4C 
+ 4222              	.LASF486:
+ 4223 43da 43595F42 		.ascii	"CY_BLE_EVT_HIDSC_WRITE_CHAR_RESPONSE\000"
+ 4223      4C455F45 
+ 4223      56545F48 
+ 4223      49445343 
+ 4223      5F575249 
+ 4224              	.LASF129:
+ 4225 43ff 43595F42 		.ascii	"CY_BLE_EVT_GET_LOCAL_RPA_COMPLETE\000"
+ 4225      4C455F45 
+ 4225      56545F47 
+ 4225      45545F4C 
+ 4225      4F43414C 
+ 4226              	.LASF583:
+ 4227 4421 43595F42 		.ascii	"CY_BLE_EVT_SCPSC_WRITE_DESCR_RESPONSE\000"
+ 4227      4C455F45 
+ 4227      56545F53 
+ 4227      43505343 
+ 4227      5F575249 
+ 4228              	.LASF466:
+ 4229 4447 43595F42 		.ascii	"CY_BLE_EVT_GLSS_INDICATION_DISABLED\000"
+ 4229      4C455F45 
+ 4229      56545F47 
+ 4229      4C53535F 
+ 4229      494E4449 
+ 4230              	.LASF609:
+ 4231 446b 43595F42 		.ascii	"CY_BLE_EVT_WPTSS_WRITE_CHAR\000"
+ 4231      4C455F45 
+ 4231      56545F57 
+ 4231      50545353 
+ 4231      5F575249 
  4232              	.LASF36:
- 4233 446d 6770696F 		.ascii	"gpioVersion\000"
+ 4233 4487 6770696F 		.ascii	"gpioVersion\000"
  4233      56657273 
  4233      696F6E00 
  4234              	.LASF91:
- 4235 4479 6770696F 		.ascii	"gpioPrtCfgSioOffset\000"
+ 4235 4493 6770696F 		.ascii	"gpioPrtCfgSioOffset\000"
  4235      50727443 
  4235      66675369 
  4235      6F4F6666 
  4235      73657400 
  4236              	.LASF460:
- 4237 448d 43595F42 		.ascii	"CY_BLE_EVT_ESSC_INDICATION\000"
+ 4237 44a7 43595F42 		.ascii	"CY_BLE_EVT_ESSC_INDICATION\000"
  4237      4C455F45 
  4237      56545F45 
  4237      5353435F 
  4237      494E4449 
  4238              	.LASF252:
- 4239 44a8 43595F42 		.ascii	"CY_BLE_ERROR_GATT_DB_INVALID_ATTR_HANDLE\000"
+ 4239 44c2 43595F42 		.ascii	"CY_BLE_ERROR_GATT_DB_INVALID_ATTR_HANDLE\000"
  4239      4C455F45 
  4239      52524F52 
  4239      5F474154 
  4239      545F4442 
  4240              	.LASF524:
- 4241 44d1 43595F42 		.ascii	"CY_BLE_EVT_IPSC_READ_DESCR_RESPONSE\000"
+ 4241 44eb 43595F42 		.ascii	"CY_BLE_EVT_IPSC_READ_DESCR_RESPONSE\000"
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 123
+
+
  4241      4C455F45 
  4241      56545F49 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 123
 
 
+=======
+>>>>>>> Isac
  4241      5053435F 
  4241      52454144 
  4242              	.LASF59:
- 4243 44f5 666C6173 		.ascii	"flashRwwRequired\000"
+ 4243 450f 666C6173 		.ascii	"flashRwwRequired\000"
  4243      68527777 
  4243      52657175 
  4243      69726564 
  4243      00
  4244              	.LASF640:
- 4245 4506 63795F62 		.ascii	"cy_ble_advState\000"
+ 4245 4520 63795F62 		.ascii	"cy_ble_advState\000"
  4245      6C655F61 
  4245      64765374 
  4245      61746500 
  4246              	.LASF300:
- 4247 4516 43595F42 		.ascii	"CY_BLE_GATT_ERR_OUT_OF_RANGE\000"
+ 4247 4530 43595F42 		.ascii	"CY_BLE_GATT_ERR_OUT_OF_RANGE\000"
  4247      4C455F47 
  4247      4154545F 
  4247      4552525F 
  4247      4F55545F 
  4248              	.LASF606:
- 4249 4533 43595F42 		.ascii	"CY_BLE_EVT_WPTSS_INDICATION_ENABLED\000"
+ 4249 454d 43595F42 		.ascii	"CY_BLE_EVT_WPTSS_INDICATION_ENABLED\000"
  4249      4C455F45 
  4249      56545F57 
  4249      50545353 
  4249      5F494E44 
  4250              	.LASF159:
- 4251 4557 43595F42 		.ascii	"CY_BLE_EVT_AES_CMAC_GEN_COMPLETE\000"
+ 4251 4571 43595F42 		.ascii	"CY_BLE_EVT_AES_CMAC_GEN_COMPLETE\000"
  4251      4C455F45 
  4251      56545F41 
  4251      45535F43 
  4251      4D41435F 
  4252              	.LASF55:
- 4253 4578 75646250 		.ascii	"udbPresent\000"
+ 4253 4592 75646250 		.ascii	"udbPresent\000"
  4253      72657365 
  4253      6E7400
  4254              	.LASF350:
- 4255 4583 43595F42 		.ascii	"CY_BLE_EVT_AIOSS_INDICATION_CONFIRMED\000"
+ 4255 459d 43595F42 		.ascii	"CY_BLE_EVT_AIOSS_INDICATION_CONFIRMED\000"
  4255      4C455F45 
  4255      56545F41 
  4255      494F5353 
  4255      5F494E44 
  4256              	.LASF127:
- 4257 45a9 43595F42 		.ascii	"CY_BLE_EVT_DATA_LENGTH_CHANGE\000"
+ 4257 45c3 43595F42 		.ascii	"CY_BLE_EVT_DATA_LENGTH_CHANGE\000"
  4257      4C455F45 
  4257      56545F44 
  4257      4154415F 
  4257      4C454E47 
  4258              	.LASF438:
- 4259 45c7 43595F42 		.ascii	"CY_BLE_EVT_CSCSC_INDICATION\000"
+ 4259 45e1 43595F42 		.ascii	"CY_BLE_EVT_CSCSC_INDICATION\000"
  4259      4C455F45 
  4259      56545F43 
  4259      53435343 
  4259      5F494E44 
  4260              	.LASF562:
- 4261 45e3 43595F42 		.ascii	"CY_BLE_EVT_PLXSC_WRITE_DESCR_RESPONSE\000"
+ 4261 45fd 43595F42 		.ascii	"CY_BLE_EVT_PLXSC_WRITE_DESCR_RESPONSE\000"
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 124
+
+
  4261      4C455F45 
  4261      56545F50 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 124
 
 
+=======
+>>>>>>> Isac
  4261      4C585343 
  4261      5F575249 
  4262              	.LASF635:
- 4263 4609 6576656E 		.ascii	"eventCode\000"
+ 4263 4623 6576656E 		.ascii	"eventCode\000"
  4263      74436F64 
  4263      6500
  4264              	.LASF517:
- 4265 4613 43595F42 		.ascii	"CY_BLE_EVT_IASS_WRITE_CHAR_CMD\000"
+ 4265 462d 43595F42 		.ascii	"CY_BLE_EVT_IASS_WRITE_CHAR_CMD\000"
  4265      4C455F45 
  4265      56545F49 
  4265      4153535F 
  4265      57524954 
  4266              	.LASF394:
- 4267 4632 43595F42 		.ascii	"CY_BLE_EVT_BLSC_INDICATION\000"
+ 4267 464c 43595F42 		.ascii	"CY_BLE_EVT_BLSC_INDICATION\000"
  4267      4C455F45 
  4267      56545F42 
  4267      4C53435F 
  4267      494E4449 
  4268              	.LASF21:
- 4269 464d 75696E74 		.ascii	"uint32_t\000"
+ 4269 4667 75696E74 		.ascii	"uint32_t\000"
  4269      33325F74 
  4269      00
  4270              	.LASF485:
- 4271 4656 43595F42 		.ascii	"CY_BLE_EVT_HIDSC_READ_CHAR_RESPONSE\000"
+ 4271 4670 43595F42 		.ascii	"CY_BLE_EVT_HIDSC_READ_CHAR_RESPONSE\000"
  4271      4C455F45 
  4271      56545F48 
  4271      49445343 
  4271      5F524541 
  4272              	.LASF552:
- 4273 467a 43595F42 		.ascii	"CY_BLE_EVT_PLXSS_INDICATION_DISABLED\000"
+ 4273 4694 43595F42 		.ascii	"CY_BLE_EVT_PLXSS_INDICATION_DISABLED\000"
  4273      4C455F45 
  4273      56545F50 
  4273      4C585353 
  4273      5F494E44 
  4274              	.LASF534:
- 4275 469f 43595F42 		.ascii	"CY_BLE_EVT_LNSS_NOTIFICATION_ENABLED\000"
+ 4275 46b9 43595F42 		.ascii	"CY_BLE_EVT_LNSS_NOTIFICATION_ENABLED\000"
  4275      4C455F45 
  4275      56545F4C 
  4275      4E53535F 
  4275      4E4F5449 
  4276              	.LASF190:
- 4277 46c4 43595F42 		.ascii	"CY_BLE_EVT_GAP_ADV_TX\000"
+ 4277 46de 43595F42 		.ascii	"CY_BLE_EVT_GAP_ADV_TX\000"
  4277      4C455F45 
  4277      56545F47 
  4277      41505F41 
  4277      44565F54 
  4278              	.LASF428:
- 4279 46da 43595F42 		.ascii	"CY_BLE_EVT_CPSC_WRITE_DESCR_RESPONSE\000"
+ 4279 46f4 43595F42 		.ascii	"CY_BLE_EVT_CPSC_WRITE_DESCR_RESPONSE\000"
  4279      4C455F45 
  4279      56545F43 
  4279      5053435F 
  4279      57524954 
  4280              	.LASF421:
- 4281 46ff 43595F42 		.ascii	"CY_BLE_EVT_CPSS_BROADCAST_DISABLED\000"
+ 4281 4719 43595F42 		.ascii	"CY_BLE_EVT_CPSS_BROADCAST_DISABLED\000"
  4281      4C455F45 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 125
+
+
  4281      56545F43 
  4281      5053535F 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 125
 
 
+=======
+>>>>>>> Isac
  4281      42524F41 
  4282              	.LASF440:
- 4283 4722 43595F42 		.ascii	"CY_BLE_EVT_CSCSC_WRITE_CHAR_RESPONSE\000"
+ 4283 473c 43595F42 		.ascii	"CY_BLE_EVT_CSCSC_WRITE_CHAR_RESPONSE\000"
  4283      4C455F45 
  4283      56545F43 
  4283      53435343 
  4283      5F575249 
  4284              	.LASF482:
- 4285 4747 43595F42 		.ascii	"CY_BLE_EVT_HIDSS_EXIT_SUSPEND\000"
+ 4285 4761 43595F42 		.ascii	"CY_BLE_EVT_HIDSS_EXIT_SUSPEND\000"
  4285      4C455F45 
  4285      56545F48 
  4285      49445353 
  4285      5F455849 
  4286              	.LASF407:
- 4287 4765 43595F42 		.ascii	"CY_BLE_EVT_CGMSS_NOTIFICATION_DISABLED\000"
+ 4287 477f 43595F42 		.ascii	"CY_BLE_EVT_CGMSS_NOTIFICATION_DISABLED\000"
  4287      4C455F45 
  4287      56545F43 
  4287      474D5353 
  4287      5F4E4F54 
  4288              	.LASF296:
- 4289 478c 43595F42 		.ascii	"CY_BLE_GATT_ERR_ANCS_INVALID_PARAMETER\000"
+ 4289 47a6 43595F42 		.ascii	"CY_BLE_GATT_ERR_ANCS_INVALID_PARAMETER\000"
  4289      4C455F47 
  4289      4154545F 
  4289      4552525F 
  4289      414E4353 
  4290              	.LASF71:
- 4291 47b3 64774368 		.ascii	"dwChCtlPrioPos\000"
+ 4291 47cd 64774368 		.ascii	"dwChCtlPrioPos\000"
  4291      43746C50 
  4291      72696F50 
  4291      6F7300
  4292              	.LASF327:
- 4293 47c2 43595F42 		.ascii	"CY_BLE_PASSKEY_ENTRY_REQUEST_REPLY\000"
+ 4293 47dc 43595F42 		.ascii	"CY_BLE_PASSKEY_ENTRY_REQUEST_REPLY\000"
  4293      4C455F50 
  4293      4153534B 
  4293      45595F45 
  4293      4E545259 
  4294              	.LASF330:
- 4295 47e5 43595F42 		.ascii	"CY_BLE_EVT_GATTS_EVT_CCCD_CORRUPT\000"
+ 4295 47ff 43595F42 		.ascii	"CY_BLE_EVT_GATTS_EVT_CCCD_CORRUPT\000"
  4295      4C455F45 
  4295      56545F47 
  4295      41545453 
  4295      5F455654 
  4296              	.LASF94:
- 4297 4807 63707573 		.ascii	"cpussCm4StatusOffset\000"
+ 4297 4821 63707573 		.ascii	"cpussCm4StatusOffset\000"
  4297      73436D34 
  4297      53746174 
  4297      75734F66 
  4297      66736574 
  4298              	.LASF648:
- 4299 481c 43795F42 		.ascii	"Cy_BLE_CUSTOM_Init\000"
+ 4299 4836 43795F42 		.ascii	"Cy_BLE_CUSTOM_Init\000"
  4299      4C455F43 
  4299      5553544F 
  4299      4D5F496E 
  4299      697400
  4300              	.LASF283:
- 4301 482f 43595F42 		.ascii	"CY_BLE_GATT_ERR_CPS_INAPPROPRIATE_CONNECTION_PARAME"
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 126
+
+
+ 4301 4849 43595F42 		.ascii	"CY_BLE_GATT_ERR_CPS_INAPPROPRIATE_CONNECTION_PARAME"
  4301      4C455F47 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 126
 
 
+=======
+>>>>>>> Isac
  4301      4154545F 
  4301      4552525F 
  4301      4350535F 
- 4302 4862 54455253 		.ascii	"TERS\000"
+ 4302 487c 54455253 		.ascii	"TERS\000"
  4302      00
  4303              	.LASF72:
- 4304 4867 64774368 		.ascii	"dwChCtlPreemptablePos\000"
+ 4304 4881 64774368 		.ascii	"dwChCtlPreemptablePos\000"
  4304      43746C50 
  4304      7265656D 
  4304      70746162 
  4304      6C65506F 
  4305              	.LASF9:
- 4306 487d 73686F72 		.ascii	"short unsigned int\000"
+ 4306 4897 73686F72 		.ascii	"short unsigned int\000"
  4306      7420756E 
  4306      7369676E 
  4306      65642069 
  4306      6E7400
  4307              	.LASF177:
- 4308 4890 43595F42 		.ascii	"CY_BLE_EVT_GAP_NUMERIC_COMPARISON_REQUEST\000"
+ 4308 48aa 43595F42 		.ascii	"CY_BLE_EVT_GAP_NUMERIC_COMPARISON_REQUEST\000"
  4308      4C455F45 
  4308      56545F47 
  4308      41505F4E 
  4308      554D4552 
  4309              	.LASF30:
- 4310 48ba 69706342 		.ascii	"ipcBase\000"
+ 4310 48d4 69706342 		.ascii	"ipcBase\000"
  4310      61736500 
  4311              	.LASF232:
- 4312 48c2 43595F42 		.ascii	"CY_BLE_ERROR_INVALID_OPERATION\000"
+ 4312 48dc 43595F42 		.ascii	"CY_BLE_ERROR_INVALID_OPERATION\000"
  4312      4C455F45 
  4312      52524F52 
  4312      5F494E56 
  4312      414C4944 
  4313              	.LASF557:
- 4314 48e1 43595F42 		.ascii	"CY_BLE_EVT_PLXSC_INDICATION\000"
+ 4314 48fb 43595F42 		.ascii	"CY_BLE_EVT_PLXSC_INDICATION\000"
  4314      4C455F45 
  4314      56545F50 
  4314      4C585343 
  4314      5F494E44 
  4315              	.LASF172:
- 4316 48fd 43595F42 		.ascii	"CY_BLE_EVT_GAP_DEVICE_DISCONNECTED\000"
+ 4316 4917 43595F42 		.ascii	"CY_BLE_EVT_GAP_DEVICE_DISCONNECTED\000"
  4316      4C455F45 
  4316      56545F47 
  4316      41505F44 
  4316      45564943 
  4317              	.LASF229:
- 4318 4920 43595F42 		.ascii	"CY_BLE_SUCCESS\000"
+ 4318 493a 43595F42 		.ascii	"CY_BLE_SUCCESS\000"
  4318      4C455F53 
  4318      55434345 
  4318      535300
  4319              	.LASF302:
- 4320 492f 63795F62 		.ascii	"cy_ble_gatt_db_attr_handle_t\000"
+ 4320 4949 63795F62 		.ascii	"cy_ble_gatt_db_attr_handle_t\000"
  4320      6C655F67 
  4320      6174745F 
  4320      64625F61 
  4320      7474725F 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 127
+
+
  4321              	.LASF157:
+<<<<<<< HEAD
  4322 494c 43595F42 		.ascii	"CY_BLE_EVT_RADIO_TEMPERATURE\000"
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 127
 
 
+=======
+ 4322 4966 43595F42 		.ascii	"CY_BLE_EVT_RADIO_TEMPERATURE\000"
+>>>>>>> Isac
  4322      4C455F45 
  4322      56545F52 
  4322      4144494F 
  4322      5F54454D 
  4323              	.LASF61:
- 4324 4969 666C6173 		.ascii	"flashWriteDelay\000"
+ 4324 4983 666C6173 		.ascii	"flashWriteDelay\000"
  4324      68577269 
  4324      74654465 
  4324      6C617900 
  4325              	.LASF82:
- 4326 4979 70657269 		.ascii	"periDivCmdPaTypeSelPos\000"
+ 4326 4993 70657269 		.ascii	"periDivCmdPaTypeSelPos\000"
  4326      44697643 
  4326      6D645061 
  4326      54797065 
  4326      53656C50 
  4327              	.LASF189:
- 4328 4990 43595F42 		.ascii	"CY_BLE_EVT_GAPP_UPDATE_ADV_SCAN_DATA_COMPLETE\000"
+ 4328 49aa 43595F42 		.ascii	"CY_BLE_EVT_GAPP_UPDATE_ADV_SCAN_DATA_COMPLETE\000"
  4328      4C455F45 
  4328      56545F47 
  4328      4150505F 
  4328      55504441 
  4329              	.LASF623:
- 4330 49be 43595F42 		.ascii	"CY_BLE_EVT_BTSS_NOTIFICATION_ENABLED\000"
+ 4330 49d8 43595F42 		.ascii	"CY_BLE_EVT_BTSS_NOTIFICATION_ENABLED\000"
  4330      4C455F45 
  4330      56545F42 
  4330      5453535F 
  4330      4E4F5449 
  4331              	.LASF106:
- 4332 49e3 69706353 		.ascii	"ipcStructSize\000"
+ 4332 49fd 69706353 		.ascii	"ipcStructSize\000"
  4332      74727563 
  4332      7453697A 
  4332      6500
  4333              	.LASF295:
- 4334 49f1 43595F42 		.ascii	"CY_BLE_GATT_ERR_ANCS_INVALID_COMMAND\000"
+ 4334 4a0b 43595F42 		.ascii	"CY_BLE_GATT_ERR_ANCS_INVALID_COMMAND\000"
  4334      4C455F47 
  4334      4154545F 
  4334      4552525F 
  4334      414E4353 
  4335              	.LASF117:
- 4336 4a16 43595F42 		.ascii	"CY_BLE_EVT_FLASH_CORRUPT\000"
+ 4336 4a30 43595F42 		.ascii	"CY_BLE_EVT_FLASH_CORRUPT\000"
  4336      4C455F45 
  4336      56545F46 
  4336      4C415348 
  4336      5F434F52 
  4337              	.LASF75:
- 4338 4a2f 70657269 		.ascii	"periTrCmdOffset\000"
+ 4338 4a49 70657269 		.ascii	"periTrCmdOffset\000"
  4338      5472436D 
  4338      644F6666 
  4338      73657400 
  4339              	.LASF423:
- 4340 4a3f 43595F42 		.ascii	"CY_BLE_EVT_CPSC_NOTIFICATION\000"
+ 4340 4a59 43595F42 		.ascii	"CY_BLE_EVT_CPSC_NOTIFICATION\000"
  4340      4C455F45 
  4340      56545F43 
  4340      5053435F 
  4340      4E4F5449 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 128
+
+
  4341              	.LASF10:
+<<<<<<< HEAD
  4342 4a5c 5F5F696E 		.ascii	"__int32_t\000"
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 128
 
 
+=======
+ 4342 4a76 5F5F696E 		.ascii	"__int32_t\000"
+>>>>>>> Isac
  4342      7433325F 
  4342      7400
  4343              	.LASF626:
- 4344 4a66 43595F42 		.ascii	"CY_BLE_EVT_BTSS_WRITE_CMD_REQ\000"
+ 4344 4a80 43595F42 		.ascii	"CY_BLE_EVT_BTSS_WRITE_CMD_REQ\000"
  4344      4C455F45 
  4344      56545F42 
  4344      5453535F 
  4344      57524954 
  4345              	.LASF261:
- 4346 4a84 61747449 		.ascii	"attId\000"
+ 4346 4a9e 61747449 		.ascii	"attId\000"
  4346      6400
  4347              	.LASF442:
- 4348 4a8a 43595F42 		.ascii	"CY_BLE_EVT_CSCSC_WRITE_DESCR_RESPONSE\000"
+ 4348 4aa4 43595F42 		.ascii	"CY_BLE_EVT_CSCSC_WRITE_DESCR_RESPONSE\000"
  4348      4C455F45 
  4348      56545F43 
  4348      53435343 
  4348      5F575249 
  4349              	.LASF373:
- 4350 4ab0 43595F42 		.ascii	"CY_BLE_EVT_ANSC_WRITE_CHAR_RESPONSE\000"
+ 4350 4aca 43595F42 		.ascii	"CY_BLE_EVT_ANSC_WRITE_CHAR_RESPONSE\000"
  4350      4C455F45 
  4350      56545F41 
  4350      4E53435F 
  4350      57524954 
  4351              	.LASF490:
- 4352 4ad4 43595F42 		.ascii	"CY_BLE_EVT_HPSS_NOTIFICATION_DISABLED\000"
+ 4352 4aee 43595F42 		.ascii	"CY_BLE_EVT_HPSS_NOTIFICATION_DISABLED\000"
  4352      4C455F45 
  4352      56545F48 
  4352      5053535F 
  4352      4E4F5449 
  4353              	.LASF599:
- 4354 4afa 43595F42 		.ascii	"CY_BLE_EVT_UDSC_READ_CHAR_RESPONSE\000"
+ 4354 4b14 43595F42 		.ascii	"CY_BLE_EVT_UDSC_READ_CHAR_RESPONSE\000"
  4354      4C455F45 
  4354      56545F55 
  4354      4453435F 
  4354      52454144 
  4355              	.LASF377:
- 4356 4b1d 43595F42 		.ascii	"CY_BLE_EVT_BASS_NOTIFICATION_DISABLED\000"
+ 4356 4b37 43595F42 		.ascii	"CY_BLE_EVT_BASS_NOTIFICATION_DISABLED\000"
  4356      4C455F45 
  4356      56545F42 
  4356      4153535F 
  4356      4E4F5449 
  4357              	.LASF383:
- 4358 4b43 43595F42 		.ascii	"CY_BLE_EVT_BCSS_INDICATION_DISABLED\000"
+ 4358 4b5d 43595F42 		.ascii	"CY_BLE_EVT_BCSS_INDICATION_DISABLED\000"
  4358      4C455F45 
  4358      56545F42 
  4358      4353535F 
  4358      494E4449 
  4359              	.LASF412:
- 4360 4b67 43595F42 		.ascii	"CY_BLE_EVT_CGMSC_WRITE_CHAR_RESPONSE\000"
+ 4360 4b81 43595F42 		.ascii	"CY_BLE_EVT_CGMSC_WRITE_CHAR_RESPONSE\000"
  4360      4C455F45 
  4360      56545F43 
  4360      474D5343 
  4360      5F575249 
  4361              	.LASF148:
- 4362 4b8c 43595F42 		.ascii	"CY_BLE_EVT_SET_TX_PWR_COMPLETE\000"
+ 4362 4ba6 43595F42 		.ascii	"CY_BLE_EVT_SET_TX_PWR_COMPLETE\000"
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 129
+
+
  4362      4C455F45 
  4362      56545F53 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 129
 
 
+=======
+>>>>>>> Isac
  4362      45545F54 
  4362      585F5057 
  4363              	.LASF592:
- 4364 4bab 43595F42 		.ascii	"CY_BLE_EVT_UDSS_INDICATION_CONFIRMED\000"
+ 4364 4bc5 43595F42 		.ascii	"CY_BLE_EVT_UDSS_INDICATION_CONFIRMED\000"
  4364      4C455F45 
  4364      56545F55 
  4364      4453535F 
  4364      494E4449 
  4365              	.LASF386:
- 4366 4bd0 43595F42 		.ascii	"CY_BLE_EVT_BCSC_READ_CHAR_RESPONSE\000"
+ 4366 4bea 43595F42 		.ascii	"CY_BLE_EVT_BCSC_READ_CHAR_RESPONSE\000"
  4366      4C455F45 
  4366      56545F42 
  4366      4353435F 
  4366      52454144 
  4367              	.LASF462:
- 4368 4bf3 43595F42 		.ascii	"CY_BLE_EVT_ESSC_WRITE_CHAR_RESPONSE\000"
+ 4368 4c0d 43595F42 		.ascii	"CY_BLE_EVT_ESSC_WRITE_CHAR_RESPONSE\000"
  4368      4C455F45 
  4368      56545F45 
  4368      5353435F 
  4368      57524954 
  4369              	.LASF622:
- 4370 4c17 43595F42 		.ascii	"CY_BLE_EVT_WSSC_WRITE_DESCR_RESPONSE\000"
+ 4370 4c31 43595F42 		.ascii	"CY_BLE_EVT_WSSC_WRITE_DESCR_RESPONSE\000"
  4370      4C455F45 
  4370      56545F57 
  4370      5353435F 
  4370      57524954 
  4371              	.LASF469:
- 4372 4c3c 43595F42 		.ascii	"CY_BLE_EVT_GLSS_NOTIFICATION_DISABLED\000"
+ 4372 4c56 43595F42 		.ascii	"CY_BLE_EVT_GLSS_NOTIFICATION_DISABLED\000"
  4372      4C455F45 
  4372      56545F47 
  4372      4C53535F 
  4372      4E4F5449 
  4373              	.LASF136:
- 4374 4c62 43595F42 		.ascii	"CY_BLE_EVT_REMOVE_DEVICE_FROM_WHITE_LIST_COMPLETE\000"
+ 4374 4c7c 43595F42 		.ascii	"CY_BLE_EVT_REMOVE_DEVICE_FROM_WHITE_LIST_COMPLETE\000"
  4374      4C455F45 
  4374      56545F52 
  4374      454D4F56 
  4374      455F4445 
  4375              	.LASF133:
- 4376 4c94 43595F42 		.ascii	"CY_BLE_EVT_ADD_DEVICE_TO_RPA_LIST_COMPLETE\000"
+ 4376 4cae 43595F42 		.ascii	"CY_BLE_EVT_ADD_DEVICE_TO_RPA_LIST_COMPLETE\000"
  4376      4C455F45 
  4376      56545F41 
  4376      44445F44 
  4376      45564943 
  4377              	.LASF125:
- 4378 4cbf 43595F42 		.ascii	"CY_BLE_EVT_SET_SUGGESTED_DATA_LENGTH_COMPLETE\000"
+ 4378 4cd9 43595F42 		.ascii	"CY_BLE_EVT_SET_SUGGESTED_DATA_LENGTH_COMPLETE\000"
  4378      4C455F45 
  4378      56545F53 
  4378      45545F53 
  4378      55474745 
  4379              	.LASF515:
- 4380 4ced 43595F42 		.ascii	"CY_BLE_EVT_HTSC_READ_DESCR_RESPONSE\000"
+ 4380 4d07 43595F42 		.ascii	"CY_BLE_EVT_HTSC_READ_DESCR_RESPONSE\000"
  4380      4C455F45 
  4380      56545F48 
  4380      5453435F 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 130
+
+
  4380      52454144 
  4381              	.LASF494:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 130
 
 
  4382 4d11 43595F42 		.ascii	"CY_BLE_EVT_HPSC_READ_DESCR_RESPONSE\000"
+=======
+ 4382 4d2b 43595F42 		.ascii	"CY_BLE_EVT_HPSC_READ_DESCR_RESPONSE\000"
+>>>>>>> Isac
  4382      4C455F45 
  4382      56545F48 
  4382      5053435F 
  4382      52454144 
  4383              	.LASF64:
- 4384 4d35 666C6173 		.ascii	"flashCtlMainWs0Freq\000"
+ 4384 4d4f 666C6173 		.ascii	"flashCtlMainWs0Freq\000"
  4384      6843746C 
  4384      4D61696E 
  4384      57733046 
  4384      72657100 
  4385              	.LASF235:
- 4386 4d49 43595F42 		.ascii	"CY_BLE_ERROR_OOB_NOT_AVAILABLE\000"
+ 4386 4d63 43595F42 		.ascii	"CY_BLE_ERROR_OOB_NOT_AVAILABLE\000"
  4386      4C455F45 
  4386      52524F52 
  4386      5F4F4F42 
  4386      5F4E4F54 
  4387              	.LASF585:
- 4388 4d68 43595F42 		.ascii	"CY_BLE_EVT_TPSS_NOTIFICATION_DISABLED\000"
+ 4388 4d82 43595F42 		.ascii	"CY_BLE_EVT_TPSS_NOTIFICATION_DISABLED\000"
  4388      4C455F45 
  4388      56545F54 
  4388      5053535F 
  4388      4E4F5449 
  4389              	.LASF37:
- 4390 4d8e 6873696F 		.ascii	"hsiomVersion\000"
+ 4390 4da8 6873696F 		.ascii	"hsiomVersion\000"
  4390      6D566572 
  4390      73696F6E 
  4390      00
  4391              	.LASF396:
- 4392 4d9b 43595F42 		.ascii	"CY_BLE_EVT_BLSC_READ_CHAR_RESPONSE\000"
+ 4392 4db5 43595F42 		.ascii	"CY_BLE_EVT_BLSC_READ_CHAR_RESPONSE\000"
  4392      4C455F45 
  4392      56545F42 
  4392      4C53435F 
  4392      52454144 
  4393              	.LASF603:
- 4394 4dbe 43595F42 		.ascii	"CY_BLE_EVT_UDSC_ERROR_RESPONSE\000"
+ 4394 4dd8 43595F42 		.ascii	"CY_BLE_EVT_UDSC_ERROR_RESPONSE\000"
  4394      4C455F45 
  4394      56545F55 
  4394      4453435F 
  4394      4552524F 
  4395              	.LASF69:
- 4396 4ddd 64774368 		.ascii	"dwChOffset\000"
+ 4396 4df7 64774368 		.ascii	"dwChOffset\000"
  4396      4F666673 
  4396      657400
  4397              	.LASF430:
- 4398 4de8 43595F42 		.ascii	"CY_BLE_EVT_CPSC_TIMEOUT\000"
+ 4398 4e02 43595F42 		.ascii	"CY_BLE_EVT_CPSC_TIMEOUT\000"
  4398      4C455F45 
  4398      56545F43 
  4398      5053435F 
