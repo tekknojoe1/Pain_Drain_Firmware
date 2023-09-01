@@ -1,0 +1,3794 @@
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"lv_anim_timeline.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.lv_anim_timeline_virtual_exec_cb,"ax",%progbits
+  20              		.align	2
+  21              		.code	16
+  22              		.thumb_func
+  23              		.type	lv_anim_timeline_virtual_exec_cb, %function
+  24              	lv_anim_timeline_virtual_exec_cb:
+  25              	.LFB31:
+  26              		.file 1 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\misc\\lv_anim_timeline.c"
+   1:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** /**
+   2:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  * @file lv_anim_timeline.c
+   3:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  *
+   4:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  */
+   5:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+   6:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** /*********************
+   7:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  *      INCLUDES
+   8:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  *********************/
+   9:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** #include "lv_anim_timeline.h"
+  10:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** #include "lv_mem.h"
+  11:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** #include "lv_assert.h"
+  12:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  13:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** /*********************
+  14:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  *      DEFINES
+  15:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  *********************/
+  16:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  17:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** /**********************
+  18:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  *      TYPEDEFS
+  19:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  **********************/
+  20:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  21:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** /*Data of anim_timeline_dsc*/
+  22:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** typedef struct {
+  23:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     lv_anim_t anim;
+  24:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     uint32_t start_time;
+  25:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** } lv_anim_timeline_dsc_t;
+  26:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  27:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** /*Data of anim_timeline*/
+  28:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** struct _lv_anim_timeline_t {
+  29:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     lv_anim_timeline_dsc_t * anim_dsc;  /**< Dynamically allocated anim dsc array*/
+  30:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     uint32_t anim_dsc_cnt;              /**< The length of anim dsc array*/
+  31:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     bool reverse;                       /**< Reverse playback*/
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 2
+
+
+  32:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** };
+  33:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  34:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** /**********************
+  35:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  *  STATIC PROTOTYPES
+  36:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  **********************/
+  37:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** static void lv_anim_timeline_virtual_exec_cb(void * var, int32_t v);
+  38:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  39:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** /**********************
+  40:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  *  STATIC VARIABLES
+  41:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  **********************/
+  42:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  43:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** /**********************
+  44:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  *      MACROS
+  45:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  **********************/
+  46:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  47:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** /**********************
+  48:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  *   GLOBAL FUNCTIONS
+  49:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  **********************/
+  50:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  51:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** lv_anim_timeline_t * lv_anim_timeline_create(void)
+  52:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** {
+  53:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     lv_anim_timeline_t * at = (lv_anim_timeline_t *)lv_mem_alloc(sizeof(lv_anim_timeline_t));
+  54:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  55:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_ASSERT_MALLOC(at);
+  56:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  57:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     if(at) lv_memset_00(at, sizeof(lv_anim_timeline_t));
+  58:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  59:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     return at;
+  60:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** }
+  61:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  62:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** void lv_anim_timeline_del(lv_anim_timeline_t * at)
+  63:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** {
+  64:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_ASSERT_NULL(at);
+  65:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  66:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     lv_anim_timeline_stop(at);
+  67:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  68:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     lv_mem_free(at->anim_dsc);
+  69:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     lv_mem_free(at);
+  70:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** }
+  71:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  72:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** void lv_anim_timeline_add(lv_anim_timeline_t * at, uint32_t start_time, lv_anim_t * a)
+  73:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** {
+  74:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_ASSERT_NULL(at);
+  75:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  76:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     at->anim_dsc_cnt++;
+  77:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     at->anim_dsc = lv_mem_realloc(at->anim_dsc, at->anim_dsc_cnt * sizeof(lv_anim_timeline_dsc_t));
+  78:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  79:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_ASSERT_MALLOC(at->anim_dsc);
+  80:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  81:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     at->anim_dsc[at->anim_dsc_cnt - 1].anim = *a;
+  82:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     at->anim_dsc[at->anim_dsc_cnt - 1].start_time = start_time;
+  83:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  84:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     /*Add default var and virtual exec_cb, used to delete animation.*/
+  85:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     if(a->var == NULL && a->exec_cb == NULL) {
+  86:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         at->anim_dsc[at->anim_dsc_cnt - 1].anim.var = at;
+  87:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         at->anim_dsc[at->anim_dsc_cnt - 1].anim.exec_cb = lv_anim_timeline_virtual_exec_cb;
+  88:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     }
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 3
+
+
+  89:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** }
+  90:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  91:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** uint32_t lv_anim_timeline_start(lv_anim_timeline_t * at)
+  92:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** {
+  93:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_ASSERT_NULL(at);
+  94:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  95:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     const uint32_t playtime = lv_anim_timeline_get_playtime(at);
+  96:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     bool reverse = at->reverse;
+  97:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  98:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     for(uint32_t i = 0; i < at->anim_dsc_cnt; i++) {
+  99:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         lv_anim_t a = at->anim_dsc[i].anim;
+ 100:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         uint32_t start_time = at->anim_dsc[i].start_time;
+ 101:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 102:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         if(reverse) {
+ 103:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             int32_t temp = a.start_value;
+ 104:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             a.start_value = a.end_value;
+ 105:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             a.end_value = temp;
+ 106:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             lv_anim_set_delay(&a, playtime - (start_time + a.time));
+ 107:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         }
+ 108:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         else {
+ 109:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             lv_anim_set_delay(&a, start_time);
+ 110:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         }
+ 111:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 112:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         lv_anim_start(&a);
+ 113:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     }
+ 114:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 115:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     return playtime;
+ 116:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** }
+ 117:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 118:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** void lv_anim_timeline_stop(lv_anim_timeline_t * at)
+ 119:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** {
+ 120:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_ASSERT_NULL(at);
+ 121:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 122:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     for(uint32_t i = 0; i < at->anim_dsc_cnt; i++) {
+ 123:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         lv_anim_t * a = &(at->anim_dsc[i].anim);
+ 124:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         lv_anim_del(a->var, a->exec_cb);
+ 125:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     }
+ 126:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** }
+ 127:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 128:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** void lv_anim_timeline_set_reverse(lv_anim_timeline_t * at, bool reverse)
+ 129:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** {
+ 130:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_ASSERT_NULL(at);
+ 131:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     at->reverse = reverse;
+ 132:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** }
+ 133:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 134:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** void lv_anim_timeline_set_progress(lv_anim_timeline_t * at, uint16_t progress)
+ 135:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** {
+ 136:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_ASSERT_NULL(at);
+ 137:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 138:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     const uint32_t playtime = lv_anim_timeline_get_playtime(at);
+ 139:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     const uint32_t act_time = progress * playtime / 0xFFFF;
+ 140:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 141:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     for(uint32_t i = 0; i < at->anim_dsc_cnt; i++) {
+ 142:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         lv_anim_t * a = &(at->anim_dsc[i].anim);
+ 143:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 144:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         if(a->exec_cb == NULL) {
+ 145:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             continue;
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 4
+
+
+ 146:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         }
+ 147:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 148:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         uint32_t start_time = at->anim_dsc[i].start_time;
+ 149:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         int32_t value = 0;
+ 150:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 151:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         if(act_time < start_time) {
+ 152:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             value = a->start_value;
+ 153:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         }
+ 154:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         else if(act_time < (start_time + a->time)) {
+ 155:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             a->act_time = act_time - start_time;
+ 156:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             value = a->path_cb(a);
+ 157:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         }
+ 158:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         else {
+ 159:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             value = a->end_value;
+ 160:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         }
+ 161:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 162:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         a->exec_cb(a->var, value);
+ 163:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     }
+ 164:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** }
+ 165:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 166:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** uint32_t lv_anim_timeline_get_playtime(lv_anim_timeline_t * at)
+ 167:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** {
+ 168:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_ASSERT_NULL(at);
+ 169:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 170:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     uint32_t playtime = 0;
+ 171:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     for(uint32_t i = 0; i < at->anim_dsc_cnt; i++) {
+ 172:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         uint32_t end = lv_anim_get_playtime(&at->anim_dsc[i].anim);
+ 173:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         if(end == LV_ANIM_PLAYTIME_INFINITE)
+ 174:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             return end;
+ 175:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         end += at->anim_dsc[i].start_time;
+ 176:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         if(end > playtime) {
+ 177:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             playtime = end;
+ 178:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         }
+ 179:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     }
+ 180:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 181:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     return playtime;
+ 182:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** }
+ 183:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 184:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** bool lv_anim_timeline_get_reverse(lv_anim_timeline_t * at)
+ 185:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** {
+ 186:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_ASSERT_NULL(at);
+ 187:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     return at->reverse;
+ 188:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** }
+ 189:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 190:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** /**********************
+ 191:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  *   STATIC FUNCTIONS
+ 192:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****  **********************/
+ 193:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 194:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** static void lv_anim_timeline_virtual_exec_cb(void * var, int32_t v)
+ 195:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** {
+  27              		.loc 1 195 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32              	.LVL0:
+ 196:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_UNUSED(var);
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 5
+
+
+ 197:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_UNUSED(v);
+ 198:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** }
+  33              		.loc 1 198 0
+  34              		@ sp needed
+  35 0000 7047     		bx	lr
+  36              		.cfi_endproc
+  37              	.LFE31:
+  38              		.size	lv_anim_timeline_virtual_exec_cb, .-lv_anim_timeline_virtual_exec_cb
+  39 0002 C046     		.section	.text.lv_anim_timeline_create,"ax",%progbits
+  40              		.align	2
+  41              		.global	lv_anim_timeline_create
+  42              		.code	16
+  43              		.thumb_func
+  44              		.type	lv_anim_timeline_create, %function
+  45              	lv_anim_timeline_create:
+  46              	.LFB22:
+  52:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     lv_anim_timeline_t * at = (lv_anim_timeline_t *)lv_mem_alloc(sizeof(lv_anim_timeline_t));
+  47              		.loc 1 52 0
+  48              		.cfi_startproc
+  49              		@ args = 0, pretend = 0, frame = 0
+  50              		@ frame_needed = 0, uses_anonymous_args = 0
+  51 0000 10B5     		push	{r4, lr}
+  52              		.cfi_def_cfa_offset 8
+  53              		.cfi_offset 4, -8
+  54              		.cfi_offset 14, -4
+  53:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  55              		.loc 1 53 0
+  56 0002 0C20     		movs	r0, #12
+  57 0004 FFF7FEFF 		bl	lv_mem_alloc
+  58              	.LVL1:
+  59 0008 041E     		subs	r4, r0, #0
+  60              	.LVL2:
+  55:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  61              		.loc 1 55 0
+  62 000a 00D1     		bne	.L3
+  63              	.L4:
+  64 000c FEE7     		b	.L4
+  65              	.L3:
+  57:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  66              		.loc 1 57 0
+  67 000e 0028     		cmp	r0, #0
+  68 0010 02D0     		beq	.L5
+  57:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  69              		.loc 1 57 0 is_stmt 0 discriminator 1
+  70 0012 0C21     		movs	r1, #12
+  71 0014 FFF7FEFF 		bl	lv_memset_00
+  72              	.LVL3:
+  73              	.L5:
+  60:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+  74              		.loc 1 60 0 is_stmt 1
+  75 0018 2000     		movs	r0, r4
+  76              		@ sp needed
+  77              	.LVL4:
+  78 001a 10BD     		pop	{r4, pc}
+  79              		.cfi_endproc
+  80              	.LFE22:
+  81              		.size	lv_anim_timeline_create, .-lv_anim_timeline_create
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 6
+
+
+  82              		.section	.text.lv_anim_timeline_add,"ax",%progbits
+  83              		.align	2
+  84              		.global	lv_anim_timeline_add
+  85              		.code	16
+  86              		.thumb_func
+  87              		.type	lv_anim_timeline_add, %function
+  88              	lv_anim_timeline_add:
+  89              	.LFB24:
+  73:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_ASSERT_NULL(at);
+  90              		.loc 1 73 0
+  91              		.cfi_startproc
+  92              		@ args = 0, pretend = 0, frame = 0
+  93              		@ frame_needed = 0, uses_anonymous_args = 0
+  94              	.LVL5:
+  95 0000 70B5     		push	{r4, r5, r6, lr}
+  96              		.cfi_def_cfa_offset 16
+  97              		.cfi_offset 4, -16
+  98              		.cfi_offset 5, -12
+  99              		.cfi_offset 6, -8
+ 100              		.cfi_offset 14, -4
+ 101 0002 0400     		movs	r4, r0
+ 102 0004 0E00     		movs	r6, r1
+ 103 0006 1500     		movs	r5, r2
+  74:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 104              		.loc 1 74 0
+ 105 0008 0028     		cmp	r0, #0
+ 106 000a 00D1     		bne	.L7
+ 107              	.L8:
+ 108 000c FEE7     		b	.L8
+ 109              	.L7:
+  76:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     at->anim_dsc = lv_mem_realloc(at->anim_dsc, at->anim_dsc_cnt * sizeof(lv_anim_timeline_dsc_t));
+ 110              		.loc 1 76 0
+ 111 000e 4368     		ldr	r3, [r0, #4]
+ 112 0010 0133     		adds	r3, r3, #1
+ 113 0012 4360     		str	r3, [r0, #4]
+  77:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 114              		.loc 1 77 0
+ 115 0014 DA00     		lsls	r2, r3, #3
+ 116              	.LVL6:
+ 117 0016 D318     		adds	r3, r2, r3
+ 118 0018 D900     		lsls	r1, r3, #3
+ 119              	.LVL7:
+ 120 001a 0068     		ldr	r0, [r0]
+ 121              	.LVL8:
+ 122 001c FFF7FEFF 		bl	lv_mem_realloc
+ 123              	.LVL9:
+ 124 0020 2060     		str	r0, [r4]
+  79:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 125              		.loc 1 79 0
+ 126 0022 0028     		cmp	r0, #0
+ 127 0024 00D1     		bne	.L9
+ 128              	.L10:
+ 129 0026 FEE7     		b	.L10
+ 130              	.L9:
+  81:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     at->anim_dsc[at->anim_dsc_cnt - 1].start_time = start_time;
+ 131              		.loc 1 81 0
+ 132 0028 6268     		ldr	r2, [r4, #4]
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 7
+
+
+ 133 002a D300     		lsls	r3, r2, #3
+ 134 002c 9A18     		adds	r2, r3, r2
+ 135 002e D300     		lsls	r3, r2, #3
+ 136 0030 483B     		subs	r3, r3, #72
+ 137 0032 C018     		adds	r0, r0, r3
+ 138 0034 4422     		movs	r2, #68
+ 139 0036 2900     		movs	r1, r5
+ 140 0038 FFF7FEFF 		bl	memcpy
+ 141              	.LVL10:
+  82:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 142              		.loc 1 82 0
+ 143 003c 6368     		ldr	r3, [r4, #4]
+ 144 003e DA00     		lsls	r2, r3, #3
+ 145 0040 D218     		adds	r2, r2, r3
+ 146 0042 D300     		lsls	r3, r2, #3
+ 147 0044 483B     		subs	r3, r3, #72
+ 148 0046 2268     		ldr	r2, [r4]
+ 149 0048 9446     		mov	ip, r2
+ 150 004a 6344     		add	r3, r3, ip
+ 151 004c 5E64     		str	r6, [r3, #68]
+  85:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         at->anim_dsc[at->anim_dsc_cnt - 1].anim.var = at;
+ 152              		.loc 1 85 0
+ 153 004e 2B68     		ldr	r3, [r5]
+ 154 0050 002B     		cmp	r3, #0
+ 155 0052 12D1     		bne	.L6
+  85:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         at->anim_dsc[at->anim_dsc_cnt - 1].anim.var = at;
+ 156              		.loc 1 85 0 is_stmt 0 discriminator 1
+ 157 0054 6B68     		ldr	r3, [r5, #4]
+ 158 0056 002B     		cmp	r3, #0
+ 159 0058 0FD1     		bne	.L6
+  86:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         at->anim_dsc[at->anim_dsc_cnt - 1].anim.exec_cb = lv_anim_timeline_virtual_exec_cb;
+ 160              		.loc 1 86 0 is_stmt 1
+ 161 005a 6368     		ldr	r3, [r4, #4]
+ 162 005c DA00     		lsls	r2, r3, #3
+ 163 005e D318     		adds	r3, r2, r3
+ 164 0060 DA00     		lsls	r2, r3, #3
+ 165 0062 483A     		subs	r2, r2, #72
+ 166 0064 2368     		ldr	r3, [r4]
+ 167 0066 9C50     		str	r4, [r3, r2]
+  87:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     }
+ 168              		.loc 1 87 0
+ 169 0068 2168     		ldr	r1, [r4]
+ 170 006a 6268     		ldr	r2, [r4, #4]
+ 171 006c D300     		lsls	r3, r2, #3
+ 172 006e 9A18     		adds	r2, r3, r2
+ 173 0070 D300     		lsls	r3, r2, #3
+ 174 0072 483B     		subs	r3, r3, #72
+ 175 0074 CB18     		adds	r3, r1, r3
+ 176 0076 014A     		ldr	r2, .L12
+ 177 0078 5A60     		str	r2, [r3, #4]
+ 178              	.L6:
+  89:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 179              		.loc 1 89 0
+ 180              		@ sp needed
+ 181              	.LVL11:
+ 182              	.LVL12:
+ 183              	.LVL13:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 8
+
+
+ 184 007a 70BD     		pop	{r4, r5, r6, pc}
+ 185              	.L13:
+ 186              		.align	2
+ 187              	.L12:
+ 188 007c 00000000 		.word	lv_anim_timeline_virtual_exec_cb
+ 189              		.cfi_endproc
+ 190              	.LFE24:
+ 191              		.size	lv_anim_timeline_add, .-lv_anim_timeline_add
+ 192              		.section	.text.lv_anim_timeline_stop,"ax",%progbits
+ 193              		.align	2
+ 194              		.global	lv_anim_timeline_stop
+ 195              		.code	16
+ 196              		.thumb_func
+ 197              		.type	lv_anim_timeline_stop, %function
+ 198              	lv_anim_timeline_stop:
+ 199              	.LFB26:
+ 119:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_ASSERT_NULL(at);
+ 200              		.loc 1 119 0
+ 201              		.cfi_startproc
+ 202              		@ args = 0, pretend = 0, frame = 0
+ 203              		@ frame_needed = 0, uses_anonymous_args = 0
+ 204              	.LVL14:
+ 205 0000 70B5     		push	{r4, r5, r6, lr}
+ 206              		.cfi_def_cfa_offset 16
+ 207              		.cfi_offset 4, -16
+ 208              		.cfi_offset 5, -12
+ 209              		.cfi_offset 6, -8
+ 210              		.cfi_offset 14, -4
+ 211 0002 051E     		subs	r5, r0, #0
+ 120:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 212              		.loc 1 120 0
+ 213 0004 0CD1     		bne	.L18
+ 214              	.L16:
+ 215 0006 FEE7     		b	.L16
+ 216              	.LVL15:
+ 217              	.L17:
+ 218              	.LBB9:
+ 219              	.LBB10:
+ 123:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         lv_anim_del(a->var, a->exec_cb);
+ 220              		.loc 1 123 0 discriminator 3
+ 221 0008 E200     		lsls	r2, r4, #3
+ 222 000a 1219     		adds	r2, r2, r4
+ 223 000c D300     		lsls	r3, r2, #3
+ 224 000e 2A68     		ldr	r2, [r5]
+ 225 0010 9446     		mov	ip, r2
+ 226 0012 6344     		add	r3, r3, ip
+ 227              	.LVL16:
+ 124:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     }
+ 228              		.loc 1 124 0 discriminator 3
+ 229 0014 5968     		ldr	r1, [r3, #4]
+ 230 0016 1868     		ldr	r0, [r3]
+ 231 0018 FFF7FEFF 		bl	lv_anim_del
+ 232              	.LVL17:
+ 233              	.LBE10:
+ 122:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         lv_anim_t * a = &(at->anim_dsc[i].anim);
+ 234              		.loc 1 122 0 discriminator 3
+ 235 001c 0134     		adds	r4, r4, #1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 9
+
+
+ 236              	.LVL18:
+ 237 001e 00E0     		b	.L15
+ 238              	.LVL19:
+ 239              	.L18:
+ 240              	.LBE9:
+ 241 0020 0024     		movs	r4, #0
+ 242              	.LVL20:
+ 243              	.L15:
+ 244              	.LBB11:
+ 122:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         lv_anim_t * a = &(at->anim_dsc[i].anim);
+ 245              		.loc 1 122 0 is_stmt 0 discriminator 1
+ 246 0022 6B68     		ldr	r3, [r5, #4]
+ 247 0024 9C42     		cmp	r4, r3
+ 248 0026 EFD3     		bcc	.L17
+ 249              	.LBE11:
+ 126:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 250              		.loc 1 126 0 is_stmt 1
+ 251              		@ sp needed
+ 252              	.LVL21:
+ 253              	.LVL22:
+ 254 0028 70BD     		pop	{r4, r5, r6, pc}
+ 255              		.cfi_endproc
+ 256              	.LFE26:
+ 257              		.size	lv_anim_timeline_stop, .-lv_anim_timeline_stop
+ 258 002a C046     		.section	.text.lv_anim_timeline_del,"ax",%progbits
+ 259              		.align	2
+ 260              		.global	lv_anim_timeline_del
+ 261              		.code	16
+ 262              		.thumb_func
+ 263              		.type	lv_anim_timeline_del, %function
+ 264              	lv_anim_timeline_del:
+ 265              	.LFB23:
+  63:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_ASSERT_NULL(at);
+ 266              		.loc 1 63 0
+ 267              		.cfi_startproc
+ 268              		@ args = 0, pretend = 0, frame = 0
+ 269              		@ frame_needed = 0, uses_anonymous_args = 0
+ 270              	.LVL23:
+ 271 0000 10B5     		push	{r4, lr}
+ 272              		.cfi_def_cfa_offset 8
+ 273              		.cfi_offset 4, -8
+ 274              		.cfi_offset 14, -4
+ 275 0002 041E     		subs	r4, r0, #0
+  64:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 276              		.loc 1 64 0
+ 277 0004 00D1     		bne	.L20
+ 278              	.L21:
+ 279 0006 FEE7     		b	.L21
+ 280              	.L20:
+  66:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 281              		.loc 1 66 0
+ 282 0008 FFF7FEFF 		bl	lv_anim_timeline_stop
+ 283              	.LVL24:
+  68:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     lv_mem_free(at);
+ 284              		.loc 1 68 0
+ 285 000c 2068     		ldr	r0, [r4]
+ 286 000e FFF7FEFF 		bl	lv_mem_free
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 10
+
+
+ 287              	.LVL25:
+  69:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** }
+ 288              		.loc 1 69 0
+ 289 0012 2000     		movs	r0, r4
+ 290 0014 FFF7FEFF 		bl	lv_mem_free
+ 291              	.LVL26:
+  70:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 292              		.loc 1 70 0
+ 293              		@ sp needed
+ 294              	.LVL27:
+ 295 0018 10BD     		pop	{r4, pc}
+ 296              		.cfi_endproc
+ 297              	.LFE23:
+ 298              		.size	lv_anim_timeline_del, .-lv_anim_timeline_del
+ 299 001a C046     		.section	.text.lv_anim_timeline_set_reverse,"ax",%progbits
+ 300              		.align	2
+ 301              		.global	lv_anim_timeline_set_reverse
+ 302              		.code	16
+ 303              		.thumb_func
+ 304              		.type	lv_anim_timeline_set_reverse, %function
+ 305              	lv_anim_timeline_set_reverse:
+ 306              	.LFB27:
+ 129:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_ASSERT_NULL(at);
+ 307              		.loc 1 129 0
+ 308              		.cfi_startproc
+ 309              		@ args = 0, pretend = 0, frame = 0
+ 310              		@ frame_needed = 0, uses_anonymous_args = 0
+ 311              		@ link register save eliminated.
+ 312              	.LVL28:
+ 130:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     at->reverse = reverse;
+ 313              		.loc 1 130 0
+ 314 0000 0028     		cmp	r0, #0
+ 315 0002 00D1     		bne	.L23
+ 316              	.L24:
+ 317 0004 FEE7     		b	.L24
+ 318              	.L23:
+ 131:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** }
+ 319              		.loc 1 131 0
+ 320 0006 0172     		strb	r1, [r0, #8]
+ 132:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 321              		.loc 1 132 0
+ 322              		@ sp needed
+ 323 0008 7047     		bx	lr
+ 324              		.cfi_endproc
+ 325              	.LFE27:
+ 326              		.size	lv_anim_timeline_set_reverse, .-lv_anim_timeline_set_reverse
+ 327 000a C046     		.section	.text.lv_anim_timeline_get_playtime,"ax",%progbits
+ 328              		.align	2
+ 329              		.global	lv_anim_timeline_get_playtime
+ 330              		.code	16
+ 331              		.thumb_func
+ 332              		.type	lv_anim_timeline_get_playtime, %function
+ 333              	lv_anim_timeline_get_playtime:
+ 334              	.LFB29:
+ 167:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_ASSERT_NULL(at);
+ 335              		.loc 1 167 0
+ 336              		.cfi_startproc
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 11
+
+
+ 337              		@ args = 0, pretend = 0, frame = 0
+ 338              		@ frame_needed = 0, uses_anonymous_args = 0
+ 339              	.LVL29:
+ 340 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 341              		.cfi_def_cfa_offset 24
+ 342              		.cfi_offset 3, -24
+ 343              		.cfi_offset 4, -20
+ 344              		.cfi_offset 5, -16
+ 345              		.cfi_offset 6, -12
+ 346              		.cfi_offset 7, -8
+ 347              		.cfi_offset 14, -4
+ 348 0002 061E     		subs	r6, r0, #0
+ 168:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 349              		.loc 1 168 0
+ 350 0004 13D1     		bne	.L31
+ 351              	.L27:
+ 352 0006 FEE7     		b	.L27
+ 353              	.LVL30:
+ 354              	.L30:
+ 355              	.LBB12:
+ 356              	.LBB13:
+ 172:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         if(end == LV_ANIM_PLAYTIME_INFINITE)
+ 357              		.loc 1 172 0
+ 358 0008 EB00     		lsls	r3, r5, #3
+ 359 000a 5B19     		adds	r3, r3, r5
+ 360 000c DC00     		lsls	r4, r3, #3
+ 361 000e 3368     		ldr	r3, [r6]
+ 362 0010 1819     		adds	r0, r3, r4
+ 363 0012 FFF7FEFF 		bl	lv_anim_get_playtime
+ 364              	.LVL31:
+ 173:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             return end;
+ 365              		.loc 1 173 0
+ 366 0016 431C     		adds	r3, r0, #1
+ 367 0018 0FD0     		beq	.L28
+ 175:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         if(end > playtime) {
+ 368              		.loc 1 175 0
+ 369 001a 3368     		ldr	r3, [r6]
+ 370 001c 9C46     		mov	ip, r3
+ 371 001e 6444     		add	r4, r4, ip
+ 372 0020 636C     		ldr	r3, [r4, #68]
+ 373 0022 C018     		adds	r0, r0, r3
+ 374              	.LVL32:
+ 176:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             playtime = end;
+ 375              		.loc 1 176 0
+ 376 0024 8742     		cmp	r7, r0
+ 377 0026 00D2     		bcs	.L29
+ 177:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         }
+ 378              		.loc 1 177 0
+ 379 0028 0700     		movs	r7, r0
+ 380              	.LVL33:
+ 381              	.L29:
+ 382              	.LBE13:
+ 171:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         uint32_t end = lv_anim_get_playtime(&at->anim_dsc[i].anim);
+ 383              		.loc 1 171 0 discriminator 2
+ 384 002a 0135     		adds	r5, r5, #1
+ 385              	.LVL34:
+ 386 002c 01E0     		b	.L26
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 12
+
+
+ 387              	.LVL35:
+ 388              	.L31:
+ 389              	.LBE12:
+ 390 002e 0025     		movs	r5, #0
+ 391 0030 0027     		movs	r7, #0
+ 392              	.LVL36:
+ 393              	.L26:
+ 394              	.LBB14:
+ 171:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         uint32_t end = lv_anim_get_playtime(&at->anim_dsc[i].anim);
+ 395              		.loc 1 171 0 is_stmt 0 discriminator 1
+ 396 0032 7368     		ldr	r3, [r6, #4]
+ 397 0034 9D42     		cmp	r5, r3
+ 398 0036 E7D3     		bcc	.L30
+ 399              	.LBE14:
+ 181:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** }
+ 400              		.loc 1 181 0 is_stmt 1
+ 401 0038 3800     		movs	r0, r7
+ 402              	.L28:
+ 182:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 403              		.loc 1 182 0
+ 404              		@ sp needed
+ 405              	.LVL37:
+ 406              	.LVL38:
+ 407              	.LVL39:
+ 408 003a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 409              		.cfi_endproc
+ 410              	.LFE29:
+ 411              		.size	lv_anim_timeline_get_playtime, .-lv_anim_timeline_get_playtime
+ 412              		.section	.text.lv_anim_timeline_start,"ax",%progbits
+ 413              		.align	2
+ 414              		.global	lv_anim_timeline_start
+ 415              		.code	16
+ 416              		.thumb_func
+ 417              		.type	lv_anim_timeline_start, %function
+ 418              	lv_anim_timeline_start:
+ 419              	.LFB25:
+  92:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_ASSERT_NULL(at);
+ 420              		.loc 1 92 0
+ 421              		.cfi_startproc
+ 422              		@ args = 0, pretend = 0, frame = 80
+ 423              		@ frame_needed = 0, uses_anonymous_args = 0
+ 424              	.LVL40:
+ 425 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 426              		.cfi_def_cfa_offset 20
+ 427              		.cfi_offset 4, -20
+ 428              		.cfi_offset 5, -16
+ 429              		.cfi_offset 6, -12
+ 430              		.cfi_offset 7, -8
+ 431              		.cfi_offset 14, -4
+ 432 0002 95B0     		sub	sp, sp, #84
+ 433              		.cfi_def_cfa_offset 104
+ 434 0004 071E     		subs	r7, r0, #0
+  93:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 435              		.loc 1 93 0
+ 436 0006 00D1     		bne	.L35
+ 437              	.L36:
+ 438 0008 FEE7     		b	.L36
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 13
+
+
+ 439              	.L35:
+  95:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     bool reverse = at->reverse;
+ 440              		.loc 1 95 0
+ 441 000a FFF7FEFF 		bl	lv_anim_timeline_get_playtime
+ 442              	.LVL41:
+ 443 000e 0090     		str	r0, [sp]
+ 444              	.LVL42:
+  96:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 445              		.loc 1 96 0
+ 446 0010 3E7A     		ldrb	r6, [r7, #8]
+ 447              	.LVL43:
+ 448              	.LBB15:
+  98:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         lv_anim_t a = at->anim_dsc[i].anim;
+ 449              		.loc 1 98 0
+ 450 0012 0025     		movs	r5, #0
+ 451 0014 20E0     		b	.L37
+ 452              	.LVL44:
+ 453              	.L40:
+ 454              	.LBB16:
+  99:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         uint32_t start_time = at->anim_dsc[i].start_time;
+ 455              		.loc 1 99 0
+ 456 0016 EB00     		lsls	r3, r5, #3
+ 457 0018 5B19     		adds	r3, r3, r5
+ 458 001a DC00     		lsls	r4, r3, #3
+ 459 001c 3B68     		ldr	r3, [r7]
+ 460 001e 1919     		adds	r1, r3, r4
+ 461 0020 4422     		movs	r2, #68
+ 462 0022 03A8     		add	r0, sp, #12
+ 463 0024 FFF7FEFF 		bl	memcpy
+ 464              	.LVL45:
+ 100:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 465              		.loc 1 100 0
+ 466 0028 3B68     		ldr	r3, [r7]
+ 467 002a 9C46     		mov	ip, r3
+ 468 002c 6444     		add	r4, r4, ip
+ 469 002e 636C     		ldr	r3, [r4, #68]
+ 470              	.LVL46:
+ 102:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             int32_t temp = a.start_value;
+ 471              		.loc 1 102 0
+ 472 0030 002E     		cmp	r6, #0
+ 473 0032 0BD0     		beq	.L38
+ 474              	.LBB17:
+ 103:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             a.start_value = a.end_value;
+ 475              		.loc 1 103 0
+ 476 0034 0B9A     		ldr	r2, [sp, #44]
+ 477              	.LVL47:
+ 104:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             a.end_value = temp;
+ 478              		.loc 1 104 0
+ 479 0036 0D99     		ldr	r1, [sp, #52]
+ 480 0038 0B91     		str	r1, [sp, #44]
+ 105:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             lv_anim_set_delay(&a, playtime - (start_time + a.time));
+ 481              		.loc 1 105 0
+ 482 003a 0D92     		str	r2, [sp, #52]
+ 106:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         }
+ 483              		.loc 1 106 0
+ 484 003c 0E9A     		ldr	r2, [sp, #56]
+ 485              	.LVL48:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 14
+
+
+ 486 003e 0192     		str	r2, [sp, #4]
+ 487 0040 9446     		mov	ip, r2
+ 488 0042 6344     		add	r3, r3, ip
+ 489              	.LVL49:
+ 490              	.LBB18:
+ 491              	.LBB19:
+ 492              		.file 2 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\misc\\lv_anim.h"
+   1:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /**
+   2:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * @file lv_anim.h
+   3:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  *
+   4:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  */
+   5:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+   6:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** #ifndef LV_ANIM_H
+   7:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** #define LV_ANIM_H
+   8:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+   9:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** #ifdef __cplusplus
+  10:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** extern "C" {
+  11:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** #endif
+  12:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+  13:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /*********************
+  14:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  *      INCLUDES
+  15:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  *********************/
+  16:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** #include "../lv_conf_internal.h"
+  17:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+  18:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** #include <stdint.h>
+  19:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** #include <stdbool.h>
+  20:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** #include <stddef.h>
+  21:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+  22:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /*********************
+  23:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  *      DEFINES
+  24:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  *********************/
+  25:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+  26:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** #define LV_ANIM_REPEAT_INFINITE      0xFFFF
+  27:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** #define LV_ANIM_PLAYTIME_INFINITE    0xFFFFFFFF
+  28:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+  29:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** LV_EXPORT_CONST_INT(LV_ANIM_REPEAT_INFINITE);
+  30:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** LV_EXPORT_CONST_INT(LV_ANIM_PLAYTIME_INFINITE);
+  31:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+  32:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /**********************
+  33:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  *      TYPEDEFS
+  34:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  **********************/
+  35:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+  36:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /** Can be used to indicate if animations are enabled or disabled in a case*/
+  37:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** typedef enum {
+  38:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     LV_ANIM_OFF,
+  39:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     LV_ANIM_ON,
+  40:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** } lv_anim_enable_t;
+  41:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+  42:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** struct _lv_anim_t;
+  43:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** struct _lv_timer_t;
+  44:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+  45:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /** Get the current value during an animation*/
+  46:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** typedef int32_t (*lv_anim_path_cb_t)(const struct _lv_anim_t *);
+  47:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+  48:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /** Generic prototype of "animator" functions.
+  49:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * First parameter is the variable to animate.
+  50:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * Second parameter is the value to set.
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 15
+
+
+  51:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * Compatible with `lv_xxx_set_yyy(obj, value)` functions
+  52:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * The `x` in `_xcb_t` means it's not a fully generic prototype because
+  53:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * it doesn't receive `lv_anim_t *` as its first argument*/
+  54:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** typedef void (*lv_anim_exec_xcb_t)(void *, int32_t);
+  55:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+  56:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /** Same as `lv_anim_exec_xcb_t` but receives `lv_anim_t *` as the first parameter.
+  57:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * It's more consistent but less convenient. Might be used by binding generator functions.*/
+  58:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** typedef void (*lv_anim_custom_exec_cb_t)(struct _lv_anim_t *, int32_t);
+  59:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+  60:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /** Callback to call when the animation is ready*/
+  61:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** typedef void (*lv_anim_ready_cb_t)(struct _lv_anim_t *);
+  62:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+  63:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /** Callback to call when the animation really stars (considering `delay`)*/
+  64:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** typedef void (*lv_anim_start_cb_t)(struct _lv_anim_t *);
+  65:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+  66:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /** Callback used when the animation values are relative to get the current value*/
+  67:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** typedef int32_t (*lv_anim_get_value_cb_t)(struct _lv_anim_t *);
+  68:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+  69:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /** Callback used when the animation is deleted*/
+  70:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** typedef void (*lv_anim_deleted_cb_t)(struct _lv_anim_t *);
+  71:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+  72:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /** Describes an animation*/
+  73:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** typedef struct _lv_anim_t {
+  74:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     void * var;                          /**<Variable to animate*/
+  75:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     lv_anim_exec_xcb_t exec_cb;          /**< Function to execute to animate*/
+  76:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     lv_anim_start_cb_t start_cb;         /**< Call it when the animation is starts (considering `de
+  77:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     lv_anim_ready_cb_t ready_cb;         /**< Call it when the animation is ready*/
+  78:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     lv_anim_deleted_cb_t deleted_cb;     /**< Call it when the animation is deleted*/
+  79:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     lv_anim_get_value_cb_t get_value_cb; /**< Get the current value in relative mode*/
+  80:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** #if LV_USE_USER_DATA
+  81:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     void * user_data; /**< Custom user data*/
+  82:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** #endif
+  83:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     lv_anim_path_cb_t path_cb;         /**< Describe the path (curve) of animations*/
+  84:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     int32_t start_value;               /**< Start value*/
+  85:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     int32_t current_value;             /**< Current value*/
+  86:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     int32_t end_value;                 /**< End value*/
+  87:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     int32_t time;                /**< Animation time in ms*/
+  88:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     int32_t act_time;            /**< Current time in animation. Set to negative to make delay.*/
+  89:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     uint32_t playback_delay;     /**< Wait before play back*/
+  90:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     uint32_t playback_time;      /**< Duration of playback animation*/
+  91:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     uint32_t repeat_delay;       /**< Wait before repeat*/
+  92:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     uint16_t repeat_cnt;         /**< Repeat count for the animation*/
+  93:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     uint8_t early_apply  : 1;    /**< 1: Apply start value immediately even is there is `delay`*/
+  94:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+  95:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     /*Animation system use these - user shouldn't set*/
+  96:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     uint8_t playback_now : 1; /**< Play back is in progress*/
+  97:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     uint8_t run_round : 1;    /**< Indicates the animation has run in this round*/
+  98:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     uint8_t start_cb_called : 1;    /**< Indicates that the `start_cb` was already called*/
+  99:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** } lv_anim_t;
+ 100:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+ 101:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /**********************
+ 102:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * GLOBAL PROTOTYPES
+ 103:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  **********************/
+ 104:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+ 105:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /**
+ 106:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * Init. the animation module
+ 107:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  */
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 16
+
+
+ 108:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** void _lv_anim_core_init(void);
+ 109:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+ 110:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /**
+ 111:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * Initialize an animation variable.
+ 112:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * E.g.:
+ 113:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * lv_anim_t a;
+ 114:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * lv_anim_init(&a);
+ 115:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * lv_anim_set_...(&a);
+ 116:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * lv_anim_start(&a);
+ 117:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * @param a     pointer to an `lv_anim_t` variable to initialize
+ 118:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  */
+ 119:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** void lv_anim_init(lv_anim_t * a);
+ 120:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+ 121:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /**
+ 122:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * Set a variable to animate
+ 123:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * @param a     pointer to an initialized `lv_anim_t` variable
+ 124:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * @param var   pointer to a variable to animate
+ 125:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  */
+ 126:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** static inline void lv_anim_set_var(lv_anim_t * a, void * var)
+ 127:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** {
+ 128:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     a->var = var;
+ 129:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** }
+ 130:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+ 131:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /**
+ 132:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * Set a function to animate `var`
+ 133:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 134:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * @param exec_cb   a function to execute during animation
+ 135:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  *                  LVGL's built-in functions can be used.
+ 136:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  *                  E.g. lv_obj_set_x
+ 137:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  */
+ 138:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** static inline void lv_anim_set_exec_cb(lv_anim_t * a, lv_anim_exec_xcb_t exec_cb)
+ 139:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** {
+ 140:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     a->exec_cb = exec_cb;
+ 141:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** }
+ 142:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+ 143:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /**
+ 144:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * Set the duration of an animation
+ 145:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 146:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * @param duration  duration of the animation in milliseconds
+ 147:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  */
+ 148:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** static inline void lv_anim_set_time(lv_anim_t * a, uint32_t duration)
+ 149:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** {
+ 150:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     a->time = duration;
+ 151:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** }
+ 152:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** 
+ 153:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** /**
+ 154:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * Set a delay before starting the animation
+ 155:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 156:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  * @param delay     delay before the animation in milliseconds
+ 157:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****  */
+ 158:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** static inline void lv_anim_set_delay(lv_anim_t * a, uint32_t delay)
+ 159:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h **** {
+ 160:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim.h ****     a->act_time = -(int32_t)(delay);
+ 493              		.loc 2 160 0
+ 494 0044 009A     		ldr	r2, [sp]
+ 495 0046 9B1A     		subs	r3, r3, r2
+ 496              	.LVL50:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 17
+
+
+ 497 0048 0F93     		str	r3, [sp, #60]
+ 498 004a 01E0     		b	.L39
+ 499              	.LVL51:
+ 500              	.L38:
+ 501              	.LBE19:
+ 502              	.LBE18:
+ 503              	.LBE17:
+ 504              	.LBB20:
+ 505              	.LBB21:
+ 506 004c 5B42     		rsbs	r3, r3, #0
+ 507              	.LVL52:
+ 508 004e 0F93     		str	r3, [sp, #60]
+ 509              	.LVL53:
+ 510              	.L39:
+ 511              	.LBE21:
+ 512              	.LBE20:
+ 112:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     }
+ 513              		.loc 1 112 0 discriminator 2
+ 514 0050 03A8     		add	r0, sp, #12
+ 515 0052 FFF7FEFF 		bl	lv_anim_start
+ 516              	.LVL54:
+ 517              	.LBE16:
+  98:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         lv_anim_t a = at->anim_dsc[i].anim;
+ 518              		.loc 1 98 0 discriminator 2
+ 519 0056 0135     		adds	r5, r5, #1
+ 520              	.LVL55:
+ 521              	.L37:
+  98:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         lv_anim_t a = at->anim_dsc[i].anim;
+ 522              		.loc 1 98 0 is_stmt 0 discriminator 1
+ 523 0058 7B68     		ldr	r3, [r7, #4]
+ 524 005a 9D42     		cmp	r5, r3
+ 525 005c DBD3     		bcc	.L40
+ 526              	.LBE15:
+ 116:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 527              		.loc 1 116 0 is_stmt 1
+ 528 005e 0098     		ldr	r0, [sp]
+ 529 0060 15B0     		add	sp, sp, #84
+ 530              	.LVL56:
+ 531              		@ sp needed
+ 532              	.LVL57:
+ 533              	.LVL58:
+ 534              	.LVL59:
+ 535 0062 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 536              		.cfi_endproc
+ 537              	.LFE25:
+ 538              		.size	lv_anim_timeline_start, .-lv_anim_timeline_start
+ 539              		.global	__aeabi_uidiv
+ 540              		.section	.text.lv_anim_timeline_set_progress,"ax",%progbits
+ 541              		.align	2
+ 542              		.global	lv_anim_timeline_set_progress
+ 543              		.code	16
+ 544              		.thumb_func
+ 545              		.type	lv_anim_timeline_set_progress, %function
+ 546              	lv_anim_timeline_set_progress:
+ 547              	.LFB28:
+ 135:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_ASSERT_NULL(at);
+ 548              		.loc 1 135 0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 18
+
+
+ 549              		.cfi_startproc
+ 550              		@ args = 0, pretend = 0, frame = 0
+ 551              		@ frame_needed = 0, uses_anonymous_args = 0
+ 552              	.LVL60:
+ 553 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 554              		.cfi_def_cfa_offset 24
+ 555              		.cfi_offset 3, -24
+ 556              		.cfi_offset 4, -20
+ 557              		.cfi_offset 5, -16
+ 558              		.cfi_offset 6, -12
+ 559              		.cfi_offset 7, -8
+ 560              		.cfi_offset 14, -4
+ 561 0002 0600     		movs	r6, r0
+ 562 0004 0C00     		movs	r4, r1
+ 136:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 563              		.loc 1 136 0
+ 564 0006 0028     		cmp	r0, #0
+ 565 0008 00D1     		bne	.L42
+ 566              	.L43:
+ 567 000a FEE7     		b	.L43
+ 568              	.L42:
+ 138:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     const uint32_t act_time = progress * playtime / 0xFFFF;
+ 569              		.loc 1 138 0
+ 570 000c FFF7FEFF 		bl	lv_anim_timeline_get_playtime
+ 571              	.LVL61:
+ 139:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 572              		.loc 1 139 0
+ 573 0010 6043     		muls	r0, r4
+ 574              	.LVL62:
+ 575 0012 1449     		ldr	r1, .L50
+ 576 0014 FFF7FEFF 		bl	__aeabi_uidiv
+ 577              	.LVL63:
+ 578 0018 0700     		movs	r7, r0
+ 579              	.LVL64:
+ 580              	.LBB22:
+ 141:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         lv_anim_t * a = &(at->anim_dsc[i].anim);
+ 581              		.loc 1 141 0
+ 582 001a 0025     		movs	r5, #0
+ 583 001c 1DE0     		b	.L44
+ 584              	.LVL65:
+ 585              	.L49:
+ 586              	.LBB23:
+ 142:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 587              		.loc 1 142 0
+ 588 001e EB00     		lsls	r3, r5, #3
+ 589 0020 5B19     		adds	r3, r3, r5
+ 590 0022 DC00     		lsls	r4, r3, #3
+ 591 0024 3368     		ldr	r3, [r6]
+ 592 0026 9C46     		mov	ip, r3
+ 593 0028 6444     		add	r4, r4, ip
+ 594              	.LVL66:
+ 144:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             continue;
+ 595              		.loc 1 144 0
+ 596 002a 6368     		ldr	r3, [r4, #4]
+ 597 002c 002B     		cmp	r3, #0
+ 598 002e 13D0     		beq	.L45
+ 148:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         int32_t value = 0;
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 19
+
+
+ 599              		.loc 1 148 0
+ 600 0030 636C     		ldr	r3, [r4, #68]
+ 601              	.LVL67:
+ 151:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             value = a->start_value;
+ 602              		.loc 1 151 0
+ 603 0032 9F42     		cmp	r7, r3
+ 604 0034 01D2     		bcs	.L46
+ 152:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         }
+ 605              		.loc 1 152 0
+ 606 0036 216A     		ldr	r1, [r4, #32]
+ 607              	.LVL68:
+ 608 0038 0BE0     		b	.L47
+ 609              	.LVL69:
+ 610              	.L46:
+ 154:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             a->act_time = act_time - start_time;
+ 611              		.loc 1 154 0
+ 612 003a E26A     		ldr	r2, [r4, #44]
+ 613 003c D218     		adds	r2, r2, r3
+ 614 003e 9742     		cmp	r7, r2
+ 615 0040 06D2     		bcs	.L48
+ 155:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****             value = a->path_cb(a);
+ 616              		.loc 1 155 0
+ 617 0042 FB1A     		subs	r3, r7, r3
+ 618              	.LVL70:
+ 619 0044 2363     		str	r3, [r4, #48]
+ 156:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         }
+ 620              		.loc 1 156 0
+ 621 0046 2000     		movs	r0, r4
+ 622 0048 E369     		ldr	r3, [r4, #28]
+ 623 004a 9847     		blx	r3
+ 624              	.LVL71:
+ 625 004c 0100     		movs	r1, r0
+ 626              	.LVL72:
+ 627 004e 00E0     		b	.L47
+ 628              	.LVL73:
+ 629              	.L48:
+ 159:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         }
+ 630              		.loc 1 159 0
+ 631 0050 A16A     		ldr	r1, [r4, #40]
+ 632              	.LVL74:
+ 633              	.L47:
+ 162:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     }
+ 634              		.loc 1 162 0
+ 635 0052 6368     		ldr	r3, [r4, #4]
+ 636 0054 2068     		ldr	r0, [r4]
+ 637 0056 9847     		blx	r3
+ 638              	.LVL75:
+ 639              	.L45:
+ 640              	.LBE23:
+ 141:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         lv_anim_t * a = &(at->anim_dsc[i].anim);
+ 641              		.loc 1 141 0 discriminator 2
+ 642 0058 0135     		adds	r5, r5, #1
+ 643              	.LVL76:
+ 644              	.L44:
+ 141:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****         lv_anim_t * a = &(at->anim_dsc[i].anim);
+ 645              		.loc 1 141 0 is_stmt 0 discriminator 1
+ 646 005a 7368     		ldr	r3, [r6, #4]
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 20
+
+
+ 647 005c 9D42     		cmp	r5, r3
+ 648 005e DED3     		bcc	.L49
+ 649              	.LBE22:
+ 164:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 650              		.loc 1 164 0 is_stmt 1
+ 651              		@ sp needed
+ 652              	.LVL77:
+ 653              	.LVL78:
+ 654              	.LVL79:
+ 655 0060 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 656              	.L51:
+ 657 0062 C046     		.align	2
+ 658              	.L50:
+ 659 0064 FFFF0000 		.word	65535
+ 660              		.cfi_endproc
+ 661              	.LFE28:
+ 662              		.size	lv_anim_timeline_set_progress, .-lv_anim_timeline_set_progress
+ 663              		.section	.text.lv_anim_timeline_get_reverse,"ax",%progbits
+ 664              		.align	2
+ 665              		.global	lv_anim_timeline_get_reverse
+ 666              		.code	16
+ 667              		.thumb_func
+ 668              		.type	lv_anim_timeline_get_reverse, %function
+ 669              	lv_anim_timeline_get_reverse:
+ 670              	.LFB30:
+ 185:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     LV_ASSERT_NULL(at);
+ 671              		.loc 1 185 0
+ 672              		.cfi_startproc
+ 673              		@ args = 0, pretend = 0, frame = 0
+ 674              		@ frame_needed = 0, uses_anonymous_args = 0
+ 675              		@ link register save eliminated.
+ 676              	.LVL80:
+ 186:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c ****     return at->reverse;
+ 677              		.loc 1 186 0
+ 678 0000 0028     		cmp	r0, #0
+ 679 0002 00D1     		bne	.L53
+ 680              	.L54:
+ 681 0004 FEE7     		b	.L54
+ 682              	.L53:
+ 187:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** }
+ 683              		.loc 1 187 0
+ 684 0006 007A     		ldrb	r0, [r0, #8]
+ 685              	.LVL81:
+ 188:..\..\..\arduinoLCD\test\Pain Drain\libraries\lvgl\src\misc/lv_anim_timeline.c **** 
+ 686              		.loc 1 188 0
+ 687              		@ sp needed
+ 688 0008 7047     		bx	lr
+ 689              		.cfi_endproc
+ 690              	.LFE30:
+ 691              		.size	lv_anim_timeline_get_reverse, .-lv_anim_timeline_get_reverse
+ 692 000a C046     		.text
+ 693              	.Letext0:
+ 694              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 695              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 696              		.file 5 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\misc\\lv_anim_timeline.h"
+ 697              		.file 6 "..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries\\lvgl\\src\\misc\\lv_mem.h"
+ 698              		.section	.debug_info,"",%progbits
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 21
+
+
+ 699              	.Ldebug_info0:
+ 700 0000 A9070000 		.4byte	0x7a9
+ 701 0004 0400     		.2byte	0x4
+ 702 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 703 000a 04       		.byte	0x4
+ 704 000b 01       		.uleb128 0x1
+ 705 000c 9F030000 		.4byte	.LASF78
+ 706 0010 0C       		.byte	0xc
+ 707 0011 6C010000 		.4byte	.LASF79
+ 708 0015 12020000 		.4byte	.LASF80
+ 709 0019 30000000 		.4byte	.Ldebug_ranges0+0x30
+ 710 001d 00000000 		.4byte	0
+ 711 0021 00000000 		.4byte	.Ldebug_line0
+ 712 0025 02       		.uleb128 0x2
+ 713 0026 01       		.byte	0x1
+ 714 0027 06       		.byte	0x6
+ 715 0028 A1000000 		.4byte	.LASF0
+ 716 002c 03       		.uleb128 0x3
+ 717 002d 29000000 		.4byte	.LASF3
+ 718 0031 03       		.byte	0x3
+ 719 0032 1D       		.byte	0x1d
+ 720 0033 37000000 		.4byte	0x37
+ 721 0037 02       		.uleb128 0x2
+ 722 0038 01       		.byte	0x1
+ 723 0039 08       		.byte	0x8
+ 724 003a 33030000 		.4byte	.LASF1
+ 725 003e 02       		.uleb128 0x2
+ 726 003f 02       		.byte	0x2
+ 727 0040 05       		.byte	0x5
+ 728 0041 50030000 		.4byte	.LASF2
+ 729 0045 03       		.uleb128 0x3
+ 730 0046 36040000 		.4byte	.LASF4
+ 731 004a 03       		.byte	0x3
+ 732 004b 2B       		.byte	0x2b
+ 733 004c 50000000 		.4byte	0x50
+ 734 0050 02       		.uleb128 0x2
+ 735 0051 02       		.byte	0x2
+ 736 0052 07       		.byte	0x7
+ 737 0053 FF010000 		.4byte	.LASF5
+ 738 0057 03       		.uleb128 0x3
+ 739 0058 58040000 		.4byte	.LASF6
+ 740 005c 03       		.byte	0x3
+ 741 005d 3F       		.byte	0x3f
+ 742 005e 62000000 		.4byte	0x62
+ 743 0062 02       		.uleb128 0x2
+ 744 0063 04       		.byte	0x4
+ 745 0064 05       		.byte	0x5
+ 746 0065 F5000000 		.4byte	.LASF7
+ 747 0069 03       		.uleb128 0x3
+ 748 006a 36010000 		.4byte	.LASF8
+ 749 006e 03       		.byte	0x3
+ 750 006f 41       		.byte	0x41
+ 751 0070 74000000 		.4byte	0x74
+ 752 0074 02       		.uleb128 0x2
+ 753 0075 04       		.byte	0x4
+ 754 0076 07       		.byte	0x7
+ 755 0077 BB010000 		.4byte	.LASF9
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 22
+
+
+ 756 007b 02       		.uleb128 0x2
+ 757 007c 08       		.byte	0x8
+ 758 007d 05       		.byte	0x5
+ 759 007e 93000000 		.4byte	.LASF10
+ 760 0082 02       		.uleb128 0x2
+ 761 0083 08       		.byte	0x8
+ 762 0084 07       		.byte	0x7
+ 763 0085 52000000 		.4byte	.LASF11
+ 764 0089 04       		.uleb128 0x4
+ 765 008a 04       		.byte	0x4
+ 766 008b 05       		.byte	0x5
+ 767 008c 696E7400 		.ascii	"int\000"
+ 768 0090 02       		.uleb128 0x2
+ 769 0091 04       		.byte	0x4
+ 770 0092 07       		.byte	0x7
+ 771 0093 5F010000 		.4byte	.LASF12
+ 772 0097 03       		.uleb128 0x3
+ 773 0098 0F050000 		.4byte	.LASF13
+ 774 009c 04       		.byte	0x4
+ 775 009d 18       		.byte	0x18
+ 776 009e 2C000000 		.4byte	0x2c
+ 777 00a2 03       		.uleb128 0x3
+ 778 00a3 21010000 		.4byte	.LASF14
+ 779 00a7 04       		.byte	0x4
+ 780 00a8 24       		.byte	0x24
+ 781 00a9 45000000 		.4byte	0x45
+ 782 00ad 03       		.uleb128 0x3
+ 783 00ae 2B030000 		.4byte	.LASF15
+ 784 00b2 04       		.byte	0x4
+ 785 00b3 2C       		.byte	0x2c
+ 786 00b4 57000000 		.4byte	0x57
+ 787 00b8 03       		.uleb128 0x3
+ 788 00b9 96030000 		.4byte	.LASF16
+ 789 00bd 04       		.byte	0x4
+ 790 00be 30       		.byte	0x30
+ 791 00bf 69000000 		.4byte	0x69
+ 792 00c3 02       		.uleb128 0x2
+ 793 00c4 08       		.byte	0x8
+ 794 00c5 04       		.byte	0x4
+ 795 00c6 6B020000 		.4byte	.LASF17
+ 796 00ca 03       		.uleb128 0x3
+ 797 00cb 74050000 		.4byte	.LASF18
+ 798 00cf 02       		.byte	0x2
+ 799 00d0 2E       		.byte	0x2e
+ 800 00d1 D5000000 		.4byte	0xd5
+ 801 00d5 05       		.uleb128 0x5
+ 802 00d6 04       		.byte	0x4
+ 803 00d7 DB000000 		.4byte	0xdb
+ 804 00db 06       		.uleb128 0x6
+ 805 00dc AD000000 		.4byte	0xad
+ 806 00e0 EA000000 		.4byte	0xea
+ 807 00e4 07       		.uleb128 0x7
+ 808 00e5 EA000000 		.4byte	0xea
+ 809 00e9 00       		.byte	0
+ 810 00ea 05       		.uleb128 0x5
+ 811 00eb 04       		.byte	0x4
+ 812 00ec 05020000 		.4byte	0x205
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 23
+
+
+ 813 00f0 08       		.uleb128 0x8
+ 814 00f1 41010000 		.4byte	.LASF46
+ 815 00f5 44       		.byte	0x44
+ 816 00f6 02       		.byte	0x2
+ 817 00f7 49       		.byte	0x49
+ 818 00f8 05020000 		.4byte	0x205
+ 819 00fc 09       		.uleb128 0x9
+ 820 00fd 76617200 		.ascii	"var\000"
+ 821 0101 02       		.byte	0x2
+ 822 0102 4A       		.byte	0x4a
+ 823 0103 2B020000 		.4byte	0x22b
+ 824 0107 00       		.byte	0
+ 825 0108 0A       		.uleb128 0xa
+ 826 0109 CD010000 		.4byte	.LASF19
+ 827 010d 02       		.byte	0x2
+ 828 010e 4B       		.byte	0x4b
+ 829 010f 0A020000 		.4byte	0x20a
+ 830 0113 04       		.byte	0x4
+ 831 0114 0A       		.uleb128 0xa
+ 832 0115 BD000000 		.4byte	.LASF20
+ 833 0119 02       		.byte	0x2
+ 834 011a 4C       		.byte	0x4c
+ 835 011b 4F020000 		.4byte	0x24f
+ 836 011f 08       		.byte	0x8
+ 837 0120 0A       		.uleb128 0xa
+ 838 0121 49000000 		.4byte	.LASF21
+ 839 0125 02       		.byte	0x2
+ 840 0126 4D       		.byte	0x4d
+ 841 0127 33020000 		.4byte	0x233
+ 842 012b 0C       		.byte	0xc
+ 843 012c 0A       		.uleb128 0xa
+ 844 012d 73000000 		.4byte	.LASF22
+ 845 0131 02       		.byte	0x2
+ 846 0132 4E       		.byte	0x4e
+ 847 0133 7A020000 		.4byte	0x27a
+ 848 0137 10       		.byte	0x10
+ 849 0138 0A       		.uleb128 0xa
+ 850 0139 33050000 		.4byte	.LASF23
+ 851 013d 02       		.byte	0x2
+ 852 013e 4F       		.byte	0x4f
+ 853 013f 5A020000 		.4byte	0x25a
+ 854 0143 14       		.byte	0x14
+ 855 0144 0A       		.uleb128 0xa
+ 856 0145 00000000 		.4byte	.LASF24
+ 857 0149 02       		.byte	0x2
+ 858 014a 51       		.byte	0x51
+ 859 014b 2B020000 		.4byte	0x22b
+ 860 014f 18       		.byte	0x18
+ 861 0150 0A       		.uleb128 0xa
+ 862 0151 6C050000 		.4byte	.LASF25
+ 863 0155 02       		.byte	0x2
+ 864 0156 53       		.byte	0x53
+ 865 0157 CA000000 		.4byte	0xca
+ 866 015b 1C       		.byte	0x1c
+ 867 015c 0A       		.uleb128 0xa
+ 868 015d F3010000 		.4byte	.LASF26
+ 869 0161 02       		.byte	0x2
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 24
+
+
+ 870 0162 54       		.byte	0x54
+ 871 0163 AD000000 		.4byte	0xad
+ 872 0167 20       		.byte	0x20
+ 873 0168 0A       		.uleb128 0xa
+ 874 0169 E9020000 		.4byte	.LASF27
+ 875 016d 02       		.byte	0x2
+ 876 016e 55       		.byte	0x55
+ 877 016f AD000000 		.4byte	0xad
+ 878 0173 24       		.byte	0x24
+ 879 0174 0A       		.uleb128 0xa
+ 880 0175 4B020000 		.4byte	.LASF28
+ 881 0179 02       		.byte	0x2
+ 882 017a 56       		.byte	0x56
+ 883 017b AD000000 		.4byte	0xad
+ 884 017f 28       		.byte	0x28
+ 885 0180 0A       		.uleb128 0xa
+ 886 0181 95020000 		.4byte	.LASF29
+ 887 0185 02       		.byte	0x2
+ 888 0186 57       		.byte	0x57
+ 889 0187 AD000000 		.4byte	0xad
+ 890 018b 2C       		.byte	0x2c
+ 891 018c 0A       		.uleb128 0xa
+ 892 018d 25050000 		.4byte	.LASF30
+ 893 0191 02       		.byte	0x2
+ 894 0192 58       		.byte	0x58
+ 895 0193 AD000000 		.4byte	0xad
+ 896 0197 30       		.byte	0x30
+ 897 0198 0A       		.uleb128 0xa
+ 898 0199 0B010000 		.4byte	.LASF31
+ 899 019d 02       		.byte	0x2
+ 900 019e 59       		.byte	0x59
+ 901 019f B8000000 		.4byte	0xb8
+ 902 01a3 34       		.byte	0x34
+ 903 01a4 0A       		.uleb128 0xa
+ 904 01a5 5A030000 		.4byte	.LASF32
+ 905 01a9 02       		.byte	0x2
+ 906 01aa 5A       		.byte	0x5a
+ 907 01ab B8000000 		.4byte	0xb8
+ 908 01af 38       		.byte	0x38
+ 909 01b0 0A       		.uleb128 0xa
+ 910 01b1 89030000 		.4byte	.LASF33
+ 911 01b5 02       		.byte	0x2
+ 912 01b6 5B       		.byte	0x5b
+ 913 01b7 B8000000 		.4byte	0xb8
+ 914 01bb 3C       		.byte	0x3c
+ 915 01bc 0A       		.uleb128 0xa
+ 916 01bd B1020000 		.4byte	.LASF34
+ 917 01c1 02       		.byte	0x2
+ 918 01c2 5C       		.byte	0x5c
+ 919 01c3 A2000000 		.4byte	0xa2
+ 920 01c7 40       		.byte	0x40
+ 921 01c8 0B       		.uleb128 0xb
+ 922 01c9 10000000 		.4byte	.LASF35
+ 923 01cd 02       		.byte	0x2
+ 924 01ce 5D       		.byte	0x5d
+ 925 01cf 97000000 		.4byte	0x97
+ 926 01d3 01       		.byte	0x1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 25
+
+
+ 927 01d4 01       		.byte	0x1
+ 928 01d5 07       		.byte	0x7
+ 929 01d6 42       		.byte	0x42
+ 930 01d7 0B       		.uleb128 0xb
+ 931 01d8 FE000000 		.4byte	.LASF36
+ 932 01dc 02       		.byte	0x2
+ 933 01dd 60       		.byte	0x60
+ 934 01de 97000000 		.4byte	0x97
+ 935 01e2 01       		.byte	0x1
+ 936 01e3 01       		.byte	0x1
+ 937 01e4 06       		.byte	0x6
+ 938 01e5 42       		.byte	0x42
+ 939 01e6 0B       		.uleb128 0xb
+ 940 01e7 69000000 		.4byte	.LASF37
+ 941 01eb 02       		.byte	0x2
+ 942 01ec 61       		.byte	0x61
+ 943 01ed 97000000 		.4byte	0x97
+ 944 01f1 01       		.byte	0x1
+ 945 01f2 01       		.byte	0x1
+ 946 01f3 05       		.byte	0x5
+ 947 01f4 42       		.byte	0x42
+ 948 01f5 0B       		.uleb128 0xb
+ 949 01f6 AD000000 		.4byte	.LASF38
+ 950 01fa 02       		.byte	0x2
+ 951 01fb 62       		.byte	0x62
+ 952 01fc 97000000 		.4byte	0x97
+ 953 0200 01       		.byte	0x1
+ 954 0201 01       		.byte	0x1
+ 955 0202 04       		.byte	0x4
+ 956 0203 42       		.byte	0x42
+ 957 0204 00       		.byte	0
+ 958 0205 0C       		.uleb128 0xc
+ 959 0206 F0000000 		.4byte	0xf0
+ 960 020a 03       		.uleb128 0x3
+ 961 020b 62040000 		.4byte	.LASF39
+ 962 020f 02       		.byte	0x2
+ 963 0210 36       		.byte	0x36
+ 964 0211 15020000 		.4byte	0x215
+ 965 0215 05       		.uleb128 0x5
+ 966 0216 04       		.byte	0x4
+ 967 0217 1B020000 		.4byte	0x21b
+ 968 021b 0D       		.uleb128 0xd
+ 969 021c 2B020000 		.4byte	0x22b
+ 970 0220 07       		.uleb128 0x7
+ 971 0221 2B020000 		.4byte	0x22b
+ 972 0225 07       		.uleb128 0x7
+ 973 0226 AD000000 		.4byte	0xad
+ 974 022a 00       		.byte	0
+ 975 022b 0E       		.uleb128 0xe
+ 976 022c 04       		.byte	0x4
+ 977 022d 05       		.uleb128 0x5
+ 978 022e 04       		.byte	0x4
+ 979 022f F0000000 		.4byte	0xf0
+ 980 0233 03       		.uleb128 0x3
+ 981 0234 4C010000 		.4byte	.LASF40
+ 982 0238 02       		.byte	0x2
+ 983 0239 3D       		.byte	0x3d
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 26
+
+
+ 984 023a 3E020000 		.4byte	0x23e
+ 985 023e 05       		.uleb128 0x5
+ 986 023f 04       		.byte	0x4
+ 987 0240 44020000 		.4byte	0x244
+ 988 0244 0D       		.uleb128 0xd
+ 989 0245 4F020000 		.4byte	0x24f
+ 990 0249 07       		.uleb128 0x7
+ 991 024a 2D020000 		.4byte	0x22d
+ 992 024e 00       		.byte	0
+ 993 024f 03       		.uleb128 0x3
+ 994 0250 AB040000 		.4byte	.LASF41
+ 995 0254 02       		.byte	0x2
+ 996 0255 40       		.byte	0x40
+ 997 0256 3E020000 		.4byte	0x23e
+ 998 025a 03       		.uleb128 0x3
+ 999 025b 9A020000 		.4byte	.LASF42
+ 1000 025f 02       		.byte	0x2
+ 1001 0260 43       		.byte	0x43
+ 1002 0261 65020000 		.4byte	0x265
+ 1003 0265 05       		.uleb128 0x5
+ 1004 0266 04       		.byte	0x4
+ 1005 0267 6B020000 		.4byte	0x26b
+ 1006 026b 06       		.uleb128 0x6
+ 1007 026c AD000000 		.4byte	0xad
+ 1008 0270 7A020000 		.4byte	0x27a
+ 1009 0274 07       		.uleb128 0x7
+ 1010 0275 2D020000 		.4byte	0x22d
+ 1011 0279 00       		.byte	0
+ 1012 027a 03       		.uleb128 0x3
+ 1013 027b C7040000 		.4byte	.LASF43
+ 1014 027f 02       		.byte	0x2
+ 1015 0280 46       		.byte	0x46
+ 1016 0281 3E020000 		.4byte	0x23e
+ 1017 0285 03       		.uleb128 0x3
+ 1018 0286 3F000000 		.4byte	.LASF44
+ 1019 028a 02       		.byte	0x2
+ 1020 028b 63       		.byte	0x63
+ 1021 028c F0000000 		.4byte	0xf0
+ 1022 0290 03       		.uleb128 0x3
+ 1023 0291 98040000 		.4byte	.LASF45
+ 1024 0295 05       		.byte	0x5
+ 1025 0296 1C       		.byte	0x1c
+ 1026 0297 9B020000 		.4byte	0x29b
+ 1027 029b 08       		.uleb128 0x8
+ 1028 029c 11030000 		.4byte	.LASF47
+ 1029 02a0 0C       		.byte	0xc
+ 1030 02a1 01       		.byte	0x1
+ 1031 02a2 1C       		.byte	0x1c
+ 1032 02a3 CC020000 		.4byte	0x2cc
+ 1033 02a7 0A       		.uleb128 0xa
+ 1034 02a8 BE040000 		.4byte	.LASF48
+ 1035 02ac 01       		.byte	0x1
+ 1036 02ad 1D       		.byte	0x1d
+ 1037 02ae 06030000 		.4byte	0x306
+ 1038 02b2 00       		.byte	0
+ 1039 02b3 0A       		.uleb128 0xa
+ 1040 02b4 55020000 		.4byte	.LASF49
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 27
+
+
+ 1041 02b8 01       		.byte	0x1
+ 1042 02b9 1E       		.byte	0x1e
+ 1043 02ba B8000000 		.4byte	0xb8
+ 1044 02be 04       		.byte	0x4
+ 1045 02bf 0A       		.uleb128 0xa
+ 1046 02c0 F7020000 		.4byte	.LASF50
+ 1047 02c4 01       		.byte	0x1
+ 1048 02c5 1F       		.byte	0x1f
+ 1049 02c6 0C030000 		.4byte	0x30c
+ 1050 02ca 08       		.byte	0x8
+ 1051 02cb 00       		.byte	0
+ 1052 02cc 02       		.uleb128 0x2
+ 1053 02cd 04       		.byte	0x4
+ 1054 02ce 07       		.byte	0x7
+ 1055 02cf 62020000 		.4byte	.LASF51
+ 1056 02d3 02       		.uleb128 0x2
+ 1057 02d4 01       		.byte	0x1
+ 1058 02d5 08       		.byte	0x8
+ 1059 02d6 31040000 		.4byte	.LASF52
+ 1060 02da 0F       		.uleb128 0xf
+ 1061 02db 48       		.byte	0x48
+ 1062 02dc 01       		.byte	0x1
+ 1063 02dd 16       		.byte	0x16
+ 1064 02de FB020000 		.4byte	0x2fb
+ 1065 02e2 0A       		.uleb128 0xa
+ 1066 02e3 2E050000 		.4byte	.LASF53
+ 1067 02e7 01       		.byte	0x1
+ 1068 02e8 17       		.byte	0x17
+ 1069 02e9 85020000 		.4byte	0x285
+ 1070 02ed 00       		.byte	0
+ 1071 02ee 0A       		.uleb128 0xa
+ 1072 02ef 75040000 		.4byte	.LASF54
+ 1073 02f3 01       		.byte	0x1
+ 1074 02f4 18       		.byte	0x18
+ 1075 02f5 B8000000 		.4byte	0xb8
+ 1076 02f9 44       		.byte	0x44
+ 1077 02fa 00       		.byte	0
+ 1078 02fb 03       		.uleb128 0x3
+ 1079 02fc 41040000 		.4byte	.LASF55
+ 1080 0300 01       		.byte	0x1
+ 1081 0301 19       		.byte	0x19
+ 1082 0302 DA020000 		.4byte	0x2da
+ 1083 0306 05       		.uleb128 0x5
+ 1084 0307 04       		.byte	0x4
+ 1085 0308 FB020000 		.4byte	0x2fb
+ 1086 030c 02       		.uleb128 0x2
+ 1087 030d 01       		.byte	0x1
+ 1088 030e 02       		.byte	0x2
+ 1089 030f 25030000 		.4byte	.LASF56
+ 1090 0313 10       		.uleb128 0x10
+ 1091 0314 FF020000 		.4byte	.LASF81
+ 1092 0318 02       		.byte	0x2
+ 1093 0319 9E       		.byte	0x9e
+ 1094 031a 03       		.byte	0x3
+ 1095 031b 34030000 		.4byte	0x334
+ 1096 031f 11       		.uleb128 0x11
+ 1097 0320 6100     		.ascii	"a\000"
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 28
+
+
+ 1098 0322 02       		.byte	0x2
+ 1099 0323 9E       		.byte	0x9e
+ 1100 0324 34030000 		.4byte	0x334
+ 1101 0328 12       		.uleb128 0x12
+ 1102 0329 4A030000 		.4byte	.LASF57
+ 1103 032d 02       		.byte	0x2
+ 1104 032e 9E       		.byte	0x9e
+ 1105 032f B8000000 		.4byte	0xb8
+ 1106 0333 00       		.byte	0
+ 1107 0334 05       		.uleb128 0x5
+ 1108 0335 04       		.byte	0x4
+ 1109 0336 85020000 		.4byte	0x285
+ 1110 033a 13       		.uleb128 0x13
+ 1111 033b 68030000 		.4byte	.LASF82
+ 1112 033f 01       		.byte	0x1
+ 1113 0340 C2       		.byte	0xc2
+ 1114 0341 00000000 		.4byte	.LFB31
+ 1115 0345 02000000 		.4byte	.LFE31-.LFB31
+ 1116 0349 01       		.uleb128 0x1
+ 1117 034a 9C       		.byte	0x9c
+ 1118 034b 68030000 		.4byte	0x368
+ 1119 034f 14       		.uleb128 0x14
+ 1120 0350 76617200 		.ascii	"var\000"
+ 1121 0354 01       		.byte	0x1
+ 1122 0355 C2       		.byte	0xc2
+ 1123 0356 2B020000 		.4byte	0x22b
+ 1124 035a 01       		.uleb128 0x1
+ 1125 035b 50       		.byte	0x50
+ 1126 035c 14       		.uleb128 0x14
+ 1127 035d 7600     		.ascii	"v\000"
+ 1128 035f 01       		.byte	0x1
+ 1129 0360 C2       		.byte	0xc2
+ 1130 0361 AD000000 		.4byte	0xad
+ 1131 0365 01       		.uleb128 0x1
+ 1132 0366 51       		.byte	0x51
+ 1133 0367 00       		.byte	0
+ 1134 0368 15       		.uleb128 0x15
+ 1135 0369 80040000 		.4byte	.LASF62
+ 1136 036d 01       		.byte	0x1
+ 1137 036e 33       		.byte	0x33
+ 1138 036f B2030000 		.4byte	0x3b2
+ 1139 0373 00000000 		.4byte	.LFB22
+ 1140 0377 1C000000 		.4byte	.LFE22-.LFB22
+ 1141 037b 01       		.uleb128 0x1
+ 1142 037c 9C       		.byte	0x9c
+ 1143 037d B2030000 		.4byte	0x3b2
+ 1144 0381 16       		.uleb128 0x16
+ 1145 0382 617400   		.ascii	"at\000"
+ 1146 0385 01       		.byte	0x1
+ 1147 0386 35       		.byte	0x35
+ 1148 0387 B2030000 		.4byte	0x3b2
+ 1149 038b 00000000 		.4byte	.LLST0
+ 1150 038f 17       		.uleb128 0x17
+ 1151 0390 08000000 		.4byte	.LVL1
+ 1152 0394 53070000 		.4byte	0x753
+ 1153 0398 A2030000 		.4byte	0x3a2
+ 1154 039c 18       		.uleb128 0x18
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 29
+
+
+ 1155 039d 01       		.uleb128 0x1
+ 1156 039e 50       		.byte	0x50
+ 1157 039f 01       		.uleb128 0x1
+ 1158 03a0 3C       		.byte	0x3c
+ 1159 03a1 00       		.byte	0
+ 1160 03a2 19       		.uleb128 0x19
+ 1161 03a3 18000000 		.4byte	.LVL3
+ 1162 03a7 5E070000 		.4byte	0x75e
+ 1163 03ab 18       		.uleb128 0x18
+ 1164 03ac 01       		.uleb128 0x1
+ 1165 03ad 51       		.byte	0x51
+ 1166 03ae 01       		.uleb128 0x1
+ 1167 03af 3C       		.byte	0x3c
+ 1168 03b0 00       		.byte	0
+ 1169 03b1 00       		.byte	0
+ 1170 03b2 05       		.uleb128 0x5
+ 1171 03b3 04       		.byte	0x4
+ 1172 03b4 90020000 		.4byte	0x290
+ 1173 03b8 1A       		.uleb128 0x1a
+ 1174 03b9 77020000 		.4byte	.LASF58
+ 1175 03bd 01       		.byte	0x1
+ 1176 03be 48       		.byte	0x48
+ 1177 03bf 00000000 		.4byte	.LFB24
+ 1178 03c3 80000000 		.4byte	.LFE24-.LFB24
+ 1179 03c7 01       		.uleb128 0x1
+ 1180 03c8 9C       		.byte	0x9c
+ 1181 03c9 17040000 		.4byte	0x417
+ 1182 03cd 1B       		.uleb128 0x1b
+ 1183 03ce 617400   		.ascii	"at\000"
+ 1184 03d1 01       		.byte	0x1
+ 1185 03d2 48       		.byte	0x48
+ 1186 03d3 B2030000 		.4byte	0x3b2
+ 1187 03d7 29000000 		.4byte	.LLST1
+ 1188 03db 1C       		.uleb128 0x1c
+ 1189 03dc 75040000 		.4byte	.LASF54
+ 1190 03e0 01       		.byte	0x1
+ 1191 03e1 48       		.byte	0x48
+ 1192 03e2 B8000000 		.4byte	0xb8
+ 1193 03e6 55000000 		.4byte	.LLST2
+ 1194 03ea 1B       		.uleb128 0x1b
+ 1195 03eb 6100     		.ascii	"a\000"
+ 1196 03ed 01       		.byte	0x1
+ 1197 03ee 48       		.byte	0x48
+ 1198 03ef 34030000 		.4byte	0x334
+ 1199 03f3 81000000 		.4byte	.LLST3
+ 1200 03f7 1D       		.uleb128 0x1d
+ 1201 03f8 20000000 		.4byte	.LVL9
+ 1202 03fc 69070000 		.4byte	0x769
+ 1203 0400 19       		.uleb128 0x19
+ 1204 0401 3C000000 		.4byte	.LVL10
+ 1205 0405 74070000 		.4byte	0x774
+ 1206 0409 18       		.uleb128 0x18
+ 1207 040a 01       		.uleb128 0x1
+ 1208 040b 51       		.byte	0x51
+ 1209 040c 02       		.uleb128 0x2
+ 1210 040d 75       		.byte	0x75
+ 1211 040e 00       		.sleb128 0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 30
+
+
+ 1212 040f 18       		.uleb128 0x18
+ 1213 0410 01       		.uleb128 0x1
+ 1214 0411 52       		.byte	0x52
+ 1215 0412 02       		.uleb128 0x2
+ 1216 0413 08       		.byte	0x8
+ 1217 0414 44       		.byte	0x44
+ 1218 0415 00       		.byte	0
+ 1219 0416 00       		.byte	0
+ 1220 0417 1A       		.uleb128 0x1a
+ 1221 0418 F9040000 		.4byte	.LASF59
+ 1222 041c 01       		.byte	0x1
+ 1223 041d 76       		.byte	0x76
+ 1224 041e 00000000 		.4byte	.LFB26
+ 1225 0422 2A000000 		.4byte	.LFE26-.LFB26
+ 1226 0426 01       		.uleb128 0x1
+ 1227 0427 9C       		.byte	0x9c
+ 1228 0428 6E040000 		.4byte	0x46e
+ 1229 042c 1B       		.uleb128 0x1b
+ 1230 042d 617400   		.ascii	"at\000"
+ 1231 0430 01       		.byte	0x1
+ 1232 0431 76       		.byte	0x76
+ 1233 0432 B2030000 		.4byte	0x3b2
+ 1234 0436 AD000000 		.4byte	.LLST4
+ 1235 043a 1E       		.uleb128 0x1e
+ 1236 043b 00000000 		.4byte	.Ldebug_ranges0+0
+ 1237 043f 16       		.uleb128 0x16
+ 1238 0440 6900     		.ascii	"i\000"
+ 1239 0442 01       		.byte	0x1
+ 1240 0443 7A       		.byte	0x7a
+ 1241 0444 B8000000 		.4byte	0xb8
+ 1242 0448 EF000000 		.4byte	.LLST5
+ 1243 044c 1F       		.uleb128 0x1f
+ 1244 044d 08000000 		.4byte	.LBB10
+ 1245 0451 14000000 		.4byte	.LBE10-.LBB10
+ 1246 0455 16       		.uleb128 0x16
+ 1247 0456 6100     		.ascii	"a\000"
+ 1248 0458 01       		.byte	0x1
+ 1249 0459 7B       		.byte	0x7b
+ 1250 045a 34030000 		.4byte	0x334
+ 1251 045e 0D010000 		.4byte	.LLST6
+ 1252 0462 1D       		.uleb128 0x1d
+ 1253 0463 1C000000 		.4byte	.LVL17
+ 1254 0467 7D070000 		.4byte	0x77d
+ 1255 046b 00       		.byte	0
+ 1256 046c 00       		.byte	0
+ 1257 046d 00       		.byte	0
+ 1258 046e 1A       		.uleb128 0x1a
+ 1259 046f 7E000000 		.4byte	.LASF60
+ 1260 0473 01       		.byte	0x1
+ 1261 0474 3E       		.byte	0x3e
+ 1262 0475 00000000 		.4byte	.LFB23
+ 1263 0479 1A000000 		.4byte	.LFE23-.LFB23
+ 1264 047d 01       		.uleb128 0x1
+ 1265 047e 9C       		.byte	0x9c
+ 1266 047f B4040000 		.4byte	0x4b4
+ 1267 0483 1B       		.uleb128 0x1b
+ 1268 0484 617400   		.ascii	"at\000"
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 31
+
+
+ 1269 0487 01       		.byte	0x1
+ 1270 0488 3E       		.byte	0x3e
+ 1271 0489 B2030000 		.4byte	0x3b2
+ 1272 048d 20010000 		.4byte	.LLST7
+ 1273 0491 1D       		.uleb128 0x1d
+ 1274 0492 0C000000 		.4byte	.LVL24
+ 1275 0496 17040000 		.4byte	0x417
+ 1276 049a 1D       		.uleb128 0x1d
+ 1277 049b 12000000 		.4byte	.LVL25
+ 1278 049f 89070000 		.4byte	0x789
+ 1279 04a3 19       		.uleb128 0x19
+ 1280 04a4 18000000 		.4byte	.LVL26
+ 1281 04a8 89070000 		.4byte	0x789
+ 1282 04ac 18       		.uleb128 0x18
+ 1283 04ad 01       		.uleb128 0x1
+ 1284 04ae 50       		.byte	0x50
+ 1285 04af 02       		.uleb128 0x2
+ 1286 04b0 74       		.byte	0x74
+ 1287 04b1 00       		.sleb128 0
+ 1288 04b2 00       		.byte	0
+ 1289 04b3 00       		.byte	0
+ 1290 04b4 1A       		.uleb128 0x1a
+ 1291 04b5 D3000000 		.4byte	.LASF61
+ 1292 04b9 01       		.byte	0x1
+ 1293 04ba 80       		.byte	0x80
+ 1294 04bb 00000000 		.4byte	.LFB27
+ 1295 04bf 0A000000 		.4byte	.LFE27-.LFB27
+ 1296 04c3 01       		.uleb128 0x1
+ 1297 04c4 9C       		.byte	0x9c
+ 1298 04c5 E3040000 		.4byte	0x4e3
+ 1299 04c9 14       		.uleb128 0x14
+ 1300 04ca 617400   		.ascii	"at\000"
+ 1301 04cd 01       		.byte	0x1
+ 1302 04ce 80       		.byte	0x80
+ 1303 04cf B2030000 		.4byte	0x3b2
+ 1304 04d3 01       		.uleb128 0x1
+ 1305 04d4 50       		.byte	0x50
+ 1306 04d5 20       		.uleb128 0x20
+ 1307 04d6 F7020000 		.4byte	.LASF50
+ 1308 04da 01       		.byte	0x1
+ 1309 04db 80       		.byte	0x80
+ 1310 04dc 0C030000 		.4byte	0x30c
+ 1311 04e0 01       		.uleb128 0x1
+ 1312 04e1 51       		.byte	0x51
+ 1313 04e2 00       		.byte	0
+ 1314 04e3 15       		.uleb128 0x15
+ 1315 04e4 D5010000 		.4byte	.LASF63
+ 1316 04e8 01       		.byte	0x1
+ 1317 04e9 A6       		.byte	0xa6
+ 1318 04ea B8000000 		.4byte	0xb8
+ 1319 04ee 00000000 		.4byte	.LFB29
+ 1320 04f2 3C000000 		.4byte	.LFE29-.LFB29
+ 1321 04f6 01       		.uleb128 0x1
+ 1322 04f7 9C       		.byte	0x9c
+ 1323 04f8 4F050000 		.4byte	0x54f
+ 1324 04fc 1B       		.uleb128 0x1b
+ 1325 04fd 617400   		.ascii	"at\000"
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 32
+
+
+ 1326 0500 01       		.byte	0x1
+ 1327 0501 A6       		.byte	0xa6
+ 1328 0502 B2030000 		.4byte	0x3b2
+ 1329 0506 4C010000 		.4byte	.LLST8
+ 1330 050a 21       		.uleb128 0x21
+ 1331 050b 8C020000 		.4byte	.LASF64
+ 1332 050f 01       		.byte	0x1
+ 1333 0510 AA       		.byte	0xaa
+ 1334 0511 B8000000 		.4byte	0xb8
+ 1335 0515 8E010000 		.4byte	.LLST9
+ 1336 0519 1E       		.uleb128 0x1e
+ 1337 051a 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 1338 051e 16       		.uleb128 0x16
+ 1339 051f 6900     		.ascii	"i\000"
+ 1340 0521 01       		.byte	0x1
+ 1341 0522 AB       		.byte	0xab
+ 1342 0523 B8000000 		.4byte	0xb8
+ 1343 0527 AC010000 		.4byte	.LLST10
+ 1344 052b 1F       		.uleb128 0x1f
+ 1345 052c 08000000 		.4byte	.LBB13
+ 1346 0530 22000000 		.4byte	.LBE13-.LBB13
+ 1347 0534 16       		.uleb128 0x16
+ 1348 0535 656E6400 		.ascii	"end\000"
+ 1349 0539 01       		.byte	0x1
+ 1350 053a AC       		.byte	0xac
+ 1351 053b B8000000 		.4byte	0xb8
+ 1352 053f CA010000 		.4byte	.LLST11
+ 1353 0543 1D       		.uleb128 0x1d
+ 1354 0544 16000000 		.4byte	.LVL31
+ 1355 0548 94070000 		.4byte	0x794
+ 1356 054c 00       		.byte	0
+ 1357 054d 00       		.byte	0
+ 1358 054e 00       		.byte	0
+ 1359 054f 15       		.uleb128 0x15
+ 1360 0550 55050000 		.4byte	.LASF65
+ 1361 0554 01       		.byte	0x1
+ 1362 0555 5B       		.byte	0x5b
+ 1363 0556 B8000000 		.4byte	0xb8
+ 1364 055a 00000000 		.4byte	.LFB25
+ 1365 055e 64000000 		.4byte	.LFE25-.LFB25
+ 1366 0562 01       		.uleb128 0x1
+ 1367 0563 9C       		.byte	0x9c
+ 1368 0564 70060000 		.4byte	0x670
+ 1369 0568 1B       		.uleb128 0x1b
+ 1370 0569 617400   		.ascii	"at\000"
+ 1371 056c 01       		.byte	0x1
+ 1372 056d 5B       		.byte	0x5b
+ 1373 056e B2030000 		.4byte	0x3b2
+ 1374 0572 DD010000 		.4byte	.LLST12
+ 1375 0576 21       		.uleb128 0x21
+ 1376 0577 8C020000 		.4byte	.LASF64
+ 1377 057b 01       		.byte	0x1
+ 1378 057c 5F       		.byte	0x5f
+ 1379 057d 70060000 		.4byte	0x670
+ 1380 0581 09020000 		.4byte	.LLST13
+ 1381 0585 21       		.uleb128 0x21
+ 1382 0586 F7020000 		.4byte	.LASF50
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 33
+
+
+ 1383 058a 01       		.byte	0x1
+ 1384 058b 60       		.byte	0x60
+ 1385 058c 0C030000 		.4byte	0x30c
+ 1386 0590 35020000 		.4byte	.LLST14
+ 1387 0594 22       		.uleb128 0x22
+ 1388 0595 12000000 		.4byte	.LBB15
+ 1389 0599 4C000000 		.4byte	.LBE15-.LBB15
+ 1390 059d 66060000 		.4byte	0x666
+ 1391 05a1 16       		.uleb128 0x16
+ 1392 05a2 6900     		.ascii	"i\000"
+ 1393 05a4 01       		.byte	0x1
+ 1394 05a5 62       		.byte	0x62
+ 1395 05a6 B8000000 		.4byte	0xb8
+ 1396 05aa 48020000 		.4byte	.LLST15
+ 1397 05ae 1F       		.uleb128 0x1f
+ 1398 05af 16000000 		.4byte	.LBB16
+ 1399 05b3 40000000 		.4byte	.LBE16-.LBB16
+ 1400 05b7 23       		.uleb128 0x23
+ 1401 05b8 6100     		.ascii	"a\000"
+ 1402 05ba 01       		.byte	0x1
+ 1403 05bb 63       		.byte	0x63
+ 1404 05bc 85020000 		.4byte	0x285
+ 1405 05c0 03       		.uleb128 0x3
+ 1406 05c1 91       		.byte	0x91
+ 1407 05c2 A47F     		.sleb128 -92
+ 1408 05c4 21       		.uleb128 0x21
+ 1409 05c5 75040000 		.4byte	.LASF54
+ 1410 05c9 01       		.byte	0x1
+ 1411 05ca 64       		.byte	0x64
+ 1412 05cb B8000000 		.4byte	0xb8
+ 1413 05cf 67020000 		.4byte	.LLST16
+ 1414 05d3 22       		.uleb128 0x22
+ 1415 05d4 34000000 		.4byte	.LBB17
+ 1416 05d8 18000000 		.4byte	.LBE17-.LBB17
+ 1417 05dc 12060000 		.4byte	0x612
+ 1418 05e0 21       		.uleb128 0x21
+ 1419 05e1 F0000000 		.4byte	.LASF66
+ 1420 05e5 01       		.byte	0x1
+ 1421 05e6 67       		.byte	0x67
+ 1422 05e7 AD000000 		.4byte	0xad
+ 1423 05eb 9F020000 		.4byte	.LLST17
+ 1424 05ef 24       		.uleb128 0x24
+ 1425 05f0 13030000 		.4byte	0x313
+ 1426 05f4 44000000 		.4byte	.LBB18
+ 1427 05f8 08000000 		.4byte	.LBE18-.LBB18
+ 1428 05fc 01       		.byte	0x1
+ 1429 05fd 6A       		.byte	0x6a
+ 1430 05fe 25       		.uleb128 0x25
+ 1431 05ff 28030000 		.4byte	0x328
+ 1432 0603 BE020000 		.4byte	.LLST18
+ 1433 0607 25       		.uleb128 0x25
+ 1434 0608 1F030000 		.4byte	0x31f
+ 1435 060c ED020000 		.4byte	.LLST19
+ 1436 0610 00       		.byte	0
+ 1437 0611 00       		.byte	0
+ 1438 0612 26       		.uleb128 0x26
+ 1439 0613 13030000 		.4byte	0x313
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 34
+
+
+ 1440 0617 4C000000 		.4byte	.LBB20
+ 1441 061b 04000000 		.4byte	.LBE20-.LBB20
+ 1442 061f 01       		.byte	0x1
+ 1443 0620 6D       		.byte	0x6d
+ 1444 0621 38060000 		.4byte	0x638
+ 1445 0625 25       		.uleb128 0x25
+ 1446 0626 28030000 		.4byte	0x328
+ 1447 062a 03030000 		.4byte	.LLST20
+ 1448 062e 25       		.uleb128 0x25
+ 1449 062f 1F030000 		.4byte	0x31f
+ 1450 0633 23030000 		.4byte	.LLST21
+ 1451 0637 00       		.byte	0
+ 1452 0638 17       		.uleb128 0x17
+ 1453 0639 28000000 		.4byte	.LVL45
+ 1454 063d 74070000 		.4byte	0x774
+ 1455 0641 53060000 		.4byte	0x653
+ 1456 0645 18       		.uleb128 0x18
+ 1457 0646 01       		.uleb128 0x1
+ 1458 0647 50       		.byte	0x50
+ 1459 0648 03       		.uleb128 0x3
+ 1460 0649 91       		.byte	0x91
+ 1461 064a A47F     		.sleb128 -92
+ 1462 064c 18       		.uleb128 0x18
+ 1463 064d 01       		.uleb128 0x1
+ 1464 064e 52       		.byte	0x52
+ 1465 064f 02       		.uleb128 0x2
+ 1466 0650 08       		.byte	0x8
+ 1467 0651 44       		.byte	0x44
+ 1468 0652 00       		.byte	0
+ 1469 0653 19       		.uleb128 0x19
+ 1470 0654 56000000 		.4byte	.LVL54
+ 1471 0658 A0070000 		.4byte	0x7a0
+ 1472 065c 18       		.uleb128 0x18
+ 1473 065d 01       		.uleb128 0x1
+ 1474 065e 50       		.byte	0x50
+ 1475 065f 03       		.uleb128 0x3
+ 1476 0660 91       		.byte	0x91
+ 1477 0661 A47F     		.sleb128 -92
+ 1478 0663 00       		.byte	0
+ 1479 0664 00       		.byte	0
+ 1480 0665 00       		.byte	0
+ 1481 0666 1D       		.uleb128 0x1d
+ 1482 0667 0E000000 		.4byte	.LVL41
+ 1483 066b E3040000 		.4byte	0x4e3
+ 1484 066f 00       		.byte	0
+ 1485 0670 0C       		.uleb128 0xc
+ 1486 0671 B8000000 		.4byte	0xb8
+ 1487 0675 27       		.uleb128 0x27
+ 1488 0676 BC020000 		.4byte	.LASF67
+ 1489 067a 01       		.byte	0x1
+ 1490 067b 86       		.byte	0x86
+ 1491 067c 00000000 		.4byte	.LFB28
+ 1492 0680 68000000 		.4byte	.LFE28-.LFB28
+ 1493 0684 01       		.uleb128 0x1
+ 1494 0685 9C       		.byte	0x9c
+ 1495 0686 2B070000 		.4byte	0x72b
+ 1496 068a 1B       		.uleb128 0x1b
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 35
+
+
+ 1497 068b 617400   		.ascii	"at\000"
+ 1498 068e 01       		.byte	0x1
+ 1499 068f 86       		.byte	0x86
+ 1500 0690 B2030000 		.4byte	0x3b2
+ 1501 0694 39030000 		.4byte	.LLST22
+ 1502 0698 1C       		.uleb128 0x1c
+ 1503 0699 41030000 		.4byte	.LASF68
+ 1504 069d 01       		.byte	0x1
+ 1505 069e 86       		.byte	0x86
+ 1506 069f A2000000 		.4byte	0xa2
+ 1507 06a3 65030000 		.4byte	.LLST23
+ 1508 06a7 21       		.uleb128 0x21
+ 1509 06a8 8C020000 		.4byte	.LASF64
+ 1510 06ac 01       		.byte	0x1
+ 1511 06ad 8A       		.byte	0x8a
+ 1512 06ae 70060000 		.4byte	0x670
+ 1513 06b2 86030000 		.4byte	.LLST24
+ 1514 06b6 21       		.uleb128 0x21
+ 1515 06b7 25050000 		.4byte	.LASF30
+ 1516 06bb 01       		.byte	0x1
+ 1517 06bc 8B       		.byte	0x8b
+ 1518 06bd 70060000 		.4byte	0x670
+ 1519 06c1 99030000 		.4byte	.LLST25
+ 1520 06c5 22       		.uleb128 0x22
+ 1521 06c6 1A000000 		.4byte	.LBB22
+ 1522 06ca 46000000 		.4byte	.LBE22-.LBB22
+ 1523 06ce 21070000 		.4byte	0x721
+ 1524 06d2 16       		.uleb128 0x16
+ 1525 06d3 6900     		.ascii	"i\000"
+ 1526 06d5 01       		.byte	0x1
+ 1527 06d6 8D       		.byte	0x8d
+ 1528 06d7 B8000000 		.4byte	0xb8
+ 1529 06db B7030000 		.4byte	.LLST26
+ 1530 06df 1F       		.uleb128 0x1f
+ 1531 06e0 1E000000 		.4byte	.LBB23
+ 1532 06e4 3A000000 		.4byte	.LBE23-.LBB23
+ 1533 06e8 16       		.uleb128 0x16
+ 1534 06e9 6100     		.ascii	"a\000"
+ 1535 06eb 01       		.byte	0x1
+ 1536 06ec 8E       		.byte	0x8e
+ 1537 06ed 34030000 		.4byte	0x334
+ 1538 06f1 D6030000 		.4byte	.LLST27
+ 1539 06f5 21       		.uleb128 0x21
+ 1540 06f6 75040000 		.4byte	.LASF54
+ 1541 06fa 01       		.byte	0x1
+ 1542 06fb 94       		.byte	0x94
+ 1543 06fc B8000000 		.4byte	0xb8
+ 1544 0700 E9030000 		.4byte	.LLST28
+ 1545 0704 21       		.uleb128 0x21
+ 1546 0705 0A000000 		.4byte	.LASF69
+ 1547 0709 01       		.byte	0x1
+ 1548 070a 95       		.byte	0x95
+ 1549 070b AD000000 		.4byte	0xad
+ 1550 070f 14040000 		.4byte	.LLST29
+ 1551 0713 28       		.uleb128 0x28
+ 1552 0714 4C000000 		.4byte	.LVL71
+ 1553 0718 18       		.uleb128 0x18
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 36
+
+
+ 1554 0719 01       		.uleb128 0x1
+ 1555 071a 50       		.byte	0x50
+ 1556 071b 02       		.uleb128 0x2
+ 1557 071c 74       		.byte	0x74
+ 1558 071d 00       		.sleb128 0
+ 1559 071e 00       		.byte	0
+ 1560 071f 00       		.byte	0
+ 1561 0720 00       		.byte	0
+ 1562 0721 1D       		.uleb128 0x1d
+ 1563 0722 10000000 		.4byte	.LVL61
+ 1564 0726 E3040000 		.4byte	0x4e3
+ 1565 072a 00       		.byte	0
+ 1566 072b 15       		.uleb128 0x15
+ 1567 072c DC040000 		.4byte	.LASF70
+ 1568 0730 01       		.byte	0x1
+ 1569 0731 B8       		.byte	0xb8
+ 1570 0732 0C030000 		.4byte	0x30c
+ 1571 0736 00000000 		.4byte	.LFB30
+ 1572 073a 0A000000 		.4byte	.LFE30-.LFB30
+ 1573 073e 01       		.uleb128 0x1
+ 1574 073f 9C       		.byte	0x9c
+ 1575 0740 53070000 		.4byte	0x753
+ 1576 0744 1B       		.uleb128 0x1b
+ 1577 0745 617400   		.ascii	"at\000"
+ 1578 0748 01       		.byte	0x1
+ 1579 0749 B8       		.byte	0xb8
+ 1580 074a B2030000 		.4byte	0x3b2
+ 1581 074e 61040000 		.4byte	.LLST30
+ 1582 0752 00       		.byte	0
+ 1583 0753 29       		.uleb128 0x29
+ 1584 0754 1C000000 		.4byte	.LASF71
+ 1585 0758 1C000000 		.4byte	.LASF71
+ 1586 075c 06       		.byte	0x6
+ 1587 075d 4A       		.byte	0x4a
+ 1588 075e 29       		.uleb128 0x29
+ 1589 075f C6000000 		.4byte	.LASF72
+ 1590 0763 C6000000 		.4byte	.LASF72
+ 1591 0767 06       		.byte	0x6
+ 1592 0768 DE       		.byte	0xde
+ 1593 0769 29       		.uleb128 0x29
+ 1594 076a DA020000 		.4byte	.LASF73
+ 1595 076e DA020000 		.4byte	.LASF73
+ 1596 0772 06       		.byte	0x6
+ 1597 0773 59       		.byte	0x59
+ 1598 0774 2A       		.uleb128 0x2a
+ 1599 0775 1A010000 		.4byte	.LASF83
+ 1600 0779 1A010000 		.4byte	.LASF83
+ 1601 077d 2B       		.uleb128 0x2b
+ 1602 077e 33000000 		.4byte	.LASF74
+ 1603 0782 33000000 		.4byte	.LASF74
+ 1604 0786 02       		.byte	0x2
+ 1605 0787 5C01     		.2byte	0x15c
+ 1606 0789 29       		.uleb128 0x29
+ 1607 078a 2A010000 		.4byte	.LASF75
+ 1608 078e 2A010000 		.4byte	.LASF75
+ 1609 0792 06       		.byte	0x6
+ 1610 0793 50       		.byte	0x50
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 37
+
+
+ 1611 0794 2B       		.uleb128 0x2b
+ 1612 0795 40050000 		.4byte	.LASF76
+ 1613 0799 40050000 		.4byte	.LASF76
+ 1614 079d 02       		.byte	0x2
+ 1615 079e 4701     		.2byte	0x147
+ 1616 07a0 2B       		.uleb128 0x2b
+ 1617 07a1 17050000 		.4byte	.LASF77
+ 1618 07a5 17050000 		.4byte	.LASF77
+ 1619 07a9 02       		.byte	0x2
+ 1620 07aa 3601     		.2byte	0x136
+ 1621 07ac 00       		.byte	0
+ 1622              		.section	.debug_abbrev,"",%progbits
+ 1623              	.Ldebug_abbrev0:
+ 1624 0000 01       		.uleb128 0x1
+ 1625 0001 11       		.uleb128 0x11
+ 1626 0002 01       		.byte	0x1
+ 1627 0003 25       		.uleb128 0x25
+ 1628 0004 0E       		.uleb128 0xe
+ 1629 0005 13       		.uleb128 0x13
+ 1630 0006 0B       		.uleb128 0xb
+ 1631 0007 03       		.uleb128 0x3
+ 1632 0008 0E       		.uleb128 0xe
+ 1633 0009 1B       		.uleb128 0x1b
+ 1634 000a 0E       		.uleb128 0xe
+ 1635 000b 55       		.uleb128 0x55
+ 1636 000c 17       		.uleb128 0x17
+ 1637 000d 11       		.uleb128 0x11
+ 1638 000e 01       		.uleb128 0x1
+ 1639 000f 10       		.uleb128 0x10
+ 1640 0010 17       		.uleb128 0x17
+ 1641 0011 00       		.byte	0
+ 1642 0012 00       		.byte	0
+ 1643 0013 02       		.uleb128 0x2
+ 1644 0014 24       		.uleb128 0x24
+ 1645 0015 00       		.byte	0
+ 1646 0016 0B       		.uleb128 0xb
+ 1647 0017 0B       		.uleb128 0xb
+ 1648 0018 3E       		.uleb128 0x3e
+ 1649 0019 0B       		.uleb128 0xb
+ 1650 001a 03       		.uleb128 0x3
+ 1651 001b 0E       		.uleb128 0xe
+ 1652 001c 00       		.byte	0
+ 1653 001d 00       		.byte	0
+ 1654 001e 03       		.uleb128 0x3
+ 1655 001f 16       		.uleb128 0x16
+ 1656 0020 00       		.byte	0
+ 1657 0021 03       		.uleb128 0x3
+ 1658 0022 0E       		.uleb128 0xe
+ 1659 0023 3A       		.uleb128 0x3a
+ 1660 0024 0B       		.uleb128 0xb
+ 1661 0025 3B       		.uleb128 0x3b
+ 1662 0026 0B       		.uleb128 0xb
+ 1663 0027 49       		.uleb128 0x49
+ 1664 0028 13       		.uleb128 0x13
+ 1665 0029 00       		.byte	0
+ 1666 002a 00       		.byte	0
+ 1667 002b 04       		.uleb128 0x4
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 38
+
+
+ 1668 002c 24       		.uleb128 0x24
+ 1669 002d 00       		.byte	0
+ 1670 002e 0B       		.uleb128 0xb
+ 1671 002f 0B       		.uleb128 0xb
+ 1672 0030 3E       		.uleb128 0x3e
+ 1673 0031 0B       		.uleb128 0xb
+ 1674 0032 03       		.uleb128 0x3
+ 1675 0033 08       		.uleb128 0x8
+ 1676 0034 00       		.byte	0
+ 1677 0035 00       		.byte	0
+ 1678 0036 05       		.uleb128 0x5
+ 1679 0037 0F       		.uleb128 0xf
+ 1680 0038 00       		.byte	0
+ 1681 0039 0B       		.uleb128 0xb
+ 1682 003a 0B       		.uleb128 0xb
+ 1683 003b 49       		.uleb128 0x49
+ 1684 003c 13       		.uleb128 0x13
+ 1685 003d 00       		.byte	0
+ 1686 003e 00       		.byte	0
+ 1687 003f 06       		.uleb128 0x6
+ 1688 0040 15       		.uleb128 0x15
+ 1689 0041 01       		.byte	0x1
+ 1690 0042 27       		.uleb128 0x27
+ 1691 0043 19       		.uleb128 0x19
+ 1692 0044 49       		.uleb128 0x49
+ 1693 0045 13       		.uleb128 0x13
+ 1694 0046 01       		.uleb128 0x1
+ 1695 0047 13       		.uleb128 0x13
+ 1696 0048 00       		.byte	0
+ 1697 0049 00       		.byte	0
+ 1698 004a 07       		.uleb128 0x7
+ 1699 004b 05       		.uleb128 0x5
+ 1700 004c 00       		.byte	0
+ 1701 004d 49       		.uleb128 0x49
+ 1702 004e 13       		.uleb128 0x13
+ 1703 004f 00       		.byte	0
+ 1704 0050 00       		.byte	0
+ 1705 0051 08       		.uleb128 0x8
+ 1706 0052 13       		.uleb128 0x13
+ 1707 0053 01       		.byte	0x1
+ 1708 0054 03       		.uleb128 0x3
+ 1709 0055 0E       		.uleb128 0xe
+ 1710 0056 0B       		.uleb128 0xb
+ 1711 0057 0B       		.uleb128 0xb
+ 1712 0058 3A       		.uleb128 0x3a
+ 1713 0059 0B       		.uleb128 0xb
+ 1714 005a 3B       		.uleb128 0x3b
+ 1715 005b 0B       		.uleb128 0xb
+ 1716 005c 01       		.uleb128 0x1
+ 1717 005d 13       		.uleb128 0x13
+ 1718 005e 00       		.byte	0
+ 1719 005f 00       		.byte	0
+ 1720 0060 09       		.uleb128 0x9
+ 1721 0061 0D       		.uleb128 0xd
+ 1722 0062 00       		.byte	0
+ 1723 0063 03       		.uleb128 0x3
+ 1724 0064 08       		.uleb128 0x8
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 39
+
+
+ 1725 0065 3A       		.uleb128 0x3a
+ 1726 0066 0B       		.uleb128 0xb
+ 1727 0067 3B       		.uleb128 0x3b
+ 1728 0068 0B       		.uleb128 0xb
+ 1729 0069 49       		.uleb128 0x49
+ 1730 006a 13       		.uleb128 0x13
+ 1731 006b 38       		.uleb128 0x38
+ 1732 006c 0B       		.uleb128 0xb
+ 1733 006d 00       		.byte	0
+ 1734 006e 00       		.byte	0
+ 1735 006f 0A       		.uleb128 0xa
+ 1736 0070 0D       		.uleb128 0xd
+ 1737 0071 00       		.byte	0
+ 1738 0072 03       		.uleb128 0x3
+ 1739 0073 0E       		.uleb128 0xe
+ 1740 0074 3A       		.uleb128 0x3a
+ 1741 0075 0B       		.uleb128 0xb
+ 1742 0076 3B       		.uleb128 0x3b
+ 1743 0077 0B       		.uleb128 0xb
+ 1744 0078 49       		.uleb128 0x49
+ 1745 0079 13       		.uleb128 0x13
+ 1746 007a 38       		.uleb128 0x38
+ 1747 007b 0B       		.uleb128 0xb
+ 1748 007c 00       		.byte	0
+ 1749 007d 00       		.byte	0
+ 1750 007e 0B       		.uleb128 0xb
+ 1751 007f 0D       		.uleb128 0xd
+ 1752 0080 00       		.byte	0
+ 1753 0081 03       		.uleb128 0x3
+ 1754 0082 0E       		.uleb128 0xe
+ 1755 0083 3A       		.uleb128 0x3a
+ 1756 0084 0B       		.uleb128 0xb
+ 1757 0085 3B       		.uleb128 0x3b
+ 1758 0086 0B       		.uleb128 0xb
+ 1759 0087 49       		.uleb128 0x49
+ 1760 0088 13       		.uleb128 0x13
+ 1761 0089 0B       		.uleb128 0xb
+ 1762 008a 0B       		.uleb128 0xb
+ 1763 008b 0D       		.uleb128 0xd
+ 1764 008c 0B       		.uleb128 0xb
+ 1765 008d 0C       		.uleb128 0xc
+ 1766 008e 0B       		.uleb128 0xb
+ 1767 008f 38       		.uleb128 0x38
+ 1768 0090 0B       		.uleb128 0xb
+ 1769 0091 00       		.byte	0
+ 1770 0092 00       		.byte	0
+ 1771 0093 0C       		.uleb128 0xc
+ 1772 0094 26       		.uleb128 0x26
+ 1773 0095 00       		.byte	0
+ 1774 0096 49       		.uleb128 0x49
+ 1775 0097 13       		.uleb128 0x13
+ 1776 0098 00       		.byte	0
+ 1777 0099 00       		.byte	0
+ 1778 009a 0D       		.uleb128 0xd
+ 1779 009b 15       		.uleb128 0x15
+ 1780 009c 01       		.byte	0x1
+ 1781 009d 27       		.uleb128 0x27
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 40
+
+
+ 1782 009e 19       		.uleb128 0x19
+ 1783 009f 01       		.uleb128 0x1
+ 1784 00a0 13       		.uleb128 0x13
+ 1785 00a1 00       		.byte	0
+ 1786 00a2 00       		.byte	0
+ 1787 00a3 0E       		.uleb128 0xe
+ 1788 00a4 0F       		.uleb128 0xf
+ 1789 00a5 00       		.byte	0
+ 1790 00a6 0B       		.uleb128 0xb
+ 1791 00a7 0B       		.uleb128 0xb
+ 1792 00a8 00       		.byte	0
+ 1793 00a9 00       		.byte	0
+ 1794 00aa 0F       		.uleb128 0xf
+ 1795 00ab 13       		.uleb128 0x13
+ 1796 00ac 01       		.byte	0x1
+ 1797 00ad 0B       		.uleb128 0xb
+ 1798 00ae 0B       		.uleb128 0xb
+ 1799 00af 3A       		.uleb128 0x3a
+ 1800 00b0 0B       		.uleb128 0xb
+ 1801 00b1 3B       		.uleb128 0x3b
+ 1802 00b2 0B       		.uleb128 0xb
+ 1803 00b3 01       		.uleb128 0x1
+ 1804 00b4 13       		.uleb128 0x13
+ 1805 00b5 00       		.byte	0
+ 1806 00b6 00       		.byte	0
+ 1807 00b7 10       		.uleb128 0x10
+ 1808 00b8 2E       		.uleb128 0x2e
+ 1809 00b9 01       		.byte	0x1
+ 1810 00ba 03       		.uleb128 0x3
+ 1811 00bb 0E       		.uleb128 0xe
+ 1812 00bc 3A       		.uleb128 0x3a
+ 1813 00bd 0B       		.uleb128 0xb
+ 1814 00be 3B       		.uleb128 0x3b
+ 1815 00bf 0B       		.uleb128 0xb
+ 1816 00c0 27       		.uleb128 0x27
+ 1817 00c1 19       		.uleb128 0x19
+ 1818 00c2 20       		.uleb128 0x20
+ 1819 00c3 0B       		.uleb128 0xb
+ 1820 00c4 01       		.uleb128 0x1
+ 1821 00c5 13       		.uleb128 0x13
+ 1822 00c6 00       		.byte	0
+ 1823 00c7 00       		.byte	0
+ 1824 00c8 11       		.uleb128 0x11
+ 1825 00c9 05       		.uleb128 0x5
+ 1826 00ca 00       		.byte	0
+ 1827 00cb 03       		.uleb128 0x3
+ 1828 00cc 08       		.uleb128 0x8
+ 1829 00cd 3A       		.uleb128 0x3a
+ 1830 00ce 0B       		.uleb128 0xb
+ 1831 00cf 3B       		.uleb128 0x3b
+ 1832 00d0 0B       		.uleb128 0xb
+ 1833 00d1 49       		.uleb128 0x49
+ 1834 00d2 13       		.uleb128 0x13
+ 1835 00d3 00       		.byte	0
+ 1836 00d4 00       		.byte	0
+ 1837 00d5 12       		.uleb128 0x12
+ 1838 00d6 05       		.uleb128 0x5
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 41
+
+
+ 1839 00d7 00       		.byte	0
+ 1840 00d8 03       		.uleb128 0x3
+ 1841 00d9 0E       		.uleb128 0xe
+ 1842 00da 3A       		.uleb128 0x3a
+ 1843 00db 0B       		.uleb128 0xb
+ 1844 00dc 3B       		.uleb128 0x3b
+ 1845 00dd 0B       		.uleb128 0xb
+ 1846 00de 49       		.uleb128 0x49
+ 1847 00df 13       		.uleb128 0x13
+ 1848 00e0 00       		.byte	0
+ 1849 00e1 00       		.byte	0
+ 1850 00e2 13       		.uleb128 0x13
+ 1851 00e3 2E       		.uleb128 0x2e
+ 1852 00e4 01       		.byte	0x1
+ 1853 00e5 03       		.uleb128 0x3
+ 1854 00e6 0E       		.uleb128 0xe
+ 1855 00e7 3A       		.uleb128 0x3a
+ 1856 00e8 0B       		.uleb128 0xb
+ 1857 00e9 3B       		.uleb128 0x3b
+ 1858 00ea 0B       		.uleb128 0xb
+ 1859 00eb 27       		.uleb128 0x27
+ 1860 00ec 19       		.uleb128 0x19
+ 1861 00ed 11       		.uleb128 0x11
+ 1862 00ee 01       		.uleb128 0x1
+ 1863 00ef 12       		.uleb128 0x12
+ 1864 00f0 06       		.uleb128 0x6
+ 1865 00f1 40       		.uleb128 0x40
+ 1866 00f2 18       		.uleb128 0x18
+ 1867 00f3 9742     		.uleb128 0x2117
+ 1868 00f5 19       		.uleb128 0x19
+ 1869 00f6 01       		.uleb128 0x1
+ 1870 00f7 13       		.uleb128 0x13
+ 1871 00f8 00       		.byte	0
+ 1872 00f9 00       		.byte	0
+ 1873 00fa 14       		.uleb128 0x14
+ 1874 00fb 05       		.uleb128 0x5
+ 1875 00fc 00       		.byte	0
+ 1876 00fd 03       		.uleb128 0x3
+ 1877 00fe 08       		.uleb128 0x8
+ 1878 00ff 3A       		.uleb128 0x3a
+ 1879 0100 0B       		.uleb128 0xb
+ 1880 0101 3B       		.uleb128 0x3b
+ 1881 0102 0B       		.uleb128 0xb
+ 1882 0103 49       		.uleb128 0x49
+ 1883 0104 13       		.uleb128 0x13
+ 1884 0105 02       		.uleb128 0x2
+ 1885 0106 18       		.uleb128 0x18
+ 1886 0107 00       		.byte	0
+ 1887 0108 00       		.byte	0
+ 1888 0109 15       		.uleb128 0x15
+ 1889 010a 2E       		.uleb128 0x2e
+ 1890 010b 01       		.byte	0x1
+ 1891 010c 3F       		.uleb128 0x3f
+ 1892 010d 19       		.uleb128 0x19
+ 1893 010e 03       		.uleb128 0x3
+ 1894 010f 0E       		.uleb128 0xe
+ 1895 0110 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 42
+
+
+ 1896 0111 0B       		.uleb128 0xb
+ 1897 0112 3B       		.uleb128 0x3b
+ 1898 0113 0B       		.uleb128 0xb
+ 1899 0114 27       		.uleb128 0x27
+ 1900 0115 19       		.uleb128 0x19
+ 1901 0116 49       		.uleb128 0x49
+ 1902 0117 13       		.uleb128 0x13
+ 1903 0118 11       		.uleb128 0x11
+ 1904 0119 01       		.uleb128 0x1
+ 1905 011a 12       		.uleb128 0x12
+ 1906 011b 06       		.uleb128 0x6
+ 1907 011c 40       		.uleb128 0x40
+ 1908 011d 18       		.uleb128 0x18
+ 1909 011e 9742     		.uleb128 0x2117
+ 1910 0120 19       		.uleb128 0x19
+ 1911 0121 01       		.uleb128 0x1
+ 1912 0122 13       		.uleb128 0x13
+ 1913 0123 00       		.byte	0
+ 1914 0124 00       		.byte	0
+ 1915 0125 16       		.uleb128 0x16
+ 1916 0126 34       		.uleb128 0x34
+ 1917 0127 00       		.byte	0
+ 1918 0128 03       		.uleb128 0x3
+ 1919 0129 08       		.uleb128 0x8
+ 1920 012a 3A       		.uleb128 0x3a
+ 1921 012b 0B       		.uleb128 0xb
+ 1922 012c 3B       		.uleb128 0x3b
+ 1923 012d 0B       		.uleb128 0xb
+ 1924 012e 49       		.uleb128 0x49
+ 1925 012f 13       		.uleb128 0x13
+ 1926 0130 02       		.uleb128 0x2
+ 1927 0131 17       		.uleb128 0x17
+ 1928 0132 00       		.byte	0
+ 1929 0133 00       		.byte	0
+ 1930 0134 17       		.uleb128 0x17
+ 1931 0135 898201   		.uleb128 0x4109
+ 1932 0138 01       		.byte	0x1
+ 1933 0139 11       		.uleb128 0x11
+ 1934 013a 01       		.uleb128 0x1
+ 1935 013b 31       		.uleb128 0x31
+ 1936 013c 13       		.uleb128 0x13
+ 1937 013d 01       		.uleb128 0x1
+ 1938 013e 13       		.uleb128 0x13
+ 1939 013f 00       		.byte	0
+ 1940 0140 00       		.byte	0
+ 1941 0141 18       		.uleb128 0x18
+ 1942 0142 8A8201   		.uleb128 0x410a
+ 1943 0145 00       		.byte	0
+ 1944 0146 02       		.uleb128 0x2
+ 1945 0147 18       		.uleb128 0x18
+ 1946 0148 9142     		.uleb128 0x2111
+ 1947 014a 18       		.uleb128 0x18
+ 1948 014b 00       		.byte	0
+ 1949 014c 00       		.byte	0
+ 1950 014d 19       		.uleb128 0x19
+ 1951 014e 898201   		.uleb128 0x4109
+ 1952 0151 01       		.byte	0x1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 43
+
+
+ 1953 0152 11       		.uleb128 0x11
+ 1954 0153 01       		.uleb128 0x1
+ 1955 0154 31       		.uleb128 0x31
+ 1956 0155 13       		.uleb128 0x13
+ 1957 0156 00       		.byte	0
+ 1958 0157 00       		.byte	0
+ 1959 0158 1A       		.uleb128 0x1a
+ 1960 0159 2E       		.uleb128 0x2e
+ 1961 015a 01       		.byte	0x1
+ 1962 015b 3F       		.uleb128 0x3f
+ 1963 015c 19       		.uleb128 0x19
+ 1964 015d 03       		.uleb128 0x3
+ 1965 015e 0E       		.uleb128 0xe
+ 1966 015f 3A       		.uleb128 0x3a
+ 1967 0160 0B       		.uleb128 0xb
+ 1968 0161 3B       		.uleb128 0x3b
+ 1969 0162 0B       		.uleb128 0xb
+ 1970 0163 27       		.uleb128 0x27
+ 1971 0164 19       		.uleb128 0x19
+ 1972 0165 11       		.uleb128 0x11
+ 1973 0166 01       		.uleb128 0x1
+ 1974 0167 12       		.uleb128 0x12
+ 1975 0168 06       		.uleb128 0x6
+ 1976 0169 40       		.uleb128 0x40
+ 1977 016a 18       		.uleb128 0x18
+ 1978 016b 9742     		.uleb128 0x2117
+ 1979 016d 19       		.uleb128 0x19
+ 1980 016e 01       		.uleb128 0x1
+ 1981 016f 13       		.uleb128 0x13
+ 1982 0170 00       		.byte	0
+ 1983 0171 00       		.byte	0
+ 1984 0172 1B       		.uleb128 0x1b
+ 1985 0173 05       		.uleb128 0x5
+ 1986 0174 00       		.byte	0
+ 1987 0175 03       		.uleb128 0x3
+ 1988 0176 08       		.uleb128 0x8
+ 1989 0177 3A       		.uleb128 0x3a
+ 1990 0178 0B       		.uleb128 0xb
+ 1991 0179 3B       		.uleb128 0x3b
+ 1992 017a 0B       		.uleb128 0xb
+ 1993 017b 49       		.uleb128 0x49
+ 1994 017c 13       		.uleb128 0x13
+ 1995 017d 02       		.uleb128 0x2
+ 1996 017e 17       		.uleb128 0x17
+ 1997 017f 00       		.byte	0
+ 1998 0180 00       		.byte	0
+ 1999 0181 1C       		.uleb128 0x1c
+ 2000 0182 05       		.uleb128 0x5
+ 2001 0183 00       		.byte	0
+ 2002 0184 03       		.uleb128 0x3
+ 2003 0185 0E       		.uleb128 0xe
+ 2004 0186 3A       		.uleb128 0x3a
+ 2005 0187 0B       		.uleb128 0xb
+ 2006 0188 3B       		.uleb128 0x3b
+ 2007 0189 0B       		.uleb128 0xb
+ 2008 018a 49       		.uleb128 0x49
+ 2009 018b 13       		.uleb128 0x13
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 44
+
+
+ 2010 018c 02       		.uleb128 0x2
+ 2011 018d 17       		.uleb128 0x17
+ 2012 018e 00       		.byte	0
+ 2013 018f 00       		.byte	0
+ 2014 0190 1D       		.uleb128 0x1d
+ 2015 0191 898201   		.uleb128 0x4109
+ 2016 0194 00       		.byte	0
+ 2017 0195 11       		.uleb128 0x11
+ 2018 0196 01       		.uleb128 0x1
+ 2019 0197 31       		.uleb128 0x31
+ 2020 0198 13       		.uleb128 0x13
+ 2021 0199 00       		.byte	0
+ 2022 019a 00       		.byte	0
+ 2023 019b 1E       		.uleb128 0x1e
+ 2024 019c 0B       		.uleb128 0xb
+ 2025 019d 01       		.byte	0x1
+ 2026 019e 55       		.uleb128 0x55
+ 2027 019f 17       		.uleb128 0x17
+ 2028 01a0 00       		.byte	0
+ 2029 01a1 00       		.byte	0
+ 2030 01a2 1F       		.uleb128 0x1f
+ 2031 01a3 0B       		.uleb128 0xb
+ 2032 01a4 01       		.byte	0x1
+ 2033 01a5 11       		.uleb128 0x11
+ 2034 01a6 01       		.uleb128 0x1
+ 2035 01a7 12       		.uleb128 0x12
+ 2036 01a8 06       		.uleb128 0x6
+ 2037 01a9 00       		.byte	0
+ 2038 01aa 00       		.byte	0
+ 2039 01ab 20       		.uleb128 0x20
+ 2040 01ac 05       		.uleb128 0x5
+ 2041 01ad 00       		.byte	0
+ 2042 01ae 03       		.uleb128 0x3
+ 2043 01af 0E       		.uleb128 0xe
+ 2044 01b0 3A       		.uleb128 0x3a
+ 2045 01b1 0B       		.uleb128 0xb
+ 2046 01b2 3B       		.uleb128 0x3b
+ 2047 01b3 0B       		.uleb128 0xb
+ 2048 01b4 49       		.uleb128 0x49
+ 2049 01b5 13       		.uleb128 0x13
+ 2050 01b6 02       		.uleb128 0x2
+ 2051 01b7 18       		.uleb128 0x18
+ 2052 01b8 00       		.byte	0
+ 2053 01b9 00       		.byte	0
+ 2054 01ba 21       		.uleb128 0x21
+ 2055 01bb 34       		.uleb128 0x34
+ 2056 01bc 00       		.byte	0
+ 2057 01bd 03       		.uleb128 0x3
+ 2058 01be 0E       		.uleb128 0xe
+ 2059 01bf 3A       		.uleb128 0x3a
+ 2060 01c0 0B       		.uleb128 0xb
+ 2061 01c1 3B       		.uleb128 0x3b
+ 2062 01c2 0B       		.uleb128 0xb
+ 2063 01c3 49       		.uleb128 0x49
+ 2064 01c4 13       		.uleb128 0x13
+ 2065 01c5 02       		.uleb128 0x2
+ 2066 01c6 17       		.uleb128 0x17
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 45
+
+
+ 2067 01c7 00       		.byte	0
+ 2068 01c8 00       		.byte	0
+ 2069 01c9 22       		.uleb128 0x22
+ 2070 01ca 0B       		.uleb128 0xb
+ 2071 01cb 01       		.byte	0x1
+ 2072 01cc 11       		.uleb128 0x11
+ 2073 01cd 01       		.uleb128 0x1
+ 2074 01ce 12       		.uleb128 0x12
+ 2075 01cf 06       		.uleb128 0x6
+ 2076 01d0 01       		.uleb128 0x1
+ 2077 01d1 13       		.uleb128 0x13
+ 2078 01d2 00       		.byte	0
+ 2079 01d3 00       		.byte	0
+ 2080 01d4 23       		.uleb128 0x23
+ 2081 01d5 34       		.uleb128 0x34
+ 2082 01d6 00       		.byte	0
+ 2083 01d7 03       		.uleb128 0x3
+ 2084 01d8 08       		.uleb128 0x8
+ 2085 01d9 3A       		.uleb128 0x3a
+ 2086 01da 0B       		.uleb128 0xb
+ 2087 01db 3B       		.uleb128 0x3b
+ 2088 01dc 0B       		.uleb128 0xb
+ 2089 01dd 49       		.uleb128 0x49
+ 2090 01de 13       		.uleb128 0x13
+ 2091 01df 02       		.uleb128 0x2
+ 2092 01e0 18       		.uleb128 0x18
+ 2093 01e1 00       		.byte	0
+ 2094 01e2 00       		.byte	0
+ 2095 01e3 24       		.uleb128 0x24
+ 2096 01e4 1D       		.uleb128 0x1d
+ 2097 01e5 01       		.byte	0x1
+ 2098 01e6 31       		.uleb128 0x31
+ 2099 01e7 13       		.uleb128 0x13
+ 2100 01e8 11       		.uleb128 0x11
+ 2101 01e9 01       		.uleb128 0x1
+ 2102 01ea 12       		.uleb128 0x12
+ 2103 01eb 06       		.uleb128 0x6
+ 2104 01ec 58       		.uleb128 0x58
+ 2105 01ed 0B       		.uleb128 0xb
+ 2106 01ee 59       		.uleb128 0x59
+ 2107 01ef 0B       		.uleb128 0xb
+ 2108 01f0 00       		.byte	0
+ 2109 01f1 00       		.byte	0
+ 2110 01f2 25       		.uleb128 0x25
+ 2111 01f3 05       		.uleb128 0x5
+ 2112 01f4 00       		.byte	0
+ 2113 01f5 31       		.uleb128 0x31
+ 2114 01f6 13       		.uleb128 0x13
+ 2115 01f7 02       		.uleb128 0x2
+ 2116 01f8 17       		.uleb128 0x17
+ 2117 01f9 00       		.byte	0
+ 2118 01fa 00       		.byte	0
+ 2119 01fb 26       		.uleb128 0x26
+ 2120 01fc 1D       		.uleb128 0x1d
+ 2121 01fd 01       		.byte	0x1
+ 2122 01fe 31       		.uleb128 0x31
+ 2123 01ff 13       		.uleb128 0x13
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 46
+
+
+ 2124 0200 11       		.uleb128 0x11
+ 2125 0201 01       		.uleb128 0x1
+ 2126 0202 12       		.uleb128 0x12
+ 2127 0203 06       		.uleb128 0x6
+ 2128 0204 58       		.uleb128 0x58
+ 2129 0205 0B       		.uleb128 0xb
+ 2130 0206 59       		.uleb128 0x59
+ 2131 0207 0B       		.uleb128 0xb
+ 2132 0208 01       		.uleb128 0x1
+ 2133 0209 13       		.uleb128 0x13
+ 2134 020a 00       		.byte	0
+ 2135 020b 00       		.byte	0
+ 2136 020c 27       		.uleb128 0x27
+ 2137 020d 2E       		.uleb128 0x2e
+ 2138 020e 01       		.byte	0x1
+ 2139 020f 3F       		.uleb128 0x3f
+ 2140 0210 19       		.uleb128 0x19
+ 2141 0211 03       		.uleb128 0x3
+ 2142 0212 0E       		.uleb128 0xe
+ 2143 0213 3A       		.uleb128 0x3a
+ 2144 0214 0B       		.uleb128 0xb
+ 2145 0215 3B       		.uleb128 0x3b
+ 2146 0216 0B       		.uleb128 0xb
+ 2147 0217 27       		.uleb128 0x27
+ 2148 0218 19       		.uleb128 0x19
+ 2149 0219 11       		.uleb128 0x11
+ 2150 021a 01       		.uleb128 0x1
+ 2151 021b 12       		.uleb128 0x12
+ 2152 021c 06       		.uleb128 0x6
+ 2153 021d 40       		.uleb128 0x40
+ 2154 021e 18       		.uleb128 0x18
+ 2155 021f 9642     		.uleb128 0x2116
+ 2156 0221 19       		.uleb128 0x19
+ 2157 0222 01       		.uleb128 0x1
+ 2158 0223 13       		.uleb128 0x13
+ 2159 0224 00       		.byte	0
+ 2160 0225 00       		.byte	0
+ 2161 0226 28       		.uleb128 0x28
+ 2162 0227 898201   		.uleb128 0x4109
+ 2163 022a 01       		.byte	0x1
+ 2164 022b 11       		.uleb128 0x11
+ 2165 022c 01       		.uleb128 0x1
+ 2166 022d 00       		.byte	0
+ 2167 022e 00       		.byte	0
+ 2168 022f 29       		.uleb128 0x29
+ 2169 0230 2E       		.uleb128 0x2e
+ 2170 0231 00       		.byte	0
+ 2171 0232 3F       		.uleb128 0x3f
+ 2172 0233 19       		.uleb128 0x19
+ 2173 0234 3C       		.uleb128 0x3c
+ 2174 0235 19       		.uleb128 0x19
+ 2175 0236 6E       		.uleb128 0x6e
+ 2176 0237 0E       		.uleb128 0xe
+ 2177 0238 03       		.uleb128 0x3
+ 2178 0239 0E       		.uleb128 0xe
+ 2179 023a 3A       		.uleb128 0x3a
+ 2180 023b 0B       		.uleb128 0xb
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 47
+
+
+ 2181 023c 3B       		.uleb128 0x3b
+ 2182 023d 0B       		.uleb128 0xb
+ 2183 023e 00       		.byte	0
+ 2184 023f 00       		.byte	0
+ 2185 0240 2A       		.uleb128 0x2a
+ 2186 0241 2E       		.uleb128 0x2e
+ 2187 0242 00       		.byte	0
+ 2188 0243 3F       		.uleb128 0x3f
+ 2189 0244 19       		.uleb128 0x19
+ 2190 0245 3C       		.uleb128 0x3c
+ 2191 0246 19       		.uleb128 0x19
+ 2192 0247 6E       		.uleb128 0x6e
+ 2193 0248 0E       		.uleb128 0xe
+ 2194 0249 03       		.uleb128 0x3
+ 2195 024a 0E       		.uleb128 0xe
+ 2196 024b 00       		.byte	0
+ 2197 024c 00       		.byte	0
+ 2198 024d 2B       		.uleb128 0x2b
+ 2199 024e 2E       		.uleb128 0x2e
+ 2200 024f 00       		.byte	0
+ 2201 0250 3F       		.uleb128 0x3f
+ 2202 0251 19       		.uleb128 0x19
+ 2203 0252 3C       		.uleb128 0x3c
+ 2204 0253 19       		.uleb128 0x19
+ 2205 0254 6E       		.uleb128 0x6e
+ 2206 0255 0E       		.uleb128 0xe
+ 2207 0256 03       		.uleb128 0x3
+ 2208 0257 0E       		.uleb128 0xe
+ 2209 0258 3A       		.uleb128 0x3a
+ 2210 0259 0B       		.uleb128 0xb
+ 2211 025a 3B       		.uleb128 0x3b
+ 2212 025b 05       		.uleb128 0x5
+ 2213 025c 00       		.byte	0
+ 2214 025d 00       		.byte	0
+ 2215 025e 00       		.byte	0
+ 2216              		.section	.debug_loc,"",%progbits
+ 2217              	.Ldebug_loc0:
+ 2218              	.LLST0:
+ 2219 0000 0A000000 		.4byte	.LVL2
+ 2220 0004 17000000 		.4byte	.LVL3-1
+ 2221 0008 0100     		.2byte	0x1
+ 2222 000a 50       		.byte	0x50
+ 2223 000b 17000000 		.4byte	.LVL3-1
+ 2224 000f 1A000000 		.4byte	.LVL4
+ 2225 0013 0100     		.2byte	0x1
+ 2226 0015 54       		.byte	0x54
+ 2227 0016 1A000000 		.4byte	.LVL4
+ 2228 001a 1C000000 		.4byte	.LFE22
+ 2229 001e 0100     		.2byte	0x1
+ 2230 0020 50       		.byte	0x50
+ 2231 0021 00000000 		.4byte	0
+ 2232 0025 00000000 		.4byte	0
+ 2233              	.LLST1:
+ 2234 0029 00000000 		.4byte	.LVL5
+ 2235 002d 1C000000 		.4byte	.LVL8
+ 2236 0031 0100     		.2byte	0x1
+ 2237 0033 50       		.byte	0x50
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 48
+
+
+ 2238 0034 1C000000 		.4byte	.LVL8
+ 2239 0038 7A000000 		.4byte	.LVL11
+ 2240 003c 0100     		.2byte	0x1
+ 2241 003e 54       		.byte	0x54
+ 2242 003f 7A000000 		.4byte	.LVL11
+ 2243 0043 80000000 		.4byte	.LFE24
+ 2244 0047 0400     		.2byte	0x4
+ 2245 0049 F3       		.byte	0xf3
+ 2246 004a 01       		.uleb128 0x1
+ 2247 004b 50       		.byte	0x50
+ 2248 004c 9F       		.byte	0x9f
+ 2249 004d 00000000 		.4byte	0
+ 2250 0051 00000000 		.4byte	0
+ 2251              	.LLST2:
+ 2252 0055 00000000 		.4byte	.LVL5
+ 2253 0059 1A000000 		.4byte	.LVL7
+ 2254 005d 0100     		.2byte	0x1
+ 2255 005f 51       		.byte	0x51
+ 2256 0060 1A000000 		.4byte	.LVL7
+ 2257 0064 7A000000 		.4byte	.LVL13
+ 2258 0068 0100     		.2byte	0x1
+ 2259 006a 56       		.byte	0x56
+ 2260 006b 7A000000 		.4byte	.LVL13
+ 2261 006f 80000000 		.4byte	.LFE24
+ 2262 0073 0400     		.2byte	0x4
+ 2263 0075 F3       		.byte	0xf3
+ 2264 0076 01       		.uleb128 0x1
+ 2265 0077 51       		.byte	0x51
+ 2266 0078 9F       		.byte	0x9f
+ 2267 0079 00000000 		.4byte	0
+ 2268 007d 00000000 		.4byte	0
+ 2269              	.LLST3:
+ 2270 0081 00000000 		.4byte	.LVL5
+ 2271 0085 16000000 		.4byte	.LVL6
+ 2272 0089 0100     		.2byte	0x1
+ 2273 008b 52       		.byte	0x52
+ 2274 008c 16000000 		.4byte	.LVL6
+ 2275 0090 7A000000 		.4byte	.LVL12
+ 2276 0094 0100     		.2byte	0x1
+ 2277 0096 55       		.byte	0x55
+ 2278 0097 7A000000 		.4byte	.LVL12
+ 2279 009b 80000000 		.4byte	.LFE24
+ 2280 009f 0400     		.2byte	0x4
+ 2281 00a1 F3       		.byte	0xf3
+ 2282 00a2 01       		.uleb128 0x1
+ 2283 00a3 52       		.byte	0x52
+ 2284 00a4 9F       		.byte	0x9f
+ 2285 00a5 00000000 		.4byte	0
+ 2286 00a9 00000000 		.4byte	0
+ 2287              	.LLST4:
+ 2288 00ad 00000000 		.4byte	.LVL14
+ 2289 00b1 08000000 		.4byte	.LVL15
+ 2290 00b5 0100     		.2byte	0x1
+ 2291 00b7 50       		.byte	0x50
+ 2292 00b8 08000000 		.4byte	.LVL15
+ 2293 00bc 20000000 		.4byte	.LVL19
+ 2294 00c0 0100     		.2byte	0x1
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 49
+
+
+ 2295 00c2 55       		.byte	0x55
+ 2296 00c3 20000000 		.4byte	.LVL19
+ 2297 00c7 22000000 		.4byte	.LVL20
+ 2298 00cb 0100     		.2byte	0x1
+ 2299 00cd 50       		.byte	0x50
+ 2300 00ce 22000000 		.4byte	.LVL20
+ 2301 00d2 28000000 		.4byte	.LVL22
+ 2302 00d6 0100     		.2byte	0x1
+ 2303 00d8 55       		.byte	0x55
+ 2304 00d9 28000000 		.4byte	.LVL22
+ 2305 00dd 2A000000 		.4byte	.LFE26
+ 2306 00e1 0400     		.2byte	0x4
+ 2307 00e3 F3       		.byte	0xf3
+ 2308 00e4 01       		.uleb128 0x1
+ 2309 00e5 50       		.byte	0x50
+ 2310 00e6 9F       		.byte	0x9f
+ 2311 00e7 00000000 		.4byte	0
+ 2312 00eb 00000000 		.4byte	0
+ 2313              	.LLST5:
+ 2314 00ef 08000000 		.4byte	.LVL15
+ 2315 00f3 20000000 		.4byte	.LVL19
+ 2316 00f7 0100     		.2byte	0x1
+ 2317 00f9 54       		.byte	0x54
+ 2318 00fa 22000000 		.4byte	.LVL20
+ 2319 00fe 28000000 		.4byte	.LVL21
+ 2320 0102 0100     		.2byte	0x1
+ 2321 0104 54       		.byte	0x54
+ 2322 0105 00000000 		.4byte	0
+ 2323 0109 00000000 		.4byte	0
+ 2324              	.LLST6:
+ 2325 010d 14000000 		.4byte	.LVL16
+ 2326 0111 1B000000 		.4byte	.LVL17-1
+ 2327 0115 0100     		.2byte	0x1
+ 2328 0117 53       		.byte	0x53
+ 2329 0118 00000000 		.4byte	0
+ 2330 011c 00000000 		.4byte	0
+ 2331              	.LLST7:
+ 2332 0120 00000000 		.4byte	.LVL23
+ 2333 0124 0B000000 		.4byte	.LVL24-1
+ 2334 0128 0100     		.2byte	0x1
+ 2335 012a 50       		.byte	0x50
+ 2336 012b 0B000000 		.4byte	.LVL24-1
+ 2337 012f 18000000 		.4byte	.LVL27
+ 2338 0133 0100     		.2byte	0x1
+ 2339 0135 54       		.byte	0x54
+ 2340 0136 18000000 		.4byte	.LVL27
+ 2341 013a 1A000000 		.4byte	.LFE23
+ 2342 013e 0400     		.2byte	0x4
+ 2343 0140 F3       		.byte	0xf3
+ 2344 0141 01       		.uleb128 0x1
+ 2345 0142 50       		.byte	0x50
+ 2346 0143 9F       		.byte	0x9f
+ 2347 0144 00000000 		.4byte	0
+ 2348 0148 00000000 		.4byte	0
+ 2349              	.LLST8:
+ 2350 014c 00000000 		.4byte	.LVL29
+ 2351 0150 08000000 		.4byte	.LVL30
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 50
+
+
+ 2352 0154 0100     		.2byte	0x1
+ 2353 0156 50       		.byte	0x50
+ 2354 0157 08000000 		.4byte	.LVL30
+ 2355 015b 2E000000 		.4byte	.LVL35
+ 2356 015f 0100     		.2byte	0x1
+ 2357 0161 56       		.byte	0x56
+ 2358 0162 2E000000 		.4byte	.LVL35
+ 2359 0166 32000000 		.4byte	.LVL36
+ 2360 016a 0100     		.2byte	0x1
+ 2361 016c 50       		.byte	0x50
+ 2362 016d 32000000 		.4byte	.LVL36
+ 2363 0171 3A000000 		.4byte	.LVL38
+ 2364 0175 0100     		.2byte	0x1
+ 2365 0177 56       		.byte	0x56
+ 2366 0178 3A000000 		.4byte	.LVL38
+ 2367 017c 3C000000 		.4byte	.LFE29
+ 2368 0180 0400     		.2byte	0x4
+ 2369 0182 F3       		.byte	0xf3
+ 2370 0183 01       		.uleb128 0x1
+ 2371 0184 50       		.byte	0x50
+ 2372 0185 9F       		.byte	0x9f
+ 2373 0186 00000000 		.4byte	0
+ 2374 018a 00000000 		.4byte	0
+ 2375              	.LLST9:
+ 2376 018e 08000000 		.4byte	.LVL30
+ 2377 0192 2E000000 		.4byte	.LVL35
+ 2378 0196 0100     		.2byte	0x1
+ 2379 0198 57       		.byte	0x57
+ 2380 0199 32000000 		.4byte	.LVL36
+ 2381 019d 3A000000 		.4byte	.LVL39
+ 2382 01a1 0100     		.2byte	0x1
+ 2383 01a3 57       		.byte	0x57
+ 2384 01a4 00000000 		.4byte	0
+ 2385 01a8 00000000 		.4byte	0
+ 2386              	.LLST10:
+ 2387 01ac 08000000 		.4byte	.LVL30
+ 2388 01b0 2E000000 		.4byte	.LVL35
+ 2389 01b4 0100     		.2byte	0x1
+ 2390 01b6 55       		.byte	0x55
+ 2391 01b7 32000000 		.4byte	.LVL36
+ 2392 01bb 3A000000 		.4byte	.LVL37
+ 2393 01bf 0100     		.2byte	0x1
+ 2394 01c1 55       		.byte	0x55
+ 2395 01c2 00000000 		.4byte	0
+ 2396 01c6 00000000 		.4byte	0
+ 2397              	.LLST11:
+ 2398 01ca 16000000 		.4byte	.LVL31
+ 2399 01ce 2E000000 		.4byte	.LVL35
+ 2400 01d2 0100     		.2byte	0x1
+ 2401 01d4 50       		.byte	0x50
+ 2402 01d5 00000000 		.4byte	0
+ 2403 01d9 00000000 		.4byte	0
+ 2404              	.LLST12:
+ 2405 01dd 00000000 		.4byte	.LVL40
+ 2406 01e1 0D000000 		.4byte	.LVL41-1
+ 2407 01e5 0100     		.2byte	0x1
+ 2408 01e7 50       		.byte	0x50
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 51
+
+
+ 2409 01e8 0D000000 		.4byte	.LVL41-1
+ 2410 01ec 62000000 		.4byte	.LVL59
+ 2411 01f0 0100     		.2byte	0x1
+ 2412 01f2 57       		.byte	0x57
+ 2413 01f3 62000000 		.4byte	.LVL59
+ 2414 01f7 64000000 		.4byte	.LFE25
+ 2415 01fb 0400     		.2byte	0x4
+ 2416 01fd F3       		.byte	0xf3
+ 2417 01fe 01       		.uleb128 0x1
+ 2418 01ff 50       		.byte	0x50
+ 2419 0200 9F       		.byte	0x9f
+ 2420 0201 00000000 		.4byte	0
+ 2421 0205 00000000 		.4byte	0
+ 2422              	.LLST13:
+ 2423 0209 10000000 		.4byte	.LVL42
+ 2424 020d 16000000 		.4byte	.LVL44
+ 2425 0211 0100     		.2byte	0x1
+ 2426 0213 50       		.byte	0x50
+ 2427 0214 16000000 		.4byte	.LVL44
+ 2428 0218 62000000 		.4byte	.LVL56
+ 2429 021c 0200     		.2byte	0x2
+ 2430 021e 7D       		.byte	0x7d
+ 2431 021f 00       		.sleb128 0
+ 2432 0220 62000000 		.4byte	.LVL56
+ 2433 0224 64000000 		.4byte	.LFE25
+ 2434 0228 0300     		.2byte	0x3
+ 2435 022a 91       		.byte	0x91
+ 2436 022b 987F     		.sleb128 -104
+ 2437 022d 00000000 		.4byte	0
+ 2438 0231 00000000 		.4byte	0
+ 2439              	.LLST14:
+ 2440 0235 12000000 		.4byte	.LVL43
+ 2441 0239 62000000 		.4byte	.LVL58
+ 2442 023d 0100     		.2byte	0x1
+ 2443 023f 56       		.byte	0x56
+ 2444 0240 00000000 		.4byte	0
+ 2445 0244 00000000 		.4byte	0
+ 2446              	.LLST15:
+ 2447 0248 12000000 		.4byte	.LVL43
+ 2448 024c 16000000 		.4byte	.LVL44
+ 2449 0250 0200     		.2byte	0x2
+ 2450 0252 30       		.byte	0x30
+ 2451 0253 9F       		.byte	0x9f
+ 2452 0254 16000000 		.4byte	.LVL44
+ 2453 0258 62000000 		.4byte	.LVL57
+ 2454 025c 0100     		.2byte	0x1
+ 2455 025e 55       		.byte	0x55
+ 2456 025f 00000000 		.4byte	0
+ 2457 0263 00000000 		.4byte	0
+ 2458              	.LLST16:
+ 2459 0267 30000000 		.4byte	.LVL46
+ 2460 026b 44000000 		.4byte	.LVL49
+ 2461 026f 0100     		.2byte	0x1
+ 2462 0271 53       		.byte	0x53
+ 2463 0272 44000000 		.4byte	.LVL49
+ 2464 0276 4C000000 		.4byte	.LVL51
+ 2465 027a 0300     		.2byte	0x3
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 52
+
+
+ 2466 027c 74       		.byte	0x74
+ 2467 027d C400     		.sleb128 68
+ 2468 027f 4C000000 		.4byte	.LVL51
+ 2469 0283 4E000000 		.4byte	.LVL52
+ 2470 0287 0100     		.2byte	0x1
+ 2471 0289 53       		.byte	0x53
+ 2472 028a 4E000000 		.4byte	.LVL52
+ 2473 028e 55000000 		.4byte	.LVL54-1
+ 2474 0292 0300     		.2byte	0x3
+ 2475 0294 74       		.byte	0x74
+ 2476 0295 C400     		.sleb128 68
+ 2477 0297 00000000 		.4byte	0
+ 2478 029b 00000000 		.4byte	0
+ 2479              	.LLST17:
+ 2480 029f 36000000 		.4byte	.LVL47
+ 2481 02a3 3E000000 		.4byte	.LVL48
+ 2482 02a7 0100     		.2byte	0x1
+ 2483 02a9 52       		.byte	0x52
+ 2484 02aa 3E000000 		.4byte	.LVL48
+ 2485 02ae 4C000000 		.4byte	.LVL51
+ 2486 02b2 0200     		.2byte	0x2
+ 2487 02b4 91       		.byte	0x91
+ 2488 02b5 4C       		.sleb128 -52
+ 2489 02b6 00000000 		.4byte	0
+ 2490 02ba 00000000 		.4byte	0
+ 2491              	.LLST18:
+ 2492 02be 44000000 		.4byte	.LVL49
+ 2493 02c2 48000000 		.4byte	.LVL50
+ 2494 02c6 0700     		.2byte	0x7
+ 2495 02c8 7D       		.byte	0x7d
+ 2496 02c9 00       		.sleb128 0
+ 2497 02ca 06       		.byte	0x6
+ 2498 02cb 73       		.byte	0x73
+ 2499 02cc 00       		.sleb128 0
+ 2500 02cd 1C       		.byte	0x1c
+ 2501 02ce 9F       		.byte	0x9f
+ 2502 02cf 48000000 		.4byte	.LVL50
+ 2503 02d3 4C000000 		.4byte	.LVL51
+ 2504 02d7 0C00     		.2byte	0xc
+ 2505 02d9 7D       		.byte	0x7d
+ 2506 02da 00       		.sleb128 0
+ 2507 02db 06       		.byte	0x6
+ 2508 02dc 74       		.byte	0x74
+ 2509 02dd C400     		.sleb128 68
+ 2510 02df 06       		.byte	0x6
+ 2511 02e0 1C       		.byte	0x1c
+ 2512 02e1 7C       		.byte	0x7c
+ 2513 02e2 00       		.sleb128 0
+ 2514 02e3 1C       		.byte	0x1c
+ 2515 02e4 9F       		.byte	0x9f
+ 2516 02e5 00000000 		.4byte	0
+ 2517 02e9 00000000 		.4byte	0
+ 2518              	.LLST19:
+ 2519 02ed 44000000 		.4byte	.LVL49
+ 2520 02f1 4C000000 		.4byte	.LVL51
+ 2521 02f5 0400     		.2byte	0x4
+ 2522 02f7 91       		.byte	0x91
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 53
+
+
+ 2523 02f8 A47F     		.sleb128 -92
+ 2524 02fa 9F       		.byte	0x9f
+ 2525 02fb 00000000 		.4byte	0
+ 2526 02ff 00000000 		.4byte	0
+ 2527              	.LLST20:
+ 2528 0303 4C000000 		.4byte	.LVL51
+ 2529 0307 4E000000 		.4byte	.LVL52
+ 2530 030b 0100     		.2byte	0x1
+ 2531 030d 53       		.byte	0x53
+ 2532 030e 4E000000 		.4byte	.LVL52
+ 2533 0312 50000000 		.4byte	.LVL53
+ 2534 0316 0300     		.2byte	0x3
+ 2535 0318 74       		.byte	0x74
+ 2536 0319 C400     		.sleb128 68
+ 2537 031b 00000000 		.4byte	0
+ 2538 031f 00000000 		.4byte	0
+ 2539              	.LLST21:
+ 2540 0323 4C000000 		.4byte	.LVL51
+ 2541 0327 50000000 		.4byte	.LVL53
+ 2542 032b 0400     		.2byte	0x4
+ 2543 032d 91       		.byte	0x91
+ 2544 032e A47F     		.sleb128 -92
+ 2545 0330 9F       		.byte	0x9f
+ 2546 0331 00000000 		.4byte	0
+ 2547 0335 00000000 		.4byte	0
+ 2548              	.LLST22:
+ 2549 0339 00000000 		.4byte	.LVL60
+ 2550 033d 0F000000 		.4byte	.LVL61-1
+ 2551 0341 0100     		.2byte	0x1
+ 2552 0343 50       		.byte	0x50
+ 2553 0344 0F000000 		.4byte	.LVL61-1
+ 2554 0348 60000000 		.4byte	.LVL78
+ 2555 034c 0100     		.2byte	0x1
+ 2556 034e 56       		.byte	0x56
+ 2557 034f 60000000 		.4byte	.LVL78
+ 2558 0353 68000000 		.4byte	.LFE28
+ 2559 0357 0400     		.2byte	0x4
+ 2560 0359 F3       		.byte	0xf3
+ 2561 035a 01       		.uleb128 0x1
+ 2562 035b 50       		.byte	0x50
+ 2563 035c 9F       		.byte	0x9f
+ 2564 035d 00000000 		.4byte	0
+ 2565 0361 00000000 		.4byte	0
+ 2566              	.LLST23:
+ 2567 0365 00000000 		.4byte	.LVL60
+ 2568 0369 0F000000 		.4byte	.LVL61-1
+ 2569 036d 0100     		.2byte	0x1
+ 2570 036f 51       		.byte	0x51
+ 2571 0370 0F000000 		.4byte	.LVL61-1
+ 2572 0374 68000000 		.4byte	.LFE28
+ 2573 0378 0400     		.2byte	0x4
+ 2574 037a F3       		.byte	0xf3
+ 2575 037b 01       		.uleb128 0x1
+ 2576 037c 51       		.byte	0x51
+ 2577 037d 9F       		.byte	0x9f
+ 2578 037e 00000000 		.4byte	0
+ 2579 0382 00000000 		.4byte	0
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 54
+
+
+ 2580              	.LLST24:
+ 2581 0386 10000000 		.4byte	.LVL61
+ 2582 038a 12000000 		.4byte	.LVL62
+ 2583 038e 0100     		.2byte	0x1
+ 2584 0390 50       		.byte	0x50
+ 2585 0391 00000000 		.4byte	0
+ 2586 0395 00000000 		.4byte	0
+ 2587              	.LLST25:
+ 2588 0399 1A000000 		.4byte	.LVL64
+ 2589 039d 1E000000 		.4byte	.LVL65
+ 2590 03a1 0100     		.2byte	0x1
+ 2591 03a3 50       		.byte	0x50
+ 2592 03a4 1E000000 		.4byte	.LVL65
+ 2593 03a8 60000000 		.4byte	.LVL79
+ 2594 03ac 0100     		.2byte	0x1
+ 2595 03ae 57       		.byte	0x57
+ 2596 03af 00000000 		.4byte	0
+ 2597 03b3 00000000 		.4byte	0
+ 2598              	.LLST26:
+ 2599 03b7 1A000000 		.4byte	.LVL64
+ 2600 03bb 1E000000 		.4byte	.LVL65
+ 2601 03bf 0200     		.2byte	0x2
+ 2602 03c1 30       		.byte	0x30
+ 2603 03c2 9F       		.byte	0x9f
+ 2604 03c3 1E000000 		.4byte	.LVL65
+ 2605 03c7 60000000 		.4byte	.LVL77
+ 2606 03cb 0100     		.2byte	0x1
+ 2607 03cd 55       		.byte	0x55
+ 2608 03ce 00000000 		.4byte	0
+ 2609 03d2 00000000 		.4byte	0
+ 2610              	.LLST27:
+ 2611 03d6 2A000000 		.4byte	.LVL66
+ 2612 03da 5A000000 		.4byte	.LVL76
+ 2613 03de 0100     		.2byte	0x1
+ 2614 03e0 54       		.byte	0x54
+ 2615 03e1 00000000 		.4byte	0
+ 2616 03e5 00000000 		.4byte	0
+ 2617              	.LLST28:
+ 2618 03e9 32000000 		.4byte	.LVL67
+ 2619 03ed 44000000 		.4byte	.LVL70
+ 2620 03f1 0100     		.2byte	0x1
+ 2621 03f3 53       		.byte	0x53
+ 2622 03f4 44000000 		.4byte	.LVL70
+ 2623 03f8 4B000000 		.4byte	.LVL71-1
+ 2624 03fc 0300     		.2byte	0x3
+ 2625 03fe 74       		.byte	0x74
+ 2626 03ff C400     		.sleb128 68
+ 2627 0401 50000000 		.4byte	.LVL73
+ 2628 0405 52000000 		.4byte	.LVL74
+ 2629 0409 0100     		.2byte	0x1
+ 2630 040b 53       		.byte	0x53
+ 2631 040c 00000000 		.4byte	0
+ 2632 0410 00000000 		.4byte	0
+ 2633              	.LLST29:
+ 2634 0414 32000000 		.4byte	.LVL67
+ 2635 0418 38000000 		.4byte	.LVL68
+ 2636 041c 0200     		.2byte	0x2
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 55
+
+
+ 2637 041e 30       		.byte	0x30
+ 2638 041f 9F       		.byte	0x9f
+ 2639 0420 38000000 		.4byte	.LVL68
+ 2640 0424 3A000000 		.4byte	.LVL69
+ 2641 0428 0100     		.2byte	0x1
+ 2642 042a 51       		.byte	0x51
+ 2643 042b 3A000000 		.4byte	.LVL69
+ 2644 042f 4E000000 		.4byte	.LVL72
+ 2645 0433 0200     		.2byte	0x2
+ 2646 0435 30       		.byte	0x30
+ 2647 0436 9F       		.byte	0x9f
+ 2648 0437 4E000000 		.4byte	.LVL72
+ 2649 043b 50000000 		.4byte	.LVL73
+ 2650 043f 0100     		.2byte	0x1
+ 2651 0441 50       		.byte	0x50
+ 2652 0442 50000000 		.4byte	.LVL73
+ 2653 0446 52000000 		.4byte	.LVL74
+ 2654 044a 0200     		.2byte	0x2
+ 2655 044c 30       		.byte	0x30
+ 2656 044d 9F       		.byte	0x9f
+ 2657 044e 52000000 		.4byte	.LVL74
+ 2658 0452 57000000 		.4byte	.LVL75-1
+ 2659 0456 0100     		.2byte	0x1
+ 2660 0458 51       		.byte	0x51
+ 2661 0459 00000000 		.4byte	0
+ 2662 045d 00000000 		.4byte	0
+ 2663              	.LLST30:
+ 2664 0461 00000000 		.4byte	.LVL80
+ 2665 0465 08000000 		.4byte	.LVL81
+ 2666 0469 0100     		.2byte	0x1
+ 2667 046b 50       		.byte	0x50
+ 2668 046c 08000000 		.4byte	.LVL81
+ 2669 0470 0A000000 		.4byte	.LFE30
+ 2670 0474 0400     		.2byte	0x4
+ 2671 0476 F3       		.byte	0xf3
+ 2672 0477 01       		.uleb128 0x1
+ 2673 0478 50       		.byte	0x50
+ 2674 0479 9F       		.byte	0x9f
+ 2675 047a 00000000 		.4byte	0
+ 2676 047e 00000000 		.4byte	0
+ 2677              		.section	.debug_aranges,"",%progbits
+ 2678 0000 64000000 		.4byte	0x64
+ 2679 0004 0200     		.2byte	0x2
+ 2680 0006 00000000 		.4byte	.Ldebug_info0
+ 2681 000a 04       		.byte	0x4
+ 2682 000b 00       		.byte	0
+ 2683 000c 0000     		.2byte	0
+ 2684 000e 0000     		.2byte	0
+ 2685 0010 00000000 		.4byte	.LFB31
+ 2686 0014 02000000 		.4byte	.LFE31-.LFB31
+ 2687 0018 00000000 		.4byte	.LFB22
+ 2688 001c 1C000000 		.4byte	.LFE22-.LFB22
+ 2689 0020 00000000 		.4byte	.LFB24
+ 2690 0024 80000000 		.4byte	.LFE24-.LFB24
+ 2691 0028 00000000 		.4byte	.LFB26
+ 2692 002c 2A000000 		.4byte	.LFE26-.LFB26
+ 2693 0030 00000000 		.4byte	.LFB23
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 56
+
+
+ 2694 0034 1A000000 		.4byte	.LFE23-.LFB23
+ 2695 0038 00000000 		.4byte	.LFB27
+ 2696 003c 0A000000 		.4byte	.LFE27-.LFB27
+ 2697 0040 00000000 		.4byte	.LFB29
+ 2698 0044 3C000000 		.4byte	.LFE29-.LFB29
+ 2699 0048 00000000 		.4byte	.LFB25
+ 2700 004c 64000000 		.4byte	.LFE25-.LFB25
+ 2701 0050 00000000 		.4byte	.LFB28
+ 2702 0054 68000000 		.4byte	.LFE28-.LFB28
+ 2703 0058 00000000 		.4byte	.LFB30
+ 2704 005c 0A000000 		.4byte	.LFE30-.LFB30
+ 2705 0060 00000000 		.4byte	0
+ 2706 0064 00000000 		.4byte	0
+ 2707              		.section	.debug_ranges,"",%progbits
+ 2708              	.Ldebug_ranges0:
+ 2709 0000 08000000 		.4byte	.LBB9
+ 2710 0004 20000000 		.4byte	.LBE9
+ 2711 0008 22000000 		.4byte	.LBB11
+ 2712 000c 28000000 		.4byte	.LBE11
+ 2713 0010 00000000 		.4byte	0
+ 2714 0014 00000000 		.4byte	0
+ 2715 0018 08000000 		.4byte	.LBB12
+ 2716 001c 2E000000 		.4byte	.LBE12
+ 2717 0020 32000000 		.4byte	.LBB14
+ 2718 0024 38000000 		.4byte	.LBE14
+ 2719 0028 00000000 		.4byte	0
+ 2720 002c 00000000 		.4byte	0
+ 2721 0030 00000000 		.4byte	.LFB31
+ 2722 0034 02000000 		.4byte	.LFE31
+ 2723 0038 00000000 		.4byte	.LFB22
+ 2724 003c 1C000000 		.4byte	.LFE22
+ 2725 0040 00000000 		.4byte	.LFB24
+ 2726 0044 80000000 		.4byte	.LFE24
+ 2727 0048 00000000 		.4byte	.LFB26
+ 2728 004c 2A000000 		.4byte	.LFE26
+ 2729 0050 00000000 		.4byte	.LFB23
+ 2730 0054 1A000000 		.4byte	.LFE23
+ 2731 0058 00000000 		.4byte	.LFB27
+ 2732 005c 0A000000 		.4byte	.LFE27
+ 2733 0060 00000000 		.4byte	.LFB29
+ 2734 0064 3C000000 		.4byte	.LFE29
+ 2735 0068 00000000 		.4byte	.LFB25
+ 2736 006c 64000000 		.4byte	.LFE25
+ 2737 0070 00000000 		.4byte	.LFB28
+ 2738 0074 68000000 		.4byte	.LFE28
+ 2739 0078 00000000 		.4byte	.LFB30
+ 2740 007c 0A000000 		.4byte	.LFE30
+ 2741 0080 00000000 		.4byte	0
+ 2742 0084 00000000 		.4byte	0
+ 2743              		.section	.debug_line,"",%progbits
+ 2744              	.Ldebug_line0:
+ 2745 0000 D6020000 		.section	.debug_str,"MS",%progbits,1
+ 2745      02009101 
+ 2745      00000201 
+ 2745      FB0E0D00 
+ 2745      01010101 
+ 2746              	.LASF24:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 57
+
+
+ 2747 0000 75736572 		.ascii	"user_data\000"
+ 2747      5F646174 
+ 2747      6100
+ 2748              	.LASF69:
+ 2749 000a 76616C75 		.ascii	"value\000"
+ 2749      6500
+ 2750              	.LASF35:
+ 2751 0010 6561726C 		.ascii	"early_apply\000"
+ 2751      795F6170 
+ 2751      706C7900 
+ 2752              	.LASF71:
+ 2753 001c 6C765F6D 		.ascii	"lv_mem_alloc\000"
+ 2753      656D5F61 
+ 2753      6C6C6F63 
+ 2753      00
+ 2754              	.LASF3:
+ 2755 0029 5F5F7569 		.ascii	"__uint8_t\000"
+ 2755      6E74385F 
+ 2755      7400
+ 2756              	.LASF74:
+ 2757 0033 6C765F61 		.ascii	"lv_anim_del\000"
+ 2757      6E696D5F 
+ 2757      64656C00 
+ 2758              	.LASF44:
+ 2759 003f 6C765F61 		.ascii	"lv_anim_t\000"
+ 2759      6E696D5F 
+ 2759      7400
+ 2760              	.LASF21:
+ 2761 0049 72656164 		.ascii	"ready_cb\000"
+ 2761      795F6362 
+ 2761      00
+ 2762              	.LASF11:
+ 2763 0052 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2763      206C6F6E 
+ 2763      6720756E 
+ 2763      7369676E 
+ 2763      65642069 
+ 2764              	.LASF37:
+ 2765 0069 72756E5F 		.ascii	"run_round\000"
+ 2765      726F756E 
+ 2765      6400
+ 2766              	.LASF22:
+ 2767 0073 64656C65 		.ascii	"deleted_cb\000"
+ 2767      7465645F 
+ 2767      636200
+ 2768              	.LASF60:
+ 2769 007e 6C765F61 		.ascii	"lv_anim_timeline_del\000"
+ 2769      6E696D5F 
+ 2769      74696D65 
+ 2769      6C696E65 
+ 2769      5F64656C 
+ 2770              	.LASF10:
+ 2771 0093 6C6F6E67 		.ascii	"long long int\000"
+ 2771      206C6F6E 
+ 2771      6720696E 
+ 2771      7400
+ 2772              	.LASF0:
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 58
+
+
+ 2773 00a1 7369676E 		.ascii	"signed char\000"
+ 2773      65642063 
+ 2773      68617200 
+ 2774              	.LASF38:
+ 2775 00ad 73746172 		.ascii	"start_cb_called\000"
+ 2775      745F6362 
+ 2775      5F63616C 
+ 2775      6C656400 
+ 2776              	.LASF20:
+ 2777 00bd 73746172 		.ascii	"start_cb\000"
+ 2777      745F6362 
+ 2777      00
+ 2778              	.LASF72:
+ 2779 00c6 6C765F6D 		.ascii	"lv_memset_00\000"
+ 2779      656D7365 
+ 2779      745F3030 
+ 2779      00
+ 2780              	.LASF61:
+ 2781 00d3 6C765F61 		.ascii	"lv_anim_timeline_set_reverse\000"
+ 2781      6E696D5F 
+ 2781      74696D65 
+ 2781      6C696E65 
+ 2781      5F736574 
+ 2782              	.LASF66:
+ 2783 00f0 74656D70 		.ascii	"temp\000"
+ 2783      00
+ 2784              	.LASF7:
+ 2785 00f5 6C6F6E67 		.ascii	"long int\000"
+ 2785      20696E74 
+ 2785      00
+ 2786              	.LASF36:
+ 2787 00fe 706C6179 		.ascii	"playback_now\000"
+ 2787      6261636B 
+ 2787      5F6E6F77 
+ 2787      00
+ 2788              	.LASF31:
+ 2789 010b 706C6179 		.ascii	"playback_delay\000"
+ 2789      6261636B 
+ 2789      5F64656C 
+ 2789      617900
+ 2790              	.LASF83:
+ 2791 011a 6D656D63 		.ascii	"memcpy\000"
+ 2791      707900
+ 2792              	.LASF14:
+ 2793 0121 75696E74 		.ascii	"uint16_t\000"
+ 2793      31365F74 
+ 2793      00
+ 2794              	.LASF75:
+ 2795 012a 6C765F6D 		.ascii	"lv_mem_free\000"
+ 2795      656D5F66 
+ 2795      72656500 
+ 2796              	.LASF8:
+ 2797 0136 5F5F7569 		.ascii	"__uint32_t\000"
+ 2797      6E743332 
+ 2797      5F7400
+ 2798              	.LASF46:
+ 2799 0141 5F6C765F 		.ascii	"_lv_anim_t\000"
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 59
+
+
+ 2799      616E696D 
+ 2799      5F7400
+ 2800              	.LASF40:
+ 2801 014c 6C765F61 		.ascii	"lv_anim_ready_cb_t\000"
+ 2801      6E696D5F 
+ 2801      72656164 
+ 2801      795F6362 
+ 2801      5F7400
+ 2802              	.LASF12:
+ 2803 015f 756E7369 		.ascii	"unsigned int\000"
+ 2803      676E6564 
+ 2803      20696E74 
+ 2803      00
+ 2804              	.LASF79:
+ 2805 016c 2E2E5C2E 		.ascii	"..\\..\\..\\arduinoLCD\\test\\Pain Drain\\libraries"
+ 2805      2E5C2E2E 
+ 2805      5C617264 
+ 2805      75696E6F 
+ 2805      4C43445C 
+ 2806 0199 5C6C7667 		.ascii	"\\lvgl\\src\\misc\\lv_anim_timeline.c\000"
+ 2806      6C5C7372 
+ 2806      635C6D69 
+ 2806      73635C6C 
+ 2806      765F616E 
+ 2807              	.LASF9:
+ 2808 01bb 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2808      20756E73 
+ 2808      69676E65 
+ 2808      6420696E 
+ 2808      7400
+ 2809              	.LASF19:
+ 2810 01cd 65786563 		.ascii	"exec_cb\000"
+ 2810      5F636200 
+ 2811              	.LASF63:
+ 2812 01d5 6C765F61 		.ascii	"lv_anim_timeline_get_playtime\000"
+ 2812      6E696D5F 
+ 2812      74696D65 
+ 2812      6C696E65 
+ 2812      5F676574 
+ 2813              	.LASF26:
+ 2814 01f3 73746172 		.ascii	"start_value\000"
+ 2814      745F7661 
+ 2814      6C756500 
+ 2815              	.LASF5:
+ 2816 01ff 73686F72 		.ascii	"short unsigned int\000"
+ 2816      7420756E 
+ 2816      7369676E 
+ 2816      65642069 
+ 2816      6E7400
+ 2817              	.LASF80:
+ 2818 0212 433A5C50 		.ascii	"C:\\Projects\\PainDrain\\firmware\\PainDrain\\PainD"
+ 2818      726F6A65 
+ 2818      6374735C 
+ 2818      5061696E 
+ 2818      44726169 
+ 2819 0240 7261696E 		.ascii	"rain.cydsn\000"
+ 2819      2E637964 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 60
+
+
+ 2819      736E00
+ 2820              	.LASF28:
+ 2821 024b 656E645F 		.ascii	"end_value\000"
+ 2821      76616C75 
+ 2821      6500
+ 2822              	.LASF49:
+ 2823 0255 616E696D 		.ascii	"anim_dsc_cnt\000"
+ 2823      5F647363 
+ 2823      5F636E74 
+ 2823      00
+ 2824              	.LASF51:
+ 2825 0262 73697A65 		.ascii	"sizetype\000"
+ 2825      74797065 
+ 2825      00
+ 2826              	.LASF17:
+ 2827 026b 6C6F6E67 		.ascii	"long double\000"
+ 2827      20646F75 
+ 2827      626C6500 
+ 2828              	.LASF58:
+ 2829 0277 6C765F61 		.ascii	"lv_anim_timeline_add\000"
+ 2829      6E696D5F 
+ 2829      74696D65 
+ 2829      6C696E65 
+ 2829      5F616464 
+ 2830              	.LASF64:
+ 2831 028c 706C6179 		.ascii	"playtime\000"
+ 2831      74696D65 
+ 2831      00
+ 2832              	.LASF29:
+ 2833 0295 74696D65 		.ascii	"time\000"
+ 2833      00
+ 2834              	.LASF42:
+ 2835 029a 6C765F61 		.ascii	"lv_anim_get_value_cb_t\000"
+ 2835      6E696D5F 
+ 2835      6765745F 
+ 2835      76616C75 
+ 2835      655F6362 
+ 2836              	.LASF34:
+ 2837 02b1 72657065 		.ascii	"repeat_cnt\000"
+ 2837      61745F63 
+ 2837      6E7400
+ 2838              	.LASF67:
+ 2839 02bc 6C765F61 		.ascii	"lv_anim_timeline_set_progress\000"
+ 2839      6E696D5F 
+ 2839      74696D65 
+ 2839      6C696E65 
+ 2839      5F736574 
+ 2840              	.LASF73:
+ 2841 02da 6C765F6D 		.ascii	"lv_mem_realloc\000"
+ 2841      656D5F72 
+ 2841      65616C6C 
+ 2841      6F6300
+ 2842              	.LASF27:
+ 2843 02e9 63757272 		.ascii	"current_value\000"
+ 2843      656E745F 
+ 2843      76616C75 
+ 2843      6500
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 61
+
+
+ 2844              	.LASF50:
+ 2845 02f7 72657665 		.ascii	"reverse\000"
+ 2845      72736500 
+ 2846              	.LASF81:
+ 2847 02ff 6C765F61 		.ascii	"lv_anim_set_delay\000"
+ 2847      6E696D5F 
+ 2847      7365745F 
+ 2847      64656C61 
+ 2847      7900
+ 2848              	.LASF47:
+ 2849 0311 5F6C765F 		.ascii	"_lv_anim_timeline_t\000"
+ 2849      616E696D 
+ 2849      5F74696D 
+ 2849      656C696E 
+ 2849      655F7400 
+ 2850              	.LASF56:
+ 2851 0325 5F426F6F 		.ascii	"_Bool\000"
+ 2851      6C00
+ 2852              	.LASF15:
+ 2853 032b 696E7433 		.ascii	"int32_t\000"
+ 2853      325F7400 
+ 2854              	.LASF1:
+ 2855 0333 756E7369 		.ascii	"unsigned char\000"
+ 2855      676E6564 
+ 2855      20636861 
+ 2855      7200
+ 2856              	.LASF68:
+ 2857 0341 70726F67 		.ascii	"progress\000"
+ 2857      72657373 
+ 2857      00
+ 2858              	.LASF57:
+ 2859 034a 64656C61 		.ascii	"delay\000"
+ 2859      7900
+ 2860              	.LASF2:
+ 2861 0350 73686F72 		.ascii	"short int\000"
+ 2861      7420696E 
+ 2861      7400
+ 2862              	.LASF32:
+ 2863 035a 706C6179 		.ascii	"playback_time\000"
+ 2863      6261636B 
+ 2863      5F74696D 
+ 2863      6500
+ 2864              	.LASF82:
+ 2865 0368 6C765F61 		.ascii	"lv_anim_timeline_virtual_exec_cb\000"
+ 2865      6E696D5F 
+ 2865      74696D65 
+ 2865      6C696E65 
+ 2865      5F766972 
+ 2866              	.LASF33:
+ 2867 0389 72657065 		.ascii	"repeat_delay\000"
+ 2867      61745F64 
+ 2867      656C6179 
+ 2867      00
+ 2868              	.LASF16:
+ 2869 0396 75696E74 		.ascii	"uint32_t\000"
+ 2869      33325F74 
+ 2869      00
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 62
+
+
+ 2870              	.LASF78:
+ 2871 039f 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2871      43313120 
+ 2871      352E342E 
+ 2871      31203230 
+ 2871      31363036 
+ 2872 03d2 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 2872      20726576 
+ 2872      6973696F 
+ 2872      6E203233 
+ 2872      37373135 
+ 2873 0405 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 2873      67202D66 
+ 2873      66756E63 
+ 2873      74696F6E 
+ 2873      2D736563 
+ 2874              	.LASF52:
+ 2875 0431 63686172 		.ascii	"char\000"
+ 2875      00
+ 2876              	.LASF4:
+ 2877 0436 5F5F7569 		.ascii	"__uint16_t\000"
+ 2877      6E743136 
+ 2877      5F7400
+ 2878              	.LASF55:
+ 2879 0441 6C765F61 		.ascii	"lv_anim_timeline_dsc_t\000"
+ 2879      6E696D5F 
+ 2879      74696D65 
+ 2879      6C696E65 
+ 2879      5F647363 
+ 2880              	.LASF6:
+ 2881 0458 5F5F696E 		.ascii	"__int32_t\000"
+ 2881      7433325F 
+ 2881      7400
+ 2882              	.LASF39:
+ 2883 0462 6C765F61 		.ascii	"lv_anim_exec_xcb_t\000"
+ 2883      6E696D5F 
+ 2883      65786563 
+ 2883      5F786362 
+ 2883      5F7400
+ 2884              	.LASF54:
+ 2885 0475 73746172 		.ascii	"start_time\000"
+ 2885      745F7469 
+ 2885      6D6500
+ 2886              	.LASF62:
+ 2887 0480 6C765F61 		.ascii	"lv_anim_timeline_create\000"
+ 2887      6E696D5F 
+ 2887      74696D65 
+ 2887      6C696E65 
+ 2887      5F637265 
+ 2888              	.LASF45:
+ 2889 0498 6C765F61 		.ascii	"lv_anim_timeline_t\000"
+ 2889      6E696D5F 
+ 2889      74696D65 
+ 2889      6C696E65 
+ 2889      5F7400
+ 2890              	.LASF41:
+ 2891 04ab 6C765F61 		.ascii	"lv_anim_start_cb_t\000"
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 63
+
+
+ 2891      6E696D5F 
+ 2891      73746172 
+ 2891      745F6362 
+ 2891      5F7400
+ 2892              	.LASF48:
+ 2893 04be 616E696D 		.ascii	"anim_dsc\000"
+ 2893      5F647363 
+ 2893      00
+ 2894              	.LASF43:
+ 2895 04c7 6C765F61 		.ascii	"lv_anim_deleted_cb_t\000"
+ 2895      6E696D5F 
+ 2895      64656C65 
+ 2895      7465645F 
+ 2895      63625F74 
+ 2896              	.LASF70:
+ 2897 04dc 6C765F61 		.ascii	"lv_anim_timeline_get_reverse\000"
+ 2897      6E696D5F 
+ 2897      74696D65 
+ 2897      6C696E65 
+ 2897      5F676574 
+ 2898              	.LASF59:
+ 2899 04f9 6C765F61 		.ascii	"lv_anim_timeline_stop\000"
+ 2899      6E696D5F 
+ 2899      74696D65 
+ 2899      6C696E65 
+ 2899      5F73746F 
+ 2900              	.LASF13:
+ 2901 050f 75696E74 		.ascii	"uint8_t\000"
+ 2901      385F7400 
+ 2902              	.LASF77:
+ 2903 0517 6C765F61 		.ascii	"lv_anim_start\000"
+ 2903      6E696D5F 
+ 2903      73746172 
+ 2903      7400
+ 2904              	.LASF30:
+ 2905 0525 6163745F 		.ascii	"act_time\000"
+ 2905      74696D65 
+ 2905      00
+ 2906              	.LASF53:
+ 2907 052e 616E696D 		.ascii	"anim\000"
+ 2907      00
+ 2908              	.LASF23:
+ 2909 0533 6765745F 		.ascii	"get_value_cb\000"
+ 2909      76616C75 
+ 2909      655F6362 
+ 2909      00
+ 2910              	.LASF76:
+ 2911 0540 6C765F61 		.ascii	"lv_anim_get_playtime\000"
+ 2911      6E696D5F 
+ 2911      6765745F 
+ 2911      706C6179 
+ 2911      74696D65 
+ 2912              	.LASF65:
+ 2913 0555 6C765F61 		.ascii	"lv_anim_timeline_start\000"
+ 2913      6E696D5F 
+ 2913      74696D65 
+ 2913      6C696E65 
+ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8aWFqC.s 			page 64
+
+
+ 2913      5F737461 
+ 2914              	.LASF25:
+ 2915 056c 70617468 		.ascii	"path_cb\000"
+ 2915      5F636200 
+ 2916              	.LASF18:
+ 2917 0574 6C765F61 		.ascii	"lv_anim_path_cb_t\000"
+ 2917      6E696D5F 
+ 2917      70617468 
+ 2917      5F63625F 
+ 2917      7400
+ 2918              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
