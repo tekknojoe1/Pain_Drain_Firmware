@@ -9,5 +9,13 @@
  *
  * ========================================
 */
+#ifndef TENS_H
+#define TENS_H
 
+void set_tens_task(void);
+void set_tens_freq(int item);
+void set_tens_dur(int item);
+void set_tens_amp(int item);
+
+#endif /* TENS_H */
 /* [] END OF FILE */

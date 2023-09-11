@@ -360,6 +360,7 @@ int HostMain(void)
     PWM_TENS_Start();
     PWM_PEL1_Start();
     PWM_PEL2_Start();
+    Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);  //Enable is low
     
     power_init();
     
