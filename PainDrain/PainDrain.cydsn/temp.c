@@ -11,6 +11,7 @@
 */
 #include <project.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "debug.h"
 #include "temp.h"
 
@@ -19,56 +20,37 @@
 void set_temp(int value){
 
     // Limit the value to [-100, 100]
-    if (value < -100) {
-        value = -100;
-    } else if (value > 100) {
-        value = 100;
-    }
-
-    // Scale the value to the PWM range
-    int scaled_pwm = (value * MAX_PWM_VALUE) / 100;
+    value = (value < -100) ? -100 : (value > 100) ? 100 : value;
     
-    if(scaled_pwm > 0){
+    // Scale the value to the PWM range
+    int scaled_pwm = ( abs(value) * MAX_PWM_VALUE) / 100;
+    
+    if(value > 0){
         // Turn off PEL2
         PWM_PEL2_SetCompare0(0);
-        PWM_PEL2_Disable();
+        //PWM_PEL2_Disable();
         
         // Turn on PEL1
-        PWM_PEL1_Enable();
-        PWM_PEL1_SetCompare0(scaled_pwm);
-        
-        // Testing
-        DBG_PRINTF("PWM_PEL1_STATUS: %d\r\n", PWM_PEL1_GetStatus());
-        DBG_PRINTF("PWM_PEL1_GETCOMPARE: %d\r\n", PWM_PEL1_GetCompare0());
-        
-    } else if (scaled_pwm < 0) {
+        //PWM_PEL1_Enable();
+        Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 1);  //Enable is high
+        PWM_PEL1_SetCompare0(scaled_pwm); 
+    } else if (value < 0) {
         // Turn off PEL1
         PWM_PEL1_SetCompare0(0);
-        PWM_PEL1_Disable();
+        //PWM_PEL1_Disable();
         
         // Turn on PEL2
-        PWM_PEL2_Enable();
-        PWM_PEL2_SetCompare0(-scaled_pwm);
-        
-        // Testing
-        DBG_PRINTF("PWM_PEL2_STATUS: %d\r\n", PWM_PEL2_GetStatus());
-        DBG_PRINTF("PWM_PEL2_GETCOMPARE: %d\r\n", PWM_PEL2_GetCompare0());
+        //PWM_PEL2_Enable();
+        Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 1);  //Enable is high
+        PWM_PEL2_SetCompare0(scaled_pwm);
     } else { 
         // Turn off both PELs to save power
         PWM_PEL1_SetCompare0(0);
         PWM_PEL2_SetCompare0(0);
         
-        // Testing
-        DBG_PRINTF("PWM_PEL1_STATUS: %d\r\n", PWM_PEL1_GetStatus());
-        DBG_PRINTF("PWM_PEL2_STATUS: %d\r\n", PWM_PEL1_GetStatus());
-        
-        DBG_PRINTF("PWM_PEL1_GETCOMPARE: %d\r\n", PWM_PEL1_GetCompare0());
-        DBG_PRINTF("PWM_PEL2_GETCOMPARE: %d\r\n", PWM_PEL2_GetCompare0());
-        
-        PWM_PEL1_Disable();
-        PWM_PEL2_Disable();
-        
-
+        //PWM_PEL1_Disable();
+        //PWM_PEL2_Disable();
+        Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);  //Enable is low
     } 
 }
 /* [] END OF FILE */

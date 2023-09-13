@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PainDrain-000\PainDrain\Generated_Source\PSoC6\PWM_PEL1\PWM_PEL1.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PainDrain-000\PainDrain\Host Files\Source Files\vibe.c">
 <ExpandedNodeIds>
 <v>PainDrain-000</v>
 <v>PainDrain-000\PainDrain</v>
@@ -26,7 +26,6 @@
 <v>PainDrain-000\PainDrain\PainDrain.cydwr\Interrupts</v>
 <v>PainDrain-000\PainDrain\PainDrain.cydwr\System</v>
 <v>PainDrain-000\PainDrain\PainDrain.cydwr\Directives</v>
-<v>PainDrain-000\PainDrain\CM0p (Core 0)</v>
 <v>PainDrain-000\PainDrain\CM0p (Core 0)\ARM GCC Generic</v>
 <v>PainDrain-000\PainDrain\CM0p (Core 0)\ARM GCC Generic\cy8c6xx7_cm0plus.ld</v>
 <v>PainDrain-000\PainDrain\CM0p (Core 0)\ARM IAR Generic</v>
@@ -45,7 +44,6 @@
 <v>PainDrain-000\PainDrain\CM0p (Core 0)\Source Files\ARM MDK Generic\startup_psoc6_01_cm0plus.s</v>
 <v>PainDrain-000\PainDrain\CM0p (Core 0)\Source Files\main_cm0p.c</v>
 <v>PainDrain-000\PainDrain\CM0p (Core 0)\Source Files\system_psoc6_cm0plus.c</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ARM GCC Generic</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ARM GCC Generic\cy8c6xx7_cm4_dual.ld</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ARM IAR Generic</v>
@@ -99,6 +97,21 @@
 <v>PainDrain-000\PainDrain\Generated_Source\PSoC6\PWM_PEL1</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>PainDrain-000\PainDrain\PainDrain.cydwr</v>
+<v>PainDrain-000\PainDrain\PainDrain.cydwr\Pins</v>
+<v>PainDrain-000\PainDrain\PainDrain.cydwr\Analog</v>
+<v>PainDrain-000\PainDrain\PainDrain.cydwr\DMA</v>
+<v>PainDrain-000\PainDrain\PainDrain.cydwr\Clocks</v>
+<v>PainDrain-000\PainDrain\PainDrain.cydwr\Interrupts</v>
+<v>PainDrain-000\PainDrain\PainDrain.cydwr\System</v>
+<v>PainDrain-000\PainDrain\PainDrain.cydwr\Directives</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)</v>
+<v>PainDrain-000\PainDrain\Host Files</v>
+<v>PainDrain-000\PainDrain\Host Files\Header Files</v>
+<v>PainDrain-000\PainDrain\Host Files\Header Files\bq24298.h</v>
+<v>PainDrain-000\PainDrain\Host Files\Header Files\common.h</v>
+<v>PainDrain-000\PainDrain\Host Files\Header Files\debug.h</v>
 <v>PainDrain-000\PainDrain\Host Files\Header Files\font.h</v>
 <v>PainDrain-000\PainDrain\Host Files\Header Files\ias.h</v>
 <v>PainDrain-000\PainDrain\Host Files\Header Files\my_i2c.h</v>
@@ -151,21 +164,6 @@
 <v>PainDrain-000\PainDrain\Generated_Source\PSoC6\PWM_PEL1\PWM_PEL1.c</v>
 <v>PainDrain-000\PainDrain\Generated_Source\PSoC6\PWM_PEL1\PWM_PEL1.h</v>
 <v>PainDrain-000\PainDrain\Generated_Source\PSoC6\PWM_PEL2</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\PWM_TENS</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\PWM_TENS2</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\SPI</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\SPI_SCBCLK</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\cycodeshareexport.ld</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\cycodeshareimport.ld</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\cycodeshareimport.scat</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\cydevice_trm.h</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\cydevicegnu_trm.inc</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\cydeviceiar_trm.inc</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\cydevicerv_trm.inc</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\cydisabledsheets.h</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\cyfitter.h</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\cyfitter_cfg.c</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\cyfitter_cfg.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -533,14 +531,17 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
+<name v=".\TopDesign\TopDesign.cysch" />
+<name v=".\PainDrain.cydwr" />
 <name v=".\temp.c" />
 <name v=".\temp.h" />
 <name v=".\host_main.c" />
 <name v=".\power.c" />
-<name v=".\Generated_Source\PSoC6\PWM_PEL1.h" />
 <name v=".\user_interface.c" />
-<name v=".\TopDesign\TopDesign.cysch" />
-<name v=".\PainDrain.cydwr" />
+<name v=".\tens.c" />
+<name v=".\tens.h" />
+<name v=".\vibe.h" />
+<name v=".\vibe.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -548,7 +549,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1119, 892" SelectedTabbedMdiWindow="b8043836-77fb-43da-803f-a3982446acf1"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="79522c35-dbdf-494b-b82c-80a133bdc92c" /><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\temp.c" Guid="2e752494-3653-43b4-b39e-462a12fa1dc2" /><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\temp.h" Guid="bad74031-85ba-4a5b-8ffb-4566830b2c25" /><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\host_main.c" Guid="32f59f63-f76e-408a-9039-6e4b51305ef6" /><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\power.c" Guid="bf6fb1fc-f291-4971-973f-03c6a4916d28" /><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\Generated_Source\PSoC6\PWM_PEL1.h" Guid="960b400b-4bd0-45d0-a5aa-903d443a3ebe" /><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\user_interface.c" Guid="71b6311e-f52c-4dd0-9e1e-283658f8c195" /><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\TopDesign\TopDesign.cysch" Guid="b8043836-77fb-43da-803f-a3982446acf1" /><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\PainDrain.cydwr" Guid="5ad85f8e-cb1e-4c5e-ba4b-322b4fbab24f" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1119, 892" SelectedTabbedMdiWindow="bf6fb1fc-f291-4971-973f-03c6a4916d28"><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\TopDesign\TopDesign.cysch" Guid="b8043836-77fb-43da-803f-a3982446acf1" /><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\PainDrain.cydwr" Guid="5ad85f8e-cb1e-4c5e-ba4b-322b4fbab24f" /><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\temp.c" Guid="2e752494-3653-43b4-b39e-462a12fa1dc2" /><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\temp.h" Guid="bad74031-85ba-4a5b-8ffb-4566830b2c25" /><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\host_main.c" Guid="32f59f63-f76e-408a-9039-6e4b51305ef6" /><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\power.c" Guid="bf6fb1fc-f291-4971-973f-03c6a4916d28" /><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\user_interface.c" Guid="71b6311e-f52c-4dd0-9e1e-283658f8c195" /><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\tens.c" Guid="c5c6ad0c-d94b-4880-be45-731f21f9f236" /><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\tens.h" Guid="c09e6d67-d4d1-4790-9595-dead9313b8d1" /><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\vibe.h" Guid="06ed6b37-bf38-4293-aa23-3c458101de68" /><DocumentWindow Key="C:\Users\zunis\Desktop\WorkPainDrain\Pain_Drain_Firmware\PainDrain\PainDrain.cydsn\vibe.c" Guid="4e6321dc-a583-42e2-99dc-3e020ced5fa5" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="79522c35-dbdf-494b-b82c-80a133bdc92c" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

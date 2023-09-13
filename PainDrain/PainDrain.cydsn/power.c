@@ -16,6 +16,7 @@
 
 #define POWER_IDLE 0
 #define POWER_DOWN 10
+#define MAX_LCD_PWM 191 // limit to 80 percent of 255
 static int power_state = 0;
 static uint32 power_timeout = 0;
 static uint32 power_flags = 0;   //Each bit indicates an active system. If all bits are zero we power down the entire device
@@ -61,7 +62,7 @@ void power_init( void ) {
     power_timeout = POWER_DISPLAY_TIMEOUT_INTERVAL;
     
     LCD_PWM_Start();
-    LCD_PWM_SetCompare0(255);  //Set to full brightness
+    LCD_PWM_SetCompare0(MAX_LCD_PWM);  //Set to full brightness
     
     bq24298_init();
     
@@ -91,7 +92,7 @@ void power_5v_off( void ) {
 void power_wakeup( void ) {
     
     power_timeout = POWER_DISPLAY_TIMEOUT_INTERVAL;
-    LCD_PWM_SetCompare0(255);  //Set to full brightness 
+    LCD_PWM_SetCompare0(MAX_LCD_PWM);  //Set to full brightness 
     
 }
 
