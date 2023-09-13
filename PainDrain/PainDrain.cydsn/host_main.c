@@ -246,6 +246,8 @@ void AppCallBack(uint32 event, void *eventParam)
                     // Handle error
                     DBG_PRINTF("Read error\r\n");
                 }
+                
+                // Test to see if charger was working properly
                 pinReadValue = Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM);
                 DBG_PRINTF("charge status: %d\r\n", pinReadValue);
                 
