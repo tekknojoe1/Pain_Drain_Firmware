@@ -9,15 +9,8 @@
  *
  * ========================================
 */
-#include <project.h>
-#include <stdio.h>
-#include "debug.h"
-#include "tens.h"
 
-<<<<<<< HEAD
-=======
 
->>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 #include <project.h>
 #include <stdlib.h>
 

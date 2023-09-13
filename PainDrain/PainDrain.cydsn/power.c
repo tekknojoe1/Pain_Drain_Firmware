@@ -64,10 +64,8 @@ void power_init( void ) {
     
     LCD_PWM_Start();
     LCD_PWM_SetCompare0(MAX_LCD_PWM);  //Set to full brightness
-<<<<<<< HEAD
-=======
     DBG_PRINTF("Backlight on\r\n");
->>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
+
     
     //bq24298_init();
     

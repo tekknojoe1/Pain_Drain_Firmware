@@ -48,29 +48,18 @@
 #include "power.h"
 #include "debug.h"
 #include "temp.h"
-<<<<<<< HEAD
 #include "tens.h"
 #include "vibe.h"
 #include <stdlib.h>
-
-//#include 
-=======
-#include <stdlib.h>
->>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
 static volatile uint32_t           mainTimer  = 1u;
 
 static int loopcount = 0;
 
-<<<<<<< HEAD
 uint8 newBatteryLevel = 0;
 uint8 val;
 uint32_t pinReadValue;
-=======
-int newValue = 0;
-uint8 val;
->>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 /*******************************************************************************
 * Function Name: AppCallBack
 ********************************************************************************
@@ -285,10 +274,7 @@ void AppCallBack(uint32 event, void *eventParam)
                     //sprintf(receivedCommand, "%d", integerValue);
                      //DBG_PRINTF("size %d\r\n", writeReq->handleValPair.value.len);
                     // DBG_PRINTF("size %d\r\n", sizeof(*writeReq->handleValPair.value.val));
-<<<<<<< HEAD
-                    
-=======
->>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
+
                     for(int i = 0; i < length; i++ )
                     {
                         //DBG_PRINTF("index value %d\r\n", writeReq->handleValPair.value.val[i]);
@@ -296,7 +282,7 @@ void AppCallBack(uint32 event, void *eventParam)
                     }
                     receivedCommand[length] = '\0';
                     DBG_PRINTF("Received string: %s\r\n", receivedCommand);
-<<<<<<< HEAD
+
                     switch(receivedCommand[0]){
                         case 't':
                         {
@@ -322,32 +308,14 @@ void AppCallBack(uint32 event, void *eventParam)
                         
                         
                     }
-                    /*
-=======
->>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
-                    if(receivedCommand[0] == 't')
-                    {
-                        int temperatureValue = atoi(&receivedCommand[1]); // Convert the numeric part after 't'
-                        DBG_PRINTF("t value: %d\r\n", temperatureValue);
-                        set_temp(temperatureValue);
-<<<<<<< HEAD
-                        //DBG_PRINTF("t value: %d \r\n",writeReq->handleValPair.value.val[1]);
-                    }
-                    */
-=======
-                        DBG_PRINTF("t value: %d \r\n",writeReq->handleValPair.value.val[1]);
-                    }
->>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
                     val = writeReq->handleValPair.value.val[0];
                     //DBG_PRINTF("value %d\r\n", val);
                     // Sends a write with response command
                     Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
                 }
             //call a function to process the data received in the eventParam
-<<<<<<< HEAD
                  break;
-=======
->>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
+
             }
             
             
