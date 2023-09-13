@@ -1,10 +1,6 @@
 // ======================================================================
 // PainDrain.v generated from TopDesign.cysch
-<<<<<<< HEAD
-// 09/06/2023 at 08:37
-=======
-// 09/13/2023 at 12:31
->>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
+// 09/13/2023 at 13:21
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -2199,7 +2195,7 @@ module top ;
           wire  Net_521;
           wire  Net_520;
           wire  Net_444;
-          wire  Net_755;
+          wire  Net_442;
           wire  Net_378;
           wire  Net_375;
           wire  Net_373;
@@ -3281,10 +3277,10 @@ module top ;
 
 
 	cy_clock_v1_0
-		#(.id("9260ebb9-8d85-4b45-bbb7-c906ffdd87dc"),
+		#(.id("a4676f6b-0478-4d3c-9890-6ac86cc75611"),
 		  .source_clock_id("2FB4EC85-8328-4C5A-9ED9-8B63060178EB"),
 		  .divisor(0),
-		  .period("20000000"),
+		  .period("1000000000"),
 		  .is_direct(0),
 		  .is_digital(0))
 		Clock_3

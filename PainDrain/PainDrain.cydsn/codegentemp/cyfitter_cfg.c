@@ -255,33 +255,33 @@ static void ClockInit(void)
 	Cy_SysLib_SetWaitStates(true, 50);
 
 	/* Configure peripheral clock dividers */
-	Cy_SysClk_PeriphAssignDivider(PCLK_SCB2_CLOCK, CY_SYSCLK_DIV_8_BIT, 3u);
-	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 3u, 3u);
-	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 3u);
+	Cy_SysClk_PeriphAssignDivider(PCLK_SCB2_CLOCK, CY_SYSCLK_DIV_8_BIT, 2u);
+	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 2u, 3u);
+	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 2u);
 	Cy_SysClk_PeriphAssignDivider(PCLK_TCPWM0_CLOCKS0, CY_SYSCLK_DIV_16_BIT, 0u);
 	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_16_BIT, 0u, 24u);
 	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_16_BIT, 0u);
-	Cy_SysClk_PeriphAssignDivider(PCLK_TCPWM0_CLOCKS1, CY_SYSCLK_DIV_8_BIT, 7u);
-	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 7u, 24u);
-	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 7u);
-	Cy_SysClk_PeriphAssignDivider(PCLK_TCPWM0_CLOCKS2, CY_SYSCLK_DIV_8_BIT, 5u);
-	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 5u, 24u);
-	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 5u);
+	Cy_SysClk_PeriphAssignDivider(PCLK_TCPWM0_CLOCKS1, CY_SYSCLK_DIV_8_BIT, 6u);
+	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 6u, 24u);
+	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 6u);
+	Cy_SysClk_PeriphAssignDivider(PCLK_TCPWM0_CLOCKS2, CY_SYSCLK_DIV_8_BIT, 4u);
+	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 4u, 24u);
+	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 4u);
 	Cy_SysClk_PeriphAssignDivider(PCLK_TCPWM0_CLOCKS4, CY_SYSCLK_DIV_8_BIT, 0u);
 	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 0u, 3u);
 	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 0u);
-	Cy_SysClk_PeriphAssignDivider(PCLK_TCPWM0_CLOCKS7, CY_SYSCLK_DIV_8_BIT, 6u);
-	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 6u, 24u);
-	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 6u);
-	Cy_SysClk_PeriphAssignDivider(PCLK_TCPWM1_CLOCKS1, CY_SYSCLK_DIV_8_BIT, 2u);
-	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 2u, 0u);
-	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 2u);
+	Cy_SysClk_PeriphAssignDivider(PCLK_TCPWM0_CLOCKS7, CY_SYSCLK_DIV_8_BIT, 5u);
+	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 5u, 24u);
+	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 5u);
+	Cy_SysClk_PeriphAssignDivider(PCLK_TCPWM1_CLOCKS1, CY_SYSCLK_DIV_8_BIT, 7u);
+	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 7u, 24u);
+	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 7u);
 	Cy_SysClk_PeriphAssignDivider(PCLK_TCPWM1_CLOCKS7, CY_SYSCLK_DIV_8_BIT, 1u);
 	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 1u, 3u);
 	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 1u);
-	Cy_SysClk_PeriphAssignDivider(PCLK_PASS_CLOCK_SAR, CY_SYSCLK_DIV_8_BIT, 4u);
-	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 4u, 24u);
-	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 4u);
+	Cy_SysClk_PeriphAssignDivider(PCLK_PASS_CLOCK_SAR, CY_SYSCLK_DIV_8_BIT, 3u);
+	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 3u, 24u);
+	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 3u);
 }
 
 

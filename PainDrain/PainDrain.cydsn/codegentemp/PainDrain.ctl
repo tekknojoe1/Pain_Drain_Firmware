@@ -1,10 +1,6 @@
 -- ======================================================================
 -- PainDrain.ctl generated from PainDrain
-<<<<<<< HEAD
--- 09/06/2023 at 08:37
-=======
--- 09/13/2023 at 12:31
->>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
+-- 09/13/2023 at 13:21
 -- This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 -- ======================================================================
 
