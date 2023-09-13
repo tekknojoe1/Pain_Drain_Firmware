@@ -9,5 +9,10 @@
  *
  * ========================================
 */
+#ifndef VIBE_H
+#define VIBE_H
 
+void set_vibe(char waveForm[], int value);
+
+#endif
 /* [] END OF FILE */

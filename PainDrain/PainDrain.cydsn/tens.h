@@ -9,5 +9,10 @@
  *
  * ========================================
 */
+#ifndef TENS_H
+#define TENS_H
 
+void set_tens(int value);
+
+#endif
 /* [] END OF FILE */

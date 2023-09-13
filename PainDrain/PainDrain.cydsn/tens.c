@@ -9,5 +9,12 @@
  *
  * ========================================
 */
+#include <project.h>
+#include <stdio.h>
+#include "debug.h"
+#include "tens.h"
 
+void set_tens(int value){
+    DBG_PRINTF("t value: %d\r\n", value);
+}
 /* [] END OF FILE */

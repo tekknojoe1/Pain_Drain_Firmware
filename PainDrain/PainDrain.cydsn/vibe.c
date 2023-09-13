@@ -9,5 +9,12 @@
  *
  * ========================================
 */
+#include <project.h>
+#include <stdio.h>
+#include "debug.h"
+#include "temp.h"
 
+void set_vibe(char waveForm[], int value){
+    
+}
 /* [] END OF FILE */

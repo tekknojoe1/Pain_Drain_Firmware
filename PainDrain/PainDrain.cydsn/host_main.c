@@ -48,6 +48,8 @@
 #include "power.h"
 #include "debug.h"
 #include "temp.h"
+#include "tens.h"
+#include "vibe.h"
 #include <stdlib.h>
 
 //#include 
@@ -279,7 +281,33 @@ void AppCallBack(uint32 event, void *eventParam)
                         receivedCommand[i] = (char)writeReq->handleValPair.value.val[i];
                     }
                     receivedCommand[length] = '\0';
-                    //DBG_PRINTF("Received string: %s\r\n", receivedCommand);
+                    DBG_PRINTF("Received string: %s\r\n", receivedCommand);
+                    switch(receivedCommand[0]){
+                        case 't':
+                        {
+                            int temperatureValue = atoi(&receivedCommand[1]); // Convert the numeric part after 't'
+                            DBG_PRINTF("t value: %d\r\n", temperatureValue);
+                            set_temp(temperatureValue);  
+                            break;
+                        }
+                        case 'T':
+                        {
+                            int tensValue = atoi(&receivedCommand[1]);
+                            DBG_PRINTF("T value: %d\r\n", tensValue);
+                            set_tens(tensValue);
+                            break;
+                        }
+                        case 'v':
+                        {
+                            int vibeValue = atoi(&receivedCommand[2]);
+                            DBG_PRINTF("v value: %d\r\n", vibeValue);
+                            set_vibe(&receivedCommand[1], vibeValue);
+                            break;
+                        }
+                        
+                        
+                    }
+                    /*
                     if(receivedCommand[0] == 't')
                     {
                         int temperatureValue = atoi(&receivedCommand[1]); // Convert the numeric part after 't'
@@ -287,15 +315,15 @@ void AppCallBack(uint32 event, void *eventParam)
                         set_temp(temperatureValue);
                         //DBG_PRINTF("t value: %d \r\n",writeReq->handleValPair.value.val[1]);
                     }
+                    */
                     val = writeReq->handleValPair.value.val[0];
                     //DBG_PRINTF("value %d\r\n", val);
                     // Sends a write with response command
                     Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
                 }
             //call a function to process the data received in the eventParam
-                
+                 break;
             }
-            break;
             
             
             
