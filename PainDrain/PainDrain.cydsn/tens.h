@@ -12,7 +12,10 @@
 #ifndef TENS_H
 #define TENS_H
 
-void set_tens(int value);
+void set_tens_task(void);
+void set_tens_freq(int item);
+void set_tens_dur(int item);
+void set_tens_amp(int item);
 
-#endif
+#endif /* TENS_H */
 /* [] END OF FILE */

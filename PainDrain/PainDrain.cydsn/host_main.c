@@ -248,6 +248,8 @@ void AppCallBack(uint32 event, void *eventParam)
                     // Handle error
                     DBG_PRINTF("Read error\r\n");
                 }
+                
+                // Test to see if charger was working properly
                 pinReadValue = Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM);
                 DBG_PRINTF("charge status: %d\r\n", pinReadValue);
                 
@@ -388,6 +390,7 @@ int HostMain(void)
     PWM_TENS_Start();
     PWM_PEL1_Start();
     PWM_PEL2_Start();
+    Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);  //Enable is low
     
     power_init();
     
