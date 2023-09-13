@@ -522,14 +522,14 @@ void ui_settings_tens_amp(int item) {
     
     
     if (item == 0) {
-        power_5v_off();
+        power_5v_off(); // Not need for new version
         PWM_TENS_SetCompare0(0);
         power_flags_update(UI_MENU_TENS_AMP, 0);
         
         tens_interval_ms = -1; //Disable timer
         
     } else {
-        power_5v_on();
+        power_5v_on(); // Not need for new version
         //PWM_TENS_SetCompare0(257 * item/ 10);
         //PWM_TENS_SetCompare0(624 * item / 10);
         power_flags_update(UI_MENU_TENS_AMP, 1);
@@ -665,6 +665,7 @@ void ui_settings_vibe_amp(int item) {
         //Set fan on max   
         PWM_FAN_SetCompare0(257);
     }
+    
     
     /* NEED TO WORK ON THIS
     //Update Peltier

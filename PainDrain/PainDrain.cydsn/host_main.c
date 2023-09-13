@@ -52,8 +52,6 @@
 #include "vibe.h"
 #include <stdlib.h>
 
-//#include 
-
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
 static volatile uint32_t           mainTimer  = 1u;
 
@@ -263,7 +261,7 @@ void AppCallBack(uint32 event, void *eventParam)
         case CY_BLE_EVT_GATTS_WRITE_CMD_REQ:
             
             
-        case CY_BLE_EVT_GATTS_WRITE_REQ:  
+        case CY_BLE_EVT_GATTS_WRITE_REQ:
             {
                 cy_stc_ble_gatts_write_cmd_req_param_t *writeReq = (cy_stc_ble_gatts_write_cmd_req_param_t *)eventParam;
                 int length = writeReq->handleValPair.value.len;
@@ -276,7 +274,7 @@ void AppCallBack(uint32 event, void *eventParam)
                     //sprintf(receivedCommand, "%d", integerValue);
                      //DBG_PRINTF("size %d\r\n", writeReq->handleValPair.value.len);
                     // DBG_PRINTF("size %d\r\n", sizeof(*writeReq->handleValPair.value.val));
-                    
+
                     for(int i = 0; i < length; i++ )
                     {
                         //DBG_PRINTF("index value %d\r\n", writeReq->handleValPair.value.val[i]);
@@ -284,6 +282,7 @@ void AppCallBack(uint32 event, void *eventParam)
                     }
                     receivedCommand[length] = '\0';
                     DBG_PRINTF("Received string: %s\r\n", receivedCommand);
+
                     switch(receivedCommand[0]){
                         case 't':
                         {
@@ -309,15 +308,6 @@ void AppCallBack(uint32 event, void *eventParam)
                         
                         
                     }
-                    /*
-                    if(receivedCommand[0] == 't')
-                    {
-                        int temperatureValue = atoi(&receivedCommand[1]); // Convert the numeric part after 't'
-                        DBG_PRINTF("t value: %d\r\n", temperatureValue);
-                        set_temp(temperatureValue);
-                        //DBG_PRINTF("t value: %d \r\n",writeReq->handleValPair.value.val[1]);
-                    }
-                    */
                     val = writeReq->handleValPair.value.val[0];
                     //DBG_PRINTF("value %d\r\n", val);
                     // Sends a write with response command
@@ -325,6 +315,7 @@ void AppCallBack(uint32 event, void *eventParam)
                 }
             //call a function to process the data received in the eventParam
                  break;
+
             }
             
             

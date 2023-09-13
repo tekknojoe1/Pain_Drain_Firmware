@@ -8,6 +8,7 @@
 #include "power.h"
 #include "bq24298.h"
 #include "my_i2c.h"
+#include "debug.h"
 
 
 #define POWER_TIMER_PERIOD_MS 10
@@ -53,7 +54,7 @@ void gpio_interrupt_handler ( void ) {
 void power_init( void ) {
     
     
-    myI2C_Start();
+    //myI2C_Start();
     
     //Cy_SysInt_Init(&gpio_irq_cfg, gpio_interrupt_handler);
 	//NVIC_EnableIRQ(gpio_irq_cfg.intrSrc);
@@ -63,8 +64,10 @@ void power_init( void ) {
     
     LCD_PWM_Start();
     LCD_PWM_SetCompare0(MAX_LCD_PWM);  //Set to full brightness
+    DBG_PRINTF("Backlight on\r\n");
+
     
-    bq24298_init();
+    //bq24298_init();
     
     power_flags_update(POWER_FLAG_BLE, 1);
 }
@@ -97,6 +100,7 @@ void power_wakeup( void ) {
 }
 
 void power_task( void ) {
+    return; //this code below is old
     
     //Power button detection to wakeup
     if (Cy_GPIO_Read(PWR_BTN_PORT, PWR_BTN_NUM) == 0) {

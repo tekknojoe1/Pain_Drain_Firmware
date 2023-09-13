@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens\ui_Brigtness_screen.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PainDrain-000\PainDrain\Host Files\Source Files\power.c">
 <ExpandedNodeIds>
 <v>PainDrain-000</v>
 <v>PainDrain-000\PainDrain</v>
@@ -70,6 +70,7 @@
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\images\ui_img_fire_icon_small_png.c</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\images\ui_img_paindraindevicewithoutbackgroundresized_png.c</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\images\ui_img_snowflake_icon_small_png.c</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens\ui_Brigtness_screen.c</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens\ui_Presets_screen.c</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens\ui_Splash_screen.c</v>
@@ -119,6 +120,9 @@
 <v>PainDrain-000\PainDrain\Generated_Source\PSoC6</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\ARM GCC Generic</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\ARM GCC Generic\startup_psoc6_01_cm4.S</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\ARM IAR Generic</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\ARM IAR Generic\startup_psoc6_01_cm4.s</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\ARM MDK Generic</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\ARM MDK Generic\startup_psoc6_01_cm4.s</v>
@@ -133,6 +137,12 @@
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\images\ui_img_paindraindevicewithoutbackgroundresized_png.c</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\images\ui_img_snowflake_icon_small_png.c</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens\ui_Brigtness_screen.c</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens\ui_Presets_screen.c</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens\ui_Splash_screen.c</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens\ui_Temperature_screen.c</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens\ui_TENS_screen.c</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens\ui_Vibration_screen.c</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\CMakeLists.txt</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\filelist.txt</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\lv_conf.h</v>
@@ -177,15 +187,6 @@
 <v>PainDrain-000\PainDrain\Generated_Source\PSoC6\pdl</v>
 <v>PainDrain-000\PainDrain\Generated_Source\PSoC6\ADC</v>
 <v>PainDrain-000\PainDrain\Generated_Source\PSoC6\ADC_intSarClock</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\AMP_PWM</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\BLE</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\Clock_1</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\Clock_2</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\Clock_3</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\Clock_4</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\Clock_5</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\Clock_6</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\Clock_7</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -570,6 +571,8 @@
 <name v=".\vibe.h" />
 <name v=".\host_main.c" />
 <name v=".\power.c" />
+<name v=".\ui\screens\ui_Brigtness_screen.c" />
+<name v=".\lv_conf.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -577,7 +580,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="2137, 950" SelectedTabbedMdiWindow="ac253c05-cfc2-4458-a772-7adaceb1ba2a"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="c43c11b6-57f8-4c62-a566-c57113368457" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\tens.c" Guid="e2a5c0df-389b-4cf1-a1d0-d30f08375ded" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\vibe.c" Guid="f81cefb7-2464-4c68-a909-25bb5bd200c4" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\vibe.h" Guid="b37a1b91-fe18-45c1-92e5-f8cf70306200" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\host_main.c" Guid="ac253c05-cfc2-4458-a772-7adaceb1ba2a" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\power.c" Guid="7f4999a2-9090-4ee9-bf75-38e6a9fd0cb0" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="2137, 950" SelectedTabbedMdiWindow="ac253c05-cfc2-4458-a772-7adaceb1ba2a"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="c43c11b6-57f8-4c62-a566-c57113368457" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\tens.c" Guid="e2a5c0df-389b-4cf1-a1d0-d30f08375ded" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\vibe.c" Guid="f81cefb7-2464-4c68-a909-25bb5bd200c4" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\vibe.h" Guid="b37a1b91-fe18-45c1-92e5-f8cf70306200" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\host_main.c" Guid="ac253c05-cfc2-4458-a772-7adaceb1ba2a" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\power.c" Guid="7f4999a2-9090-4ee9-bf75-38e6a9fd0cb0" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\ui\screens\ui_Brigtness_screen.c" Guid="93663b0e-e95d-4153-9973-139c3d1b6f03" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\lv_conf.h" Guid="06a6bf5f-7220-468c-aec5-c212d8f73732" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
