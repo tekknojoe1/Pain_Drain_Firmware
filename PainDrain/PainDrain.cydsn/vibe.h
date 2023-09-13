@@ -12,9 +12,6 @@
 #ifndef VIBE_H
 #define VIBE_H
 
-#ifndef VIBE_H
-#define VIBE_H
-
 void set_vibe(const char* waveform, int freqeuncy, int amplitude);
 
 #endif

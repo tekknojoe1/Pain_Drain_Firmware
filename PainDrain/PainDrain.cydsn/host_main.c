@@ -296,14 +296,14 @@ void AppCallBack(uint32 event, void *eventParam)
                         {
                             int tensValue = atoi(&receivedCommand[1]);
                             DBG_PRINTF("T value: %d\r\n", tensValue);
-                            set_tens(tensValue);
+                            //set_tens(tensValue);
                             break;
                         }
                         case 'v':
                         {
                             int vibeValue = atoi(&receivedCommand[2]);
                             DBG_PRINTF("v value: %d\r\n", vibeValue);
-                            set_vibe(&receivedCommand[1], vibeValue);
+                            //set_vibe(&receivedCommand[1], vibeValue);
                             break;
                         }
                         
