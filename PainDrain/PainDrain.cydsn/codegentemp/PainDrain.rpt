@@ -1,13 +1,24 @@
+<<<<<<< HEAD
 Loading plugins phase: Elapsed time ==> 0s.095ms
+=======
+Loading plugins phase: Elapsed time ==> 0s.237ms
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 <CYPRESSTAG name="CyDsfit arguments...">
 cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\PainDrain.cyprj -d CYBLE-416045-02 -s C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\Generated_Source\PSoC6 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 </CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
+<<<<<<< HEAD
 Elaboration phase: Elapsed time ==> 2s.394ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
 HDL generation phase: Elapsed time ==> 0s.081ms
+=======
+Elaboration phase: Elapsed time ==> 3s.269ms
+<CYPRESSTAG name="HDL generation results...">
+</CYPRESSTAG>
+HDL generation phase: Elapsed time ==> 0s.126ms
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -41,7 +52,11 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Projects\Pa
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
+<<<<<<< HEAD
 Wed Sep 06 08:37:06 2023
+=======
+Wed Sep 13 12:31:57 2023
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 ======================================================================
@@ -51,7 +66,11 @@ Options  :    -yv2 -q10 PainDrain.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
+<<<<<<< HEAD
 Wed Sep 06 08:37:06 2023
+=======
+Wed Sep 13 12:31:57 2023
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
@@ -89,7 +108,11 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Projects\Pa
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
+<<<<<<< HEAD
 Wed Sep 06 08:37:08 2023
+=======
+Wed Sep 13 12:31:59 2023
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -122,7 +145,11 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Projects\Pa
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
+<<<<<<< HEAD
 Wed Sep 06 08:37:09 2023
+=======
+Wed Sep 13 12:31:59 2023
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -304,6 +331,7 @@ CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\wa
 Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\bin\warp.exe
 Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\PainDrain.cyprj -dcpsoc3 PainDrain.v -verilog
 </CYPRESSTAG>
+<<<<<<< HEAD
 Warp synthesis phase: Elapsed time ==> 4s.126ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
@@ -312,6 +340,16 @@ Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Projects\PainDra
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
 Design parsing phase: Elapsed time ==> 1s.073ms
+=======
+Warp synthesis phase: Elapsed time ==> 4s.424ms
+<CYPRESSTAG name="Fitter results...">
+<CYPRESSTAG name="Fitter startup details...">
+cyp3fit: V4.4.0.80, Family: PSoC3, Started at: Wednesday, 13 September 2023 12:32:01
+Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\PainDrain.cyprj -d CYBLE-416045-02 PainDrain.v -verilog
+</CYPRESSTAG>
+<CYPRESSTAG name="Design parsing">
+Design parsing phase: Elapsed time ==> 1s.142ms
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -322,12 +360,12 @@ Done removing unused cells.
 <CYPRESSTAG name="Global Clock Selection" icon="FILE_RPT_TECHM">
     Fixed Function Clock 11: Automatic-assigning  clock 'Clock_4'. Signal=Net_551_ff11
     Fixed Function Clock 12: Automatic-assigning  clock 'Clock_1'. Signal=Net_154_ff12
+    Fixed Function Clock 13: Automatic-assigning  clock 'Clock_3'. Signal=Net_380_ff13
     Fixed Function Clock 0: Automatic-assigning  clock 'SPI_SCBCLK'. Signal=\SPI:Net_847_ff0\
     Fixed Function Clock 49: Automatic-assigning  clock 'ADC_intSarClock'. Signal=\ADC:Net_428_ff49\
-    Fixed Function Clock 13: Automatic-assigning  clock 'Clock_6'. Signal=Net_591_ff13
-    Fixed Function Clock 14: Automatic-assigning  clock 'Clock_7'. Signal=Net_712_ff14
-    Fixed Function Clock 15: Automatic-assigning  clock 'Clock_5'. Signal=Net_576_ff15
-    Fixed Function Clock 16: Automatic-assigning  clock 'Clock_3'. Signal=Net_380_ff16
+    Fixed Function Clock 14: Automatic-assigning  clock 'Clock_6'. Signal=Net_591_ff14
+    Fixed Function Clock 15: Automatic-assigning  clock 'Clock_7'. Signal=Net_712_ff15
+    Fixed Function Clock 16: Automatic-assigning  clock 'Clock_5'. Signal=Net_576_ff16
     Fixed Function Clock 17: Automatic-assigning  clock 'Clock_2'. Signal=Net_448_ff17
 <CYPRESSTAG name="UDB Clock/Enable Remapping Results">
 </CYPRESSTAG>
@@ -1726,8 +1764,13 @@ Sample and Hold               :    0 :    1 :    1 :  0.00 %
 SAR ADC                       :    1 :    0 :    1 : 100.00 %
 DieTemp Sensor                :    0 :    1 :    1 :  0.00 %
 </CYPRESSTAG>
+<<<<<<< HEAD
 Technology Mapping: Elapsed time ==> 0s.116ms
 Tech Mapping phase: Elapsed time ==> 0s.162ms
+=======
+Technology Mapping: Elapsed time ==> 0s.204ms
+Tech Mapping phase: Elapsed time ==> 0s.314ms
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 <CYPRESSTAG name="FFB & IO Pre Placement">
@@ -1787,6 +1830,7 @@ IOSS                                : IOSS_[FFB(IOSS,0)]
 </CYPRESSTAG>
 </CYPRESSTAG>
 <CYPRESSTAG name="Real Analog Placement">
+<<<<<<< HEAD
 Elapsed time ==> 0.0886157s
 </CYPRESSTAG>
 Analog Placement phase: Elapsed time ==> 0s.567ms
@@ -1796,6 +1840,17 @@ Analog Placement phase: Elapsed time ==> 0s.567ms
 Route success=True, Iterations=1 Elapsed=0.0024683 secs
 </CYPRESSTAG>
 Analog Routing phase: Elapsed time ==> 0s.002ms
+=======
+Elapsed time ==> 0.1456432s
+</CYPRESSTAG>
+Analog Placement phase: Elapsed time ==> 0s.741ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Analog Routing">
+<CYPRESSTAG name="Analog Routing">
+Route success=True, Iterations=1 Elapsed=0.0199856 secs
+</CYPRESSTAG>
+Analog Routing phase: Elapsed time ==> 0s.016ms
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Code Generation">
 ============ Analog Final Answer Routes ============
@@ -1826,7 +1881,11 @@ Map of item to net {
 }
 Mux Info {
 }
+<<<<<<< HEAD
 Analog Code Generation phase: Elapsed time ==> 0s.014ms
+=======
+Analog Code Generation phase: Elapsed time ==> 0s.046ms
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
@@ -1845,7 +1904,11 @@ PLD Packing: Elapsed time ==> 0s.000ms
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
+<<<<<<< HEAD
 Partitioning: Elapsed time ==> 0s.028ms
+=======
+Partitioning: Elapsed time ==> 0s.079ms
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -3280,12 +3343,12 @@ Clock group 0:
             lfclk => ClockBlock_LFClk ,
             ff_div_11 => Net_551_ff11 ,
             ff_div_12 => Net_154_ff12 ,
+            ff_div_13 => Net_380_ff13 ,
             ff_div_0 => \SPI:Net_847_ff0\ ,
             ff_div_49 => \ADC:Net_428_ff49\ ,
-            ff_div_13 => Net_591_ff13 ,
-            ff_div_14 => Net_712_ff14 ,
-            ff_div_15 => Net_576_ff15 ,
-            ff_div_16 => Net_380_ff16 ,
+            ff_div_14 => Net_591_ff14 ,
+            ff_div_15 => Net_712_ff15 ,
+            ff_div_16 => Net_576_ff16 ,
             ff_div_17 => Net_448_ff17 );
         Properties:
         {
@@ -3362,7 +3425,7 @@ TCPWM group 0:
     TCPWM @ F(TCPWM,1): 
     TCPWM: Name =\PWM_PEL1:TCPWM\
         PORT MAP (
-            clock => Net_576_ff15 ,
+            clock => Net_576_ff16 ,
             capture => zero ,
             count => one ,
             reload => zero ,
@@ -3383,7 +3446,7 @@ TCPWM group 0:
     TCPWM @ F(TCPWM,2): 
     TCPWM: Name =\PWM_PEL2:TCPWM\
         PORT MAP (
-            clock => Net_591_ff13 ,
+            clock => Net_591_ff14 ,
             capture => zero ,
             count => one ,
             reload => zero ,
@@ -3425,7 +3488,7 @@ TCPWM group 0:
     TCPWM @ F(TCPWM,7): 
     TCPWM: Name =\AMP_PWM:TCPWM\
         PORT MAP (
-            clock => Net_712_ff14 ,
+            clock => Net_712_ff15 ,
             capture => zero ,
             count => one ,
             reload => zero ,
@@ -3446,7 +3509,7 @@ TCPWM group 0:
     TCPWM @ F(TCPWM,9): 
     TCPWM: Name =\LCD_PWM:TCPWM\
         PORT MAP (
-            clock => Net_380_ff16 ,
+            clock => Net_380_ff13 ,
             capture => zero ,
             count => one ,
             reload => zero ,
@@ -3638,28 +3701,45 @@ Port | Pin | Fixed |      Type |       Drive Mode |             Name | Connectio
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
+<<<<<<< HEAD
 Digital component placer commit/Report: Elapsed time ==> 0s.033ms
 Digital Placement phase: Elapsed time ==> 3s.281ms
+=======
+Digital component placer commit/Report: Elapsed time ==> 0s.047ms
+Digital Placement phase: Elapsed time ==> 3s.356ms
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc6/0/route_arch-rrg.cydata" --vh2-path "PainDrain_r.vh2" --pcf-path "PainDrain.pco" --des-name "PainDrain" --dsf-path "PainDrain.dsf" --sdc-path "PainDrain.sdc" --lib-path "PainDrain_r.lib"
 Routing successful.
+<<<<<<< HEAD
 Digital Routing phase: Elapsed time ==> 0s.567ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Generation">
 Bitstream Generation phase: Elapsed time ==> 0s.296ms
+=======
+Digital Routing phase: Elapsed time ==> 0s.616ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Bitstream Generation">
+Bitstream Generation phase: Elapsed time ==> 0s.395ms
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Verification">
 Bitstream Verification phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 Timing report is in PainDrain_timing.html.
+<<<<<<< HEAD
 Static timing analysis phase: Elapsed time ==> 4s.539ms
+=======
+Static timing analysis phase: Elapsed time ==> 4s.627ms
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
 Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
+<<<<<<< HEAD
 Design database save phase: Elapsed time ==> 0s.131ms
 </CYPRESSTAG>
 cydsfit: Elapsed time ==> 10s.673ms
@@ -3667,4 +3747,13 @@ cydsfit: Elapsed time ==> 10s.673ms
 Fitter phase: Elapsed time ==> 10s.674ms
 API generation phase: Elapsed time ==> 1s.190ms
 Dependency generation phase: Elapsed time ==> 0s.009ms
+=======
+Design database save phase: Elapsed time ==> 0s.173ms
+</CYPRESSTAG>
+cydsfit: Elapsed time ==> 11s.525ms
+</CYPRESSTAG>
+Fitter phase: Elapsed time ==> 11s.525ms
+API generation phase: Elapsed time ==> 1s.088ms
+Dependency generation phase: Elapsed time ==> 0s.015ms
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 Cleanup phase: Elapsed time ==> 0s.000ms

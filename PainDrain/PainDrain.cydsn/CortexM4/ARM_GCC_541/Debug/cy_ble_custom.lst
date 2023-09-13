@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 1
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
    1              		.syntax unified
@@ -63,10 +67,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
   29:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c **** /***************************************
   30:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c **** * Private Function Prototypes
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 2
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 2
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 2
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
   31:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c **** ***************************************/
@@ -127,10 +135,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
   86:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                     if(cy_ble_serverInfo[discIdx][CY_BLE_SRVI_CUSTOMS + locServIdx].range.startHand
   87:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                        CY_BLE_GATT_INVALID_ATTR_HANDLE_VALUE)
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 3
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 3
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 3
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
   88:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                     {
@@ -191,10 +203,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  143:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c **** {
  144:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****     uint32_t discIdx = Cy_BLE_GetDiscoveryIdx(discServInfo->connHandle);
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 4
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 4
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 4
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  145:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****     uint32_t fFlag = 0u;
@@ -255,10 +271,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  200:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****     uint32_t locCharIndex;
  201:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c **** 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 5
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 5
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 5
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  202:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****     if((cy_ble_discovery[discIdx].servCount >= (uint32_t)CY_BLE_SRVI_CUSTOMS) &&
@@ -319,10 +339,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  257:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                 /* Init the service index of the discovered characteristic */
  258:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                 discoveryLastServ[discIdx] = servIdx;
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 6
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 6
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 6
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  259:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                 locReqHandle = 1u;
@@ -383,10 +407,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  314:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                                                     customServCharHandle[discIdx] + 1u;
  315:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                 charRangeInfo->range.endHandle = cy_ble_customConfigPtr->customc[servIdx].customSer
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 7
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 7
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 7
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  316:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                                                   customServCharEndHandle[discIdx];
@@ -447,10 +475,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  371:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                 }
  372:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****             }
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 8
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 8
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 8
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  373:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c **** 
@@ -511,10 +543,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  422:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****         {
  423:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****         #ifdef CY_BLE_CUSTOM_CLIENT
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 9
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 9
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 9
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  424:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****             /* Discovery events */
@@ -575,10 +611,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  479:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                                  (uint32_t)eventParamCast->value.len);
  480:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****                     Cy_BLE_CUSTOMC_DiscoverServiceEventHandler(&locDiscServInfo);
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 10
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 10
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 10
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  481:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c **** 
@@ -639,10 +679,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
   48              	.LFB255:
   61:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_custom.c ****     cy_en_ble_api_result_t apiResult;
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 11
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 11
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 11
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
   49              		.loc 1 61 0
@@ -703,10 +747,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
   99              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
  100              		.file 4 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/device/cy_device.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 12
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 12
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 12
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  101              		.file 5 "Generated_Source\\PSoC6\\pdl\\middleware\\ble\\cy_ble_stack.h"
@@ -767,10 +815,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  156 0065 03       		.uleb128 0x3
  157 0066 02       		.byte	0x2
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 13
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 13
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 13
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  158 0067 05       		.byte	0x5
@@ -831,10 +883,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  213 00d4 03       		.byte	0x3
  214 00d5 24       		.byte	0x24
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 14
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 14
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 14
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  215 00d6 6C000000 		.4byte	0x6c
@@ -895,10 +951,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  270 0146 3D       		.byte	0x3d
  271 0147 E5000000 		.4byte	0xe5
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 15
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 15
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 15
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  272 014b 18       		.byte	0x18
@@ -957,12 +1017,17 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  325 01b3 B9000000 		.4byte	0xb9
  326 01b7 2D       		.byte	0x2d
  327 01b8 07       		.uleb128 0x7
+<<<<<<< HEAD
  328 01b9 E5250000 		.4byte	.LASF38
 <<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 16
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 16
 >>>>>>> Isac
+=======
+ 328 01b9 05260000 		.4byte	.LASF38
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 16
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  329 01bd 04       		.byte	0x4
@@ -1023,10 +1088,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  384 022a 54       		.byte	0x54
  385 022b C4000000 		.4byte	0xc4
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 17
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 17
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 17
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  386 022f 3A       		.byte	0x3a
@@ -1086,12 +1155,17 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  440 029b 44       		.byte	0x44
  441 029c 07       		.uleb128 0x7
 <<<<<<< HEAD
+<<<<<<< HEAD
  442 029d FA3C0000 		.4byte	.LASF57
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 18
 =======
  442 029d 4D3D0000 		.4byte	.LASF57
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 18
 >>>>>>> Isac
+=======
+ 442 029d 403D0000 		.4byte	.LASF57
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 18
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  443 02a1 04       		.byte	0x4
@@ -1152,10 +1226,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  498 030e 67       		.byte	0x67
  499 030f B9000000 		.4byte	0xb9
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 19
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 19
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 19
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  500 0313 57       		.byte	0x57
@@ -1214,12 +1292,17 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  553 037b CF000000 		.4byte	0xcf
  554 037f 68       		.byte	0x68
  555 0380 07       		.uleb128 0x7
+<<<<<<< HEAD
  556 0381 EF0B0000 		.4byte	.LASF76
 <<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 20
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 20
 >>>>>>> Isac
+=======
+ 556 0381 0F0C0000 		.4byte	.LASF76
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 20
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  557 0385 04       		.byte	0x4
@@ -1280,10 +1363,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  612 03f2 82       		.byte	0x82
  613 03f3 CF000000 		.4byte	0xcf
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 21
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 21
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 21
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  614 03f7 78       		.byte	0x78
@@ -1343,12 +1430,17 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  668 0463 8C       		.byte	0x8c
  669 0464 07       		.uleb128 0x7
 <<<<<<< HEAD
+<<<<<<< HEAD
  670 0465 22300000 		.4byte	.LASF95
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 22
 =======
  670 0465 75300000 		.4byte	.LASF95
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 22
 >>>>>>> Isac
+=======
+ 670 0465 42300000 		.4byte	.LASF95
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 22
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  671 0469 04       		.byte	0x4
@@ -1409,10 +1501,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  726 04d6 99       		.byte	0x99
  727 04d7 CF000000 		.4byte	0xcf
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 23
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 23
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 23
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  728 04db AC       		.byte	0xac
@@ -1473,10 +1569,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  783 054a 25000000 		.4byte	.LASF116
  784 054e 0410     		.2byte	0x1004
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 24
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 24
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 24
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  785 0550 0A       		.uleb128 0xa
@@ -1537,10 +1637,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  840 05cf D52D0000 		.4byte	.LASF135
  841 05d3 1120     		.2byte	0x2011
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 25
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 25
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 25
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  842 05d5 0A       		.uleb128 0xa
@@ -1601,10 +1705,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  897 0654 20160000 		.4byte	.LASF154
  898 0658 0C30     		.2byte	0x300c
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 26
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 26
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 26
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  899 065a 0A       		.uleb128 0xa
@@ -1665,10 +1773,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  954 06d9 C60D0000 		.4byte	.LASF173
  955 06dd 0940     		.2byte	0x4009
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 27
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 27
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 27
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  956 06df 0A       		.uleb128 0xa
@@ -1729,10 +1841,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  1011 075e 621A0000 		.4byte	.LASF192
  1012 0762 0150     		.2byte	0x5001
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 28
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 28
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 28
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1013 0764 0A       		.uleb128 0xa
@@ -1793,10 +1909,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  1068 07e3 9A110000 		.4byte	.LASF211
  1069 07e7 1450     		.2byte	0x5014
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 29
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 29
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 29
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1070 07e9 0A       		.uleb128 0xa
@@ -1857,10 +1977,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  1125 0867 04       		.byte	0x4
  1126 0868 2C000000 		.4byte	0x2c
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 30
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 30
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 30
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1127 086c 05       		.byte	0x5
@@ -1921,10 +2045,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  1182 090a 2E350000 		.4byte	.LASF246
  1183 090e 10001600 		.4byte	0x160010
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 31
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 31
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 31
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1184 0912 0C       		.uleb128 0xc
@@ -1985,10 +2113,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  1239 09a6 06       		.byte	0x6
  1240 09a7 7201     		.2byte	0x172
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 32
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 32
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 32
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1241 09a9 B9000000 		.4byte	0xb9
@@ -2049,10 +2181,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  1296 0a1a 0D       		.byte	0xd
  1297 0a1b 09       		.uleb128 0x9
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 33
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 33
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 33
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1298 0a1c FC3C0000 		.4byte	.LASF277
@@ -2113,10 +2249,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  1353 0a8c A1       		.byte	0xa1
  1354 0a8d 09       		.uleb128 0x9
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 34
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 34
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 34
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1355 0a8e A6470000 		.4byte	.LASF296
@@ -2176,12 +2316,17 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  1409 0afc 310B0000 		.4byte	0xb31
  1410 0b00 09       		.uleb128 0x9
 <<<<<<< HEAD
+<<<<<<< HEAD
  1411 0b01 2C400000 		.4byte	.LASF308
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 35
 =======
  1411 0b01 7F400000 		.4byte	.LASF308
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 35
 >>>>>>> Isac
+=======
+ 1411 0b01 72400000 		.4byte	.LASF308
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 35
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1412 0b05 00       		.byte	0
@@ -2242,10 +2387,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  1467 0b72 00       		.byte	0
  1468 0b73 00       		.byte	0
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 36
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 36
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 36
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1469 0b74 04       		.uleb128 0x4
@@ -2306,10 +2455,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  1524 0be1 9B       		.byte	0x9b
  1525 0be2 BB0B0000 		.4byte	0xbbb
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 37
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 37
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 37
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1526 0be6 0F       		.uleb128 0xf
@@ -2370,10 +2523,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  1581 0c83 020F0000 		.4byte	.LASF342
  1582 0c87 10000100 		.4byte	0x10010
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 38
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 38
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 38
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1583 0c8b 0C       		.uleb128 0xc
@@ -2434,10 +2591,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  1638 0d2e 89090000 		.4byte	.LASF361
  1639 0d32 23000100 		.4byte	0x10023
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 39
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 39
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 39
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1640 0d36 0C       		.uleb128 0xc
@@ -2498,10 +2659,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  1695 0dd9 C21A0000 		.4byte	.LASF380
  1696 0ddd 36000100 		.4byte	0x10036
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 40
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 40
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 40
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1697 0de1 0C       		.uleb128 0xc
@@ -2562,10 +2727,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  1752 0e84 C61B0000 		.4byte	.LASF399
  1753 0e88 49000100 		.4byte	0x10049
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 41
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 41
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 41
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1754 0e8c 0C       		.uleb128 0xc
@@ -2626,10 +2795,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  1809 0f2f 9E150000 		.4byte	.LASF418
  1810 0f33 5C000100 		.4byte	0x1005c
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 42
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 42
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 42
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1811 0f37 0C       		.uleb128 0xc
@@ -2690,10 +2863,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  1866 0fda 1F340000 		.4byte	.LASF437
  1867 0fde 6F000100 		.4byte	0x1006f
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 43
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 43
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 43
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1868 0fe2 0C       		.uleb128 0xc
@@ -2754,10 +2931,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  1923 1085 D3060000 		.4byte	.LASF456
  1924 1089 82000100 		.4byte	0x10082
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 44
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 44
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 44
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1925 108d 0C       		.uleb128 0xc
@@ -2818,10 +2999,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  1980 1130 7A1F0000 		.4byte	.LASF475
  1981 1134 95000100 		.4byte	0x10095
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 45
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 45
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 45
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1982 1138 0C       		.uleb128 0xc
@@ -2882,10 +3067,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  2037 11db 2B4D0000 		.4byte	.LASF494
  2038 11df A8000100 		.4byte	0x100a8
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 46
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 46
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 46
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2039 11e3 0C       		.uleb128 0xc
@@ -2946,10 +3135,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  2094 1286 D93C0000 		.4byte	.LASF513
  2095 128a BB000100 		.4byte	0x100bb
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 47
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 47
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 47
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2096 128e 0C       		.uleb128 0xc
@@ -3010,10 +3203,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  2151 1331 2B0F0000 		.4byte	.LASF532
  2152 1335 CE000100 		.4byte	0x100ce
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 48
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 48
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 48
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2153 1339 0C       		.uleb128 0xc
@@ -3074,10 +3271,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  2208 13dc 402E0000 		.4byte	.LASF551
  2209 13e0 E1000100 		.4byte	0x100e1
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 49
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 49
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 49
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2210 13e4 0C       		.uleb128 0xc
@@ -3138,10 +3339,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  2265 1487 F4170000 		.4byte	.LASF570
  2266 148b F4000100 		.4byte	0x100f4
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 50
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 50
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 50
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2267 148f 0C       		.uleb128 0xc
@@ -3202,10 +3407,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  2322 1532 AD3D0000 		.4byte	.LASF589
  2323 1536 07010100 		.4byte	0x10107
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 51
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 51
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 51
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2324 153a 0C       		.uleb128 0xc
@@ -3266,10 +3475,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  2379 15dd AD100000 		.4byte	.LASF608
  2380 15e1 1A010100 		.4byte	0x1011a
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 52
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 52
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 52
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2381 15e5 0C       		.uleb128 0xc
@@ -3330,10 +3543,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  2436 1688 143F0000 		.4byte	.LASF627
  2437 168c 2D010100 		.4byte	0x1012d
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 53
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 53
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 53
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2438 1690 0C       		.uleb128 0xc
@@ -3394,10 +3611,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  2493 171f 01       		.uleb128 0x1
  2494 1720 9C       		.byte	0x9c
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 54
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 54
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 54
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2495 1721 57170000 		.4byte	0x1757
@@ -3458,10 +3679,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  2550 179f 00       		.byte	0
  2551 17a0 1D       		.uleb128 0x1d
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 55
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 55
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 55
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2552 17a1 C4130000 		.4byte	.LASF641
@@ -3522,10 +3747,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  2607 0017 0B       		.uleb128 0xb
  2608 0018 3E       		.uleb128 0x3e
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 56
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 56
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 56
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2609 0019 0B       		.uleb128 0xb
@@ -3586,10 +3815,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  2664 0050 0B       		.uleb128 0xb
  2665 0051 3B       		.uleb128 0x3b
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 57
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 57
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 57
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2666 0052 0B       		.uleb128 0xb
@@ -3650,10 +3883,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  2721 0089 00       		.byte	0
  2722 008a 03       		.uleb128 0x3
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 58
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 58
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 58
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2723 008b 0E       		.uleb128 0xe
@@ -3714,10 +3951,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  2778 00c2 00       		.byte	0
  2779 00c3 00       		.byte	0
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 59
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 59
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 59
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2780 00c4 11       		.uleb128 0x11
@@ -3778,10 +4019,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  2835 00fc 3A       		.uleb128 0x3a
  2836 00fd 0B       		.uleb128 0xb
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 60
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 60
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 60
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2837 00fe 3B       		.uleb128 0x3b
@@ -3842,10 +4087,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  2892 0136 3A       		.uleb128 0x3a
  2893 0137 0B       		.uleb128 0xb
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 61
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 61
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 61
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2894 0138 3B       		.uleb128 0x3b
@@ -3906,10 +4155,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  2949 0174 19       		.uleb128 0x19
  2950 0175 00       		.byte	0
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 62
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 62
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 62
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2951 0176 00       		.byte	0
@@ -3970,10 +4223,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3006 01ad 3B       		.uleb128 0x3b
  3007 01ae 05       		.uleb128 0x5
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 63
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 63
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 63
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3008 01af 00       		.byte	0
@@ -4034,10 +4291,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3063 0079 00000000 		.4byte	0
  3064              		.section	.debug_aranges,"",%progbits
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 64
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 64
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 64
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3065 0000 24000000 		.4byte	0x24
@@ -4098,10 +4359,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3098      5F444953 
  3099              	.LASF62:
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 65
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 65
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 65
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3100 008c 666C6173 		.ascii	"flashProgramDelay\000"
@@ -4162,10 +4427,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3118      4552525F 
  3118      52454144 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 66
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 66
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 66
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3119              	.LASF382:
@@ -4177,6 +4446,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3121              	.LASF550:
  3122 01cd 43595F42 		.ascii	"CY_BLE_EVT_PASSC_WRITE_DESCR_RESPONSE\000"
  3122      4C455F45 
+<<<<<<< HEAD
  3122      56545F50 
  3122      41535343 
  3122      5F575249 
@@ -4230,6 +4500,57 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 67
 >>>>>>> Isac
+=======
+ 3122      56545F42 
+ 3122      4353535F 
+ 3122      494E4449 
+ 3123              	.LASF550:
+ 3124 01ed 43595F42 		.ascii	"CY_BLE_EVT_PASSC_WRITE_DESCR_RESPONSE\000"
+ 3124      4C455F45 
+ 3124      56545F50 
+ 3124      41535343 
+ 3124      5F575249 
+ 3125              	.LASF329:
+ 3126 0213 43595F42 		.ascii	"CY_BLE_KEY_EXCHANGE_INFO_REQUEST_REPLY\000"
+ 3126      4C455F4B 
+ 3126      45595F45 
+ 3126      58434841 
+ 3126      4E47455F 
+ 3127              	.LASF249:
+ 3128 023a 43595F42 		.ascii	"CY_BLE_ERROR_FLASH_WRITE\000"
+ 3128      4C455F45 
+ 3128      52524F52 
+ 3128      5F464C41 
+ 3128      53485F57 
+ 3129              	.LASF649:
+ 3130 0253 61706952 		.ascii	"apiResult\000"
+ 3130      6573756C 
+ 3130      7400
+ 3131              	.LASF58:
+ 3132 025d 63727970 		.ascii	"cryptoMemSize\000"
+ 3132      746F4D65 
+ 3132      6D53697A 
+ 3132      6500
+ 3133              	.LASF150:
+ 3134 026b 43595F42 		.ascii	"CY_BLE_EVT_SET_CLK_CONFIG_COMPLETE\000"
+ 3134      4C455F45 
+ 3134      56545F53 
+ 3134      45545F43 
+ 3134      4C4B5F43 
+ 3135              	.LASF636:
+ 3136 028e 6576656E 		.ascii	"eventParam\000"
+ 3136      74506172 
+ 3136      616D00
+ 3137              	.LASF518:
+ 3138 0299 43595F42 		.ascii	"CY_BLE_EVT_IPSS_READ_CHAR\000"
+ 3138      4C455F45 
+ 3138      56545F49 
+ 3138      5053535F 
+ 3138      52454144 
+ 3139              	.LASF27:
+ 3140 02b3 6873696F 		.ascii	"hsiomBase\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 67
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3140      5353535F 
@@ -4286,6 +4607,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3158 03d7 43595F42 		.ascii	"CY_BLE_EVT_HTSC_NOTIFICATION\000"
  3158      4C455F45 
  3158      56545F48 
+<<<<<<< HEAD
  3158      5453435F 
  3158      4E4F5449 
  3159              	.LASF368:
@@ -4294,6 +4616,12 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 68
 >>>>>>> Isac
+=======
+ 3158      41524457 
+ 3158      4152455F 
+ 3159              	.LASF511:
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 68
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3160 03f4 43595F42 		.ascii	"CY_BLE_EVT_ANSS_NOTIFICATION_ENABLED\000"
@@ -4351,6 +4679,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3177              	.LASF400:
  3178 0514 43595F42 		.ascii	"CY_BLE_EVT_BMSC_READ_CHAR_RESPONSE\000"
  3178      4C455F45 
+<<<<<<< HEAD
  3178      56545F42 
  3178      4D53435F 
 <<<<<<< HEAD
@@ -4358,6 +4687,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 69
 >>>>>>> Isac
+=======
+ 3178      56545F48 
+ 3178      5453435F 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 69
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3178      52454144 
@@ -4373,6 +4707,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3183              	.LASF541:
  3184 055a 43595F42 		.ascii	"CY_BLE_EVT_LNSC_READ_DESCR_RESPONSE\000"
  3184      4C455F45 
+<<<<<<< HEAD
  3184      56545F4C 
  3184      4E53435F 
  3184      52454144 
@@ -4422,6 +4757,53 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 70
 >>>>>>> Isac
+=======
+ 3184      56545F43 
+ 3184      474D5343 
+ 3184      5F494E44 
+ 3185              	.LASF541:
+ 3186 057a 43595F42 		.ascii	"CY_BLE_EVT_LNSC_READ_DESCR_RESPONSE\000"
+ 3186      4C455F45 
+ 3186      56545F4C 
+ 3186      4E53435F 
+ 3186      52454144 
+ 3187              	.LASF88:
+ 3188 059e 6770696F 		.ascii	"gpioPrtCfgOffset\000"
+ 3188      50727443 
+ 3188      66674F66 
+ 3188      66736574 
+ 3188      00
+ 3189              	.LASF378:
+ 3190 05af 43595F42 		.ascii	"CY_BLE_EVT_BASC_NOTIFICATION\000"
+ 3190      4C455F45 
+ 3190      56545F42 
+ 3190      4153435F 
+ 3190      4E4F5449 
+ 3191              	.LASF272:
+ 3192 05cc 43595F42 		.ascii	"CY_BLE_GATT_ERR_PREPARE_WRITE_QUEUE_FULL\000"
+ 3192      4C455F47 
+ 3192      4154545F 
+ 3192      4552525F 
+ 3192      50524550 
+ 3193              	.LASF628:
+ 3194 05f5 43595F42 		.ascii	"CY_BLE_EVT_BTSS_EXEC_WRITE_REQ\000"
+ 3194      4C455F45 
+ 3194      56545F42 
+ 3194      5453535F 
+ 3194      45584543 
+ 3195              	.LASF23:
+ 3196 0614 666C6173 		.ascii	"flashcBase\000"
+ 3196      68634261 
+ 3196      736500
+ 3197              	.LASF50:
+ 3198 061f 73727373 		.ascii	"srssNumHfroot\000"
+ 3198      4E756D48 
+ 3198      66726F6F 
+ 3198      7400
+ 3199              	.LASF226:
+ 3200 062d 43595F42 		.ascii	"CY_BLE_EVT_L2CAP_CBFC_DATA_WRITE_IND\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 70
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3200      4C455F45 
@@ -4479,6 +4861,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3217              	.LASF343:
  3218 075e 43595F42 		.ascii	"CY_BLE_EVT_GATTC_CHAR_DISCOVERY_COMPLETE\000"
  3218      4C455F45 
+<<<<<<< HEAD
  3218      56545F47 
  3218      41545443 
 <<<<<<< HEAD
@@ -4486,6 +4869,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 71
 >>>>>>> Isac
+=======
+ 3218      56545F43 
+ 3218      5053435F 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 71
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3218      5F434841 
@@ -4541,6 +4929,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3236 0893 43595F42 		.ascii	"CY_BLE_EVT_GATTC_LONG_PROCEDURE_END\000"
  3236      4C455F45 
  3236      56545F47 
+<<<<<<< HEAD
  3236      41545443 
  3236      5F4C4F4E 
  3237              	.LASF270:
@@ -4550,6 +4939,13 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 72
 >>>>>>> Isac
+=======
+ 3236      41505F47 
+ 3236      454E5F53 
+ 3237              	.LASF215:
+ 3238 08b3 43595F42 		.ascii	"CY_BLE_EVT_GATTC_LONG_PROCEDURE_END\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 72
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3238      4C455F47 
@@ -4604,6 +5000,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3255              	.LASF615:
  3256 09b0 43595F42 		.ascii	"CY_BLE_EVT_WPTSC_WRITE_DESCR_RESPONSE\000"
  3256      4C455F45 
+<<<<<<< HEAD
  3256      56545F57 
  3256      50545343 
  3256      5F575249 
@@ -4614,6 +5011,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 73
 >>>>>>> Isac
+=======
+ 3256      56545F41 
+ 3256      4E435353 
+ 3256      5F4E4F54 
+ 3257              	.LASF615:
+ 3258 09d0 43595F42 		.ascii	"CY_BLE_EVT_WPTSC_WRITE_DESCR_RESPONSE\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 73
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3258      74635F62 
@@ -4663,6 +5068,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3273              	.LASF160:
  3274 0ab1 43595F42 		.ascii	"CY_BLE_EVT_SET_EVENT_MASK_COMPLETE\000"
  3274      4C455F45 
+<<<<<<< HEAD
  3274      56545F53 
  3274      45545F45 
  3274      56454E54 
@@ -4678,6 +5084,19 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 74
 >>>>>>> Isac
+=======
+ 3274      56545F47 
+ 3274      41545453 
+ 3274      5F58434E 
+ 3275              	.LASF160:
+ 3276 0ad1 43595F42 		.ascii	"CY_BLE_EVT_SET_EVENT_MASK_COMPLETE\000"
+ 3276      4C455F45 
+ 3276      56545F53 
+ 3276      45545F45 
+ 3276      56454E54 
+ 3277              	.LASF315:
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 74
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3278 0af8 43595F42 		.ascii	"CY_BLE_EVT_CTSC_READ_DESCR_RESPONSE\000"
@@ -4718,6 +5137,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3289              	.LASF203:
  3290 0bd4 43595F42 		.ascii	"CY_BLE_EVT_GATTS_WRITE_REQ\000"
  3290      4C455F45 
+<<<<<<< HEAD
  3290      56545F47 
  3290      41545453 
  3290      5F575249 
@@ -4742,6 +5162,28 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 75
 >>>>>>> Isac
+=======
+ 3290      56545F42 
+ 3290      4C53435F 
+ 3290      57524954 
+ 3291              	.LASF203:
+ 3292 0bf4 43595F42 		.ascii	"CY_BLE_EVT_GATTS_WRITE_REQ\000"
+ 3292      4C455F45 
+ 3292      56545F47 
+ 3292      41545453 
+ 3292      5F575249 
+ 3293              	.LASF76:
+ 3294 0c0f 70657269 		.ascii	"periTrCmdGrSelMsk\000"
+ 3294      5472436D 
+ 3294      64477253 
+ 3294      656C4D73 
+ 3294      6B00
+ 3295              	.LASF549:
+ 3296 0c21 43595F42 		.ascii	"CY_BLE_EVT_PASSC_READ_DESCR_RESPONSE\000"
+ 3296      4C455F45 
+ 3296      56545F50 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 75
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3296      4552525F 
@@ -4797,6 +5239,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3313              	.LASF611:
  3314 0d60 43595F42 		.ascii	"CY_BLE_EVT_WPTSC_INDICATION\000"
  3314      4C455F45 
+<<<<<<< HEAD
  3314      56545F57 
  3314      50545343 
  3314      5F494E44 
@@ -4806,6 +5249,13 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 76
 >>>>>>> Isac
+=======
+ 3314      56545F53 
+ 3314      45545F50 
+ 3314      52495641 
+ 3315              	.LASF611:
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 76
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3316 0d7c 43595F42 		.ascii	"CY_BLE_EVT_CPSC_INDICATION\000"
@@ -4864,12 +5314,17 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3333              	.LASF568:
  3334 0ea0 43595F42 		.ascii	"CY_BLE_EVT_RSCSS_INDICATION_CONFIRMATION\000"
  3334      4C455F45 
+<<<<<<< HEAD
  3334      56545F52 
 <<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 77
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 77
 >>>>>>> Isac
+=======
+ 3334      56545F54 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 77
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3334      53435353 
@@ -4907,6 +5362,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3345              	.LASF221:
  3346 0f7f 43595F42 		.ascii	"CY_BLE_EVT_L2CAP_CBFC_DISCONN_IND\000"
  3346      4C455F45 
+<<<<<<< HEAD
  3346      56545F4C 
  3346      32434150 
  3346      5F434246 
@@ -4934,6 +5390,31 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 78
 >>>>>>> Isac
+=======
+ 3346      56545F52 
+ 3346      454D4F56 
+ 3346      455F4445 
+ 3347              	.LASF221:
+ 3348 0f9f 43595F42 		.ascii	"CY_BLE_EVT_L2CAP_CBFC_DISCONN_IND\000"
+ 3348      4C455F45 
+ 3348      56545F4C 
+ 3348      32434150 
+ 3348      5F434246 
+ 3349              	.LASF108:
+ 3350 0fc1 63795F73 		.ascii	"cy_stc_device_t\000"
+ 3350      74635F64 
+ 3350      65766963 
+ 3350      655F7400 
+ 3351              	.LASF292:
+ 3352 0fd1 43595F42 		.ascii	"CY_BLE_GATTS_ERR_NETWORK_NOT_AVAILABLE\000"
+ 3352      4C455F47 
+ 3352      41545453 
+ 3352      5F455252 
+ 3352      5F4E4554 
+ 3353              	.LASF374:
+ 3354 0ff8 43595F42 		.ascii	"CY_BLE_EVT_ANSC_READ_DESCR_RESPONSE\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 78
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3354      436C6F63 
@@ -4990,6 +5471,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3373              	.LASF521:
  3374 110e 43595F42 		.ascii	"CY_BLE_EVT_IPSC_READ_CHAR_RESPONSE\000"
  3374      4C455F45 
+<<<<<<< HEAD
  3374      56545F49 
  3374      5053435F 
  3374      52454144 
@@ -4998,6 +5480,12 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 79
 >>>>>>> Isac
+=======
+ 3374      56545F42 
+ 3374      4153535F 
+ 3374      4E4F5449 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 79
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3375              	.LASF102:
@@ -5055,6 +5543,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3393              	.LASF353:
  3394 1247 43595F42 		.ascii	"CY_BLE_EVT_AIOSC_NOTIFICATION\000"
  3394      4C455F45 
+<<<<<<< HEAD
  3394      56545F41 
  3394      494F5343 
 <<<<<<< HEAD
@@ -5062,6 +5551,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 80
 >>>>>>> Isac
+=======
+ 3394      56545F48 
+ 3394      5253435F 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 80
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3394      5F4E4F54 
@@ -5122,10 +5616,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3414 1393 43595F42 		.ascii	"CY_BLE_ERROR_INVALID_STATE\000"
  3414      4C455F45 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 81
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 81
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 81
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3414      52524F52 
@@ -5158,6 +5656,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3423              	.LASF168:
  3424 1419 43595F42 		.ascii	"CY_BLE_EVT_GAP_AUTH_COMPLETE\000"
  3424      4C455F45 
+<<<<<<< HEAD
  3424      56545F47 
  3424      41505F41 
  3424      5554485F 
@@ -5190,6 +5689,36 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 82
 >>>>>>> Isac
+=======
+ 3424      56545F48 
+ 3424      49445353 
+ 3424      5F424F4F 
+ 3425              	.LASF168:
+ 3426 1439 43595F42 		.ascii	"CY_BLE_EVT_GAP_AUTH_COMPLETE\000"
+ 3426      4C455F45 
+ 3426      56545F47 
+ 3426      41505F41 
+ 3426      5554485F 
+ 3427              	.LASF317:
+ 3428 1456 5F426F6F 		.ascii	"_Bool\000"
+ 3428      6C00
+ 3429              	.LASF525:
+ 3430 145c 43595F42 		.ascii	"CY_BLE_EVT_IPSC_WRITE_DESCR_RESPONSE\000"
+ 3430      4C455F45 
+ 3430      56545F49 
+ 3430      5053435F 
+ 3430      57524954 
+ 3431              	.LASF29:
+ 3432 1481 70617373 		.ascii	"passBase\000"
+ 3432      42617365 
+ 3432      00
+ 3433              	.LASF98:
+ 3434 148a 63707573 		.ascii	"cpussTrimRomCtlOffset\000"
+ 3434      73547269 
+ 3434      6D526F6D 
+ 3434      43746C4F 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 82
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3434      57524954 
@@ -5247,6 +5776,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3453              	.LASF137:
  3454 15c2 43595F42 		.ascii	"CY_BLE_EVT_GET_PHY_COMPLETE\000"
  3454      4C455F45 
+<<<<<<< HEAD
  3454      56545F47 
  3454      45545F50 
 <<<<<<< HEAD
@@ -5254,6 +5784,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 83
 >>>>>>> Isac
+=======
+ 3454      56545F43 
+ 3454      5053535F 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 83
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3454      48595F43 
@@ -5300,6 +5835,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3469              	.LASF164:
  3470 16b7 43595F42 		.ascii	"CY_BLE_EVT_GAPC_SCAN_PROGRESS_RESULT\000"
  3470      4C455F45 
+<<<<<<< HEAD
  3470      56545F47 
  3470      4150435F 
  3470      5343414E 
@@ -5318,6 +5854,22 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 84
 >>>>>>> Isac
+=======
+ 3470      56545F48 
+ 3470      5453535F 
+ 3470      4E4F5449 
+ 3471              	.LASF164:
+ 3472 16d7 43595F42 		.ascii	"CY_BLE_EVT_GAPC_SCAN_PROGRESS_RESULT\000"
+ 3472      4C455F45 
+ 3472      56545F47 
+ 3472      4150435F 
+ 3472      5343414E 
+ 3473              	.LASF14:
+ 3474 16fc 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3474      206C6F6E 
+ 3474      6720756E 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 84
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3474      4E53435F 
@@ -5373,6 +5925,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3491              	.LASF335:
  3492 1836 43595F42 		.ascii	"CY_BLE_EVT_GATTC_INCL_DISCOVERY_FAILED\000"
  3492      4C455F45 
+<<<<<<< HEAD
  3492      56545F47 
  3492      41545443 
  3492      5F494E43 
@@ -5382,6 +5935,13 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 85
 >>>>>>> Isac
+=======
+ 3492      56545F49 
+ 3492      5053435F 
+ 3492      57524954 
+ 3493              	.LASF335:
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 85
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3494 185d 43595F42 		.ascii	"CY_BLE_EVT_ANCSC_READ_DESCR_RESPONSE\000"
@@ -5438,6 +5998,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3512 1965 70657269 		.ascii	"periTrGrOffset\000"
  3512      54724772 
  3512      4F666673 
+<<<<<<< HEAD
  3512      657400
  3513              	.LASF530:
  3514 1974 43595F42 		.ascii	"CY_BLE_EVT_LLSC_WRITE_CHAR_RESPONSE\000"
@@ -5446,6 +6007,10 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 86
 >>>>>>> Isac
+=======
+ 3513              	.LASF77:
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 86
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3514      4C455F45 
@@ -5502,6 +6067,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3531              	.LASF162:
  3532 1a7e 43595F42 		.ascii	"CY_BLE_EVT_SET_CONN_PRIORITY_COMPLETE\000"
  3532      4C455F45 
+<<<<<<< HEAD
  3532      56545F53 
  3532      45545F43 
  3532      4F4E4E5F 
@@ -5510,6 +6076,12 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 87
 >>>>>>> Isac
+=======
+ 3532      56545F47 
+ 3532      4154545F 
+ 3532      434F4E4E 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 87
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3533              	.LASF251:
@@ -5566,6 +6138,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3550              	.LASF399:
  3551 1bc6 43595F42 		.ascii	"CY_BLE_EVT_BMSS_WRITE_CHAR\000"
  3551      4C455F45 
+<<<<<<< HEAD
  3551      56545F42 
  3551      4D53535F 
  3551      57524954 
@@ -5574,6 +6147,12 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 88
 >>>>>>> Isac
+=======
+ 3551      56545F4C 
+ 3551      4C5F434E 
+ 3551      54524C5F 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 88
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3552              	.LASF566:
@@ -5621,6 +6200,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3566              	.LASF225:
  3567 1cb6 43595F42 		.ascii	"CY_BLE_EVT_L2CAP_CBFC_TX_CREDIT_IND\000"
  3567      4C455F45 
+<<<<<<< HEAD
  3567      56545F4C 
  3567      32434150 
  3567      5F434246 
@@ -5638,6 +6218,21 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 89
 >>>>>>> Isac
+=======
+ 3567      56545F47 
+ 3567      41545453 
+ 3567      5F505245 
+ 3568              	.LASF225:
+ 3569 1cd6 43595F42 		.ascii	"CY_BLE_EVT_L2CAP_CBFC_TX_CREDIT_IND\000"
+ 3569      4C455F45 
+ 3569      56545F4C 
+ 3569      32434150 
+ 3569      5F434246 
+ 3570              	.LASF47:
+ 3571 1cfa 63707573 		.ascii	"cpussNotConnectedIrq\000"
+ 3571      734E6F74 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 89
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3571      56545F4C 
@@ -5696,12 +6291,17 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3590              	.LASF420:
  3591 1e0c 43595F42 		.ascii	"CY_BLE_EVT_CPSS_BROADCAST_ENABLED\000"
  3591      4C455F45 
+<<<<<<< HEAD
  3591      56545F43 
 <<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 90
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 90
 >>>>>>> Isac
+=======
+ 3591      56545F47 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 90
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3591      5053535F 
@@ -5727,6 +6327,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3598              	.LASF196:
  3599 1e8a 43595F42 		.ascii	"CY_BLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP\000"
  3599      4C455F45 
+<<<<<<< HEAD
  3599      56545F47 
  3599      41545443 
  3599      5F524541 
@@ -5766,6 +6367,43 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 91
 >>>>>>> Isac
+=======
+ 3599      56545F41 
+ 3599      494F5343 
+ 3599      5F455252 
+ 3600              	.LASF196:
+ 3601 1eaa 43595F42 		.ascii	"CY_BLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP\000"
+ 3601      4C455F45 
+ 3601      56545F47 
+ 3601      41545443 
+ 3601      5F524541 
+ 3602              	.LASF13:
+ 3603 1ed2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3603      20756E73 
+ 3603      69676E65 
+ 3603      6420696E 
+ 3603      7400
+ 3604              	.LASF346:
+ 3605 1ee4 43595F42 		.ascii	"CY_BLE_EVT_AIOSS_NOTIFICATION_ENABLED\000"
+ 3605      4C455F45 
+ 3605      56545F41 
+ 3605      494F5353 
+ 3605      5F4E4F54 
+ 3606              	.LASF276:
+ 3607 1f0a 43595F42 		.ascii	"CY_BLE_GATT_ERR_INVALID_ATTRIBUTE_LEN\000"
+ 3607      4C455F47 
+ 3607      4154545F 
+ 3607      4552525F 
+ 3607      494E5641 
+ 3608              	.LASF175:
+ 3609 1f30 43595F42 		.ascii	"CY_BLE_EVT_GAPC_SCAN_START_STOP\000"
+ 3609      4C455F45 
+ 3609      56545F47 
+ 3609      4150435F 
+ 3609      5343414E 
+ 3610              	.LASF294:
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 91
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3611 1f55 43595F42 		.ascii	"CY_BLE_EVT_HIDSC_READ_DESCR_RESPONSE\000"
@@ -5810,6 +6448,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3624              	.LASF130:
  3625 2032 43595F42 		.ascii	"CY_BLE_EVT_SET_RPA_TO_COMPLETE\000"
  3625      4C455F45 
+<<<<<<< HEAD
  3625      56545F53 
  3625      45545F52 
  3625      50415F54 
@@ -5830,6 +6469,24 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 92
 >>>>>>> Isac
+=======
+ 3625      56545F47 
+ 3625      4C53435F 
+ 3625      4E4F5449 
+ 3626              	.LASF130:
+ 3627 2052 43595F42 		.ascii	"CY_BLE_EVT_SET_RPA_TO_COMPLETE\000"
+ 3627      4C455F45 
+ 3627      56545F53 
+ 3627      45545F52 
+ 3627      50415F54 
+ 3628              	.LASF105:
+ 3629 2071 63707573 		.ascii	"cpussRam2Ctl0\000"
+ 3629      7352616D 
+ 3629      3243746C 
+ 3629      3000
+ 3630              	.LASF247:
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 92
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3631              	.LASF345:
@@ -5883,6 +6540,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3649              	.LASF591:
  3650 216f 43595F42 		.ascii	"CY_BLE_EVT_UDSS_INDICATION_DISABLED\000"
  3650      4C455F45 
+<<<<<<< HEAD
  3650      56545F55 
  3650      4453535F 
  3650      494E4449 
@@ -5894,6 +6552,15 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 93
 >>>>>>> Isac
+=======
+ 3650      56545F47 
+ 3650      4154545F 
+ 3650      44495343 
+ 3651              	.LASF591:
+ 3652 218f 43595F42 		.ascii	"CY_BLE_EVT_UDSS_INDICATION_DISABLED\000"
+ 3652      4C455F45 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 93
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3652      352E342E 
@@ -5951,6 +6618,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3668              	.LASF199:
  3669 22fc 43595F42 		.ascii	"CY_BLE_EVT_GATTC_FIND_BY_TYPE_VALUE_RSP\000"
  3669      4C455F45 
+<<<<<<< HEAD
  3669      56545F47 
  3669      41545443 
 <<<<<<< HEAD
@@ -5958,6 +6626,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 94
 >>>>>>> Isac
+=======
+ 3669      56545F43 
+ 3669      5053535F 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 94
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3669      5F46494E 
@@ -6016,12 +6689,17 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3688              	.LASF493:
  3689 241a 43595F42 		.ascii	"CY_BLE_EVT_HPSC_READ_CHAR_RESPONSE\000"
  3689      4C455F45 
+<<<<<<< HEAD
  3689      56545F48 
 <<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 95
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 95
 >>>>>>> Isac
+=======
+ 3689      52524F52 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 95
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3689      5053435F 
@@ -6071,6 +6749,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3704              	.LASF441:
  3705 2521 43595F42 		.ascii	"CY_BLE_EVT_CSCSC_READ_DESCR_RESPONSE\000"
  3705      4C455F45 
+<<<<<<< HEAD
  3705      56545F43 
  3705      53435343 
  3705      5F524541 
@@ -6086,6 +6765,19 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 96
 >>>>>>> Isac
+=======
+ 3705      56545F57 
+ 3705      5353535F 
+ 3705      494E4449 
+ 3706              	.LASF441:
+ 3707 2541 43595F42 		.ascii	"CY_BLE_EVT_CSCSC_READ_DESCR_RESPONSE\000"
+ 3707      4C455F45 
+ 3707      56545F43 
+ 3707      53435343 
+ 3707      5F524541 
+ 3708              	.LASF80:
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 96
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3709 255b 63707573 		.ascii	"cpussBase\000"
@@ -6113,6 +6805,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3717 25c0 43595F42 		.ascii	"CY_BLE_EVT_HTSS_INDICATION_CONFIRMED\000"
  3717      4C455F45 
  3717      56545F48 
+<<<<<<< HEAD
  3717      5453535F 
  3717      494E4449 
  3718              	.LASF38:
@@ -6150,6 +6843,41 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 97
 >>>>>>> Isac
+=======
+ 3717      5253435F 
+ 3717      52454144 
+ 3718              	.LASF509:
+ 3719 25e0 43595F42 		.ascii	"CY_BLE_EVT_HTSS_INDICATION_CONFIRMED\000"
+ 3719      4C455F45 
+ 3719      56545F48 
+ 3719      5453535F 
+ 3719      494E4449 
+ 3720              	.LASF38:
+ 3721 2605 69706356 		.ascii	"ipcVersion\000"
+ 3721      65727369 
+ 3721      6F6E00
+ 3722              	.LASF115:
+ 3723 2610 43595F42 		.ascii	"CY_BLE_EVT_MEMORY_REQUEST\000"
+ 3723      4C455F45 
+ 3723      56545F4D 
+ 3723      454D4F52 
+ 3723      595F5245 
+ 3724              	.LASF12:
+ 3725 262a 5F5F7569 		.ascii	"__uint32_t\000"
+ 3725      6E743332 
+ 3725      5F7400
+ 3726              	.LASF625:
+ 3727 2635 43595F42 		.ascii	"CY_BLE_EVT_BTSS_WRITE_REQ\000"
+ 3727      4C455F45 
+ 3727      56545F42 
+ 3727      5453535F 
+ 3727      57524954 
+ 3728              	.LASF53:
+ 3729 264f 70617373 		.ascii	"passSarChannels\000"
+ 3729      53617243 
+ 3729      68616E6E 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 97
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3730              	.LASF454:
@@ -6191,6 +6919,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3742              	.LASF362:
  3743 2731 43595F42 		.ascii	"CY_BLE_EVT_ANCSS_WRITE_CHAR\000"
  3743      4C455F45 
+<<<<<<< HEAD
  3743      56545F41 
  3743      4E435353 
  3743      5F575249 
@@ -6214,6 +6943,27 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 98
 >>>>>>> Isac
+=======
+ 3743      56545F4C 
+ 3743      32434150 
+ 3743      5F434246 
+ 3744              	.LASF362:
+ 3745 2751 43595F42 		.ascii	"CY_BLE_EVT_ANCSS_WRITE_CHAR\000"
+ 3745      4C455F45 
+ 3745      56545F41 
+ 3745      4E435353 
+ 3745      5F575249 
+ 3746              	.LASF259:
+ 3747 276d 63795F65 		.ascii	"cy_en_ble_api_result_t\000"
+ 3747      6E5F626C 
+ 3747      655F6170 
+ 3747      695F7265 
+ 3747      73756C74 
+ 3748              	.LASF40:
+ 3749 2784 70726F74 		.ascii	"protVersion\000"
+ 3749      56657273 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 98
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3749      5F4E4F54 
@@ -6250,6 +7000,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3760              	.LASF586:
  3761 283a 43595F42 		.ascii	"CY_BLE_EVT_TPSC_NOTIFICATION\000"
  3761      4C455F45 
+<<<<<<< HEAD
  3761      56545F54 
  3761      5053435F 
  3761      4E4F5449 
@@ -6278,6 +7029,32 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 99
 >>>>>>> Isac
+=======
+ 3761      56545F4C 
+ 3761      4E53435F 
+ 3761      57524954 
+ 3762              	.LASF586:
+ 3763 285a 43595F42 		.ascii	"CY_BLE_EVT_TPSC_NOTIFICATION\000"
+ 3763      4C455F45 
+ 3763      56545F54 
+ 3763      5053435F 
+ 3763      4E4F5449 
+ 3764              	.LASF110:
+ 3765 2877 646F7562 		.ascii	"double\000"
+ 3765      6C6500
+ 3766              	.LASF90:
+ 3767 287e 6770696F 		.ascii	"gpioPrtCfgOutOffset\000"
+ 3767      50727443 
+ 3767      66674F75 
+ 3767      744F6666 
+ 3767      73657400 
+ 3768              	.LASF33:
+ 3769 2892 63727970 		.ascii	"cryptoVersion\000"
+ 3769      746F5665 
+ 3769      7273696F 
+ 3769      6E00
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 99
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3770              	.LASF559:
@@ -6325,6 +7102,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3784              	.LASF497:
  3785 2981 43595F42 		.ascii	"CY_BLE_EVT_HRSS_ENERGY_EXPENDED_RESET\000"
  3785      4C455F45 
+<<<<<<< HEAD
  3785      56545F48 
  3785      5253535F 
  3785      454E4552 
@@ -6342,6 +7120,21 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 100
 >>>>>>> Isac
+=======
+ 3785      56545F41 
+ 3785      4E53535F 
+ 3785      4E4F5449 
+ 3786              	.LASF497:
+ 3787 29a1 43595F42 		.ascii	"CY_BLE_EVT_HRSS_ENERGY_EXPENDED_RESET\000"
+ 3787      4C455F45 
+ 3787      56545F48 
+ 3787      5253535F 
+ 3787      454E4552 
+ 3788              	.LASF85:
+ 3789 29c7 70657269 		.ascii	"periDiv16_5CtlOffset\000"
+ 3789      44697631 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 100
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3789      56545F43 
@@ -6400,12 +7193,17 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3808              	.LASF188:
  3809 2ade 43595F42 		.ascii	"CY_BLE_EVT_GAP_CONN_ESTB\000"
  3809      4C455F45 
+<<<<<<< HEAD
  3809      56545F47 
 <<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 101
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 101
 >>>>>>> Isac
+=======
+ 3809      56545F41 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 101
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3809      41505F43 
@@ -6466,7 +7264,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3828              	.LASF597:
  3829 2be9 43595F42 		.ascii	"CY_BLE_EVT_UDSC_INDICATION\000"
  3829      4C455F45 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 102
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 102
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3829      56545F55 
@@ -6521,12 +7323,21 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3846              	.LASF258:
  3847 2d08 43595F42 		.ascii	"CY_BLE_ERROR_MAX\000"
  3847      4C455F45 
+<<<<<<< HEAD
  3847      52524F52 
  3847      5F4D4158 
  3847      00
  3848              	.LASF256:
  3849 2d19 43595F42 		.ascii	"CY_BLE_ERROR_CONTROLLER_BUSY\000"
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 103
+=======
+ 3847      56545F57 
+ 3847      50545343 
+ 3847      5F524541 
+ 3848              	.LASF258:
+ 3849 2d28 43595F42 		.ascii	"CY_BLE_ERROR_MAX\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 103
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3849      4C455F45 
@@ -6576,6 +7387,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3864              	.LASF178:
  3865 2e11 43595F42 		.ascii	"CY_BLE_EVT_GAP_KEYPRESS_NOTIFICATION\000"
  3865      4C455F45 
+<<<<<<< HEAD
  3865      56545F47 
  3865      41505F4B 
  3865      45595052 
@@ -6587,6 +7399,19 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3867      00
  3868              	.LASF104:
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 104
+=======
+ 3865      56545F50 
+ 3865      4C585353 
+ 3865      5F494E44 
+ 3866              	.LASF178:
+ 3867 2e31 43595F42 		.ascii	"CY_BLE_EVT_GAP_KEYPRESS_NOTIFICATION\000"
+ 3867      4C455F45 
+ 3867      56545F47 
+ 3867      41505F4B 
+ 3867      45595052 
+ 3868              	.LASF321:
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 104
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3869 2e47 63707573 		.ascii	"cpussRam1Ctl0\000"
@@ -6644,9 +7469,15 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3886              	.LASF411:
  3887 2f5f 43595F42 		.ascii	"CY_BLE_EVT_CGMSC_READ_CHAR_RESPONSE\000"
  3887      4C455F45 
+<<<<<<< HEAD
  3887      56545F43 
  3887      474D5343 
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 105
+=======
+ 3887      56545F55 
+ 3887      4453535F 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 105
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3887      5F524541 
@@ -6701,12 +7532,21 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3904              	.LASF152:
  3905 3076 43595F42 		.ascii	"CY_BLE_EVT_AES_ENCRYPT_COMPLETE\000"
  3905      4C455F45 
+<<<<<<< HEAD
  3905      56545F41 
  3905      45535F45 
  3905      4E435259 
  3906              	.LASF501:
  3907 3096 43595F42 		.ascii	"CY_BLE_EVT_HRSC_READ_CHAR_RESPONSE\000"
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 106
+=======
+ 3905      56545F48 
+ 3905      43495F50 
+ 3905      4B545F52 
+ 3906              	.LASF152:
+ 3907 3096 43595F42 		.ascii	"CY_BLE_EVT_AES_ENCRYPT_COMPLETE\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 106
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3907      4C455F45 
@@ -6745,6 +7585,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3918              	.LASF522:
  3919 3142 43595F42 		.ascii	"CY_BLE_EVT_IPSC_READ_MULTIPLE_CHAR_RESPONSE\000"
  3919      4C455F45 
+<<<<<<< HEAD
  3919      56545F49 
  3919      5053435F 
  3919      52454144 
@@ -6767,6 +7608,30 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3925      784D736B 
  3925      00
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 107
+=======
+ 3919      56545F47 
+ 3919      41545453 
+ 3919      5F575249 
+ 3920              	.LASF522:
+ 3921 3162 43595F42 		.ascii	"CY_BLE_EVT_IPSC_READ_MULTIPLE_CHAR_RESPONSE\000"
+ 3921      4C455F45 
+ 3921      56545F49 
+ 3921      5053435F 
+ 3921      52454144 
+ 3922              	.LASF287:
+ 3923 318e 43595F42 		.ascii	"CY_BLE_GATT_ERR_MISSING_CRC\000"
+ 3923      4C455F47 
+ 3923      4154545F 
+ 3923      4552525F 
+ 3923      4D495353 
+ 3924              	.LASF340:
+ 3925 31aa 43595F42 		.ascii	"CY_BLE_EVT_GATTC_DESCR_DUPLICATION\000"
+ 3925      4C455F45 
+ 3925      56545F47 
+ 3925      41545443 
+ 3925      5F444553 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 107
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3926              	.LASF288:
@@ -6825,8 +7690,13 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3944              	.LASF445:
  3945 32ef 43595F42 		.ascii	"CY_BLE_EVT_CTSS_WRITE_CHAR\000"
  3945      4C455F45 
+<<<<<<< HEAD
  3945      56545F43 
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 108
+=======
+ 3945      56545F4C 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 108
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3945      5453535F 
@@ -6886,7 +7756,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3964              	.LASF519:
  3965 3433 43595F42 		.ascii	"CY_BLE_EVT_IPSS_WRITE_CHAR\000"
  3965      4C455F45 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 109
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 109
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3965      56545F49 
@@ -6941,12 +7815,21 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  3982              	.LASF187:
  3983 3559 43595F42 		.ascii	"CY_BLE_EVT_GAP_CREATE_CONN_CANCEL_COMPLETE\000"
  3983      4C455F45 
+<<<<<<< HEAD
  3983      56545F47 
  3983      41505F43 
  3983      52454154 
  3984              	.LASF101:
  3985 3584 63707573 		.ascii	"cpussCm4NmiCtlOffset\000"
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 110
+=======
+ 3983      52524F52 
+ 3983      5F4C3243 
+ 3983      41505F50 
+ 3984              	.LASF187:
+ 3985 3579 43595F42 		.ascii	"CY_BLE_EVT_GAP_CREATE_CONN_CANCEL_COMPLETE\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 110
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3985      73436D34 
@@ -7004,9 +7887,15 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4003 368a 43595F42 		.ascii	"CY_BLE_EVT_GATTC_DISC_SERVICE\000"
  4003      4C455F45 
  4003      56545F47 
+<<<<<<< HEAD
  4003      41545443 
  4003      5F444953 
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 111
+=======
+ 4003      41505F43 
+ 4003      4F4E4E45 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 111
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4004              	.LASF167:
@@ -7052,6 +7941,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4018              	.LASF153:
  4019 378f 43595F42 		.ascii	"CY_BLE_EVT_AES_CCM_ENCRYPT_COMPLETE\000"
  4019      4C455F45 
+<<<<<<< HEAD
  4019      56545F41 
  4019      45535F43 
  4019      434D5F45 
@@ -7067,6 +7957,23 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4023      56545F42 
  4023      4C53435F 
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 112
+=======
+ 4019      56545F4C 
+ 4019      4E53535F 
+ 4019      4E4F5449 
+ 4020              	.LASF153:
+ 4021 37af 43595F42 		.ascii	"CY_BLE_EVT_AES_CCM_ENCRYPT_COMPLETE\000"
+ 4021      4C455F45 
+ 4021      56545F41 
+ 4021      45535F43 
+ 4021      434D5F45 
+ 4022              	.LASF44:
+ 4023 37d3 63707573 		.ascii	"cpussFlashPaSize\000"
+ 4023      73466C61 
+ 4023      73685061 
+ 4023      53697A65 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 112
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4023      52454144 
@@ -7120,6 +8027,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4040              	.LASF584:
  4041 38de 43595F42 		.ascii	"CY_BLE_EVT_TPSS_NOTIFICATION_ENABLED\000"
  4041      4C455F45 
+<<<<<<< HEAD
  4041      56545F54 
  4041      5053535F 
  4041      4E4F5449 
@@ -7127,6 +8035,15 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4043 3903 63795F65 		.ascii	"cy_en_ble_conn_state_t\000"
  4043      6E5F626C 
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccCGvUnH.s 			page 113
+=======
+ 4041      56545F47 
+ 4041      41505F50 
+ 4041      4153534B 
+ 4042              	.LASF584:
+ 4043 38fe 43595F42 		.ascii	"CY_BLE_EVT_TPSS_NOTIFICATION_ENABLED\000"
+ 4043      4C455F45 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 113
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4043      655F636F 
@@ -8391,7 +9308,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4060      61724465 
  4060      736300
  4061              	.LASF93:
+<<<<<<< HEAD
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 114
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 114
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4062 3a52 63707573 		.ascii	"cpussCm4ClockCtlOffset\000"
@@ -8451,7 +9372,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4081              	.LASF467:
  4082 3b79 43595F42 		.ascii	"CY_BLE_EVT_GLSS_INDICATION_CONFIRMED\000"
  4082      4C455F45 
+<<<<<<< HEAD
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 115
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 115
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4082      56545F47 
@@ -8511,7 +9436,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4100      48454152 
  4101 3cd5 54454400 		.ascii	"TED\000"
  4102              	.LASF513:
+<<<<<<< HEAD
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 116
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 116
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4103 3cd9 43595F42 		.ascii	"CY_BLE_EVT_HTSC_READ_CHAR_RESPONSE\000"
@@ -8571,7 +9500,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4123      4C455F45 
  4123      56545F54 
  4123      5053435F 
+<<<<<<< HEAD
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 117
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 117
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4123      57524954 
@@ -8630,8 +9563,13 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4141      4C53535F 
  4141      494E4449 
  4142              	.LASF627:
+<<<<<<< HEAD
  4143 3f14 43595F42 		.ascii	"CY_BLE_EVT_BTSS_PREP_WRITE_REQ\000"
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 118
+=======
+ 4143 3f07 43595F42 		.ascii	"CY_BLE_EVT_BTSS_PREP_WRITE_REQ\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 118
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4143      4C455F45 
@@ -8691,7 +9629,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4161      4C455F45 
  4161      52524F52 
  4161      5F4C3243 
+<<<<<<< HEAD
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 119
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 119
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4161      41505F50 
@@ -8751,7 +9693,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4181      7573746F 
  4181      6D436F6E 
  4181      66696750 
+<<<<<<< HEAD
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 120
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 120
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4182              	.LASF528:
@@ -8811,7 +9757,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4201      4D61696E 
  4201      57733146 
  4201      72657100 
+<<<<<<< HEAD
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 121
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 121
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4202              	.LASF348:
@@ -8871,8 +9821,12 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4220              	.LASF240:
  4221 43c4 43595F42 		.ascii	"CY_BLE_ERROR_GAP_ROLE\000"
  4221      4C455F45 
+<<<<<<< HEAD
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 122
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 122
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4221      52524F52 
@@ -8931,8 +9885,13 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4239      5F474154 
  4239      545F4442 
  4240              	.LASF524:
+<<<<<<< HEAD
  4241 44eb 43595F42 		.ascii	"CY_BLE_EVT_IPSC_READ_DESCR_RESPONSE\000"
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 123
+=======
+ 4241 44de 43595F42 		.ascii	"CY_BLE_EVT_IPSC_READ_DESCR_RESPONSE\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 123
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4241      4C455F45 
@@ -8997,8 +9956,13 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4259      53435343 
  4259      5F494E44 
  4260              	.LASF562:
+<<<<<<< HEAD
  4261 45fd 43595F42 		.ascii	"CY_BLE_EVT_PLXSC_WRITE_DESCR_RESPONSE\000"
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 124
+=======
+ 4261 45f0 43595F42 		.ascii	"CY_BLE_EVT_PLXSC_WRITE_DESCR_RESPONSE\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 124
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4261      4C455F45 
@@ -9064,7 +10028,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4280              	.LASF421:
  4281 4719 43595F42 		.ascii	"CY_BLE_EVT_CPSS_BROADCAST_DISABLED\000"
  4281      4C455F45 
+<<<<<<< HEAD
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 125
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 125
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4281      56545F43 
@@ -9130,7 +10098,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4299      4D5F496E 
  4299      697400
  4300              	.LASF283:
+<<<<<<< HEAD
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 126
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 126
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4301 4849 43595F42 		.ascii	"CY_BLE_GATT_ERR_CPS_INAPPROPRIATE_CONNECTION_PARAME"
@@ -9196,7 +10168,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4320      6174745F 
  4320      64625F61 
  4320      7474725F 
+<<<<<<< HEAD
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 127
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 127
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4321              	.LASF157:
@@ -9263,7 +10239,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4340      56545F43 
  4340      5053435F 
  4340      4E4F5449 
+<<<<<<< HEAD
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 128
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 128
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4341              	.LASF10:
@@ -9329,8 +10309,13 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4360      474D5343 
  4360      5F575249 
  4361              	.LASF148:
+<<<<<<< HEAD
  4362 4ba6 43595F42 		.ascii	"CY_BLE_EVT_SET_TX_PWR_COMPLETE\000"
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 129
+=======
+ 4362 4b99 43595F42 		.ascii	"CY_BLE_EVT_SET_TX_PWR_COMPLETE\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 129
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4362      4C455F45 
@@ -9396,7 +10381,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 1
  4380      4C455F45 
  4380      56545F48 
  4380      5453435F 
+<<<<<<< HEAD
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\cc5x0sMQ.s 			page 130
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccF6ziAr.s 			page 130
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4380      52454144 

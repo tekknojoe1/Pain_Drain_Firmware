@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 1
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
    1              		.syntax unified
@@ -63,10 +67,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
   28:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** volatile int16_t Cy_SAR_offset[CY_SAR_MAX_NUM_CHANNELS];
   29:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** volatile int32_t Cy_SAR_countsPer10Volt[CY_SAR_MAX_NUM_CHANNELS];
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 2
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 2
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 2
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
   30:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** 
@@ -127,10 +135,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
   55              	.L2:
   59:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****     CY_ASSERT_L1(NULL != config);
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 3
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 3
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 3
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
   56              		.loc 1 59 0 is_stmt 1
@@ -191,10 +203,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
   94 004a 13F0FC2F 		tst	r3, #-67044352
   95 004e 03D0     		beq	.L7
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 4
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 4
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 4
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
   96              		.loc 1 76 0 is_stmt 0 discriminator 1
@@ -255,10 +271,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  146              		.loc 1 81 0 is_stmt 0 discriminator 1
  147 009c 5121     		movs	r1, #81
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 5
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 5
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 5
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  148 009e 5148     		ldr	r0, .L27
@@ -319,10 +339,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  189              	.LVL15:
   96:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 6
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 6
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 6
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
   97:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****         for (chan = 0u; chan < CY_SAR_MAX_NUM_CHANNELS; chan++)
@@ -383,10 +407,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  231              	.LVL20:
  232 0124 23F81520 		strh	r2, [r3, r5, lsl #1]	@ movhi
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 7
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 7
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 7
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  233              	.LVL21:
@@ -447,10 +475,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  273 0166 C7F82032 		str	r3, [r7, #544]
  124:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****         SAR_RANGE_INTR_MASK(base) = config->rangeIntrMask;
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 8
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 8
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 8
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  274              		.loc 1 124 0
@@ -511,10 +543,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  140:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****         /* Set the Cap trim if it was trimmed out of range from sflash */
  141:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****         if ((CY_SAR_CAP_TRIM_MAX == SAR_ANA_TRIM0(base)) || (CY_SAR_CAP_TRIM_MIN == SAR_ANA_TRIM0(b
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 9
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 9
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 9
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  314              		.loc 1 141 0
@@ -575,10 +611,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  356              		.cfi_endproc
  357              	.LFE192:
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 10
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 10
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 10
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  358              		.size	Cy_SAR_Init, .-Cy_SAR_Init
@@ -639,10 +679,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  385 000a 1748     		ldr	r0, .L37
  386              	.LVL36:
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 11
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 11
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 11
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  387 000c FFF7FEFF 		bl	Cy_SysLib_AssertFailed
@@ -703,10 +747,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  421              	.LVL41:
  422              	.L32:
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 12
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 12
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 12
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  199:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****         for (chan = 0u; chan < CY_SAR_MAX_NUM_CHANNELS; chan++)
@@ -767,10 +815,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  461 0068 00000000 		.word	.LC0
  462 006c 01000600 		.word	393217
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 13
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 13
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 13
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  463              		.cfi_endproc
@@ -831,10 +883,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  493 0010 0368     		ldr	r3, [r0]
  494 0012 43F00043 		orr	r3, r3, #-2147483648
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 14
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 14
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 14
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  495 0016 0360     		str	r3, [r0]
@@ -895,10 +951,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  278:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****     ctrlReg &= ~SAR_CTRL_REFBUF_EN_Msk;
  279:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 15
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 15
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 15
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  280:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****     if (SAR_CTRL_ENABLED_Msk == enabledBeforeSleep.hwEnabled)
@@ -959,10 +1019,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  335:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****     {
  336:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****         Cy_SAR_Enable(base);
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 16
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 16
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 16
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  337:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** 
@@ -1023,10 +1087,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  536              	.LVL53:
  537              	.L44:
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 17
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 17
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 17
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  370:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** 
@@ -1087,10 +1155,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  581 000c B3F1004F 		cmp	r3, #-2147483648
  582 0010 0DD1     		bne	.L55
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 18
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 18
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 18
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  330:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****     /* Turn on the reference buffer */
@@ -1151,10 +1223,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  388:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** * Stop continuous scanning of enabled channels.
  389:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** * If a conversion is currently executing, that conversion will complete,
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 19
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 19
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 19
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  390:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** * but no further conversions will occur until the next call to
@@ -1215,10 +1291,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  661              		.cfi_offset 6, -8
  662              		.cfi_offset 14, -4
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 20
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 20
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 20
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  663 0002 0446     		mov	r4, r0
@@ -1279,10 +1359,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  708              		.align	2
  709              		.global	Cy_SAR_SetConvertMode
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 21
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 21
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 21
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  710              		.thumb
@@ -1343,10 +1427,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  731 0008 B1F5003F 		cmp	r1, #131072
  732 000c 07D0     		beq	.L67
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 22
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 22
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 22
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  733              		.loc 1 441 0 discriminator 2
@@ -1407,10 +1495,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  461:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** *
  462:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** * \param retMode
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 23
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 23
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 23
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  463:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** * A value of the enum \ref cy_en_sar_return_mode_t
@@ -1471,10 +1563,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  799 001e 06D0     		beq	.L79
  800 0020 0AE0     		b	.L81
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 24
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 24
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 24
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  801              	.LVL78:
@@ -1535,10 +1631,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  834 003c 0123     		movs	r3, #1
  835              	.LVL87:
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 25
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 25
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 25
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  836 003e C4F81032 		str	r3, [r4, #528]
@@ -1599,10 +1699,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  521:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** 
  522:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** /*******************************************************************************
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 26
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 26
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 26
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  523:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** * Function Name: Cy_SAR_IsChannelSigned
@@ -1663,10 +1767,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  578:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** * Return true if channel is single ended, else false
  579:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** *
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 27
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 27
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 27
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  580:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** * \param base
@@ -1727,10 +1835,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  907 0022 03D0     		beq	.L89
  598:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 28
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 28
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 28
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  908              		.loc 1 598 0
@@ -1791,10 +1903,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  954              		.loc 1 546 0 is_stmt 0 discriminator 1
  955 000a 40F22221 		movw	r1, #546
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 29
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 29
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 29
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  956              	.LVL102:
@@ -1855,10 +1971,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
   42:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *   - scan can be triggered by firmware or hardware in single shot or continuous mode
   43:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *   - hardware averaging from 2 to 256 samples
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 30
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 30
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 30
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
   44:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *   - selectable voltage references
@@ -1919,10 +2039,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
   99:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * \subsection group_sar_init_struct_sampleTime01 uint32_t sampleTime01
  100:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 31
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 31
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 31
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  101:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * This field configures the value for sample times 0 and 1 in ADC clock cycles.
@@ -1983,10 +2107,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  156:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * Select a value from each of the following enums that begin with "cy_en_sar_chan_config_" and "OR"
  157:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 32
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 32
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 32
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  158:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *   - \ref cy_en_sar_chan_config_input_mode_t
@@ -2047,10 +2175,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  213:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *
  214:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * Use one or more values from the \ref cy_en_sar_mux_switch_fw_ctrl_t enum and "OR" them together.
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 33
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 33
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 33
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  215:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * If the SARSEQ is enabled, the SARMUX switches that will be used must
@@ -2111,10 +2243,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  270:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *     <td>
  271:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *     Firmware triggering is always available by calling \ref Cy_SAR_StartConvert with \ref CY_SAR_
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 34
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 34
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 34
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  272:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *     To allow only firmware triggering, or disable
@@ -2175,10 +2311,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  327:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * Alternately, instead of handling the interrupts, the \ref Cy_SAR_IsEndConversion function
  328:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * allows for firmware polling of the end of conversion status.
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 35
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 35
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 35
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  329:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *
@@ -2239,10 +2379,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  384:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *
  385:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * where N is the total number of channels in the scan.
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 36
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 36
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 36
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  386:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *
@@ -2303,10 +2447,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  441:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *     <td>CTB0 Opamp0 1x output</td>
  442:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *     <td>\ref CY_SAR_POS_PORT_ADDR_CTB0</td>
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 37
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 37
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 37
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  443:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *     <td>\ref CY_SAR_CHAN_POS_PIN_ADDR_2</td>
@@ -2367,10 +2515,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  498:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * The \ref Cy_SAR_DeepSleepCallback function ensures that SAR conversions are stopped
  499:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * before Deep Sleep entry. Upon wakeup, the callback
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 38
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 38
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 38
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  500:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * enables the hardware and continuous conversions, if previously enabled.
@@ -2431,10 +2583,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  555:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *     <td> Turn off the entire hardware block only if the SARMUX is not enabled 
  556:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *          for Deep Sleep operation.                
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 39
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 39
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 39
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  557:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *     </td>
@@ -2495,10 +2651,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  612:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** #endif
  613:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 40
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 40
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 40
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  614:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** /** \addtogroup group_sar_macros
@@ -2559,10 +2719,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  669:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****                                         | SAR_SAMPLE_CTRL_DSI_TRIGGER_LEVEL_Msk \
  670:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****                                         | SAR_SAMPLE_CTRL_DSI_SYNC_TRIGGER_Msk \
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 41
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 41
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 41
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  671:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****                                         | SAR_SAMPLE_CTRL_UAB_SCAN_MODE_Msk \
@@ -2623,10 +2787,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  726:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** */
  727:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** /***************************************
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 42
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 42
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 42
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  728:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *        Global Variables
@@ -2687,10 +2855,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  783:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     CY_SAR_RETURN_STATUS    = 0uL,      /**< Immediately returns the conversion status. */
  784:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     CY_SAR_WAIT_FOR_RESULT  = 1uL,    /**< Does not return a result until the conversion of all seq
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 43
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 43
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 43
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  785:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** }cy_en_sar_return_mode_t;
@@ -2751,10 +2923,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  840:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     CY_SAR_BYPASS_CAP_DISABLE = 0uL << SAR_CTRL_VREF_BYP_CAP_EN_Pos,    /**< Disable Vref bypass ca
  841:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     CY_SAR_BYPASS_CAP_ENABLE  = 1uL << SAR_CTRL_VREF_BYP_CAP_EN_Pos     /**< Enable Vref bypass cap
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 44
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 44
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 44
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  842:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** }cy_en_sar_ctrl_bypass_cap_t;
@@ -2815,10 +2991,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  897:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     CY_SAR_DEEPSLEEP_SARMUX_OFF = 0uL << SAR_CTRL_DEEPSLEEP_ON_Pos,    /**< Disable SARMUX operatio
  898:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     CY_SAR_DEEPSLEEP_SARMUX_ON  = 1uL << SAR_CTRL_DEEPSLEEP_ON_Pos     /**< Enable SARMUX operation
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 45
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 45
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 45
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  899:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** }cy_en_sar_ctrl_sarmux_deep_sleep_t;
@@ -2879,10 +3059,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  954:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     CY_SAR_AVG_CNT_64         = 5uL << SAR_SAMPLE_CTRL_AVG_CNT_Pos,    /**< Set samples averaged to
  955:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     CY_SAR_AVG_CNT_128        = 6uL << SAR_SAMPLE_CTRL_AVG_CNT_Pos,    /**< Set samples averaged to
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 46
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 46
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 46
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  956:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     CY_SAR_AVG_CNT_256        = 7uL << SAR_SAMPLE_CTRL_AVG_CNT_Pos     /**< Set samples averaged to
@@ -2943,10 +3127,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1011:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     CY_SAR_SAMPLE_TIME0_SHIFT       = SAR_SAMPLE_TIME01_SAMPLE_TIME0_Pos,             /**< Shift fo
 1012:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     CY_SAR_SAMPLE_TIME1_SHIFT       = SAR_SAMPLE_TIME01_SAMPLE_TIME1_Pos,             /**< Shift fo
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 47
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 47
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 47
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1013:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     CY_SAR_SAMPLE_TIME2_SHIFT       = SAR_SAMPLE_TIME23_SAMPLE_TIME2_Pos,             /**< Shift fo
@@ -3007,10 +3195,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1068:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** typedef enum
 1069:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** {
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 48
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 48
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 48
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1070:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     CY_SAR_CHAN_SINGLE_ENDED            = 0uL,                                     /**< Single ende
@@ -3071,10 +3263,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1125:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     CY_SAR_CHAN_SAMPLE_TIME_3     = 3uL << SAR_CHAN_CONFIG_SAMPLE_TIME_SEL_Pos,   /**< Use sample t
 1126:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** }cy_en_sar_chan_config_sample_time_t;
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 49
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 49
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 49
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1127:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** 
@@ -3135,10 +3331,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1182:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * This set of enumerations aids in configuring the \ref group_sar_init_struct_muxSwitch and \ref gr
 1183:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * \{
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 50
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 50
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 50
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1184:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** */
@@ -3199,10 +3399,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1239:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * To enable sequencer control of multiple switches, "OR" the enum values together.
 1240:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 51
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 51
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 51
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1241:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * See the \ref group_sar_sarmux section for more guidance.
@@ -3263,10 +3467,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1296:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     uint32_t muxSwitchSqCtrl;                           /**< Enable SARSEQ control of specific SARM
 1297:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     bool configRouting;                                 /**< Configure or ignore routing related re
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 52
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 52
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 52
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1298:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     uint32_t vrefMvValue;                               /**< Reference voltage in millivolts used i
@@ -3327,10 +3535,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1353:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** void Cy_SAR_SetConvertMode(SAR_Type *base, cy_en_sar_sample_ctrl_trigger_mode_t mode);
 1354:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** __STATIC_INLINE void Cy_SAR_SetChanMask(SAR_Type *base, uint32_t enableMask);
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 53
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 53
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 53
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1355:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** void Cy_SAR_SetLowLimit(SAR_Type *base, uint32_t lowLimit);
@@ -3391,10 +3603,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1410:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** 
 1411:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 54
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 54
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 54
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1412:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** /** \addtogroup group_sar_functions_helper
@@ -3455,10 +3671,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1467:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** __STATIC_INLINE uint32_t Cy_SAR_GetChanResultUpdated(const SAR_Type *base)
 1468:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** {
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 55
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 55
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 55
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1469:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     return SAR_CHAN_RESULT_UPDATED(base);
@@ -3519,10 +3739,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1524:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *
 1525:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *******************************************************************************/
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 56
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 56
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 56
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1526:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** __STATIC_INLINE void Cy_SAR_SetRangeCond(SAR_Type *base, cy_en_sar_range_detect_condition_t cond)
@@ -3583,10 +3807,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1581:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *
 1582:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *******************************************************************************/
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 57
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 57
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 57
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1583:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** __STATIC_INLINE void Cy_SAR_ClearInterrupt(SAR_Type *base, uint32_t intrMask)
@@ -3647,10 +3875,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1638:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * \return None
 1639:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 58
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 58
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 58
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1640:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * \funcusage
@@ -3711,10 +3943,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1695:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** 
 1696:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 59
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 59
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 59
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1697:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** /*******************************************************************************
@@ -3775,10 +4011,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1752:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** 
 1753:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 60
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 60
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 60
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1754:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** /*******************************************************************************
@@ -3839,10 +4079,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1809:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * \ref Cy_SAR_SetRangeInterruptMask.
 1810:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 61
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 61
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 61
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1811:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * \param base
@@ -3903,10 +4147,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1866:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** {
 1867:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h ****     return SAR_SATURATE_INTR(base);
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 62
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 62
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 62
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1868:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** }
@@ -3967,10 +4215,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1923:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** 
 1924:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** /*******************************************************************************
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 63
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 63
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 63
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1925:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * Function Name: Cy_SAR_SetSatInterruptMask
@@ -4031,10 +4283,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1980:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * \return
 1981:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * Bitwise AND of the saturate interrupt request and mask
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 64
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 64
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 64
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1982:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *
@@ -4095,10 +4351,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 2037:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * \return
 2038:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** * A false is return if chan is invalid.
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 65
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 65
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 65
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 2039:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.h **** *
@@ -4159,10 +4419,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1008              		.loc 1 565 0
  1009 004a 0120     		movs	r0, #1
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 66
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 66
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 66
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1010              	.LVL112:
@@ -4223,10 +4487,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1038              		.cfi_offset 5, -8
  1039              		.cfi_offset 14, -4
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 67
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 67
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 67
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1040 0002 0546     		mov	r5, r0
@@ -4287,10 +4555,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1083              		.global	Cy_SAR_GetResult32
  1084              		.thumb
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 68
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 68
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 68
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1085              		.thumb_func
@@ -4351,10 +4623,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  673:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** 
  674:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****     uint32_t adcResult = 0uL;
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 69
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 69
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 69
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  675:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****     int16_t adcResult16;
@@ -4415,10 +4691,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1147              		.align	2
  1148              	.L117:
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 70
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 70
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 70
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1149 0038 00000000 		.word	.LC0
@@ -4479,10 +4759,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1177              		.loc 1 721 0 is_stmt 0 discriminator 1
  1178 000c 40F2D121 		movw	r1, #721
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 71
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 71
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 71
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1179              	.LVL137:
@@ -4543,10 +4827,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  742:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** * Pointer to structure describing registers
  743:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** *
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 72
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 72
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 72
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  744:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** * \param highLimit
@@ -4607,10 +4895,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1250 0022 00BF     		.align	2
  1251              	.L127:
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 73
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 73
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 73
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1252 0024 00000000 		.word	.LC0
@@ -4671,10 +4963,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1276 0004 0D46     		mov	r5, r1
  794:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****     CY_ASSERT_L2(CY_SAR_CHANNUM(chan));
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 74
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 74
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 74
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1277              		.loc 1 794 0
@@ -4735,10 +5031,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1320              		.type	Cy_SAR_SetGain, %function
  1321              	Cy_SAR_SetGain:
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 75
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 75
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 75
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1322              	.LFB208:
@@ -4799,10 +5099,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1346              	.L137:
  837:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 76
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 76
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 76
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  838:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****     cy_en_sar_status_t result = CY_SAR_BAD_PARAM;
@@ -4863,10 +5167,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  857:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** *
  858:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** *     Counts = (RawCounts/AvgDivider - Offset)
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 77
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 77
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 77
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  859:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** *
@@ -4927,10 +5235,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1404 0010 1948     		ldr	r0, .L151
  1405              	.LVL169:
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 78
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 78
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 78
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1406 0012 FFF7FEFF 		bl	Cy_SysLib_AssertFailed
@@ -4991,10 +5303,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  915:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****                     {
  916:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****                         averageAdcSamplesDiv = 16uL;
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 79
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 79
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 79
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1438              		.loc 1 916 0
@@ -5055,10 +5371,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  937:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****     return adcCounts;
  938:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** }
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 80
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 80
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 80
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1473              		.loc 1 938 0
@@ -5119,10 +5439,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  974:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** * Conversion result from \ref Cy_SAR_GetResult16
  975:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** *
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 81
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 81
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 81
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  976:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** * \return
@@ -5183,10 +5507,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1527 0024 2146     		mov	r1, r4
  1528 0026 2846     		mov	r0, r5
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 82
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 82
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 82
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1529 0028 FFF7FEFF 		bl	Cy_SAR_RawCounts2Counts
@@ -5247,10 +5575,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1005:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** 
 1006:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 83
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 83
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 83
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1007:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** /*******************************************************************************
@@ -5311,10 +5643,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1582              		.cfi_offset 4, -16
  1583              		.cfi_offset 5, -12
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 84
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 84
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 84
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1584              		.cfi_offset 6, -8
@@ -5375,10 +5711,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1625 0042 02EB6003 		add	r3, r2, r0, asr #1
  1626              	.LVL201:
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 85
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 85
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 85
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1627 0046 06E0     		b	.L165
@@ -5439,10 +5779,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1670              		.thumb
  1671              		.thumb_func
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 86
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 86
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 86
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1672              		.type	Cy_SAR_CountsTo_uVolts, %function
@@ -5503,10 +5847,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1677              		@ args = 0, pretend = 0, frame = 0
  1678              		@ frame_needed = 0, uses_anonymous_args = 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 87
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 87
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 87
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1679              	.LVL210:
@@ -5567,10 +5915,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1723 003a 074B     		ldr	r3, .L177+8
  1724 003c 53F82420 		ldr	r2, [r3, r4, lsl #2]
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 88
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 88
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 88
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1725              	.LVL218:
@@ -5631,10 +5983,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1161:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** * \param switchSelect
 1162:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** * The switch register that contains the desired switches. Select a value
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 89
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 89
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 89
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1163:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** * from \ref cy_en_sar_switch_register_sel_t.
@@ -5695,10 +6051,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1792              		.loc 1 1184 0 is_stmt 1
  1793 0024 012D     		cmp	r5, #1
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 90
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 90
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 90
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1794 0026 04D9     		bls	.L182
@@ -5759,10 +6119,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 1202:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****         break;
 1203:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c ****     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 91
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 91
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 91
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
 1204:Generated_Source\PSoC6\pdl\drivers\peripheral\sar/cy_sar.c **** }
@@ -5823,10 +6187,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1859              	.L193:
  1860 0018 00000000 		.word	.LC0
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 92
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 92
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 92
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1861              		.cfi_endproc
@@ -5887,10 +6255,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1886              		.loc 1 1261 0
  1887 0008 21F44F03 		bic	r3, r1, #13565952
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 93
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 93
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 93
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1888 000c 23F0FF03 		bic	r3, r3, #255
@@ -5951,10 +6323,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1933              		.section	.text.Cy_SAR_DeepSleepCallback,"ax",%progbits
  1934              		.align	2
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 94
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 94
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 94
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1935              		.global	Cy_SAR_DeepSleepCallback
@@ -6015,10 +6391,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1957 0008 FFF7FEFF 		bl	Cy_SAR_DeepSleep
  1958              	.LVL250:
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 95
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 95
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 95
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1959 000c 04E0     		b	.L207
@@ -6079,10 +6459,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  1995              		.file 5 "Generated_Source\\PSoC6\\pdl\\devices/psoc6/include/ip/cyip_sar.h"
  1996              		.file 6 "Generated_Source\\PSoC6\\pdl\\devices/psoc6/include/psoc6_01_config.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 96
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 96
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 96
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  1997              		.file 7 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/device/cy_device.h"
@@ -6143,10 +6527,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  2052 006e 04       		.byte	0x4
  2053 006f 05       		.byte	0x5
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 97
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 97
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 97
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2054 0070 E10D0000 		.4byte	.LASF8
@@ -6207,10 +6595,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  2109 00e0 74000000 		.4byte	0x74
  2110 00e4 03       		.uleb128 0x3
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 98
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 98
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 98
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2111 00e5 7A060000 		.4byte	.LASF20
@@ -6271,10 +6663,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  2166 015c DF030000 		.4byte	0x3df
  2167 0160 0A       		.uleb128 0xa
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 99
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 99
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 99
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2168 0161 2D140000 		.4byte	.LASF23
@@ -6335,10 +6731,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  2223 01d1 05       		.byte	0x5
  2224 01d2 2B       		.byte	0x2b
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 100
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 100
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 100
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2225 01d3 FE030000 		.4byte	0x3fe
@@ -6399,10 +6799,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  2280 0249 0802     		.2byte	0x208
  2281 024b 0B       		.uleb128 0xb
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 101
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 101
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 101
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2282 024c E9080000 		.4byte	.LASF42
@@ -6463,10 +6867,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  2337 02c5 05       		.byte	0x5
  2338 02c6 3E       		.byte	0x3e
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 102
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 102
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 102
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2339 02c7 FD000000 		.4byte	0xfd
@@ -6527,10 +6935,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  2394 0340 9402     		.2byte	0x294
  2395 0342 0B       		.uleb128 0xb
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 103
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 103
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 103
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2396 0343 3B130000 		.4byte	.LASF61
@@ -6591,10 +7003,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  2451 03bc 05       		.byte	0x5
  2452 03bd 51       		.byte	0x51
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 104
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 104
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 104
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2453 03be 92040000 		.4byte	0x492
@@ -6655,10 +7071,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  2508 0440 3A040000 		.4byte	0x43a
  2509 0444 05       		.uleb128 0x5
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 105
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 105
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 105
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2510 0445 37010000 		.4byte	0x137
@@ -6719,10 +7139,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  2565 04c3 FB040000 		.4byte	.LASF76
  2566 04c7 07       		.byte	0x7
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 106
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 106
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 106
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2567 04c8 38       		.byte	0x38
@@ -6783,10 +7207,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  2622 0535 AD000000 		.4byte	0xad
  2623 0539 28       		.byte	0x28
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 107
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 107
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 107
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2624 053a 0A       		.uleb128 0xa
@@ -6847,10 +7275,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  2679 05a7 7A120000 		.4byte	.LASF95
  2680 05ab 07       		.byte	0x7
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 108
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 108
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 108
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2681 05ac 4F       		.byte	0x4f
@@ -6911,10 +7343,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  2736 0619 AD000000 		.4byte	0xad
  2737 061d 3F       		.byte	0x3f
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 109
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 109
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 109
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2738 061e 0A       		.uleb128 0xa
@@ -6975,10 +7411,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  2793 068b 9E0A0000 		.4byte	.LASF114
  2794 068f 07       		.byte	0x7
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 110
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 110
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 110
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2795 0690 62       		.byte	0x62
@@ -7039,10 +7479,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  2850 06fd C3000000 		.4byte	0xc3
  2851 0701 5C       		.byte	0x5c
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 111
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 111
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 111
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2852 0702 0A       		.uleb128 0xa
@@ -7103,10 +7547,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  2907 076f 34040000 		.4byte	.LASF133
  2908 0773 07       		.byte	0x7
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 112
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 112
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 112
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2909 0774 7C       		.byte	0x7c
@@ -7167,10 +7615,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  2964 07e1 AD000000 		.4byte	0xad
  2965 07e5 7E       		.byte	0x7e
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 113
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 113
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 113
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  2966 07e6 0A       		.uleb128 0xa
@@ -7231,10 +7683,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  3021 0853 89070000 		.4byte	.LASF152
  3022 0857 07       		.byte	0x7
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 114
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 114
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 114
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3023 0858 94       		.byte	0x94
@@ -7295,10 +7751,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  3078 08c5 9F       		.byte	0x9f
  3079 08c6 AE040000 		.4byte	0x4ae
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 115
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 115
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 115
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3080 08ca 0D       		.uleb128 0xd
@@ -7359,10 +7819,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  3135 094a 1C05     		.2byte	0x51c
  3136 094c 03090000 		.4byte	0x903
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 116
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 116
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 116
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3137 0950 0F       		.uleb128 0xf
@@ -7423,10 +7887,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  3192 09c0 02       		.byte	0x2
  3193 09c1 FE02     		.2byte	0x2fe
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 117
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 117
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 117
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3194 09c3 E9090000 		.4byte	0x9e9
@@ -7487,10 +7955,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  3249 0a41 0F       		.uleb128 0xf
  3250 0a42 01       		.byte	0x1
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 118
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 118
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 118
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3251 0a43 37000000 		.4byte	0x37
@@ -7550,12 +8022,17 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  3305 0ab6 EB0A0000 		.4byte	0xaeb
  3306 0aba 10       		.uleb128 0x10
 <<<<<<< HEAD
+<<<<<<< HEAD
  3307 0abb 60100000 		.4byte	.LASF202
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 119
 =======
  3307 0abb 7A100000 		.4byte	.LASF202
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 119
 >>>>>>> Isac
+=======
+ 3307 0abb 78100000 		.4byte	.LASF202
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 119
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3308 0abf 00       		.byte	0
@@ -7616,10 +8093,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  3363 0b3b 02       		.byte	0x2
  3364 0b3c 10       		.uleb128 0x10
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 120
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 120
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 120
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3365 0b3d 51010000 		.4byte	.LASF216
@@ -7680,10 +8161,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  3420 0bb1 0C       		.byte	0xc
  3421 0bb2 13       		.uleb128 0x13
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 121
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 121
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 121
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3422 0bb3 A6050000 		.4byte	.LASF226
@@ -7744,10 +8229,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  3477 0c2c 02       		.byte	0x2
  3478 0c2d 1105     		.2byte	0x511
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 122
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 122
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 122
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3479 0c2f 520C0000 		.4byte	0xc52
@@ -7806,12 +8295,17 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  3532 0ca1 03       		.byte	0x3
  3533 0ca2 BF0C0000 		.4byte	0xcbf
  3534 0ca6 18       		.uleb128 0x18
+<<<<<<< HEAD
  3535 0ca7 F6040000 		.4byte	.LASF180
 <<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 123
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 123
 >>>>>>> Isac
+=======
+ 3535 0ca7 06050000 		.4byte	.LASF180
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 123
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3536 0cab 02       		.byte	0x2
@@ -7872,10 +8366,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  3591 0d2f BE100000 		.4byte	.LASF246
  3592 0d33 01       		.byte	0x1
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 124
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 124
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 124
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3593 0d34 40       		.byte	0x40
@@ -7936,10 +8434,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  3648 0da4 50       		.byte	0x50
  3649 0da5 05       		.uleb128 0x5
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 125
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 125
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 125
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3650 0da6 03       		.byte	0x3
@@ -8000,10 +8502,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  3705 0e04 51       		.byte	0x51
  3706 0e05 02       		.uleb128 0x2
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 126
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 126
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 126
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3707 0e06 08       		.byte	0x8
@@ -8064,10 +8570,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  3762 0e61 A4000000 		.4byte	.LVL12
  3763 0e65 0C1A0000 		.4byte	0x1a0c
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 127
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 127
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 127
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3764 0e69 7D0E0000 		.4byte	0xe7d
@@ -8128,10 +8638,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  3819 0ec7 05       		.uleb128 0x5
  3820 0ec8 03       		.byte	0x3
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 128
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 128
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 128
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3821 0ec9 00000000 		.4byte	.LC0
@@ -8190,12 +8704,17 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  3874 0f2e 520C0000 		.4byte	0xc52
  3875 0f32 7F010000 		.4byte	.LLST9
  3876 0f36 1F       		.uleb128 0x1f
+<<<<<<< HEAD
  3877 0f37 21050000 		.4byte	.LASF244
 <<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 129
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 129
 >>>>>>> Isac
+=======
+ 3877 0f37 31050000 		.4byte	.LASF244
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 129
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3878 0f3b 01       		.byte	0x1
@@ -8256,10 +8775,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  3933 0fa5 01       		.byte	0x1
  3934 0fa6 6F01     		.2byte	0x16f
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 130
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 130
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 130
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3935 0fa8 00000000 		.4byte	.LFB197
@@ -8320,10 +8843,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  3990 1026 50       		.byte	0x50
  3991 1027 02       		.uleb128 0x2
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 131
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 131
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 131
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  3992 1028 74       		.byte	0x74
@@ -8384,10 +8911,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  4047 1094 D9000000 		.4byte	0xd9
  4048 1098 8D020000 		.4byte	.LLST16
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 132
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 132
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 132
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4049 109c 1E       		.uleb128 0x1e
@@ -8447,12 +8978,17 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  4103 110d 00       		.byte	0
  4104 110e 25       		.uleb128 0x25
 <<<<<<< HEAD
+<<<<<<< HEAD
  4105 110f FC130000 		.4byte	.LASF262
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 133
 =======
  4105 110f 16140000 		.4byte	.LASF262
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 133
 >>>>>>> Isac
+=======
+ 4105 110f 09140000 		.4byte	.LASF262
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 133
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4106 1113 01       		.byte	0x1
@@ -8511,12 +9047,17 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  4159 1191 00       		.byte	0
  4160 1192 00       		.byte	0
  4161 1193 25       		.uleb128 0x25
+<<<<<<< HEAD
  4162 1194 18040000 		.4byte	.LASF265
 <<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 134
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 134
 >>>>>>> Isac
+=======
+ 4162 1194 28040000 		.4byte	.LASF265
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 134
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4163 1198 01       		.byte	0x1
@@ -8577,10 +9118,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  4218 1217 01       		.byte	0x1
  4219 1218 2002     		.2byte	0x220
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 135
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 135
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 135
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4220 121a BF0C0000 		.4byte	0xcbf
@@ -8641,10 +9186,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  4275 1293 51       		.byte	0x51
  4276 1294 03       		.uleb128 0x3
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 136
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 136
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 136
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4277 1295 0A       		.byte	0xa
@@ -8705,10 +9254,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  4332 130f 3C000000 		.4byte	.LFE204-.LFB204
  4333 1313 01       		.uleb128 0x1
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 137
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 137
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 137
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4334 1314 9C       		.byte	0x9c
@@ -8769,10 +9322,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  4389 1390 76       		.byte	0x76
  4390 1391 00       		.sleb128 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 138
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 138
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 138
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4391 1392 1D       		.uleb128 0x1d
@@ -8833,10 +9390,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  4446 1401 F202     		.2byte	0x2f2
  4447 1403 00000000 		.4byte	.LFB206
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 139
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 139
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 139
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4448 1407 28000000 		.4byte	.LFE206-.LFB206
@@ -8897,10 +9458,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  4503 1480 78070000 		.4byte	.LLST45
  4504 1484 22       		.uleb128 0x22
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 140
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 140
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 140
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4505 1485 63050000 		.4byte	.LASF279
@@ -8961,10 +9526,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  4560 1505 5C080000 		.4byte	.LLST50
  4561 1509 1E       		.uleb128 0x1e
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 141
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 141
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 141
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4562 150a 14000000 		.4byte	.LVL162
@@ -9025,10 +9594,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  4617 158a 56090000 		.4byte	.LLST55
  4618 158e 1C       		.uleb128 0x1c
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 142
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 142
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 142
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4619 158f 16000000 		.4byte	.LVL170
@@ -9087,12 +9660,17 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  4672 15f5 D9000000 		.4byte	0xd9
  4673 15f9 AD090000 		.4byte	.LLST57
  4674 15fd 22       		.uleb128 0x22
+<<<<<<< HEAD
  4675 15fe 10010000 		.4byte	.LASF283
 <<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 143
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 143
 >>>>>>> Isac
+=======
+ 4675 15fe 20010000 		.4byte	.LASF283
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 143
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4676 1602 01       		.byte	0x1
@@ -9153,10 +9731,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  4731 1664 00000000 		.4byte	.LFB211
  4732 1668 74000000 		.4byte	.LFE211-.LFB211
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 144
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 144
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 144
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4733 166c 01       		.uleb128 0x1
@@ -9217,10 +9799,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  4788 16e1 51       		.byte	0x51
  4789 16e2 02       		.uleb128 0x2
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 145
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 145
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 145
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4790 16e3 74       		.byte	0x74
@@ -9281,10 +9867,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  4845 175e 01       		.uleb128 0x1
  4846 175f 51       		.byte	0x51
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 146
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 146
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 146
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4847 1760 03       		.uleb128 0x3
@@ -9345,10 +9935,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  4902 17c9 AE110000 		.4byte	.LASF295
  4903 17cd 01       		.byte	0x1
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 147
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 147
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 147
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4904 17ce 9C04     		.2byte	0x49c
@@ -9409,10 +10003,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  4959 1840 05       		.uleb128 0x5
  4960 1841 03       		.byte	0x3
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 148
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 148
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 148
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  4961 1842 00000000 		.4byte	.LC0
@@ -9473,10 +10071,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  5016 18b2 00000000 		.4byte	.LFB215
  5017 18b6 4C000000 		.4byte	.LFE215-.LFB215
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 149
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 149
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 149
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  5018 18ba 01       		.uleb128 0x1
@@ -9535,12 +10137,17 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  5071 1927 00       		.byte	0
  5072 1928 00       		.byte	0
  5073 1929 25       		.uleb128 0x25
+<<<<<<< HEAD
  5074 192a 71040000 		.4byte	.LASF300
 <<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 150
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 150
 >>>>>>> Isac
+=======
+ 5074 192a 81040000 		.4byte	.LASF300
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 150
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  5075 192e 01       		.byte	0x1
@@ -9601,10 +10208,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  5130 19b2 B6190000 		.4byte	0x19b6
  5131 19b6 06       		.uleb128 0x6
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 151
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 151
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 151
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  5132 19b7 BF080000 		.4byte	0x8bf
@@ -9665,10 +10276,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  5187 0005 13       		.uleb128 0x13
  5188 0006 0B       		.uleb128 0xb
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 152
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 152
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 152
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  5189 0007 03       		.uleb128 0x3
@@ -9729,10 +10344,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  5244 003e 26       		.uleb128 0x26
  5245 003f 00       		.byte	0
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 153
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 153
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 153
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  5246 0040 49       		.uleb128 0x49
@@ -9793,10 +10412,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  5301 0077 3A       		.uleb128 0x3a
  5302 0078 0B       		.uleb128 0xb
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 154
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 154
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 154
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  5303 0079 3B       		.uleb128 0x3b
@@ -9857,10 +10480,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  5358 00b0 13       		.uleb128 0x13
  5359 00b1 00       		.byte	0
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 155
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 155
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 155
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  5360 00b2 00       		.byte	0
@@ -9921,10 +10548,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  5415 00e9 0F       		.uleb128 0xf
  5416 00ea 00       		.byte	0
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 156
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 156
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 156
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  5417 00eb 0B       		.uleb128 0xb
@@ -9985,10 +10616,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  5472 0122 0B       		.uleb128 0xb
  5473 0123 3B       		.uleb128 0x3b
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 157
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 157
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 157
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  5474 0124 0B       		.uleb128 0xb
@@ -10049,10 +10684,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  5529 015e 13       		.uleb128 0x13
  5530 015f 00       		.byte	0
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 158
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 158
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 158
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  5531 0160 00       		.byte	0
@@ -10113,10 +10752,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  5586 019d 01       		.uleb128 0x1
  5587 019e 13       		.uleb128 0x13
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 159
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 159
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 159
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  5588 019f 00       		.byte	0
@@ -10177,10 +10820,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  5643 01d7 00       		.byte	0
  5644 01d8 00       		.byte	0
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 160
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 160
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 160
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  5645 01d9 24       		.uleb128 0x24
@@ -10241,10 +10888,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  5700 0211 00       		.byte	0
  5701 0212 00       		.byte	0
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 161
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 161
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 161
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  5702 0213 27       		.uleb128 0x27
@@ -10305,10 +10956,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  5757 024a 2E       		.uleb128 0x2e
  5758 024b 01       		.byte	0x1
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 162
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 162
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 162
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  5759 024c 3F       		.uleb128 0x3f
@@ -10369,10 +11024,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  5814 0286 3B       		.uleb128 0x3b
  5815 0287 05       		.uleb128 0x5
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 163
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 163
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 163
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  5816 0288 49       		.uleb128 0x49
@@ -10433,10 +11092,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  5871 02bf 3B       		.uleb128 0x3b
  5872 02c0 05       		.uleb128 0x5
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 164
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 164
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 164
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  5873 02c1 00       		.byte	0
@@ -10497,10 +11160,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  5928 007b E2000000 		.4byte	.LVL16
  5929 007f 0200     		.2byte	0x2
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 165
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 165
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 165
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  5930 0081 30       		.byte	0x30
@@ -10561,10 +11228,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  5985 00fb 9F       		.byte	0x9f
  5986 00fc 24010000 		.4byte	.LVL20
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 166
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 166
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 166
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  5987 0100 28010000 		.4byte	.LVL21
@@ -10625,10 +11296,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  6042 015e 0C000000 		.4byte	.LVL36
  6043 0162 66000000 		.4byte	.LVL46
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 167
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 167
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 167
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  6044 0166 0100     		.2byte	0x1
@@ -10689,10 +11364,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  6099              	.LLST12:
  6100 01eb 00000000 		.4byte	.LVL50
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 168
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 168
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 168
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  6101 01ef 10000000 		.4byte	.LVL52
@@ -10753,10 +11432,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  6156 027b 40000000 		.4byte	.LFE195
  6157 027f 0400     		.2byte	0x4
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 169
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 169
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 169
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  6158 0281 F3       		.byte	0xf3
@@ -10817,10 +11500,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  6213 0306 51       		.byte	0x51
  6214 0307 9F       		.byte	0x9f
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 170
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 170
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 170
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  6215 0308 00000000 		.4byte	0
@@ -10881,10 +11568,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  6270 0393 26000000 		.4byte	.LVL79
  6271 0397 0100     		.2byte	0x1
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 171
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 171
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 171
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  6272 0399 53       		.byte	0x53
@@ -10945,10 +11636,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  6327 042f 0400     		.2byte	0x4
  6328 0431 F3       		.byte	0xf3
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 172
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 172
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 172
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  6329 0432 01       		.uleb128 0x1
@@ -11009,10 +11704,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  6384 04ba 54000000 		.4byte	.LFE201
  6385 04be 0400     		.2byte	0x4
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 173
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 173
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 173
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  6386 04c0 F3       		.byte	0xf3
@@ -11073,10 +11772,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  6441 0548 10000000 		.4byte	.LVL116
  6442 054c 28000000 		.4byte	.LVL123
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 174
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 174
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 174
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  6443 0550 0100     		.2byte	0x1
@@ -11137,10 +11840,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  6498 05d5 26000000 		.4byte	.LVL122
  6499 05d9 0100     		.2byte	0x1
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 175
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 175
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 175
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  6500 05db 50       		.byte	0x50
@@ -11201,10 +11908,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  6555 0663 38000000 		.4byte	.LVL135
  6556 0667 0100     		.2byte	0x1
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 176
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 176
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 176
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  6557 0669 54       		.byte	0x54
@@ -11265,10 +11976,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  6612 06f3 1C000000 		.4byte	.LVL140
  6613 06f7 20000000 		.4byte	.LVL142
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 177
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 177
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 177
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  6614 06fb 0100     		.2byte	0x1
@@ -11329,10 +12044,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  6669 0780 0100     		.2byte	0x1
  6670 0782 50       		.byte	0x50
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 178
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 178
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 178
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  6671 0783 10000000 		.4byte	.LVL153
@@ -11393,10 +12112,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  6726 080e 50       		.byte	0x50
  6727 080f 10000000 		.4byte	.LVL161
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 179
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 179
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 179
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  6728 0813 26000000 		.4byte	.LVL166
@@ -11457,10 +12180,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  6783 089b 00000000 		.4byte	.LVL167
  6784 089f 12000000 		.4byte	.LVL169
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 180
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 180
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 180
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  6785 08a3 0100     		.2byte	0x1
@@ -11521,10 +12248,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  6840 0924 9F       		.byte	0x9f
  6841 0925 68000000 		.4byte	.LVL180
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 181
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 181
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 181
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  6842 0929 70000000 		.4byte	.LVL181
@@ -11585,10 +12316,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  6897 09b7 51       		.byte	0x51
  6898 09b8 10000000 		.4byte	.LVL185
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 182
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 182
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 182
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  6899 09bc 60000000 		.4byte	.LVL193
@@ -11649,10 +12384,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  6954 0a3f 5A000000 		.4byte	.LVL192
  6955 0a43 0600     		.2byte	0x6
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 183
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 183
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 183
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  6956 0a45 9E       		.byte	0x9e
@@ -11713,10 +12452,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7011 0acd 01       		.uleb128 0x1
  7012 0ace 52       		.byte	0x52
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 184
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 184
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 184
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  7013 0acf 9F       		.byte	0x9f
@@ -11777,10 +12520,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7068              	.LLST64:
  7069 0b5e 00000000 		.4byte	.LVL210
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 185
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 185
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 185
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  7070 0b62 12000000 		.4byte	.LVL212
@@ -11841,10 +12588,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7125 0be6 52       		.byte	0x52
  7126 0be7 9F       		.byte	0x9f
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 186
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 186
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 186
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  7127 0be8 2C000000 		.4byte	.LVL214
@@ -11905,10 +12656,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7180 0c74 F3       		.byte	0xf3
  7181 0c75 01       		.uleb128 0x1
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 187
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 187
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 187
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  7182 0c76 50       		.byte	0x50
@@ -11969,10 +12724,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7237 0cfb 0400     		.2byte	0x4
  7238 0cfd F3       		.byte	0xf3
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 188
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 188
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 188
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  7239 0cfe 01       		.uleb128 0x1
@@ -12033,10 +12792,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7294 0d79 50       		.byte	0x50
  7295 0d7a 9F       		.byte	0x9f
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 189
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 189
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 189
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  7296 0d7b 00000000 		.4byte	0
@@ -12097,10 +12860,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7351 0e03 4C000000 		.4byte	.LFE215
  7352 0e07 0400     		.2byte	0x4
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 190
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 190
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 190
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  7353 0e09 F3       		.byte	0xf3
@@ -12161,10 +12928,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7408 0e87 51       		.byte	0x51
  7409 0e88 9F       		.byte	0x9f
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 191
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 191
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 191
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  7410 0e89 0E000000 		.4byte	.LVL251
@@ -12225,10 +12996,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7465 0098 00000000 		.4byte	.LFB209
  7466 009c 80000000 		.4byte	.LFE209-.LFB209
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 192
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 192
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 192
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  7467 00a0 00000000 		.4byte	.LFB210
@@ -12289,10 +13064,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7522 0094 6C000000 		.4byte	.LFE210
  7523 0098 00000000 		.4byte	.LFB211
 <<<<<<< HEAD
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccBz0elF.s 			page 193
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 193
 >>>>>>> Isac
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 193
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  7524 009c 74000000 		.4byte	.LFE211
@@ -12346,6 +13125,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7551      4B5F5550 
  7551      44415445 
  7551      4400
+<<<<<<< HEAD
  7552              	.LASF182:
  7553 0058 63795F73 		.ascii	"cy_stc_syspm_callback_params_t\000"
  7553      74635F73 
@@ -12357,6 +13137,15 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 194
 >>>>>>> Isac
+=======
+ 7552              	.LASF264:
+ 7553 0058 656E644F 		.ascii	"endOfConversion\000"
+ 7553      66436F6E 
+ 7553      76657273 
+ 7553      696F6E00 
+ 7554              	.LASF182:
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 194
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  7554              	.LASF305:
@@ -12404,6 +13193,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7575      63685365 
  7575      6C656374 
  7575      00
+<<<<<<< HEAD
  7576              	.LASF153:
  7577 00f2 63707573 		.ascii	"cpussCm0NmiCtlOffset\000"
  7577      73436D30 
@@ -12485,6 +13275,81 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 196
 >>>>>>> Isac
+=======
+ 7576              	.LASF293:
+ 7577 00f5 73776974 		.ascii	"switchSelect\000"
+ 7577      63685365 
+ 7577      6C656374 
+ 7577      00
+ 7578              	.LASF153:
+ 7579 0102 63707573 		.ascii	"cpussCm0NmiCtlOffset\000"
+ 7579      73436D30 
+ 7579      4E6D6943 
+ 7579      746C4F66 
+ 7579      66736574 
+ 7580              	.LASF123:
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 195
+
+
+ 7581 0117 64774368 		.ascii	"dwChSize\000"
+ 7581      53697A65 
+ 7581      00
+ 7582              	.LASF283:
+ 7583 0120 61646343 		.ascii	"adcCounts\000"
+ 7583      6F756E74 
+ 7583      7300
+ 7584              	.LASF247:
+ 7585 012a 73696E67 		.ascii	"singleEndedSigned\000"
+ 7585      6C65456E 
+ 7585      64656453 
+ 7585      69676E65 
+ 7585      6400
+ 7586              	.LASF14:
+ 7587 013c 756E7369 		.ascii	"unsigned int\000"
+ 7587      676E6564 
+ 7587      20696E74 
+ 7587      00
+ 7588              	.LASF55:
+ 7589 0149 494E5452 		.ascii	"INTR_CAUSE\000"
+ 7589      5F434155 
+ 7589      534500
+ 7590              	.LASF105:
+ 7591 0154 736D6966 		.ascii	"smifDeviceNr\000"
+ 7591      44657669 
+ 7591      63654E72 
+ 7591      00
+ 7592              	.LASF216:
+ 7593 0161 43595F53 		.ascii	"CY_SAR_RANGE_COND_OUTSIDE\000"
+ 7593      41525F52 
+ 7593      414E4745 
+ 7593      5F434F4E 
+ 7593      445F4F55 
+ 7594              	.LASF281:
+ 7595 017b 61646347 		.ascii	"adcGain\000"
+ 7595      61696E00 
+ 7596              	.LASF97:
+ 7597 0183 63707573 		.ascii	"cpussFlashPaSize\000"
+ 7597      73466C61 
+ 7597      73685061 
+ 7597      53697A65 
+ 7597      00
+ 7598              	.LASF196:
+ 7599 0194 63795F65 		.ascii	"cy_en_sar_switch_state_t\000"
+ 7599      6E5F7361 
+ 7599      725F7377 
+ 7599      69746368 
+ 7599      5F737461 
+ 7600              	.LASF7:
+ 7601 01ad 5F5F696E 		.ascii	"__int32_t\000"
+ 7601      7433325F 
+ 7601      7400
+ 7602              	.LASF41:
+ 7603 01b7 4348414E 		.ascii	"CHAN_WORK_NEWVALUE\000"
+ 7603      5F574F52 
+ 7603      4B5F4E45 
+ 7603      5756414C 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 196
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  7603      454C5F50 
@@ -12504,6 +13369,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7609      41525F4E 
  7609      45475F53 
  7609      454C5F50 
+<<<<<<< HEAD
  7609      3700
  7610              	.LASF99:
  7611 01fa 63707573 		.ascii	"cpussFmIrq\000"
@@ -12549,6 +13415,110 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 197
 >>>>>>> Isac
+=======
+ 7609      3500
+ 7610              	.LASF206:
+ 7611 01f8 43595F53 		.ascii	"CY_SAR_NEG_SEL_P7\000"
+ 7611      41525F4E 
+ 7611      45475F53 
+ 7611      454C5F50 
+ 7611      3700
+ 7612              	.LASF99:
+ 7613 020a 63707573 		.ascii	"cpussFmIrq\000"
+ 7613      73466D49 
+ 7613      727100
+ 7614              	.LASF186:
+ 7615 0215 43595F53 		.ascii	"CY_SAR_CONVERSION_NOT_COMPLETE\000"
+ 7615      41525F43 
+ 7615      4F4E5645 
+ 7615      5253494F 
+ 7615      4E5F4E4F 
+ 7616              	.LASF100:
+ 7617 0234 63707573 		.ascii	"cpussNotConnectedIrq\000"
+ 7617      734E6F74 
+ 7617      436F6E6E 
+ 7617      65637465 
+ 7617      64497271 
+ 7618              	.LASF4:
+ 7619 0249 73686F72 		.ascii	"short int\000"
+ 7619      7420696E 
+ 7619      7400
+ 7620              	.LASF47:
+ 7621 0253 53415455 		.ascii	"SATURATE_INTR\000"
+ 7621      52415445 
+ 7621      5F494E54 
+ 7621      5200
+ 7622              	.LASF26:
+ 7623 0261 53414D50 		.ascii	"SAMPLE_TIME01\000"
+ 7623      4C455F54 
+ 7623      494D4530 
+ 7623      3100
+ 7624              	.LASF192:
+ 7625 026f 43595F53 		.ascii	"CY_SAR_WAIT_FOR_RESULT\000"
+ 7625      41525F57 
+ 7625      4149545F 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 197
+
+
+ 7625      464F525F 
+ 7625      52455355 
+ 7626              	.LASF59:
+ 7627 0286 494E4A5F 		.ascii	"INJ_RESULT\000"
+ 7627      52455355 
+ 7627      4C5400
+ 7628              	.LASF134:
+ 7629 0291 70657269 		.ascii	"periDivCmdPaDivSelPos\000"
+ 7629      44697643 
+ 7629      6D645061 
+ 7629      44697653 
+ 7629      656C506F 
+ 7630              	.LASF297:
+ 7631 02a7 73776974 		.ascii	"switchClearReg\000"
+ 7631      6368436C 
+ 7631      65617252 
+ 7631      656700
+ 7632              	.LASF44:
+ 7633 02b6 494E5452 		.ascii	"INTR_SET\000"
+ 7633      5F534554 
+ 7633      00
+ 7634              	.LASF111:
+ 7635 02bf 63727970 		.ascii	"cryptoMemSize\000"
+ 7635      746F4D65 
+ 7635      6D53697A 
+ 7635      6500
+ 7636              	.LASF255:
+ 7637 02cd 43795F53 		.ascii	"Cy_SAR_Wakeup\000"
+ 7637      41525F57 
+ 7637      616B6575 
+ 7637      7000
+ 7638              	.LASF231:
+ 7639 02db 73617449 		.ascii	"satIntrMask\000"
+ 7639      6E74724D 
+ 7639      61736B00 
+ 7640              	.LASF190:
+ 7641 02e7 63795F65 		.ascii	"cy_en_sar_start_convert_sel_t\000"
+ 7641      6E5F7361 
+ 7641      725F7374 
+ 7641      6172745F 
+ 7641      636F6E76 
+ 7642              	.LASF131:
+ 7643 0305 70657269 		.ascii	"periTrGrSize\000"
+ 7643      54724772 
+ 7643      53697A65 
+ 7643      00
+ 7644              	.LASF159:
+ 7645 0312 69706353 		.ascii	"ipcStructSize\000"
+ 7645      74727563 
+ 7645      7453697A 
+ 7645      6500
+ 7646              	.LASF273:
+ 7647 0320 43795F53 		.ascii	"Cy_SAR_SetLowLimit\000"
+ 7647      41525F53 
+ 7647      65744C6F 
+ 7647      774C696D 
+ 7647      697400
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 198
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  7625      4C5400
@@ -12649,6 +13619,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7658 0403 5341525F 		.ascii	"SAR_Type\000"
  7658      54797065 
  7658      00
+<<<<<<< HEAD
  7659              	.LASF314:
  7660 040c 61646352 		.ascii	"adcResult16\000"
  7660      6573756C 
@@ -12933,6 +13904,271 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
 =======
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 203
 >>>>>>> Isac
+=======
+ 7659              	.LASF74:
+ 7660 0413 5341525F 		.ascii	"SAR_Type\000"
+ 7660      54797065 
+ 7660      00
+ 7661              	.LASF314:
+ 7662 041c 61646352 		.ascii	"adcResult16\000"
+ 7662      6573756C 
+ 7662      74313600 
+ 7663              	.LASF265:
+ 7664 0428 43795F53 		.ascii	"Cy_SAR_IsChannelSingleEnded\000"
+ 7664      41525F49 
+ 7664      73436861 
+ 7664      6E6E656C 
+ 7664      53696E67 
+ 7665              	.LASF133:
+ 7666 0444 70657269 		.ascii	"periDivCmdTypeSelPos\000"
+ 7666      44697643 
+ 7666      6D645479 
+ 7666      70655365 
+ 7666      6C506F73 
+ 7667              	.LASF204:
+ 7668 0459 43595F53 		.ascii	"CY_SAR_NEG_SEL_P3\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 199
+
+
+ 7668      41525F4E 
+ 7668      45475F53 
+ 7668      454C5F50 
+ 7668      3300
+ 7669              	.LASF150:
+ 7670 046b 63707573 		.ascii	"cpussTrimRamCtlOffset\000"
+ 7670      73547269 
+ 7670      6D52616D 
+ 7670      43746C4F 
+ 7670      66667365 
+ 7671              	.LASF300:
+ 7672 0481 43795F53 		.ascii	"Cy_SAR_DeepSleepCallback\000"
+ 7672      41525F44 
+ 7672      65657053 
+ 7672      6C656570 
+ 7672      43616C6C 
+ 7673              	.LASF176:
+ 7674 049a 43595F53 		.ascii	"CY_SYSPM_CHECK_FAIL\000"
+ 7674      5953504D 
+ 7674      5F434845 
+ 7674      434B5F46 
+ 7674      41494C00 
+ 7675              	.LASF161:
+ 7676 04ae 63795F73 		.ascii	"cy_stc_device_t\000"
+ 7676      74635F64 
+ 7676      65766963 
+ 7676      655F7400 
+ 7677              	.LASF19:
+ 7678 04be 75696E74 		.ascii	"uint32_t\000"
+ 7678      33325F74 
+ 7678      00
+ 7679              	.LASF143:
+ 7680 04c7 6770696F 		.ascii	"gpioPrtCfgOutOffset\000"
+ 7680      50727443 
+ 7680      66674F75 
+ 7680      744F6666 
+ 7680      73657400 
+ 7681              	.LASF43:
+ 7682 04db 494E5452 		.ascii	"INTR\000"
+ 7682      00
+ 7683              	.LASF165:
+ 7684 04e0 666C6F61 		.ascii	"float\000"
+ 7684      7400
+ 7685              	.LASF86:
+ 7686 04e6 63727970 		.ascii	"cryptoVersion\000"
+ 7686      746F5665 
+ 7686      7273696F 
+ 7686      6E00
+ 7687              	.LASF115:
+ 7688 04f4 666C6173 		.ascii	"flashProgramDelay\000"
+ 7688      6850726F 
+ 7688      6772616D 
+ 7688      44656C61 
+ 7688      7900
+ 7689              	.LASF180:
+ 7690 0506 62617365 		.ascii	"base\000"
+ 7690      00
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 200
+
+
+ 7691              	.LASF76:
+ 7692 050b 666C6173 		.ascii	"flashcBase\000"
+ 7692      68634261 
+ 7692      736500
+ 7693              	.LASF16:
+ 7694 0516 696E7431 		.ascii	"int16_t\000"
+ 7694      365F7400 
+ 7695              	.LASF142:
+ 7696 051e 6770696F 		.ascii	"gpioPrtCfgInOffset\000"
+ 7696      50727443 
+ 7696      6667496E 
+ 7696      4F666673 
+ 7696      657400
+ 7697              	.LASF244:
+ 7698 0531 72657375 		.ascii	"result\000"
+ 7698      6C7400
+ 7699              	.LASF13:
+ 7700 0538 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 7700      206C6F6E 
+ 7700      6720756E 
+ 7700      7369676E 
+ 7700      65642069 
+ 7701              	.LASF248:
+ 7702 054f 6368616E 		.ascii	"chanSingleEnded\000"
+ 7702      53696E67 
+ 7702      6C65456E 
+ 7702      64656400 
+ 7703              	.LASF144:
+ 7704 055f 6770696F 		.ascii	"gpioPrtCfgSioOffset\000"
+ 7704      50727443 
+ 7704      66675369 
+ 7704      6F4F6666 
+ 7704      73657400 
+ 7705              	.LASF279:
+ 7706 0573 6F666673 		.ascii	"offset\000"
+ 7706      657400
+ 7707              	.LASF135:
+ 7708 057a 70657269 		.ascii	"periDivCmdPaTypeSelPos\000"
+ 7708      44697643 
+ 7708      6D645061 
+ 7708      54797065 
+ 7708      53656C50 
+ 7709              	.LASF290:
+ 7710 0591 43795F53 		.ascii	"Cy_SAR_CountsTo_uVolts\000"
+ 7710      41525F43 
+ 7710      6F756E74 
+ 7710      73546F5F 
+ 7710      75566F6C 
+ 7711              	.LASF27:
+ 7712 05a8 53414D50 		.ascii	"SAMPLE_TIME23\000"
+ 7712      4C455F54 
+ 7712      494D4532 
+ 7712      3300
+ 7713              	.LASF226:
+ 7714 05b6 72616E67 		.ascii	"rangeThres\000"
+ 7714      65546872 
+ 7714      657300
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 201
+
+
+ 7715              	.LASF5:
+ 7716 05c1 5F5F7569 		.ascii	"__uint16_t\000"
+ 7716      6E743136 
+ 7716      5F7400
+ 7717              	.LASF267:
+ 7718 05cc 43795F53 		.ascii	"Cy_SAR_IsChannelSigned\000"
+ 7718      41525F49 
+ 7718      73436861 
+ 7718      6E6E656C 
+ 7718      5369676E 
+ 7719              	.LASF164:
+ 7720 05e3 666C6F61 		.ascii	"float32_t\000"
+ 7720      7433325F 
+ 7720      7400
+ 7721              	.LASF238:
+ 7722 05ed 63795F73 		.ascii	"cy_stc_sar_config_t\000"
+ 7722      74635F73 
+ 7722      61725F63 
+ 7722      6F6E6669 
+ 7722      675F7400 
+ 7723              	.LASF312:
+ 7724 0601 433A5C50 		.ascii	"C:\\Projects\\Pain Drain\\Production2\\Firmware\\Pa"
+ 7724      726F6A65 
+ 7724      6374735C 
+ 7724      5061696E 
+ 7724      20447261 
+ 7725 062f 696E4472 		.ascii	"inDrain\\PainDrain.cydsn\000"
+ 7725      61696E5C 
+ 7725      5061696E 
+ 7725      44726169 
+ 7725      6E2E6379 
+ 7726              	.LASF254:
+ 7727 0647 73746172 		.ascii	"startSelect\000"
+ 7727      7453656C 
+ 7727      65637400 
+ 7728              	.LASF266:
+ 7729 0653 69735369 		.ascii	"isSingleEnded\000"
+ 7729      6E676C65 
+ 7729      456E6465 
+ 7729      6400
+ 7730              	.LASF214:
+ 7731 0661 43595F53 		.ascii	"CY_SAR_RANGE_COND_INSIDE\000"
+ 7731      41525F52 
+ 7731      414E4745 
+ 7731      5F434F4E 
+ 7731      445F494E 
+ 7732              	.LASF168:
+ 7733 067a 43595F53 		.ascii	"CY_SYSPM_SUCCESS\000"
+ 7733      5953504D 
+ 7733      5F535543 
+ 7733      43455353 
+ 7733      00
+ 7734              	.LASF120:
+ 7735 068b 666C6173 		.ascii	"flashCtlMainWs3Freq\000"
+ 7735      6843746C 
+ 7735      4D61696E 
+ 7735      57733346 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 202
+
+
+ 7735      72657100 
+ 7736              	.LASF102:
+ 7737 069f 73727373 		.ascii	"srssNumPll\000"
+ 7737      4E756D50 
+ 7737      6C6C00
+ 7738              	.LASF200:
+ 7739 06aa 43595F53 		.ascii	"CY_SAR_MUX_SWITCH0\000"
+ 7739      41525F4D 
+ 7739      55585F53 
+ 7739      57495443 
+ 7739      483000
+ 7740              	.LASF250:
+ 7741 06bd 43795F53 		.ascii	"Cy_SAR_DeInit\000"
+ 7741      41525F44 
+ 7741      65496E69 
+ 7741      7400
+ 7742              	.LASF20:
+ 7743 06cb 696E7436 		.ascii	"int64_t\000"
+ 7743      345F7400 
+ 7744              	.LASF113:
+ 7745 06d3 666C6173 		.ascii	"flashPipeRequired\000"
+ 7745      68506970 
+ 7745      65526571 
+ 7745      75697265 
+ 7745      6400
+ 7746              	.LASF53:
+ 7747 06e5 52414E47 		.ascii	"RANGE_INTR_MASK\000"
+ 7747      455F494E 
+ 7747      54525F4D 
+ 7747      41534B00 
+ 7748              	.LASF166:
+ 7749 06f5 646F7562 		.ascii	"double\000"
+ 7749      6C6500
+ 7750              	.LASF287:
+ 7751 06fc 72657375 		.ascii	"result_Volts\000"
+ 7751      6C745F56 
+ 7751      6F6C7473 
+ 7751      00
+ 7752              	.LASF237:
+ 7753 0709 5F426F6F 		.ascii	"_Bool\000"
+ 7753      6C00
+ 7754              	.LASF29:
+ 7755 070f 52414E47 		.ascii	"RANGE_COND\000"
+ 7755      455F434F 
+ 7755      4E4400
+ 7756              	.LASF117:
+ 7757 071a 666C6173 		.ascii	"flashCtlMainWs0Freq\000"
+ 7757      6843746C 
+ 7757      4D61696E 
+ 7757      57733046 
+ 7757      72657100 
+ 7758              	.LASF67:
+ 7759 072e 4D55585F 		.ascii	"MUX_SWITCH_DS_CTRL\000"
+ 7759      53574954 
+ 7759      43485F44 
+ 7759      535F4354 
+ 7759      524C00
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 203
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  7762      41445F50 
@@ -13221,6 +14457,12 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7781      5953504D 
  7781      5F54494D 
  7781      454F5554 
+<<<<<<< HEAD
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 204
+
+
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
  7781      00
  7782              	.LASF236:
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 204
@@ -13281,7 +14523,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7801 08bc 6368616E 		.ascii	"chanEn\000"
  7801      456E00
  7802              	.LASF138:
+<<<<<<< HEAD
  7803 08c3 70657269 		.ascii	"periDiv16_5CtlOffset\000"
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 205
+
+
+ 7803 08c1 70657269 		.ascii	"periDiv16_5CtlOffset\000"
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
  7803      44697631 
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 205
 
@@ -13341,6 +14590,12 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7823      6E5F7361 
  7823      725F7374 
  7823      61747573 
+<<<<<<< HEAD
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 206
+
+
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
  7823      5F7400
  7824              	.LASF259:
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 206
@@ -13401,7 +14656,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7845      72696F50 
  7845      6F7300
  7846              	.LASF84:
+<<<<<<< HEAD
  7847 0a38 63727970 		.ascii	"cryptoBase\000"
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 207
+
+
+ 7847 0a36 63727970 		.ascii	"cryptoBase\000"
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
  7847      746F4261 
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 207
 >>>>>>> Isac
@@ -13462,6 +14724,12 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7868              	.LASF37:
  7869 0b00 4348414E 		.ascii	"CHAN_RESULT\000"
  7869      5F524553 
+<<<<<<< HEAD
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 208
+
+
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
  7869      554C5400 
  7870              	.LASF157:
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 208
@@ -13528,6 +14796,12 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7894              	.LASF307:
  7895 0ba2 43795F53 		.ascii	"Cy_SAR_countsPer10Volt\000"
  7895      41525F63 
+<<<<<<< HEAD
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 209
+
+
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
  7895      6F756E74 
  7895      73506572 
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 209
@@ -13594,7 +14868,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7917      20646F75 
  7917      626C6500 
  7918              	.LASF17:
+<<<<<<< HEAD
  7919 0c62 75696E74 		.ascii	"uint16_t\000"
+=======
+ 7919 0c60 75696E74 		.ascii	"uint16_t\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 210
+
+
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
  7919      31365F74 
  7919      00
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 210
@@ -13662,7 +14943,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7941      74797065 
  7941      00
  7942              	.LASF191:
+<<<<<<< HEAD
  7943 0d18 43595F53 		.ascii	"CY_SAR_RETURN_STATUS\000"
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 211
+
+
+ 7943 0d16 43595F53 		.ascii	"CY_SAR_RETURN_STATUS\000"
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
  7943      41525F52 
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 211
 
@@ -13728,6 +15016,12 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7966              	.LASF179:
  7967 0db2 63795F65 		.ascii	"cy_en_syspm_callback_mode_t\000"
  7967      6E5F7379 
+<<<<<<< HEAD
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 212
+
+
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
  7967      73706D5F 
  7967      63616C6C 
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 212
@@ -13795,7 +15089,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  7989 0e77 74656D70 		.ascii	"temp\000"
  7989      00
  7990              	.LASF28:
+<<<<<<< HEAD
  7991 0e7c 52414E47 		.ascii	"RANGE_THRES\000"
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 213
+
+
+ 7991 0e7a 52414E47 		.ascii	"RANGE_THRES\000"
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
  7991      455F5448 
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 213
 
@@ -13861,7 +15162,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  8013      746C4F66 
  8013      66736574 
  8014              	.LASF2:
+<<<<<<< HEAD
  8015 0f35 5F5F7569 		.ascii	"__uint8_t\000"
+=======
+ 8015 0f33 5F5F7569 		.ascii	"__uint8_t\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 214
+
+
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
  8015      6E74385F 
  8015      7400
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 214
@@ -13929,6 +15237,12 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  8035              	.LASF10:
  8036 0fff 6C6F6E67 		.ascii	"long unsigned int\000"
  8036      20756E73 
+<<<<<<< HEAD
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 215
+
+
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
  8036      69676E65 
  8036      6420696E 
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 215
@@ -13996,7 +15310,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  8058      6C654374 
  8058      726C00
  8059              	.LASF246:
+<<<<<<< HEAD
  8060 10be 76726566 		.ascii	"vrefNegSelect\000"
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 216
+
+
+ 8060 10bc 76726566 		.ascii	"vrefNegSelect\000"
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
  8060      4E656753 
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 216
 
@@ -14061,7 +15382,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  8080 1166 7265744D 		.ascii	"retMode\000"
  8080      6F646500 
  8081              	.LASF70:
+<<<<<<< HEAD
  8082 116e 52455345 		.ascii	"RESERVED10\000"
+=======
+ 8082 116c 52455345 		.ascii	"RESERVED10\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 217
+
+
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
  8082      52564544 
  8082      313000
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 217
@@ -14131,7 +15459,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  8104      6E69746F 
  8104      724E7200 
  8105              	.LASF169:
+<<<<<<< HEAD
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 218
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 218
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  8106 1234 43595F53 		.ascii	"CY_SYSPM_BAD_PARAM\000"
@@ -14197,7 +15529,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  8126      54415455 
  8126      5300
  8127              	.LASF92:
+<<<<<<< HEAD
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 219
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 219
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  8128 12e3 70657269 		.ascii	"periVersion\000"
@@ -14263,7 +15599,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  8150      57495443 
  8150      485F434C 
  8150      4F534500 
+<<<<<<< HEAD
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 220
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 220
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  8151              	.LASF217:
@@ -14330,7 +15670,11 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 1
  8172      5953504D 
  8172      5F414654 
  8172      45525F54 
+<<<<<<< HEAD
 ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccw1zjlr.s 			page 221
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccIFvrW5.s 			page 221
+>>>>>>> fd2816e499b7e6b93ab263ed5a40f24409255266
 
 
  8172      52414E53 

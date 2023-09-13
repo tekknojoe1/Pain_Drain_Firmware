@@ -23,4 +23,13 @@ void set_vibe(const char* waveform, int freqeuncy, int amplitude){
     
 }
 
+#include "vibe.h"
+#include <stdio.h>
+#include <project.h>
+#include <stdlib.h>
+
+void set_vibe(const char* waveform, int freqeuncy, int amplitude){
+    
+}
+
 /* [] END OF FILE */
