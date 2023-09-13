@@ -9,6 +9,8 @@
  *
  * ========================================
 */
+#ifndef VIBE_H
+#define VIBE_H
 
 #ifndef VIBE_H
 #define VIBE_H

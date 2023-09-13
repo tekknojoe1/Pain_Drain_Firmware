@@ -9,7 +9,10 @@
  *
  * ========================================
 */
-
+#include <project.h>
+#include <stdio.h>
+#include "debug.h"
+#include "tens.h"
 
 #include <project.h>
 #include <stdlib.h>

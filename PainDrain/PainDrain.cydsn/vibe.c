@@ -9,6 +9,10 @@
  *
  * ========================================
 */
+#include <project.h>
+#include <stdio.h>
+#include "debug.h"
+#include "temp.h"
 
 #include "vibe.h"
 #include <stdio.h>
