@@ -2,7 +2,7 @@
 --	Conversion of PainDrain.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Mon Aug 21 18:44:22 2023
+--	Wed Sep 13 12:32:01 2023
 --
 
 USE cypress.cypress.all;
@@ -2554,10 +2554,10 @@ BKLGT_PWM:cy_mxs40_gpio_v1_0
 		interrupt=>Net_376);
 Clock_3:cy_clock_v1_0
 	GENERIC MAP(cy_registers=>"",
-		id=>"a4676f6b-0478-4d3c-9890-6ac86cc75611",
+		id=>"9260ebb9-8d85-4b45-bbb7-c906ffdd87dc",
 		source_clock_id=>"2FB4EC85-8328-4C5A-9ED9-8B63060178EB",
 		divisor=>0,
-		period=>"1000000000",
+		period=>"20000000",
 		is_direct=>'0',
 		is_digital=>'0')
 	PORT MAP(clock_out=>Net_380,

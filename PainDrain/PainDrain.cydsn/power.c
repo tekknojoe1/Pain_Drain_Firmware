@@ -8,6 +8,7 @@
 #include "power.h"
 #include "bq24298.h"
 #include "my_i2c.h"
+#include "debug.h"
 
 
 #define POWER_TIMER_PERIOD_MS 10
@@ -16,6 +17,7 @@
 
 #define POWER_IDLE 0
 #define POWER_DOWN 10
+#define MAX_LCD_PWM 191 // limit to 80 percent of 255
 static int power_state = 0;
 static uint32 power_timeout = 0;
 static uint32 power_flags = 0;   //Each bit indicates an active system. If all bits are zero we power down the entire device
@@ -52,7 +54,7 @@ void gpio_interrupt_handler ( void ) {
 void power_init( void ) {
     
     
-    myI2C_Start();
+    //myI2C_Start();
     
     //Cy_SysInt_Init(&gpio_irq_cfg, gpio_interrupt_handler);
 	//NVIC_EnableIRQ(gpio_irq_cfg.intrSrc);
@@ -61,9 +63,10 @@ void power_init( void ) {
     power_timeout = POWER_DISPLAY_TIMEOUT_INTERVAL;
     
     LCD_PWM_Start();
-    LCD_PWM_SetCompare0(255);  //Set to full brightness
+    LCD_PWM_SetCompare0(MAX_LCD_PWM);  //Set to full brightness
+    DBG_PRINTF("Backlight on\r\n");
     
-    bq24298_init();
+    //bq24298_init();
     
     power_flags_update(POWER_FLAG_BLE, 1);
 }
@@ -91,11 +94,12 @@ void power_5v_off( void ) {
 void power_wakeup( void ) {
     
     power_timeout = POWER_DISPLAY_TIMEOUT_INTERVAL;
-    LCD_PWM_SetCompare0(255);  //Set to full brightness 
+    LCD_PWM_SetCompare0(MAX_LCD_PWM);  //Set to full brightness 
     
 }
 
 void power_task( void ) {
+    return; //this code below is old
     
     //Power button detection to wakeup
     if (Cy_GPIO_Read(PWR_BTN_PORT, PWR_BTN_NUM) == 0) {

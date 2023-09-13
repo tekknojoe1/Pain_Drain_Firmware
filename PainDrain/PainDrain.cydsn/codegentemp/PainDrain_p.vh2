@@ -1,5 +1,5 @@
 -- Project:   PainDrain
--- Generated: 08/21/2023 18:44:27
+-- Generated: 09/13/2023 12:32:06
 -- PSoC Creator  4.4
 
 ENTITY PainDrain IS
@@ -124,8 +124,8 @@ ARCHITECTURE __DEFAULT__ OF PainDrain IS
     SIGNAL Net_377 : bit;
     SIGNAL Net_378 : bit;
     SIGNAL Net_379 : bit;
-    SIGNAL Net_380_ff16 : bit;
-    ATTRIBUTE global_signal OF Net_380_ff16 : SIGNAL IS true;
+    SIGNAL Net_380_ff13 : bit;
+    ATTRIBUTE global_signal OF Net_380_ff13 : SIGNAL IS true;
     SIGNAL Net_381 : bit;
     SIGNAL Net_382 : bit;
     SIGNAL Net_448_ff17 : bit;
@@ -150,16 +150,16 @@ ARCHITECTURE __DEFAULT__ OF PainDrain IS
     SIGNAL Net_557 : bit;
     SIGNAL Net_558 : bit;
     SIGNAL Net_562 : bit;
-    SIGNAL Net_576_ff15 : bit;
-    ATTRIBUTE global_signal OF Net_576_ff15 : SIGNAL IS true;
+    SIGNAL Net_576_ff16 : bit;
+    ATTRIBUTE global_signal OF Net_576_ff16 : SIGNAL IS true;
     SIGNAL Net_577 : bit;
     SIGNAL Net_579 : bit;
     SIGNAL Net_581 : bit;
     SIGNAL Net_582 : bit;
     SIGNAL Net_583 : bit;
     SIGNAL Net_587 : bit;
-    SIGNAL Net_591_ff13 : bit;
-    ATTRIBUTE global_signal OF Net_591_ff13 : SIGNAL IS true;
+    SIGNAL Net_591_ff14 : bit;
+    ATTRIBUTE global_signal OF Net_591_ff14 : SIGNAL IS true;
     SIGNAL Net_592 : bit;
     SIGNAL Net_594 : bit;
     SIGNAL Net_596 : bit;
@@ -170,8 +170,8 @@ ARCHITECTURE __DEFAULT__ OF PainDrain IS
     SIGNAL Net_709 : bit;
     SIGNAL Net_710 : bit;
     SIGNAL Net_711 : bit;
-    SIGNAL Net_712_ff14 : bit;
-    ATTRIBUTE global_signal OF Net_712_ff14 : SIGNAL IS true;
+    SIGNAL Net_712_ff15 : bit;
+    ATTRIBUTE global_signal OF Net_712_ff15 : SIGNAL IS true;
     SIGNAL Net_713 : bit;
     SIGNAL Net_714 : bit;
     SIGNAL PEL_1(0)__PA : bit;
@@ -692,12 +692,12 @@ BEGIN
             lfclk => ClockBlock_LFClk,
             ff_div_11 => Net_551_ff11,
             ff_div_12 => Net_154_ff12,
+            ff_div_13 => Net_380_ff13,
             ff_div_0 => \SPI:Net_847_ff0\,
             ff_div_49 => \ADC:Net_428_ff49\,
-            ff_div_13 => Net_591_ff13,
-            ff_div_14 => Net_712_ff14,
-            ff_div_15 => Net_576_ff15,
-            ff_div_16 => Net_380_ff16,
+            ff_div_14 => Net_591_ff14,
+            ff_div_15 => Net_712_ff15,
+            ff_div_16 => Net_576_ff16,
             ff_div_17 => Net_448_ff17,
             periclk_App => periclk_App);
 
@@ -2538,7 +2538,7 @@ BEGIN
             exact_width => 0,
             width => 16)
         PORT MAP(
-            clock => Net_712_ff14,
+            clock => Net_712_ff15,
             capture => '0',
             count => '1',
             reload => '0',
@@ -2639,7 +2639,7 @@ BEGIN
             exact_width => 0,
             width => 16)
         PORT MAP(
-            clock => Net_380_ff16,
+            clock => Net_380_ff13,
             capture => '0',
             count => '1',
             reload => '0',
@@ -2683,7 +2683,7 @@ BEGIN
             exact_width => 0,
             width => 16)
         PORT MAP(
-            clock => Net_576_ff15,
+            clock => Net_576_ff16,
             capture => '0',
             count => '1',
             reload => '0',
@@ -2702,7 +2702,7 @@ BEGIN
             exact_width => 0,
             width => 16)
         PORT MAP(
-            clock => Net_591_ff13,
+            clock => Net_591_ff14,
             capture => '0',
             count => '1',
             reload => '0',
