@@ -13,6 +13,7 @@
 
 #include <project.h>
 #include <stdlib.h>
+#include "debug.h"
 
 #define TENS_TIMER_INTERVAL_MS 10
 
@@ -35,6 +36,7 @@ void set_tens_task( void ) {
     if (tens_timeout == 0) {
         
         //On positive direction
+        DBG_PRINTF("On positive direction \r\n");
         Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 1);
         Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 1);
         Cy_GPIO_Write(TENS_POS1_PORT, TENS_POS1_NUM, 1);
@@ -43,6 +45,7 @@ void set_tens_task( void ) {
         CyDelayUs(tens_dur_us);
         
         //Off state in between
+        DBG_PRINTF("Off state in between \r\n");
         Cy_GPIO_Write(TENS_POS1_PORT, TENS_POS1_NUM, 0);
         Cy_GPIO_Write(TENS_POS2_PORT, TENS_POS2_NUM, 0);
         Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 0);
@@ -51,6 +54,7 @@ void set_tens_task( void ) {
         CyDelayUs(tens_dur_us);
         
         //On negative direction
+        DBG_PRINTF("On negative direction \r\n");
         Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 1);
         Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 1);
         Cy_GPIO_Write(TENS_NEG1_PORT, TENS_NEG1_NUM, 1);
@@ -59,6 +63,7 @@ void set_tens_task( void ) {
         CyDelayUs(tens_dur_us);
         
         //Off state in between
+        DBG_PRINTF("Off state in between \r\n");
         Cy_GPIO_Write(TENS_NEG1_PORT, TENS_NEG1_NUM, 0);
         Cy_GPIO_Write(TENS_NEG2_PORT, TENS_NEG2_NUM, 0);
         Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 0);
@@ -131,17 +136,20 @@ void set_tens_amp (int item) {
         
         switch (item) {
             case 1 ... 10: {
-            int percent = item * 5; // Calculate the percentage, currently limiting the max to 50 perecent for testing
+            int percent = item * 10; // Calculate the percentage, currently limiting the max to 50 perecent for testing
 
             // Calculate the scaled_pwm_value
             int scaled_pwm_value = (percent * 312) / 100;
             
             // Set TENS1 and wait before setting TENS2
             PWM_TENS_SetCompare0(scaled_pwm_value);
+            DBG_PRINTF("Tens 1: %d\r\n", scaled_pwm_value);
             CyDelayUs((1000000 / tens_interval_ms) / 2); //Delay of 5-50uS
             
             // Set TENS2
             PWM_TENS2_SetCompare0(scaled_pwm_value);
+            DBG_PRINTF("Tens 2: %d\r\n", scaled_pwm_value);
+      
             break;
             
             }

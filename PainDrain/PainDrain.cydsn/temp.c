@@ -34,6 +34,9 @@ void set_temp(int value){
         //PWM_PEL1_Enable();
         Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 1);  //Enable is high
         PWM_PEL1_SetCompare0(scaled_pwm); 
+        
+        DBG_PRINTF("PWM1 Value: %d\r\n", scaled_pwm);
+        DBG_PRINTF("PWM1 GetCompare: %d\r\n", PWM_PEL1_GetCompare0());
     } else if (value < 0) {
         // Turn off PEL1
         PWM_PEL1_SetCompare0(0);
@@ -43,6 +46,8 @@ void set_temp(int value){
         //PWM_PEL2_Enable();
         Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 1);  //Enable is high
         PWM_PEL2_SetCompare0(scaled_pwm);
+        DBG_PRINTF("PWM2 Value: %d\r\n", scaled_pwm);
+        DBG_PRINTF("PWM2 GetCompare: %d\r\n", PWM_PEL2_GetCompare0());
     } else { 
         // Turn off both PELs to save power
         PWM_PEL1_SetCompare0(0);

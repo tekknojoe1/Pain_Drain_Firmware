@@ -48,6 +48,7 @@
 #include "power.h"
 #include "debug.h"
 #include "temp.h"
+#include "tens.h"
 #include <stdlib.h>
 
 //#include 
@@ -281,13 +282,20 @@ void AppCallBack(uint32 event, void *eventParam)
                         receivedCommand[i] = (char)writeReq->handleValPair.value.val[i];
                     }
                     receivedCommand[length] = '\0';
-                    //DBG_PRINTF("Received string: %s\r\n", receivedCommand);
+                    DBG_PRINTF("Received string: %s\r\n", receivedCommand);
                     if(receivedCommand[0] == 't')
                     {
                         int temperatureValue = atoi(&receivedCommand[1]); // Convert the numeric part after 't'
                         DBG_PRINTF("t value: %d\r\n", temperatureValue);
                         set_temp(temperatureValue);
-                        //DBG_PRINTF("t value: %d \r\n",writeReq->handleValPair.value.val[1]);
+                        DBG_PRINTF("t value: %d \r\n",writeReq->handleValPair.value.val[1]);
+                    }
+                    else if(receivedCommand[0] == 'T')
+                    {
+                        int tensValue = atoi(&receivedCommand[1]); // Convert the numeric part after 't'
+                        DBG_PRINTF("T value: %d\r\n", tensValue);
+                        set_tens_amp(tensValue);
+                        DBG_PRINTF("T value: %d \r\n",writeReq->handleValPair.value.val[1]);
                     }
                     val = writeReq->handleValPair.value.val[0];
                     //DBG_PRINTF("value %d\r\n", val);
@@ -359,7 +367,11 @@ int HostMain(void)
     
     PWM_FAN_Start();
     //PWM_VIBE_Start();
+    
     PWM_TENS_Start();
+    PWM_TENS2_Start();
+    
+    
     PWM_PEL1_Start();
     PWM_PEL2_Start();
     Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);  //Enable is low
