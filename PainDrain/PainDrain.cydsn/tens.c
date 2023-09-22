@@ -17,6 +17,9 @@
 
 #define TENS_TIMER_INTERVAL_MS 10
 
+#define MAX_TENS_DUR_US 1200
+#define MAX_TENS_INTERVAL_MS 1000
+
 static int32 tens_timeout = -1;
 static int32 tens_interval_ms = 0;
 static int32 tens_dur_us = 0;
@@ -97,6 +100,8 @@ void set_tens_freq (int item) {
 
 void set_tens_dur (int item) {
     
+    
+    
     switch (item) {
         default: tens_dur_us = 0; break;   
         case 1: tens_dur_us = 300; break;
@@ -110,6 +115,7 @@ void set_tens_dur (int item) {
         case 9: tens_dur_us = 1100; break;
         case 10: tens_dur_us = 1200; break;
     }
+    
 }
 
 void set_tens_amp (int item) {
@@ -130,10 +136,11 @@ void set_tens_amp (int item) {
         //PWM_TENS_SetCompare0(624 * item / 10);
         //power_flags_update(UI_MENU_TENS_AMP, 1);
         
-        set_tens_dur(item); 
-        
+        set_tens_dur(item);
+               
         set_tens_freq(item); //Enable tens timer
         
+        /*
         switch (item) {
             case 1 ... 10: {
             int percent = item * 10; // Calculate the percentage, currently limiting the max to 50 perecent for testing
@@ -143,12 +150,12 @@ void set_tens_amp (int item) {
             
             // Set TENS1 and wait before setting TENS2
             PWM_TENS_SetCompare0(scaled_pwm_value);
-            DBG_PRINTF("Tens 1: %d\r\n", scaled_pwm_value);
+            DBG_PRINTF("Tens 1 PWM: %d\r\n", PWM_TENS_GetCompare0());
             CyDelayUs((1000000 / tens_interval_ms) / 2); //Delay of 5-50uS
             
             // Set TENS2
             PWM_TENS2_SetCompare0(scaled_pwm_value);
-            DBG_PRINTF("Tens 2: %d\r\n", scaled_pwm_value);
+            DBG_PRINTF("Tens 2 PWM: %d\r\n", PWM_TENS2_GetCompare0());
       
             break;
             
@@ -157,7 +164,28 @@ void set_tens_amp (int item) {
             PWM_TENS_SetCompare0(0);
             PWM_TENS2_SetCompare0(0);
             break;
-        }       
+        }
+        */
+                       
+        // For finer control the below should work.
+        tens_dur_us = (item * MAX_TENS_DUR_US) / 100;
+        
+        // Not sure for the tens interval, as the values decrease differently.
+        tens_interval_ms = MAX_TENS_INTERVAL_MS / item;
+        if (tens_interval_ms > 0) 
+        tens_timeout = tens_interval_ms;
+        
+        int scaled_pwm_value = (item * 312) / 100;
+        
+        // Set TENS1 and wait before setting TENS2
+        PWM_TENS_SetCompare0(scaled_pwm_value);
+        DBG_PRINTF("Tens 1 PWM: %d\r\n", PWM_TENS_GetCompare0());
+        CyDelayUs((1000000 / tens_interval_ms) / 2); //Delay of 5-50uS
+        
+        // Set TENS2
+        PWM_TENS2_SetCompare0(scaled_pwm_value);
+        DBG_PRINTF("Tens 2 PWM: %d\r\n", PWM_TENS2_GetCompare0());
+        
     }   
 }
 /* [] END OF FILE */

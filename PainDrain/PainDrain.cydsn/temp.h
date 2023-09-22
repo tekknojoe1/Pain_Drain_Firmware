@@ -13,6 +13,7 @@
 #define TEMP_H
 
 void set_temp(int value);
+void set_fan(int value);
 
 #endif
 /* [] END OF FILE */
