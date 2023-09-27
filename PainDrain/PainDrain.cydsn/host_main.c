@@ -50,6 +50,7 @@
 #include "temp.h"
 #include "tens.h"
 #include "vibe.h"
+#include "driver_st7789_basic.h"
 #include <stdlib.h>
 
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
@@ -58,8 +59,13 @@ static volatile uint32_t           mainTimer  = 1u;
 static int loopcount = 0;
 
 uint8 newBatteryLevel = 0;
-uint8 val;
+uint8 value;
+uint8 *respondStringPtr;
+uint8 data[20];
 uint32_t pinReadValue;
+uint8_t data2[] = {0x01, 0x02, 0x03, 0x04}; // Replace with your actual data
+unsigned int MAX_LENGTH = 20;
+
 /*******************************************************************************
 * Function Name: AppCallBack
 ********************************************************************************
@@ -74,7 +80,7 @@ uint32_t pinReadValue;
 *******************************************************************************/
 void AppCallBack(uint32 event, void *eventParam)
 {
-    static int CHAR_MAX_LEN = 20;
+   
     cy_en_ble_gatt_err_code_t gattErr = CY_BLE_GATT_ERR_NONE;
     static cy_stc_ble_gap_sec_key_info_t keyInfo =
     {
@@ -211,6 +217,7 @@ void AppCallBack(uint32 event, void *eventParam)
             //call a function to update the characteristic that was read if we need to send more data to the host
             cy_stc_ble_gatts_char_val_read_req_t *readReq = (cy_stc_ble_gatts_char_val_read_req_t *)eventParam;
             cy_stc_ble_gatt_handle_value_pair_t handleValuePair;
+            /*
             if (readReq->attrHandle == cy_ble_basConfigPtr->bass->batteryLevelHandle)
             {
                 // Update your local battery level value (example: increment by 1)
@@ -229,15 +236,26 @@ void AppCallBack(uint32 event, void *eventParam)
                     DBG_PRINTF("Read error\r\n");
                 }
             }
-            
+            */
             // Checks to see if its requesting the custom service characteristic
             if(CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE == readReq->attrHandle)
             {
+                //cy_stc_ble_gatts_write_cmd_req_param_t *writeReq = (cy_stc_ble_gatts_write_cmd_req_param_t *)eventParam;
                 // Increments the value by 1 each time central device is read
-                
-                val++;
-                handleValuePair.value.val = &val;
-                handleValuePair.value.len = sizeof(val);
+                //char greeting[] = "hey";
+                //value++;
+                //handleValuePair.value.val = data;
+                //handleValuePair.value.len = MAX_LENGTH;
+           
+
+                // Create a handle-value pair structure
+                cy_stc_ble_gatt_handle_value_pair_t handleValuePair;
+    
+                // Set the value field to point to the data array
+                DBG_PRINTF("reading response %s\r\n", (char *)respondStringPtr);
+                DBG_PRINTF("Sending to Perpherial\r\n");
+                handleValuePair.value.val = respondStringPtr;
+                handleValuePair.value.len = MAX_LENGTH;
                 handleValuePair.attrHandle = CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE;
                 // Writes the value to central device and returns an error code if there is one
                 gattErr = Cy_BLE_GATTS_WriteAttributeValueLocal(&handleValuePair);
@@ -252,7 +270,6 @@ void AppCallBack(uint32 event, void *eventParam)
                 DBG_PRINTF("charge status: %d\r\n", pinReadValue);
                 
                 DBG_PRINTF("entered read case custom service\r\n");
-
                 
             }
             break;
@@ -288,7 +305,7 @@ void AppCallBack(uint32 event, void *eventParam)
                         {
                             int temperatureValue = atoi(&receivedCommand[1]); // Convert the numeric part after 't'
                             DBG_PRINTF("t value: %d\r\n", temperatureValue);
-                            set_temp(temperatureValue);  
+                            //set_temp(temperatureValue);  
                             break;
                         }
                         case 'T':
@@ -300,16 +317,24 @@ void AppCallBack(uint32 event, void *eventParam)
                         }
                         case 'v':
                         {
-                            int vibeValue = atoi(&receivedCommand[2]);
+                            int vibeValue = atoi(&receivedCommand[1]);
                             DBG_PRINTF("v value: %d\r\n", vibeValue);
                             //set_vibe(&receivedCommand[1], vibeValue);
+                            break;
+                        }
+                        default:
+                        {
+                            DBG_PRINTF("Error\r\n");
                             break;
                         }
                         
                         
                     }
-                    val = writeReq->handleValPair.value.val[0];
-                    //DBG_PRINTF("value %d\r\n", val);
+                    //DBG_PRINTF("length %d\r\n", length);
+                    respondStringPtr = (uint8_t *)malloc(length+1 * sizeof(uint8_t));
+                    respondStringPtr = writeReq->handleValPair.value.val;
+                    respondStringPtr[length] = '\0';
+                    //DBG_PRINTF("value %s\r\n", (char *)respondStringPtr);
                     // Sends a write with response command
                     Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
                 }
@@ -369,7 +394,8 @@ int HostMain(void)
     
     /* Initialization the user interface: LEDs, SW2, etc.  */
     InitUserInterface();
-    
+    DBG_PRINTF("Entering\r\n");
+    st7789_basic_init();
     /* Start BLE component and register generic event handler */
     Cy_BLE_Start(AppCallBack);
     

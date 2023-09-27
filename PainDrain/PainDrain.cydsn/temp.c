@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <project.h>
 #include <stdlib.h>
+#include "debug.h"
 
 #define MAX_PEL_PWM_VALUE 204 // limit to 80 percent of 255
 #define MAX_FAN_PWM_VALUE 160 // limit to 62.5 percent of 255
@@ -48,7 +49,6 @@ void set_temp(int value){
         // Turn off both PELs to save power
         PWM_PEL1_SetCompare0(0);
         PWM_PEL2_SetCompare0(0);
-        
         //PWM_PEL1_Disable();
         //PWM_PEL2_Disable();
         Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);  //Enable is low
