@@ -51,6 +51,7 @@
 #include "tens.h"
 #include "vibe.h"
 #include "driver_st7789_basic.h"
+#include "driver_st7789_display_test.h"
 #include <stdlib.h>
 
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
@@ -395,7 +396,30 @@ int HostMain(void)
     /* Initialization the user interface: LEDs, SW2, etc.  */
     InitUserInterface();
     DBG_PRINTF("Entering\r\n");
-    st7789_basic_init();
+    //st7789_basic_init();
+    SPI_Start();
+    st7789_display_test();
+    /*
+    //st7789_basic_init();
+    //st7789_basic_rect(0, 0, 60, 60, 12);
+    st7789_dev_t my_lcd;      // Create an instance of the st7789_dev_t structure
+    st7789_ll_t my_lcd_ll;    // Create an instance of the st7789_ll_t structure
+    // Example of setting up the low-level driver
+
+    my_lcd.width = 240;        // Set the width of your display
+    my_lcd.height = 320;       // Set the height of your display
+    my_lcd.x_shift = 0;        // Set any x-axis shift (if needed)
+    my_lcd.y_shift = 0;        // Set any y-axis shift (if needed)
+    my_lcd.rotation = 0;       // Set the rotation (0, 1, 2, or 3)
+    my_lcd.ll = &my_lcd_ll;    // Assign the low-level driver instance
+        
+    st7789_init2(&my_lcd, &my_lcd_ll);
+    st7789_fill_color(&my_lcd, ST7789_WHITE_RGB565);
+
+    char str[] = "hello";
+    //st7789_basic_string(50,50, str, sizeof(str),0x04 , ST7789_FONT_24);
+    */
+    
     /* Start BLE component and register generic event handler */
     Cy_BLE_Start(AppCallBack);
     

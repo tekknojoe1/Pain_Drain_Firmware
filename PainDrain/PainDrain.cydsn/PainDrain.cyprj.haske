@@ -531,9 +531,9 @@
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cy_psoc3_inc.v</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 </warp_dep>
-<deps_time v="133401430422158593" />
+<deps_time v="133403102495700171" />
 <top_block v="TopDesign" />
-<last_generation v="6" />
+<last_generation v="8" />
 <pdl_path v="C:\Program Files (x86)\Cypress\PDL\3.1.5" />
 <sw_packages />
 </CyGuid_925cc1e1-309e-4e08-b0a1-09a83c35b157>
@@ -13300,6 +13300,18 @@
 </dependency_info>
 <dependency_info name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM4" xml_contents_version="2">
 <CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021 type_name="CyDesigner.Common.Base.CyFileDeps" version="1">
+<file name=".\CortexM4\ARM_GCC_541\Debug\driver_st7789_display_test.o">
+<dep name=".\driver_st7789.h" />
+<dep name=".\driver_st7789_display_image.h" />
+<dep name=".\driver_st7789_display_test.c" />
+<dep name=".\driver_st7789_display_test.h" />
+<dep name=".\driver_st7789_interface.h" />
+</file>
+<file name=".\driver_st7789.h" />
+<file name=".\driver_st7789_display_image.h" />
+<file name=".\driver_st7789_display_test.c" />
+<file name=".\driver_st7789_display_test.h" />
+<file name=".\driver_st7789_interface.h" />
 <file name=".\CortexM4\ARM_GCC_541\Debug\host_main.o">
 <dep name=".\Generated_Source\PSoC6\ADC.h" />
 <dep name=".\Generated_Source\PSoC6\ADC_intSarClock.h" />
@@ -13477,6 +13489,7 @@
 <dep name=".\debug.h" />
 <dep name=".\driver_st7789.h" />
 <dep name=".\driver_st7789_basic.h" />
+<dep name=".\driver_st7789_display_test.h" />
 <dep name=".\driver_st7789_interface.h" />
 <dep name=".\host_main.c" />
 <dep name=".\ias.h" />
@@ -13662,9 +13675,7 @@
 <file name=".\common.h" />
 <file name=".\cy_ble_config.h" />
 <file name=".\debug.h" />
-<file name=".\driver_st7789.h" />
 <file name=".\driver_st7789_basic.h" />
-<file name=".\driver_st7789_interface.h" />
 <file name=".\host_main.c" />
 <file name=".\ias.h" />
 <file name=".\myprintf.h" />
@@ -13674,6 +13685,12 @@
 <file name=".\tens.h" />
 <file name=".\user_interface.h" />
 <file name=".\vibe.h" />
+<file name=".\st7789_pt2.h" />
+<file name=".\CortexM4\ARM_GCC_541\Debug\st7789_pt2.o">
+<dep name=".\st7789_pt2.c" />
+<dep name=".\st7789_pt2.h" />
+</file>
+<file name=".\st7789_pt2.c" />
 <file name=".\CortexM4\ARM_GCC_541\Debug\BLE.o">
 <dep name=".\Generated_Source\PSoC6\pdl\cmsis\include\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC6\pdl\cmsis\include\cmsis_armclang.h" />
@@ -19839,6 +19856,13 @@
 <dep name=".\system_psoc6.h" />
 </file>
 <file name=".\debug.c" />
+<file name=".\CortexM4\ARM_GCC_541\Debug\driver_st7789.o">
+<dep name=".\driver_st7789.c" />
+<dep name=".\driver_st7789.h" />
+<dep name=".\driver_st7789_font.h" />
+</file>
+<file name=".\driver_st7789.c" />
+<file name=".\driver_st7789_font.h" />
 <file name=".\CortexM4\ARM_GCC_541\Debug\driver_st7789_basic.o">
 <dep name=".\Generated_Source\PSoC6\ADC.h" />
 <dep name=".\Generated_Source\PSoC6\ADC_intSarClock.h" />
@@ -20074,6 +20098,12 @@
 <dep name=".\system_psoc6.h" />
 </file>
 <file name=".\driver_st7789_basic.c" />
+<file name=".\CortexM4\ARM_GCC_541\Debug\driver_st7789_interface_template.o">
+<dep name=".\driver_st7789.h" />
+<dep name=".\driver_st7789_interface.h" />
+<dep name=".\driver_st7789_interface_template.c" />
+</file>
+<file name=".\driver_st7789_interface_template.c" />
 <file name=".\CortexM4\ARM_GCC_541\Debug\font.o">
 <dep name=".\Generated_Source\PSoC6\ADC.h" />
 <dep name=".\Generated_Source\PSoC6\ADC_intSarClock.h" />
@@ -22858,19 +22888,6 @@
 <dep name=".\vibe.h" />
 </file>
 <file name=".\vibe.c" />
-<file name=".\CortexM4\ARM_GCC_541\Debug\driver_st7789_interface_template.o">
-<dep name=".\driver_st7789.h" />
-<dep name=".\driver_st7789_interface.h" />
-<dep name=".\driver_st7789_interface_template.c" />
-</file>
-<file name=".\driver_st7789_interface_template.c" />
-<file name=".\CortexM4\ARM_GCC_541\Debug\driver_st7789.o">
-<dep name=".\driver_st7789.c" />
-<dep name=".\driver_st7789.h" />
-<dep name=".\driver_st7789_font.h" />
-</file>
-<file name=".\driver_st7789.c" />
-<file name=".\driver_st7789_font.h" />
 <file name=".\CortexM4\ARM_GCC_541\Debug\ADC.o">
 <dep name=".\Generated_Source\PSoC6\pdl\cmsis\include\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC6\pdl\cmsis\include\cmsis_armclang.h" />
@@ -30512,6 +30529,8 @@
 <dep name=".\CortexM4\ARM_GCC_541\Debug\driver_st7789_basic.o" />
 <dep name=".\CortexM4\ARM_GCC_541\Debug\driver_st7789.o" />
 <dep name=".\CortexM4\ARM_GCC_541\Debug\driver_st7789_interface_template.o" />
+<dep name=".\CortexM4\ARM_GCC_541\Debug\st7789_pt2.o" />
+<dep name=".\CortexM4\ARM_GCC_541\Debug\driver_st7789_display_test.o" />
 <dep name=".\CortexM4\ARM_GCC_541\Debug\cyfitter_sysint_cfg.o" />
 <dep name=".\CortexM4\ARM_GCC_541\Debug\cymetadata.o" />
 <dep name=".\CortexM4\ARM_GCC_541\Debug\BLE.o" />
@@ -31138,6 +31157,8 @@
 <name_val_pair name="driver_st7789_basic.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="driver_st7789.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="driver_st7789_interface_template.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="st7789_pt2.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="driver_st7789_display_test.c" v="-mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\lvgl-release-v8.3 -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/include/ip/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/device/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/efuse/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/flash/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/gpio/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/i2s/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ipc/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/lvd/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/profile/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/prot/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sar/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/scb/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysanalog/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysclk/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/sysint/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syslib/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/syspm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/systick/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/trigmux/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/wdt/ -IGenerated_Source\PSoC6\pdl\middleware/ -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CYBLE_416045_02 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 </name>
 </genericCmdLineData>
 <codeGenCmdLineTag v="-.appdatapath &quot;C:\Users\haske\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4&quot; -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\PainDrain.cyprj -d CYBLE-416045-02 -s C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\Generated_Source\PSoC6 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE" />
@@ -31146,8 +31167,8 @@
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
 <link_deps_times>
-<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM0p" v="133401324024192056" />
-<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM4" v="133403092377627726" />
+<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM0p" v="133403102570086802" />
+<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM4" v="133403227361973684" />
 </link_deps_times>
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
