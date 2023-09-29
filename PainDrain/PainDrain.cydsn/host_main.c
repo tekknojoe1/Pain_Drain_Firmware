@@ -398,7 +398,7 @@ int HostMain(void)
     DBG_PRINTF("Entering\r\n");
     //st7789_basic_init();
     SPI_Start();
-    st7789_display_test();
+    st7789_basic_init();
     /*
     //st7789_basic_init();
     //st7789_basic_rect(0, 0, 60, 60, 12);

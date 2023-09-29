@@ -35,6 +35,7 @@
  */
 
 #include "driver_st7789_interface.h"
+#include <project.h>
 
 /**
  * @brief  interface spi bus init
@@ -45,6 +46,15 @@
  */
 uint8_t st7789_interface_spi_init(void)
 {
+    cy_en_scb_spi_status_t initStatus;
+        
+    /* Configure component */
+    initStatus = Cy_SCB_SPI_Init(SPI_HW, &SPI_config, NULL);
+        
+    Cy_SCB_SPI_Enable(SPI_HW);
+    
+    
+    __enable_irq(); /* Enable global interrupts. */
     return 0;
 }
 
@@ -81,7 +91,11 @@ uint8_t st7789_interface_spi_write_cmd(uint8_t *buf, uint16_t len)
  */
 void st7789_interface_delay_ms(uint32_t ms)
 {
-
+  // loop through real time
+  while (ms--) {
+    // 1 s delay
+    _delay_ms(1);
+  }
 }
 
 /**
