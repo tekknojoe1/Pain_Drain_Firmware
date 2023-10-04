@@ -81,7 +81,7 @@ uint8_t st7789_interface_spi_deinit(void)
  *            - 1 write failed
  * @note      none
  */
-uint8_t st7789_interface_spi_write_cmd(uint8_t *buf, uint16_t len)
+uint8_t st7789_interface_spi_write_cmd(uint16_t *buf, uint16_t len)
 {
     uint32_t masterStatus;
     uint8_t d;
@@ -198,7 +198,7 @@ uint8_t st7789_interface_cmd_data_gpio_deinit(void)
  */
 uint8_t st7789_interface_cmd_data_gpio_write(uint8_t value)
 {
-    
+    Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, value);
     return 0;
 }
 

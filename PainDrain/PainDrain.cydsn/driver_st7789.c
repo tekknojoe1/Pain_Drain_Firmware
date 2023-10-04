@@ -164,24 +164,51 @@ static uint8_t a_st7789_write_byte(st7789_handle_t *handle, uint8_t data, uint8_
  *            - 1 write failed
  * @note      none
  */
+/*
+static uint8_t a_st7789_write_bytes(st7789_handle_t *handle, uint16_t *data, uint16_t len, uint8_t cmd)
+{
+    uint8_t res;
+    uint16_t data1;
+    data = cmd << 8;
+    res = handle->cmd_data_gpio_write(cmd);         //write gpio
+    if (res != 0)                                   //check result
+    {
+        DBG_PRINTF("HERE 1\r\n");
+        return 1;                                   //return error
+    }
+    res = handle->spi_write_cmd(data, len);         //write data command
+    if (res != 0)                                   //check result
+    {
+        DBG_PRINTF("HERE 2\r\n");
+        return 1;                                   //return error
+    }
+
+    return 0;                                       //success return 0
+}
+*/
 static uint8_t a_st7789_write_bytes(st7789_handle_t *handle, uint8_t *data, uint16_t len, uint8_t cmd)
 {
     uint8_t res;
-    res = handle->cmd_data_gpio_write(cmd);         /* write gpio */
-    if (res != 0)                                   /* check result */
-    {
-        DBG_PRINTF("HERE 1\r\n");
-        return 1;                                   /* return error */
+    uint16_t words[len];
+    for (unsigned int i = 0; i<len; i++) {
+        words[i] = data[i] | (cmd<<8);
     }
-    res = handle->spi_write_cmd(data, len);         /* write data command */
-    if (res != 0)                                   /* check result */
+    res = handle->cmd_data_gpio_write(cmd);        /* write gpio */
+    if (res != 0)                                  /* check result */
+    {
+        DBG_PRINTF("GPIO write HERE\r\n");
+        return 1;                                  /* return error */
+    }
+    res = handle->spi_write_cmd(words, len);         //write data command
+    if (res != 0)                                   //check result
     {
         DBG_PRINTF("HERE 2\r\n");
-        return 1;                                   /* return error */
+        return 1;                                   //return error
     }
 
-    return 0;                                       /* success return 0 */
+    return 0;                                       //success return 0                                      /* success return 0 */
 }
+
 
 /**
  * @brief     nop

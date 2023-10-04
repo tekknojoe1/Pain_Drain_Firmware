@@ -77,7 +77,7 @@ uint8_t st7789_interface_spi_deinit(void);
  *            - 1 write failed
  * @note      none
  */
-uint8_t st7789_interface_spi_write_cmd(uint8_t *buf, uint16_t len);
+uint8_t st7789_interface_spi_write_cmd(uint16_t *buf, uint16_t len);
 
 /**
  * @brief     interface delay ms
