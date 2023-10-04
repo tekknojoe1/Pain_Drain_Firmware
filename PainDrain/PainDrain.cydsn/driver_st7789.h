@@ -557,7 +557,7 @@ typedef struct st7789_handle_s
 {
     uint8_t (*spi_init)(void);                                   /**< point to a spi_init function address */
     uint8_t (*spi_deinit)(void);                                 /**< point to a spi_deinit function address */
-    uint8_t (*spi_write_cmd)(uint8_t *buf, uint16_t len);        /**< point to a spi_write_cmd function address */
+    uint8_t (*spi_write_cmd)(uint16_t *buf, uint16_t len);        /**< point to a spi_write_cmd function address */
     uint8_t (*cmd_data_gpio_init)(void);                         /**< point to a cmd_data_gpio_init function address */
     uint8_t (*cmd_data_gpio_deinit)(void);                       /**< point to a cmd_data_gpio_deinit function address */
     uint8_t (*cmd_data_gpio_write)(uint8_t value);               /**< point to a cmd_data_gpio_write function address */
