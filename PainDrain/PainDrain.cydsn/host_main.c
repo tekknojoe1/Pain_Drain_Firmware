@@ -53,6 +53,7 @@
 #include "driver_st7789_basic.h"
 #include "driver_st7789_display_test.h"
 #include <stdlib.h>
+#include "driver_st7789_display_image.h"
 
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
 static volatile uint32_t           mainTimer  = 1u;
@@ -66,6 +67,28 @@ uint8 data[20];
 uint32_t pinReadValue;
 uint8_t data2[] = {0x01, 0x02, 0x03, 0x04}; // Replace with your actual data
 unsigned int MAX_LENGTH = 20;
+uint8 fakeBatteryPercentage = 100;
+int previousValue = -1;
+
+int getExternalValue() {
+    // Simulate getting an external value (e.g., sensor reading)
+    // For this example, we'll use a simple counter.
+    static int fakeBatteryPercentage = 100;
+    if(fakeBatteryPercentage <= 0){
+        fakeBatteryPercentage = 0;   
+    }
+    else{
+        fakeBatteryPercentage--;  
+    }
+    return fakeBatteryPercentage;
+}
+void checkForValueChange() {
+    int newValue = getExternalValue();
+    if (newValue != previousValue) {
+        DBG_PRINTF("Value changed: %d\r\n", newValue);
+        previousValue = newValue;
+    }
+}
 
 /*******************************************************************************
 * Function Name: AppCallBack
@@ -218,16 +241,21 @@ void AppCallBack(uint32 event, void *eventParam)
             //call a function to update the characteristic that was read if we need to send more data to the host
             cy_stc_ble_gatts_char_val_read_req_t *readReq = (cy_stc_ble_gatts_char_val_read_req_t *)eventParam;
             cy_stc_ble_gatt_handle_value_pair_t handleValuePair;
-            /*
+            
             if (readReq->attrHandle == cy_ble_basConfigPtr->bass->batteryLevelHandle)
             {
                 // Update your local battery level value (example: increment by 1)
-                newBatteryLevel++;
+                if(fakeBatteryPercentage <= 0){
+                 fakeBatteryPercentage = 100;   
+                }
+                else{
+                    fakeBatteryPercentage--;
+                }
                 
-                DBG_PRINTF("entered read case\r\n");
+                DBG_PRINTF("entered read case battery service\r\n");
                 // Provide the updated value as the response to the read request
-                handleValuePair.value.val = &newBatteryLevel;
-                handleValuePair.value.len = sizeof(newBatteryLevel);
+                handleValuePair.value.val = &fakeBatteryPercentage;
+                handleValuePair.value.len = sizeof(fakeBatteryPercentage);
                 handleValuePair.attrHandle = cy_ble_basConfigPtr->bass->batteryLevelHandle;
                 gattErr = Cy_BLE_GATTS_WriteAttributeValueLocal(&handleValuePair);
 
@@ -237,7 +265,7 @@ void AppCallBack(uint32 event, void *eventParam)
                     DBG_PRINTF("Read error\r\n");
                 }
             }
-            */
+            
             // Checks to see if its requesting the custom service characteristic
             if(CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE == readReq->attrHandle)
             {
@@ -375,7 +403,150 @@ void LowPowerImplementation(void)
     
     Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT);
 }
+/*
+// This is all testing
+void lcdReset(void) {
+    // Set LCD_RESET pin high
+    Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 1);
+    
+    // Delay 1ms
+    // You may need to implement the Delayms function or use a built-in delay function
+    CyDelay(1); // Delay 1ms
+    
+    // Set LCD_RESET pin low
+    Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 0);
+    
+    // Delay 10ms
+    CyDelay(10); // Delay 10ms
+    
+    // Set LCD_RESET pin high again
+    Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 1);
+    
+    // Delay 120ms
+    CyDelay(120); // Delay 120ms
+}
+// Function to send a command byte over SPI
+void sendCommand(uint8_t cmd) {
+    // Set the 9th bit (CMD bit) in the command byte
+    uint16_t commandToSend = (1 << 8) | cmd;
 
+    // Send the 9-bit command byte over SPI
+    Cy_SCB_SPI_WriteArrayBlocking(SPI_HW, &commandToSend, 1);
+
+    // Wait for the transfer to complete
+    while (Cy_SCB_SPI_IsBusBusy(SPI_HW));
+}
+
+void sendData(uint8_t data) {
+    // Set the 9th bit (CMD bit) to 0 for data
+    uint16_t dataToSend = data;
+
+    // Send the 9-bit data byte over SPI
+    Cy_SCB_SPI_WriteArrayBlocking(SPI_HW, &dataToSend, 1);
+
+    // Wait for the transfer to complete
+    while (Cy_SCB_SPI_IsBusBusy(SPI_HW));
+}
+
+void LCDinit(void)
+{
+    lcdReset();
+    sendCommand(0x11); //SLPOUT (11h): Sleep Out
+    CyDelay(120); //Delay 120ms
+    sendCommand(0x36); //MADCTL (36h): Memory Data Access Control - Default
+    sendData(0x00);
+    sendCommand(0x3A); //COLMOD (3Ah): Interface Pixel Format
+    sendData(0x05);
+    sendCommand(0xB2); //PORCTRL (B2h): Porch Setting - Default
+    sendData(0x0C);
+    sendData(0x0C);
+    sendData(0x33);
+    sendData(0x33);
+    sendCommand(0xB7); //GCTRL (B7h): Gate Control
+    sendData(0x75);
+    sendCommand(0xBB); //VCOMS (BBh): VCOM Setting
+    sendData(0x13);
+    sendCommand(0xC0); //LCMCTRL (C0h): LCM Control - Default
+    sendData(0x2C);
+    sendCommand(0xC2); //VDVVRHEN (C2h): VDV and VRH Command Enable - Default
+    sendData(0x01);
+    sendCommand(0xC3); //VRHS (C3h): VRH Set
+    sendData(0x13);
+    sendCommand(0xC4); //VDVS (C4h): VDV Set - Default
+    sendData(0x20);
+    sendCommand(0xC6); //FRCTRL2 (C6h): Frame Rate Control in Normal Mode - Default
+    sendData(0x0F);
+    sendCommand(0xD0); //PWCTRL1 (D0h): Power Control 1 - Default
+    sendData(0xA4);
+    sendData(0xA1);
+    sendCommand(0xD6); //Undocumented
+    sendData(0xA1);
+    sendCommand(0x21); //INVON (21h): Display Inversion On
+    sendCommand(0xE0); //PVGAMCTRL (E0h): Positive Voltage Gamma Control
+    sendData(0xD0);
+    sendData(0x08);
+    sendData(0x10);
+    sendData(0x0D);
+    sendData(0x0C);
+    sendData(0x07);
+    sendData(0x37);
+    sendData(0x53);
+    sendData(0x4C);
+    sendData(0x39);
+    sendData(0x15);
+    sendData(0x15);
+    sendData(0x2A);
+    sendData(0x2D);
+    sendCommand(0xE1); //NVGAMCTRL (E1h): Negative Voltage Gamma Control
+    sendData(0xD0);
+    sendData(0x0D);
+    sendData(0x12);
+    sendData(0x08);
+    sendData(0x08);
+    sendData(0x15);
+    sendData(0x34);
+    sendData(0x34);
+    sendData(0x4A);
+    sendData(0x36);
+    sendData(0x12);
+    sendData(0x13);
+    sendData(0x2B);
+    sendData(0x2F);
+    sendCommand(0x29); //DISPON (29h): Display On
+}
+void SetAddressWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) {
+    // Send command to set column address range
+    sendCommand(0x2A); // CASET (2Ah): Column Address Set
+    sendData((x1 >> 8) & 0xFF); // Start Column High-Byte
+    sendData(x1 & 0xFF); // Start Column Low-Byte
+    sendData((x2 >> 8) & 0xFF); // End Column High-Byte
+    sendData(x2 & 0xFF); // End Column Low-Byte
+
+    // Send command to set page address range
+    sendCommand(0x2B); // RASET (2Bh): Row Address Set
+    sendData((y1 >> 8) & 0xFF); // Start Page High-Byte
+    sendData(y1 & 0xFF); // Start Page Low-Byte
+    sendData((y2 >> 8) & 0xFF); // End Page High-Byte
+    sendData(y2 & 0xFF); // End Page Low-Byte
+
+    // Send command to enable memory write
+    sendCommand(0x2C); // RAMWR (2Ch): Memory Write
+}
+
+void drawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color) {
+    // Set the address window for the rectangle
+    SetAddressWindow(x1, y1, x2, y2);
+
+    // Calculate the number of pixels to draw
+    uint32_t pixelCount = (uint32_t)(x2 - x1 + 1) * (y2 - y1 + 1);
+
+    // Send the color data for each pixel
+    for (uint32_t i = 0; i < pixelCount; i++) {
+        sendData((color >> 8) & 0xFF); // Send high-byte of color
+        sendData(color & 0xFF); // Send low-byte of color
+    }
+}
+*/
 /*******************************************************************************
 * Function Name: HostMain
 ********************************************************************************
@@ -391,34 +562,16 @@ void LowPowerImplementation(void)
 *******************************************************************************/
 int HostMain(void)
 {  
-    
-    
+    power_init();
+    //LCDinit();
+    //drawRectangle(50, 50, 100, 100, 0xF800); // Draw a red rectangle at (50, 50) to (100, 100)
     /* Initialization the user interface: LEDs, SW2, etc.  */
-    InitUserInterface();
+    //InitUserInterface();
     DBG_PRINTF("Entering\r\n");
     //st7789_basic_init();
     SPI_Start();
-    st7789_basic_init();
-    /*
+    st7789_display_test();
     //st7789_basic_init();
-    //st7789_basic_rect(0, 0, 60, 60, 12);
-    st7789_dev_t my_lcd;      // Create an instance of the st7789_dev_t structure
-    st7789_ll_t my_lcd_ll;    // Create an instance of the st7789_ll_t structure
-    // Example of setting up the low-level driver
-
-    my_lcd.width = 240;        // Set the width of your display
-    my_lcd.height = 320;       // Set the height of your display
-    my_lcd.x_shift = 0;        // Set any x-axis shift (if needed)
-    my_lcd.y_shift = 0;        // Set any y-axis shift (if needed)
-    my_lcd.rotation = 0;       // Set the rotation (0, 1, 2, or 3)
-    my_lcd.ll = &my_lcd_ll;    // Assign the low-level driver instance
-        
-    st7789_init2(&my_lcd, &my_lcd_ll);
-    st7789_fill_color(&my_lcd, ST7789_WHITE_RGB565);
-
-    char str[] = "hello";
-    //st7789_basic_string(50,50, str, sizeof(str),0x04 , ST7789_FONT_24);
-    */
     
     /* Start BLE component and register generic event handler */
     Cy_BLE_Start(AppCallBack);
@@ -433,7 +586,7 @@ int HostMain(void)
     PWM_PEL2_Start();
     Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);  //Enable is low
     
-    power_init();
+    //power_init();
     
     
       
@@ -444,7 +597,8 @@ int HostMain(void)
     {
         //DBG_PRINTF("Loops from main %d\r\n", loopcount++);
         
-        
+       // checkForValueChange();
+        //CyDelay(1000);
         /* Cy_BLE_ProcessEvents() allows BLE stack to process pending events */
         Cy_BLE_ProcessEvents();
         
