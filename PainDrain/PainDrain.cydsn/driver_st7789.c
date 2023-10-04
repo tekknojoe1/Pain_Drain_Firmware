@@ -36,7 +36,7 @@
 
 #include "driver_st7789.h"
 #include "driver_st7789_font.h"
-
+#include "debug.h"
 /**
  * @brief chip information definition
  */
@@ -140,11 +140,13 @@ static uint8_t a_st7789_write_byte(st7789_handle_t *handle, uint8_t data, uint8_
     res = handle->cmd_data_gpio_write(cmd);        /* write gpio */
     if (res != 0)                                  /* check result */
     {
+        DBG_PRINTF("GPIO write HERE\r\n");
         return 1;                                  /* return error */
     }
     res = handle->spi_write_cmd(&data, 1);         /* write data command */
     if (res != 0)                                  /* check result */
     {
+        DBG_PRINTF("SPI write HERE\r\n");
         return 1;                                  /* return error */
     }
 
@@ -165,15 +167,16 @@ static uint8_t a_st7789_write_byte(st7789_handle_t *handle, uint8_t data, uint8_
 static uint8_t a_st7789_write_bytes(st7789_handle_t *handle, uint8_t *data, uint16_t len, uint8_t cmd)
 {
     uint8_t res;
-
     res = handle->cmd_data_gpio_write(cmd);         /* write gpio */
     if (res != 0)                                   /* check result */
     {
+        DBG_PRINTF("HERE 1\r\n");
         return 1;                                   /* return error */
     }
     res = handle->spi_write_cmd(data, len);         /* write data command */
     if (res != 0)                                   /* check result */
     {
+        DBG_PRINTF("HERE 2\r\n");
         return 1;                                   /* return error */
     }
 
@@ -286,17 +289,23 @@ uint8_t st7789_sleep_in(st7789_handle_t *handle)
  */
 uint8_t st7789_sleep_out(st7789_handle_t *handle)
 {
+    handle->debug_print("HERE1\r\n");
     if (handle == NULL)                                                         /* check handle */
     {
+        //DBG_PRINTF("HERE 1\r\n");
+        handle->debug_print("HERE\r\n");
         return 2;                                                               /* return error */
     }
     if (handle->inited != 1)                                                    /* check handle initialization */
     {
+        //DBG_PRINTF("HERE 2\r\n");
+        handle->debug_print("HERE 2\r\n");
         return 3;                                                               /* return error */
     }
 
     if (a_st7789_write_byte(handle, ST7789_CMD_SLPOUT, ST7789_CMD) != 0)        /* write sleep out command */
     {
+        //DBG_PRINTF("HERE 3\r\n");
         handle->debug_print("st7789: write command failed.\n");                 /* write command failed */
 
         return 1;                                                               /* return error */
@@ -4528,14 +4537,17 @@ uint8_t st7789_write_string(st7789_handle_t *handle, uint16_t x, uint16_t y, cha
 {
     if (handle == NULL)                                                      /* check handle */
     {
+        DBG_PRINTF("HERE 1\r\n");
         return 2;                                                            /* return error */
     }
     if (handle->inited != 1)                                                 /* check handle initialization */
     {
+        DBG_PRINTF("HERE 2\r\n");
         return 3;                                                            /* return error */
     }
     if((x >= handle->column) || (y >= handle->row))                          /* check x, y */
     {
+        DBG_PRINTF("HERE 3\r\n");
         handle->debug_print("ssd1351: x or y is invalid.\n");                /* x or y is invalid */
 
         return 4;                                                            /* return error */
@@ -4554,13 +4566,14 @@ uint8_t st7789_write_string(st7789_handle_t *handle, uint16_t x, uint16_t y, cha
         }
         if (a_st7789_show_char(handle, x, y, *str, font, color) != 0)        /* show a char */
         {
+            DBG_PRINTF("HERE 5\r\n");
             return 1;                                                        /* return error */
         }
         x += (uint8_t)(font / 2);                                            /* x + font/2 */
         str++;                                                               /* str address++ */
         len--;                                                               /* str length-- */
     }
-
+    DBG_PRINTF("HERE 4\r\n");
     return 0;                                                                /* success return 0 */
 }
 

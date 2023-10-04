@@ -36,6 +36,7 @@
 
 #include "driver_st7789_basic.h"
 #include "debug.h"
+#include "driver_st7789_display_image.h"
 static st7789_handle_t gs_handle;        /**< st7789 handle */
 
 /**
@@ -47,7 +48,6 @@ static st7789_handle_t gs_handle;        /**< st7789 handle */
  */
 uint8_t st7789_basic_init(void)
 {
-    DBG_PRINTF("testing test \r\n");
     uint8_t res;
     uint8_t reg;
     uint16_t i;
@@ -102,7 +102,7 @@ uint8_t st7789_basic_init(void)
     res = st7789_sleep_out(&gs_handle);
     if (res != 0)
     {
-        DBG_PRINTF("st7789: sleep out failed.\n");
+        DBG_PRINTF("st7789: sleep out failed.\r\n");
         (void)st7789_deinit(&gs_handle);
 
         return 1;
@@ -150,6 +150,7 @@ uint8_t st7789_basic_init(void)
 
     /* set default memory data access control */
     res = st7789_set_memory_data_access_control(&gs_handle, ST7789_BASIC_DEFAULT_ACCESS);
+    DBG_PRINTF("res %d\r\n",res);
     if (res != 0)
     {
         DBG_PRINTF("st7789: set memory data access control failed.\n");
@@ -178,7 +179,6 @@ uint8_t st7789_basic_init(void)
 
         return 1;
     }
-
     /* set default brightness control */
     res = st7789_set_display_control(&gs_handle,
                                      ST7789_BASIC_DEFAULT_BRIGHTNESS_BLOCK,
@@ -623,8 +623,113 @@ uint8_t st7789_basic_init(void)
 
         return 1;
     }
+    
+    uint32_t color = 65535;
+    uint16_t x0 = 0;
+    uint16_t x1 = 0;
+    uint16_t x2 = 16;
+    uint16_t y0 = 0;
+    uint16_t y1 = 0;
+    uint16_t y2 = 16;
+    static st7789_handle_t gs_handle;
+    char str[49] = "libdriver";
 
+    /* basic init */
+    res = st7789_basic_init();
+    if (res != 0)
+    {
+        DBG_PRINTF("Basic init failed.\n");
+
+        return 1;
+    }
+
+    /* basic clear */
+    res = st7789_basic_clear();
+    if (res != 0)
+    {
+        DBG_PRINTF("Basic clear failed.\n");
+        (void)st7789_basic_deinit();
+
+        return 1;
+    }
+        
+    /* basic display on */
+    res = st7789_basic_display_on();
+    if (res != 0)
+    {
+        DBG_PRINTF("Basic display on failed.\n");
+        (void)st7789_basic_deinit();
+
+        return 1;
+    }
+
+    /* show the string */
+    res = st7789_basic_string(0, 0, str, (uint16_t)strlen(str), color, ST7789_FONT_16);
+    if (res != 0)
+    {
+        DBG_PRINTF("Basic string failed failed.\n");
+        (void)st7789_basic_deinit();
+
+        return 1;
+    }
+
+
+    /* write point */
+    res = st7789_basic_write_point(x0, y0, color);
+    if (res != 0)
+    {
+        DBG_PRINTF("Basic write point failed.\n");
+        (void)st7789_basic_deinit();
+
+        return 1;
+    }
+
+        
+    /* basic rect */
+    res = st7789_basic_rect(x1, y1, x2, y2, color);
+    if (res != 0)
+    {
+        DBG_PRINTF("Basic rectangle failed.\n");
+        (void)st7789_basic_deinit();
+
+        return 1;
+    }
+
+        
+    /* draw picture */
+    res = st7789_draw_picture_16bits(&gs_handle, 0, 0, 239, 319, (uint16_t *)gsc_image);
+    if (res != 0)
+    {
+        DBG_PRINTF("Draw picture failed.\n");
+        (void)st7789_deinit(&gs_handle);
+
+        return 1;
+    }
+
+        
+    /* basic display off */
+    res = st7789_basic_display_off();
+    if (res != 0)
+    {
+        DBG_PRINTF("Basic display off failed.\n");
+        (void)st7789_basic_deinit();
+
+        return 1;
+    }
+        
+    /* basic deinit */
+    res = st7789_basic_deinit();
+    if (res != 0)
+    {
+        DBG_PRINTF("Basic deinit failed.\n");
+        st7789_interface_debug_print("st7789: deinit failed.\n");
+
+        return 1;
+    }
+       
     return 0;
+    
+    
 }
 
 /**
