@@ -8,7 +8,7 @@
 #include "power.h"
 #include "bq24298.h"
 #include "my_i2c.h"
-
+#include "debug.h"
 
 #define POWER_TIMER_PERIOD_MS 10
 #define POWER_DISPLAY_TIMEOUT_SEC 20
@@ -113,6 +113,7 @@ void power_task( void ) {
             //WDT should be enabled
             
             //WDT timer runs every 100 ms
+            Cy_WDT_Enable();
         
             if (power_timeout == 0) {
                 //We timed out so we should power down the display or ourselves
@@ -140,21 +141,17 @@ void power_task( void ) {
             
             //FIXME: Disable WDT
             //FIXME: Configure power button as wakeup source
-            
-            //Cy_BLE_Stop();   
-            //Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT);
-            //Cy_SysPm_Hibernate();
+
+            Cy_BLE_Stop();   
+            Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT);
+            Cy_SysPm_Hibernate();
             
             //We wake up here
             power_wakeup();
             
             power_state = POWER_IDLE;            
         break;
-        
-        
-    }
-    
-    
+    }  
 }
 
 void power_get_diag_data(uint8 d[]) {

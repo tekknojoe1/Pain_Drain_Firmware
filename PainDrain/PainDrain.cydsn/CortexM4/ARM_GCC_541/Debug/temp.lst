@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
   34 0000 10B5     		push	{r4, lr}
   35              		.cfi_def_cfa_offset 8
   36              		.cfi_offset 4, -8
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 2
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 2
 
 
   37              		.cfi_offset 14, -4
@@ -82,7 +82,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
   52              	.L2:
   25:temp.c        ****     
   26:temp.c        ****     // Scale the value to the PWM range
-  27:temp.c        ****     int scaled_pwm = ( abs(value) * MAX_PWM_VALUE) / 100;
+  27:temp.c        ****     int scaled_pel_pwm = ( abs(value) * MAX_PWM_VALUE) / 100;
   53              		.loc 1 27 0 is_stmt 1 discriminator 4
   54 0014 80EAE071 		eor	r1, r0, r0, asr #31
   55 0018 A1EBE071 		sub	r1, r1, r0, asr #31
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
   13:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** * the software package with which this file was provided.
   14:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** *******************************************************************************/
   15:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** 
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 3
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 3
 
 
   16:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** #if !defined(CY_TCPWM_PWM_H)
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
   70:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h ****     /** Selects which input the reload uses. The inputs are device-specific. See \ref group_tcpwm_i
   71:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h ****     uint32_t    reloadInput;            
   72:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h ****     uint32_t    startInputMode;     /**< Configures how the start input behaves. See \ref group_tcp
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 4
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 4
 
 
   73:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h ****     /** Selects which input the start uses. The inputs are device-specific. See \ref group_tcpwm_in
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  127:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** * Clock prescaler values.
  128:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** */
  129:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** #define CY_TCPWM_PWM_PRESCALER_DIVBY_1      (0U) /**< Divide by 1 */
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 5
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 5
 
 
  130:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** #define CY_TCPWM_PWM_PRESCALER_DIVBY_2      (1U) /**< Divide by 2 */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  184:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h ****                                       _VAL2FLD(TCPWM_CNT_TR_CTRL2_UNDERFLOW_MODE, CY_TCPWM_PWM_TR_C
  185:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** 
  186:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** /** The configuration of PWM output signal for Center and Asymmetric alignment */
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 6
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 6
 
 
  187:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** #define CY_TCPWM_PWM_MODE_CNTR_OR_ASYMM (_VAL2FLD(TCPWM_CNT_TR_CTRL2_CC_MATCH_MODE, CY_TCPWM_PWM_TR
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  241:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** 
  242:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** /*******************************************************************************
  243:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** * Function Name: Cy_TCPWM_PWM_Disable
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 7
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 7
 
 
  244:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** ****************************************************************************//**
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  298:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** ****************************************************************************//**
  299:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** *
  300:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** * Sets the compare value for Compare0 when the compare mode enabled.
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 8
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 8
 
 
  301:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** *
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
   26:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
   27:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * 
   28:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The TCPWM driver is a multifunction driver that implements Timer Counter, 
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 9
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 9
 
 
   29:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * PWM, and Quadrature Decoder functionality using the TCPWM block.
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
   83:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Two Programmable Period registers that can be swapped
   84:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Two Output Compare registers that can be swapped on overflow and/or 
   85:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * underflow
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 10
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 10
 
 
   86:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Left Aligned, Right Aligned, Center Aligned, and Asymmetric Aligned modes
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  140:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * If none of the input terminals (start, reload(index)) are used, the 
  141:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * software event \ref Cy_TCPWM_TriggerStart or 
  142:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref Cy_TCPWM_TriggerReloadOrIndex must be called to start the counting.
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 11
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 11
 
 
  143:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * If count input terminal is not used, the \ref CY_TCPWM_INPUT_LEVEL macro 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  197:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
  198:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Added register access layer. Use register access macros instead
  199:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *         of direct register access using dereferenced pointers.</td>
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 12
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 12
 
 
  200:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Makes register access device-independent, so that the PDL does 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  254:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** extern "C" {
  255:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #endif
  256:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 13
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 13
 
 
  257:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  311:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_EITHEREDGE       (2U)
  312:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** The event is triggered on each edge of the TCPWM clock if the input is high */
  313:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_LEVEL            (3U)
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 14
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 14
 
 
  314:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_input_modes */
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  368:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
  369:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** TCPWM status definitions */
  370:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** typedef enum 
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 15
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 15
 
 
  371:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** {
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
   88              	.LBE74:
   89              	.LBE73:
   90              	.LBB76:
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 16
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 16
 
 
   91              	.LBB77:
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
   53:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * 3. Some API functions perform read-modify-write operations on shared port
   54:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *    registers. These functions are not thread safe and care must be taken when
   55:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *    called by the application.
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 17
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 17
 
 
   56:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * 4. Digital input buffer provides a high-impedance buffer for the external 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  110:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *   <tr>
  111:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *     <td rowspan="3">1.20</td>
  112:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *     <td>Flattened the organization of the driver source code into the single source directory and
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 18
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 18
 
 
  113:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *     <td>Driver library directory-structure simplification.</td>
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  167:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #include "cy_syslib.h"
  168:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  169:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #if defined(__cplusplus)
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 19
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 19
 
 
  170:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** extern "C" {
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  224:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** }cy_en_gpio_amuxselect_t;
  225:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  226:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /** \} group_gpio_enums */
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 20
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 20
 
 
  227:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  281:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  282:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /* GPIO Masks */
  283:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_HSIOM_MASK                     (0x1FUL)   /**< HSIOM selection mask */
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 21
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 21
 
 
  284:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_OUT_MASK                       (0x01UL)   /**< Single pin mask for OUT register */
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  338:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define GPIO_MAX_SPLIT_CELL_SEGMENTS           (9U)
  339:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  340:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /* Parameter validation macros */
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 22
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 22
 
 
  341:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_IS_PIN_VALID(pinNum)           (CY_GPIO_PINS_MAX > (pinNum))
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  395:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** ***************************************/
  396:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  397:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /**
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 23
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 23
 
 
  398:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \addtogroup group_gpio_macros
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  452:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /**
  453:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \defgroup group_gpio_interruptTrigger Interrupt trigger type
  454:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \{
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 24
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 24
 
 
  455:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Constants to be used for setting the interrupt trigger type on the pin.
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  509:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_SIO_VOH_1_25                        (0x01UL) /**< Voh = 1.25 x Reference */
  510:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_SIO_VOH_1_49                        (0x02UL) /**< Voh = 1.49 x Reference */
  511:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_SIO_VOH_1_67                        (0x03UL) /**< Voh = 1.67 x Reference */
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 25
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 25
 
 
  512:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_SIO_VOH_2_08                        (0x04UL) /**< Voh = 2.08 x Reference */
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  566:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  567:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /** \} group_gpio_functions_gpio */
  568:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 26
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 26
 
 
  569:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /**
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  623:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * to the pin.
  624:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  625:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param base
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 27
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 27
 
 
  626:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Pointer to the pin's port register base address
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  680:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \return
  681:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * HSIOM input selection
  682:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 28
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 28
 
 
  683:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \funcusage
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  737:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****         portBase = (GPIO_PRT_Type *)(CY_GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum));
  738:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     }
  739:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     else
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 29
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 29
 
 
  740:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     {
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  794:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  795:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param pinNum
  796:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Position of the pin bit-field within the port register
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 30
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 30
 
 
  797:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
@@ -1785,9 +1785,9 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
   34:temp.c        ****         // Turn on PEL1
   35:temp.c        ****         PWM_PEL1_Enable();
   36:temp.c        ****         Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 1);  //Enable is high
-  37:temp.c        ****         PWM_PEL1_SetCompare0(scaled_pwm); 
+  37:temp.c        ****         PWM_PEL1_SetCompare0(scaled_pel_pwm); 
   38:temp.c        ****         
-  39:temp.c        ****         DBG_PRINTF("PWM1 Value: %d\r\n", scaled_pwm);
+  39:temp.c        ****         DBG_PRINTF("PWM1 Value: %d\r\n", scaled_pel_pwm);
  109              		.loc 1 39 0
  110 0048 1848     		ldr	r0, .L8+12
  111              	.LVL10:
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  116              	.LBB83:
  318:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** }
  319:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** 
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 31
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 31
 
 
  320:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** 
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  145              	.LBB87:
  146              	.LBB88:
  147              	.LBB89:
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 32
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 32
 
 
  148              		.loc 3 419 0
@@ -1893,8 +1893,8 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
   46:temp.c        ****         // Turn on PEL2
   47:temp.c        ****         PWM_PEL2_Enable();
   48:temp.c        ****         Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 1);  //Enable is high
-  49:temp.c        ****         PWM_PEL2_SetCompare0(scaled_pwm);
-  50:temp.c        ****         DBG_PRINTF("PWM2 Value: %d\r\n", scaled_pwm);
+  49:temp.c        ****         PWM_PEL2_SetCompare0(scaled_pel_pwm);
+  50:temp.c        ****         DBG_PRINTF("PWM2 Value: %d\r\n", scaled_pel_pwm);
  172              		.loc 1 50 0
  173 0072 1048     		ldr	r0, .L8+20
  174              	.LVL20:
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  191              	.LVL24:
  192              	.L5:
  193              	.LBB98:
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 33
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 33
 
 
  194              	.LBB99:
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
   55:temp.c        ****         PWM_PEL2_SetCompare0(0);
   56:temp.c        ****         
   57:temp.c        ****         //PWM_PEL1_Disable();
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 34
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 34
 
 
   58:temp.c        ****         //PWM_PEL2_Disable();
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  281              	.L15:
  282 0022 00BF     		.align	2
  283              	.L14:
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 35
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 35
 
 
  284 0024 00003840 		.word	1077411840
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  322              		.file 21 "Generated_Source\\PSoC6\\pdl\\cmsis/include/core_cm4.h"
  323              		.file 22 "Generated_Source\\PSoC6/SPI.h"
  324              		.file 23 "Generated_Source\\PSoC6/PWM_TENS2.h"
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 36
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 36
 
 
  325              		.file 24 "Generated_Source\\PSoC6/AMP_PWM.h"
@@ -2115,7 +2115,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  336 000b 01       		.uleb128 0x1
  337 000c DA030000 		.4byte	.LASF329
  338 0010 0C       		.byte	0xc
- 339 0011 E2130000 		.4byte	.LASF330
+ 339 0011 E6130000 		.4byte	.LASF330
  340 0015 75030000 		.4byte	.LASF331
  341 0019 00000000 		.4byte	.Ldebug_ranges0+0
  342 001d 00000000 		.4byte	0
@@ -2127,7 +2127,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  348 002c 02       		.uleb128 0x2
  349 002d 01       		.byte	0x1
  350 002e 06       		.byte	0x6
- 351 002f 6F120000 		.4byte	.LASF1
+ 351 002f 73120000 		.4byte	.LASF1
  352 0033 03       		.uleb128 0x3
  353 0034 C80F0000 		.4byte	.LASF3
  354 0038 05       		.byte	0x5
@@ -2136,7 +2136,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  357 003e 02       		.uleb128 0x2
  358 003f 01       		.byte	0x1
  359 0040 08       		.byte	0x8
- 360 0041 1F110000 		.4byte	.LASF2
+ 360 0041 2E110000 		.4byte	.LASF2
  361 0045 03       		.uleb128 0x3
  362 0046 D80B0000 		.4byte	.LASF4
  363 004a 05       		.byte	0x5
@@ -2158,13 +2158,13 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  379 0069 6D000000 		.4byte	0x6d
  380 006d 02       		.uleb128 0x2
  381 006e 04       		.byte	0x4
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 37
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 37
 
 
  382 006f 05       		.byte	0x5
  383 0070 120F0000 		.4byte	.LASF8
  384 0074 03       		.uleb128 0x3
- 385 0075 38110000 		.4byte	.LASF9
+ 385 0075 3C110000 		.4byte	.LASF9
  386 0079 05       		.byte	0x5
  387 007a 41       		.byte	0x41
  388 007b 7F000000 		.4byte	0x7f
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  436 00db 07       		.byte	0x7
  437 00dc 670E0000 		.4byte	.LASF19
  438 00e0 05       		.uleb128 0x5
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 38
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 38
 
 
  439 00e1 CE000000 		.4byte	0xce
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  493 014f 29       		.byte	0x29
  494 0150 E0000000 		.4byte	0xe0
  495 0154 18       		.byte	0x18
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 39
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 39
 
 
  496 0155 0B       		.uleb128 0xb
@@ -2294,7 +2294,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  506 0168 E0000000 		.4byte	0xe0
  507 016c 20       		.byte	0x20
  508 016d 0B       		.uleb128 0xb
- 509 016e 80110000 		.4byte	.LASF27
+ 509 016e 84110000 		.4byte	.LASF27
  510 0172 07       		.byte	0x7
  511 0173 2C       		.byte	0x2c
  512 0174 E0000000 		.4byte	0xe0
@@ -2318,7 +2318,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  530 0198 E0000000 		.4byte	0xe0
  531 019c 30       		.byte	0x30
  532 019d 0B       		.uleb128 0xb
- 533 019e 64130000 		.4byte	.LASF30
+ 533 019e 68130000 		.4byte	.LASF30
  534 01a2 07       		.byte	0x7
  535 01a3 30       		.byte	0x30
  536 01a4 E0000000 		.4byte	0xe0
@@ -2336,9 +2336,9 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  548 01bc E0000000 		.4byte	0xe0
  549 01c0 3C       		.byte	0x3c
  550 01c1 0B       		.uleb128 0xb
- 551 01c2 3E130000 		.4byte	.LASF33
+ 551 01c2 42130000 		.4byte	.LASF33
  552 01c6 07       		.byte	0x7
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 40
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 40
 
 
  553 01c7 33       		.byte	0x33
@@ -2398,14 +2398,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  607 0239 0D       		.uleb128 0xd
  608 023a A0080000 		.4byte	.LASF40
  609 023e 07       		.byte	0x7
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 41
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 41
 
 
  610 023f 40       		.byte	0x40
  611 0240 E0000000 		.4byte	0xe0
  612 0244 1440     		.2byte	0x4014
  613 0246 0D       		.uleb128 0xd
- 614 0247 61120000 		.4byte	.LASF41
+ 614 0247 65120000 		.4byte	.LASF41
  615 024b 07       		.byte	0x7
  616 024c 41       		.byte	0x41
  617 024d E0000000 		.4byte	0xe0
@@ -2441,13 +2441,13 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  647 028c 22       		.byte	0x22
  648 028d 51030000 		.4byte	0x351
  649 0291 0B       		.uleb128 0xb
- 650 0292 3D140000 		.4byte	.LASF45
+ 650 0292 41140000 		.4byte	.LASF45
  651 0296 08       		.byte	0x8
  652 0297 23       		.byte	0x23
  653 0298 E0000000 		.4byte	0xe0
  654 029c 00       		.byte	0
  655 029d 0B       		.uleb128 0xb
- 656 029e 5D130000 		.4byte	.LASF46
+ 656 029e 61130000 		.4byte	.LASF46
  657 02a2 08       		.byte	0x8
  658 02a3 24       		.byte	0x24
  659 02a4 E5000000 		.4byte	0xe5
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  664 02af 25       		.byte	0x25
  665 02b0 E0000000 		.4byte	0xe0
  666 02b4 08       		.byte	0x8
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 42
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 42
 
 
  667 02b5 0A       		.uleb128 0xa
@@ -2480,7 +2480,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  683 02d3 E0000000 		.4byte	0xe0
  684 02d7 14       		.byte	0x14
  685 02d8 0B       		.uleb128 0xb
- 686 02d9 27140000 		.4byte	.LASF50
+ 686 02d9 2B140000 		.4byte	.LASF50
  687 02dd 08       		.byte	0x8
  688 02de 29       		.byte	0x29
  689 02df E0000000 		.4byte	0xe0
@@ -2492,25 +2492,25 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  695 02eb E5000000 		.4byte	0xe5
  696 02ef 1C       		.byte	0x1c
  697 02f0 0B       		.uleb128 0xb
- 698 02f1 BA120000 		.4byte	.LASF51
+ 698 02f1 BE120000 		.4byte	.LASF51
  699 02f5 08       		.byte	0x8
  700 02f6 2B       		.byte	0x2b
  701 02f7 E0000000 		.4byte	0xe0
  702 02fb 20       		.byte	0x20
  703 02fc 0B       		.uleb128 0xb
- 704 02fd C3120000 		.4byte	.LASF52
+ 704 02fd C7120000 		.4byte	.LASF52
  705 0301 08       		.byte	0x8
  706 0302 2C       		.byte	0x2c
  707 0303 E0000000 		.4byte	0xe0
  708 0307 24       		.byte	0x24
  709 0308 0B       		.uleb128 0xb
- 710 0309 CC120000 		.4byte	.LASF53
+ 710 0309 D0120000 		.4byte	.LASF53
  711 030d 08       		.byte	0x8
  712 030e 2D       		.byte	0x2d
  713 030f E0000000 		.4byte	0xe0
  714 0313 28       		.byte	0x28
  715 0314 0B       		.uleb128 0xb
- 716 0315 3E130000 		.4byte	.LASF33
+ 716 0315 42130000 		.4byte	.LASF33
  717 0319 08       		.byte	0x8
  718 031a 2E       		.byte	0x2e
  719 031b E5000000 		.4byte	0xe5
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  721 0320 0B       		.uleb128 0xb
  722 0321 D0050000 		.4byte	.LASF23
  723 0325 08       		.byte	0x8
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 43
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 43
 
 
  724 0326 2F       		.byte	0x2f
@@ -2554,7 +2554,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  754 0360 38       		.byte	0x38
  755 0361 DF030000 		.4byte	0x3df
  756 0365 0B       		.uleb128 0xb
- 757 0366 3D140000 		.4byte	.LASF45
+ 757 0366 41140000 		.4byte	.LASF45
  758 036a 08       		.byte	0x8
  759 036b 39       		.byte	0x39
  760 036c E0000000 		.4byte	0xe0
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  778 0390 E0000000 		.4byte	0xe0
  779 0394 0C       		.byte	0xc
  780 0395 0B       		.uleb128 0xb
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 44
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 44
 
 
  781 0396 85010000 		.4byte	.LASF58
@@ -2593,7 +2593,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  790 03a8 E0000000 		.4byte	0xe0
  791 03ac 14       		.byte	0x14
  792 03ad 0B       		.uleb128 0xb
- 793 03ae D5110000 		.4byte	.LASF60
+ 793 03ae D9110000 		.4byte	.LASF60
  794 03b2 08       		.byte	0x8
  795 03b3 3F       		.byte	0x3f
  796 03b4 E0000000 		.4byte	0xe0
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  835 0409 03       		.uleb128 0x3
  836 040a 74050000 		.4byte	.LASF62
  837 040e 08       		.byte	0x8
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 45
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 45
 
 
  838 040f 43       		.byte	0x43
@@ -2649,7 +2649,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  843 041a 3106     		.2byte	0x631
  844 041c D8010000 		.4byte	0x1d8
  845 0420 0F       		.uleb128 0xf
- 846 0421 57110000 		.4byte	.LASF64
+ 846 0421 5B110000 		.4byte	.LASF64
  847 0425 09       		.byte	0x9
  848 0426 3206     		.2byte	0x632
  849 0428 7E020000 		.4byte	0x27e
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  892 047e CE000000 		.4byte	0xce
  893 0482 10       		.byte	0x10
  894 0483 0B       		.uleb128 0xb
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 46
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 46
 
 
  895 0484 E20B0000 		.4byte	.LASF72
@@ -2713,7 +2713,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  904 0496 CE000000 		.4byte	0xce
  905 049a 18       		.byte	0x18
  906 049b 0B       		.uleb128 0xb
- 907 049c 21130000 		.4byte	.LASF74
+ 907 049c 25130000 		.4byte	.LASF74
  908 04a0 0A       		.byte	0xa
  909 04a1 3E       		.byte	0x3e
  910 04a2 CE000000 		.4byte	0xce
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  949 04f0 440F0000 		.4byte	.LASF81
  950 04f4 0A       		.byte	0xa
  951 04f5 47       		.byte	0x47
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 47
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 47
 
 
  952 04f6 A2000000 		.4byte	0xa2
@@ -2770,13 +2770,13 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  958 0502 A2000000 		.4byte	0xa2
  959 0506 2D       		.byte	0x2d
  960 0507 0B       		.uleb128 0xb
- 961 0508 E9130000 		.4byte	.LASF83
+ 961 0508 ED130000 		.4byte	.LASF83
  962 050c 0A       		.byte	0xa
  963 050d 49       		.byte	0x49
  964 050e A2000000 		.4byte	0xa2
  965 0512 2E       		.byte	0x2e
  966 0513 0B       		.uleb128 0xb
- 967 0514 07130000 		.4byte	.LASF84
+ 967 0514 0B130000 		.4byte	.LASF84
  968 0518 0A       		.byte	0xa
  969 0519 4A       		.byte	0x4a
  970 051a A2000000 		.4byte	0xa2
@@ -2794,7 +2794,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  982 0532 A2000000 		.4byte	0xa2
  983 0536 31       		.byte	0x31
  984 0537 0B       		.uleb128 0xb
- 985 0538 86120000 		.4byte	.LASF87
+ 985 0538 8A120000 		.4byte	.LASF87
  986 053c 0A       		.byte	0xa
  987 053d 4F       		.byte	0x4f
  988 053e A2000000 		.4byte	0xa2
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1006 0562 AD000000 		.4byte	0xad
  1007 0566 36       		.byte	0x36
  1008 0567 0B       		.uleb128 0xb
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 48
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 48
 
 
  1009 0568 70020000 		.4byte	.LASF91
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1063 05d4 19090000 		.4byte	.LASF100
  1064 05d8 0A       		.byte	0xa
  1065 05d9 5C       		.byte	0x5c
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 49
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 49
 
 
  1066 05da A2000000 		.4byte	0xa2
@@ -2902,7 +2902,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1084 05fe CE000000 		.4byte	0xce
  1085 0602 4C       		.byte	0x4c
  1086 0603 0B       		.uleb128 0xb
- 1087 0604 29120000 		.4byte	.LASF104
+ 1087 0604 2D120000 		.4byte	.LASF104
  1088 0608 0A       		.byte	0xa
  1089 0609 60       		.byte	0x60
  1090 060a A2000000 		.4byte	0xa2
@@ -2926,7 +2926,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1108 062e A2000000 		.4byte	0xa2
  1109 0632 53       		.byte	0x53
  1110 0633 0B       		.uleb128 0xb
- 1111 0634 C5110000 		.4byte	.LASF108
+ 1111 0634 C9110000 		.4byte	.LASF108
  1112 0638 0A       		.byte	0xa
  1113 0639 64       		.byte	0x64
  1114 063a A2000000 		.4byte	0xa2
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1120 0646 A2000000 		.4byte	0xa2
  1121 064a 55       		.byte	0x55
  1122 064b 0B       		.uleb128 0xb
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 50
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 50
 
 
  1123 064c 00000000 		.4byte	.LASF110
@@ -2947,7 +2947,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1126 0652 A2000000 		.4byte	0xa2
  1127 0656 56       		.byte	0x56
  1128 0657 0B       		.uleb128 0xb
- 1129 0658 2A130000 		.4byte	.LASF111
+ 1129 0658 2E130000 		.4byte	.LASF111
  1130 065c 0A       		.byte	0xa
  1131 065d 67       		.byte	0x67
  1132 065e A2000000 		.4byte	0xa2
@@ -2959,13 +2959,13 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1138 066a A2000000 		.4byte	0xa2
  1139 066e 58       		.byte	0x58
  1140 066f 0B       		.uleb128 0xb
- 1141 0670 6C130000 		.4byte	.LASF113
+ 1141 0670 70130000 		.4byte	.LASF113
  1142 0674 0A       		.byte	0xa
  1143 0675 69       		.byte	0x69
  1144 0676 A2000000 		.4byte	0xa2
  1145 067a 59       		.byte	0x59
  1146 067b 0B       		.uleb128 0xb
- 1147 067c 7B120000 		.4byte	.LASF114
+ 1147 067c 7F120000 		.4byte	.LASF114
  1148 0680 0A       		.byte	0xa
  1149 0681 6E       		.byte	0x6e
  1150 0682 B8000000 		.4byte	0xb8
@@ -2983,7 +2983,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1162 069a A2000000 		.4byte	0xa2
  1163 069e 5E       		.byte	0x5e
  1164 069f 0B       		.uleb128 0xb
- 1165 06a0 94120000 		.4byte	.LASF117
+ 1165 06a0 98120000 		.4byte	.LASF117
  1166 06a4 0A       		.byte	0xa
  1167 06a5 71       		.byte	0x71
  1168 06a6 A2000000 		.4byte	0xa2
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1177 06b8 870A0000 		.4byte	.LASF119
  1178 06bc 0A       		.byte	0xa
  1179 06bd 73       		.byte	0x73
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 51
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 51
 
 
  1180 06be CE000000 		.4byte	0xce
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1234 072a B8000000 		.4byte	0xb8
  1235 072e 74       		.byte	0x74
  1236 072f 0B       		.uleb128 0xb
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 52
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 52
 
 
  1237 0730 5F0D0000 		.4byte	.LASF129
@@ -3067,7 +3067,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1240 0736 B8000000 		.4byte	0xb8
  1241 073a 76       		.byte	0x76
  1242 073b 0B       		.uleb128 0xb
- 1243 073c 48130000 		.4byte	.LASF130
+ 1243 073c 4C130000 		.4byte	.LASF130
  1244 0740 0A       		.byte	0xa
  1245 0741 82       		.byte	0x82
  1246 0742 B8000000 		.4byte	0xb8
@@ -3085,7 +3085,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1258 075a A2000000 		.4byte	0xa2
  1259 075e 7C       		.byte	0x7c
  1260 075f 0B       		.uleb128 0xb
- 1261 0760 3A120000 		.4byte	.LASF133
+ 1261 0760 3E120000 		.4byte	.LASF133
  1262 0764 0A       		.byte	0xa
  1263 0765 87       		.byte	0x87
  1264 0766 A2000000 		.4byte	0xa2
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1291 079c F20F0000 		.4byte	.LASF138
  1292 07a0 0A       		.byte	0xa
  1293 07a1 8E       		.byte	0x8e
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 53
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 53
 
 
  1294 07a2 CE000000 		.4byte	0xce
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1348 080e B8000000 		.4byte	0xb8
  1349 0812 A8       		.byte	0xa8
  1350 0813 0B       		.uleb128 0xb
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 54
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 54
 
 
  1351 0814 240B0000 		.4byte	.LASF148
@@ -3205,14 +3205,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1372 083e B8000000 		.4byte	0xb8
  1373 0842 B0       		.byte	0xb0
  1374 0843 0B       		.uleb128 0xb
- 1375 0844 61110000 		.4byte	.LASF152
+ 1375 0844 65110000 		.4byte	.LASF152
  1376 0848 0A       		.byte	0xa
  1377 0849 9E       		.byte	0x9e
  1378 084a CE000000 		.4byte	0xce
  1379 084e B4       		.byte	0xb4
  1380 084f 00       		.byte	0
  1381 0850 03       		.uleb128 0x3
- 1382 0851 AA120000 		.4byte	.LASF153
+ 1382 0851 AE120000 		.4byte	.LASF153
  1383 0855 0A       		.byte	0xa
  1384 0856 9F       		.byte	0x9f
  1385 0857 3F040000 		.4byte	0x43f
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1405 087e 11       		.uleb128 0x11
  1406 087f 01       		.byte	0x1
  1407 0880 3E000000 		.4byte	0x3e
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 55
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 55
 
 
  1408 0884 0C       		.byte	0xc
@@ -3251,14 +3251,14 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1415 0892 A2010000 		.4byte	.LASF159
  1416 0896 01       		.byte	0x1
  1417 0897 12       		.uleb128 0x12
- 1418 0898 EA110000 		.4byte	.LASF160
+ 1418 0898 EE110000 		.4byte	.LASF160
  1419 089c 02       		.byte	0x2
  1420 089d 12       		.uleb128 0x12
  1421 089e B30A0000 		.4byte	.LASF161
  1422 08a2 03       		.byte	0x3
  1423 08a3 00       		.byte	0
  1424 08a4 0F       		.uleb128 0xf
- 1425 08a5 09110000 		.4byte	.LASF162
+ 1425 08a5 18110000 		.4byte	.LASF162
  1426 08a9 0C       		.byte	0xc
  1427 08aa 0701     		.2byte	0x107
  1428 08ac 7E080000 		.4byte	0x87e
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1462 08f4 0C       		.byte	0xc
  1463 08f5 1A01     		.2byte	0x11a
  1464 08f7 08090000 		.4byte	0x908
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 56
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 56
 
 
  1465 08fb 12       		.uleb128 0x12
@@ -3327,7 +3327,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1488 092c 01       		.byte	0x1
  1489 092d 00       		.byte	0
  1490 092e 0F       		.uleb128 0xf
- 1491 092f 17120000 		.4byte	.LASF175
+ 1491 092f 1B120000 		.4byte	.LASF175
  1492 0933 0C       		.byte	0xc
  1493 0934 2601     		.2byte	0x126
  1494 0936 14090000 		.4byte	0x914
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1519 096b FA070000 		.4byte	.LASF179
  1520 096f 0C       		.byte	0xc
  1521 0970 3701     		.2byte	0x137
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 57
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 57
 
 
  1522 0972 E40A0000 		.4byte	0xae4
@@ -3382,13 +3382,13 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1540 0999 E40A0000 		.4byte	0xae4
  1541 099d 06       		.byte	0x6
  1542 099e 14       		.uleb128 0x14
- 1543 099f ED100000 		.4byte	.LASF183
+ 1543 099f FC100000 		.4byte	.LASF183
  1544 09a3 0C       		.byte	0xc
  1545 09a4 3B01     		.2byte	0x13b
  1546 09a6 A4080000 		.4byte	0x8a4
  1547 09aa 07       		.byte	0x7
  1548 09ab 14       		.uleb128 0x14
- 1549 09ac 89110000 		.4byte	.LASF184
+ 1549 09ac 8D110000 		.4byte	.LASF184
  1550 09b0 0C       		.byte	0xc
  1551 09b1 3C01     		.2byte	0x13c
  1552 09b3 2E090000 		.4byte	0x92e
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1576 09e7 E40A0000 		.4byte	0xae4
  1577 09eb 11       		.byte	0x11
  1578 09ec 14       		.uleb128 0x14
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 58
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 58
 
 
  1579 09ed 370E0000 		.4byte	.LASF189
@@ -3445,7 +3445,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1600 0a1b E2080000 		.4byte	0x8e2
  1601 0a1f 15       		.byte	0x15
  1602 0a20 14       		.uleb128 0x14
- 1603 0a21 F9100000 		.4byte	.LASF193
+ 1603 0a21 08110000 		.4byte	.LASF193
  1604 0a25 0C       		.byte	0xc
  1605 0a26 5F01     		.2byte	0x15f
  1606 0a28 08090000 		.4byte	0x908
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1633 0a62 3C0D0000 		.4byte	.LASF198
  1634 0a66 0C       		.byte	0xc
  1635 0a67 6701     		.2byte	0x167
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 59
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 59
 
 
  1636 0a69 E40A0000 		.4byte	0xae4
@@ -3520,7 +3520,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1672 0ab7 E2080000 		.4byte	0x8e2
  1673 0abb 24       		.byte	0x24
  1674 0abc 14       		.uleb128 0x14
- 1675 0abd 4B120000 		.4byte	.LASF205
+ 1675 0abd 4F120000 		.4byte	.LASF205
  1676 0ac1 0C       		.byte	0xc
  1677 0ac2 8501     		.2byte	0x185
  1678 0ac4 E2080000 		.4byte	0x8e2
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1690 0ade A2000000 		.4byte	0xa2
  1691 0ae2 27       		.byte	0x27
  1692 0ae3 00       		.byte	0
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 60
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 60
 
 
  1693 0ae4 02       		.uleb128 0x2
@@ -3570,7 +3570,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1719 0b1b 03       		.byte	0x3
  1720 0b1c 00       		.byte	0
  1721 0b1d 0F       		.uleb128 0xf
- 1722 0b1e 8E130000 		.4byte	.LASF214
+ 1722 0b1e 92130000 		.4byte	.LASF214
  1723 0b22 0D       		.byte	0xd
  1724 0b23 1804     		.2byte	0x418
  1725 0b25 F70A0000 		.4byte	0xaf7
@@ -3586,7 +3586,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1735 0b3a CE000000 		.4byte	0xce
  1736 0b3e 00       		.byte	0
  1737 0b3f 14       		.uleb128 0x14
- 1738 0b40 E2100000 		.4byte	.LASF216
+ 1738 0b40 F1100000 		.4byte	.LASF216
  1739 0b44 0D       		.byte	0xd
  1740 0b45 0505     		.2byte	0x505
  1741 0b47 CE000000 		.4byte	0xce
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1747 0b54 CE000000 		.4byte	0xce
  1748 0b58 08       		.byte	0x8
  1749 0b59 14       		.uleb128 0x14
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 61
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 61
 
 
  1750 0b5a 3D100000 		.4byte	.LASF218
@@ -3631,7 +3631,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1777 0b95 F60B0000 		.4byte	0xbf6
  1778 0b99 1C       		.byte	0x1c
  1779 0b9a 14       		.uleb128 0x14
- 1780 0b9b 1E140000 		.4byte	.LASF223
+ 1780 0b9b 22140000 		.4byte	.LASF223
  1781 0b9f 0D       		.byte	0xd
  1782 0ba0 0C05     		.2byte	0x50c
  1783 0ba2 CE000000 		.4byte	0xce
@@ -3643,7 +3643,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1789 0baf CE000000 		.4byte	0xce
  1790 0bb3 60       		.byte	0x60
  1791 0bb4 14       		.uleb128 0x14
- 1792 0bb5 80130000 		.4byte	.LASF225
+ 1792 0bb5 84130000 		.4byte	.LASF225
  1793 0bb9 0D       		.byte	0xd
  1794 0bba 0E05     		.2byte	0x50e
  1795 0bbc CE000000 		.4byte	0xce
@@ -3658,13 +3658,13 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1804 0bcf EA0A0000 		.4byte	.LASF227
  1805 0bd3 0D       		.byte	0xd
  1806 0bd4 1005     		.2byte	0x510
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 62
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 62
 
 
  1807 0bd6 CE000000 		.4byte	0xce
  1808 0bda 6C       		.byte	0x6c
  1809 0bdb 14       		.uleb128 0x14
- 1810 0bdc 13130000 		.4byte	.LASF228
+ 1810 0bdc 17130000 		.4byte	.LASF228
  1811 0be0 0D       		.byte	0xd
  1812 0be1 1105     		.2byte	0x511
  1813 0be3 E40A0000 		.4byte	0xae4
@@ -3702,7 +3702,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1845 0c29 F201     		.2byte	0x1f2
  1846 0c2b 120C0000 		.4byte	0xc12
  1847 0c2f 18       		.uleb128 0x18
- 1848 0c30 AE110000 		.4byte	.LASF242
+ 1848 0c30 B2110000 		.4byte	.LASF242
  1849 0c34 24       		.byte	0x24
  1850 0c35 0E       		.byte	0xe
  1851 0c36 7402     		.2byte	0x274
@@ -3718,12 +3718,12 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1861 0c4e 0E       		.byte	0xe
  1862 0c4f 7902     		.2byte	0x279
  1863 0c51 7C080000 		.4byte	0x87c
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 63
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 63
 
 
  1864 0c55 04       		.byte	0x4
  1865 0c56 14       		.uleb128 0x14
- 1866 0c57 33140000 		.4byte	.LASF234
+ 1866 0c57 37140000 		.4byte	.LASF234
  1867 0c5b 0E       		.byte	0xe
  1868 0c5c 7A02     		.2byte	0x27a
  1869 0c5e CE000000 		.4byte	0xce
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1918 0cc6 F70D0000 		.4byte	0xdf7
  1919 0cca 0B       		.uleb128 0xb
  1920 0ccb E7020000 		.4byte	.LASF244
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 64
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 64
 
 
  1921 0ccf 02       		.byte	0x2
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  1975 0d3b 02       		.byte	0x2
  1976 0d3c 3B       		.byte	0x3b
  1977 0d3d CE000000 		.4byte	0xce
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 65
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 65
 
 
  1978 0d41 24       		.byte	0x24
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2032 0dad 48       		.byte	0x48
  2033 0dae 0B       		.uleb128 0xb
  2034 0daf 89070000 		.4byte	.LASF263
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 66
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 66
 
 
  2035 0db3 02       		.byte	0x2
@@ -3930,7 +3930,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2061 0de5 CE000000 		.4byte	0xce
  2062 0de9 5C       		.byte	0x5c
  2063 0dea 0B       		.uleb128 0xb
- 2064 0deb 75110000 		.4byte	.LASF268
+ 2064 0deb 79110000 		.4byte	.LASF268
  2065 0def 02       		.byte	0x2
  2066 0df0 50       		.byte	0x50
  2067 0df1 CE000000 		.4byte	0xce
@@ -3947,18 +3947,18 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2078 0e05 6401     		.2byte	0x164
  2079 0e07 260E0000 		.4byte	0xe26
  2080 0e0b 14       		.uleb128 0x14
- 2081 0e0c 58120000 		.4byte	.LASF270
+ 2081 0e0c 5C120000 		.4byte	.LASF270
  2082 0e10 0F       		.byte	0xf
  2083 0e11 6E01     		.2byte	0x16e
  2084 0e13 A2000000 		.4byte	0xa2
  2085 0e17 00       		.byte	0
  2086 0e18 14       		.uleb128 0x14
- 2087 0e19 B1130000 		.4byte	.LASF271
+ 2087 0e19 B5130000 		.4byte	.LASF271
  2088 0e1d 0F       		.byte	0xf
  2089 0e1e 7201     		.2byte	0x172
  2090 0e20 A2000000 		.4byte	0xa2
  2091 0e24 01       		.byte	0x1
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 67
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 67
 
 
  2092 0e25 00       		.byte	0
@@ -3998,7 +3998,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2126 0e69 87       		.byte	0x87
  2127 0e6a 9F0E0000 		.4byte	0xe9f
  2128 0e6e 12       		.uleb128 0x12
- 2129 0e6f C3130000 		.4byte	.LASF278
+ 2129 0e6f C7130000 		.4byte	.LASF278
  2130 0e73 00       		.byte	0
  2131 0e74 12       		.uleb128 0x12
  2132 0e75 B1040000 		.4byte	.LASF279
@@ -4007,7 +4007,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2135 0e7b 7B020000 		.4byte	.LASF280
  2136 0e7f 02       		.byte	0x2
  2137 0e80 12       		.uleb128 0x12
- 2138 0e81 F4130000 		.4byte	.LASF281
+ 2138 0e81 F8130000 		.4byte	.LASF281
  2139 0e85 03       		.byte	0x3
  2140 0e86 12       		.uleb128 0x12
  2141 0e87 98070000 		.4byte	.LASF282
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2146 0e92 12       		.uleb128 0x12
  2147 0e93 0B0D0000 		.4byte	.LASF284
  2148 0e97 06       		.byte	0x6
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 68
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 68
 
 
  2149 0e98 12       		.uleb128 0x12
@@ -4060,7 +4060,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2185 0edd CE000000 		.4byte	0xce
  2186 0ee1 0C       		.byte	0xc
  2187 0ee2 0B       		.uleb128 0xb
- 2188 0ee3 DF110000 		.4byte	.LASF291
+ 2188 0ee3 E3110000 		.4byte	.LASF291
  2189 0ee7 11       		.byte	0x11
  2190 0ee8 45       		.byte	0x45
  2191 0ee9 CE000000 		.4byte	0xce
@@ -4077,8 +4077,8 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2202 0f00 48       		.byte	0x48
  2203 0f01 AA0E0000 		.4byte	0xeaa
  2204 0f05 1B       		.uleb128 0x1b
- 2205 0f06 C9100000 		.4byte	.LASF295
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 69
+ 2205 0f06 D8100000 		.4byte	.LASF295
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 69
 
 
  2206 0f0a 02       		.byte	0x2
@@ -4105,7 +4105,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2227 0f38 04       		.byte	0x4
  2228 0f39 2C040000 		.4byte	0x42c
  2229 0f3d 1B       		.uleb128 0x1b
- 2230 0f3e EE120000 		.4byte	.LASF296
+ 2230 0f3e F2120000 		.4byte	.LASF296
  2231 0f42 03       		.byte	0x3
  2232 0f43 A101     		.2byte	0x1a1
  2233 0f45 03       		.byte	0x3
@@ -4122,7 +4122,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2244 0f5e CE000000 		.4byte	0xce
  2245 0f62 00       		.byte	0
  2246 0f63 1D       		.uleb128 0x1d
- 2247 0f64 D5120000 		.4byte	.LASF332
+ 2247 0f64 D9120000 		.4byte	.LASF332
  2248 0f68 02       		.byte	0x2
  2249 0f69 5401     		.2byte	0x154
  2250 0f6b CE000000 		.4byte	0xce
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2260 0f85 02       		.byte	0x2
  2261 0f86 5401     		.2byte	0x154
  2262 0f88 CE000000 		.4byte	0xce
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 70
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 70
 
 
  2263 0f8c 00       		.byte	0
@@ -4177,7 +4177,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2296 0fcf 2503     		.2byte	0x325
  2297 0fd1 EE0F0000 		.4byte	0xfee
  2298 0fd5 1C       		.uleb128 0x1c
- 2299 0fd6 A7110000 		.4byte	.LASF300
+ 2299 0fd6 AB110000 		.4byte	.LASF300
  2300 0fda 04       		.byte	0x4
  2301 0fdb 2503     		.2byte	0x325
  2302 0fdd CE000000 		.4byte	0xce
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2317 0ffc 1F       		.uleb128 0x1f
  2318 0ffd 53010000 		.4byte	.LASF302
  2319 1001 13       		.byte	0x13
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 71
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 71
 
 
  2320 1002 A9       		.byte	0xa9
@@ -4222,7 +4222,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2338 1026 82       		.byte	0x82
  2339 1027 03       		.byte	0x3
  2340 1028 1F       		.uleb128 0x1f
- 2341 1029 43110000 		.4byte	.LASF307
+ 2341 1029 47110000 		.4byte	.LASF307
  2342 102d 14       		.byte	0x14
  2343 102e A9       		.byte	0xa9
  2344 102f 03       		.byte	0x3
@@ -4234,7 +4234,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2350 103b CE000000 		.4byte	0xce
  2351 103f 00       		.byte	0
  2352 1040 22       		.uleb128 0x22
- 2353 1041 0E120000 		.4byte	.LASF308
+ 2353 1041 12120000 		.4byte	.LASF308
  2354 1045 01       		.byte	0x1
  2355 1046 15       		.byte	0x15
  2356 1047 00000000 		.4byte	.LFB864
@@ -4249,7 +4249,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2365 105c 94000000 		.4byte	0x94
  2366 1060 00000000 		.4byte	.LLST0
  2367 1064 24       		.uleb128 0x24
- 2368 1065 2D110000 		.4byte	.LASF310
+ 2368 1065 C9100000 		.4byte	.LASF310
  2369 1069 01       		.byte	0x1
  2370 106a 1B       		.byte	0x1b
  2371 106b 94000000 		.4byte	0x94
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2374 1074 FC0F0000 		.4byte	0xffc
  2375 1078 32000000 		.4byte	.LBB70
  2376 107c 08000000 		.4byte	.LBE70-.LBB70
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 72
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 72
 
 
  2377 1080 01       		.byte	0x1
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2431 110d 26       		.uleb128 0x26
  2432 110e D50F0000 		.4byte	0xfd5
  2433 1112 EB000000 		.4byte	.LLST9
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 73
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 73
 
 
  2434 1116 26       		.uleb128 0x26
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2488 11a3 5E000000 		.4byte	.LBB84
  2489 11a7 08000000 		.4byte	.LBE84-.LBB84
  2490 11ab 01       		.byte	0x1
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 74
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 74
 
 
  2491 11ac 2B       		.byte	0x2b
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2545 1239 D50F0000 		.4byte	0xfd5
  2546 123d 02020000 		.4byte	.LLST24
  2547 1241 26       		.uleb128 0x26
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 75
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 75
 
 
  2548 1242 C90F0000 		.4byte	0xfc9
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2602 12d2 08000000 		.4byte	.LBE98-.LBB98
  2603 12d6 01       		.byte	0x1
  2604 12d7 36       		.byte	0x36
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 76
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 76
 
 
  2605 12d8 11130000 		.4byte	0x1311
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2659 1368 82130000 		.4byte	0x1382
  2660 136c 28       		.uleb128 0x28
  2661 136d E10F0000 		.4byte	0xfe1
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 77
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 77
 
 
  2662 1371 00       		.byte	0
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2716 13e0 01       		.byte	0x1
  2717 13e1 3F       		.byte	0x3f
  2718 13e2 00000000 		.4byte	.LFB865
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 78
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 78
 
 
  2719 13e6 28000000 		.4byte	.LFE865-.LFB865
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2773 145e 28100000 		.4byte	0x1028
  2774 1462 1A000000 		.4byte	.LBB109
  2775 1466 0E000000 		.4byte	.LBE109-.LBB109
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 79
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 79
 
 
  2776 146a 01       		.byte	0x1
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2830 14e4 90010000 		.4byte	.LASF315
  2831 14e8 10       		.byte	0x10
  2832 14e9 2C02     		.2byte	0x22c
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 80
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 80
 
 
  2833 14eb D3140000 		.4byte	0x14d3
@@ -4755,7 +4755,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2844 1505 2D02     		.2byte	0x22d
  2845 1507 EF140000 		.4byte	0x14ef
  2846 150b 30       		.uleb128 0x30
- 2847 150c B7130000 		.4byte	.LASF317
+ 2847 150c BB130000 		.4byte	.LASF317
  2848 1510 16       		.byte	0x16
  2849 1511 5E       		.byte	0x5e
  2850 1512 B20C0000 		.4byte	0xcb2
@@ -4767,7 +4767,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2856 1521 06       		.uleb128 0x6
  2857 1522 F70D0000 		.4byte	0xdf7
  2858 1526 30       		.uleb128 0x30
- 2859 1527 98110000 		.4byte	.LASF319
+ 2859 1527 9C110000 		.4byte	.LASF319
  2860 152b 18       		.byte	0x18
  2861 152c 1F       		.byte	0x1f
  2862 152d 21150000 		.4byte	0x1521
@@ -4777,7 +4777,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2866 1537 1F       		.byte	0x1f
  2867 1538 21150000 		.4byte	0x1521
  2868 153c 2F       		.uleb128 0x2f
- 2869 153d FC110000 		.4byte	.LASF321
+ 2869 153d 00120000 		.4byte	.LASF321
  2870 1541 11       		.byte	0x11
  2871 1542 6001     		.2byte	0x160
  2872 1544 CE000000 		.4byte	0xce
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2887 1569 06       		.uleb128 0x6
  2888 156a 48150000 		.4byte	0x1548
  2889 156e 30       		.uleb128 0x30
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 81
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 81
 
 
  2890 156f 3E050000 		.4byte	.LASF323
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  2944 000f 10       		.uleb128 0x10
  2945 0010 17       		.uleb128 0x17
  2946 0011 00       		.byte	0
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 82
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 82
 
 
  2947 0012 00       		.byte	0
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3001 0048 13       		.uleb128 0x13
  3002 0049 01       		.uleb128 0x1
  3003 004a 13       		.uleb128 0x13
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 83
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 83
 
 
  3004 004b 00       		.byte	0
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3058 0081 0C       		.uleb128 0xc
  3059 0082 13       		.uleb128 0x13
  3060 0083 01       		.byte	0x1
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 84
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 84
 
 
  3061 0084 0B       		.uleb128 0xb
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3115 00ba 0F       		.uleb128 0xf
  3116 00bb 00       		.byte	0
  3117 00bc 0B       		.uleb128 0xb
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 85
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 85
 
 
  3118 00bd 0B       		.uleb128 0xb
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3172 00f3 00       		.byte	0
  3173 00f4 15       		.uleb128 0x15
  3174 00f5 0F       		.uleb128 0xf
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 86
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 86
 
 
  3175 00f6 00       		.byte	0
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3229 012c 04       		.uleb128 0x4
  3230 012d 01       		.byte	0x1
  3231 012e 0B       		.uleb128 0xb
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 87
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 87
 
 
  3232 012f 0B       		.uleb128 0xb
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3286 0165 20       		.uleb128 0x20
  3287 0166 0B       		.uleb128 0xb
  3288 0167 01       		.uleb128 0x1
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 88
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 88
 
 
  3289 0168 13       		.uleb128 0x13
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3343 019e 0E       		.uleb128 0xe
  3344 019f 3A       		.uleb128 0x3a
  3345 01a0 0B       		.uleb128 0xb
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 89
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 89
 
 
  3346 01a1 3B       		.uleb128 0x3b
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3400 01d8 0B       		.uleb128 0xb
  3401 01d9 3B       		.uleb128 0x3b
  3402 01da 0B       		.uleb128 0xb
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 90
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 90
 
 
  3403 01db 49       		.uleb128 0x49
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3457 0211 00       		.byte	0
  3458 0212 00       		.byte	0
  3459 0213 29       		.uleb128 0x29
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 91
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 91
 
 
  3460 0214 05       		.uleb128 0x5
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3514 0251 00       		.byte	0
  3515 0252 31       		.uleb128 0x31
  3516 0253 13       		.uleb128 0x13
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 92
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 92
 
 
  3517 0254 02       		.uleb128 0x2
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3571 028a 00       		.byte	0
  3572 028b 00       		.byte	0
  3573              		.section	.debug_loc,"",%progbits
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 93
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 93
 
 
  3574              	.Ldebug_loc0:
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3628 0089 32       		.byte	0x32
  3629 008a 9F       		.byte	0x9f
  3630 008b 00000000 		.4byte	0
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 94
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 94
 
 
  3631 008f 00000000 		.4byte	0
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3685 011b 48000000 		.4byte	.LVL9
  3686 011f 0100     		.2byte	0x1
  3687 0121 51       		.byte	0x51
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 95
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 95
 
 
  3688 0122 00000000 		.4byte	0
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3742 01ae 66000000 		.4byte	.LVL16
  3743 01b2 0600     		.2byte	0x6
  3744 01b4 0C       		.byte	0xc
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 96
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 96
 
 
  3745 01b5 00003840 		.4byte	0x40380000
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3799 0241 6E000000 		.4byte	.LVL18
  3800 0245 72000000 		.4byte	.LVL19
  3801 0249 0200     		.2byte	0x2
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 97
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 97
 
 
  3802 024b 32       		.byte	0x32
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3856 02d5 00000000 		.4byte	0
  3857              	.LLST36:
  3858 02d9 8C000000 		.4byte	.LVL25
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 98
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 98
 
 
  3859 02dd 90000000 		.4byte	.LVL26
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3913 0369 0C       		.byte	0xc
  3914 036a 00003840 		.4byte	0x40380000
  3915 036e 9F       		.byte	0x9f
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 99
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 99
 
 
  3916 036f 00000000 		.4byte	0
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3966      01010101 
  3967              	.LASF110:
  3968 0000 666C6173 		.ascii	"flashCtlMainWs1Freq\000"
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 100
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 100
 
 
  3968      6843746C 
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  3992      73436D30 
  3992      436C6F63 
  3992      6B43746C 
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 101
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 101
 
 
  3992      4F666673 
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4014      5F4D4153 
  4014      4B454400 
  4015              	.LASF13:
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 102
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 102
 
 
  4016 0178 756E7369 		.ascii	"unsigned int\000"
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4038 021f 73727373 		.ascii	"srssNumClkpath\000"
  4038      4E756D43 
  4038      6C6B7061 
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 103
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 103
 
 
  4038      746800
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4060      73746572 
  4060      4D6F6465 
  4060      00
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 104
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 104
 
 
  4061              	.LASF244:
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4083 03a3 6E5F4669 		.ascii	"n_Firmware\\PainDrain\\PainDrain.cydsn\000"
  4083      726D7761 
  4083      72655C50 
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 105
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 105
 
 
  4083      61696E44 
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4102 04fa 70657269 		.ascii	"periDivCmdTypeSelPos\000"
  4102      44697643 
  4102      6D645479 
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 106
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 106
 
 
  4102      70655365 
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4124      69676765 
  4124      724C6576 
  4124      656C00
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 107
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 107
 
 
  4125              	.LASF44:
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4150      4B5F4359 
  4151              	.LASF134:
  4152 064d 6770696F 		.ascii	"gpioPrtCfgInOffset\000"
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 108
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 108
 
 
  4152      50727443 
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4174 06fd 72616E67 		.ascii	"rangeThres\000"
  4174      65546872 
  4174      657300
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 109
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 109
 
 
  4175              	.LASF274:
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4196      7653656C 
  4196      4D736B00 
  4197              	.LASF301:
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 110
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 110
 
 
  4198 07d6 76616C75 		.ascii	"value\000"
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4222      454E3234 
  4222      00
  4223              	.LASF208:
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 111
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 111
 
 
  4224 0872 5F426F6F 		.ascii	"_Bool\000"
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4246      66667365 
  4247              	.LASF100:
  4248 0919 75646250 		.ascii	"udbPresent\000"
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 112
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 112
 
 
  4248      72657365 
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4270      4F4400
  4271              	.LASF212:
  4272 09de 43595F53 		.ascii	"CY_SAR_RANGE_COND_ABOVE\000"
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 113
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 113
 
 
  4272      41525F52 
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4296 0a7f 696E6974 		.ascii	"initKey\000"
  4296      4B657900 
  4297              	.LASF119:
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 114
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 114
 
 
  4298 0a87 64775374 		.ascii	"dwStatusChIdxMsk\000"
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4322 0b24 63707573 		.ascii	"cpussRam0Ctl0\000"
  4322      7352616D 
  4322      3043746C 
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 115
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 115
 
 
  4322      3000
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4346      00
  4347              	.LASF318:
  4348 0bc7 50574D5F 		.ascii	"PWM_TENS2_config\000"
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 116
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 116
 
 
  4348      54454E53 
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4369              	.LASF192:
  4370 0c82 7478576F 		.ascii	"txWordLength\000"
  4370      72644C65 
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 117
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 117
 
 
  4370      6E677468 
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4392      6F67456E 
  4392      61626C65 
  4392      00
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 118
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 118
 
 
  4393              	.LASF107:
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4414      6F646500 
  4415              	.LASF177:
  4416 0df5 7278456E 		.ascii	"rxEnabled\000"
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 119
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 119
 
 
  4416      61626C65 
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4440 0e95 63707573 		.ascii	"cpussCm0StatusOffset\000"
  4440      73436D30 
  4440      53746174 
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 120
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 120
 
 
  4440      75734F66 
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4462      74496E70 
  4462      75744D6F 
  4462      646500
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 121
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 121
 
 
  4463              	.LASF81:
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4486      696700
  4487              	.LASF132:
  4488 0fdd 6770696F 		.ascii	"gpioPrtIntrCfgOffset\000"
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 122
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 122
 
 
  4488      50727449 
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4510      7400
  4511              	.LASF17:
  4512 1089 696E7433 		.ascii	"int32_t\000"
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 123
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 123
 
 
  4512      325F7400 
@@ -7337,302 +7337,303 @@ ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 1
  4518      69676765 
  4518      724C6576 
  4518      656C00
- 4519              	.LASF295:
- 4520 10c9 43795F54 		.ascii	"Cy_TCPWM_PWM_SetCompare0\000"
- 4520      4350574D 
- 4520      5F50574D 
- 4520      5F536574 
- 4520      436F6D70 
- 4521              	.LASF216:
- 4522 10e2 73616D70 		.ascii	"sampleCtrl\000"
- 4522      6C654374 
- 4522      726C00
- 4523              	.LASF183:
- 4524 10ed 7478416C 		.ascii	"txAlignment\000"
- 4524      69676E6D 
- 4524      656E7400 
- 4525              	.LASF193:
- 4526 10f9 74784F76 		.ascii	"txOverheadValue\000"
- 4526      65726865 
- 4526      61645661 
- 4526      6C756500 
- 4527              	.LASF162:
- 4528 1109 63795F65 		.ascii	"cy_en_i2s_alignment_t\000"
- 4528      6E5F6932 
- 4528      735F616C 
- 4528      69676E6D 
- 4528      656E745F 
- 4529              	.LASF2:
- 4530 111f 756E7369 		.ascii	"unsigned char\000"
- 4530      676E6564 
- 4530      20636861 
- 4530      7200
- 4531              	.LASF310:
- 4532 112d 7363616C 		.ascii	"scaled_pwm\000"
- 4532      65645F70 
- 4532      776D00
+ 4519              	.LASF310:
+ 4520 10c9 7363616C 		.ascii	"scaled_pel_pwm\000"
+ 4520      65645F70 
+ 4520      656C5F70 
+ 4520      776D00
+ 4521              	.LASF295:
+ 4522 10d8 43795F54 		.ascii	"Cy_TCPWM_PWM_SetCompare0\000"
+ 4522      4350574D 
+ 4522      5F50574D 
+ 4522      5F536574 
+ 4522      436F6D70 
+ 4523              	.LASF216:
+ 4524 10f1 73616D70 		.ascii	"sampleCtrl\000"
+ 4524      6C654374 
+ 4524      726C00
+ 4525              	.LASF183:
+ 4526 10fc 7478416C 		.ascii	"txAlignment\000"
+ 4526      69676E6D 
+ 4526      656E7400 
+ 4527              	.LASF193:
+ 4528 1108 74784F76 		.ascii	"txOverheadValue\000"
+ 4528      65726865 
+ 4528      61645661 
+ 4528      6C756500 
+ 4529              	.LASF162:
+ 4530 1118 63795F65 		.ascii	"cy_en_i2s_alignment_t\000"
+ 4530      6E5F6932 
+ 4530      735F616C 
+ 4530      69676E6D 
+ 4530      656E745F 
+ 4531              	.LASF2:
+ 4532 112e 756E7369 		.ascii	"unsigned char\000"
+ 4532      676E6564 
+ 4532      20636861 
+ 4532      7200
  4533              	.LASF9:
- 4534 1138 5F5F7569 		.ascii	"__uint32_t\000"
+ 4534 113c 5F5F7569 		.ascii	"__uint32_t\000"
  4534      6E743332 
  4534      5F7400
  4535              	.LASF307:
- 4536 1143 50574D5F 		.ascii	"PWM_FAN_SetCompare0\000"
+ 4536 1147 50574D5F 		.ascii	"PWM_FAN_SetCompare0\000"
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 124
+
+
  4536      46414E5F 
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 124
-
-
  4536      53657443 
  4536      6F6D7061 
  4536      72653000 
  4537              	.LASF64:
- 4538 1157 4750494F 		.ascii	"GPIO_Type\000"
+ 4538 115b 4750494F 		.ascii	"GPIO_Type\000"
  4538      5F547970 
  4538      6500
  4539              	.LASF152:
- 4540 1161 6970634C 		.ascii	"ipcLockStatusOffset\000"
+ 4540 1165 6970634C 		.ascii	"ipcLockStatusOffset\000"
  4540      6F636B53 
  4540      74617475 
  4540      734F6666 
  4540      73657400 
  4541              	.LASF268:
- 4542 1175 636F756E 		.ascii	"countInput\000"
+ 4542 1179 636F756E 		.ascii	"countInput\000"
  4542      74496E70 
  4542      757400
  4543              	.LASF27:
- 4544 1180 494E5452 		.ascii	"INTR_CFG\000"
+ 4544 1184 494E5452 		.ascii	"INTR_CFG\000"
  4544      5F434647 
  4544      00
  4545              	.LASF184:
- 4546 1189 74785773 		.ascii	"txWsPulseWidth\000"
+ 4546 118d 74785773 		.ascii	"txWsPulseWidth\000"
  4546      50756C73 
  4546      65576964 
  4546      746800
  4547              	.LASF319:
- 4548 1198 414D505F 		.ascii	"AMP_PWM_config\000"
+ 4548 119c 414D505F 		.ascii	"AMP_PWM_config\000"
  4548      50574D5F 
  4548      636F6E66 
  4548      696700
  4549              	.LASF300:
- 4550 11a7 70696E4E 		.ascii	"pinNum\000"
+ 4550 11ab 70696E4E 		.ascii	"pinNum\000"
  4550      756D00
  4551              	.LASF242:
- 4552 11ae 63795F73 		.ascii	"cy_stc_scb_spi_context\000"
+ 4552 11b2 63795F73 		.ascii	"cy_stc_scb_spi_context\000"
  4552      74635F73 
  4552      63625F73 
  4552      70695F63 
  4552      6F6E7465 
  4553              	.LASF108:
- 4554 11c5 666C6173 		.ascii	"flashEraseDelay\000"
+ 4554 11c9 666C6173 		.ascii	"flashEraseDelay\000"
  4554      68457261 
  4554      73654465 
  4554      6C617900 
  4555              	.LASF60:
- 4556 11d5 434D445F 		.ascii	"CMD_START\000"
+ 4556 11d9 434D445F 		.ascii	"CMD_START\000"
  4556      53544152 
  4556      5400
  4557              	.LASF291:
- 4558 11df 636C6B44 		.ascii	"clkDivider\000"
+ 4558 11e3 636C6B44 		.ascii	"clkDivider\000"
  4558      69766964 
  4558      657200
  4559              	.LASF160:
- 4560 11ea 43595F49 		.ascii	"CY_I2S_TDM_MODE_A\000"
+ 4560 11ee 43595F49 		.ascii	"CY_I2S_TDM_MODE_A\000"
  4560      32535F54 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 125
+
+
  4560      444D5F4D 
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 125
-
-
  4560      4F44455F 
  4560      4100
  4561              	.LASF321:
- 4562 11fc 4144435F 		.ascii	"ADC_currentConfig\000"
+ 4562 1200 4144435F 		.ascii	"ADC_currentConfig\000"
  4562      63757272 
  4562      656E7443 
  4562      6F6E6669 
  4562      6700
  4563              	.LASF308:
- 4564 120e 7365745F 		.ascii	"set_temp\000"
+ 4564 1212 7365745F 		.ascii	"set_temp\000"
  4564      74656D70 
  4564      00
  4565              	.LASF175:
- 4566 1217 63795F65 		.ascii	"cy_en_i2s_ws_pw_t\000"
+ 4566 121b 63795F65 		.ascii	"cy_en_i2s_ws_pw_t\000"
  4566      6E5F6932 
  4566      735F7773 
  4566      5F70775F 
  4566      7400
  4567              	.LASF104:
- 4568 1229 666C6173 		.ascii	"flashRwwRequired\000"
+ 4568 122d 666C6173 		.ascii	"flashRwwRequired\000"
  4568      68527777 
  4568      52657175 
  4568      69726564 
  4568      00
  4569              	.LASF133:
- 4570 123a 6770696F 		.ascii	"gpioPrtCfgOffset\000"
+ 4570 123e 6770696F 		.ascii	"gpioPrtCfgOffset\000"
  4570      50727443 
  4570      66674F66 
  4570      66736574 
  4570      00
  4571              	.LASF205:
- 4572 124b 7278576F 		.ascii	"rxWordLength\000"
+ 4572 124f 7278576F 		.ascii	"rxWordLength\000"
  4572      72644C65 
  4572      6E677468 
  4572      00
  4573              	.LASF270:
- 4574 1258 62644861 		.ascii	"bdHandle\000"
+ 4574 125c 62644861 		.ascii	"bdHandle\000"
  4574      6E646C65 
  4574      00
  4575              	.LASF41:
- 4576 1261 5644445F 		.ascii	"VDD_INTR_MASK\000"
+ 4576 1265 5644445F 		.ascii	"VDD_INTR_MASK\000"
  4576      494E5452 
  4576      5F4D4153 
  4576      4B00
  4577              	.LASF1:
- 4578 126f 7369676E 		.ascii	"signed char\000"
+ 4578 1273 7369676E 		.ascii	"signed char\000"
  4578      65642063 
  4578      68617200 
  4579              	.LASF114:
- 4580 127b 64774368 		.ascii	"dwChOffset\000"
+ 4580 127f 64774368 		.ascii	"dwChOffset\000"
  4580      4F666673 
  4580      657400
  4581              	.LASF87:
- 4582 1286 63707573 		.ascii	"cpussIpcIrqNr\000"
+ 4582 128a 63707573 		.ascii	"cpussIpcIrqNr\000"
  4582      73497063 
  4582      4972714E 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 126
+
+
  4582      7200
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 126
-
-
  4583              	.LASF117:
- 4584 1294 64774368 		.ascii	"dwChCtlPreemptablePos\000"
+ 4584 1298 64774368 		.ascii	"dwChCtlPreemptablePos\000"
  4584      43746C50 
  4584      7265656D 
  4584      70746162 
  4584      6C65506F 
  4585              	.LASF153:
- 4586 12aa 63795F73 		.ascii	"cy_stc_device_t\000"
+ 4586 12ae 63795F73 		.ascii	"cy_stc_device_t\000"
  4586      74635F64 
  4586      65766963 
  4586      655F7400 
  4587              	.LASF51:
- 4588 12ba 54525F43 		.ascii	"TR_CTRL0\000"
+ 4588 12be 54525F43 		.ascii	"TR_CTRL0\000"
  4588      54524C30 
  4588      00
  4589              	.LASF52:
- 4590 12c3 54525F43 		.ascii	"TR_CTRL1\000"
+ 4590 12c7 54525F43 		.ascii	"TR_CTRL1\000"
  4590      54524C31 
  4590      00
  4591              	.LASF53:
- 4592 12cc 54525F43 		.ascii	"TR_CTRL2\000"
+ 4592 12d0 54525F43 		.ascii	"TR_CTRL2\000"
  4592      54524C32 
  4592      00
  4593              	.LASF332:
- 4594 12d5 43795F54 		.ascii	"Cy_TCPWM_PWM_GetCompare0\000"
+ 4594 12d9 43795F54 		.ascii	"Cy_TCPWM_PWM_GetCompare0\000"
  4594      4350574D 
  4594      5F50574D 
  4594      5F476574 
  4594      436F6D70 
  4595              	.LASF296:
- 4596 12ee 43795F54 		.ascii	"Cy_TCPWM_Enable_Multiple\000"
+ 4596 12f2 43795F54 		.ascii	"Cy_TCPWM_Enable_Multiple\000"
  4596      4350574D 
  4596      5F456E61 
  4596      626C655F 
  4596      4D756C74 
  4597              	.LASF84:
- 4598 1307 70657269 		.ascii	"periVersion\000"
+ 4598 130b 70657269 		.ascii	"periVersion\000"
  4598      56657273 
  4598      696F6E00 
  4599              	.LASF228:
- 4600 1313 636F6E66 		.ascii	"configRouting\000"
+ 4600 1317 636F6E66 		.ascii	"configRouting\000"
  4600      6967526F 
  4600      7574696E 
  4600      6700
  4601              	.LASF74:
- 4602 1321 70617373 		.ascii	"passBase\000"
+ 4602 1325 70617373 		.ascii	"passBase\000"
  4602      42617365 
  4602      00
  4603              	.LASF111:
- 4604 132a 666C6173 		.ascii	"flashCtlMainWs2Freq\000"
+ 4604 132e 666C6173 		.ascii	"flashCtlMainWs2Freq\000"
  4604      6843746C 
  4604      4D61696E 
  4604      57733246 
  4604      72657100 
  4605              	.LASF33:
- 4606 133e 52455345 		.ascii	"RESERVED1\000"
+ 4606 1342 52455345 		.ascii	"RESERVED1\000"
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 127
+
+
  4606      52564544 
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 127
-
-
  4606      3100
  4607              	.LASF130:
- 4608 1348 70657269 		.ascii	"periDiv16_5CtlOffset\000"
+ 4608 134c 70657269 		.ascii	"periDiv16_5CtlOffset\000"
  4608      44697631 
  4608      365F3543 
  4608      746C4F66 
  4608      66736574 
  4609              	.LASF46:
- 4610 135d 53544154 		.ascii	"STATUS\000"
+ 4610 1361 53544154 		.ascii	"STATUS\000"
  4610      555300
  4611              	.LASF30:
- 4612 1364 4346475F 		.ascii	"CFG_SIO\000"
+ 4612 1368 4346475F 		.ascii	"CFG_SIO\000"
  4612      53494F00 
  4613              	.LASF113:
- 4614 136c 666C6173 		.ascii	"flashCtlMainWs4Freq\000"
+ 4614 1370 666C6173 		.ascii	"flashCtlMainWs4Freq\000"
  4614      6843746C 
  4614      4D61696E 
  4614      57733446 
  4614      72657100 
  4615              	.LASF225:
- 4616 1380 72616E67 		.ascii	"rangeIntrMask\000"
+ 4616 1384 72616E67 		.ascii	"rangeIntrMask\000"
  4616      65496E74 
  4616      724D6173 
  4616      6B00
  4617              	.LASF214:
- 4618 138e 63795F65 		.ascii	"cy_en_sar_range_detect_condition_t\000"
+ 4618 1392 63795F65 		.ascii	"cy_en_sar_range_detect_condition_t\000"
  4618      6E5F7361 
  4618      725F7261 
  4618      6E67655F 
  4618      64657465 
  4619              	.LASF271:
- 4620 13b1 61747449 		.ascii	"attId\000"
+ 4620 13b5 61747449 		.ascii	"attId\000"
  4620      6400
  4621              	.LASF317:
- 4622 13b7 5350495F 		.ascii	"SPI_context\000"
+ 4622 13bb 5350495F 		.ascii	"SPI_context\000"
  4622      636F6E74 
  4622      65787400 
  4623              	.LASF278:
- 4624 13c3 43595F42 		.ascii	"CY_BLE_CONN_STATE_DISCONNECTED\000"
+ 4624 13c7 43595F42 		.ascii	"CY_BLE_CONN_STATE_DISCONNECTED\000"
  4624      4C455F43 
  4624      4F4E4E5F 
  4624      53544154 
  4624      455F4449 
  4625              	.LASF330:
- 4626 13e2 74656D70 		.ascii	"temp.c\000"
+ 4626 13e6 74656D70 		.ascii	"temp.c\000"
  4626      2E6300
  4627              	.LASF83:
- 4628 13e9 69706356 		.ascii	"ipcVersion\000"
+ 4628 13ed 69706356 		.ascii	"ipcVersion\000"
  4628      65727369 
  4628      6F6E00
  4629              	.LASF281:
- 4630 13f4 43595F42 		.ascii	"CY_BLE_CONN_STATE_CLIENT_SRVC_DISCOVERING\000"
+ 4630 13f8 43595F42 		.ascii	"CY_BLE_CONN_STATE_CLIENT_SRVC_DISCOVERING\000"
  4630      4C455F43 
  4630      4F4E4E5F 
  4630      53544154 
  4630      455F434C 
+ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccMUsq6Q.s 			page 128
+
+
  4631              	.LASF223:
-ARM GAS  C:\Users\zunis\AppData\Local\Temp\ccaLGmaF.s 			page 128
-
-
- 4632 141e 696E7472 		.ascii	"intrMask\000"
+ 4632 1422 696E7472 		.ascii	"intrMask\000"
  4632      4D61736B 
  4632      00
  4633              	.LASF50:
- 4634 1427 50455249 		.ascii	"PERIOD_BUFF\000"
+ 4634 142b 50455249 		.ascii	"PERIOD_BUFF\000"
  4634      4F445F42 
  4634      55464600 
  4635              	.LASF234:
- 4636 1433 72784275 		.ascii	"rxBufSize\000"
+ 4636 1437 72784275 		.ascii	"rxBufSize\000"
  4636      6653697A 
  4636      6500
  4637              	.LASF45:
- 4638 143d 4354524C 		.ascii	"CTRL\000"
+ 4638 1441 4354524C 		.ascii	"CTRL\000"
  4638      00
  4639              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
