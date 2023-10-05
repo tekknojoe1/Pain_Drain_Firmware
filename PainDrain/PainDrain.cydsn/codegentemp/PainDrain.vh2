@@ -2,7 +2,7 @@
 --	Conversion of PainDrain.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Oct 05 14:40:47 2023
+--	Thu Oct 05 15:39:17 2023
 --
 
 USE cypress.cypress.all;
@@ -2557,7 +2557,7 @@ Clock_3:cy_clock_v1_0
 		id=>"a4676f6b-0478-4d3c-9890-6ac86cc75611",
 		source_clock_id=>"2FB4EC85-8328-4C5A-9ED9-8B63060178EB",
 		divisor=>0,
-		period=>"1000000000",
+		period=>"40000000",
 		is_direct=>'0',
 		is_digital=>'0')
 	PORT MAP(clock_out=>Net_380,
