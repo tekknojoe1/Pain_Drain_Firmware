@@ -18,7 +18,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PainDrain-000\PainDrain\Host Files\Source Files\temp.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>PainDrain-000</v>
 <v>PainDrain-000\PainDrain</v>
@@ -31,6 +31,7 @@
 <v>PainDrain-000\PainDrain\PainDrain.cydwr\Interrupts</v>
 <v>PainDrain-000\PainDrain\PainDrain.cydwr\System</v>
 <v>PainDrain-000\PainDrain\PainDrain.cydwr\Directives</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)</v>
 <v>PainDrain-000\PainDrain\CM0p (Core 0)\ARM GCC Generic</v>
 <v>PainDrain-000\PainDrain\CM0p (Core 0)\ARM GCC Generic\cy8c6xx7_cm0plus.ld</v>
 <v>PainDrain-000\PainDrain\CM0p (Core 0)\ARM IAR Generic</v>
@@ -49,6 +50,8 @@
 <v>PainDrain-000\PainDrain\CM0p (Core 0)\Source Files\ARM MDK Generic\startup_psoc6_01_cm0plus.s</v>
 <v>PainDrain-000\PainDrain\CM0p (Core 0)\Source Files\main_cm0p.c</v>
 <v>PainDrain-000\PainDrain\CM0p (Core 0)\Source Files\system_psoc6_cm0plus.c</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\ARM GCC Generic</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ARM GCC Generic\cy8c6xx7_cm4_dual.ld</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ARM IAR Generic</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ARM IAR Generic\cy8c6xx7_cm4_dual.icf</v>
@@ -97,10 +100,6 @@
 <v>PainDrain-000\PainDrain\Host Files\Source Files\vibe.c</v>
 <v>PainDrain-000\PainDrain\Generated_Source</v>
 <v>PainDrain-000\PainDrain\Generated_Source\PSoC6</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\pdl\middleware</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\Clock_1</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\Pins and Interrupts</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\PWM_TENS2</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>PainDrain-000</v>
@@ -115,41 +114,41 @@
 <v>PainDrain-000\PainDrain\PainDrain.cydwr\System</v>
 <v>PainDrain-000\PainDrain\PainDrain.cydwr\Directives</v>
 <v>PainDrain-000\PainDrain\CM0p (Core 0)</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)\ARM GCC Generic</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)\ARM GCC Generic\cy8c6xx7_cm0plus.ld</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)\ARM IAR Generic</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)\ARM IAR Generic\cy8c6xx7_cm0plus.icf</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)\ARM MDK Generic</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)\ARM MDK Generic\cy8c6xx7_cm0plus.scat</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)\Header Files</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)\Header Files\cy_ble_config.h</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)\Header Files\system_psoc6.h</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)\Source Files</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)\Source Files\ARM GCC Generic</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)\Source Files\ARM GCC Generic\startup_psoc6_01_cm0plus.S</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)\Source Files\ARM IAR Generic</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)\Source Files\ARM IAR Generic\startup_psoc6_01_cm0plus.s</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)\Source Files\ARM MDK Generic</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)\Source Files\ARM MDK Generic\startup_psoc6_01_cm0plus.s</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)\Source Files\main_cm0p.c</v>
+<v>PainDrain-000\PainDrain\CM0p (Core 0)\Source Files\system_psoc6_cm0plus.c</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)</v>
-<v>PainDrain-000\PainDrain\Host Files</v>
-<v>PainDrain-000\PainDrain\Host Files\Header Files</v>
-<v>PainDrain-000\PainDrain\Host Files\Header Files\bq24298.h</v>
-<v>PainDrain-000\PainDrain\Host Files\Header Files\common.h</v>
-<v>PainDrain-000\PainDrain\Host Files\Header Files\debug.h</v>
-<v>PainDrain-000\PainDrain\Host Files\Header Files\font.h</v>
-<v>PainDrain-000\PainDrain\Host Files\Header Files\ias.h</v>
-<v>PainDrain-000\PainDrain\Host Files\Header Files\my_i2c.h</v>
-<v>PainDrain-000\PainDrain\Host Files\Header Files\myprintf.h</v>
-<v>PainDrain-000\PainDrain\Host Files\Header Files\myUART.h</v>
-<v>PainDrain-000\PainDrain\Host Files\Header Files\power.h</v>
-<v>PainDrain-000\PainDrain\Host Files\Header Files\st7735.h</v>
-<v>PainDrain-000\PainDrain\Host Files\Header Files\temp.h</v>
-<v>PainDrain-000\PainDrain\Host Files\Header Files\tens.h</v>
-<v>PainDrain-000\PainDrain\Host Files\Header Files\user_interface.h</v>
-<v>PainDrain-000\PainDrain\Host Files\Header Files\vibe.h</v>
-<v>PainDrain-000\PainDrain\Host Files\Source Files</v>
-<v>PainDrain-000\PainDrain\Host Files\Source Files\bq24298.c</v>
-<v>PainDrain-000\PainDrain\Host Files\Source Files\debug.c</v>
-<v>PainDrain-000\PainDrain\Host Files\Source Files\font.c</v>
-<v>PainDrain-000\PainDrain\Host Files\Source Files\host_main.c</v>
-<v>PainDrain-000\PainDrain\Host Files\Source Files\ias.c</v>
-<v>PainDrain-000\PainDrain\Host Files\Source Files\my_i2c.c</v>
-<v>PainDrain-000\PainDrain\Host Files\Source Files\myprintf.c</v>
-<v>PainDrain-000\PainDrain\Host Files\Source Files\myUART.c</v>
-<v>PainDrain-000\PainDrain\Host Files\Source Files\power.c</v>
-<v>PainDrain-000\PainDrain\Host Files\Source Files\st7735.c</v>
-<v>PainDrain-000\PainDrain\Host Files\Source Files\temp.c</v>
-<v>PainDrain-000\PainDrain\Host Files\Source Files\tens.c</v>
-<v>PainDrain-000\PainDrain\Host Files\Source Files\user_interface.c</v>
-<v>PainDrain-000\PainDrain\Host Files\Source Files\vibe.c</v>
-<v>PainDrain-000\PainDrain\Generated_Source</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6</v>
-<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\pdl</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\ARM GCC Generic</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\ARM GCC Generic\cy8c6xx7_cm4_dual.ld</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\ARM IAR Generic</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\ARM IAR Generic\cy8c6xx7_cm4_dual.icf</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\ARM MDK Generic</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\ARM MDK Generic\cy8c6xx7_cm4_dual.scat</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\Header Files</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\ARM GCC Generic</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\ARM GCC Generic\startup_psoc6_01_cm4.S</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\ARM IAR Generic</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\ARM IAR Generic\startup_psoc6_01_cm4.s</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\ARM MDK Generic</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\ARM MDK Generic\startup_psoc6_01_cm4.s</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\main_cm4.c</v>
+<v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\system_psoc6_cm4.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -386,8 +385,6 @@
 <v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\PainDrain.hex</v>
 <v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\PainDrain.map</v>
 <v>PainDrain-000\PainDrain\PainDrain.gpdsc</v>
-<v>PainDrain-000\PainDrain\PainDrain.rpt</v>
-<v>PainDrain-000\PainDrain\PainDrain_timing.html</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>PainDrain-000</v>
@@ -447,7 +444,6 @@
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>PainDrain-000</v>
-<v>PainDrain-000\PainDrain</v>
 <v>PainDrain-000\PainDrain\PSoC 6 Architecture TRM</v>
 <v>PainDrain-000\PainDrain\PSoC 63 Family Datasheet</v>
 <v>PainDrain-000\PainDrain\Peripheral Driver Library</v>
@@ -470,24 +466,6 @@
 <VisibleNodeIds>
 <v>PainDrain-000</v>
 <v>PainDrain-000\PainDrain</v>
-<v>PainDrain-000\PainDrain\PSoC 6 Architecture TRM</v>
-<v>PainDrain-000\PainDrain\PSoC 63 Family Datasheet</v>
-<v>PainDrain-000\PainDrain\Peripheral Driver Library</v>
-<v>PainDrain-000\PainDrain\System Reference Guides</v>
-<v>PainDrain-000\PainDrain\BLE_PDL_v2_0.pdf</v>
-<v>PainDrain-000\PainDrain\cy_gsref_v2_10</v>
-<v>PainDrain-000\PainDrain\cy_gsref_v2_10\cy_gsref_v2_10.pdf</v>
-<v>PainDrain-000\PainDrain\GPIO_PDL_v1_0</v>
-<v>PainDrain-000\PainDrain\GPIO_PDL_v1_0\GPIO_PDL_v1_0.pdf</v>
-<v>PainDrain-000\PainDrain\I2S_PDL_v2_0.pdf</v>
-<v>PainDrain-000\PainDrain\Scan_ADC_P6_v3_10.pdf</v>
-<v>PainDrain-000\PainDrain\SCB_SPI_PDL_v2_0.pdf</v>
-<v>PainDrain-000\PainDrain\SysClk_PDL_v1_0</v>
-<v>PainDrain-000\PainDrain\SysClk_PDL_v1_0\SysClk_PDL_v1_0.pdf</v>
-<v>PainDrain-000\PainDrain\SysInt_PDL_v1_0</v>
-<v>PainDrain-000\PainDrain\SysInt_PDL_v1_0\SysInt_PDL_v1_0.pdf</v>
-<v>PainDrain-000\PainDrain\TCPWM_PWM_PDL_v1_0</v>
-<v>PainDrain-000\PainDrain\TCPWM_PWM_PDL_v1_0\TCPWM_PWM_PDL_v1_0.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -497,24 +475,9 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\TopDesign\TopDesign.cysch" />
-<name v=".\PainDrain.cydwr" />
-<name v=".\user_interface.c" />
-<name v=".\st7735.c" />
 <name v=".\host_main.c" />
-<name v=".\my_i2c.c" />
-<name v=".\ias.c" />
-<name v=".\temp.c" />
-<name v=".\temp.h" />
-<name v=".\Generated_Source\PSoC6\PWM_PEL1.h" />
-<name v=".\power.c" />
-<name v=".\tens.c" />
-<name v=".\tens.h" />
-<name v=".\vibe.h" />
-<name v=".\vibe.c" />
-<name v=".\Generated_Source\PSoC6\cyfitter_gpio.h" />
-<name v=".\main_cm4.c" />
-<name v=".\myUART.c" />
+<name v=".\st7735.c" />
+<name v=".\TopDesign\TopDesign.cysch" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -522,7 +485,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1439, 686" SelectedTabbedMdiWindow="965d8884-b6d6-46ea-8e58-945922967f14"><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\TopDesign\TopDesign.cysch" Guid="16294daa-e4c3-4074-8207-2f1582b7b959" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\PainDrain.cydwr" Guid="d3e6b295-dc1c-4631-9af2-b48359d122ab" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\user_interface.c" Guid="7a1f311b-fa61-4b83-a8f2-8d03bde8ff8f" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\st7735.c" Guid="a9664c23-b30c-4bb1-8bda-692b6ed1994a" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\host_main.c" Guid="965d8884-b6d6-46ea-8e58-945922967f14" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\my_i2c.c" Guid="96df797e-da90-4646-825a-71836c795679" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\ias.c" Guid="d731b47f-569a-4320-a70f-40f39b5cb621" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\temp.c" Guid="6d4f2893-ef40-4188-bd35-6c34995e2c09" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\temp.h" Guid="55f252df-b8ed-42cf-84eb-63ba85cfb857" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\Generated_Source\PSoC6\PWM_PEL1.h" Guid="22902d2e-e267-4011-9a63-0e6b29a74eaa" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\power.c" Guid="7cfdf2e5-89f7-4b1f-a82d-a8a63e00cb0f" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\tens.c" Guid="47adc98f-74a3-4737-9cf5-ada534914770" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\tens.h" Guid="b4d89ece-18e8-4e1e-9f2e-db83e6efba0b" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\vibe.h" Guid="2e182f43-9a52-4a12-9b67-49c77a95e1f2" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\vibe.c" Guid="f4d5d369-586d-4e71-bb34-f3ae55d03b47" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\Generated_Source\PSoC6\cyfitter_gpio.h" Guid="00791a1b-b3e5-4e69-93e5-f49a47c4db8b" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\main_cm4.c" Guid="f3d650db-4e24-4401-829d-19bd74b20ccf" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="7b12bcbd-7042-474f-9eed-ae71864ac8f2" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\myUART.c" Guid="a70cf767-9c91-4a7d-83c8-efdebca2dacf" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1399, 686" SelectedTabbedMdiWindow="0e928876-c7b9-4fc9-a3f2-05d700f0ab62"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="7b12bcbd-7042-474f-9eed-ae71864ac8f2" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\host_main.c" Guid="0e928876-c7b9-4fc9-a3f2-05d700f0ab62" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\st7735.c" Guid="736d1eb7-3c92-494e-85d0-a1539077dfa5" /><DocumentWindow Key="C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\TopDesign\TopDesign.cysch" Guid="04a9a2bc-cb02-4793-ae2f-50a0509f8157" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
