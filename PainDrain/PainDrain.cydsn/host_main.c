@@ -428,6 +428,7 @@ void lcdReset(void) {
 // Function to send a command byte over SPI
 void sendData(uint8_t data) {
     cy_en_scb_spi_status_t spiStatus;
+    int count;
     uint32_t txBuffer;
     uint32_t rxBuffer;
     // 9th bit is 1 for data
@@ -436,12 +437,12 @@ void sendData(uint8_t data) {
     Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 0);
     // Send the 9-bit command byte over SPI
     txBuffer = Cy_SCB_SPI_Write(SPI_HW, dataToSend);
-    rxBuffer = Cy_SCB_SPI_Read(SPI_HW);
+    //rxBuffer = Cy_SCB_SPI_Read(SPI_HW);
     // Wait for the transfer to complete
-    spiStatus = Cy_SCB_SPI_Transfer(SPI_HW, &txBuffer, &rxBuffer, sizeof(dataToSend), &SPI_context);
-    while (spiStatus == CY_SCB_SPI_SUCCESS) {
-        // Wait for the SPI transfer to complete successfully
-    }
+    //spiStatus = Cy_SCB_SPI_Transfer(SPI_HW, &txBuffer, &rxBuffer, sizeof(dataToSend), &SPI_context);
+    do {
+        count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
+    } while (count < 1);
 
     // Set to high after the spi is successful
     Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 1);
@@ -449,6 +450,7 @@ void sendData(uint8_t data) {
 
 void sendCommand(uint8_t cmd) {
     cy_en_scb_spi_status_t spiStatus;
+    int count;
     uint32_t txBuffer;
     uint32_t rxBuffer;
     // 9th bit is 0 for command
@@ -458,13 +460,12 @@ void sendCommand(uint8_t cmd) {
     // Send the 9-bit data byte over SPI
     //Cy_SCB_SPI_WriteArray(SPI_HW, &commandToSend, 1);
     txBuffer = Cy_SCB_SPI_Write(SPI_HW, commandToSend);
-    rxBuffer = Cy_SCB_SPI_Read(SPI_HW);
+    //rxBuffer = Cy_SCB_SPI_Read(SPI_HW);
     // Wait for the transfer to complete
     spiStatus = Cy_SCB_SPI_Transfer(SPI_HW, &txBuffer, &rxBuffer, sizeof(commandToSend), &SPI_context);
-    while (spiStatus == CY_SCB_SPI_SUCCESS) {
-        // Wait for the SPI transfer to complete successfully
-    }
-
+    do {
+        count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
+    } while (count < 1);
     // Set to high after the spi is successful
     Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 1);
 }
@@ -562,6 +563,7 @@ void drawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t 
     uint32_t pixelCount = (uint32_t)(x2 - x1 + 1) * (y2 - y1 + 1);
 
     // Send the color data for each pixel
+    DBG_PRINTF("pixel count: %d\r\n", pixelCount);
     for (uint32_t i = 0; i < pixelCount; i++) {
         sendData((color >> 8) & 0xFF); // Send high-byte of color
         sendData(color & 0xFF); // Send low-byte of color
@@ -593,8 +595,8 @@ int HostMain(void)
     SPI_Start();
     LCDinit();
     sendCommand(0x21);
-    sendCommand(0x20);
-    //drawRectangle(10, 10, 50, 100, 0xF800);
+    //sendCommand(0x20);
+    drawRectangle(10, 10, 50, 100, 0xF800);
     //st7789_display_test();
     //st7789_basic_init();
     
