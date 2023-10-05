@@ -427,27 +427,45 @@ void lcdReset(void) {
 }
 // Function to send a command byte over SPI
 void sendData(uint8_t data) {
+    cy_en_scb_spi_status_t spiStatus;
+    uint32_t txBuffer;
+    uint32_t rxBuffer;
     // 9th bit is 1 for data
     uint16_t dataToSend = (1 << 8) | data;
     DBG_PRINTF("dataToSend %d\r\n", dataToSend);
     Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 0);
     // Send the 9-bit command byte over SPI
-    Cy_SCB_SPI_WriteArray(SPI_HW, &dataToSend, 1);
-
+    txBuffer = Cy_SCB_SPI_Write(SPI_HW, dataToSend);
+    rxBuffer = Cy_SCB_SPI_Read(SPI_HW);
     // Wait for the transfer to complete
-    while (Cy_SCB_SPI_IsBusBusy(SPI_HW));
+    spiStatus = Cy_SCB_SPI_Transfer(SPI_HW, &txBuffer, &rxBuffer, sizeof(dataToSend), &SPI_context);
+    while (spiStatus == CY_SCB_SPI_SUCCESS) {
+        // Wait for the SPI transfer to complete successfully
+    }
+
+    // Set to high after the spi is successful
     Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 1);
 }
 
 void sendCommand(uint8_t cmd) {
+    cy_en_scb_spi_status_t spiStatus;
+    uint32_t txBuffer;
+    uint32_t rxBuffer;
     // 9th bit is 0 for command
     uint16_t commandToSend = (0 << 8) | cmd;
     DBG_PRINTF("commandToSend %d\r\n", commandToSend);
     Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 0);
     // Send the 9-bit data byte over SPI
-    Cy_SCB_SPI_WriteArray(SPI_HW, &commandToSend, 1);
+    //Cy_SCB_SPI_WriteArray(SPI_HW, &commandToSend, 1);
+    txBuffer = Cy_SCB_SPI_Write(SPI_HW, commandToSend);
+    rxBuffer = Cy_SCB_SPI_Read(SPI_HW);
     // Wait for the transfer to complete
-    while (Cy_SCB_SPI_IsBusBusy(SPI_HW));
+    spiStatus = Cy_SCB_SPI_Transfer(SPI_HW, &txBuffer, &rxBuffer, sizeof(commandToSend), &SPI_context);
+    while (spiStatus == CY_SCB_SPI_SUCCESS) {
+        // Wait for the SPI transfer to complete successfully
+    }
+
+    // Set to high after the spi is successful
     Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 1);
 }
 
