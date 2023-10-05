@@ -37,6 +37,7 @@
 #include "driver_st7789_interface.h"
 #include <project.h>
 #include "debug.h"
+#include <stdarg.h>
 //#include "st7735.c"
 
 /**
@@ -87,16 +88,7 @@ uint8_t st7789_interface_spi_write_cmd(uint16_t *buf, uint16_t len)
     uint8_t d;
     uint8_t res;
     int count;
-    
-    // chip enable - active low
-    //CLR_BIT (*(lcd->cs->port), lcd->cs->pin);
-    //Cy_GPIO_Write(CS_PORT, CS_NUM, 0);
-    // command (active low)
-    //CLR_BIT (*(lcd->dc->port), lcd->dc->pin);
-    //Cy_GPIO_Write(DC_PORT, DC_NUM, 0);
-    // transmitting data
-      
-    /* Clear Master status and Tx FIFO status. */
+
     Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
     Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
     Cy_SCB_SPI_ClearTxFifo(SPI_HW);
@@ -105,38 +97,18 @@ uint8_t st7789_interface_spi_write_cmd(uint16_t *buf, uint16_t len)
     Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
     Cy_SCB_SPI_ClearRxFifo(SPI_HW);
     
-    /*
-    for(unsigned int i = 0; i < len; i++){
-        res = Cy_SCB_SPI_Write(SPI_HW, buf[i]);
-        DBG_PRINTF("value: %d\r\n",buf[i]);
-    }
-    */
     res = Cy_SCB_SPI_WriteArray(SPI_HW, buf, len);
+    DBG_PRINTF("res value: %d\r\n", res);
     res = (res > 0) ? 0 : 1;
 
-    //Cy_SCB_SPI_Write(SPI_HW, data);
     
     do {
         count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
     } while (count < 1);
-        
-    //do
-    //{
-    //    masterStatus  = Cy_SCB_SPI_GetSlaveMasterStatus(SPI_HW);
-    //    
-    //}while ( (masterStatus != (CY_SCB_SPI_MASTER_DONE)) );
     
-    d = Cy_SCB_SPI_Read(SPI_HW);  
-    
-    
-    //DBG_PRINTF("return status %d\r\n",res);
-    //SPDR = data;
-    // wait till data transmit
-    //WAIT_UNTIL_BIT_IS_SET (SPSR, SPIF);
-    // chip disable - idle high
-    //SET_BIT (*(lcd->cs->port), lcd->cs->pin);
-    //Cy_GPIO_Write(CS_PORT, CS_NUM, 1);
-    // return received data
+    d = Cy_SCB_SPI_Read(SPI_HW); 
+    DBG_PRINTF("d value: %d\r\n", d);
+
     return res;
 }
 
@@ -147,11 +119,7 @@ uint8_t st7789_interface_spi_write_cmd(uint16_t *buf, uint16_t len)
  */
 void st7789_interface_delay_ms(uint32_t ms)
 {
-  // loop through real time
-  while (ms--) {
-    // 1 s delay
-    //_delay_ms(1);
-  }
+    CyDelay(ms);
 }
 
 /**
@@ -161,8 +129,14 @@ void st7789_interface_delay_ms(uint32_t ms)
  */
 void st7789_interface_debug_print(const char *const fmt, ...)
 {
+    va_list args;
+    va_start(args, fmt);
     
+    vprintf(fmt, args); // Print the formatted output to the console
+    
+    va_end(args); // Clean up the va_list
 }
+
 
 /**
  * @brief  interface command && data gpio init
@@ -236,5 +210,6 @@ uint8_t st7789_interface_reset_gpio_deinit(void)
  */
 uint8_t st7789_interface_reset_gpio_write(uint8_t value)
 {
+    Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, value);
     return 0;
 }

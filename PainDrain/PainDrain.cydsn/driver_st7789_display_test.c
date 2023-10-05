@@ -49,6 +49,7 @@ static st7789_handle_t gs_handle;        /**< st7789 handle */
  */
 uint8_t st7789_display_test(void)
 {
+    
     uint8_t res;
     uint8_t reg;
     uint16_t i;
@@ -60,7 +61,6 @@ uint8_t st7789_display_test(void)
     char test_str2[] ="st7789";
     char test_str3[] ="ABCabc";
     char test_str4[] ="123?!#$%";
-    
     /* link functions */
     DRIVER_ST7789_LINK_INIT(&gs_handle, st7789_handle_t);
     DRIVER_ST7789_LINK_SPI_INIT(&gs_handle, st7789_interface_spi_init);
@@ -86,20 +86,22 @@ uint8_t st7789_display_test(void)
     else
     {
         /* print chip information */
-        st7789_interface_debug_print("st7789: chip is %s.\n", info.chip_name);
-        st7789_interface_debug_print("st7789: manufacturer is %s.\n", info.manufacturer_name);
-        st7789_interface_debug_print("st7789: interface is %s.\n", info.interface);
-        st7789_interface_debug_print("st7789: driver version is %d.%d.\n", info.driver_version / 1000, (info.driver_version % 1000) / 100);
-        st7789_interface_debug_print("st7789: min supply voltage is %0.1fV.\n", info.supply_voltage_min_v);
-        st7789_interface_debug_print("st7789: max supply voltage is %0.1fV.\n", info.supply_voltage_max_v);
-        st7789_interface_debug_print("st7789: max current is %0.2fmA.\n", info.max_current_ma);
-        st7789_interface_debug_print("st7789: max temperature is %0.1fC.\n", info.temperature_max);
-        st7789_interface_debug_print("st7789: min temperature is %0.1fC.\n", info.temperature_min);
+        st7789_interface_debug_print("st7789: chip is %s.\r\n", info.chip_name);
+        st7789_interface_debug_print("st7789: manufacturer is %s.\r\n", info.manufacturer_name);
+        st7789_interface_debug_print("st7789: interface is %s.\r\n", info.interface);
+        st7789_interface_debug_print("st7789: driver version is %d.%d.\r\n", info.driver_version / 1000, (info.driver_version % 1000) / 100);
+        st7789_interface_debug_print("st7789: min supply voltage is %0.1fV.\r\n", info.supply_voltage_min_v);
+        st7789_interface_debug_print("st7789: max supply voltage is %0.1fV.\r\n", info.supply_voltage_max_v);
+        st7789_interface_debug_print("st7789: max current is %0.2fmA.\r\n", info.max_current_ma);
+        st7789_interface_debug_print("st7789: max temperature is %0.1fC.\r\n", info.temperature_max);
+        st7789_interface_debug_print("st7789: min temperature is %0.1fC.\r\n", info.temperature_min);
     }
+    
+    
     
     /* start display test */
     st7789_interface_debug_print("st7789: start display test.\n");
-    
+    //res = st7789_LCDinit(&gs_handle);
     /* st7789 init */
     res = st7789_init(&gs_handle);
     if (res != 0)
@@ -303,7 +305,7 @@ uint8_t st7789_display_test(void)
                                         0x0F);
     if (res != 0)
     {
-        st7789_interface_debug_print("st7789: set frame rate control failed.\n");
+        st7789_interface_debug_print("st7789: set frame rate control failed.\r\n");
         (void)st7789_deinit(&gs_handle);
         
         return 1;
@@ -316,7 +318,7 @@ uint8_t st7789_display_test(void)
                                           ST7789_NON_DISPLAY_FRAME_FREQUENCY_EVERY);
     if (res != 0)
     {
-        st7789_interface_debug_print("st7789: set partial mode control failed.\n");
+        st7789_interface_debug_print("st7789: set partial mode control failed.\r\n");
         (void)st7789_deinit(&gs_handle);
         
         return 1;

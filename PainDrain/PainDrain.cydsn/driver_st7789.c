@@ -133,23 +133,48 @@
  *            - 1 write failed
  * @note      none
  */
+/*
 static uint8_t a_st7789_write_byte(st7789_handle_t *handle, uint8_t data, uint8_t cmd)
 {
     uint8_t res;
 
-    res = handle->cmd_data_gpio_write(cmd);        /* write gpio */
-    if (res != 0)                                  /* check result */
+    res = handle->cmd_data_gpio_write(cmd);        // write gpio
+    if (res != 0)                                  // check result
     {
         DBG_PRINTF("GPIO write HERE\r\n");
-        return 1;                                  /* return error */
+        return 1;                                  // return error
     }
-    res = handle->spi_write_cmd(&data, 1);         /* write data command */
+    res = handle->spi_write_cmd(&data, 1);         // write data command
+    if (res != 0)                                  // check result
+    {
+        DBG_PRINTF("SPI write HERE\r\n");
+        return 1;                                  // return error
+    }
+
+    return 0;                                      // success return 0
+}
+*/
+static uint8_t a_st7789_write_byte(st7789_handle_t *handle, uint8_t data, uint8_t cmd)
+{
+    uint8_t res = 0;
+    uint16_t word = data | (cmd<<8);
+    //res = handle->cmd_data_gpio_write(0);           // write gpio LOW
+    st7789_interface_cmd_data_gpio_write(0);
+    if(res != 0){
+        DBG_PRINTF("GPIO write failed\r\n");   
+    }
+    st7789_interface_spi_write_cmd(&word, 1);
+    //res = handle->spi_write_cmd(&word, 1);         /* write data command */
     if (res != 0)                                  /* check result */
     {
         DBG_PRINTF("SPI write HERE\r\n");
         return 1;                                  /* return error */
     }
-
+    //res = handle->cmd_data_gpio_write(1);           // write gpio HIGH
+    st7789_interface_cmd_data_gpio_write(0);
+    if(res != 0){
+        DBG_PRINTF("GPIO write failed\r\n");   
+    }
     return 0;                                      /* success return 0 */
 }
 
@@ -189,24 +214,29 @@ static uint8_t a_st7789_write_bytes(st7789_handle_t *handle, uint16_t *data, uin
 static uint8_t a_st7789_write_bytes(st7789_handle_t *handle, uint8_t *data, uint16_t len, uint8_t cmd)
 {
     uint8_t res;
-    uint16_t words[len];
-    for (unsigned int i = 0; i<len; i++) {
-        words[i] = data[i] | (cmd<<8);
+    DBG_PRINTF("here\r\n");
+    for (unsigned int i = 0; i < len; i++) {
+        uint16_t word = data[i] | (cmd<<8);
+        
+        //Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 0);    // write gpio LOW
+        res = handle->cmd_data_gpio_write(0);                 // write gpio LOW
+        if(res != 0){
+            DBG_PRINTF("GPIO write failed\r\n");   
+        }
+        res = handle->spi_write_cmd(&word, 1);              // write data command
+        if(res != 0)                                        // check result
+        {
+            DBG_PRINTF("GPIO write HERE\r\n");
+            return 1;                                       // return error
+        }
+        
+        //Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 1);    // write gpio HI
+        res = handle->cmd_data_gpio_write(1);               // write gpio HI
+        if(res != 0){
+            DBG_PRINTF("GPIO write failed\r\n");   
+        }
     }
-    res = handle->cmd_data_gpio_write(cmd);        /* write gpio */
-    if (res != 0)                                  /* check result */
-    {
-        DBG_PRINTF("GPIO write HERE\r\n");
-        return 1;                                  /* return error */
-    }
-    res = handle->spi_write_cmd(words, len);         //write data command
-    if (res != 0)                                   //check result
-    {
-        DBG_PRINTF("HERE 2\r\n");
-        return 1;                                   //return error
-    }
-
-    return 0;                                       //success return 0                                      /* success return 0 */
+    return 0;                                               // success return 0
 }
 
 
