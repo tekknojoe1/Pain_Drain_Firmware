@@ -48,6 +48,7 @@
 #include "power.h"
 #include "debug.h"
 #include "temp.h"
+#include "tens.h"
 #include <stdlib.h>
 
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
@@ -283,6 +284,13 @@ void AppCallBack(uint32 event, void *eventParam)
                         set_temp(temperatureValue);
                         DBG_PRINTF("t value: %d \r\n",writeReq->handleValPair.value.val[1]);
                     }
+                    else if(receivedCommand[0] == 'T')
+                    {
+                        int tensValue = atoi(&receivedCommand[1]); // Convert the numeric part after 't'
+                        DBG_PRINTF("T value: %d\r\n", tensValue);
+                        set_tens_amp(tensValue);
+                        DBG_PRINTF("T value: %d \r\n",writeReq->handleValPair.value.val[1]);
+                    }
                     val = writeReq->handleValPair.value.val[0];
                     //DBG_PRINTF("value %d\r\n", val);
                     // Sends a write with response command
@@ -352,6 +360,8 @@ int HostMain(void)
     PWM_FAN_Start();
     //PWM_VIBE_Start();
     PWM_TENS_Start();
+    PWM_TENS2_Start();
+    
     PWM_PEL1_Start();
     PWM_PEL2_Start();
     Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);  //Enable is low
@@ -366,6 +376,10 @@ int HostMain(void)
     while(1)
     {
         DBG_PRINTF("Loops from main %d\r\n", loopcount++);
+        //DBG_PRINTF("PWM1 from main %d\r\n", PWM_PEL1_GetCompare0());
+        //CyDelayUs(100);
+        //DBG_PRINTF("PWM2 from main %d\r\n", PWM_PEL2_GetCompare0());
+        //CyDelayUs(100);
         
         
         /* Cy_BLE_ProcessEvents() allows BLE stack to process pending events */
