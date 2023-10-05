@@ -403,7 +403,7 @@ void LowPowerImplementation(void)
     
     Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT);
 }
-/*
+
 // This is all testing
 void lcdReset(void) {
     // Set LCD_RESET pin high
@@ -426,26 +426,29 @@ void lcdReset(void) {
     CyDelay(120); // Delay 120ms
 }
 // Function to send a command byte over SPI
-void sendCommand(uint8_t cmd) {
-    // Set the 9th bit (CMD bit) in the command byte
-    uint16_t commandToSend = (1 << 8) | cmd;
-
+void sendData(uint8_t data) {
+    // 9th bit is 1 for data
+    uint16_t dataToSend = (1 << 8) | data;
+    DBG_PRINTF("dataToSend %d\r\n", dataToSend);
+    Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 0);
     // Send the 9-bit command byte over SPI
-    Cy_SCB_SPI_WriteArrayBlocking(SPI_HW, &commandToSend, 1);
+    Cy_SCB_SPI_WriteArray(SPI_HW, &dataToSend, 1);
 
     // Wait for the transfer to complete
     while (Cy_SCB_SPI_IsBusBusy(SPI_HW));
+    Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 1);
 }
 
-void sendData(uint8_t data) {
-    // Set the 9th bit (CMD bit) to 0 for data
-    uint16_t dataToSend = data;
-
+void sendCommand(uint8_t cmd) {
+    // 9th bit is 0 for command
+    uint16_t commandToSend = (0 << 8) | cmd;
+    DBG_PRINTF("commandToSend %d\r\n", commandToSend);
+    Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 0);
     // Send the 9-bit data byte over SPI
-    Cy_SCB_SPI_WriteArrayBlocking(SPI_HW, &dataToSend, 1);
-
+    Cy_SCB_SPI_WriteArray(SPI_HW, &commandToSend, 1);
     // Wait for the transfer to complete
     while (Cy_SCB_SPI_IsBusBusy(SPI_HW));
+    Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 1);
 }
 
 void LCDinit(void)
@@ -546,7 +549,7 @@ void drawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t 
         sendData(color & 0xFF); // Send low-byte of color
     }
 }
-*/
+
 /*******************************************************************************
 * Function Name: HostMain
 ********************************************************************************
@@ -570,7 +573,11 @@ int HostMain(void)
     DBG_PRINTF("Entering\r\n");
     //st7789_basic_init();
     SPI_Start();
-    st7789_display_test();
+    LCDinit();
+    sendCommand(0x21);
+    sendCommand(0x20);
+    //drawRectangle(10, 10, 50, 100, 0xF800);
+    //st7789_display_test();
     //st7789_basic_init();
     
     /* Start BLE component and register generic event handler */
