@@ -448,6 +448,9 @@ void sendData(uint8_t data) {
     
     
     // Send the 9-bit command byte over SPI
+        /* Clear Rx FIFO status. */
+    Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
+    Cy_SCB_SPI_ClearRxFifo(SPI_HW);
     txBuffer = Cy_SCB_SPI_Write(SPI_HW, dataToSend);
     //rxBuffer = Cy_SCB_SPI_Read(SPI_HW);
     // Wait for the transfer to complete
@@ -482,14 +485,25 @@ void sendCommand(uint8_t cmd) {
     
     // Send the 9-bit data byte over SPI
     //Cy_SCB_SPI_WriteArray(SPI_HW, &commandToSend, 1);
+        /* Clear Rx FIFO status. */
+    Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
+    Cy_SCB_SPI_ClearRxFifo(SPI_HW);
     txBuffer = Cy_SCB_SPI_Write(SPI_HW, commandToSend);
+<<<<<<< HEAD
     //rxBuffer = Cy_SCB_SPI_Read(SPI_HW);
     // Wait for the transfer to complete
+=======
+    /* Clear Master status and Tx FIFO status. */;
+    
+>>>>>>> 829675390091965bba4239573d466f1d7fae694f
     //spiStatus = Cy_SCB_SPI_Transfer(SPI_HW, &txBuffer, &rxBuffer, sizeof(commandToSend), &SPI_context);
     do {
         count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
     } while (count < 1);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 829675390091965bba4239573d466f1d7fae694f
     // Set to high after the spi is successful
     Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 1);
 }
@@ -587,6 +601,7 @@ void drawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t 
     uint32_t pixelCount = (uint32_t)(x2 - x1 + 1) * (y2 - y1 + 1);
 
     // Send the color data for each pixel
+    DBG_PRINTF("pixel count: %d\r\n", pixelCount);
     for (uint32_t i = 0; i < pixelCount; i++) {
         sendData((color >> 8) & 0xFF); // Send high-byte of color
         sendData(color & 0xFF); // Send low-byte of color
@@ -618,7 +633,11 @@ int HostMain(void)
     SPI_Start();
     LCDinit();
     sendCommand(0x21);
+<<<<<<< HEAD
     sendCommand(0x20);
+=======
+    //sendCommand(0x20);
+>>>>>>> 829675390091965bba4239573d466f1d7fae694f
     drawRectangle(10, 10, 50, 100, 0xF800);
     //st7789_display_test();
     //st7789_basic_init();
