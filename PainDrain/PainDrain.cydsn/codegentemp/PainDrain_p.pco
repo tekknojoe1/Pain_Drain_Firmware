@@ -14,12 +14,12 @@ set_location "\BLE:cy_mxs40_ble\" BLE -1 -1 0
 set_location "\PWM_FAN:TCPWM\" TCPWM -1 -1 0
 set_io "AMP_SCK(0)" iocell 5 1
 set_location "\SPI:SCB\" SCB -1 -1 2
-set_location "\LCD_PWM:TCPWM\" TCPWM -1 -1 9
+set_location "\PWM_PEL1:TCPWM\" TCPWM -1 -1 1
 set_location "\ADC:SAR\" SARADC -1 -1 0
-set_location "\AMP_PWM:TCPWM\" TCPWM -1 -1 7
+set_location "\PWM_PEL2:TCPWM\" TCPWM -1 -1 2
 set_io "PEL_2(0)" iocell 9 1
 set_location "ClockBlock" Clock -1 -1 0
-set_location "\PWM_PEL1:TCPWM\" TCPWM -1 -1 1
+set_location "\AMP_PWM:TCPWM\" TCPWM -1 -1 7
 set_location "\PWM_TENS:TCPWM\" TCPWM -1 -1 15
 set_io "DISP_INT(0)" iocell 7 1
 set_io "DISP_SCK(0)" iocell 9 2
@@ -31,7 +31,7 @@ set_io "PWR_BTN(0)" iocell 10 4
 set_io "PWR(0)" iocell 0 4
 set_io "DISP_MOSI(0)" iocell 9 0
 set_io "CHG_PG(0)" iocell 10 1
-set_location "\PWM_PEL2:TCPWM\" TCPWM -1 -1 2
+set_location "\LCD_PWM:TCPWM\" TCPWM -1 -1 9
 set_io "FAN_PWM(0)" iocell 10 3
 set_location "\I2S:cy_mxs40_i2s\" I2S -1 -1 0
 set_io "CHG_STAT(0)" iocell 10 0
