@@ -1,6 +1,10 @@
 // ======================================================================
 // PainDrain.v generated from TopDesign.cysch
+<<<<<<< HEAD
 // 10/06/2023 at 10:07
+=======
+// 10/05/2023 at 15:39
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -3280,7 +3284,11 @@ module top ;
 		#(.id("a4676f6b-0478-4d3c-9890-6ac86cc75611"),
 		  .source_clock_id("2FB4EC85-8328-4C5A-9ED9-8B63060178EB"),
 		  .divisor(0),
+<<<<<<< HEAD
 		  .period("20000000"),
+=======
+		  .period("40000000"),
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 		  .is_direct(0),
 		  .is_digital(0))
 		Clock_3

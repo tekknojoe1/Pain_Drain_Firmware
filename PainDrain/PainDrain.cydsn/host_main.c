@@ -427,8 +427,8 @@ void lcdReset(void) {
 }
 // Function to send a command byte over SPI
 void sendData(uint8_t data) {
-    cy_en_scb_spi_status_t spiStatus;
     uint32_t masterStatus;
+    cy_en_scb_spi_status_t spiStatus;
     int count;
     uint32_t txBuffer;
     uint32_t rxBuffer;
@@ -436,6 +436,17 @@ void sendData(uint8_t data) {
     uint16_t dataToSend = (1 << 8) | data;
     DBG_PRINTF("dataToSend %d\r\n", dataToSend);
     Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 0);
+    
+    /* Clear Master status and Tx FIFO status. */
+    Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
+    Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
+    Cy_SCB_SPI_ClearTxFifo(SPI_HW);
+    
+    /* Clear Rx FIFO status. */
+    Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
+    Cy_SCB_SPI_ClearRxFifo(SPI_HW);
+    
+    
     // Send the 9-bit command byte over SPI
         /* Clear Rx FIFO status. */
     Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
@@ -456,8 +467,8 @@ void sendData(uint8_t data) {
 }
 
 void sendCommand(uint8_t cmd) {
-    cy_en_scb_spi_status_t spiStatus;
     uint32_t masterStatus;
+    cy_en_scb_spi_status_t spiStatus;
     int count;
     uint32_t txBuffer;
     uint32_t rxBuffer;
@@ -465,6 +476,16 @@ void sendCommand(uint8_t cmd) {
     uint16_t commandToSend = (0 << 8) | cmd;
     DBG_PRINTF("commandToSend %d\r\n", commandToSend);
     Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 0);
+    
+    /* Clear Master status and Tx FIFO status. */
+    Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
+    Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
+    Cy_SCB_SPI_ClearTxFifo(SPI_HW);
+    
+    /* Clear Rx FIFO status. */
+    Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
+    Cy_SCB_SPI_ClearRxFifo(SPI_HW);
+    
     // Send the 9-bit data byte over SPI
     //Cy_SCB_SPI_WriteArray(SPI_HW, &commandToSend, 1);
         /* Clear Rx FIFO status. */
@@ -475,7 +496,7 @@ void sendCommand(uint8_t cmd) {
     Cy_SCB_SPI_ClearRxFifo(SPI_HW);
     txBuffer = Cy_SCB_SPI_Write(SPI_HW, commandToSend);
     /* Clear Master status and Tx FIFO status. */;
-    
+
     //spiStatus = Cy_SCB_SPI_Transfer(SPI_HW, &txBuffer, &rxBuffer, sizeof(commandToSend), &SPI_context);
     do {
         count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
@@ -721,7 +742,7 @@ int HostMain(void)
     ST7789_DrawPixel(55, 50, 0x07E0);
     ST7789_DrawPixel(56, 50, 0x07E0);
     //sendCommand(0x20);
-    //drawRectangle(10, 10, 50, 100, 0xF800);
+
     //st7789_display_test();
     //st7789_basic_init();
     

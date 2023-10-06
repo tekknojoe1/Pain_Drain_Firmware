@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 1
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
    1              		.syntax unified
@@ -58,7 +62,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
   27:system_psoc6_cm4.c ****     #if defined(CY_DEVICE_PSOC6ABLE2)
   28:system_psoc6_cm4.c ****         #include "cy_flash.h"
   29:system_psoc6_cm4.c ****     #endif /* defined(CY_DEVICE_PSOC6ABLE2) */
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 2
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 2
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
   30:system_psoc6_cm4.c **** #endif /* !defined(CY_IPC_DEFAULT_CFG_DISABLE) */
@@ -118,7 +126,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
   84:system_psoc6_cm4.c **** /** Holds the Alternate high frequency clock in Hz. Updated by \ref SystemCoreClockUpdate(). */
   85:system_psoc6_cm4.c **** #if (defined (CY_IP_MXBLESS) && (CY_IP_MXBLESS == 1UL)) || defined (CY_DOXYGEN)
   86:system_psoc6_cm4.c ****     uint32_t cy_BleEcoClockFreqHz = CY_CLK_ALTHF_FREQ_HZ;
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 3
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 3
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
   87:system_psoc6_cm4.c **** #endif /* (defined (CY_IP_MXBLESS) && (CY_IP_MXBLESS == 1UL)) || defined (CY_DOXYGEN) */
@@ -178,7 +190,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  141:system_psoc6_cm4.c **** #endif /* (SRSS_PILO_PRESENT == 1U) */
  142:system_psoc6_cm4.c **** 
  143:system_psoc6_cm4.c **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 4
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 4
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  144:system_psoc6_cm4.c **** /*******************************************************************************
@@ -238,7 +254,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  198:system_psoc6_cm4.c **** 
  199:system_psoc6_cm4.c **** 
  200:system_psoc6_cm4.c ****     /********************************************************************************
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 5
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 5
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  201:system_psoc6_cm4.c ****     *
@@ -298,7 +318,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  255:system_psoc6_cm4.c **** 
  256:system_psoc6_cm4.c **** /*******************************************************************************
  257:system_psoc6_cm4.c **** * Function Name: Cy_SystemInit
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 6
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 6
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  258:system_psoc6_cm4.c **** ****************************************************************************//**
@@ -358,7 +382,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  312:system_psoc6_cm4.c ****         srcFreqHz = CY_CLK_EXT_FREQ_HZ;
  313:system_psoc6_cm4.c ****     break;
  314:system_psoc6_cm4.c **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 7
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 7
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  315:system_psoc6_cm4.c ****     #if (SRSS_ECO_PRESENT == 1U)
@@ -418,7 +446,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  369:system_psoc6_cm4.c ****         bool fllOutputOutput = ( 3UL == _FLD2VAL(SRSS_CLK_FLL_CONFIG3_BYPASS_SEL, SRSS->CLK_FLL_CON
  370:system_psoc6_cm4.c ****         bool fllOutputAuto   = ((0UL == _FLD2VAL(SRSS_CLK_FLL_CONFIG3_BYPASS_SEL, SRSS->CLK_FLL_CON
  371:system_psoc6_cm4.c ****                                 (1UL == _FLD2VAL(SRSS_CLK_FLL_CONFIG3_BYPASS_SEL, SRSS->CLK_FLL_CON
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 8
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 8
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  372:system_psoc6_cm4.c ****         if ((fllOutputAuto && fllLocked) || fllOutputOutput)
@@ -478,7 +510,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  426:system_psoc6_cm4.c **** 
  427:system_psoc6_cm4.c ****     /* Peripheral Clock Divider */
  428:system_psoc6_cm4.c ****     periClkDiv = 1u + _FLD2VAL(CPUSS_CM0_CLOCK_CTL_PERI_INT_DIV, CPUSS->CM0_CLOCK_CTL);
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 9
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 9
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  429:system_psoc6_cm4.c ****     cy_PeriClkFreqHz = pathFreqHz / periClkDiv;
@@ -538,7 +574,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
   39 0004 FFF7FEFF 		bl	Cy_IPC_Pipe_ExecuteCallback
   40              	.LVL0:
   41 0008 08BD     		pop	{r3, pc}
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 10
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 10
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
   42              		.cfi_endproc
@@ -598,7 +638,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  308:system_psoc6_cm4.c ****     break;
   91              		.loc 1 308 0
   92 0020 5549     		ldr	r1, .L25+4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 11
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 11
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
   93 0022 14E0     		b	.L5
@@ -658,7 +702,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  138 0050 484B     		ldr	r3, .L25
  139              	.LVL11:
  140 0052 D3F89025 		ldr	r2, [r3, #1424]
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 12
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 12
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  141 0056 02F00100 		and	r0, r2, #1
@@ -718,7 +766,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  185 0094 D0F88425 		ldr	r2, [r0, #1412]
  186 0098 C2F30C02 		ubfx	r2, r2, #0, #13
  187              	.LVL18:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 13
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 13
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  380:system_psoc6_cm4.c **** 
@@ -778,7 +830,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  232              		.loc 1 394 0 is_stmt 0
  233 00e4 0123     		movs	r3, #1
  234 00e6 00E0     		b	.L15
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 14
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 14
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  235              	.L23:
@@ -838,7 +894,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  280              		.loc 1 422 0
  281 0126 1549     		ldr	r1, .L25+8
  282 0128 4A60     		str	r2, [r1, #4]
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 15
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 15
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  425:system_psoc6_cm4.c **** 
@@ -898,7 +958,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  328 017c 00000000 		.word	.LANCHOR0
  329 0180 00366E01 		.word	24000000
  330 0184 00002140 		.word	1075904512
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 16
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 16
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  331 0188 83DE1B43 		.word	1125899907
@@ -958,7 +1022,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  377              		.loc 1 245 0
  378 002a 0648     		ldr	r0, .L30+12
  379 002c FFF7FEFF 		bl	Cy_IPC_Pipe_Init
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 17
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 17
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  380              	.LVL46:
@@ -1018,7 +1086,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
    8:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * Copyright (c) 2009-2017 ARM Limited. All rights reserved.
    9:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  *
   10:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * SPDX-License-Identifier: Apache-2.0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 18
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 18
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
   11:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  *
@@ -1078,7 +1150,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
   65:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __PACKED_STRUCT                        struct __attribute__((packed, aligned(1)))
   66:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
   67:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __PACKED_UNION
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 19
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 19
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
   68:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
@@ -1138,7 +1214,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  122:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  */
  123:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
  124:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /**
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 20
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 20
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  125:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
@@ -1198,7 +1278,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  179:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \param [in]    control  Control Register value to set
  180:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  */
  181:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_CONTROL(uint32_t control)
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 21
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 21
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  182:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** {
@@ -1258,7 +1342,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  236:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
  237:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, xpsr" : "=r" (result) );
  238:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   return(result);
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 22
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 22
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  239:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** }
@@ -1318,7 +1406,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  293:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
  294:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
  295:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 23
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 23
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  296:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /**
@@ -1378,7 +1470,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  350:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
  351:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /**
  352:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \brief   Get Stack Pointer (non-secure)
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 24
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 24
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  353:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \details Returns the current value of the non-secure Stack Pointer (SP) when in secure state.
@@ -1438,7 +1534,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  407:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /**
  408:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \brief   Set Priority Mask
  409:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \details Assigns the given value to the Priority Mask Register.
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 25
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 25
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  410:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \param [in]    priMask  Priority Mask
@@ -1498,7 +1598,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  464:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
  465:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, basepri" : "=r" (result) );
  466:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   return(result);
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 26
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 26
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  467:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** }
@@ -1558,7 +1662,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  521:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
  522:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /**
  523:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \brief   Get Fault Mask
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 27
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 27
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  524:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \details Returns the current value of the Fault Mask register.
@@ -1618,7 +1726,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  578:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
  579:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
  580:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #if ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 28
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 28
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  581:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****      (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    )
@@ -1678,7 +1790,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  635:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \param [in]    ProcStackPtrLimit  Process Stack Pointer Limit value to set
  636:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  */
  637:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_PSPLIM(uint32_t ProcStackPtrLimit)
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 29
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 29
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  638:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** {
@@ -1738,7 +1854,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  692:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
  693:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE  ) && (__ARM_FEATURE_CMSE   == 3))
  694:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /**
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 30
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 30
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  695:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \brief   Get Main Stack Pointer Limit (non-secure)
@@ -1798,7 +1918,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  749:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   // without main extensions, the non-secure MSPLIM is RAZ/WI
  750:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   (void)MainStackPtrLimit;
  751:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #else
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 31
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 31
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  752:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __ASM volatile ("MSR msplim_ns, %0" : : "r" (MainStackPtrLimit));
@@ -1858,7 +1982,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  806:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** }
  807:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
  808:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif /* ((defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 32
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 32
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  809:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****            (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    ) */
@@ -1918,7 +2046,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  863:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /**
  864:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \brief   Instruction Synchronization Barrier
  865:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \details Instruction Synchronization Barrier flushes the pipeline in the processor,
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 33
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 33
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  866:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****            so that all instructions following the ISB are fetched from cache or memory,
@@ -1978,7 +2110,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  458              		.global	cy_BleEcoClockFreqHz
  459              		.global	cy_PeriClkFreqHz
  460              		.global	cy_Hfclk0FreqHz
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 34
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 34
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  461              		.global	SystemCoreClock
@@ -2038,7 +2174,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  515              	cy_delay32kMs:
  516 001c 0000A00F 		.word	262144000
  517              		.bss
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 35
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 35
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  518              		.align	2
@@ -2083,8 +2223,8 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  549 000b 01       		.uleb128 0x1
  550 000c CA0E0000 		.4byte	.LASF508
  551 0010 0C       		.byte	0xc
- 552 0011 481E0000 		.4byte	.LASF509
- 553 0015 141F0000 		.4byte	.LASF510
+ 552 0011 8E1E0000 		.4byte	.LASF509
+ 553 0015 C7190000 		.4byte	.LASF510
  554 0019 18000000 		.4byte	.Ldebug_ranges0+0x18
  555 001d 00000000 		.4byte	0
  556 0021 00000000 		.4byte	.Ldebug_line0
@@ -2098,14 +2238,18 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  564 0032 1D       		.byte	0x1d
  565 0033 37000000 		.4byte	0x37
  566 0037 02       		.uleb128 0x2
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 36
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 36
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  567 0038 01       		.byte	0x1
  568 0039 08       		.byte	0x8
  569 003a 6F150000 		.4byte	.LASF1
  570 003e 03       		.uleb128 0x3
- 571 003f BC1A0000 		.4byte	.LASF3
+ 571 003f 021B0000 		.4byte	.LASF3
  572 0043 03       		.byte	0x3
  573 0044 29       		.byte	0x29
  574 0045 49000000 		.4byte	0x49
@@ -2121,9 +2265,9 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  584 005b 02       		.uleb128 0x2
  585 005c 02       		.byte	0x2
  586 005d 07       		.byte	0x7
- 587 005e 70210000 		.4byte	.LASF6
+ 587 005e 7D210000 		.4byte	.LASF6
  588 0062 03       		.uleb128 0x3
- 589 0063 45220000 		.4byte	.LASF7
+ 589 0063 52220000 		.4byte	.LASF7
  590 0067 03       		.byte	0x3
  591 0068 3F       		.byte	0x3f
  592 0069 6D000000 		.4byte	0x6d
@@ -2158,14 +2302,18 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  621 009e 5E140000 		.4byte	.LASF13
  622 00a2 03       		.uleb128 0x3
  623 00a3 FC050000 		.4byte	.LASF14
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 37
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 37
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  624 00a7 04       		.byte	0x4
  625 00a8 18       		.byte	0x18
  626 00a9 2C000000 		.4byte	0x2c
  627 00ad 03       		.uleb128 0x3
- 628 00ae AA1D0000 		.4byte	.LASF15
+ 628 00ae F01D0000 		.4byte	.LASF15
  629 00b2 04       		.byte	0x4
  630 00b3 20       		.byte	0x20
  631 00b4 3E000000 		.4byte	0x3e
@@ -2175,12 +2323,12 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  635 00be 24       		.byte	0x24
  636 00bf 50000000 		.4byte	0x50
  637 00c3 03       		.uleb128 0x3
- 638 00c4 211A0000 		.4byte	.LASF17
+ 638 00c4 671A0000 		.4byte	.LASF17
  639 00c8 04       		.byte	0x4
  640 00c9 2C       		.byte	0x2c
  641 00ca 62000000 		.4byte	0x62
  642 00ce 03       		.uleb128 0x3
- 643 00cf C5200000 		.4byte	.LASF18
+ 643 00cf D2200000 		.4byte	.LASF18
  644 00d3 04       		.byte	0x4
  645 00d4 30       		.byte	0x30
  646 00d5 74000000 		.4byte	0x74
@@ -2197,13 +2345,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  657 00ec 090D0000 		.4byte	.LASF20
  658 00f0 72       		.sleb128 -14
  659 00f1 06       		.uleb128 0x6
- 660 00f2 EC220000 		.4byte	.LASF21
+ 660 00f2 F9220000 		.4byte	.LASF21
  661 00f6 73       		.sleb128 -13
  662 00f7 06       		.uleb128 0x6
  663 00f8 A40D0000 		.4byte	.LASF22
  664 00fc 74       		.sleb128 -12
  665 00fd 06       		.uleb128 0x6
- 666 00fe 9A1E0000 		.4byte	.LASF23
+ 666 00fe E01E0000 		.4byte	.LASF23
  667 0102 75       		.sleb128 -11
  668 0103 06       		.uleb128 0x6
  669 0104 68080000 		.4byte	.LASF24
@@ -2212,25 +2360,29 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  672 010a A1140000 		.4byte	.LASF25
  673 010e 7B       		.sleb128 -5
  674 010f 06       		.uleb128 0x6
- 675 0110 421C0000 		.4byte	.LASF26
+ 675 0110 881C0000 		.4byte	.LASF26
  676 0114 7C       		.sleb128 -4
  677 0115 06       		.uleb128 0x6
  678 0116 0C120000 		.4byte	.LASF27
  679 011a 7E       		.sleb128 -2
  680 011b 06       		.uleb128 0x6
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 38
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 38
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
- 681 011c 64230000 		.4byte	.LASF28
+ 681 011c 71230000 		.4byte	.LASF28
  682 0120 7F       		.sleb128 -1
  683 0121 07       		.uleb128 0x7
  684 0122 5D0A0000 		.4byte	.LASF29
  685 0126 00       		.byte	0
  686 0127 07       		.uleb128 0x7
- 687 0128 F3210000 		.4byte	.LASF30
+ 687 0128 00220000 		.4byte	.LASF30
  688 012c 01       		.byte	0x1
  689 012d 07       		.uleb128 0x7
- 690 012e D91F0000 		.4byte	.LASF31
+ 690 012e E61F0000 		.4byte	.LASF31
  691 0132 02       		.byte	0x2
  692 0133 07       		.uleb128 0x7
  693 0134 9D110000 		.4byte	.LASF32
@@ -2251,10 +2403,10 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  708 0152 70060000 		.4byte	.LASF37
  709 0156 08       		.byte	0x8
  710 0157 07       		.uleb128 0x7
- 711 0158 031E0000 		.4byte	.LASF38
+ 711 0158 491E0000 		.4byte	.LASF38
  712 015c 09       		.byte	0x9
  713 015d 07       		.uleb128 0x7
- 714 015e 6B1E0000 		.4byte	.LASF39
+ 714 015e B11E0000 		.4byte	.LASF39
  715 0162 0A       		.byte	0xa
  716 0163 07       		.uleb128 0x7
  717 0164 65100000 		.4byte	.LASF40
@@ -2272,16 +2424,20 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  729 017c 09150000 		.4byte	.LASF44
  730 0180 0F       		.byte	0xf
  731 0181 07       		.uleb128 0x7
- 732 0182 93200000 		.4byte	.LASF45
+ 732 0182 A0200000 		.4byte	.LASF45
  733 0186 10       		.byte	0x10
  734 0187 07       		.uleb128 0x7
- 735 0188 551D0000 		.4byte	.LASF46
+ 735 0188 9B1D0000 		.4byte	.LASF46
  736 018c 11       		.byte	0x11
  737 018d 07       		.uleb128 0x7
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 39
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 39
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
- 738 018e B9220000 		.4byte	.LASF47
+ 738 018e C6220000 		.4byte	.LASF47
  739 0192 12       		.byte	0x12
  740 0193 07       		.uleb128 0x7
  741 0194 FA000000 		.4byte	.LASF48
@@ -2290,22 +2446,22 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  744 019a 96160000 		.4byte	.LASF49
  745 019e 14       		.byte	0x14
  746 019f 07       		.uleb128 0x7
- 747 01a0 10200000 		.4byte	.LASF50
+ 747 01a0 1D200000 		.4byte	.LASF50
  748 01a4 15       		.byte	0x15
  749 01a5 07       		.uleb128 0x7
  750 01a6 2D020000 		.4byte	.LASF51
  751 01aa 16       		.byte	0x16
  752 01ab 07       		.uleb128 0x7
- 753 01ac 6B1D0000 		.4byte	.LASF52
+ 753 01ac B11D0000 		.4byte	.LASF52
  754 01b0 17       		.byte	0x17
  755 01b1 07       		.uleb128 0x7
  756 01b2 CD170000 		.4byte	.LASF53
  757 01b6 18       		.byte	0x18
  758 01b7 07       		.uleb128 0x7
- 759 01b8 A7210000 		.4byte	.LASF54
+ 759 01b8 B4210000 		.4byte	.LASF54
  760 01bc 19       		.byte	0x19
  761 01bd 07       		.uleb128 0x7
- 762 01be A31F0000 		.4byte	.LASF55
+ 762 01be B01F0000 		.4byte	.LASF55
  763 01c2 1A       		.byte	0x1a
  764 01c3 07       		.uleb128 0x7
  765 01c4 63110000 		.4byte	.LASF56
@@ -2326,7 +2482,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  780 01e2 54060000 		.4byte	.LASF61
  781 01e6 20       		.byte	0x20
  782 01e7 07       		.uleb128 0x7
- 783 01e8 C11D0000 		.4byte	.LASF62
+ 783 01e8 071E0000 		.4byte	.LASF62
  784 01ec 21       		.byte	0x21
  785 01ed 07       		.uleb128 0x7
  786 01ee F80F0000 		.4byte	.LASF63
@@ -2338,22 +2494,26 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  792 01fa 53050000 		.4byte	.LASF65
  793 01fe 24       		.byte	0x24
  794 01ff 07       		.uleb128 0x7
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 40
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 40
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
- 795 0200 E21A0000 		.4byte	.LASF66
+ 795 0200 281B0000 		.4byte	.LASF66
  796 0204 25       		.byte	0x25
  797 0205 07       		.uleb128 0x7
- 798 0206 DD190000 		.4byte	.LASF67
+ 798 0206 231A0000 		.4byte	.LASF67
  799 020a 26       		.byte	0x26
  800 020b 07       		.uleb128 0x7
  801 020c 5E0B0000 		.4byte	.LASF68
  802 0210 27       		.byte	0x27
  803 0211 07       		.uleb128 0x7
- 804 0212 9C220000 		.4byte	.LASF69
+ 804 0212 A9220000 		.4byte	.LASF69
  805 0216 28       		.byte	0x28
  806 0217 07       		.uleb128 0x7
- 807 0218 271B0000 		.4byte	.LASF70
+ 807 0218 6D1B0000 		.4byte	.LASF70
  808 021c 29       		.byte	0x29
  809 021d 07       		.uleb128 0x7
  810 021e 6D190000 		.4byte	.LASF71
@@ -2362,7 +2522,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  813 0224 34100000 		.4byte	.LASF72
  814 0228 2B       		.byte	0x2b
  815 0229 07       		.uleb128 0x7
- 816 022a 2B200000 		.4byte	.LASF73
+ 816 022a 38200000 		.4byte	.LASF73
  817 022e 2C       		.byte	0x2c
  818 022f 07       		.uleb128 0x7
  819 0230 FD150000 		.4byte	.LASF74
@@ -2371,7 +2531,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  822 0236 09020000 		.4byte	.LASF75
  823 023a 2E       		.byte	0x2e
  824 023b 07       		.uleb128 0x7
- 825 023c CC1C0000 		.4byte	.LASF76
+ 825 023c 121D0000 		.4byte	.LASF76
  826 0240 2F       		.byte	0x2f
  827 0241 07       		.uleb128 0x7
  828 0242 8C060000 		.4byte	.LASF77
@@ -2395,10 +2555,14 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  846 0266 77030000 		.4byte	.LASF83
  847 026a 36       		.byte	0x36
  848 026b 07       		.uleb128 0x7
- 849 026c 85230000 		.4byte	.LASF84
+ 849 026c 92230000 		.4byte	.LASF84
  850 0270 37       		.byte	0x37
  851 0271 07       		.uleb128 0x7
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 41
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 41
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  852 0272 D7160000 		.4byte	.LASF85
@@ -2407,7 +2571,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  855 0278 D2080000 		.4byte	.LASF86
  856 027c 39       		.byte	0x39
  857 027d 07       		.uleb128 0x7
- 858 027e 4A200000 		.4byte	.LASF87
+ 858 027e 57200000 		.4byte	.LASF87
  859 0282 3A       		.byte	0x3a
  860 0283 07       		.uleb128 0x7
  861 0284 18120000 		.4byte	.LASF88
@@ -2428,10 +2592,10 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  876 02a2 3E080000 		.4byte	.LASF93
  877 02a6 40       		.byte	0x40
  878 02a7 07       		.uleb128 0x7
- 879 02a8 861F0000 		.4byte	.LASF94
+ 879 02a8 931F0000 		.4byte	.LASF94
  880 02ac 41       		.byte	0x41
  881 02ad 07       		.uleb128 0x7
- 882 02ae 66220000 		.4byte	.LASF95
+ 882 02ae 73220000 		.4byte	.LASF95
  883 02b2 42       		.byte	0x42
  884 02b3 07       		.uleb128 0x7
  885 02b4 53150000 		.4byte	.LASF96
@@ -2452,13 +2616,17 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  900 02d2 7A090000 		.4byte	.LASF101
  901 02d6 48       		.byte	0x48
  902 02d7 07       		.uleb128 0x7
- 903 02d8 DD200000 		.4byte	.LASF102
+ 903 02d8 EA200000 		.4byte	.LASF102
  904 02dc 49       		.byte	0x49
  905 02dd 07       		.uleb128 0x7
  906 02de F6120000 		.4byte	.LASF103
  907 02e2 4A       		.byte	0x4a
  908 02e3 07       		.uleb128 0x7
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 42
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 42
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  909 02e4 49100000 		.4byte	.LASF104
@@ -2473,7 +2641,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  918 02f6 82190000 		.4byte	.LASF107
  919 02fa 4E       		.byte	0x4e
  920 02fb 07       		.uleb128 0x7
- 921 02fc CE1E0000 		.4byte	.LASF108
+ 921 02fc 141F0000 		.4byte	.LASF108
  922 0300 4F       		.byte	0x4f
  923 0301 07       		.uleb128 0x7
  924 0302 F7100000 		.4byte	.LASF109
@@ -2482,19 +2650,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  927 0308 3D030000 		.4byte	.LASF110
  928 030c 51       		.byte	0x51
  929 030d 07       		.uleb128 0x7
- 930 030e 901A0000 		.4byte	.LASF111
+ 930 030e D61A0000 		.4byte	.LASF111
  931 0312 52       		.byte	0x52
  932 0313 07       		.uleb128 0x7
  933 0314 2C0C0000 		.4byte	.LASF112
  934 0318 53       		.byte	0x53
  935 0319 07       		.uleb128 0x7
- 936 031a C61A0000 		.4byte	.LASF113
+ 936 031a 0C1B0000 		.4byte	.LASF113
  937 031e 54       		.byte	0x54
  938 031f 07       		.uleb128 0x7
  939 0320 72020000 		.4byte	.LASF114
  940 0324 55       		.byte	0x55
  941 0325 07       		.uleb128 0x7
- 942 0326 351D0000 		.4byte	.LASF115
+ 942 0326 7B1D0000 		.4byte	.LASF115
  943 032a 56       		.byte	0x56
  944 032b 07       		.uleb128 0x7
  945 032c 750E0000 		.4byte	.LASF116
@@ -2503,10 +2671,10 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  948 0332 AC060000 		.4byte	.LASF117
  949 0336 58       		.byte	0x58
  950 0337 07       		.uleb128 0x7
- 951 0338 281E0000 		.4byte	.LASF118
+ 951 0338 6E1E0000 		.4byte	.LASF118
  952 033c 59       		.byte	0x59
  953 033d 07       		.uleb128 0x7
- 954 033e 6A1B0000 		.4byte	.LASF119
+ 954 033e B01B0000 		.4byte	.LASF119
  955 0342 5A       		.byte	0x5a
  956 0343 07       		.uleb128 0x7
  957 0344 96010000 		.4byte	.LASF120
@@ -2515,16 +2683,20 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  960 034a 430A0000 		.4byte	.LASF121
  961 034e 5C       		.byte	0x5c
  962 034f 07       		.uleb128 0x7
- 963 0350 C3210000 		.4byte	.LASF122
+ 963 0350 D0210000 		.4byte	.LASF122
  964 0354 5D       		.byte	0x5d
  965 0355 07       		.uleb128 0x7
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 43
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 43
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
- 966 0356 BF1F0000 		.4byte	.LASF123
+ 966 0356 CC1F0000 		.4byte	.LASF123
  967 035a 5E       		.byte	0x5e
  968 035b 07       		.uleb128 0x7
- 969 035c 82220000 		.4byte	.LASF124
+ 969 035c 8F220000 		.4byte	.LASF124
  970 0360 5F       		.byte	0x5f
  971 0361 07       		.uleb128 0x7
  972 0362 AF030000 		.4byte	.LASF125
@@ -2542,7 +2714,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  984 037a F3080000 		.4byte	.LASF129
  985 037e 64       		.byte	0x64
  986 037f 07       		.uleb128 0x7
- 987 0380 AB200000 		.4byte	.LASF130
+ 987 0380 B8200000 		.4byte	.LASF130
  988 0384 65       		.byte	0x65
  989 0385 07       		.uleb128 0x7
  990 0386 4B120000 		.4byte	.LASF131
@@ -2566,7 +2738,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1008 03aa 32130000 		.4byte	.LASF137
  1009 03ae 6C       		.byte	0x6c
  1010 03af 07       		.uleb128 0x7
- 1011 03b0 22210000 		.4byte	.LASF138
+ 1011 03b0 2F210000 		.4byte	.LASF138
  1012 03b4 6D       		.byte	0x6d
  1013 03b5 07       		.uleb128 0x7
  1014 03b6 66130000 		.4byte	.LASF139
@@ -2578,7 +2750,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1020 03c2 03030000 		.4byte	.LASF141
  1021 03c6 70       		.byte	0x70
  1022 03c7 07       		.uleb128 0x7
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 44
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 44
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1023 03c8 790A0000 		.4byte	.LASF142
@@ -2590,7 +2766,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1029 03d4 78080000 		.4byte	.LASF144
  1030 03d8 73       		.byte	0x73
  1031 03d9 07       		.uleb128 0x7
- 1032 03da F51F0000 		.4byte	.LASF145
+ 1032 03da 02200000 		.4byte	.LASF145
  1033 03de 74       		.byte	0x74
  1034 03df 07       		.uleb128 0x7
  1035 03e0 B9110000 		.4byte	.LASF146
@@ -2599,7 +2775,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1038 03e6 D30B0000 		.4byte	.LASF147
  1039 03ea 76       		.byte	0x76
  1040 03eb 07       		.uleb128 0x7
- 1041 03ec 0F230000 		.4byte	.LASF148
+ 1041 03ec 1C230000 		.4byte	.LASF148
  1042 03f0 77       		.byte	0x77
  1043 03f1 07       		.uleb128 0x7
  1044 03f2 7B000000 		.4byte	.LASF149
@@ -2611,7 +2787,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1050 03fe A5040000 		.4byte	.LASF151
  1051 0402 7A       		.byte	0x7a
  1052 0403 07       		.uleb128 0x7
- 1053 0404 841B0000 		.4byte	.LASF152
+ 1053 0404 CA1B0000 		.4byte	.LASF152
  1054 0408 7B       		.byte	0x7b
  1055 0409 07       		.uleb128 0x7
  1056 040a B70C0000 		.4byte	.LASF153
@@ -2620,7 +2796,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1059 0410 00000000 		.4byte	.LASF154
  1060 0414 7D       		.byte	0x7d
  1061 0415 07       		.uleb128 0x7
- 1062 0416 DD210000 		.4byte	.LASF155
+ 1062 0416 EA210000 		.4byte	.LASF155
  1063 041a 7E       		.byte	0x7e
  1064 041b 07       		.uleb128 0x7
  1065 041c CD130000 		.4byte	.LASF156
@@ -2632,16 +2808,20 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1071 0428 C9030000 		.4byte	.LASF158
  1072 042c 81       		.byte	0x81
  1073 042d 07       		.uleb128 0x7
- 1074 042e C7190000 		.4byte	.LASF159
+ 1074 042e 0D1A0000 		.4byte	.LASF159
  1075 0432 82       		.byte	0x82
  1076 0433 07       		.uleb128 0x7
  1077 0434 3D0B0000 		.4byte	.LASF160
  1078 0438 83       		.byte	0x83
  1079 0439 07       		.uleb128 0x7
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 45
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 45
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
- 1080 043a 7C200000 		.4byte	.LASF161
+ 1080 043a 89200000 		.4byte	.LASF161
  1081 043e 84       		.byte	0x84
  1082 043f 07       		.uleb128 0x7
  1083 0440 34120000 		.4byte	.LASF162
@@ -2662,7 +2842,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1098 045e C7140000 		.4byte	.LASF167
  1099 0462 8A       		.byte	0x8a
  1100 0463 07       		.uleb128 0x7
- 1101 0464 461B0000 		.4byte	.LASF168
+ 1101 0464 8C1B0000 		.4byte	.LASF168
  1102 0468 8B       		.byte	0x8b
  1103 0469 07       		.uleb128 0x7
  1104 046a 74170000 		.4byte	.LASF169
@@ -2698,7 +2878,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1134 04a6 04       		.byte	0x4
  1135 04a7 07       		.byte	0x7
  1136 04a8 48000000 		.4byte	.LASF178
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 46
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 46
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1137 04ac 08       		.uleb128 0x8
@@ -2758,11 +2942,15 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1191 0520 C101     		.2byte	0x1c1
  1192 0522 AC040000 		.4byte	0x4ac
  1193 0526 24       		.byte	0x24
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 47
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 47
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1194 0527 0A       		.uleb128 0xa
- 1195 0528 9A1B0000 		.4byte	.LASF184
+ 1195 0528 E01B0000 		.4byte	.LASF184
  1196 052c 06       		.byte	0x6
  1197 052d C201     		.2byte	0x1c2
  1198 052f AC040000 		.4byte	0x4ac
@@ -2780,7 +2968,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1210 0549 AC040000 		.4byte	0x4ac
  1211 054d 30       		.byte	0x30
  1212 054e 0A       		.uleb128 0xa
- 1213 054f 181D0000 		.4byte	.LASF187
+ 1213 054f 5E1D0000 		.4byte	.LASF187
  1214 0553 06       		.byte	0x6
  1215 0554 C501     		.2byte	0x1c5
  1216 0556 AC040000 		.4byte	0x4ac
@@ -2792,7 +2980,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1222 0563 AC040000 		.4byte	0x4ac
  1223 0567 38       		.byte	0x38
  1224 0568 0A       		.uleb128 0xa
- 1225 0569 221B0000 		.4byte	.LASF189
+ 1225 0569 681B0000 		.4byte	.LASF189
  1226 056d 06       		.byte	0x6
  1227 056e C701     		.2byte	0x1c7
  1228 0570 AC040000 		.4byte	0x4ac
@@ -2816,16 +3004,20 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1246 0597 D1050000 		.4byte	0x5d1
  1247 059b 4C       		.byte	0x4c
  1248 059c 0A       		.uleb128 0xa
- 1249 059d FA1C0000 		.4byte	.LASF190
+ 1249 059d 401D0000 		.4byte	.LASF190
  1250 05a1 06       		.byte	0x6
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 48
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 48
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1251 05a2 CB01     		.2byte	0x1cb
  1252 05a4 1A060000 		.4byte	0x61a
  1253 05a8 50       		.byte	0x50
  1254 05a9 0A       		.uleb128 0xa
- 1255 05aa B21D0000 		.4byte	.LASF191
+ 1255 05aa F81D0000 		.4byte	.LASF191
  1256 05ae 06       		.byte	0x6
  1257 05af CC01     		.2byte	0x1cc
  1258 05b1 34060000 		.4byte	0x634
@@ -2837,7 +3029,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1264 05be 39060000 		.4byte	0x639
  1265 05c2 74       		.byte	0x74
  1266 05c3 0A       		.uleb128 0xa
- 1267 05c4 92210000 		.4byte	.LASF193
+ 1267 05c4 9F210000 		.4byte	.LASF193
  1268 05c8 06       		.byte	0x6
  1269 05c9 CE01     		.2byte	0x1ce
  1270 05cb AC040000 		.4byte	0x4ac
@@ -2878,7 +3070,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1305 061b 15060000 		.4byte	0x615
  1306 061f 0D       		.uleb128 0xd
  1307 0620 D1050000 		.4byte	0x5d1
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 49
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 49
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1308 0624 2F060000 		.4byte	0x62f
@@ -2938,7 +3134,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1362 06a3 0F       		.byte	0xf
  1363 06a4 00       		.byte	0
  1364 06a5 0D       		.uleb128 0xd
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 50
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 50
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1365 06a6 D1050000 		.4byte	0x5d1
@@ -2991,14 +3191,18 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1412 0709 D1050000 		.4byte	0x5d1
  1413 070d 0C       		.byte	0xc
  1414 070e 11       		.uleb128 0x11
- 1415 070f AE1A0000 		.4byte	.LASF199
+ 1415 070f F41A0000 		.4byte	.LASF199
  1416 0713 07       		.byte	0x7
  1417 0714 26       		.byte	0x26
  1418 0715 AC040000 		.4byte	0x4ac
  1419 0719 10       		.byte	0x10
  1420 071a 11       		.uleb128 0x11
  1421 071b D6060000 		.4byte	.LASF200
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 51
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 51
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1422 071f 07       		.byte	0x7
@@ -3006,49 +3210,49 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1424 0721 340A0000 		.4byte	0xa34
  1425 0725 14       		.byte	0x14
  1426 0726 11       		.uleb128 0x11
- 1427 0727 641C0000 		.4byte	.LASF201
+ 1427 0727 AA1C0000 		.4byte	.LASF201
  1428 072b 07       		.byte	0x7
  1429 072c 28       		.byte	0x28
  1430 072d AC040000 		.4byte	0x4ac
  1431 0731 20       		.byte	0x20
  1432 0732 11       		.uleb128 0x11
- 1433 0733 711C0000 		.4byte	.LASF202
+ 1433 0733 B71C0000 		.4byte	.LASF202
  1434 0737 07       		.byte	0x7
  1435 0738 29       		.byte	0x29
  1436 0739 AC040000 		.4byte	0x4ac
  1437 073d 24       		.byte	0x24
  1438 073e 11       		.uleb128 0x11
- 1439 073f 7E1C0000 		.4byte	.LASF203
+ 1439 073f C41C0000 		.4byte	.LASF203
  1440 0743 07       		.byte	0x7
  1441 0744 2A       		.byte	0x2a
  1442 0745 AC040000 		.4byte	0x4ac
  1443 0749 28       		.byte	0x28
  1444 074a 11       		.uleb128 0x11
- 1445 074b 8B1C0000 		.4byte	.LASF204
+ 1445 074b D11C0000 		.4byte	.LASF204
  1446 074f 07       		.byte	0x7
  1447 0750 2B       		.byte	0x2b
  1448 0751 AC040000 		.4byte	0x4ac
  1449 0755 2C       		.byte	0x2c
  1450 0756 11       		.uleb128 0x11
- 1451 0757 981C0000 		.4byte	.LASF205
+ 1451 0757 DE1C0000 		.4byte	.LASF205
  1452 075b 07       		.byte	0x7
  1453 075c 2C       		.byte	0x2c
  1454 075d AC040000 		.4byte	0x4ac
  1455 0761 30       		.byte	0x30
  1456 0762 11       		.uleb128 0x11
- 1457 0763 A51C0000 		.4byte	.LASF206
+ 1457 0763 EB1C0000 		.4byte	.LASF206
  1458 0767 07       		.byte	0x7
  1459 0768 2D       		.byte	0x2d
  1460 0769 AC040000 		.4byte	0x4ac
  1461 076d 34       		.byte	0x34
  1462 076e 11       		.uleb128 0x11
- 1463 076f B21C0000 		.4byte	.LASF207
+ 1463 076f F81C0000 		.4byte	.LASF207
  1464 0773 07       		.byte	0x7
  1465 0774 2E       		.byte	0x2e
  1466 0775 AC040000 		.4byte	0x4ac
  1467 0779 38       		.byte	0x38
  1468 077a 11       		.uleb128 0x11
- 1469 077b BF1C0000 		.4byte	.LASF208
+ 1469 077b 051D0000 		.4byte	.LASF208
  1470 077f 07       		.byte	0x7
  1471 0780 2F       		.byte	0x2f
  1472 0781 AC040000 		.4byte	0x4ac
@@ -3058,7 +3262,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1476 078b 07       		.byte	0x7
  1477 078c 30       		.byte	0x30
  1478 078d 3E0A0000 		.4byte	0xa3e
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 52
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 52
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1479 0791 40       		.byte	0x40
@@ -3075,7 +3283,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1490 07a5 AC040000 		.4byte	0x4ac
  1491 07a9 84       		.byte	0x84
  1492 07aa 11       		.uleb128 0x11
- 1493 07ab 17210000 		.4byte	.LASF212
+ 1493 07ab 24210000 		.4byte	.LASF212
  1494 07af 07       		.byte	0x7
  1495 07b0 33       		.byte	0x33
  1496 07b1 D1050000 		.4byte	0x5d1
@@ -3087,7 +3295,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1502 07bd D1050000 		.4byte	0x5d1
  1503 07c1 8C       		.byte	0x8c
  1504 07c2 11       		.uleb128 0x11
- 1505 07c3 56230000 		.4byte	.LASF214
+ 1505 07c3 63230000 		.4byte	.LASF214
  1506 07c7 07       		.byte	0x7
  1507 07c8 35       		.byte	0x35
  1508 07c9 AC040000 		.4byte	0x4ac
@@ -3111,14 +3319,18 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1526 07ed 620A0000 		.4byte	0xa62
  1527 07f1 A4       		.byte	0xa4
  1528 07f2 12       		.uleb128 0x12
- 1529 07f3 F11D0000 		.4byte	.LASF218
+ 1529 07f3 371E0000 		.4byte	.LASF218
  1530 07f7 07       		.byte	0x7
  1531 07f8 39       		.byte	0x39
  1532 07f9 AC040000 		.4byte	0x4ac
  1533 07fd 0001     		.2byte	0x100
  1534 07ff 12       		.uleb128 0x12
  1535 0800 08070000 		.4byte	.LASF219
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 53
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 53
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1536 0804 07       		.byte	0x7
@@ -3178,7 +3390,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1590 0879 07       		.byte	0x7
  1591 087a 43       		.byte	0x43
  1592 087b A90A0000 		.4byte	0xaa9
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 54
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 54
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1593 087f B401     		.2byte	0x1b4
@@ -3213,7 +3429,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1622 08bc AC040000 		.4byte	0x4ac
  1623 08c0 F001     		.2byte	0x1f0
  1624 08c2 12       		.uleb128 0x12
- 1625 08c3 ED1B0000 		.4byte	.LASF234
+ 1625 08c3 331C0000 		.4byte	.LASF234
  1626 08c7 07       		.byte	0x7
  1627 08c8 49       		.byte	0x49
  1628 08c9 AC040000 		.4byte	0x4ac
@@ -3238,7 +3454,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1647 08f4 0C02     		.2byte	0x20c
  1648 08f6 12       		.uleb128 0x12
  1649 08f7 380E0000 		.4byte	.LASF238
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 55
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 55
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1650 08fb 07       		.byte	0x7
@@ -3276,7 +3496,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1682 093e EF0A0000 		.4byte	0xaef
  1683 0942 4402     		.2byte	0x244
  1684 0944 12       		.uleb128 0x12
- 1685 0945 0B1A0000 		.4byte	.LASF244
+ 1685 0945 511A0000 		.4byte	.LASF244
  1686 0949 07       		.byte	0x7
  1687 094a 53       		.byte	0x53
  1688 094b AC040000 		.4byte	0x4ac
@@ -3294,11 +3514,15 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1700 0965 AC040000 		.4byte	0x4ac
  1701 0969 C002     		.2byte	0x2c0
  1702 096b 12       		.uleb128 0x12
- 1703 096c 431A0000 		.4byte	.LASF247
+ 1703 096c 891A0000 		.4byte	.LASF247
  1704 0970 07       		.byte	0x7
  1705 0971 56       		.byte	0x56
  1706 0972 030B0000 		.4byte	0xb03
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 56
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 56
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1707 0976 C402     		.2byte	0x2c4
@@ -3309,19 +3533,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1712 097f AC040000 		.4byte	0x4ac
  1713 0983 2003     		.2byte	0x320
  1714 0985 12       		.uleb128 0x12
- 1715 0986 4E1A0000 		.4byte	.LASF249
+ 1715 0986 941A0000 		.4byte	.LASF249
  1716 098a 07       		.byte	0x7
  1717 098b 58       		.byte	0x58
  1718 098c 1D0B0000 		.4byte	0xb1d
  1719 0990 2403     		.2byte	0x324
  1720 0992 12       		.uleb128 0x12
- 1721 0993 1F1E0000 		.4byte	.LASF250
+ 1721 0993 651E0000 		.4byte	.LASF250
  1722 0997 07       		.byte	0x7
  1723 0998 59       		.byte	0x59
  1724 0999 D1050000 		.4byte	0x5d1
  1725 099d 0004     		.2byte	0x400
  1726 099f 12       		.uleb128 0x12
- 1727 09a0 591A0000 		.4byte	.LASF251
+ 1727 09a0 9F1A0000 		.4byte	.LASF251
  1728 09a4 07       		.byte	0x7
  1729 09a5 5A       		.byte	0x5a
  1730 09a6 270B0000 		.4byte	0xb27
@@ -3333,19 +3557,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1736 09b3 AC040000 		.4byte	0x4ac
  1737 09b7 0005     		.2byte	0x500
  1738 09b9 12       		.uleb128 0x12
- 1739 09ba 641A0000 		.4byte	.LASF253
+ 1739 09ba AA1A0000 		.4byte	.LASF253
  1740 09be 07       		.byte	0x7
  1741 09bf 5C       		.byte	0x5c
  1742 09c0 310B0000 		.4byte	0xb31
  1743 09c4 0405     		.2byte	0x504
  1744 09c6 12       		.uleb128 0x12
- 1745 09c7 FF1C0000 		.4byte	.LASF254
+ 1745 09c7 451D0000 		.4byte	.LASF254
  1746 09cb 07       		.byte	0x7
  1747 09cc 5D       		.byte	0x5d
  1748 09cd AC040000 		.4byte	0x4ac
  1749 09d1 2005     		.2byte	0x520
  1750 09d3 12       		.uleb128 0x12
- 1751 09d4 6F1A0000 		.4byte	.LASF255
+ 1751 09d4 B51A0000 		.4byte	.LASF255
  1752 09d8 07       		.byte	0x7
  1753 09d9 5E       		.byte	0x5e
  1754 09da 3B0B0000 		.4byte	0xb3b
@@ -3357,8 +3581,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1760 09e7 AC040000 		.4byte	0x4ac
  1761 09eb 4005     		.2byte	0x540
  1762 09ed 12       		.uleb128 0x12
+<<<<<<< HEAD
  1763 09ee 7A1A0000 		.4byte	.LASF257
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 57
+=======
+ 1763 09ee C01A0000 		.4byte	.LASF257
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 57
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1764 09f2 07       		.byte	0x7
@@ -3372,7 +3601,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1772 0a01 D1050000 		.4byte	0x5d1
  1773 0a05 A005     		.2byte	0x5a0
  1774 0a07 12       		.uleb128 0x12
- 1775 0a08 851A0000 		.4byte	.LASF259
+ 1775 0a08 CB1A0000 		.4byte	.LASF259
  1776 0a0c 07       		.byte	0x7
  1777 0a0d 62       		.byte	0x62
  1778 0a0e 600B0000 		.4byte	0xb60
@@ -3418,7 +3647,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1818 0a6c 770A0000 		.4byte	0xa77
  1819 0a70 0E       		.uleb128 0xe
  1820 0a71 A5040000 		.4byte	0x4a5
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 58
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 58
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1821 0a75 0E       		.byte	0xe
@@ -3478,7 +3711,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1875 0af9 0C       		.uleb128 0xc
  1876 0afa F40A0000 		.4byte	0xaf4
  1877 0afe 08       		.uleb128 0x8
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 59
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 59
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1878 0aff 4D0A0000 		.4byte	0xa4d
@@ -3538,7 +3775,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1932 0b7e 24       		.byte	0x24
  1933 0b7f D1050000 		.4byte	0x5d1
  1934 0b83 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 60
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 60
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1935 0b84 11       		.uleb128 0x11
@@ -3560,7 +3801,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1951 0ba3 AC040000 		.4byte	0x4ac
  1952 0ba7 0C       		.byte	0xc
  1953 0ba8 11       		.uleb128 0x11
- 1954 0ba9 B51E0000 		.4byte	.LASF267
+ 1954 0ba9 FB1E0000 		.4byte	.LASF267
  1955 0bad 08       		.byte	0x8
  1956 0bae 28       		.byte	0x28
  1957 0baf D1050000 		.4byte	0x5d1
@@ -3598,7 +3839,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  1989 0bf0 31       		.byte	0x31
  1990 0bf1 AC040000 		.4byte	0x4ac
  1991 0bf5 04       		.byte	0x4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 61
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 61
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1992 0bf6 11       		.uleb128 0x11
@@ -3625,7 +3870,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2013 0c20 0C       		.uleb128 0xc
  2014 0c21 1B0C0000 		.4byte	0xc1b
  2015 0c25 03       		.uleb128 0x3
- 2016 0c26 1D220000 		.4byte	.LASF273
+ 2016 0c26 2A220000 		.4byte	.LASF273
  2017 0c2a 08       		.byte	0x8
  2018 0c2b 35       		.byte	0x35
  2019 0c2c D60B0000 		.4byte	0xbd6
@@ -3648,7 +3893,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2036 0c4f D1050000 		.4byte	0x5d1
  2037 0c53 00       		.byte	0
  2038 0c54 11       		.uleb128 0x11
- 2039 0c55 C11E0000 		.4byte	.LASF274
+ 2039 0c55 071F0000 		.4byte	.LASF274
  2040 0c59 09       		.byte	0x9
  2041 0c5a 24       		.byte	0x24
  2042 0c5b AC040000 		.4byte	0x4ac
@@ -3658,7 +3903,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2046 0c65 09       		.byte	0x9
  2047 0c66 25       		.byte	0x25
  2048 0c67 AC040000 		.4byte	0x4ac
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 62
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 62
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2049 0c6b 08       		.byte	0x8
@@ -3675,7 +3924,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2060 0c7f AC040000 		.4byte	0x4ac
  2061 0c83 10       		.byte	0x10
  2062 0c84 11       		.uleb128 0x11
- 2063 0c85 E11C0000 		.4byte	.LASF278
+ 2063 0c85 271D0000 		.4byte	.LASF278
  2064 0c89 09       		.byte	0x9
  2065 0c8a 28       		.byte	0x28
  2066 0c8b AC040000 		.4byte	0x4ac
@@ -3718,14 +3967,18 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2103 0cd7 2C       		.byte	0x2c
  2104 0cd8 00       		.byte	0
  2105 0cd9 08       		.uleb128 0x8
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 63
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 63
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2106 0cda 1F060000 		.4byte	0x61f
  2107 0cde 0C       		.uleb128 0xc
  2108 0cdf D90C0000 		.4byte	0xcd9
  2109 0ce3 03       		.uleb128 0x3
- 2110 0ce4 841D0000 		.4byte	.LASF284
+ 2110 0ce4 CA1D0000 		.4byte	.LASF284
  2111 0ce8 09       		.byte	0x9
  2112 0ce9 2F       		.byte	0x2f
  2113 0cea 400C0000 		.4byte	0xc40
@@ -3771,14 +4024,18 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2153 0d3a AC040000 		.4byte	0x4ac
  2154 0d3e 18       		.byte	0x18
  2155 0d3f 11       		.uleb128 0x11
- 2156 0d40 98210000 		.4byte	.LASF290
+ 2156 0d40 A5210000 		.4byte	.LASF290
  2157 0d44 09       		.byte	0x9
  2158 0d45 3B       		.byte	0x3b
  2159 0d46 D1050000 		.4byte	0x5d1
  2160 0d4a 1C       		.byte	0x1c
  2161 0d4b 11       		.uleb128 0x11
  2162 0d4c CC060000 		.4byte	.LASF198
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 64
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 64
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2163 0d50 09       		.byte	0x9
@@ -3786,7 +4043,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2165 0d52 81100000 		.4byte	0x1081
  2166 0d56 20       		.byte	0x20
  2167 0d57 11       		.uleb128 0x11
- 2168 0d58 DF220000 		.4byte	.LASF291
+ 2168 0d58 EC220000 		.4byte	.LASF291
  2169 0d5c 09       		.byte	0x9
  2170 0d5d 3D       		.byte	0x3d
  2171 0d5e 86100000 		.4byte	0x1086
@@ -3798,19 +4055,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2177 0d6a 90100000 		.4byte	0x1090
  2178 0d6e C0       		.byte	0xc0
  2179 0d6f 12       		.uleb128 0x12
- 2180 0d70 3A230000 		.4byte	.LASF292
+ 2180 0d70 47230000 		.4byte	.LASF292
  2181 0d74 09       		.byte	0x9
  2182 0d75 3F       		.byte	0x3f
  2183 0d76 AC040000 		.4byte	0x4ac
  2184 0d7a 8001     		.2byte	0x180
  2185 0d7c 12       		.uleb128 0x12
- 2186 0d7d 3A1C0000 		.4byte	.LASF293
+ 2186 0d7d 801C0000 		.4byte	.LASF293
  2187 0d81 09       		.byte	0x9
  2188 0d82 40       		.byte	0x40
  2189 0d83 AC040000 		.4byte	0x4ac
  2190 0d87 8401     		.2byte	0x184
  2191 0d89 12       		.uleb128 0x12
- 2192 0d8a B71D0000 		.4byte	.LASF294
+ 2192 0d8a FD1D0000 		.4byte	.LASF294
  2193 0d8e 09       		.byte	0x9
  2194 0d8f 41       		.byte	0x41
  2195 0d90 AC040000 		.4byte	0x4ac
@@ -3822,7 +4079,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2201 0d9d 9A100000 		.4byte	0x109a
  2202 0da1 8C01     		.2byte	0x18c
  2203 0da3 12       		.uleb128 0x12
- 2204 0da4 0B1D0000 		.4byte	.LASF295
+ 2204 0da4 511D0000 		.4byte	.LASF295
  2205 0da8 09       		.byte	0x9
  2206 0da9 43       		.byte	0x43
  2207 0daa 9F100000 		.4byte	0x109f
@@ -3838,7 +4095,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2217 0dc2 09       		.byte	0x9
  2218 0dc3 45       		.byte	0x45
  2219 0dc4 B4100000 		.4byte	0x10b4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 65
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 65
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2220 0dc8 4003     		.2byte	0x340
@@ -3873,19 +4134,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2249 0e05 D1050000 		.4byte	0x5d1
  2250 0e09 0805     		.2byte	0x508
  2251 0e0b 12       		.uleb128 0x12
- 2252 0e0c CE200000 		.4byte	.LASF301
+ 2252 0e0c DB200000 		.4byte	.LASF301
  2253 0e10 09       		.byte	0x9
  2254 0e11 4B       		.byte	0x4b
  2255 0e12 AC040000 		.4byte	0x4ac
  2256 0e16 0C05     		.2byte	0x50c
  2257 0e18 12       		.uleb128 0x12
- 2258 0e19 EB1C0000 		.4byte	.LASF302
+ 2258 0e19 311D0000 		.4byte	.LASF302
  2259 0e1d 09       		.byte	0x9
  2260 0e1e 4C       		.byte	0x4c
  2261 0e1f AC040000 		.4byte	0x4ac
  2262 0e23 1005     		.2byte	0x510
  2263 0e25 12       		.uleb128 0x12
- 2264 0e26 2A230000 		.4byte	.LASF303
+ 2264 0e26 37230000 		.4byte	.LASF303
  2265 0e2a 09       		.byte	0x9
  2266 0e2b 4D       		.byte	0x4d
  2267 0e2c AC040000 		.4byte	0x4ac
@@ -3898,7 +4159,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2274 0e3d 1805     		.2byte	0x518
  2275 0e3f 12       		.uleb128 0x12
  2276 0e40 230B0000 		.4byte	.LASF305
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 66
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 66
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2277 0e44 09       		.byte	0x9
@@ -3924,7 +4189,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2297 0e6d AC040000 		.4byte	0x4ac
  2298 0e71 2C05     		.2byte	0x52c
  2299 0e73 12       		.uleb128 0x12
- 2300 0e74 47230000 		.4byte	.LASF308
+ 2300 0e74 54230000 		.4byte	.LASF308
  2301 0e78 09       		.byte	0x9
  2302 0e79 53       		.byte	0x53
  2303 0e7a D1050000 		.4byte	0x5d1
@@ -3936,7 +4201,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2309 0e87 E7100000 		.4byte	0x10e7
  2310 0e8b 3405     		.2byte	0x534
  2311 0e8d 12       		.uleb128 0x12
- 2312 0e8e 541C0000 		.4byte	.LASF309
+ 2312 0e8e 9A1C0000 		.4byte	.LASF309
  2313 0e92 09       		.byte	0x9
  2314 0e93 55       		.byte	0x55
  2315 0e94 AC040000 		.4byte	0x4ac
@@ -3958,7 +4223,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2331 0eb9 09       		.byte	0x9
  2332 0eba 58       		.byte	0x58
  2333 0ebb AC040000 		.4byte	0x4ac
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 67
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 67
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2334 0ebf 8405     		.2byte	0x584
@@ -3975,7 +4244,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2345 0ed5 AC040000 		.4byte	0x4ac
  2346 0ed9 8C05     		.2byte	0x58c
  2347 0edb 12       		.uleb128 0x12
- 2348 0edc 83210000 		.4byte	.LASF314
+ 2348 0edc 90210000 		.4byte	.LASF314
  2349 0ee0 09       		.byte	0x9
  2350 0ee1 5B       		.byte	0x5b
  2351 0ee2 AC040000 		.4byte	0x4ac
@@ -3999,7 +4268,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2369 0f09 D1050000 		.4byte	0x5d1
  2370 0f0d 3C06     		.2byte	0x63c
  2371 0f0f 12       		.uleb128 0x12
- 2372 0f10 131B0000 		.4byte	.LASF316
+ 2372 0f10 591B0000 		.4byte	.LASF316
  2373 0f14 09       		.byte	0x9
  2374 0f15 5F       		.byte	0x5f
  2375 0f16 15110000 		.4byte	0x1115
@@ -4018,7 +4287,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2388 0f34 0007     		.2byte	0x700
  2389 0f36 12       		.uleb128 0x12
  2390 0f37 A8050000 		.4byte	.LASF318
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 68
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 68
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2391 0f3b 09       		.byte	0x9
@@ -4038,7 +4311,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2405 0f57 D1050000 		.4byte	0x5d1
  2406 0f5b 0C07     		.2byte	0x70c
  2407 0f5d 12       		.uleb128 0x12
- 2408 0f5e AE230000 		.4byte	.LASF321
+ 2408 0f5e BB230000 		.4byte	.LASF321
  2409 0f62 09       		.byte	0x9
  2410 0f63 65       		.byte	0x65
  2411 0f64 AC040000 		.4byte	0x4ac
@@ -4056,7 +4329,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2423 0f7e AC040000 		.4byte	0x4ac
  2424 0f82 0008     		.2byte	0x800
  2425 0f84 12       		.uleb128 0x12
- 2426 0f85 2A1D0000 		.4byte	.LASF323
+ 2426 0f85 701D0000 		.4byte	.LASF323
  2427 0f89 09       		.byte	0x9
  2428 0f8a 68       		.byte	0x68
  2429 0f8b AC040000 		.4byte	0x4ac
@@ -4068,7 +4341,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2435 0f98 64110000 		.4byte	0x1164
  2436 0f9c 0808     		.2byte	0x808
  2437 0f9e 12       		.uleb128 0x12
- 2438 0f9f FA190000 		.4byte	.LASF324
+ 2438 0f9f 401A0000 		.4byte	.LASF324
  2439 0fa3 09       		.byte	0x9
  2440 0fa4 6A       		.byte	0x6a
  2441 0fa5 AC040000 		.4byte	0x4ac
@@ -4078,7 +4351,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2445 0fb0 09       		.byte	0x9
  2446 0fb1 6B       		.byte	0x6b
  2447 0fb2 AC040000 		.4byte	0x4ac
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 69
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 69
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2448 0fb6 047F     		.2byte	0x7f04
@@ -4089,7 +4366,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2453 0fbf AC040000 		.4byte	0x4ac
  2454 0fc3 087F     		.2byte	0x7f08
  2455 0fc5 12       		.uleb128 0x12
- 2456 0fc6 1E1C0000 		.4byte	.LASF327
+ 2456 0fc6 641C0000 		.4byte	.LASF327
  2457 0fca 09       		.byte	0x9
  2458 0fcb 6D       		.byte	0x6d
  2459 0fcc AC040000 		.4byte	0x4ac
@@ -4113,7 +4390,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2477 0ff3 89110000 		.4byte	0x1189
  2478 0ff7 347F     		.2byte	0x7f34
  2479 0ff9 12       		.uleb128 0x12
- 2480 0ffa 991D0000 		.4byte	.LASF329
+ 2480 0ffa DF1D0000 		.4byte	.LASF329
  2481 0ffe 09       		.byte	0x9
  2482 0fff 71       		.byte	0x71
  2483 1000 AC040000 		.4byte	0x4ac
@@ -4125,7 +4402,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2489 100d D1050000 		.4byte	0x5d1
  2490 1011 14FF     		.2byte	0xff14
  2491 1013 12       		.uleb128 0x12
- 2492 1014 CE220000 		.4byte	.LASF330
+ 2492 1014 DB220000 		.4byte	.LASF330
  2493 1018 09       		.byte	0x9
  2494 1019 73       		.byte	0x73
  2495 101a AC040000 		.4byte	0x4ac
@@ -4138,7 +4415,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2502 102b 1CFF     		.2byte	0xff1c
  2503 102d 12       		.uleb128 0x12
  2504 102e C6070000 		.4byte	.LASF332
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 70
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 70
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2505 1032 09       		.byte	0x9
@@ -4198,7 +4479,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2559 10ae 00       		.byte	0
  2560 10af 08       		.uleb128 0x8
  2561 10b0 65060000 		.4byte	0x665
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 71
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 71
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2562 10b4 08       		.uleb128 0x8
@@ -4258,7 +4543,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2616 1135 D1050000 		.4byte	0x5d1
  2617 1139 44110000 		.4byte	0x1144
  2618 113d 0E       		.uleb128 0xe
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 72
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 72
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2619 113e A5040000 		.4byte	0x4a5
@@ -4295,7 +4584,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2650 1189 0C       		.uleb128 0xc
  2651 118a 84110000 		.4byte	0x1184
  2652 118e 03       		.uleb128 0x3
- 2653 118f A81E0000 		.4byte	.LASF336
+ 2653 118f EE1E0000 		.4byte	.LASF336
  2654 1193 09       		.byte	0x9
  2655 1194 79       		.byte	0x79
  2656 1195 EE0C0000 		.4byte	0xcee
@@ -4318,7 +4607,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2673 11be 0E060000 		.4byte	.LASF340
  2674 11c2 0A       		.byte	0xa
  2675 11c3 2806     		.2byte	0x628
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 73
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 73
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2676 11c5 8E110000 		.4byte	0x118e
@@ -4368,7 +4661,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2720 121b CE000000 		.4byte	0xce
  2721 121f 14       		.byte	0x14
  2722 1220 11       		.uleb128 0x11
- 2723 1221 611B0000 		.4byte	.LASF348
+ 2723 1221 A71B0000 		.4byte	.LASF348
  2724 1225 0B       		.byte	0xb
  2725 1226 3D       		.byte	0x3d
  2726 1227 CE000000 		.4byte	0xce
@@ -4378,12 +4671,16 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2730 1231 0B       		.byte	0xb
  2731 1232 3E       		.byte	0x3e
  2732 1233 CE000000 		.4byte	0xce
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 74
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 74
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2733 1237 1C       		.byte	0x1c
  2734 1238 11       		.uleb128 0x11
- 2735 1239 3D210000 		.4byte	.LASF350
+ 2735 1239 4A210000 		.4byte	.LASF350
  2736 123d 0B       		.byte	0xb
  2737 123e 3F       		.byte	0x3f
  2738 123f CE000000 		.4byte	0xce
@@ -4407,7 +4704,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2756 1263 A2000000 		.4byte	0xa2
  2757 1267 29       		.byte	0x29
  2758 1268 11       		.uleb128 0x11
- 2759 1269 3C1B0000 		.4byte	.LASF354
+ 2759 1269 821B0000 		.4byte	.LASF354
  2760 126d 0B       		.byte	0xb
  2761 126e 45       		.byte	0x45
  2762 126f A2000000 		.4byte	0xa2
@@ -4419,13 +4716,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2768 127b A2000000 		.4byte	0xa2
  2769 127f 2B       		.byte	0x2b
  2770 1280 11       		.uleb128 0x11
- 2771 1281 4D1F0000 		.4byte	.LASF356
+ 2771 1281 5A1F0000 		.4byte	.LASF356
  2772 1285 0B       		.byte	0xb
  2773 1286 47       		.byte	0x47
  2774 1287 A2000000 		.4byte	0xa2
  2775 128b 2C       		.byte	0x2c
  2776 128c 11       		.uleb128 0x11
- 2777 128d A1230000 		.4byte	.LASF357
+ 2777 128d AE230000 		.4byte	.LASF357
  2778 1291 0B       		.byte	0xb
  2779 1292 48       		.byte	0x48
  2780 1293 A2000000 		.4byte	0xa2
@@ -4437,8 +4734,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2786 129f A2000000 		.4byte	0xa2
  2787 12a3 2E       		.byte	0x2e
  2788 12a4 11       		.uleb128 0x11
+<<<<<<< HEAD
  2789 12a5 1E1D0000 		.4byte	.LASF359
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 75
+=======
+ 2789 12a5 641D0000 		.4byte	.LASF359
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 75
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2790 12a9 0B       		.byte	0xb
@@ -4464,7 +4766,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2810 12cf A2000000 		.4byte	0xa2
  2811 12d3 32       		.byte	0x32
  2812 12d4 11       		.uleb128 0x11
- 2813 12d5 291A0000 		.4byte	.LASF363
+ 2813 12d5 6F1A0000 		.4byte	.LASF363
  2814 12d9 0B       		.byte	0xb
  2815 12da 50       		.byte	0x50
  2816 12db A2000000 		.4byte	0xa2
@@ -4498,7 +4800,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2844 1315 0B       		.byte	0xb
  2845 1316 55       		.byte	0x55
  2846 1317 A2000000 		.4byte	0xa2
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 76
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 76
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2847 131b 3C       		.byte	0x3c
@@ -4545,20 +4851,24 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2888 136b A2000000 		.4byte	0xa2
  2889 136f 43       		.byte	0x43
  2890 1370 11       		.uleb128 0x11
- 2891 1371 B11B0000 		.4byte	.LASF376
+ 2891 1371 F71B0000 		.4byte	.LASF376
  2892 1375 0B       		.byte	0xb
  2893 1376 5D       		.byte	0x5d
  2894 1377 A2000000 		.4byte	0xa2
  2895 137b 44       		.byte	0x44
  2896 137c 11       		.uleb128 0x11
- 2897 137d 9F1B0000 		.4byte	.LASF377
+ 2897 137d E51B0000 		.4byte	.LASF377
  2898 1381 0B       		.byte	0xb
  2899 1382 5E       		.byte	0x5e
  2900 1383 CE000000 		.4byte	0xce
  2901 1387 48       		.byte	0x48
  2902 1388 11       		.uleb128 0x11
  2903 1389 16010000 		.4byte	.LASF378
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 77
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 77
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2904 138d 0B       		.byte	0xb
@@ -4572,7 +4882,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2912 139b A2000000 		.4byte	0xa2
  2913 139f 50       		.byte	0x50
  2914 13a0 11       		.uleb128 0x11
- 2915 13a1 881E0000 		.4byte	.LASF380
+ 2915 13a1 CE1E0000 		.4byte	.LASF380
  2916 13a5 0B       		.byte	0xb
  2917 13a6 61       		.byte	0x61
  2918 13a7 A2000000 		.4byte	0xa2
@@ -4596,13 +4906,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2936 13cb A2000000 		.4byte	0xa2
  2937 13cf 54       		.byte	0x54
  2938 13d0 11       		.uleb128 0x11
- 2939 13d1 71230000 		.4byte	.LASF384
+ 2939 13d1 7E230000 		.4byte	.LASF384
  2940 13d5 0B       		.byte	0xb
  2941 13d6 65       		.byte	0x65
  2942 13d7 A2000000 		.4byte	0xa2
  2943 13db 55       		.byte	0x55
  2944 13dc 11       		.uleb128 0x11
- 2945 13dd DD1D0000 		.4byte	.LASF385
+ 2945 13dd 231E0000 		.4byte	.LASF385
  2946 13e1 0B       		.byte	0xb
  2947 13e2 66       		.byte	0x66
  2948 13e3 A2000000 		.4byte	0xa2
@@ -4618,7 +4928,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2958 13f9 0B       		.byte	0xb
  2959 13fa 68       		.byte	0x68
  2960 13fb A2000000 		.4byte	0xa2
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 78
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 78
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2961 13ff 58       		.byte	0x58
@@ -4629,7 +4943,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2966 1407 A2000000 		.4byte	0xa2
  2967 140b 59       		.byte	0x59
  2968 140c 11       		.uleb128 0x11
- 2969 140d BC230000 		.4byte	.LASF389
+ 2969 140d C9230000 		.4byte	.LASF389
  2970 1411 0B       		.byte	0xb
  2971 1412 6E       		.byte	0x6e
  2972 1413 B8000000 		.4byte	0xb8
@@ -4647,7 +4961,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  2984 142b A2000000 		.4byte	0xa2
  2985 142f 5E       		.byte	0x5e
  2986 1430 11       		.uleb128 0x11
- 2987 1431 5A210000 		.4byte	.LASF392
+ 2987 1431 67210000 		.4byte	.LASF392
  2988 1435 0B       		.byte	0xb
  2989 1436 71       		.byte	0x71
  2990 1437 A2000000 		.4byte	0xa2
@@ -4665,7 +4979,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3002 144f CE000000 		.4byte	0xce
  3003 1453 64       		.byte	0x64
  3004 1454 11       		.uleb128 0x11
- 3005 1455 35220000 		.4byte	.LASF395
+ 3005 1455 42220000 		.4byte	.LASF395
  3006 1459 0B       		.byte	0xb
  3007 145a 76       		.byte	0x76
  3008 145b B8000000 		.4byte	0xb8
@@ -4678,7 +4992,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3015 146b 6A       		.byte	0x6a
  3016 146c 11       		.uleb128 0x11
  3017 146d C60A0000 		.4byte	.LASF397
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 79
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 79
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3018 1471 0B       		.byte	0xb
@@ -4692,7 +5010,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3026 147f B8000000 		.4byte	0xb8
  3027 1483 6E       		.byte	0x6e
  3028 1484 11       		.uleb128 0x11
- 3029 1485 FF1A0000 		.4byte	.LASF399
+ 3029 1485 451B0000 		.4byte	.LASF399
  3030 1489 0B       		.byte	0xb
  3031 148a 7B       		.byte	0x7b
  3032 148b A2000000 		.4byte	0xa2
@@ -4738,7 +5056,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3072 14dd 0B       		.byte	0xb
  3073 14de 83       		.byte	0x83
  3074 14df B8000000 		.4byte	0xb8
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 80
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 80
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3075 14e3 7A       		.byte	0x7a
@@ -4767,7 +5089,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3098 150f A2000000 		.4byte	0xa2
  3099 1513 7F       		.byte	0x7f
  3100 1514 11       		.uleb128 0x11
- 3101 1515 591F0000 		.4byte	.LASF411
+ 3101 1515 661F0000 		.4byte	.LASF411
  3102 1519 0B       		.byte	0xb
  3103 151a 8A       		.byte	0x8a
  3104 151b A2000000 		.4byte	0xa2
@@ -4785,7 +5107,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3116 1533 CE000000 		.4byte	0xce
  3117 1537 88       		.byte	0x88
  3118 1538 11       		.uleb128 0x11
- 3119 1539 45210000 		.4byte	.LASF414
+ 3119 1539 52210000 		.4byte	.LASF414
  3120 153d 0B       		.byte	0xb
  3121 153e 8F       		.byte	0x8f
  3122 153f CE000000 		.4byte	0xce
@@ -4798,7 +5120,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3129 154f 90       		.byte	0x90
  3130 1550 11       		.uleb128 0x11
  3131 1551 FB070000 		.4byte	.LASF416
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 81
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 81
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3132 1555 0B       		.byte	0xb
@@ -4842,7 +5168,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3170 159f B8000000 		.4byte	0xb8
  3171 15a3 A8       		.byte	0xa8
  3172 15a4 11       		.uleb128 0x11
- 3173 15a5 351A0000 		.4byte	.LASF423
+ 3173 15a5 7B1A0000 		.4byte	.LASF423
  3174 15a9 0B       		.byte	0xb
  3175 15aa 98       		.byte	0x98
  3176 15ab B8000000 		.4byte	0xb8
@@ -4858,12 +5184,16 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3186 15c1 0B       		.byte	0xb
  3187 15c2 9A       		.byte	0x9a
  3188 15c3 B8000000 		.4byte	0xb8
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 82
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 82
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3189 15c7 AE       		.byte	0xae
  3190 15c8 11       		.uleb128 0x11
- 3191 15c9 0F220000 		.4byte	.LASF426
+ 3191 15c9 1C220000 		.4byte	.LASF426
  3192 15cd 0B       		.byte	0xb
  3193 15ce 9D       		.byte	0x9d
  3194 15cf B8000000 		.4byte	0xb8
@@ -4876,7 +5206,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3201 15df B4       		.byte	0xb4
  3202 15e0 00       		.byte	0
  3203 15e1 03       		.uleb128 0x3
- 3204 15e2 5B1E0000 		.4byte	.LASF428
+ 3204 15e2 A11E0000 		.4byte	.LASF428
  3205 15e6 0B       		.byte	0xb
  3206 15e7 9F       		.byte	0x9f
  3207 15e8 D0110000 		.4byte	0x11d0
@@ -4918,15 +5248,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3243 1631 14160000 		.4byte	0x1614
  3244 1635 00       		.byte	0
  3245 1636 03       		.uleb128 0x3
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 83
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 83
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
- 3246 1637 F9200000 		.4byte	.LASF434
+ 3246 1637 06210000 		.4byte	.LASF434
  3247 163b 0D       		.byte	0xd
  3248 163c 46       		.byte	0x46
  3249 163d F8150000 		.4byte	0x15f8
  3250 1641 03       		.uleb128 0x3
- 3251 1642 CC1B0000 		.4byte	.LASF435
+ 3251 1642 121C0000 		.4byte	.LASF435
  3252 1646 0D       		.byte	0xd
  3253 1647 49       		.byte	0x49
  3254 1648 4C160000 		.4byte	0x164c
@@ -4975,10 +5309,14 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3297 169d E5160000 		.4byte	0x16e5
  3298 16a1 14       		.byte	0x14
  3299 16a2 11       		.uleb128 0x11
- 3300 16a3 42230000 		.4byte	.LASF442
+ 3300 16a3 4F230000 		.4byte	.LASF442
  3301 16a7 0D       		.byte	0xd
  3302 16a8 86       		.byte	0x86
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 84
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 84
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3303 16a9 CE000000 		.4byte	0xce
@@ -5038,7 +5376,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3357 1715 04       		.byte	0x4
  3358 1716 11       		.uleb128 0x11
  3359 1717 28030000 		.4byte	.LASF450
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 85
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 85
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3360 171b 0D       		.byte	0xd
@@ -5046,7 +5388,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3362 171d CE000000 		.4byte	0xce
  3363 1721 08       		.byte	0x8
  3364 1722 11       		.uleb128 0x11
- 3365 1723 40200000 		.4byte	.LASF451
+ 3365 1723 4D200000 		.4byte	.LASF451
  3366 1727 0D       		.byte	0xd
  3367 1728 95       		.byte	0x95
  3368 1729 CE000000 		.4byte	0xce
@@ -5059,7 +5401,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3375 1739 10       		.byte	0x10
  3376 173a 00       		.byte	0
  3377 173b 03       		.uleb128 0x3
- 3378 173c F81E0000 		.4byte	.LASF453
+ 3378 173c 3E1F0000 		.4byte	.LASF453
  3379 1740 0D       		.byte	0xd
  3380 1741 98       		.byte	0x98
  3381 1742 F6160000 		.4byte	0x16f6
@@ -5098,7 +5440,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3414 1784 AA       		.byte	0xaa
  3415 1785 EC150000 		.4byte	0x15ec
  3416 1789 30       		.byte	0x30
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 86
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 86
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3417 178a 00       		.byte	0
@@ -5118,7 +5464,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3431 17a5 7003     		.2byte	0x370
  3432 17a7 03       		.byte	0x3
  3433 17a8 1A       		.uleb128 0x1a
- 3434 17a9 FB220000 		.4byte	.LASF462
+ 3434 17a9 08230000 		.4byte	.LASF462
  3435 17ad 01       		.byte	0x1
  3436 17ae D601     		.2byte	0x1d6
  3437 17b0 00000000 		.4byte	.LFB165
@@ -5145,7 +5491,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3458 17de 01       		.uleb128 0x1
  3459 17df 9C       		.byte	0x9c
  3460 17e0 1A       		.uleb128 0x1a
- 3461 17e1 66200000 		.4byte	.LASF463
+ 3461 17e1 73200000 		.4byte	.LASF463
  3462 17e5 01       		.byte	0x1
  3463 17e6 2101     		.2byte	0x121
  3464 17e8 00000000 		.4byte	.LFB163
@@ -5158,7 +5504,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3471 17fb 01       		.byte	0x1
  3472 17fc 2301     		.2byte	0x123
  3473 17fe CE000000 		.4byte	0xce
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 87
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 87
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3474 1802 00000000 		.4byte	.LLST0
@@ -5169,13 +5519,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3479 180e CE000000 		.4byte	0xce
  3480 1812 29000000 		.4byte	.LLST1
  3481 1816 1E       		.uleb128 0x1e
- 3482 1817 7B1F0000 		.4byte	.LASF466
+ 3482 1817 881F0000 		.4byte	.LASF466
  3483 181b 01       		.byte	0x1
  3484 181c 2501     		.2byte	0x125
  3485 181e CE000000 		.4byte	0xce
  3486 1822 6C000000 		.4byte	.LLST2
  3487 1826 1E       		.uleb128 0x1e
- 3488 1827 C7230000 		.4byte	.LASF467
+ 3488 1827 D4230000 		.4byte	.LASF467
  3489 182b 01       		.byte	0x1
  3490 182c 2601     		.2byte	0x126
  3491 182e CE000000 		.4byte	0xce
@@ -5196,7 +5546,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3506 1857 00000000 		.4byte	.Ldebug_ranges0+0
  3507 185b 70180000 		.4byte	0x1870
  3508 185f 1E       		.uleb128 0x1e
- 3509 1860 FB1D0000 		.4byte	.LASF470
+ 3509 1860 411E0000 		.4byte	.LASF470
  3510 1864 01       		.byte	0x1
  3511 1865 4901     		.2byte	0x149
  3512 1867 CE000000 		.4byte	0xce
@@ -5207,7 +5557,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3517 1875 64000000 		.4byte	.LBE8-.LBB8
  3518 1879 E8180000 		.4byte	0x18e8
  3519 187d 1E       		.uleb128 0x1e
- 3520 187e C21B0000 		.4byte	.LASF471
+ 3520 187e 081C0000 		.4byte	.LASF471
  3521 1882 01       		.byte	0x1
  3522 1883 7001     		.2byte	0x170
  3523 1885 5D190000 		.4byte	0x195d
@@ -5218,11 +5568,15 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3528 1893 7101     		.2byte	0x171
  3529 1895 5D190000 		.4byte	0x195d
  3530 1899 0E010000 		.4byte	.LLST8
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 88
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 88
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3531 189d 1E       		.uleb128 0x1e
- 3532 189e 6D1F0000 		.4byte	.LASF473
+ 3532 189e 7A1F0000 		.4byte	.LASF473
  3533 18a2 01       		.byte	0x1
  3534 18a3 7201     		.2byte	0x172
  3535 18a5 5D190000 		.4byte	0x195d
@@ -5278,7 +5632,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3585 192b 410E0000 		.4byte	.LASF480
  3586 192f 01       		.byte	0x1
  3587 1930 8E01     		.2byte	0x18e
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 89
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 89
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3588 1932 CE000000 		.4byte	0xce
@@ -5328,7 +5686,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3632 1996 03       		.byte	0x3
  3633 1997 60010000 		.4byte	systemIpcPipeSysCbArray.10517
  3634 199b 23       		.uleb128 0x23
- 3635 199c 4F220000 		.4byte	.LASF486
+ 3635 199c 5C220000 		.4byte	.LASF486
  3636 19a0 01       		.byte	0x1
  3637 19a1 DC       		.byte	0xdc
  3638 19a2 3C1A0000 		.4byte	0x1a3c
@@ -5338,7 +5696,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3642 19ac 24       		.uleb128 0x24
  3643 19ad 08000000 		.4byte	.LVL41
  3644 19b1 601B0000 		.4byte	0x1b60
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 90
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 90
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3645 19b5 24       		.uleb128 0x24
@@ -5398,7 +5760,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3699 1a21 2C1A0000 		.4byte	0x1a2c
  3700 1a25 0E       		.uleb128 0xe
  3701 1a26 A5040000 		.4byte	0x4a5
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 91
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 91
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3702 1a2a 07       		.byte	0x7
@@ -5447,7 +5813,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3745 1a95 A61B0000 		.4byte	0x1ba6
  3746 1a99 00       		.byte	0
  3747 1a9a 27       		.uleb128 0x27
- 3748 1a9b EB1E0000 		.4byte	.LASF489
+ 3748 1a9b 311F0000 		.4byte	.LASF489
  3749 1a9f 06       		.byte	0x6
  3750 1aa0 F907     		.2byte	0x7f9
  3751 1aa2 A61A0000 		.4byte	0x1aa6
@@ -5458,7 +5824,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3756 1ab0 01       		.byte	0x1
  3757 1ab1 72       		.byte	0x72
  3758 1ab2 CE000000 		.4byte	0xce
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 92
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 92
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3759 1ab6 05       		.uleb128 0x5
@@ -5518,7 +5888,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3813 1b28 52       		.byte	0x52
  3814 1b29 CE000000 		.4byte	0xce
  3815 1b2d 05       		.uleb128 0x5
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 93
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 93
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3816 1b2e 03       		.byte	0x3
@@ -5531,7 +5905,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3823 1b3e 0C       		.uleb128 0xc
  3824 1b3f E1150000 		.4byte	0x15e1
  3825 1b43 29       		.uleb128 0x29
- 3826 1b44 301C0000 		.4byte	.LASF499
+ 3826 1b44 761C0000 		.4byte	.LASF499
  3827 1b48 0B       		.byte	0xb
  3828 1b49 A7       		.byte	0xa7
  3829 1b4a 4E1B0000 		.4byte	0x1b4e
@@ -5569,8 +5943,8 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3861 1b97 0F       		.byte	0xf
  3862 1b98 A301     		.2byte	0x1a3
  3863 1b9a 2A       		.uleb128 0x2a
- 3864 1b9b FF1B0000 		.4byte	.LASF506
- 3865 1b9f FF1B0000 		.4byte	.LASF506
+ 3864 1b9b 451C0000 		.4byte	.LASF506
+ 3865 1b9f 451C0000 		.4byte	.LASF506
  3866 1ba3 0C       		.byte	0xc
  3867 1ba4 B203     		.2byte	0x3b2
  3868 1ba6 2A       		.uleb128 0x2a
@@ -5578,7 +5952,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3870 1bab DE0D0000 		.4byte	.LASF507
  3871 1baf 0C       		.byte	0xc
  3872 1bb0 C103     		.2byte	0x3c1
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 94
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 94
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3873 1bb2 00       		.byte	0
@@ -5638,7 +6016,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3927 0033 08       		.uleb128 0x8
  3928 0034 00       		.byte	0
  3929 0035 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 95
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 95
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3930 0036 05       		.uleb128 0x5
@@ -5698,7 +6080,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  3984 006c 0D       		.uleb128 0xd
  3985 006d 00       		.byte	0
  3986 006e 03       		.uleb128 0x3
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 96
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 96
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3987 006f 0E       		.uleb128 0xe
@@ -5758,7 +6144,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4041 00a5 03       		.uleb128 0x3
  4042 00a6 0E       		.uleb128 0xe
  4043 00a7 3A       		.uleb128 0x3a
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 97
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 97
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4044 00a8 0B       		.uleb128 0xb
@@ -5818,7 +6208,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4098 00de 13       		.uleb128 0x13
  4099 00df 2F       		.uleb128 0x2f
  4100 00e0 05       		.uleb128 0x5
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 98
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 98
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4101 00e1 00       		.byte	0
@@ -5878,7 +6272,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4155 0117 3B       		.uleb128 0x3b
  4156 0118 05       		.uleb128 0x5
  4157 0119 27       		.uleb128 0x27
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 99
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 99
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4158 011a 19       		.uleb128 0x19
@@ -5938,7 +6336,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4212 0156 0E       		.uleb128 0xe
  4213 0157 3A       		.uleb128 0x3a
  4214 0158 0B       		.uleb128 0xb
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 100
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 100
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4215 0159 3B       		.uleb128 0x3b
@@ -5998,7 +6400,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4269 0190 12       		.uleb128 0x12
  4270 0191 06       		.uleb128 0x6
  4271 0192 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 101
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 101
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4272 0193 00       		.byte	0
@@ -6058,7 +6464,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4326 01ce 01       		.uleb128 0x1
  4327 01cf 31       		.uleb128 0x31
  4328 01d0 13       		.uleb128 0x13
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 102
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 102
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4329 01d1 01       		.uleb128 0x1
@@ -6118,7 +6528,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4383 0207 34       		.uleb128 0x34
  4384 0208 00       		.byte	0
  4385 0209 03       		.uleb128 0x3
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 103
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 103
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4386 020a 0E       		.uleb128 0xe
@@ -6178,7 +6592,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4440 000a 51       		.byte	0x51
  4441 000b 4E000000 		.4byte	.LVL10
  4442 000f B2000000 		.4byte	.LVL21
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 104
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 104
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4443 0013 0100     		.2byte	0x1
@@ -6238,7 +6656,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4497 00a7 53       		.byte	0x53
  4498 00a8 00000000 		.4byte	0
  4499 00ac 00000000 		.4byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 105
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 105
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4500              	.LLST5:
@@ -6298,7 +6720,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4554 0134 00000000 		.4byte	0
  4555              	.LLST10:
  4556 0138 94000000 		.4byte	.LVL17
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 106
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 106
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4557 013c B4000000 		.4byte	.LVL22
@@ -6358,7 +6784,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4611 01c1 00000000 		.4byte	0
  4612              	.LLST17:
  4613 01c5 04010000 		.4byte	.LVL31
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 107
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 107
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4614 01c9 18010000 		.4byte	.LVL34
@@ -6418,7 +6848,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4668 0034 48000000 		.4byte	.LFE161
  4669 0038 00000000 		.4byte	.LFB164
  4670 003c 28000000 		.4byte	.LFE164
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 108
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 108
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4671 0040 00000000 		.4byte	0
@@ -6478,7 +6912,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4693      74735F32 
  4694              	.LASF242:
  4695 0096 53595354 		.ascii	"SYSTICK_CTL\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 109
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 109
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4695      49434B5F 
@@ -6538,7 +6976,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4714              	.LASF81:
  4715 015e 63707573 		.ascii	"cpuss_interrupts_dw0_2_IRQn\000"
  4715      735F696E 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 110
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 110
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4715      74657272 
@@ -6598,7 +7040,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4737 022d 73727373 		.ascii	"srss_interrupt_IRQn\000"
  4737      5F696E74 
  4737      65727275 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 111
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 111
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4737      70745F49 
@@ -6658,7 +7104,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4757 0303 74637077 		.ascii	"tcpwm_1_interrupts_14_IRQn\000"
  4757      6D5F315F 
  4757      696E7465 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 112
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 112
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4757      72727570 
@@ -6718,7 +7168,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4777      5F696E74 
  4777      65727275 
  4777      7074735F 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 113
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 113
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4777      6770696F 
@@ -6778,7 +7232,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4799      5F43544C 
  4799      00
  4800              	.LASF151:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 114
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 114
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4801 04a5 7564625F 		.ascii	"udb_interrupts_0_IRQn\000"
@@ -6838,7 +7296,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4823      00
  4824              	.LASF65:
  4825 0553 63707573 		.ascii	"cpuss_interrupts_ipc_11_IRQn\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 115
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 115
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4825      735F696E 
@@ -6898,7 +7360,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4849 060e 53525353 		.ascii	"SRSS_Type\000"
  4849      5F547970 
  4849      6500
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 116
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 116
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4850              	.LASF197:
@@ -6958,7 +7424,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4871      3200
  4872              	.LASF209:
  4873 06e0 52455345 		.ascii	"RESERVED3\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 117
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 117
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4873      52564544 
@@ -7018,7 +7488,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4897 0781 43795F46 		.ascii	"Cy_Flash_Init\000"
  4897      6C617368 
  4897      5F496E69 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 118
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 118
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4897      7400
@@ -7078,7 +7552,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4920              	.LASF454:
  4921 0830 65703043 		.ascii	"ep0ConfigData\000"
  4921      6F6E6669 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 119
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 119
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4921      67446174 
@@ -7138,7 +7616,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4943      00
  4944              	.LASF129:
  4945 08f3 74637077 		.ascii	"tcpwm_1_interrupts_2_IRQn\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 120
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 120
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4945      6D5F315F 
@@ -7198,7 +7680,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4968              	.LASF460:
  4969 09ad 5F5F4953 		.ascii	"__ISB\000"
  4969      4200
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 121
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 121
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4970              	.LASF298:
@@ -7258,7 +7744,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  4989      72727570 
  4989      74735F31 
  4990              	.LASF143:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 122
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 122
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4991 0a94 74637077 		.ascii	"tcpwm_1_interrupts_16_IRQn\000"
@@ -7318,7 +7808,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5013 0b3d 7564625F 		.ascii	"udb_interrupts_9_IRQn\000"
  5013      696E7465 
  5013      72727570 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 123
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 123
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5013      74735F39 
@@ -7378,7 +7872,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5033      00
  5034              	.LASF100:
  5035 0c10 63707573 		.ascii	"cpuss_interrupts_dw1_5_IRQn\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 124
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 124
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5035      735F696E 
@@ -7438,7 +7936,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5055      50727443 
  5055      6667496E 
  5055      4F666673 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 125
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 125
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5055      657400
@@ -7498,7 +8000,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5076              	.LASF458:
  5077 0d83 75736572 		.ascii	"userPipeIsrHandler\000"
  5077      50697065 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 126
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 126
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5077      49737248 
@@ -7558,7 +8064,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5099 0e41 66656564 		.ascii	"feedbackDiv\000"
  5099      6261636B 
  5099      44697600 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 127
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 127
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5100              	.LASF472:
@@ -7618,7 +8128,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5118      742D6C74 
  5118      6F2D6F62 
  5119              	.LASF390:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 128
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 128
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5120 0f7d 64774368 		.ascii	"dwChSize\000"
@@ -7678,7 +8192,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5140 1034 7363625F 		.ascii	"scb_2_interrupt_IRQn\000"
  5140      325F696E 
  5140      74657272 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 129
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 129
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5140      7570745F 
@@ -7738,7 +8256,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5160 1114 63707573 		.ascii	"cpussBase\000"
  5160      73426173 
  5160      6500
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 130
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 130
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5161              	.LASF346:
@@ -7798,7 +8320,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5182      6F7300
  5183              	.LASF283:
  5184 11e3 4D435744 		.ascii	"MCWDT_LOCK\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 131
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 131
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5184      545F4C4F 
@@ -7858,7 +8384,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5205              	.LASF315:
  5206 12a6 434C4B5F 		.ascii	"CLK_PLL_CONFIG\000"
  5206      504C4C5F 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 132
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 132
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5206      434F4E46 
@@ -7918,7 +8448,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5226      696E7465 
  5226      72727570 
  5226      74735F31 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 133
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 133
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5227              	.LASF431:
@@ -7978,7 +8512,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5250      5F43544C 
  5250      00
  5251              	.LASF355:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 134
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 134
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5252 1438 666C6173 		.ascii	"flashcVersion\000"
@@ -8038,7 +8576,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5274      61725F49 
  5275              	.LASF433:
  5276 14df 63795F69 		.ascii	"cy_ipc_pipe_callback_ptr_t\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 135
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 135
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5276      70635F70 
@@ -8098,7 +8640,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5296 15a2 706C6C4F 		.ascii	"pllOutputOutput\000"
  5296      75747075 
  5296      744F7574 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 136
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 136
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5296      70757400 
@@ -8158,7 +8704,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5318      7074735F 
  5318      6770696F 
  5319              	.LASF92:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 137
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 137
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5320 166d 63707573 		.ascii	"cpuss_interrupts_dw0_13_IRQn\000"
@@ -8218,7 +8768,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5340 1749 696F7373 		.ascii	"ioss_interrupts_gpio_6_IRQn\000"
  5340      5F696E74 
  5340      65727275 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 138
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 138
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5340      7074735F 
@@ -8278,7 +8832,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5360      72727570 
  5360      74735F31 
  5360      345F4952 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 139
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 139
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5361              	.LASF134:
@@ -8338,7 +8896,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5382      00
  5383              	.LASF91:
  5384 18d9 63707573 		.ascii	"cpuss_interrupts_dw0_12_IRQn\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 140
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 140
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5384      735F696E 
@@ -8398,7 +8960,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5409              	.LASF107:
  5410 1982 63707573 		.ascii	"cpuss_interrupts_dw1_12_IRQn\000"
  5410      735F696E 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 141
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 141
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5410      74657272 
@@ -8415,6 +8981,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5414      696E7465 
  5414      72727570 
  5414      74735F30 
+<<<<<<< HEAD
  5415              	.LASF159:
  5416 19c7 7564625F 		.ascii	"udb_interrupts_8_IRQn\000"
  5416      696E7465 
@@ -8819,376 +9386,822 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 1
  5570      00
  5571              	.LASF267:
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 148
+=======
+ 5415              	.LASF510:
+ 5416 19c7 433A5C50 		.ascii	"C:\\Projects\\Pain Drain\\Production2\\Firmware\\Pa"
+ 5416      726F6A65 
+ 5416      6374735C 
+ 5416      5061696E 
+ 5416      20447261 
+ 5417 19f5 696E4472 		.ascii	"inDrain\\PainDrain.cydsn\000"
+ 5417      61696E5C 
+ 5417      5061696E 
+ 5417      44726169 
+ 5417      6E2E6379 
+ 5418              	.LASF159:
+ 5419 1a0d 7564625F 		.ascii	"udb_interrupts_8_IRQn\000"
+ 5419      696E7465 
+ 5419      72727570 
+ 5419      74735F38 
+ 5419      5F495251 
+ 5420              	.LASF67:
+ 5421 1a23 63707573 		.ascii	"cpuss_interrupts_ipc_13_IRQn\000"
+ 5421      735F696E 
+ 5421      74657272 
+ 5421      75707473 
+ 5421      5F697063 
+ 5422              	.LASF324:
+ 5423 1a40 5057525F 		.ascii	"PWR_TRIM_REF_CTL\000"
+ 5423      5452494D 
+ 5423      5F524546 
+ 5423      5F43544C 
+ 5423      00
+ 5424              	.LASF244:
+ 5425 1a51 434D305F 		.ascii	"CM0_VECTOR_TABLE_BASE\000"
+ 5425      56454354 
+ 5425      4F525F54 
+ 5425      41424C45 
+ 5425      5F424153 
+ 5426              	.LASF17:
+ 5427 1a67 696E7433 		.ascii	"int32_t\000"
+ 5427      325F7400 
+ 5428              	.LASF363:
+ 5429 1a6f 63707573 		.ascii	"cpussDwChNr\000"
+ 5429      73447743 
+ 5429      684E7200 
+ 5430              	.LASF423:
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 142
 
 
- 5572 1eb5 4C4F434B 		.ascii	"LOCK_STATUS\000"
- 5572      5F535441 
- 5572      54555300 
- 5573              	.LASF274:
- 5574 1ec1 4D435744 		.ascii	"MCWDT_CNTLOW\000"
- 5574      545F434E 
- 5574      544C4F57 
- 5574      00
- 5575              	.LASF108:
- 5576 1ece 63707573 		.ascii	"cpuss_interrupts_dw1_13_IRQn\000"
- 5576      735F696E 
- 5576      74657272 
- 5576      75707473 
- 5576      5F647731 
- 5577              	.LASF489:
- 5578 1eeb 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 5578      52784275 
- 5578      66666572 
- 5578      00
- 5579              	.LASF453:
- 5580 1ef8 63795F73 		.ascii	"cy_stc_ipc_pipe_ep_config_t\000"
- 5580      74635F69 
- 5580      70635F70 
- 5580      6970655F 
- 5580      65705F63 
- 5581              	.LASF510:
- 5582 1f14 433A5C50 		.ascii	"C:\\Projects\\PainDrain\\firmware\\PainDrain\\PainD"
- 5582      726F6A65 
- 5582      6374735C 
- 5582      5061696E 
- 5582      44726169 
- 5583 1f42 7261696E 		.ascii	"rain.cydsn\000"
- 5583      2E637964 
- 5583      736E00
+ 5431 1a7b 63707573 		.ascii	"cpussRam0Ctl0\000"
+ 5431      7352616D 
+ 5431      3043746C 
+ 5431      3000
+ 5432              	.LASF247:
+ 5433 1a89 52455345 		.ascii	"RESERVED20\000"
+ 5433      52564544 
+ 5433      323000
+ 5434              	.LASF249:
+ 5435 1a94 52455345 		.ascii	"RESERVED21\000"
+ 5435      52564544 
+ 5435      323100
+ 5436              	.LASF251:
+ 5437 1a9f 52455345 		.ascii	"RESERVED22\000"
+ 5437      52564544 
+ 5437      323200
+ 5438              	.LASF253:
+ 5439 1aaa 52455345 		.ascii	"RESERVED23\000"
+ 5439      52564544 
+ 5439      323300
+ 5440              	.LASF255:
+ 5441 1ab5 52455345 		.ascii	"RESERVED24\000"
+ 5441      52564544 
+ 5441      323400
+ 5442              	.LASF257:
+ 5443 1ac0 52455345 		.ascii	"RESERVED25\000"
+ 5443      52564544 
+ 5443      323500
+ 5444              	.LASF259:
+ 5445 1acb 52455345 		.ascii	"RESERVED26\000"
+ 5445      52564544 
+ 5445      323600
+ 5446              	.LASF111:
+ 5447 1ad6 63707573 		.ascii	"cpuss_interrupts_fault_0_IRQn\000"
+ 5447      735F696E 
+ 5447      74657272 
+ 5447      75707473 
+ 5447      5F666175 
+ 5448              	.LASF199:
+ 5449 1af4 434D305F 		.ascii	"CM0_CLOCK_CTL\000"
+ 5449      434C4F43 
+ 5449      4B5F4354 
+ 5449      4C00
+ 5450              	.LASF3:
+ 5451 1b02 5F5F696E 		.ascii	"__int16_t\000"
+ 5451      7431365F 
+ 5451      7400
+ 5452              	.LASF113:
+ 5453 1b0c 63707573 		.ascii	"cpuss_interrupt_crypto_IRQn\000"
+ 5453      735F696E 
+ 5453      74657272 
+ 5453      7570745F 
+ 5453      63727970 
+ 5454              	.LASF66:
+ 5455 1b28 63707573 		.ascii	"cpuss_interrupts_ipc_12_IRQn\000"
+ 5455      735F696E 
+ 5455      74657272 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 143
+
+
+ 5455      75707473 
+ 5455      5F697063 
+ 5456              	.LASF399:
+ 5457 1b45 70657269 		.ascii	"periDivCmdDivSelMsk\000"
+ 5457      44697643 
+ 5457      6D644469 
+ 5457      7653656C 
+ 5457      4D736B00 
+ 5458              	.LASF316:
+ 5459 1b59 434C4B5F 		.ascii	"CLK_PLL_STATUS\000"
+ 5459      504C4C5F 
+ 5459      53544154 
+ 5459      555300
+ 5460              	.LASF189:
+ 5461 1b68 41465352 		.ascii	"AFSR\000"
+ 5461      00
+ 5462              	.LASF70:
+ 5463 1b6d 7363625F 		.ascii	"scb_0_interrupt_IRQn\000"
+ 5463      305F696E 
+ 5463      74657272 
+ 5463      7570745F 
+ 5463      4952516E 
+ 5464              	.LASF354:
+ 5465 1b82 64775665 		.ascii	"dwVersion\000"
+ 5465      7273696F 
+ 5465      6E00
+ 5466              	.LASF168:
+ 5467 1b8c 61756469 		.ascii	"audioss_interrupt_i2s_IRQn\000"
+ 5467      6F73735F 
+ 5467      696E7465 
+ 5467      72727570 
+ 5467      745F6932 
+ 5468              	.LASF348:
+ 5469 1ba7 6770696F 		.ascii	"gpioBase\000"
+ 5469      42617365 
+ 5469      00
+ 5470              	.LASF119:
+ 5471 1bb0 74637077 		.ascii	"tcpwm_0_interrupts_0_IRQn\000"
+ 5471      6D5F305F 
+ 5471      696E7465 
+ 5471      72727570 
+ 5471      74735F30 
+ 5472              	.LASF152:
+ 5473 1bca 7564625F 		.ascii	"udb_interrupts_1_IRQn\000"
+ 5473      696E7465 
+ 5473      72727570 
+ 5473      74735F31 
+ 5473      5F495251 
+ 5474              	.LASF184:
+ 5475 1be0 43465352 		.ascii	"CFSR\000"
+ 5475      00
+ 5476              	.LASF377:
+ 5477 1be5 70726F74 		.ascii	"protBusMasterMask\000"
+ 5477      4275734D 
+ 5477      61737465 
+ 5477      724D6173 
+ 5477      6B00
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 144
+
+
+ 5478              	.LASF376:
+ 5479 1bf7 73797350 		.ascii	"sysPmSimoPresent\000"
+ 5479      6D53696D 
+ 5479      6F507265 
+ 5479      73656E74 
+ 5479      00
+ 5480              	.LASF471:
+ 5481 1c08 666C6C4C 		.ascii	"fllLocked\000"
+ 5481      6F636B65 
+ 5481      6400
+ 5482              	.LASF435:
+ 5483 1c12 63795F69 		.ascii	"cy_ipc_pipe_callback_array_ptr_t\000"
+ 5483      70635F70 
+ 5483      6970655F 
+ 5483      63616C6C 
+ 5483      6261636B 
+ 5484              	.LASF234:
+ 5485 1c33 5544425F 		.ascii	"UDB_PWR_DELAY_CTL\000"
+ 5485      5057525F 
+ 5485      44454C41 
+ 5485      595F4354 
+ 5485      4C00
+ 5486              	.LASF506:
+ 5487 1c45 43795F53 		.ascii	"Cy_SysLib_EnterCriticalSection\000"
+ 5487      79734C69 
+ 5487      625F456E 
+ 5487      74657243 
+ 5487      72697469 
+ 5488              	.LASF327:
+ 5489 1c64 434C4B5F 		.ascii	"CLK_TRIM_CCO_CTL2\000"
+ 5489      5452494D 
+ 5489      5F43434F 
+ 5489      5F43544C 
+ 5489      3200
+ 5490              	.LASF499:
+ 5491 1c76 63795F64 		.ascii	"cy_device\000"
+ 5491      65766963 
+ 5491      6500
+ 5492              	.LASF293:
+ 5493 1c80 5744545F 		.ascii	"WDT_CNT\000"
+ 5493      434E5400 
+ 5494              	.LASF26:
+ 5495 1c88 44656275 		.ascii	"DebugMonitor_IRQn\000"
+ 5495      674D6F6E 
+ 5495      69746F72 
+ 5495      5F495251 
+ 5495      6E00
+ 5496              	.LASF309:
+ 5497 1c9a 434C4B5F 		.ascii	"CLK_PILO_CONFIG\000"
+ 5497      50494C4F 
+ 5497      5F434F4E 
+ 5497      46494700 
+ 5498              	.LASF201:
+ 5499 1caa 434D305F 		.ascii	"CM0_INT_CTL0\000"
+ 5499      494E545F 
+ 5499      43544C30 
+ 5499      00
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 145
+
+
+ 5500              	.LASF202:
+ 5501 1cb7 434D305F 		.ascii	"CM0_INT_CTL1\000"
+ 5501      494E545F 
+ 5501      43544C31 
+ 5501      00
+ 5502              	.LASF203:
+ 5503 1cc4 434D305F 		.ascii	"CM0_INT_CTL2\000"
+ 5503      494E545F 
+ 5503      43544C32 
+ 5503      00
+ 5504              	.LASF204:
+ 5505 1cd1 434D305F 		.ascii	"CM0_INT_CTL3\000"
+ 5505      494E545F 
+ 5505      43544C33 
+ 5505      00
+ 5506              	.LASF205:
+ 5507 1cde 434D305F 		.ascii	"CM0_INT_CTL4\000"
+ 5507      494E545F 
+ 5507      43544C34 
+ 5507      00
+ 5508              	.LASF206:
+ 5509 1ceb 434D305F 		.ascii	"CM0_INT_CTL5\000"
+ 5509      494E545F 
+ 5509      43544C35 
+ 5509      00
+ 5510              	.LASF207:
+ 5511 1cf8 434D305F 		.ascii	"CM0_INT_CTL6\000"
+ 5511      494E545F 
+ 5511      43544C36 
+ 5511      00
+ 5512              	.LASF208:
+ 5513 1d05 434D305F 		.ascii	"CM0_INT_CTL7\000"
+ 5513      494E545F 
+ 5513      43544C37 
+ 5513      00
+ 5514              	.LASF76:
+ 5515 1d12 7363625F 		.ascii	"scb_6_interrupt_IRQn\000"
+ 5515      365F696E 
+ 5515      74657272 
+ 5515      7570745F 
+ 5515      4952516E 
+ 5516              	.LASF278:
+ 5517 1d27 4D435744 		.ascii	"MCWDT_CTL\000"
+ 5517      545F4354 
+ 5517      4C00
+ 5518              	.LASF302:
+ 5519 1d31 434C4B5F 		.ascii	"CLK_IMO_CONFIG\000"
+ 5519      494D4F5F 
+ 5519      434F4E46 
+ 5519      494700
+ 5520              	.LASF190:
+ 5521 1d40 4D4D4652 		.ascii	"MMFR\000"
+ 5521      00
+ 5522              	.LASF254:
+ 5523 1d45 434D305F 		.ascii	"CM0_NMI_CTL\000"
+ 5523      4E4D495F 
+ 5523      43544C00 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 146
+
+
+ 5524              	.LASF295:
+ 5525 1d51 4D435744 		.ascii	"MCWDT_STRUCT\000"
+ 5525      545F5354 
+ 5525      52554354 
+ 5525      00
+ 5526              	.LASF187:
+ 5527 1d5e 4D4D4641 		.ascii	"MMFAR\000"
+ 5527      5200
+ 5528              	.LASF359:
+ 5529 1d64 70657269 		.ascii	"periVersion\000"
+ 5529      56657273 
+ 5529      696F6E00 
+ 5530              	.LASF323:
+ 5531 1d70 5245535F 		.ascii	"RES_CAUSE2\000"
+ 5531      43415553 
+ 5531      453200
+ 5532              	.LASF115:
+ 5533 1d7b 63707573 		.ascii	"cpuss_interrupts_cm0_cti_0_IRQn\000"
+ 5533      735F696E 
+ 5533      74657272 
+ 5533      75707473 
+ 5533      5F636D30 
+ 5534              	.LASF46:
+ 5535 1d9b 6C70636F 		.ascii	"lpcomp_interrupt_IRQn\000"
+ 5535      6D705F69 
+ 5535      6E746572 
+ 5535      72757074 
+ 5535      5F495251 
+ 5536              	.LASF52:
+ 5537 1db1 70617373 		.ascii	"pass_interrupt_ctbs_IRQn\000"
+ 5537      5F696E74 
+ 5537      65727275 
+ 5537      70745F63 
+ 5537      7462735F 
+ 5538              	.LASF284:
+ 5539 1dca 4D435744 		.ascii	"MCWDT_STRUCT_V1_Type\000"
+ 5539      545F5354 
+ 5539      52554354 
+ 5539      5F56315F 
+ 5539      54797065 
+ 5540              	.LASF329:
+ 5541 1ddf 5057525F 		.ascii	"PWR_TRIM_LVD_CTL\000"
+ 5541      5452494D 
+ 5541      5F4C5644 
+ 5541      5F43544C 
+ 5541      00
+ 5542              	.LASF15:
+ 5543 1df0 696E7431 		.ascii	"int16_t\000"
+ 5543      365F7400 
+ 5544              	.LASF191:
+ 5545 1df8 49534152 		.ascii	"ISAR\000"
+ 5545      00
+ 5546              	.LASF294:
+ 5547 1dfd 5744545F 		.ascii	"WDT_MATCH\000"
+ 5547      4D415443 
+ 5547      4800
+ 5548              	.LASF62:
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 147
+
+
+ 5549 1e07 63707573 		.ascii	"cpuss_interrupts_ipc_8_IRQn\000"
+ 5549      735F696E 
+ 5549      74657272 
+ 5549      75707473 
+ 5549      5F697063 
+ 5550              	.LASF385:
+ 5551 1e23 666C6173 		.ascii	"flashCtlMainWs1Freq\000"
+ 5551      6843746C 
+ 5551      4D61696E 
+ 5551      57733146 
+ 5551      72657100 
+ 5552              	.LASF218:
+ 5553 1e37 52414D30 		.ascii	"RAM0_CTL0\000"
+ 5553      5F43544C 
+ 5553      3000
+ 5554              	.LASF470:
+ 5555 1e41 6473695F 		.ascii	"dsi_src\000"
+ 5555      73726300 
+ 5556              	.LASF38:
+ 5557 1e49 696F7373 		.ascii	"ioss_interrupts_gpio_9_IRQn\000"
+ 5557      5F696E74 
+ 5557      65727275 
+ 5557      7074735F 
+ 5557      6770696F 
+ 5558              	.LASF250:
+ 5559 1e65 4944454E 		.ascii	"IDENTITY\000"
+ 5559      54495459 
+ 5559      00
+ 5560              	.LASF118:
+ 5561 1e6e 63707573 		.ascii	"cpuss_interrupts_cm4_cti_1_IRQn\000"
+ 5561      735F696E 
+ 5561      74657272 
+ 5561      75707473 
+ 5561      5F636D34 
+ 5562              	.LASF509:
+ 5563 1e8e 73797374 		.ascii	"system_psoc6_cm4.c\000"
+ 5563      656D5F70 
+ 5563      736F6336 
+ 5563      5F636D34 
+ 5563      2E6300
+ 5564              	.LASF428:
+ 5565 1ea1 63795F73 		.ascii	"cy_stc_device_t\000"
+ 5565      74635F64 
+ 5565      65766963 
+ 5565      655F7400 
+ 5566              	.LASF39:
+ 5567 1eb1 696F7373 		.ascii	"ioss_interrupts_gpio_10_IRQn\000"
+ 5567      5F696E74 
+ 5567      65727275 
+ 5567      7074735F 
+ 5567      6770696F 
+ 5568              	.LASF380:
+ 5569 1ece 666C6173 		.ascii	"flashPipeRequired\000"
+ 5569      68506970 
+ 5569      65526571 
+ 5569      75697265 
+ 5569      6400
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 148
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+
+
+ 5570              	.LASF23:
+ 5571 1ee0 42757346 		.ascii	"BusFault_IRQn\000"
+ 5571      61756C74 
+ 5571      5F495251 
+ 5571      6E00
+ 5572              	.LASF336:
+ 5573 1eee 53525353 		.ascii	"SRSS_V1_Type\000"
+ 5573      5F56315F 
+ 5573      54797065 
+ 5573      00
+ 5574              	.LASF267:
+ 5575 1efb 4C4F434B 		.ascii	"LOCK_STATUS\000"
+ 5575      5F535441 
+ 5575      54555300 
+ 5576              	.LASF274:
+ 5577 1f07 4D435744 		.ascii	"MCWDT_CNTLOW\000"
+ 5577      545F434E 
+ 5577      544C4F57 
+ 5577      00
+ 5578              	.LASF108:
+ 5579 1f14 63707573 		.ascii	"cpuss_interrupts_dw1_13_IRQn\000"
+ 5579      735F696E 
+ 5579      74657272 
+ 5579      75707473 
+ 5579      5F647731 
+ 5580              	.LASF489:
+ 5581 1f31 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 5581      52784275 
+ 5581      66666572 
+ 5581      00
+ 5582              	.LASF453:
+ 5583 1f3e 63795F73 		.ascii	"cy_stc_ipc_pipe_ep_config_t\000"
+ 5583      74635F69 
+ 5583      70635F70 
+ 5583      6970655F 
+ 5583      65705F63 
  5584              	.LASF356:
- 5585 1f4d 6770696F 		.ascii	"gpioVersion\000"
+ 5585 1f5a 6770696F 		.ascii	"gpioVersion\000"
  5585      56657273 
  5585      696F6E00 
  5586              	.LASF411:
- 5587 1f59 6770696F 		.ascii	"gpioPrtCfgSioOffset\000"
+ 5587 1f66 6770696F 		.ascii	"gpioPrtCfgSioOffset\000"
  5587      50727443 
  5587      66675369 
  5587      6F4F6666 
  5587      73657400 
  5588              	.LASF473:
- 5589 1f6d 666C6C4F 		.ascii	"fllOutputAuto\000"
+ 5589 1f7a 666C6C4F 		.ascii	"fllOutputAuto\000"
  5589      75747075 
  5589      74417574 
  5589      6F00
  5590              	.LASF466:
- 5591 1f7b 66617374 		.ascii	"fastClkDiv\000"
+ 5591 1f88 66617374 		.ascii	"fastClkDiv\000"
  5591      436C6B44 
  5591      697600
  5592              	.LASF94:
- 5593 1f86 63707573 		.ascii	"cpuss_interrupts_dw0_15_IRQn\000"
+ 5593 1f93 63707573 		.ascii	"cpuss_interrupts_dw0_15_IRQn\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 149
+
+
  5593      735F696E 
  5593      74657272 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 149
 
 
+=======
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5593      75707473 
  5593      5F647730 
  5594              	.LASF55:
- 5595 1fa3 63707573 		.ascii	"cpuss_interrupts_ipc_1_IRQn\000"
+ 5595 1fb0 63707573 		.ascii	"cpuss_interrupts_ipc_1_IRQn\000"
  5595      735F696E 
  5595      74657272 
  5595      75707473 
  5595      5F697063 
  5596              	.LASF123:
- 5597 1fbf 74637077 		.ascii	"tcpwm_0_interrupts_4_IRQn\000"
+ 5597 1fcc 74637077 		.ascii	"tcpwm_0_interrupts_4_IRQn\000"
  5597      6D5F305F 
  5597      696E7465 
  5597      72727570 
  5597      74735F34 
  5598              	.LASF31:
- 5599 1fd9 696F7373 		.ascii	"ioss_interrupts_gpio_2_IRQn\000"
+ 5599 1fe6 696F7373 		.ascii	"ioss_interrupts_gpio_2_IRQn\000"
  5599      5F696E74 
  5599      65727275 
  5599      7074735F 
  5599      6770696F 
  5600              	.LASF145:
- 5601 1ff5 74637077 		.ascii	"tcpwm_1_interrupts_18_IRQn\000"
+ 5601 2002 74637077 		.ascii	"tcpwm_1_interrupts_18_IRQn\000"
  5601      6D5F315F 
  5601      696E7465 
  5601      72727570 
  5601      74735F31 
  5602              	.LASF50:
- 5603 2010 73727373 		.ascii	"srss_interrupt_backup_IRQn\000"
+ 5603 201d 73727373 		.ascii	"srss_interrupt_backup_IRQn\000"
  5603      5F696E74 
  5603      65727275 
  5603      70745F62 
  5603      61636B75 
  5604              	.LASF73:
- 5605 202b 7363625F 		.ascii	"scb_3_interrupt_IRQn\000"
+ 5605 2038 7363625F 		.ascii	"scb_3_interrupt_IRQn\000"
  5605      335F696E 
  5605      74657272 
  5605      7570745F 
  5605      4952516E 
  5606              	.LASF451:
- 5607 2040 65704164 		.ascii	"epAddress\000"
+ 5607 204d 65704164 		.ascii	"epAddress\000"
  5607      64726573 
  5607      7300
  5608              	.LASF87:
- 5609 204a 63707573 		.ascii	"cpuss_interrupts_dw0_8_IRQn\000"
+ 5609 2057 63707573 		.ascii	"cpuss_interrupts_dw0_8_IRQn\000"
  5609      735F696E 
  5609      74657272 
  5609      75707473 
  5609      5F647730 
  5610              	.LASF463:
- 5611 2066 53797374 		.ascii	"SystemCoreClockUpdate\000"
+ 5611 2073 53797374 		.ascii	"SystemCoreClockUpdate\000"
  5611      656D436F 
  5611      7265436C 
  5611      6F636B55 
  5611      70646174 
  5612              	.LASF161:
- 5613 207c 7564625F 		.ascii	"udb_interrupts_10_IRQn\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 150
+
+
+ 5613 2089 7564625F 		.ascii	"udb_interrupts_10_IRQn\000"
  5613      696E7465 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 150
 
 
+=======
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5613      72727570 
  5613      74735F31 
  5613      305F4952 
  5614              	.LASF45:
- 5615 2093 696F7373 		.ascii	"ioss_interrupt_vdd_IRQn\000"
+ 5615 20a0 696F7373 		.ascii	"ioss_interrupt_vdd_IRQn\000"
  5615      5F696E74 
  5615      65727275 
  5615      70745F76 
  5615      64645F49 
  5616              	.LASF130:
- 5617 20ab 74637077 		.ascii	"tcpwm_1_interrupts_3_IRQn\000"
+ 5617 20b8 74637077 		.ascii	"tcpwm_1_interrupts_3_IRQn\000"
  5617      6D5F315F 
  5617      696E7465 
  5617      72727570 
  5617      74735F33 
  5618              	.LASF18:
- 5619 20c5 75696E74 		.ascii	"uint32_t\000"
+ 5619 20d2 75696E74 		.ascii	"uint32_t\000"
  5619      33325F74 
  5619      00
  5620              	.LASF301:
- 5621 20ce 434C4B5F 		.ascii	"CLK_ILO_CONFIG\000"
+ 5621 20db 434C4B5F 		.ascii	"CLK_ILO_CONFIG\000"
  5621      494C4F5F 
  5621      434F4E46 
  5621      494700
  5622              	.LASF102:
- 5623 20dd 63707573 		.ascii	"cpuss_interrupts_dw1_7_IRQn\000"
+ 5623 20ea 63707573 		.ascii	"cpuss_interrupts_dw1_7_IRQn\000"
  5623      735F696E 
  5623      74657272 
  5623      75707473 
  5623      5F647731 
  5624              	.LASF434:
- 5625 20f9 63795F69 		.ascii	"cy_ipc_pipe_relcallback_ptr_t\000"
+ 5625 2106 63795F69 		.ascii	"cy_ipc_pipe_relcallback_ptr_t\000"
  5625      70635F70 
  5625      6970655F 
  5625      72656C63 
  5625      616C6C62 
  5626              	.LASF212:
- 5627 2117 434D345F 		.ascii	"CM4_STATUS\000"
+ 5627 2124 434D345F 		.ascii	"CM4_STATUS\000"
  5627      53544154 
  5627      555300
  5628              	.LASF138:
- 5629 2122 74637077 		.ascii	"tcpwm_1_interrupts_11_IRQn\000"
+ 5629 212f 74637077 		.ascii	"tcpwm_1_interrupts_11_IRQn\000"
  5629      6D5F315F 
  5629      696E7465 
  5629      72727570 
  5629      74735F31 
  5630              	.LASF350:
- 5631 213d 69706342 		.ascii	"ipcBase\000"
+ 5631 214a 69706342 		.ascii	"ipcBase\000"
  5631      61736500 
  5632              	.LASF414:
- 5633 2145 63707573 		.ascii	"cpussCm4StatusOffset\000"
+ 5633 2152 63707573 		.ascii	"cpussCm4StatusOffset\000"
  5633      73436D34 
  5633      53746174 
  5633      75734F66 
  5633      66736574 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 151
+
+
  5634              	.LASF392:
+<<<<<<< HEAD
  5635 215a 64774368 		.ascii	"dwChCtlPreemptablePos\000"
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 151
 
 
+=======
+ 5635 2167 64774368 		.ascii	"dwChCtlPreemptablePos\000"
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5635      43746C50 
  5635      7265656D 
  5635      70746162 
  5635      6C65506F 
  5636              	.LASF6:
- 5637 2170 73686F72 		.ascii	"short unsigned int\000"
+ 5637 217d 73686F72 		.ascii	"short unsigned int\000"
  5637      7420756E 
  5637      7369676E 
  5637      65642069 
  5637      6E7400
  5638              	.LASF314:
- 5639 2183 434C4B5F 		.ascii	"CLK_FLL_STATUS\000"
+ 5639 2190 434C4B5F 		.ascii	"CLK_FLL_STATUS\000"
  5639      464C4C5F 
  5639      53544154 
  5639      555300
  5640              	.LASF193:
- 5641 2192 43504143 		.ascii	"CPACR\000"
+ 5641 219f 43504143 		.ascii	"CPACR\000"
  5641      5200
  5642              	.LASF290:
- 5643 2198 5057525F 		.ascii	"PWR_LVD_STATUS\000"
+ 5643 21a5 5057525F 		.ascii	"PWR_LVD_STATUS\000"
  5643      4C56445F 
  5643      53544154 
  5643      555300
  5644              	.LASF54:
- 5645 21a7 63707573 		.ascii	"cpuss_interrupts_ipc_0_IRQn\000"
+ 5645 21b4 63707573 		.ascii	"cpuss_interrupts_ipc_0_IRQn\000"
  5645      735F696E 
  5645      74657272 
  5645      75707473 
  5645      5F697063 
  5646              	.LASF122:
- 5647 21c3 74637077 		.ascii	"tcpwm_0_interrupts_3_IRQn\000"
+ 5647 21d0 74637077 		.ascii	"tcpwm_0_interrupts_3_IRQn\000"
  5647      6D5F305F 
  5647      696E7465 
  5647      72727570 
  5647      74735F33 
  5648              	.LASF155:
- 5649 21dd 7564625F 		.ascii	"udb_interrupts_4_IRQn\000"
+ 5649 21ea 7564625F 		.ascii	"udb_interrupts_4_IRQn\000"
  5649      696E7465 
  5649      72727570 
  5649      74735F34 
  5649      5F495251 
  5650              	.LASF30:
- 5651 21f3 696F7373 		.ascii	"ioss_interrupts_gpio_1_IRQn\000"
+ 5651 2200 696F7373 		.ascii	"ioss_interrupts_gpio_1_IRQn\000"
  5651      5F696E74 
  5651      65727275 
  5651      7074735F 
  5651      6770696F 
  5652              	.LASF426:
- 5653 220f 69706353 		.ascii	"ipcStructSize\000"
+ 5653 221c 69706353 		.ascii	"ipcStructSize\000"
  5653      74727563 
  5653      7453697A 
  5653      6500
  5654              	.LASF273:
- 5655 221d 4950435F 		.ascii	"IPC_INTR_STRUCT_V1_Type\000"
+ 5655 222a 4950435F 		.ascii	"IPC_INTR_STRUCT_V1_Type\000"
  5655      494E5452 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 152
+
+
  5655      5F535452 
  5655      5543545F 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 152
 
 
+=======
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5655      56315F54 
  5656              	.LASF395:
- 5657 2235 70657269 		.ascii	"periTrCmdOffset\000"
+ 5657 2242 70657269 		.ascii	"periTrCmdOffset\000"
  5657      5472436D 
  5657      644F6666 
  5657      73657400 
  5658              	.LASF7:
- 5659 2245 5F5F696E 		.ascii	"__int32_t\000"
+ 5659 2252 5F5F696E 		.ascii	"__int32_t\000"
  5659      7433325F 
  5659      7400
  5660              	.LASF486:
- 5661 224f 73797374 		.ascii	"systemIpcPipeConfigCm4\000"
+ 5661 225c 73797374 		.ascii	"systemIpcPipeConfigCm4\000"
  5661      656D4970 
  5661      63506970 
  5661      65436F6E 
  5661      66696743 
  5662              	.LASF95:
- 5663 2266 63707573 		.ascii	"cpuss_interrupts_dw1_0_IRQn\000"
+ 5663 2273 63707573 		.ascii	"cpuss_interrupts_dw1_0_IRQn\000"
  5663      735F696E 
  5663      74657272 
  5663      75707473 
  5663      5F647731 
  5664              	.LASF124:
- 5665 2282 74637077 		.ascii	"tcpwm_0_interrupts_5_IRQn\000"
+ 5665 228f 74637077 		.ascii	"tcpwm_0_interrupts_5_IRQn\000"
  5665      6D5F305F 
  5665      696E7465 
  5665      72727570 
  5665      74735F35 
  5666              	.LASF69:
- 5667 229c 63707573 		.ascii	"cpuss_interrupts_ipc_15_IRQn\000"
+ 5667 22a9 63707573 		.ascii	"cpuss_interrupts_ipc_15_IRQn\000"
  5667      735F696E 
  5667      74657272 
  5667      75707473 
  5667      5F697063 
  5668              	.LASF47:
- 5669 22b9 7363625F 		.ascii	"scb_8_interrupt_IRQn\000"
+ 5669 22c6 7363625F 		.ascii	"scb_8_interrupt_IRQn\000"
  5669      385F696E 
  5669      74657272 
  5669      7570745F 
  5669      4952516E 
  5670              	.LASF330:
- 5671 22ce 434C4B5F 		.ascii	"CLK_TRIM_ILO_CTL\000"
+ 5671 22db 434C4B5F 		.ascii	"CLK_TRIM_ILO_CTL\000"
  5671      5452494D 
  5671      5F494C4F 
  5671      5F43544C 
  5671      00
  5672              	.LASF291:
- 5673 22df 5057525F 		.ascii	"PWR_HIB_DATA\000"
+ 5673 22ec 5057525F 		.ascii	"PWR_HIB_DATA\000"
  5673      4849425F 
  5673      44415441 
  5673      00
  5674              	.LASF21:
- 5675 22ec 48617264 		.ascii	"HardFault_IRQn\000"
+ 5675 22f9 48617264 		.ascii	"HardFault_IRQn\000"
  5675      4661756C 
  5675      745F4952 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 153
+
+
  5675      516E00
  5676              	.LASF462:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 153
 
 
  5677 22fb 43795F53 		.ascii	"Cy_SysIpcPipeIsrCm4\000"
+=======
+ 5677 2308 43795F53 		.ascii	"Cy_SysIpcPipeIsrCm4\000"
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5677      79734970 
  5677      63506970 
  5677      65497372 
  5677      436D3400 
  5678              	.LASF148:
- 5679 230f 74637077 		.ascii	"tcpwm_1_interrupts_21_IRQn\000"
+ 5679 231c 74637077 		.ascii	"tcpwm_1_interrupts_21_IRQn\000"
  5679      6D5F315F 
  5679      696E7465 
  5679      72727570 
  5679      74735F32 
  5680              	.LASF303:
- 5681 232a 434C4B5F 		.ascii	"CLK_OUTPUT_FAST\000"
+ 5681 2337 434C4B5F 		.ascii	"CLK_OUTPUT_FAST\000"
  5681      4F555450 
  5681      55545F46 
  5681      41535400 
  5682              	.LASF292:
- 5683 233a 5744545F 		.ascii	"WDT_CTL\000"
+ 5683 2347 5744545F 		.ascii	"WDT_CTL\000"
  5683      43544C00 
  5684              	.LASF442:
- 5685 2342 62757379 		.ascii	"busy\000"
+ 5685 234f 62757379 		.ascii	"busy\000"
  5685      00
  5686              	.LASF308:
- 5687 2347 434C4B5F 		.ascii	"CLK_ECO_STATUS\000"
+ 5687 2354 434C4B5F 		.ascii	"CLK_ECO_STATUS\000"
  5687      45434F5F 
  5687      53544154 
  5687      555300
  5688              	.LASF214:
- 5689 2356 434D345F 		.ascii	"CM4_CLOCK_CTL\000"
+ 5689 2363 434D345F 		.ascii	"CM4_CLOCK_CTL\000"
  5689      434C4F43 
  5689      4B5F4354 
  5689      4C00
  5690              	.LASF28:
- 5691 2364 53797354 		.ascii	"SysTick_IRQn\000"
+ 5691 2371 53797354 		.ascii	"SysTick_IRQn\000"
  5691      69636B5F 
  5691      4952516E 
  5691      00
  5692              	.LASF384:
- 5693 2371 666C6173 		.ascii	"flashCtlMainWs0Freq\000"
+ 5693 237e 666C6173 		.ascii	"flashCtlMainWs0Freq\000"
  5693      6843746C 
  5693      4D61696E 
  5693      57733046 
  5693      72657100 
  5694              	.LASF84:
- 5695 2385 63707573 		.ascii	"cpuss_interrupts_dw0_5_IRQn\000"
+ 5695 2392 63707573 		.ascii	"cpuss_interrupts_dw0_5_IRQn\000"
  5695      735F696E 
  5695      74657272 
  5695      75707473 
  5695      5F647730 
  5696              	.LASF357:
- 5697 23a1 6873696F 		.ascii	"hsiomVersion\000"
+ 5697 23ae 6873696F 		.ascii	"hsiomVersion\000"
  5697      6D566572 
  5697      73696F6E 
  5697      00
  5698              	.LASF321:
- 5699 23ae 53525353 		.ascii	"SRSS_INTR_CFG\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccrqbijX.s 			page 154
+
+
+ 5699 23bb 53525353 		.ascii	"SRSS_INTR_CFG\000"
  5699      5F494E54 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccUGgRok.s 			page 154
 
 
+=======
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5699      525F4346 
  5699      4700
  5700              	.LASF389:
- 5701 23bc 64774368 		.ascii	"dwChOffset\000"
+ 5701 23c9 64774368 		.ascii	"dwChOffset\000"
  5701      4F666673 
  5701      657400
  5702              	.LASF467:
- 5703 23c7 70657269 		.ascii	"periClkDiv\000"
+ 5703 23d4 70657269 		.ascii	"periClkDiv\000"
  5703      436C6B44 
  5703      697600
  5704              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
