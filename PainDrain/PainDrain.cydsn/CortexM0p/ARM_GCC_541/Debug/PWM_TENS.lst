@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 1
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
    1              		.syntax unified
@@ -58,7 +62,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
   28:Generated_Source\PSoC6/PWM_TENS.c **** */ 
   29:Generated_Source\PSoC6/PWM_TENS.c **** cy_stc_tcpwm_pwm_config_t const PWM_TENS_config =
   30:Generated_Source\PSoC6/PWM_TENS.c **** {
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 2
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 2
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
   31:Generated_Source\PSoC6/PWM_TENS.c ****     .pwmMode = 4UL,
@@ -118,7 +126,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
   39 0006 002B     		cmp	r3, #0
   40 0008 07D1     		bne	.L2
   74:Generated_Source\PSoC6/PWM_TENS.c ****     {
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 3
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 3
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
   75:Generated_Source\PSoC6/PWM_TENS.c ****         (void) Cy_TCPWM_PWM_Init(PWM_TENS_HW, PWM_TENS_CNT_NUM, &PWM_TENS_config);
@@ -178,7 +190,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
   37:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * the TCPWM being used must be passed first, followed by the index of 
   38:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * the counter you want to touch next. 
   39:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * For some functions, you can manage multiple counters simultaneously. You 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 4
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 4
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
   40:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * provide a bit field representing each counter, rather than the single counter 
@@ -238,7 +254,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
   94:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
   95:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \n
   96:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \b Quadrature \b Decoder
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 5
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 5
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
   97:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
@@ -298,7 +318,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  151:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \subsection group_tcpwm_pins Assign and Configure Pins
  152:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The dedicated TCPWM pins can be used. The HSIOM register must be configured to
  153:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * connect the block to the pins. Use the \ref group_gpio driver API to do that.
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 6
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 6
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  154:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
@@ -358,7 +382,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  208:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   </tr>
  209:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
  210:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>1.0</td>
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 7
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 7
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  211:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Initial version</td>
@@ -418,7 +446,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  265:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Driver minor version */
  266:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_DRV_VERSION_MINOR       10
  267:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 8
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 8
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  268:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
@@ -478,7 +510,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  322:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INT_ON_CC              (2U) /**< Interrupt on Compare/Capture(CC) */
  323:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INT_NONE               (0U) /**< No Interrupt */
  324:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INT_ON_CC_OR_TC        (3U) /**< Interrupt on TC or CC */
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 9
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 9
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  325:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_interrupt_sources */
@@ -538,7 +574,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  379:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *******************************************************************************/
  380:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
  381:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 10
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 10
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  382:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \addtogroup group_tcpwm_functions_common
@@ -598,7 +638,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  427:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Disables the counter(s) in the TCPWM block. Multiple TCPWM can be disabled 
  428:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * simultaneously.
  429:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 11
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 11
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  430:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \param base
@@ -658,7 +702,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
   76 0024 00000000 		.word	.LANCHOR0
   77 0028 00000000 		.word	.LANCHOR1
   78 002c 00003940 		.word	1077477376
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 12
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 12
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
   79              		.cfi_endproc
@@ -718,14 +766,18 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  133 0004 0400     		.2byte	0x4
  134 0006 00000000 		.4byte	.Ldebug_abbrev0
  135 000a 04       		.byte	0x4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 13
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 13
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  136 000b 01       		.uleb128 0x1
- 137 000c 57030000 		.4byte	.LASF76
+ 137 000c 64030000 		.4byte	.LASF76
  138 0010 0C       		.byte	0xc
  139 0011 71000000 		.4byte	.LASF77
- 140 0015 2A010000 		.4byte	.LASF78
+ 140 0015 7A020000 		.4byte	.LASF78
  141 0019 00000000 		.4byte	.Ldebug_ranges0+0
  142 001d 00000000 		.4byte	0
  143 0021 00000000 		.4byte	.Ldebug_line0
@@ -736,24 +788,24 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  148 002c 02       		.uleb128 0x2
  149 002d 01       		.byte	0x1
  150 002e 08       		.byte	0x8
- 151 002f 60020000 		.4byte	.LASF1
+ 151 002f 27020000 		.4byte	.LASF1
  152 0033 02       		.uleb128 0x2
  153 0034 01       		.byte	0x1
  154 0035 06       		.byte	0x6
- 155 0036 7E020000 		.4byte	.LASF2
+ 155 0036 45020000 		.4byte	.LASF2
  156 003a 03       		.uleb128 0x3
- 157 003b 11020000 		.4byte	.LASF5
+ 157 003b D8010000 		.4byte	.LASF5
  158 003f 03       		.byte	0x3
  159 0040 1D       		.byte	0x1d
  160 0041 2C000000 		.4byte	0x2c
  161 0045 02       		.uleb128 0x2
  162 0046 02       		.byte	0x2
  163 0047 07       		.byte	0x7
- 164 0048 D7020000 		.4byte	.LASF3
+ 164 0048 E4020000 		.4byte	.LASF3
  165 004c 02       		.uleb128 0x2
  166 004d 04       		.byte	0x4
  167 004e 05       		.byte	0x5
- 168 004f EF020000 		.4byte	.LASF4
+ 168 004f FC020000 		.4byte	.LASF4
  169 0053 03       		.uleb128 0x3
  170 0054 F6000000 		.4byte	.LASF6
  171 0058 03       		.byte	0x3
@@ -762,15 +814,15 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  174 005e 02       		.uleb128 0x2
  175 005f 04       		.byte	0x4
  176 0060 07       		.byte	0x7
- 177 0061 3E030000 		.4byte	.LASF7
+ 177 0061 4B030000 		.4byte	.LASF7
  178 0065 02       		.uleb128 0x2
  179 0066 08       		.byte	0x8
  180 0067 05       		.byte	0x5
- 181 0068 DC010000 		.4byte	.LASF8
+ 181 0068 A3010000 		.4byte	.LASF8
  182 006c 02       		.uleb128 0x2
  183 006d 08       		.byte	0x8
  184 006e 07       		.byte	0x7
- 185 006f 93020000 		.4byte	.LASF9
+ 185 006f 5A020000 		.4byte	.LASF9
  186 0073 04       		.uleb128 0x4
  187 0074 04       		.byte	0x4
  188 0075 05       		.byte	0x5
@@ -778,24 +830,28 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  190 007a 02       		.uleb128 0x2
  191 007b 04       		.byte	0x4
  192 007c 07       		.byte	0x7
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 14
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 14
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
- 193 007d B3020000 		.4byte	.LASF10
+ 193 007d C0020000 		.4byte	.LASF10
  194 0081 03       		.uleb128 0x3
- 195 0082 63010000 		.4byte	.LASF11
+ 195 0082 2A010000 		.4byte	.LASF11
  196 0086 04       		.byte	0x4
  197 0087 18       		.byte	0x18
  198 0088 3A000000 		.4byte	0x3a
  199 008c 03       		.uleb128 0x3
- 200 008d AA020000 		.4byte	.LASF12
+ 200 008d 71020000 		.4byte	.LASF12
  201 0091 04       		.byte	0x4
  202 0092 30       		.byte	0x30
  203 0093 53000000 		.4byte	0x53
  204 0097 02       		.uleb128 0x2
  205 0098 04       		.byte	0x4
  206 0099 07       		.byte	0x7
- 207 009a 31040000 		.4byte	.LASF13
+ 207 009a 3E040000 		.4byte	.LASF13
  208 009e 05       		.uleb128 0x5
  209 009f 8C000000 		.4byte	0x8c
  210 00a3 06       		.uleb128 0x6
@@ -806,19 +862,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  215 00ab 22       		.byte	0x22
  216 00ac 70010000 		.4byte	0x170
  217 00b0 08       		.uleb128 0x8
- 218 00b1 6E020000 		.4byte	.LASF14
+ 218 00b1 35020000 		.4byte	.LASF14
  219 00b5 05       		.byte	0x5
  220 00b6 23       		.byte	0x23
  221 00b7 9E000000 		.4byte	0x9e
  222 00bb 00       		.byte	0
  223 00bc 08       		.uleb128 0x8
- 224 00bd F2010000 		.4byte	.LASF15
+ 224 00bd B9010000 		.4byte	.LASF15
  225 00c1 05       		.byte	0x5
  226 00c2 24       		.byte	0x24
  227 00c3 A3000000 		.4byte	0xa3
  228 00c7 04       		.byte	0x4
  229 00c8 08       		.uleb128 0x8
- 230 00c9 48040000 		.4byte	.LASF16
+ 230 00c9 55040000 		.4byte	.LASF16
  231 00cd 05       		.byte	0x5
  232 00ce 25       		.byte	0x25
  233 00cf 9E000000 		.4byte	0x9e
@@ -830,7 +886,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  239 00da 9E000000 		.4byte	0x9e
  240 00de 0C       		.byte	0xc
  241 00df 08       		.uleb128 0x8
- 242 00e0 3D020000 		.4byte	.LASF17
+ 242 00e0 04020000 		.4byte	.LASF17
  243 00e4 05       		.byte	0x5
  244 00e5 27       		.byte	0x27
  245 00e6 9E000000 		.4byte	0x9e
@@ -838,7 +894,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  247 00eb 08       		.uleb128 0x8
  248 00ec BA000000 		.4byte	.LASF18
  249 00f0 05       		.byte	0x5
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 15
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 15
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  250 00f1 28       		.byte	0x28
@@ -851,7 +911,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  257 00fe 9E000000 		.4byte	0x9e
  258 0102 18       		.byte	0x18
  259 0103 08       		.uleb128 0x8
- 260 0104 58040000 		.4byte	.LASF20
+ 260 0104 65040000 		.4byte	.LASF20
  261 0108 05       		.byte	0x5
  262 0109 2A       		.byte	0x2a
  263 010a A3000000 		.4byte	0xa3
@@ -875,34 +935,38 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  281 012e 9E000000 		.4byte	0x9e
  282 0132 28       		.byte	0x28
  283 0133 08       		.uleb128 0x8
- 284 0134 34030000 		.4byte	.LASF24
+ 284 0134 41030000 		.4byte	.LASF24
  285 0138 05       		.byte	0x5
  286 0139 2E       		.byte	0x2e
  287 013a A3000000 		.4byte	0xa3
  288 013e 2C       		.byte	0x2c
  289 013f 08       		.uleb128 0x8
- 290 0140 1D030000 		.4byte	.LASF25
+ 290 0140 2A030000 		.4byte	.LASF25
  291 0144 05       		.byte	0x5
  292 0145 2F       		.byte	0x2f
  293 0146 9E000000 		.4byte	0x9e
  294 014a 30       		.byte	0x30
  295 014b 08       		.uleb128 0x8
- 296 014c 8A020000 		.4byte	.LASF26
+ 296 014c 51020000 		.4byte	.LASF26
  297 0150 05       		.byte	0x5
  298 0151 30       		.byte	0x30
  299 0152 9E000000 		.4byte	0x9e
  300 0156 34       		.byte	0x34
  301 0157 08       		.uleb128 0x8
- 302 0158 7A040000 		.4byte	.LASF27
+ 302 0158 87040000 		.4byte	.LASF27
  303 015c 05       		.byte	0x5
  304 015d 31       		.byte	0x31
  305 015e 9E000000 		.4byte	0x9e
  306 0162 38       		.byte	0x38
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 16
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 16
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  307 0163 08       		.uleb128 0x8
- 308 0164 31020000 		.4byte	.LASF28
+ 308 0164 F8010000 		.4byte	.LASF28
  309 0168 05       		.byte	0x5
  310 0169 32       		.byte	0x32
  311 016a A3000000 		.4byte	0xa3
@@ -919,13 +983,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  322 017f 38       		.byte	0x38
  323 0180 FE010000 		.4byte	0x1fe
  324 0184 08       		.uleb128 0x8
- 325 0185 6E020000 		.4byte	.LASF14
+ 325 0185 35020000 		.4byte	.LASF14
  326 0189 05       		.byte	0x5
  327 018a 39       		.byte	0x39
  328 018b 9E000000 		.4byte	0x9e
  329 018f 00       		.byte	0
  330 0190 08       		.uleb128 0x8
- 331 0191 02040000 		.4byte	.LASF30
+ 331 0191 0F040000 		.4byte	.LASF30
  332 0195 05       		.byte	0x5
  333 0196 3A       		.byte	0x3a
  334 0197 9E000000 		.4byte	0x9e
@@ -937,7 +1001,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  340 01a3 9E000000 		.4byte	0x9e
  341 01a7 08       		.byte	0x8
  342 01a8 08       		.uleb128 0x8
- 343 01a9 75010000 		.4byte	.LASF32
+ 343 01a9 3C010000 		.4byte	.LASF32
  344 01ad 05       		.byte	0x5
  345 01ae 3C       		.byte	0x3c
  346 01af 9E000000 		.4byte	0x9e
@@ -949,28 +1013,32 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  352 01bb 9E000000 		.4byte	0x9e
  353 01bf 10       		.byte	0x10
  354 01c0 08       		.uleb128 0x8
- 355 01c1 CE020000 		.4byte	.LASF34
+ 355 01c1 DB020000 		.4byte	.LASF34
  356 01c5 05       		.byte	0x5
  357 01c6 3E       		.byte	0x3e
  358 01c7 9E000000 		.4byte	0x9e
  359 01cb 14       		.byte	0x14
  360 01cc 08       		.uleb128 0x8
- 361 01cd 92010000 		.4byte	.LASF35
+ 361 01cd 59010000 		.4byte	.LASF35
  362 01d1 05       		.byte	0x5
  363 01d2 3F       		.byte	0x3f
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 17
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 17
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  364 01d3 9E000000 		.4byte	0x9e
  365 01d7 18       		.byte	0x18
  366 01d8 08       		.uleb128 0x8
- 367 01d9 73020000 		.4byte	.LASF36
+ 367 01d9 3A020000 		.4byte	.LASF36
  368 01dd 05       		.byte	0x5
  369 01de 40       		.byte	0x40
  370 01df A3000000 		.4byte	0xa3
  371 01e3 1C       		.byte	0x1c
  372 01e4 08       		.uleb128 0x8
- 373 01e5 58040000 		.4byte	.LASF20
+ 373 01e5 65040000 		.4byte	.LASF20
  374 01e9 05       		.byte	0x5
  375 01ea 41       		.byte	0x41
  376 01eb 13020000 		.4byte	0x213
@@ -1006,29 +1074,34 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  406 022e 43       		.byte	0x43
  407 022f 7B010000 		.4byte	0x17b
  408 0233 0E       		.uleb128 0xe
- 409 0234 84040000 		.4byte	.LASF38
+ 409 0234 91040000 		.4byte	.LASF38
  410 0238 06       		.byte	0x6
  411 0239 4206     		.2byte	0x642
  412 023b 28020000 		.4byte	0x228
  413 023f 02       		.uleb128 0x2
  414 0240 08       		.byte	0x8
  415 0241 04       		.byte	0x4
- 416 0242 45020000 		.4byte	.LASF39
+ 416 0242 0C020000 		.4byte	.LASF39
  417 0246 02       		.uleb128 0x2
  418 0247 01       		.byte	0x1
  419 0248 08       		.byte	0x8
+<<<<<<< HEAD
  420 0249 EA020000 		.4byte	.LASF40
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 18
+=======
+ 420 0249 F7020000 		.4byte	.LASF40
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 18
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  421 024d 02       		.uleb128 0x2
  422 024e 04       		.byte	0x4
  423 024f 04       		.byte	0x4
- 424 0250 B6010000 		.4byte	.LASF41
+ 424 0250 7D010000 		.4byte	.LASF41
  425 0254 02       		.uleb128 0x2
  426 0255 08       		.byte	0x8
  427 0256 04       		.byte	0x4
- 428 0257 50030000 		.4byte	.LASF42
+ 428 0257 5D030000 		.4byte	.LASF42
  429 025b 0F       		.uleb128 0xf
  430 025c DE000000 		.4byte	.LASF79
  431 0260 64       		.byte	0x64
@@ -1036,7 +1109,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  433 0262 2F       		.byte	0x2f
  434 0263 94030000 		.4byte	0x394
  435 0267 08       		.uleb128 0x8
- 436 0268 50040000 		.4byte	.LASF43
+ 436 0268 5D040000 		.4byte	.LASF43
  437 026c 07       		.byte	0x7
  438 026d 31       		.byte	0x31
  439 026e 8C000000 		.4byte	0x8c
@@ -1048,37 +1121,41 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  445 027a 8C000000 		.4byte	0x8c
  446 027e 04       		.byte	0x4
  447 027f 08       		.uleb128 0x8
- 448 0280 0B040000 		.4byte	.LASF45
+ 448 0280 18040000 		.4byte	.LASF45
  449 0284 07       		.byte	0x7
  450 0285 34       		.byte	0x34
  451 0286 8C000000 		.4byte	0x8c
  452 028a 08       		.byte	0x8
  453 028b 08       		.uleb128 0x8
- 454 028c F8020000 		.4byte	.LASF46
+ 454 028c 05030000 		.4byte	.LASF46
  455 0290 07       		.byte	0x7
  456 0291 35       		.byte	0x35
  457 0292 8C000000 		.4byte	0x8c
  458 0296 0C       		.byte	0xc
  459 0297 08       		.uleb128 0x8
- 460 0298 EA010000 		.4byte	.LASF47
+ 460 0298 B1010000 		.4byte	.LASF47
  461 029c 07       		.byte	0x7
  462 029d 36       		.byte	0x36
  463 029e 8C000000 		.4byte	0x8c
  464 02a2 10       		.byte	0x10
  465 02a3 08       		.uleb128 0x8
- 466 02a4 BC010000 		.4byte	.LASF48
+ 466 02a4 83010000 		.4byte	.LASF48
  467 02a8 07       		.byte	0x7
  468 02a9 37       		.byte	0x37
  469 02aa 8C000000 		.4byte	0x8c
  470 02ae 14       		.byte	0x14
  471 02af 08       		.uleb128 0x8
- 472 02b0 C4010000 		.4byte	.LASF49
+ 472 02b0 8B010000 		.4byte	.LASF49
  473 02b4 07       		.byte	0x7
  474 02b5 38       		.byte	0x38
  475 02b6 8C000000 		.4byte	0x8c
  476 02ba 18       		.byte	0x18
  477 02bb 08       		.uleb128 0x8
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 19
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 19
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  478 02bc 00000000 		.4byte	.LASF50
@@ -1105,46 +1182,50 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  499 02e6 94030000 		.4byte	0x394
  500 02ea 28       		.byte	0x28
  501 02eb 08       		.uleb128 0x8
- 502 02ec 81010000 		.4byte	.LASF54
+ 502 02ec 48010000 		.4byte	.LASF54
  503 02f0 07       		.byte	0x7
  504 02f1 3E       		.byte	0x3e
  505 02f2 8C000000 		.4byte	0x8c
  506 02f6 2C       		.byte	0x2c
  507 02f7 08       		.uleb128 0x8
- 508 02f8 04020000 		.4byte	.LASF55
+ 508 02f8 CB010000 		.4byte	.LASF55
  509 02fc 07       		.byte	0x7
  510 02fd 3F       		.byte	0x3f
  511 02fe 8C000000 		.4byte	0x8c
  512 0302 30       		.byte	0x30
  513 0303 08       		.uleb128 0x8
- 514 0304 C0020000 		.4byte	.LASF56
+ 514 0304 CD020000 		.4byte	.LASF56
  515 0308 07       		.byte	0x7
  516 0309 40       		.byte	0x40
  517 030a 8C000000 		.4byte	0x8c
  518 030e 34       		.byte	0x34
  519 030f 08       		.uleb128 0x8
- 520 0310 9C010000 		.4byte	.LASF57
+ 520 0310 63010000 		.4byte	.LASF57
  521 0314 07       		.byte	0x7
  522 0315 41       		.byte	0x41
  523 0316 8C000000 		.4byte	0x8c
  524 031a 38       		.byte	0x38
  525 031b 08       		.uleb128 0x8
- 526 031c E9030000 		.4byte	.LASF58
+ 526 031c F6030000 		.4byte	.LASF58
  527 0320 07       		.byte	0x7
  528 0321 42       		.byte	0x42
  529 0322 8C000000 		.4byte	0x8c
  530 0326 3C       		.byte	0x3c
  531 0327 08       		.uleb128 0x8
- 532 0328 18040000 		.4byte	.LASF59
+ 532 0328 25040000 		.4byte	.LASF59
  533 032c 07       		.byte	0x7
  534 032d 44       		.byte	0x44
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 20
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 20
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  535 032e 8C000000 		.4byte	0x8c
  536 0332 40       		.byte	0x40
  537 0333 08       		.uleb128 0x8
- 538 0334 CC010000 		.4byte	.LASF60
+ 538 0334 93010000 		.4byte	.LASF60
  539 0338 07       		.byte	0x7
  540 0339 45       		.byte	0x45
  541 033a 8C000000 		.4byte	0x8c
@@ -1156,25 +1237,25 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  547 0346 8C000000 		.4byte	0x8c
  548 034a 48       		.byte	0x48
  549 034b 08       		.uleb128 0x8
- 550 034c 51020000 		.4byte	.LASF62
+ 550 034c 18020000 		.4byte	.LASF62
  551 0350 07       		.byte	0x7
  552 0351 48       		.byte	0x48
  553 0352 8C000000 		.4byte	0x8c
  554 0356 4C       		.byte	0x4c
  555 0357 08       		.uleb128 0x8
- 556 0358 F7030000 		.4byte	.LASF63
+ 556 0358 04040000 		.4byte	.LASF63
  557 035c 07       		.byte	0x7
  558 035d 4A       		.byte	0x4a
  559 035e 8C000000 		.4byte	0x8c
  560 0362 50       		.byte	0x50
  561 0363 08       		.uleb128 0x8
- 562 0364 3A040000 		.4byte	.LASF64
+ 562 0364 47040000 		.4byte	.LASF64
  563 0368 07       		.byte	0x7
  564 0369 4B       		.byte	0x4b
  565 036a 8C000000 		.4byte	0x8c
  566 036e 54       		.byte	0x54
  567 036f 08       		.uleb128 0x8
- 568 0370 6B010000 		.4byte	.LASF65
+ 568 0370 32010000 		.4byte	.LASF65
  569 0374 07       		.byte	0x7
  570 0375 4D       		.byte	0x4d
  571 0376 8C000000 		.4byte	0x8c
@@ -1186,7 +1267,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  577 0382 8C000000 		.4byte	0x8c
  578 0386 5C       		.byte	0x5c
  579 0387 08       		.uleb128 0x8
- 580 0388 F9010000 		.4byte	.LASF67
+ 580 0388 C0010000 		.4byte	.LASF67
  581 038c 07       		.byte	0x7
  582 038d 50       		.byte	0x50
  583 038e 8C000000 		.4byte	0x8c
@@ -1195,28 +1276,32 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  586 0394 02       		.uleb128 0x2
  587 0395 01       		.byte	0x1
  588 0396 02       		.byte	0x2
- 589 0397 17030000 		.4byte	.LASF68
+ 589 0397 24030000 		.4byte	.LASF68
  590 039b 03       		.uleb128 0x3
  591 039c 4D000000 		.4byte	.LASF69
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 21
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 21
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  592 03a0 07       		.byte	0x7
  593 03a1 51       		.byte	0x51
  594 03a2 5B020000 		.4byte	0x25b
  595 03a6 10       		.uleb128 0x10
- 596 03a7 1B020000 		.4byte	.LASF72
+ 596 03a7 E2010000 		.4byte	.LASF72
  597 03ab 02       		.byte	0x2
  598 03ac CE01     		.2byte	0x1ce
  599 03ae 03       		.byte	0x3
  600 03af CC030000 		.4byte	0x3cc
  601 03b3 11       		.uleb128 0x11
- 602 03b4 8F040000 		.4byte	.LASF70
+ 602 03b4 9C040000 		.4byte	.LASF70
  603 03b8 02       		.byte	0x2
  604 03b9 CE01     		.2byte	0x1ce
  605 03bb CC030000 		.4byte	0x3cc
  606 03bf 11       		.uleb128 0x11
- 607 03c0 94040000 		.4byte	.LASF71
+ 607 03c0 A1040000 		.4byte	.LASF71
  608 03c4 02       		.byte	0x2
  609 03c5 CE01     		.2byte	0x1ce
  610 03c7 8C000000 		.4byte	0x8c
@@ -1225,24 +1310,24 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  613 03cd 04       		.byte	0x4
  614 03ce 33020000 		.4byte	0x233
  615 03d2 10       		.uleb128 0x10
- 616 03d3 61040000 		.4byte	.LASF73
+ 616 03d3 6E040000 		.4byte	.LASF73
  617 03d7 02       		.byte	0x2
  618 03d8 A101     		.2byte	0x1a1
  619 03da 03       		.byte	0x3
  620 03db F8030000 		.4byte	0x3f8
  621 03df 11       		.uleb128 0x11
- 622 03e0 8F040000 		.4byte	.LASF70
+ 622 03e0 9C040000 		.4byte	.LASF70
  623 03e4 02       		.byte	0x2
  624 03e5 A101     		.2byte	0x1a1
  625 03e7 CC030000 		.4byte	0x3cc
  626 03eb 11       		.uleb128 0x11
- 627 03ec 94040000 		.4byte	.LASF71
+ 627 03ec A1040000 		.4byte	.LASF71
  628 03f0 02       		.byte	0x2
  629 03f1 A101     		.2byte	0x1a1
  630 03f3 8C000000 		.4byte	0x8c
  631 03f7 00       		.byte	0
  632 03f8 13       		.uleb128 0x13
- 633 03f9 22040000 		.4byte	.LASF80
+ 633 03f9 2F040000 		.4byte	.LASF80
  634 03fd 01       		.byte	0x1
  635 03fe 47       		.byte	0x47
  636 03ff 00000000 		.4byte	.LFB99
@@ -1258,7 +1343,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  646 041b 50       		.byte	0x50
  647 041c 33040000 		.4byte	0x433
  648 0420 15       		.uleb128 0x15
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 22
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 22
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  649 0421 EB030000 		.4byte	0x3eb
@@ -1304,7 +1393,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  689 0479 00       		.byte	0
  690 047a 00       		.byte	0
  691 047b 18       		.uleb128 0x18
- 692 047c A5010000 		.4byte	.LASF74
+ 692 047c 6C010000 		.4byte	.LASF74
  693 0480 01       		.byte	0x1
  694 0481 18       		.byte	0x18
  695 0482 81000000 		.4byte	0x81
@@ -1312,21 +1401,25 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  697 0487 03       		.byte	0x3
  698 0488 00000000 		.4byte	PWM_TENS_initVar
  699 048c 18       		.uleb128 0x18
- 700 048d 07030000 		.4byte	.LASF75
+ 700 048d 14030000 		.4byte	.LASF75
  701 0491 01       		.byte	0x1
  702 0492 1D       		.byte	0x1d
  703 0493 9D040000 		.4byte	0x49d
  704 0497 05       		.uleb128 0x5
  705 0498 03       		.byte	0x3
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 23
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 23
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  706 0499 00000000 		.4byte	PWM_TENS_config
  707 049d 06       		.uleb128 0x6
  708 049e 9B030000 		.4byte	0x39b
  709 04a2 19       		.uleb128 0x19
- 710 04a3 22030000 		.4byte	.LASF81
- 711 04a7 22030000 		.4byte	.LASF81
+ 710 04a3 2F030000 		.4byte	.LASF81
+ 711 04a7 2F030000 		.4byte	.LASF81
  712 04ab 07       		.byte	0x7
  713 04ac CA       		.byte	0xca
  714 04ad 00       		.byte	0
@@ -1378,7 +1471,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  760 002b 04       		.uleb128 0x4
  761 002c 24       		.uleb128 0x24
  762 002d 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 24
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 24
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  763 002e 0B       		.uleb128 0xb
@@ -1438,7 +1535,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  817 0064 08       		.uleb128 0x8
  818 0065 3A       		.uleb128 0x3a
  819 0066 0B       		.uleb128 0xb
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 25
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 25
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  820 0067 3B       		.uleb128 0x3b
@@ -1498,7 +1599,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  874 009d 0E       		.uleb128 0xe
  875 009e 16       		.uleb128 0x16
  876 009f 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 26
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 26
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  877 00a0 03       		.uleb128 0x3
@@ -1558,7 +1663,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  931 00d6 00       		.byte	0
  932 00d7 12       		.uleb128 0x12
  933 00d8 0F       		.uleb128 0xf
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 27
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 27
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  934 00d9 00       		.byte	0
@@ -1618,7 +1727,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  988 0110 02       		.uleb128 0x2
  989 0111 17       		.uleb128 0x17
  990 0112 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 28
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 28
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  991 0113 00       		.byte	0
@@ -1678,7 +1791,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  1045              		.section	.debug_loc,"",%progbits
  1046              	.Ldebug_loc0:
  1047              	.LLST0:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 29
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 29
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1048 0000 1A000000 		.4byte	.LVL1
@@ -1738,7 +1855,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  1102              	.Ldebug_line0:
  1103 0000 3B020000 		.section	.debug_str,"MS",%progbits,1
  1103      02001302 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 30
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 30
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1103      00000201 
@@ -1798,7 +1919,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  1125      545F5631 
  1125      5F547970 
  1125      6500
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 31
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 31
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1126              	.LASF31:
@@ -1845,6 +1970,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  1145      6D706172 
  1145      65537761 
  1145      7000
+<<<<<<< HEAD
  1146              	.LASF78:
  1147 012a 433A5C50 		.ascii	"C:\\Projects\\PainDrain\\firmware\\PainDrain\\PainD"
  1147      726F6A65 
@@ -1979,160 +2105,312 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 1
  1204      65642069 
  1205              	.LASF12:
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 34
+=======
+ 1146              	.LASF11:
+ 1147 012a 75696E74 		.ascii	"uint8_t\000"
+ 1147      385F7400 
+ 1148              	.LASF65:
+ 1149 0132 6B696C6C 		.ascii	"killInput\000"
+ 1149      496E7075 
+ 1149      7400
+ 1150              	.LASF32:
+ 1151 013c 434D445F 		.ascii	"CMD_CAPTURE\000"
+ 1151      43415054 
+ 1151      55524500 
+ 1152              	.LASF54:
+ 1153 0148 696E7465 		.ascii	"interruptSources\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 32
 
 
- 1206 02aa 75696E74 		.ascii	"uint32_t\000"
- 1206      33325F74 
- 1206      00
+ 1153      72727570 
+ 1153      74536F75 
+ 1153      72636573 
+ 1153      00
+ 1154              	.LASF35:
+ 1155 0159 434D445F 		.ascii	"CMD_START\000"
+ 1155      53544152 
+ 1155      5400
+ 1156              	.LASF57:
+ 1157 0163 6B696C6C 		.ascii	"killMode\000"
+ 1157      4D6F6465 
+ 1157      00
+ 1158              	.LASF74:
+ 1159 016c 50574D5F 		.ascii	"PWM_TENS_initVar\000"
+ 1159      54454E53 
+ 1159      5F696E69 
+ 1159      74566172 
+ 1159      00
+ 1160              	.LASF41:
+ 1161 017d 666C6F61 		.ascii	"float\000"
+ 1161      7400
+ 1162              	.LASF48:
+ 1163 0183 70657269 		.ascii	"period0\000"
+ 1163      6F643000 
+ 1164              	.LASF49:
+ 1165 018b 70657269 		.ascii	"period1\000"
+ 1165      6F643100 
+ 1166              	.LASF60:
+ 1167 0193 72656C6F 		.ascii	"reloadInputMode\000"
+ 1167      6164496E 
+ 1167      7075744D 
+ 1167      6F646500 
+ 1168              	.LASF8:
+ 1169 01a3 6C6F6E67 		.ascii	"long long int\000"
+ 1169      206C6F6E 
+ 1169      6720696E 
+ 1169      7400
+ 1170              	.LASF47:
+ 1171 01b1 72756E4D 		.ascii	"runMode\000"
+ 1171      6F646500 
+ 1172              	.LASF15:
+ 1173 01b9 53544154 		.ascii	"STATUS\000"
+ 1173      555300
+ 1174              	.LASF67:
+ 1175 01c0 636F756E 		.ascii	"countInput\000"
+ 1175      74496E70 
+ 1175      757400
+ 1176              	.LASF55:
+ 1177 01cb 696E7665 		.ascii	"invertPWMOut\000"
+ 1177      72745057 
+ 1177      4D4F7574 
+ 1177      00
+ 1178              	.LASF5:
+ 1179 01d8 5F5F7569 		.ascii	"__uint8_t\000"
+ 1179      6E74385F 
+ 1179      7400
+ 1180              	.LASF72:
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 33
+
+
+ 1181 01e2 43795F54 		.ascii	"Cy_TCPWM_TriggerStart\000"
+ 1181      4350574D 
+ 1181      5F547269 
+ 1181      67676572 
+ 1181      53746172 
+ 1182              	.LASF28:
+ 1183 01f8 494E5452 		.ascii	"INTR_MASKED\000"
+ 1183      5F4D4153 
+ 1183      4B454400 
+ 1184              	.LASF17:
+ 1185 0204 43435F42 		.ascii	"CC_BUFF\000"
+ 1185      55464600 
+ 1186              	.LASF39:
+ 1187 020c 6C6F6E67 		.ascii	"long double\000"
+ 1187      20646F75 
+ 1187      626C6500 
+ 1188              	.LASF62:
+ 1189 0218 73746172 		.ascii	"startInputMode\000"
+ 1189      74496E70 
+ 1189      75744D6F 
+ 1189      646500
+ 1190              	.LASF1:
+ 1191 0227 756E7369 		.ascii	"unsigned char\000"
+ 1191      676E6564 
+ 1191      20636861 
+ 1191      7200
+ 1192              	.LASF14:
+ 1193 0235 4354524C 		.ascii	"CTRL\000"
+ 1193      00
+ 1194              	.LASF36:
+ 1195 023a 494E5452 		.ascii	"INTR_CAUSE\000"
+ 1195      5F434155 
+ 1195      534500
+ 1196              	.LASF2:
+ 1197 0245 7369676E 		.ascii	"signed char\000"
+ 1197      65642063 
+ 1197      68617200 
+ 1198              	.LASF26:
+ 1199 0251 494E5452 		.ascii	"INTR_SET\000"
+ 1199      5F534554 
+ 1199      00
+ 1200              	.LASF9:
+ 1201 025a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1201      206C6F6E 
+ 1201      6720756E 
+ 1201      7369676E 
+ 1201      65642069 
+ 1202              	.LASF12:
+ 1203 0271 75696E74 		.ascii	"uint32_t\000"
+ 1203      33325F74 
+ 1203      00
+ 1204              	.LASF78:
+ 1205 027a 433A5C50 		.ascii	"C:\\Projects\\Pain Drain\\Production2\\Firmware\\Pa"
+ 1205      726F6A65 
+ 1205      6374735C 
+ 1205      5061696E 
+ 1205      20447261 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 34
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+
+
+ 1206 02a8 696E4472 		.ascii	"inDrain\\PainDrain.cydsn\000"
+ 1206      61696E5C 
+ 1206      5061696E 
+ 1206      44726169 
+ 1206      6E2E6379 
  1207              	.LASF10:
- 1208 02b3 756E7369 		.ascii	"unsigned int\000"
+ 1208 02c0 756E7369 		.ascii	"unsigned int\000"
  1208      676E6564 
  1208      20696E74 
  1208      00
  1209              	.LASF56:
- 1210 02c0 696E7665 		.ascii	"invertPWMOutN\000"
+ 1210 02cd 696E7665 		.ascii	"invertPWMOutN\000"
  1210      72745057 
  1210      4D4F7574 
  1210      4E00
  1211              	.LASF34:
- 1212 02ce 434D445F 		.ascii	"CMD_STOP\000"
+ 1212 02db 434D445F 		.ascii	"CMD_STOP\000"
  1212      53544F50 
  1212      00
  1213              	.LASF3:
- 1214 02d7 73686F72 		.ascii	"short unsigned int\000"
+ 1214 02e4 73686F72 		.ascii	"short unsigned int\000"
  1214      7420756E 
  1214      7369676E 
  1214      65642069 
  1214      6E7400
  1215              	.LASF40:
- 1216 02ea 63686172 		.ascii	"char\000"
+ 1216 02f7 63686172 		.ascii	"char\000"
  1216      00
  1217              	.LASF4:
- 1218 02ef 6C6F6E67 		.ascii	"long int\000"
+ 1218 02fc 6C6F6E67 		.ascii	"long int\000"
  1218      20696E74 
  1218      00
  1219              	.LASF46:
- 1220 02f8 64656164 		.ascii	"deadTimeClocks\000"
+ 1220 0305 64656164 		.ascii	"deadTimeClocks\000"
  1220      54696D65 
  1220      436C6F63 
  1220      6B7300
  1221              	.LASF75:
- 1222 0307 50574D5F 		.ascii	"PWM_TENS_config\000"
+ 1222 0314 50574D5F 		.ascii	"PWM_TENS_config\000"
  1222      54454E53 
  1222      5F636F6E 
  1222      66696700 
  1223              	.LASF68:
- 1224 0317 5F426F6F 		.ascii	"_Bool\000"
+ 1224 0324 5F426F6F 		.ascii	"_Bool\000"
  1224      6C00
  1225              	.LASF25:
- 1226 031d 494E5452 		.ascii	"INTR\000"
+ 1226 032a 494E5452 		.ascii	"INTR\000"
  1226      00
  1227              	.LASF81:
- 1228 0322 43795F54 		.ascii	"Cy_TCPWM_PWM_Init\000"
+ 1228 032f 43795F54 		.ascii	"Cy_TCPWM_PWM_Init\000"
  1228      4350574D 
  1228      5F50574D 
  1228      5F496E69 
  1228      7400
  1229              	.LASF24:
- 1230 0334 52455345 		.ascii	"RESERVED1\000"
+ 1230 0341 52455345 		.ascii	"RESERVED1\000"
  1230      52564544 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 35
+
+
  1230      3100
  1231              	.LASF7:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 35
 
 
  1232 033e 6C6F6E67 		.ascii	"long unsigned int\000"
+=======
+ 1232 034b 6C6F6E67 		.ascii	"long unsigned int\000"
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  1232      20756E73 
  1232      69676E65 
  1232      6420696E 
  1232      7400
  1233              	.LASF42:
- 1234 0350 646F7562 		.ascii	"double\000"
+ 1234 035d 646F7562 		.ascii	"double\000"
  1234      6C6500
  1235              	.LASF76:
- 1236 0357 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1236 0364 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  1236      43313120 
  1236      352E342E 
  1236      31203230 
  1236      31363036 
- 1237 038a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 1237 0397 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
  1237      20726576 
  1237      6973696F 
  1237      6E203233 
  1237      37373135 
- 1238 03bd 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 1238 03ca 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
  1238      67202D66 
  1238      66756E63 
  1238      74696F6E 
  1238      2D736563 
  1239              	.LASF58:
- 1240 03e9 73776170 		.ascii	"swapInputMode\000"
+ 1240 03f6 73776170 		.ascii	"swapInputMode\000"
  1240      496E7075 
  1240      744D6F64 
  1240      6500
  1241              	.LASF63:
- 1242 03f7 73746172 		.ascii	"startInput\000"
+ 1242 0404 73746172 		.ascii	"startInput\000"
  1242      74496E70 
  1242      757400
  1243              	.LASF30:
- 1244 0402 4354524C 		.ascii	"CTRL_CLR\000"
+ 1244 040f 4354524C 		.ascii	"CTRL_CLR\000"
  1244      5F434C52 
  1244      00
  1245              	.LASF45:
- 1246 040b 70776D41 		.ascii	"pwmAlignment\000"
+ 1246 0418 70776D41 		.ascii	"pwmAlignment\000"
  1246      6C69676E 
  1246      6D656E74 
  1246      00
  1247              	.LASF59:
- 1248 0418 73776170 		.ascii	"swapInput\000"
+ 1248 0425 73776170 		.ascii	"swapInput\000"
  1248      496E7075 
  1248      7400
  1249              	.LASF80:
- 1250 0422 50574D5F 		.ascii	"PWM_TENS_Start\000"
+ 1250 042f 50574D5F 		.ascii	"PWM_TENS_Start\000"
  1250      54454E53 
  1250      5F537461 
  1250      727400
  1251              	.LASF13:
- 1252 0431 73697A65 		.ascii	"sizetype\000"
+ 1252 043e 73697A65 		.ascii	"sizetype\000"
  1252      74797065 
  1252      00
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cclgWDfL.s 			page 36
+
+
  1253              	.LASF64:
+<<<<<<< HEAD
  1254 043a 6B696C6C 		.ascii	"killInputMode\000"
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccoanSoe.s 			page 36
 
 
+=======
+ 1254 0447 6B696C6C 		.ascii	"killInputMode\000"
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  1254      496E7075 
  1254      744D6F64 
  1254      6500
  1255              	.LASF16:
- 1256 0448 434F554E 		.ascii	"COUNTER\000"
+ 1256 0455 434F554E 		.ascii	"COUNTER\000"
  1256      54455200 
  1257              	.LASF43:
- 1258 0450 70776D4D 		.ascii	"pwmMode\000"
+ 1258 045d 70776D4D 		.ascii	"pwmMode\000"
  1258      6F646500 
  1259              	.LASF20:
- 1260 0458 52455345 		.ascii	"RESERVED\000"
+ 1260 0465 52455345 		.ascii	"RESERVED\000"
  1260      52564544 
  1260      00
  1261              	.LASF73:
- 1262 0461 43795F54 		.ascii	"Cy_TCPWM_Enable_Multiple\000"
+ 1262 046e 43795F54 		.ascii	"Cy_TCPWM_Enable_Multiple\000"
  1262      4350574D 
  1262      5F456E61 
  1262      626C655F 
  1262      4D756C74 
  1263              	.LASF27:
- 1264 047a 494E5452 		.ascii	"INTR_MASK\000"
+ 1264 0487 494E5452 		.ascii	"INTR_MASK\000"
  1264      5F4D4153 
  1264      4B00
  1265              	.LASF38:
- 1266 0484 54435057 		.ascii	"TCPWM_Type\000"
+ 1266 0491 54435057 		.ascii	"TCPWM_Type\000"
  1266      4D5F5479 
  1266      706500
  1267              	.LASF70:
- 1268 048f 62617365 		.ascii	"base\000"
+ 1268 049c 62617365 		.ascii	"base\000"
  1268      00
  1269              	.LASF71:
- 1270 0494 636F756E 		.ascii	"counters\000"
+ 1270 04a1 636F756E 		.ascii	"counters\000"
  1270      74657273 
  1270      00
  1271              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

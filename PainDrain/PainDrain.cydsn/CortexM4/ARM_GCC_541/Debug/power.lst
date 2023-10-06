@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 1
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
    1              		.syntax unified
@@ -58,7 +62,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
   27:power.c       **** 
   28:power.c       **** 
   29:power.c       **** void power_timer( void ) {    //Called every 100ms when the WDT is enabled
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 2
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 2
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
   29              		.loc 1 29 0
@@ -118,7 +126,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
   73 000c 23EA0003 		bic	r3, r3, r0
   74 0010 5360     		str	r3, [r2, #4]
   75 0012 7047     		bx	lr
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 3
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 3
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
   76              	.LVL2:
@@ -178,7 +190,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
    7:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /*
    8:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  * Copyright (c) 2009-2017 ARM Limited. All rights reserved.
    9:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  *
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 4
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 4
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
   10:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  * SPDX-License-Identifier: Apache-2.0
@@ -238,7 +254,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
   64:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  
   65:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /* CMSIS CM4 definitions */
   66:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define __CM4_CMSIS_VERSION_MAIN  (__CM_CMSIS_VERSION_MAIN)              /*!< \deprecated [31:16] C
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 5
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 5
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
   67:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define __CM4_CMSIS_VERSION_SUB   (__CM_CMSIS_VERSION_SUB)               /*!< \deprecated [15:0]  C
@@ -298,7 +318,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  121:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****     #define __FPU_USED         0U
  122:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   #endif
  123:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 6
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 6
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  124:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #elif defined ( __TI_ARM__ )
@@ -358,7 +382,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  178:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #endif
  179:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  180:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /* check device defines and use defaults */
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 7
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 7
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  181:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #if defined __CHECK_DEVICE_DEFINES
@@ -418,7 +446,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  235:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   Core Register contain:
  236:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   - Core Register
  237:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   - Core NVIC Register
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 8
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 8
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  238:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   - Core SCB Register
@@ -478,7 +510,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  292:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define APSR_GE_Msk                        (0xFUL << APSR_GE_Pos)                         /*!< APSR
  293:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  294:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 9
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 9
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  295:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /**
@@ -538,7 +574,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  349:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define xPSR_Q_Pos                         27U                                            /*!< xPSR
  350:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define xPSR_Q_Msk                         (1UL << xPSR_Q_Pos)                            /*!< xPSR
  351:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 10
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 10
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  352:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define xPSR_ICI_IT_2_Pos                  25U                                            /*!< xPSR
@@ -598,7 +638,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  406:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** typedef struct
  407:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** {
  408:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t ISER[8U];               /*!< Offset: 0x000 (R/W)  Interrupt Set Enable Register */
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 11
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 11
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  409:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****         uint32_t RESERVED0[24U];
@@ -658,7 +702,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  463:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** } SCB_Type;
  464:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  465:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /* SCB CPUID Register Definitions */
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 12
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 12
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  466:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_CPUID_IMPLEMENTER_Pos          24U                                            /*!< SCB 
@@ -718,7 +766,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  520:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_AIRCR_VECTKEYSTAT_Pos          16U                                            /*!< SCB 
  521:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_AIRCR_VECTKEYSTAT_Msk          (0xFFFFUL << SCB_AIRCR_VECTKEYSTAT_Pos)        /*!< SCB 
  522:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 13
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 13
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  523:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_AIRCR_ENDIANESS_Pos            15U                                            /*!< SCB 
@@ -778,7 +830,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  577:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_SHCSR_SVCALLPENDED_Pos         15U                                            /*!< SCB 
  578:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_SHCSR_SVCALLPENDED_Msk         (1UL << SCB_SHCSR_SVCALLPENDED_Pos)            /*!< SCB 
  579:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 14
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 14
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  580:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_SHCSR_BUSFAULTPENDED_Pos       14U                                            /*!< SCB 
@@ -838,7 +894,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  634:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_CFSR_DACCVIOL_Msk              (1UL << SCB_CFSR_DACCVIOL_Pos)                 /*!< SCB 
  635:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  636:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_CFSR_IACCVIOL_Pos              (SCB_SHCSR_MEMFAULTACT_Pos + 0U)               /*!< SCB 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 15
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 15
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  637:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_CFSR_IACCVIOL_Msk              (1UL /*<< SCB_CFSR_IACCVIOL_Pos*/)             /*!< SCB 
@@ -898,7 +958,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  691:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_DFSR_EXTERNAL_Pos               4U                                            /*!< SCB 
  692:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_DFSR_EXTERNAL_Msk              (1UL << SCB_DFSR_EXTERNAL_Pos)                 /*!< SCB 
  693:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 16
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 16
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  694:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_DFSR_VCATCH_Pos                 3U                                            /*!< SCB 
@@ -958,7 +1022,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  748:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  749:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /**
  750:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \ingroup  CMSIS_core_register
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 17
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 17
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  751:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \defgroup CMSIS_SysTick     System Tick Timer (SysTick)
@@ -1018,7 +1086,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  805:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   @{
  806:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  */
  807:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 18
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 18
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  808:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /**
@@ -1078,7 +1150,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  862:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define ITM_TCR_TSPrescale_Msk             (3UL << ITM_TCR_TSPrescale_Pos)                /*!< ITM 
  863:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  864:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define ITM_TCR_SWOENA_Pos                  4U                                            /*!< ITM 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 19
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 19
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  865:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define ITM_TCR_SWOENA_Msk                 (1UL << ITM_TCR_SWOENA_Pos)                    /*!< ITM 
@@ -1138,7 +1214,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  919:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t EXCCNT;                 /*!< Offset: 0x00C (R/W)  Exception Overhead Count Registe
  920:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t SLEEPCNT;               /*!< Offset: 0x010 (R/W)  Sleep Count Register */
  921:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t LSUCNT;                 /*!< Offset: 0x014 (R/W)  LSU Count Register */
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 20
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 20
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  922:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t FOLDCNT;                /*!< Offset: 0x018 (R/W)  Folded-instruction Count Registe
@@ -1198,7 +1278,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  976:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define DWT_CTRL_EXCTRCENA_Msk             (0x1UL << DWT_CTRL_EXCTRCENA_Pos)           /*!< DWT CTR
  977:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  978:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define DWT_CTRL_PCSAMPLENA_Pos            12U                                         /*!< DWT CTR
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 21
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 21
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  979:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define DWT_CTRL_PCSAMPLENA_Msk            (0x1UL << DWT_CTRL_PCSAMPLENA_Pos)          /*!< DWT CTR
@@ -1258,7 +1342,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
 1033:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define DWT_FUNCTION_LNK1ENA_Pos            9U                                         /*!< DWT FUN
 1034:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define DWT_FUNCTION_LNK1ENA_Msk           (0x1UL << DWT_FUNCTION_LNK1ENA_Pos)         /*!< DWT FUN
 1035:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 22
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 22
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
 1036:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define DWT_FUNCTION_DATAVMATCH_Pos         8U                                         /*!< DWT FUN
@@ -1318,7 +1406,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
 1090:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define TPI_ACPR_PRESCALER_Pos              0U                                         /*!< @Deprec
 1091:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define TPI_ACPR_PRESCALER_Msk             (0x1FFFUL /*<< TPI_ACPR_PRESCALER_Pos*/)    /*!< @Deprec
 1092:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 23
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 23
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
 1093:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define TPI_ACPR_SWOSCALER_Pos              0U                                         /*!< TPI ACP
@@ -1378,7 +1470,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
 1147:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define TPI_ITATBCTR2_ATREADY_Pos           0U                                         /*!< TPI ITA
 1148:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define TPI_ITATBCTR2_ATREADY_Msk          (0x1UL /*<< TPI_ITATBCTR2_ATREADY_Pos*/)    /*!< TPI ITA
 1149:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 24
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 24
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
 1150:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /* TPI Integration ITM Data Register Definitions (FIFO1) */
@@ -1438,7 +1534,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
 1204:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define TPI_DEVTYPE_SubType_Msk            (0xFUL /*<< TPI_DEVTYPE_SubType_Pos*/)      /*!< TPI DEV
 1205:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1206:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /*@}*/ /* end of group CMSIS_TPI */
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 25
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 25
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
 1207:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
@@ -1498,7 +1598,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
 1261:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /* MPU Region Base Address Register Definitions */
 1262:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define MPU_RBAR_ADDR_Pos                   5U                                            /*!< MPU 
 1263:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define MPU_RBAR_ADDR_Msk                  (0x7FFFFFFUL << MPU_RBAR_ADDR_Pos)             /*!< MPU 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 26
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 26
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
 1264:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
@@ -1558,7 +1662,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
 1318:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****         uint32_t RESERVED0[1U];
 1319:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t FPCCR;                  /*!< Offset: 0x004 (R/W)  Floating-Point Context Control R
 1320:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t FPCAR;                  /*!< Offset: 0x008 (R/W)  Floating-Point Context Address R
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 27
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 27
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
 1321:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t FPDSCR;                 /*!< Offset: 0x00C (R/W)  Floating-Point Default Status Co
@@ -1618,7 +1726,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
 1375:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define FPU_MVFR0_Short_vectors_Pos        24U                                            /*!< MVFR
 1376:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define FPU_MVFR0_Short_vectors_Msk        (0xFUL << FPU_MVFR0_Short_vectors_Pos)         /*!< MVFR
 1377:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 28
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 28
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
 1378:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define FPU_MVFR0_Square_root_Pos          20U                                            /*!< MVFR
@@ -1678,7 +1790,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
 1432:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define CoreDebug_DHCSR_DBGKEY_Msk         (0xFFFFUL << CoreDebug_DHCSR_DBGKEY_Pos)       /*!< Core
 1433:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1434:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define CoreDebug_DHCSR_S_RESET_ST_Pos     25U                                            /*!< Core
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 29
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 29
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
 1435:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define CoreDebug_DHCSR_S_RESET_ST_Msk     (1UL << CoreDebug_DHCSR_S_RESET_ST_Pos)        /*!< Core
@@ -1738,7 +1854,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
 1489:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1490:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define CoreDebug_DEMCR_VC_HARDERR_Pos     10U                                            /*!< Core
 1491:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define CoreDebug_DEMCR_VC_HARDERR_Msk     (1UL << CoreDebug_DEMCR_VC_HARDERR_Pos)        /*!< Core
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 30
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 30
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
 1492:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
@@ -1798,7 +1918,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
 1546:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \brief      Definitions for base addresses, unions, and structures.
 1547:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   @{
 1548:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  */
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 31
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 31
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
 1549:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
@@ -1858,7 +1982,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
 1603:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #ifdef CMSIS_NVIC_VIRTUAL
 1604:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   #ifndef CMSIS_NVIC_VIRTUAL_HEADER_FILE
 1605:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****     #define CMSIS_NVIC_VIRTUAL_HEADER_FILE "cmsis_nvic_virtual.h"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 32
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 32
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
 1606:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   #endif
@@ -1918,7 +2046,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
 1660:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /**
 1661:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \brief   Get Priority Grouping
 1662:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \details Reads the priority grouping field from the NVIC Interrupt Controller.
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 33
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 33
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
 1663:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \return                Priority grouping field (SCB->AIRCR [10:8] PRIGROUP field).
@@ -1978,7 +2110,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
 1717:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****     NVIC->ICER[(((uint32_t)IRQn) >> 5UL)] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
 1718:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****     __DSB();
 1719:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****     __ISB();
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 34
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 34
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
 1720:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   }
@@ -2038,7 +2174,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  117              		.loc 2 1770 0
  118 000a 5A09     		lsrs	r2, r3, #5
  119 000c 03F01F03 		and	r3, r3, #31
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 35
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 35
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  120              	.LVL5:
@@ -2098,7 +2238,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
   65:power.c       ****     LCD_PWM_Start();
  159              		.loc 1 65 0
  160 000a FFF7FEFF 		bl	LCD_PWM_Start
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 36
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 36
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  161              	.LVL7:
@@ -2158,7 +2302,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
   50:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h ****     /** Sets the clock prescaler inside the TCWPM block. See \ref group_tcpwm_pwm_clk_prescalers */
   51:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h ****     uint32_t     clockPrescaler;
   52:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h ****     uint32_t    pwmAlignment;       /**< Sets the PWM alignment. See \ref group_tcpwm_pwm_alignment
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 37
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 37
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
   53:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h ****     uint32_t    deadTimeClocks;     /**< The number of dead time-clocks if PWM with dead time is ch
@@ -2218,7 +2366,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  107:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** */
  108:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** #define CY_TCPWM_PWM_LEFT_ALIGN         (0U)     /**< PWM is left aligned, meaning it starts high *
  109:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** #define CY_TCPWM_PWM_RIGHT_ALIGN        (1U)        /**< PWM is right aligned, meaning it starts lo
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 38
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 38
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  110:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** /** PWM is centered aligned, terminal count only occurs on underflow */
@@ -2278,7 +2430,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  164:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** #define CY_TCPWM_PWM_CTRL_SYNC_KILL_OR_STOP_ON_KILL_MASK (0x3UL << CY_TCPWM_PWM_CTRL_SYNC_KILL_OR_S
  165:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** 
  166:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** #define CY_TCPWM_PWM_TR_CTRL2_SET           (0UL) /**< Set define for PWM output signal configurati
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 39
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 39
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  167:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** #define CY_TCPWM_PWM_TR_CTRL2_CLEAR         (1UL) /**< Clear define for PWM output signal configura
@@ -2338,7 +2494,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  221:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** /*******************************************************************************
  222:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** * Function Name: Cy_TCPWM_PWM_Enable
  223:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** ****************************************************************************//**
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 40
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 40
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  224:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** *
@@ -2398,7 +2558,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  278:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** *
  279:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** * \funcusage
  280:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** * \snippet tcpwm\1.10\pwm\snippet\main.c snippet_Cy_TCPWM_PWM_GetStatus
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 41
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 41
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  281:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h **** *
@@ -2458,7 +2622,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
   71:power.c       ****     
   72:power.c       ****     power_flags_update(POWER_FLAG_BLE, 1);
  178              		.loc 1 72 0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 42
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 42
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  179 001c 0121     		movs	r1, #1
@@ -2518,7 +2686,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  208 0004 034B     		ldr	r3, .L19
  209 0006 1A60     		str	r2, [r3]
  210              	.LVL11:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 43
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 43
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  211              	.LBB27:
@@ -2578,7 +2750,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  107:power.c       ****         power_wakeup();
  108:power.c       ****     }
  109:power.c       ****     
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 44
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 44
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  110:power.c       ****     power_flags_update(POWER_FLAG_CHG, !Cy_GPIO_Read(CHG_PG_PORT, CHG_PG_NUM) );    
@@ -2638,7 +2814,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  164:power.c       **** void power_get_diag_data(uint8 d[]) {
  165:power.c       ****     
  166:power.c       ****     memset(d, 0, CHG_VNDR_PART_REV_REG+1);
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 45
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 45
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  167:power.c       ****     
@@ -2698,7 +2878,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  184:power.c       ****         d[i] = myI2C_I2CMasterReadByte(1);
  293              		.loc 1 184 0 discriminator 3
  294 0026 0120     		movs	r0, #1
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 46
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 46
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  295 0028 FFF7FEFF 		bl	myI2C_I2CMasterReadByte
@@ -2758,7 +2942,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  341 0006 0860     		str	r0, [r1]	@ unaligned
  342 0008 4860     		str	r0, [r1, #4]	@ unaligned
  343 000a C1F80700 		str	r0, [r1, #7]	@ unaligned
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 47
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 47
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  168:power.c       ****       
@@ -2818,7 +3006,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  201:power.c       **** 	status = myI2C_I2CMasterWriteByte(d); 
  385              		.loc 1 201 0
  386 0018 2046     		mov	r0, r4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 48
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 48
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  387 001a FFF7FEFF 		bl	myI2C_I2CMasterWriteByte
@@ -2878,7 +3070,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  435              		.section	.text.power_5v_off,"ax",%progbits
  436              		.align	2
  437              		.global	power_5v_off
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 49
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 49
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  438              		.thumb
@@ -2938,7 +3134,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  483              		.cfi_startproc
  484              		@ args = 0, pretend = 0, frame = 0
  485              		@ frame_needed = 0, uses_anonymous_args = 0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 50
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 50
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  486              		@ link register save eliminated.
@@ -2998,7 +3198,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
   50:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *    as defined by the pin HSIOM selection options (en_hsiom_sel_t).
   51:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * 2. All pins are initialized to High-Z drive mode with HSIOM connected to CPU (SW
   52:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *    control digital pin only) at Power-On-Reset(POR).
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 51
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 51
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
   53:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * 3. Some API functions perform read-modify-write operations on shared port
@@ -3058,7 +3262,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  107:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \section group_gpio_changelog Changelog
  108:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * <table class="doxtable">
  109:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *   <tr><th>Version</th><th>Changes</th><th>Reason for Change</th></tr>
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 52
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 52
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  110:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *   <tr>
@@ -3118,7 +3326,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  164:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #include <stddef.h>
  165:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #include "cy_device.h"
  166:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #include "cy_device_headers.h"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 53
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 53
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  167:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #include "cy_syslib.h"
@@ -3178,7 +3390,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  221:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** {
  222:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     CY_GPIO_AMUXBUSA,       /**< AMuxBus A */
  223:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     CY_GPIO_AMUXBUSB        /**< AMuxBus B */
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 54
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 54
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  224:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** }cy_en_gpio_amuxselect_t;
@@ -3238,7 +3454,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  278:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /* General Constants */
  279:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_PRT_HALF                       (4UL)      /**< Half-way point of a GPIO port */
  280:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_PRT_DEINIT                     (0UL)      /**< De-init value for port registers */
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 55
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 55
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  281:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
@@ -3298,7 +3518,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  335:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_PRT_INT_MASK_MASK              (0x0000001FFUL)
  336:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_PRT_SEL_ACTIVE_MASK            (0x1FFFFFFFUL)
  337:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 56
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 56
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  338:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define GPIO_MAX_SPLIT_CELL_SEGMENTS           (9U)
@@ -3358,7 +3582,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  392:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  393:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /***************************************
  394:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *        Function Constants
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 57
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 57
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  395:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** ***************************************/
@@ -3418,7 +3646,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  449:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_DRIVE_1_8                      (0x03UL) /**< 1/8 drive strength: 1/8 drive current 
  450:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /** \} */
  451:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 58
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 58
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  452:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /**
@@ -3478,7 +3710,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  506:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Constants to be used for setting the Voh and input buffer trip-point of an SIO pair
  507:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** */
  508:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_SIO_VOH_1_00                        (0x00UL) /**< Voh = 1 x Reference */
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 59
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 59
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  509:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_SIO_VOH_1_25                        (0x01UL) /**< Voh = 1.25 x Reference */
@@ -3538,7 +3774,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  563:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE uint32_t Cy_GPIO_GetSlewRate(GPIO_PRT_Type* base, uint32_t pinNum);
  564:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE void Cy_GPIO_SetDriveSel(GPIO_PRT_Type* base, uint32_t pinNum, uint32_t value);
  565:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE uint32_t Cy_GPIO_GetDriveSel(GPIO_PRT_Type* base, uint32_t pinNum);
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 60
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 60
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  566:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
@@ -3598,7 +3838,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  620:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Configures the HSIOM connection to the pin.
  621:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  622:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Connects the specified High-Speed Input Output Multiplexer (HSIOM) selection
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 61
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 61
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  623:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * to the pin.
@@ -3658,7 +3902,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  677:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param pinNum
  678:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Position of the pin bit-field within the port register
  679:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 62
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 62
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  680:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \return
@@ -3718,7 +3966,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  734:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     
  735:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     if(portNum < (uint32_t)IOSS_GPIO_GPIO_PORT_NR)
  736:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     {
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 63
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 63
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  737:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****         portBase = (GPIO_PRT_Type *)(CY_GPIO_BASE + (GPIO_PRT_SECTION_SIZE * portNum));
@@ -3778,7 +4030,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  500              	.L36:
  501 000a 00BF     		.align	2
  502              	.L35:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 64
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 64
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  503 000c 00033240 		.word	1077019392
@@ -3838,7 +4094,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  551              	.LVL41:
  552 0000 10B5     		push	{r4, lr}
  553              		.cfi_def_cfa_offset 8
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 65
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 65
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  554              		.cfi_offset 4, -8
@@ -3898,7 +4158,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  574 0018 5A60     		str	r2, [r3, #4]
  575 001a 10BD     		pop	{r4, pc}
  576              	.LVL45:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 66
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 66
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  577              	.L42:
@@ -3958,7 +4222,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  622 000e FFF7FEFF 		bl	Cy_SysLib_AssertFailed
  623              	.LVL51:
  624              	.L48:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 67
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 67
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  811:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     {
@@ -4018,7 +4286,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  667              		.size	power_flags, 4
  668              	power_flags:
  669 0004 00000000 		.space	4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 68
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 68
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  670              		.text
@@ -4061,7 +4333,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  707 000c 42150000 		.4byte	.LASF529
  708 0010 0C       		.byte	0xc
  709 0011 BA0E0000 		.4byte	.LASF530
- 710 0015 ED200000 		.4byte	.LASF531
+ 710 0015 341B0000 		.4byte	.LASF531
  711 0019 00000000 		.4byte	.Ldebug_ranges0+0
  712 001d 00000000 		.4byte	0
  713 0021 00000000 		.4byte	.Ldebug_line0
@@ -4078,10 +4350,14 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  724 0038 E80E0000 		.4byte	.LASF1
  725 003c 72       		.sleb128 -14
  726 003d 03       		.uleb128 0x3
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 69
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 69
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
- 727 003e 3D250000 		.4byte	.LASF2
+ 727 003e 4A250000 		.4byte	.LASF2
  728 0042 73       		.sleb128 -13
  729 0043 03       		.uleb128 0x3
  730 0044 430F0000 		.4byte	.LASF3
@@ -4096,7 +4372,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  739 0056 A9130000 		.4byte	.LASF6
  740 005a 7B       		.sleb128 -5
  741 005b 03       		.uleb128 0x3
- 742 005c 231E0000 		.4byte	.LASF7
+ 742 005c 691E0000 		.4byte	.LASF7
  743 0060 7C       		.sleb128 -4
  744 0061 03       		.uleb128 0x3
  745 0062 4F130000 		.4byte	.LASF8
@@ -4108,7 +4384,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  751 006e 180A0000 		.4byte	.LASF10
  752 0072 00       		.byte	0
  753 0073 04       		.uleb128 0x4
- 754 0074 26240000 		.4byte	.LASF11
+ 754 0074 33240000 		.4byte	.LASF11
  755 0078 01       		.byte	0x1
  756 0079 04       		.uleb128 0x4
  757 007a E8110000 		.4byte	.LASF12
@@ -4132,13 +4408,17 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  775 009e 0A080000 		.4byte	.LASF18
  776 00a2 08       		.byte	0x8
  777 00a3 04       		.uleb128 0x4
- 778 00a4 EC1F0000 		.4byte	.LASF19
+ 778 00a4 32200000 		.4byte	.LASF19
  779 00a8 09       		.byte	0x9
  780 00a9 04       		.uleb128 0x4
- 781 00aa 5A200000 		.4byte	.LASF20
+ 781 00aa A0200000 		.4byte	.LASF20
  782 00ae 0A       		.byte	0xa
  783 00af 04       		.uleb128 0x4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 70
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 70
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  784 00b0 59110000 		.4byte	.LASF21
@@ -4156,13 +4436,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  796 00c8 6C170000 		.4byte	.LASF25
  797 00cc 0F       		.byte	0xf
  798 00cd 04       		.uleb128 0x4
- 799 00ce 4F220000 		.4byte	.LASF26
+ 799 00ce 5C220000 		.4byte	.LASF26
  800 00d2 10       		.byte	0x10
  801 00d3 04       		.uleb128 0x4
- 802 00d4 7C1F0000 		.4byte	.LASF27
+ 802 00d4 C21F0000 		.4byte	.LASF27
  803 00d8 11       		.byte	0x11
  804 00d9 04       		.uleb128 0x4
- 805 00da 0D250000 		.4byte	.LASF28
+ 805 00da 1A250000 		.4byte	.LASF28
  806 00de 12       		.byte	0x12
  807 00df 04       		.uleb128 0x4
  808 00e0 FE000000 		.4byte	.LASF29
@@ -4171,22 +4451,22 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  811 00e6 AE180000 		.4byte	.LASF30
  812 00ea 14       		.byte	0x14
  813 00eb 04       		.uleb128 0x4
- 814 00ec 22250000 		.4byte	.LASF31
+ 814 00ec 2F250000 		.4byte	.LASF31
  815 00f0 15       		.byte	0x15
  816 00f1 04       		.uleb128 0x4
- 817 00f2 89200000 		.4byte	.LASF32
+ 817 00f2 CF200000 		.4byte	.LASF32
  818 00f6 16       		.byte	0x16
  819 00f7 04       		.uleb128 0x4
- 820 00f8 921F0000 		.4byte	.LASF33
+ 820 00f8 D81F0000 		.4byte	.LASF33
  821 00fc 17       		.byte	0x17
  822 00fd 04       		.uleb128 0x4
  823 00fe A4190000 		.4byte	.LASF34
  824 0102 18       		.byte	0x18
  825 0103 04       		.uleb128 0x4
- 826 0104 DD230000 		.4byte	.LASF35
+ 826 0104 EA230000 		.4byte	.LASF35
  827 0108 19       		.byte	0x19
  828 0109 04       		.uleb128 0x4
- 829 010a 82210000 		.4byte	.LASF36
+ 829 010a 8F210000 		.4byte	.LASF36
  830 010e 1A       		.byte	0x1a
  831 010f 04       		.uleb128 0x4
  832 0110 89120000 		.4byte	.LASF37
@@ -4198,7 +4478,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  838 011c A4010000 		.4byte	.LASF39
  839 0120 1D       		.byte	0x1d
  840 0121 04       		.uleb128 0x4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 71
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 71
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  841 0122 28190000 		.4byte	.LASF40
@@ -4210,7 +4494,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  847 012e DC070000 		.4byte	.LASF42
  848 0132 20       		.byte	0x20
  849 0133 04       		.uleb128 0x4
- 850 0134 B31F0000 		.4byte	.LASF43
+ 850 0134 F91F0000 		.4byte	.LASF43
  851 0138 21       		.byte	0x21
  852 0139 04       		.uleb128 0x4
  853 013a AE100000 		.4byte	.LASF44
@@ -4222,28 +4506,28 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  859 0146 5C060000 		.4byte	.LASF46
  860 014a 24       		.byte	0x24
  861 014b 04       		.uleb128 0x4
- 862 014c 441E0000 		.4byte	.LASF47
+ 862 014c 8A1E0000 		.4byte	.LASF47
  863 0150 25       		.byte	0x25
  864 0151 04       		.uleb128 0x4
- 865 0152 F91B0000 		.4byte	.LASF48
+ 865 0152 3F1C0000 		.4byte	.LASF48
  866 0156 26       		.byte	0x26
  867 0157 04       		.uleb128 0x4
  868 0158 550D0000 		.4byte	.LASF49
  869 015c 27       		.byte	0x27
  870 015d 04       		.uleb128 0x4
- 871 015e F0240000 		.4byte	.LASF50
+ 871 015e FD240000 		.4byte	.LASF50
  872 0162 28       		.byte	0x28
  873 0163 04       		.uleb128 0x4
  874 0164 970B0000 		.4byte	.LASF51
  875 0168 29       		.byte	0x29
  876 0169 04       		.uleb128 0x4
- 877 016a 431B0000 		.4byte	.LASF52
+ 877 016a 891B0000 		.4byte	.LASF52
  878 016e 2A       		.byte	0x2a
  879 016f 04       		.uleb128 0x4
  880 0170 FE100000 		.4byte	.LASF53
  881 0174 2B       		.byte	0x2b
  882 0175 04       		.uleb128 0x4
- 883 0176 0F220000 		.4byte	.LASF54
+ 883 0176 1C220000 		.4byte	.LASF54
  884 017a 2C       		.byte	0x2c
  885 017b 04       		.uleb128 0x4
  886 017c 4A180000 		.4byte	.LASF55
@@ -4252,13 +4536,17 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  889 0182 F6010000 		.4byte	.LASF56
  890 0186 2E       		.byte	0x2e
  891 0187 04       		.uleb128 0x4
- 892 0188 A41E0000 		.4byte	.LASF57
+ 892 0188 EA1E0000 		.4byte	.LASF57
  893 018c 2F       		.byte	0x2f
  894 018d 04       		.uleb128 0x4
  895 018e 26080000 		.4byte	.LASF58
  896 0192 30       		.byte	0x30
  897 0193 04       		.uleb128 0x4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 72
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 72
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  898 0194 35070000 		.4byte	.LASF59
@@ -4267,7 +4555,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  901 019a 3C0C0000 		.4byte	.LASF60
  902 019e 32       		.byte	0x32
  903 019f 04       		.uleb128 0x4
- 904 01a0 95230000 		.4byte	.LASF61
+ 904 01a0 A2230000 		.4byte	.LASF61
  905 01a4 33       		.byte	0x33
  906 01a5 04       		.uleb128 0x4
  907 01a6 82140000 		.4byte	.LASF62
@@ -4279,7 +4567,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  913 01b2 E1030000 		.4byte	.LASF64
  914 01b6 36       		.byte	0x36
  915 01b7 04       		.uleb128 0x4
- 916 01b8 6F1B0000 		.4byte	.LASF65
+ 916 01b8 B51B0000 		.4byte	.LASF65
  917 01bc 37       		.byte	0x37
  918 01bd 04       		.uleb128 0x4
  919 01be E6180000 		.4byte	.LASF66
@@ -4288,7 +4576,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  922 01c4 5F0A0000 		.4byte	.LASF67
  923 01c8 39       		.byte	0x39
  924 01c9 04       		.uleb128 0x4
- 925 01ca 04230000 		.4byte	.LASF68
+ 925 01ca 11230000 		.4byte	.LASF68
  926 01ce 3A       		.byte	0x3a
  927 01cf 04       		.uleb128 0x4
  928 01d0 7B0A0000 		.4byte	.LASF69
@@ -4309,16 +4597,20 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  943 01ee 99090000 		.4byte	.LASF74
  944 01f2 40       		.byte	0x40
  945 01f3 04       		.uleb128 0x4
- 946 01f4 65210000 		.4byte	.LASF75
+ 946 01f4 72210000 		.4byte	.LASF75
  947 01f8 41       		.byte	0x41
  948 01f9 04       		.uleb128 0x4
- 949 01fa B1240000 		.4byte	.LASF76
+ 949 01fa BE240000 		.4byte	.LASF76
  950 01fe 42       		.byte	0x42
  951 01ff 04       		.uleb128 0x4
  952 0200 1C160000 		.4byte	.LASF77
  953 0204 43       		.byte	0x43
  954 0205 04       		.uleb128 0x4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 73
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 73
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  955 0206 F2060000 		.4byte	.LASF78
@@ -4327,7 +4619,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  958 020c E2040000 		.4byte	.LASF79
  959 0210 45       		.byte	0x45
  960 0211 04       		.uleb128 0x4
- 961 0212 8A1C0000 		.4byte	.LASF80
+ 961 0212 D01C0000 		.4byte	.LASF80
  962 0216 46       		.byte	0x46
  963 0217 04       		.uleb128 0x4
  964 0218 021B0000 		.4byte	.LASF81
@@ -4336,7 +4628,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  967 021e 7B0B0000 		.4byte	.LASF82
  968 0222 48       		.byte	0x48
  969 0223 04       		.uleb128 0x4
- 970 0224 D8220000 		.4byte	.LASF83
+ 970 0224 E5220000 		.4byte	.LASF83
  971 0228 49       		.byte	0x49
  972 0229 04       		.uleb128 0x4
  973 022a 0F140000 		.4byte	.LASF84
@@ -4351,10 +4643,10 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  982 023c DF0B0000 		.4byte	.LASF87
  983 0240 4D       		.byte	0x4d
  984 0241 04       		.uleb128 0x4
- 985 0242 42230000 		.4byte	.LASF88
+ 985 0242 4F230000 		.4byte	.LASF88
  986 0246 4E       		.byte	0x4e
  987 0247 04       		.uleb128 0x4
- 988 0248 871E0000 		.4byte	.LASF89
+ 988 0248 CD1E0000 		.4byte	.LASF89
  989 024c 4F       		.byte	0x4f
  990 024d 04       		.uleb128 0x4
  991 024e 19120000 		.4byte	.LASF90
@@ -4363,34 +4655,38 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  994 0254 80030000 		.4byte	.LASF91
  995 0258 51       		.byte	0x51
  996 0259 04       		.uleb128 0x4
- 997 025a A61C0000 		.4byte	.LASF92
+ 997 025a EC1C0000 		.4byte	.LASF92
  998 025e 52       		.byte	0x52
  999 025f 04       		.uleb128 0x4
  1000 0260 DC0F0000 		.4byte	.LASF93
  1001 0264 53       		.byte	0x53
  1002 0265 04       		.uleb128 0x4
- 1003 0266 061D0000 		.4byte	.LASF94
+ 1003 0266 4C1D0000 		.4byte	.LASF94
  1004 026a 54       		.byte	0x54
  1005 026b 04       		.uleb128 0x4
  1006 026c 65020000 		.4byte	.LASF95
  1007 0270 55       		.byte	0x55
  1008 0271 04       		.uleb128 0x4
- 1009 0272 5C1F0000 		.4byte	.LASF96
+ 1009 0272 A21F0000 		.4byte	.LASF96
  1010 0276 56       		.byte	0x56
  1011 0277 04       		.uleb128 0x4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 74
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 74
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1012 0278 BC0F0000 		.4byte	.LASF97
  1013 027c 57       		.byte	0x57
  1014 027d 04       		.uleb128 0x4
- 1015 027e 91240000 		.4byte	.LASF98
+ 1015 027e 9E240000 		.4byte	.LASF98
  1016 0282 58       		.byte	0x58
  1017 0283 04       		.uleb128 0x4
- 1018 0284 08200000 		.4byte	.LASF99
+ 1018 0284 4E200000 		.4byte	.LASF99
  1019 0288 59       		.byte	0x59
  1020 0289 04       		.uleb128 0x4
- 1021 028a 861D0000 		.4byte	.LASF100
+ 1021 028a CC1D0000 		.4byte	.LASF100
  1022 028e 5A       		.byte	0x5a
  1023 028f 04       		.uleb128 0x4
  1024 0290 4C010000 		.4byte	.LASF101
@@ -4399,10 +4695,10 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1027 0296 8B0C0000 		.4byte	.LASF102
  1028 029a 5C       		.byte	0x5c
  1029 029b 04       		.uleb128 0x4
- 1030 029c EC1C0000 		.4byte	.LASF103
+ 1030 029c 321D0000 		.4byte	.LASF103
  1031 02a0 5D       		.byte	0x5d
  1032 02a1 04       		.uleb128 0x4
- 1033 02a2 9E210000 		.4byte	.LASF104
+ 1033 02a2 AB210000 		.4byte	.LASF104
  1034 02a6 5E       		.byte	0x5e
  1035 02a7 04       		.uleb128 0x4
  1036 02a8 B5120000 		.4byte	.LASF105
@@ -4414,7 +4710,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1042 02b4 C0010000 		.4byte	.LASF107
  1043 02b8 61       		.byte	0x61
  1044 02b9 04       		.uleb128 0x4
- 1045 02ba 911B0000 		.4byte	.LASF108
+ 1045 02ba D71B0000 		.4byte	.LASF108
  1046 02be 62       		.byte	0x62
  1047 02bf 04       		.uleb128 0x4
  1048 02c0 0E190000 		.4byte	.LASF109
@@ -4423,7 +4719,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1051 02c6 B60A0000 		.4byte	.LASF110
  1052 02ca 64       		.byte	0x64
  1053 02cb 04       		.uleb128 0x4
- 1054 02cc 67220000 		.4byte	.LASF111
+ 1054 02cc 74220000 		.4byte	.LASF111
  1055 02d0 65       		.byte	0x65
  1056 02d1 04       		.uleb128 0x4
  1057 02d2 88130000 		.4byte	.LASF112
@@ -4438,7 +4734,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1066 02e4 141A0000 		.4byte	.LASF115
  1067 02e8 69       		.byte	0x69
  1068 02e9 04       		.uleb128 0x4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 75
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 75
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1069 02ea F1170000 		.4byte	.LASF116
@@ -4471,7 +4771,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1096 0320 C6090000 		.4byte	.LASF125
  1097 0324 73       		.byte	0x73
  1098 0325 04       		.uleb128 0x4
- 1099 0326 C8210000 		.4byte	.LASF126
+ 1099 0326 D5210000 		.4byte	.LASF126
  1100 032a 74       		.byte	0x74
  1101 032b 04       		.uleb128 0x4
  1102 032c 04130000 		.4byte	.LASF127
@@ -4480,7 +4780,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1105 0332 9E0D0000 		.4byte	.LASF128
  1106 0336 76       		.byte	0x76
  1107 0337 04       		.uleb128 0x4
- 1108 0338 5A250000 		.4byte	.LASF129
+ 1108 0338 67250000 		.4byte	.LASF129
  1109 033c 77       		.byte	0x77
  1110 033d 04       		.uleb128 0x4
  1111 033e C2160000 		.4byte	.LASF130
@@ -4492,19 +4792,23 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1117 034a A8050000 		.4byte	.LASF132
  1118 034e 7A       		.byte	0x7a
  1119 034f 04       		.uleb128 0x4
- 1120 0350 A01D0000 		.4byte	.LASF133
+ 1120 0350 E61D0000 		.4byte	.LASF133
  1121 0354 7B       		.byte	0x7b
  1122 0355 04       		.uleb128 0x4
  1123 0356 840E0000 		.4byte	.LASF134
  1124 035a 7C       		.byte	0x7c
  1125 035b 04       		.uleb128 0x4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 76
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 76
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1126 035c 09000000 		.4byte	.LASF135
  1127 0360 7D       		.byte	0x7d
  1128 0361 04       		.uleb128 0x4
- 1129 0362 10240000 		.4byte	.LASF136
+ 1129 0362 1D240000 		.4byte	.LASF136
  1130 0366 7E       		.byte	0x7e
  1131 0367 04       		.uleb128 0x4
  1132 0368 AC140000 		.4byte	.LASF137
@@ -4516,13 +4820,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1138 0374 4A040000 		.4byte	.LASF139
  1139 0378 81       		.byte	0x81
  1140 0379 04       		.uleb128 0x4
- 1141 037a DA1B0000 		.4byte	.LASF140
+ 1141 037a 201C0000 		.4byte	.LASF140
  1142 037e 82       		.byte	0x82
  1143 037f 04       		.uleb128 0x4
  1144 0380 270D0000 		.4byte	.LASF141
  1145 0384 83       		.byte	0x83
  1146 0385 04       		.uleb128 0x4
- 1147 0386 FD1E0000 		.4byte	.LASF142
+ 1147 0386 431F0000 		.4byte	.LASF142
  1148 038a 84       		.byte	0x84
  1149 038b 04       		.uleb128 0x4
  1150 038c 71130000 		.4byte	.LASF143
@@ -4543,13 +4847,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1165 03aa 3E170000 		.4byte	.LASF148
  1166 03ae 8A       		.byte	0x8a
  1167 03af 04       		.uleb128 0x4
- 1168 03b0 621D0000 		.4byte	.LASF149
+ 1168 03b0 A81D0000 		.4byte	.LASF149
  1169 03b4 8B       		.byte	0x8b
  1170 03b5 04       		.uleb128 0x4
  1171 03b6 60190000 		.4byte	.LASF150
  1172 03ba 8C       		.byte	0x8c
  1173 03bb 04       		.uleb128 0x4
- 1174 03bc 2B220000 		.4byte	.LASF151
+ 1174 03bc 38220000 		.4byte	.LASF151
  1175 03c0 8D       		.byte	0x8d
  1176 03c1 04       		.uleb128 0x4
  1177 03c2 47030000 		.4byte	.LASF152
@@ -4558,7 +4862,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1180 03c8 9C1A0000 		.4byte	.LASF153
  1181 03cc 8F       		.byte	0x8f
  1182 03cd 04       		.uleb128 0x4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 77
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 77
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1183 03ce 010A0000 		.4byte	.LASF154
@@ -4576,7 +4884,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1195 03e6 05       		.uleb128 0x5
  1196 03e7 02       		.byte	0x2
  1197 03e8 05       		.byte	0x5
- 1198 03e9 391F0000 		.4byte	.LASF158
+ 1198 03e9 7F1F0000 		.4byte	.LASF158
  1199 03ed 06       		.uleb128 0x6
  1200 03ee 9A0F0000 		.4byte	.LASF160
  1201 03f2 05       		.byte	0x5
@@ -4596,7 +4904,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1215 040c 08       		.byte	0x8
  1216 040d 5A080000 		.4byte	.LASF162
  1217 0411 06       		.uleb128 0x6
- 1218 0412 E21C0000 		.4byte	.LASF163
+ 1218 0412 281D0000 		.4byte	.LASF163
  1219 0416 06       		.byte	0x6
  1220 0417 29       		.byte	0x29
  1221 0418 E6030000 		.4byte	0x3e6
@@ -4608,9 +4916,9 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1227 0427 05       		.uleb128 0x5
  1228 0428 02       		.byte	0x2
  1229 0429 07       		.byte	0x7
- 1230 042a 75230000 		.4byte	.LASF165
+ 1230 042a 82230000 		.4byte	.LASF165
  1231 042e 06       		.uleb128 0x6
- 1232 042f 79240000 		.4byte	.LASF166
+ 1232 042f 86240000 		.4byte	.LASF166
  1233 0433 06       		.byte	0x6
  1234 0434 3F       		.byte	0x3f
  1235 0435 39040000 		.4byte	0x439
@@ -4618,7 +4926,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1237 043a 04       		.byte	0x4
  1238 043b 05       		.byte	0x5
  1239 043c 4B050000 		.4byte	.LASF167
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 78
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 78
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1240 0440 06       		.uleb128 0x6
@@ -4633,7 +4945,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1249 0452 05       		.uleb128 0x5
  1250 0453 08       		.byte	0x8
  1251 0454 05       		.byte	0x5
- 1252 0455 95220000 		.4byte	.LASF170
+ 1252 0455 A2220000 		.4byte	.LASF170
  1253 0459 05       		.uleb128 0x5
  1254 045a 08       		.byte	0x8
  1255 045b 07       		.byte	0x7
@@ -4652,7 +4964,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1268 0474 18       		.byte	0x18
  1269 0475 FF030000 		.4byte	0x3ff
  1270 0479 06       		.uleb128 0x6
- 1271 047a AB1F0000 		.4byte	.LASF174
+ 1271 047a F11F0000 		.4byte	.LASF174
  1272 047e 07       		.byte	0x7
  1273 047f 20       		.byte	0x20
  1274 0480 11040000 		.4byte	0x411
@@ -4662,12 +4974,12 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1278 048a 24       		.byte	0x24
  1279 048b 1C040000 		.4byte	0x41c
  1280 048f 06       		.uleb128 0x6
- 1281 0490 361C0000 		.4byte	.LASF176
+ 1281 0490 7C1C0000 		.4byte	.LASF176
  1282 0494 07       		.byte	0x7
  1283 0495 2C       		.byte	0x2c
  1284 0496 2E040000 		.4byte	0x42e
  1285 049a 06       		.uleb128 0x6
- 1286 049b A3220000 		.4byte	.LASF177
+ 1286 049b B0220000 		.4byte	.LASF177
  1287 049f 07       		.byte	0x7
  1288 04a0 30       		.byte	0x30
  1289 04a1 40040000 		.4byte	0x440
@@ -4677,8 +4989,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1293 04a9 9601     		.2byte	0x196
  1294 04ab 61050000 		.4byte	0x561
  1295 04af 09       		.uleb128 0x9
+<<<<<<< HEAD
  1296 04b0 EB240000 		.4byte	.LASF178
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 79
+=======
+ 1296 04b0 F8240000 		.4byte	.LASF178
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 79
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1297 04b4 02       		.byte	0x2
@@ -4692,7 +5009,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1305 04c4 82050000 		.4byte	0x582
  1306 04c8 20       		.byte	0x20
  1307 04c9 09       		.uleb128 0x9
- 1308 04ca 161C0000 		.4byte	.LASF180
+ 1308 04ca 5C1C0000 		.4byte	.LASF180
  1309 04ce 02       		.byte	0x2
  1310 04cf 9A01     		.2byte	0x19a
  1311 04d1 92050000 		.4byte	0x592
@@ -4738,7 +5055,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1351 052e 02       		.byte	0x2
  1352 052f A101     		.2byte	0x1a1
  1353 0531 A6050000 		.4byte	0x5a6
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 80
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 80
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1354 0535 2002     		.2byte	0x220
@@ -4798,7 +5119,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1408 05b0 71050000 		.4byte	0x571
  1409 05b4 37       		.byte	0x37
  1410 05b5 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 81
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 81
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1411 05b6 0C       		.uleb128 0xc
@@ -4858,7 +5183,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1465 062d 08       		.byte	0x8
  1466 062e 14       		.uleb128 0x14
  1467 062f E9170000 		.4byte	.LASF194
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 82
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 82
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1468 0633 08       		.byte	0x8
@@ -4918,12 +5247,16 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1522 069e 08       		.byte	0x8
  1523 069f 2F       		.byte	0x2f
  1524 06a0 78050000 		.4byte	0x578
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 83
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 83
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1525 06a4 30       		.byte	0x30
  1526 06a5 14       		.uleb128 0x14
- 1527 06a6 5A1D0000 		.4byte	.LASF202
+ 1527 06a6 A01D0000 		.4byte	.LASF202
  1528 06aa 08       		.byte	0x8
  1529 06ab 30       		.byte	0x30
  1530 06ac 78050000 		.4byte	0x578
@@ -4978,7 +5311,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1579 0712 08       		.byte	0x8
  1580 0713 3C       		.byte	0x3c
  1581 0714 ED050000 		.4byte	0x5ed
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 84
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 84
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1582 0718 0440     		.2byte	0x4004
@@ -4995,7 +5332,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1593 072e ED050000 		.4byte	0x5ed
  1594 0732 0C40     		.2byte	0x400c
  1595 0734 16       		.uleb128 0x16
- 1596 0735 C4200000 		.4byte	.LASF211
+ 1596 0735 0A210000 		.4byte	.LASF211
  1597 0739 08       		.byte	0x8
  1598 073a 3F       		.byte	0x3f
  1599 073b ED050000 		.4byte	0x5ed
@@ -5019,7 +5356,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1617 0762 ED050000 		.4byte	0x5ed
  1618 0766 1C40     		.2byte	0x401c
  1619 0768 16       		.uleb128 0x16
- 1620 0769 3E1C0000 		.4byte	.LASF215
+ 1620 0769 841C0000 		.4byte	.LASF215
  1621 076d 08       		.byte	0x8
  1622 076e 43       		.byte	0x43
  1623 076f 78050000 		.4byte	0x578
@@ -5038,7 +5375,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1636 078c 44       		.byte	0x44
  1637 078d EB060000 		.4byte	0x6eb
  1638 0791 12       		.uleb128 0x12
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 85
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 85
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1639 0792 40       		.byte	0x40
@@ -5052,7 +5393,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1647 07a0 78050000 		.4byte	0x578
  1648 07a4 00       		.byte	0
  1649 07a5 14       		.uleb128 0x14
- 1650 07a6 221D0000 		.4byte	.LASF218
+ 1650 07a6 681D0000 		.4byte	.LASF218
  1651 07aa 09       		.byte	0x9
  1652 07ab 24       		.byte	0x24
  1653 07ac ED050000 		.4byte	0x5ed
@@ -5082,7 +5423,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1677 07db 78050000 		.4byte	0x578
  1678 07df 14       		.byte	0x14
  1679 07e0 14       		.uleb128 0x14
- 1680 07e1 B91E0000 		.4byte	.LASF222
+ 1680 07e1 FF1E0000 		.4byte	.LASF222
  1681 07e5 09       		.byte	0x9
  1682 07e6 29       		.byte	0x29
  1683 07e7 78050000 		.4byte	0x578
@@ -5098,7 +5439,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1693 07fd 09       		.byte	0x9
  1694 07fe 2B       		.byte	0x2b
  1695 07ff 78050000 		.4byte	0x578
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 86
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 86
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1696 0803 20       		.byte	0x20
@@ -5158,7 +5503,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1750 086d 14       		.uleb128 0x14
  1751 086e CF140000 		.4byte	.LASF217
  1752 0872 09       		.byte	0x9
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 87
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 87
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1753 0873 39       		.byte	0x39
@@ -5189,7 +5538,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1778 08a4 78050000 		.4byte	0x578
  1779 08a8 10       		.byte	0x10
  1780 08a9 14       		.uleb128 0x14
- 1781 08aa 3D1D0000 		.4byte	.LASF231
+ 1781 08aa 831D0000 		.4byte	.LASF231
  1782 08ae 09       		.byte	0x9
  1783 08af 3E       		.byte	0x3e
  1784 08b0 78050000 		.4byte	0x578
@@ -5218,7 +5567,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1807 08df 42       		.byte	0x42
  1808 08e0 01090000 		.4byte	0x901
  1809 08e4 0001     		.2byte	0x100
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 88
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 88
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1810 08e6 00       		.byte	0
@@ -5241,7 +5594,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1827 090f 1F       		.byte	0x1f
  1828 0910 00       		.byte	0
  1829 0911 06       		.uleb128 0x6
- 1830 0912 26210000 		.4byte	.LASF234
+ 1830 0912 33210000 		.4byte	.LASF234
  1831 0916 09       		.byte	0x9
  1832 0917 43       		.byte	0x43
  1833 0918 64080000 		.4byte	0x864
@@ -5278,7 +5631,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1864 095b 14       		.uleb128 0x14
  1865 095c 3B080000 		.4byte	.LASF240
  1866 0960 0B       		.byte	0xb
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 89
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 89
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1867 0961 38       		.byte	0x38
@@ -5291,7 +5648,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1874 096e 9A040000 		.4byte	0x49a
  1875 0972 08       		.byte	0x8
  1876 0973 14       		.uleb128 0x14
- 1877 0974 9D200000 		.4byte	.LASF242
+ 1877 0974 E3200000 		.4byte	.LASF242
  1878 0978 0B       		.byte	0xb
  1879 0979 3A       		.byte	0x3a
  1880 097a 9A040000 		.4byte	0x49a
@@ -5309,7 +5666,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1892 0992 9A040000 		.4byte	0x49a
  1893 0996 14       		.byte	0x14
  1894 0997 14       		.uleb128 0x14
- 1895 0998 7D1D0000 		.4byte	.LASF245
+ 1895 0998 C31D0000 		.4byte	.LASF245
  1896 099c 0B       		.byte	0xb
  1897 099d 3D       		.byte	0x3d
  1898 099e 9A040000 		.4byte	0x49a
@@ -5321,7 +5678,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1904 09aa 9A040000 		.4byte	0x49a
  1905 09ae 1C       		.byte	0x1c
  1906 09af 14       		.uleb128 0x14
- 1907 09b0 3A230000 		.4byte	.LASF247
+ 1907 09b0 47230000 		.4byte	.LASF247
  1908 09b4 0B       		.byte	0xb
  1909 09b5 3F       		.byte	0x3f
  1910 09b6 9A040000 		.4byte	0x49a
@@ -5338,7 +5695,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1921 09cd 43       		.byte	0x43
  1922 09ce 6E040000 		.4byte	0x46e
  1923 09d2 28       		.byte	0x28
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 90
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 90
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1924 09d3 14       		.uleb128 0x14
@@ -5348,7 +5709,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1928 09da 6E040000 		.4byte	0x46e
  1929 09de 29       		.byte	0x29
  1930 09df 14       		.uleb128 0x14
- 1931 09e0 501D0000 		.4byte	.LASF251
+ 1931 09e0 961D0000 		.4byte	.LASF251
  1932 09e4 0B       		.byte	0xb
  1933 09e5 45       		.byte	0x45
  1934 09e6 6E040000 		.4byte	0x46e
@@ -5360,13 +5721,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1940 09f2 6E040000 		.4byte	0x46e
  1941 09f6 2B       		.byte	0x2b
  1942 09f7 14       		.uleb128 0x14
- 1943 09f8 1B1C0000 		.4byte	.LASF253
+ 1943 09f8 611C0000 		.4byte	.LASF253
  1944 09fc 0B       		.byte	0xb
  1945 09fd 47       		.byte	0x47
  1946 09fe 6E040000 		.4byte	0x46e
  1947 0a02 2C       		.byte	0x2c
  1948 0a03 14       		.uleb128 0x14
- 1949 0a04 CC250000 		.4byte	.LASF254
+ 1949 0a04 D9250000 		.4byte	.LASF254
  1950 0a08 0B       		.byte	0xb
  1951 0a09 48       		.byte	0x48
  1952 0a0a 6E040000 		.4byte	0x46e
@@ -5378,13 +5739,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1958 0a16 6E040000 		.4byte	0x46e
  1959 0a1a 2E       		.byte	0x2e
  1960 0a1b 14       		.uleb128 0x14
- 1961 0a1c 141F0000 		.4byte	.LASF256
+ 1961 0a1c 5A1F0000 		.4byte	.LASF256
  1962 0a20 0B       		.byte	0xb
  1963 0a21 4A       		.byte	0x4a
  1964 0a22 6E040000 		.4byte	0x46e
  1965 0a26 2F       		.byte	0x2f
  1966 0a27 14       		.uleb128 0x14
- 1967 0a28 E41E0000 		.4byte	.LASF257
+ 1967 0a28 2A1F0000 		.4byte	.LASF257
  1968 0a2c 0B       		.byte	0xb
  1969 0a2d 4B       		.byte	0x4b
  1970 0a2e 6E040000 		.4byte	0x46e
@@ -5398,14 +5759,18 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  1978 0a3f 14       		.uleb128 0x14
  1979 0a40 DB170000 		.4byte	.LASF259
  1980 0a44 0B       		.byte	0xb
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 91
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 91
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  1981 0a45 4F       		.byte	0x4f
  1982 0a46 6E040000 		.4byte	0x46e
  1983 0a4a 32       		.byte	0x32
  1984 0a4b 14       		.uleb128 0x14
- 1985 0a4c 4B1C0000 		.4byte	.LASF260
+ 1985 0a4c 911C0000 		.4byte	.LASF260
  1986 0a50 0B       		.byte	0xb
  1987 0a51 50       		.byte	0x50
  1988 0a52 6E040000 		.4byte	0x46e
@@ -5458,7 +5823,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2035 0ab1 58       		.byte	0x58
  2036 0ab2 6E040000 		.4byte	0x46e
  2037 0ab6 3F       		.byte	0x3f
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 92
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 92
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2038 0ab7 14       		.uleb128 0x14
@@ -5486,7 +5855,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2060 0ae2 6E040000 		.4byte	0x46e
  2061 0ae6 43       		.byte	0x43
  2062 0ae7 14       		.uleb128 0x14
- 2063 0ae8 C31D0000 		.4byte	.LASF273
+ 2063 0ae8 091E0000 		.4byte	.LASF273
  2064 0aec 0B       		.byte	0xb
  2065 0aed 5D       		.byte	0x5d
  2066 0aee 6E040000 		.4byte	0x46e
@@ -5510,22 +5879,26 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2084 0b12 6E040000 		.4byte	0x46e
  2085 0b16 50       		.byte	0x50
  2086 0b17 14       		.uleb128 0x14
- 2087 0b18 D41D0000 		.4byte	.LASF277
+ 2087 0b18 1A1E0000 		.4byte	.LASF277
  2088 0b1c 0B       		.byte	0xb
  2089 0b1d 61       		.byte	0x61
  2090 0b1e 6E040000 		.4byte	0x46e
  2091 0b22 51       		.byte	0x51
  2092 0b23 14       		.uleb128 0x14
- 2093 0b24 CD230000 		.4byte	.LASF278
+ 2093 0b24 DA230000 		.4byte	.LASF278
  2094 0b28 0B       		.byte	0xb
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 93
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 93
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2095 0b29 62       		.byte	0x62
  2096 0b2a 6E040000 		.4byte	0x46e
  2097 0b2e 52       		.byte	0x52
  2098 0b2f 14       		.uleb128 0x14
- 2099 0b30 77200000 		.4byte	.LASF279
+ 2099 0b30 BD200000 		.4byte	.LASF279
  2100 0b34 0B       		.byte	0xb
  2101 0b35 63       		.byte	0x63
  2102 0b36 6E040000 		.4byte	0x46e
@@ -5537,13 +5910,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2108 0b42 6E040000 		.4byte	0x46e
  2109 0b46 54       		.byte	0x54
  2110 0b47 14       		.uleb128 0x14
- 2111 0b48 B8250000 		.4byte	.LASF281
+ 2111 0b48 C5250000 		.4byte	.LASF281
  2112 0b4c 0B       		.byte	0xb
  2113 0b4d 65       		.byte	0x65
  2114 0b4e 6E040000 		.4byte	0x46e
  2115 0b52 55       		.byte	0x55
  2116 0b53 14       		.uleb128 0x14
- 2117 0b54 CF1F0000 		.4byte	.LASF282
+ 2117 0b54 15200000 		.4byte	.LASF282
  2118 0b58 0B       		.byte	0xb
  2119 0b59 66       		.byte	0x66
  2120 0b5a 6E040000 		.4byte	0x46e
@@ -5567,7 +5940,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2138 0b7e 6E040000 		.4byte	0x46e
  2139 0b82 59       		.byte	0x59
  2140 0b83 14       		.uleb128 0x14
- 2141 0b84 F1250000 		.4byte	.LASF286
+ 2141 0b84 FE250000 		.4byte	.LASF286
  2142 0b88 0B       		.byte	0xb
  2143 0b89 6E       		.byte	0x6e
  2144 0b8a 84040000 		.4byte	0x484
@@ -5578,17 +5951,21 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2149 0b95 6F       		.byte	0x6f
  2150 0b96 84040000 		.4byte	0x484
  2151 0b9a 5C       		.byte	0x5c
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 94
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 94
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2152 0b9b 14       		.uleb128 0x14
- 2153 0b9c 2B230000 		.4byte	.LASF288
+ 2153 0b9c 38230000 		.4byte	.LASF288
  2154 0ba0 0B       		.byte	0xb
  2155 0ba1 70       		.byte	0x70
  2156 0ba2 6E040000 		.4byte	0x46e
  2157 0ba6 5E       		.byte	0x5e
  2158 0ba7 14       		.uleb128 0x14
- 2159 0ba8 5F230000 		.4byte	.LASF289
+ 2159 0ba8 6C230000 		.4byte	.LASF289
  2160 0bac 0B       		.byte	0xb
  2161 0bad 71       		.byte	0x71
  2162 0bae 6E040000 		.4byte	0x46e
@@ -5606,7 +5983,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2174 0bc6 9A040000 		.4byte	0x49a
  2175 0bca 64       		.byte	0x64
  2176 0bcb 14       		.uleb128 0x14
- 2177 0bcc 69240000 		.4byte	.LASF292
+ 2177 0bcc 76240000 		.4byte	.LASF292
  2178 0bd0 0B       		.byte	0xb
  2179 0bd1 76       		.byte	0x76
  2180 0bd2 84040000 		.4byte	0x484
@@ -5630,7 +6007,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2198 0bf6 84040000 		.4byte	0x484
  2199 0bfa 6E       		.byte	0x6e
  2200 0bfb 14       		.uleb128 0x14
- 2201 0bfc 291D0000 		.4byte	.LASF296
+ 2201 0bfc 6F1D0000 		.4byte	.LASF296
  2202 0c00 0B       		.byte	0xb
  2203 0c01 7B       		.byte	0x7b
  2204 0c02 6E040000 		.4byte	0x46e
@@ -5638,7 +6015,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2206 0c07 14       		.uleb128 0x14
  2207 0c08 04120000 		.4byte	.LASF297
  2208 0c0c 0B       		.byte	0xb
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 95
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 95
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2209 0c0d 7C       		.byte	0x7c
@@ -5651,7 +6032,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2216 0c1a 6E040000 		.4byte	0x46e
  2217 0c1e 72       		.byte	0x72
  2218 0c1f 14       		.uleb128 0x14
- 2219 0c20 F9230000 		.4byte	.LASF299
+ 2219 0c20 06240000 		.4byte	.LASF299
  2220 0c24 0B       		.byte	0xb
  2221 0c25 7E       		.byte	0x7e
  2222 0c26 6E040000 		.4byte	0x46e
@@ -5675,7 +6056,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2240 0c4a 84040000 		.4byte	0x484
  2241 0c4e 78       		.byte	0x78
  2242 0c4f 14       		.uleb128 0x14
- 2243 0c50 571C0000 		.4byte	.LASF303
+ 2243 0c50 9D1C0000 		.4byte	.LASF303
  2244 0c54 0B       		.byte	0xb
  2245 0c55 83       		.byte	0x83
  2246 0c56 84040000 		.4byte	0x484
@@ -5698,7 +6079,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2263 0c79 88       		.byte	0x88
  2264 0c7a 6E040000 		.4byte	0x46e
  2265 0c7e 7E       		.byte	0x7e
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 96
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 96
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2266 0c7f 14       		.uleb128 0x14
@@ -5708,7 +6093,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2270 0c86 6E040000 		.4byte	0x46e
  2271 0c8a 7F       		.byte	0x7f
  2272 0c8b 14       		.uleb128 0x14
- 2273 0c8c 34210000 		.4byte	.LASF308
+ 2273 0c8c 41210000 		.4byte	.LASF308
  2274 0c90 0B       		.byte	0xb
  2275 0c91 8A       		.byte	0x8a
  2276 0c92 6E040000 		.4byte	0x46e
@@ -5758,7 +6143,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2320 0ceb 14       		.uleb128 0x14
  2321 0cec A6110000 		.4byte	.LASF316
  2322 0cf0 0B       		.byte	0xb
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 97
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 97
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2323 0cf1 94       		.byte	0x94
@@ -5783,7 +6172,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2342 0d16 84040000 		.4byte	0x484
  2343 0d1a A8       		.byte	0xa8
  2344 0d1b 14       		.uleb128 0x14
- 2345 0d1c 7C1C0000 		.4byte	.LASF320
+ 2345 0d1c C21C0000 		.4byte	.LASF320
  2346 0d20 0B       		.byte	0xb
  2347 0d21 98       		.byte	0x98
  2348 0d22 84040000 		.4byte	0x484
@@ -5801,7 +6190,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2360 0d3a 84040000 		.4byte	0x484
  2361 0d3e AE       		.byte	0xae
  2362 0d3f 14       		.uleb128 0x14
- 2363 0d40 42240000 		.4byte	.LASF323
+ 2363 0d40 4F240000 		.4byte	.LASF323
  2364 0d44 0B       		.byte	0xb
  2365 0d45 9D       		.byte	0x9d
  2366 0d46 84040000 		.4byte	0x484
@@ -5818,7 +6207,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2377 0d5d 0B       		.byte	0xb
  2378 0d5e 9F       		.byte	0x9f
  2379 0d5f 47090000 		.4byte	0x947
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 98
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 98
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2380 0d63 10       		.uleb128 0x10
@@ -5839,7 +6232,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2395 0d7f 04       		.byte	0x4
  2396 0d80 A2130000 		.4byte	.LASF329
  2397 0d84 10       		.uleb128 0x10
- 2398 0d85 DE1E0000 		.4byte	.LASF330
+ 2398 0d85 241F0000 		.4byte	.LASF330
  2399 0d89 0C       		.byte	0xc
  2400 0d8a EA03     		.2byte	0x3ea
  2401 0d8c 6E040000 		.4byte	0x46e
@@ -5858,7 +6251,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2414 0daa 51100000 		.4byte	.LASF332
  2415 0dae 00       		.byte	0
  2416 0daf 04       		.uleb128 0x4
- 2417 0db0 D9250000 		.4byte	.LASF333
+ 2417 0db0 E6250000 		.4byte	.LASF333
  2418 0db4 01       		.byte	0x1
  2419 0db5 00       		.byte	0
  2420 0db6 19       		.uleb128 0x19
@@ -5878,7 +6271,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2434 0dd1 04       		.uleb128 0x4
  2435 0dd2 74160000 		.4byte	.LASF336
  2436 0dd6 02       		.byte	0x2
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 99
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 99
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2437 0dd7 04       		.uleb128 0x4
@@ -5900,19 +6297,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2453 0df8 B2080000 		.4byte	.LASF339
  2454 0dfc 00       		.byte	0
  2455 0dfd 04       		.uleb128 0x4
- 2456 0dfe F01D0000 		.4byte	.LASF340
+ 2456 0dfe 361E0000 		.4byte	.LASF340
  2457 0e02 01       		.byte	0x1
  2458 0e03 04       		.uleb128 0x4
- 2459 0e04 FD1D0000 		.4byte	.LASF341
+ 2459 0e04 431E0000 		.4byte	.LASF341
  2460 0e08 02       		.byte	0x2
  2461 0e09 04       		.uleb128 0x4
- 2462 0e0a F01E0000 		.4byte	.LASF342
+ 2462 0e0a 361F0000 		.4byte	.LASF342
  2463 0e0e 03       		.byte	0x3
  2464 0e0f 04       		.uleb128 0x4
  2465 0e10 98080000 		.4byte	.LASF343
  2466 0e14 04       		.byte	0x4
  2467 0e15 04       		.uleb128 0x4
- 2468 0e16 3C200000 		.4byte	.LASF344
+ 2468 0e16 82200000 		.4byte	.LASF344
  2469 0e1a 05       		.byte	0x5
  2470 0e1b 00       		.byte	0
  2471 0e1c 10       		.uleb128 0x10
@@ -5927,7 +6324,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2480 0e2f 1A01     		.2byte	0x11a
  2481 0e31 420E0000 		.4byte	0xe42
  2482 0e35 04       		.uleb128 0x4
- 2483 0e36 81220000 		.4byte	.LASF346
+ 2483 0e36 8E220000 		.4byte	.LASF346
  2484 0e3a 00       		.byte	0
  2485 0e3b 04       		.uleb128 0x4
  2486 0e3c 5A1A0000 		.4byte	.LASF347
@@ -5938,7 +6335,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2491 0e47 0E       		.byte	0xe
  2492 0e48 1D01     		.2byte	0x11d
  2493 0e4a 280E0000 		.4byte	0xe28
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 100
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 100
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2494 0e4e 18       		.uleb128 0x18
@@ -5971,7 +6372,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2521 0e85 1E100000 		.4byte	0x101e
  2522 0e89 00       		.byte	0
  2523 0e8a 09       		.uleb128 0x9
- 2524 0e8b 461D0000 		.4byte	.LASF353
+ 2524 0e8b 8C1D0000 		.4byte	.LASF353
  2525 0e8f 0E       		.byte	0xe
  2526 0e90 3501     		.2byte	0x135
  2527 0e92 1E100000 		.4byte	0x101e
@@ -5983,7 +6384,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2533 0e9f 1E100000 		.4byte	0x101e
  2534 0ea3 02       		.byte	0x2
  2535 0ea4 09       		.uleb128 0x9
- 2536 0ea5 88230000 		.4byte	.LASF355
+ 2536 0ea5 95230000 		.4byte	.LASF355
  2537 0ea9 0E       		.byte	0xe
  2538 0eaa 3701     		.2byte	0x137
  2539 0eac 1E100000 		.4byte	0x101e
@@ -5998,7 +6399,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2548 0ebf C70B0000 		.4byte	.LASF357
  2549 0ec3 0E       		.byte	0xe
  2550 0ec4 3901     		.2byte	0x139
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 101
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 101
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2551 0ec6 1E100000 		.4byte	0x101e
@@ -6010,13 +6415,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2557 0ed3 1E100000 		.4byte	0x101e
  2558 0ed7 06       		.byte	0x6
  2559 0ed8 09       		.uleb128 0x9
- 2560 0ed9 CD240000 		.4byte	.LASF359
+ 2560 0ed9 DA240000 		.4byte	.LASF359
  2561 0edd 0E       		.byte	0xe
  2562 0ede 3B01     		.2byte	0x13b
  2563 0ee0 DE0D0000 		.4byte	0xdde
  2564 0ee4 07       		.byte	0x7
  2565 0ee5 09       		.uleb128 0x9
- 2566 0ee6 271C0000 		.4byte	.LASF360
+ 2566 0ee6 6D1C0000 		.4byte	.LASF360
  2567 0eea 0E       		.byte	0xe
  2568 0eeb 3C01     		.2byte	0x13c
  2569 0eed 680E0000 		.4byte	0xe68
@@ -6052,13 +6457,17 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2599 0f2e 1E100000 		.4byte	0x101e
  2600 0f32 12       		.byte	0x12
  2601 0f33 09       		.uleb128 0x9
- 2602 0f34 20230000 		.4byte	.LASF366
+ 2602 0f34 2D230000 		.4byte	.LASF366
  2603 0f38 0E       		.byte	0xe
  2604 0f39 5701     		.2byte	0x157
  2605 0f3b 6E040000 		.4byte	0x46e
  2606 0f3f 13       		.byte	0x13
  2607 0f40 09       		.uleb128 0x9
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 102
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 102
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2608 0f41 1A050000 		.4byte	.LASF367
@@ -6073,7 +6482,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2617 0f55 1C0E0000 		.4byte	0xe1c
  2618 0f59 15       		.byte	0x15
  2619 0f5a 09       		.uleb128 0x9
- 2620 0f5b B4200000 		.4byte	.LASF369
+ 2620 0f5b FA200000 		.4byte	.LASF369
  2621 0f5f 0E       		.byte	0xe
  2622 0f60 5F01     		.2byte	0x15f
  2623 0f62 420E0000 		.4byte	0xe42
@@ -6091,13 +6500,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2635 0f7c 1E100000 		.4byte	0x101e
  2636 0f80 18       		.byte	0x18
  2637 0f81 09       		.uleb128 0x9
- 2638 0f82 03220000 		.4byte	.LASF372
+ 2638 0f82 10220000 		.4byte	.LASF372
  2639 0f86 0E       		.byte	0xe
  2640 0f87 6301     		.2byte	0x163
  2641 0f89 DE0D0000 		.4byte	0xdde
  2642 0f8d 19       		.byte	0x19
  2643 0f8e 09       		.uleb128 0x9
- 2644 0f8f 341B0000 		.4byte	.LASF373
+ 2644 0f8f 7A1B0000 		.4byte	.LASF373
  2645 0f93 0E       		.byte	0xe
  2646 0f94 6401     		.2byte	0x164
  2647 0f96 680E0000 		.4byte	0xe68
@@ -6109,22 +6518,26 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2653 0fa3 1E100000 		.4byte	0x101e
  2654 0fa7 1B       		.byte	0x1b
  2655 0fa8 09       		.uleb128 0x9
- 2656 0fa9 6C1C0000 		.4byte	.LASF375
+ 2656 0fa9 B21C0000 		.4byte	.LASF375
  2657 0fad 0E       		.byte	0xe
  2658 0fae 6801     		.2byte	0x168
  2659 0fb0 9A040000 		.4byte	0x49a
  2660 0fb4 1C       		.byte	0x1c
  2661 0fb5 09       		.uleb128 0x9
- 2662 0fb6 4A1F0000 		.4byte	.LASF376
+ 2662 0fb6 901F0000 		.4byte	.LASF376
  2663 0fba 0E       		.byte	0xe
  2664 0fbb 6901     		.2byte	0x169
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 103
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 103
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2665 0fbd 1E100000 		.4byte	0x101e
  2666 0fc1 20       		.byte	0x20
  2667 0fc2 09       		.uleb128 0x9
- 2668 0fc3 F4220000 		.4byte	.LASF377
+ 2668 0fc3 01230000 		.4byte	.LASF377
  2669 0fc7 0E       		.byte	0xe
  2670 0fc8 7101     		.2byte	0x171
  2671 0fca 1E100000 		.4byte	0x101e
@@ -6178,7 +6591,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2719 1031 1A       		.uleb128 0x1a
  2720 1032 08       		.byte	0x8
  2721 1033 0F       		.byte	0xf
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 104
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 104
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2722 1034 2D01     		.2byte	0x12d
@@ -6190,7 +6607,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2728 1042 ED030000 		.4byte	0x3ed
  2729 1046 00       		.byte	0
  2730 1047 09       		.uleb128 0x9
- 2731 1048 B61D0000 		.4byte	.LASF387
+ 2731 1048 FC1D0000 		.4byte	.LASF387
  2732 104c 0F       		.byte	0xf
  2733 104d 3201     		.2byte	0x132
  2734 104f 9A040000 		.4byte	0x49a
@@ -6211,7 +6628,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2749 106f 4D020000 		.4byte	.LASF389
  2750 1073 00       		.byte	0
  2751 1074 04       		.uleb128 0x4
- 2752 1075 C51E0000 		.4byte	.LASF390
+ 2752 1075 0B1F0000 		.4byte	.LASF390
  2753 1079 01       		.byte	0x1
  2754 107a 04       		.uleb128 0x4
  2755 107b 8C170000 		.4byte	.LASF391
@@ -6238,7 +6655,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2776 10a8 00       		.byte	0
  2777 10a9 09       		.uleb128 0x9
  2778 10aa 1E1B0000 		.4byte	.LASF395
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 105
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 105
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2779 10ae 10       		.byte	0x10
@@ -6264,7 +6685,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2799 10d8 9A040000 		.4byte	0x49a
  2800 10dc 10       		.byte	0x10
  2801 10dd 09       		.uleb128 0x9
- 2802 10de AC220000 		.4byte	.LASF399
+ 2802 10de B9220000 		.4byte	.LASF399
  2803 10e2 10       		.byte	0x10
  2804 10e3 0905     		.2byte	0x509
  2805 10e5 87100000 		.4byte	0x1087
@@ -6282,7 +6703,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2817 10ff 60110000 		.4byte	0x1160
  2818 1103 1C       		.byte	0x1c
  2819 1104 09       		.uleb128 0x9
- 2820 1105 E31F0000 		.4byte	.LASF402
+ 2820 1105 29200000 		.4byte	.LASF402
  2821 1109 10       		.byte	0x10
  2822 110a 0C05     		.2byte	0x50c
  2823 110c 9A040000 		.4byte	0x49a
@@ -6298,18 +6719,22 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2833 1123 10       		.byte	0x10
  2834 1124 0E05     		.2byte	0x50e
  2835 1126 9A040000 		.4byte	0x49a
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 106
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 106
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2836 112a 64       		.byte	0x64
  2837 112b 09       		.uleb128 0x9
- 2838 112c 611E0000 		.4byte	.LASF405
+ 2838 112c A71E0000 		.4byte	.LASF405
  2839 1130 10       		.byte	0x10
  2840 1131 0F05     		.2byte	0x50f
  2841 1133 9A040000 		.4byte	0x49a
  2842 1137 68       		.byte	0x68
  2843 1138 09       		.uleb128 0x9
- 2844 1139 55210000 		.4byte	.LASF406
+ 2844 1139 62210000 		.4byte	.LASF406
  2845 113d 10       		.byte	0x10
  2846 113e 1005     		.2byte	0x510
  2847 1140 9A040000 		.4byte	0x49a
@@ -6351,21 +6776,25 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2883 118e 04       		.byte	0x4
  2884 118f 6E040000 		.4byte	0x46e
  2885 1193 10       		.uleb128 0x10
- 2886 1194 CF200000 		.4byte	.LASF410
+ 2886 1194 15210000 		.4byte	.LASF410
  2887 1198 11       		.byte	0x11
  2888 1199 F201     		.2byte	0x1f2
  2889 119b 7C110000 		.4byte	0x117c
  2890 119f 1E       		.uleb128 0x1e
  2891 11a0 480A0000 		.4byte	.LASF421
  2892 11a4 24       		.byte	0x24
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 107
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 107
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2893 11a5 11       		.byte	0x11
  2894 11a6 7402     		.2byte	0x274
  2895 11a8 22120000 		.4byte	0x1222
  2896 11ac 09       		.uleb128 0x9
- 2897 11ad 24220000 		.4byte	.LASF411
+ 2897 11ad 31220000 		.4byte	.LASF411
  2898 11b1 11       		.byte	0x11
  2899 11b2 7702     		.2byte	0x277
  2900 11b4 78050000 		.4byte	0x578
@@ -6389,7 +6818,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2918 11db 78050000 		.4byte	0x578
  2919 11df 0C       		.byte	0xc
  2920 11e0 09       		.uleb128 0x9
- 2921 11e1 8B1B0000 		.4byte	.LASF415
+ 2921 11e1 D11B0000 		.4byte	.LASF415
  2922 11e5 11       		.byte	0x11
  2923 11e6 7D02     		.2byte	0x27d
  2924 11e8 B60D0000 		.4byte	0xdb6
@@ -6418,12 +6847,16 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2947 121a 8802     		.2byte	0x288
  2948 121c 9A040000 		.4byte	0x49a
  2949 1220 20       		.byte	0x20
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 108
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 108
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  2950 1221 00       		.byte	0
  2951 1222 10       		.uleb128 0x10
- 2952 1223 201F0000 		.4byte	.LASF420
+ 2952 1223 661F0000 		.4byte	.LASF420
  2953 1227 11       		.byte	0x11
  2954 1228 8B02     		.2byte	0x28b
  2955 122a 9F110000 		.4byte	0x119f
@@ -6446,13 +6879,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2972 124d 9A040000 		.4byte	0x49a
  2973 1251 04       		.byte	0x4
  2974 1252 14       		.uleb128 0x14
- 2975 1253 B6220000 		.4byte	.LASF425
+ 2975 1253 C3220000 		.4byte	.LASF425
  2976 1257 03       		.byte	0x3
  2977 1258 34       		.byte	0x34
  2978 1259 9A040000 		.4byte	0x49a
  2979 125d 08       		.byte	0x8
  2980 125e 14       		.uleb128 0x14
- 2981 125f A5200000 		.4byte	.LASF426
+ 2981 125f EB200000 		.4byte	.LASF426
  2982 1263 03       		.byte	0x3
  2983 1264 35       		.byte	0x35
  2984 1265 9A040000 		.4byte	0x49a
@@ -6464,7 +6897,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  2990 1271 9A040000 		.4byte	0x49a
  2991 1275 10       		.byte	0x10
  2992 1276 14       		.uleb128 0x14
- 2993 1277 D0220000 		.4byte	.LASF428
+ 2993 1277 DD220000 		.4byte	.LASF428
  2994 127b 03       		.byte	0x3
  2995 127c 37       		.byte	0x37
  2996 127d 9A040000 		.4byte	0x49a
@@ -6478,7 +6911,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3004 128e 14       		.uleb128 0x14
  3005 128f 37100000 		.4byte	.LASF430
  3006 1293 03       		.byte	0x3
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 109
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 109
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3007 1294 39       		.byte	0x39
@@ -6515,7 +6952,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3038 12d1 9A040000 		.4byte	0x49a
  3039 12d5 30       		.byte	0x30
  3040 12d6 14       		.uleb128 0x14
- 3041 12d7 83240000 		.4byte	.LASF436
+ 3041 12d7 90240000 		.4byte	.LASF436
  3042 12db 03       		.byte	0x3
  3043 12dc 40       		.byte	0x40
  3044 12dd 9A040000 		.4byte	0x49a
@@ -6538,7 +6975,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3061 1300 44       		.byte	0x44
  3062 1301 9A040000 		.4byte	0x49a
  3063 1305 40       		.byte	0x40
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 110
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 110
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3064 1306 14       		.uleb128 0x14
@@ -6548,25 +6989,25 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3068 130d 9A040000 		.4byte	0x49a
  3069 1311 44       		.byte	0x44
  3070 1312 14       		.uleb128 0x14
- 3071 1313 DF240000 		.4byte	.LASF441
+ 3071 1313 EC240000 		.4byte	.LASF441
  3072 1317 03       		.byte	0x3
  3073 1318 47       		.byte	0x47
  3074 1319 9A040000 		.4byte	0x49a
  3075 131d 48       		.byte	0x48
  3076 131e 14       		.uleb128 0x14
- 3077 131f 351E0000 		.4byte	.LASF442
+ 3077 131f 7B1E0000 		.4byte	.LASF442
  3078 1323 03       		.byte	0x3
  3079 1324 48       		.byte	0x48
  3080 1325 9A040000 		.4byte	0x49a
  3081 1329 4C       		.byte	0x4c
  3082 132a 14       		.uleb128 0x14
- 3083 132b AD250000 		.4byte	.LASF443
+ 3083 132b BA250000 		.4byte	.LASF443
  3084 132f 03       		.byte	0x3
  3085 1330 4A       		.byte	0x4a
  3086 1331 9A040000 		.4byte	0x49a
  3087 1335 50       		.byte	0x50
  3088 1336 14       		.uleb128 0x14
- 3089 1337 F5210000 		.4byte	.LASF444
+ 3089 1337 02220000 		.4byte	.LASF444
  3090 133b 03       		.byte	0x3
  3091 133c 4B       		.byte	0x4b
  3092 133d 9A040000 		.4byte	0x49a
@@ -6598,7 +7039,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3118 1372 1A       		.uleb128 0x1a
  3119 1373 02       		.byte	0x2
  3120 1374 12       		.byte	0x12
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 111
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 111
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3121 1375 6401     		.2byte	0x164
@@ -6610,14 +7055,14 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3127 1383 6E040000 		.4byte	0x46e
  3128 1387 00       		.byte	0
  3129 1388 09       		.uleb128 0x9
- 3130 1389 D9240000 		.4byte	.LASF450
+ 3130 1389 E6240000 		.4byte	.LASF450
  3131 138d 12       		.byte	0x12
  3132 138e 7201     		.2byte	0x172
  3133 1390 6E040000 		.4byte	0x46e
  3134 1394 01       		.byte	0x1
  3135 1395 00       		.byte	0
  3136 1396 10       		.uleb128 0x10
- 3137 1397 0A1E0000 		.4byte	.LASF451
+ 3137 1397 501E0000 		.4byte	.LASF451
  3138 139b 12       		.byte	0x12
  3139 139c 7401     		.2byte	0x174
  3140 139e 72130000 		.4byte	0x1372
@@ -6634,10 +7079,10 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3151 13b5 D3060000 		.4byte	.LASF453
  3152 13b9 01       		.byte	0x1
  3153 13ba 04       		.uleb128 0x4
- 3154 13bb 80250000 		.4byte	.LASF454
+ 3154 13bb 8D250000 		.4byte	.LASF454
  3155 13bf 02       		.byte	0x2
  3156 13c0 04       		.uleb128 0x4
- 3157 13c1 AB1B0000 		.4byte	.LASF455
+ 3157 13c1 F11B0000 		.4byte	.LASF455
  3158 13c5 03       		.byte	0x3
  3159 13c6 00       		.byte	0
  3160 13c7 06       		.uleb128 0x6
@@ -6658,10 +7103,14 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3175 13e5 F1140000 		.4byte	.LASF458
  3176 13e9 01       		.byte	0x1
  3177 13ea 04       		.uleb128 0x4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 112
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 112
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
- 3178 13eb 6B1E0000 		.4byte	.LASF459
+ 3178 13eb B11E0000 		.4byte	.LASF459
  3179 13ef 02       		.byte	0x2
  3180 13f0 04       		.uleb128 0x4
  3181 13f1 2F110000 		.4byte	.LASF460
@@ -6680,7 +7129,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3194 140d 07       		.byte	0x7
  3195 140e 00       		.byte	0
  3196 140f 06       		.uleb128 0x6
- 3197 1410 581B0000 		.4byte	.LASF465
+ 3197 1410 9E1B0000 		.4byte	.LASF465
  3198 1414 13       		.byte	0x13
  3199 1415 90       		.byte	0x90
  3200 1416 D2130000 		.4byte	0x13d2
@@ -6716,9 +7165,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3230 1452 9A040000 		.4byte	0x49a
  3231 1456 0C       		.byte	0xc
  3232 1457 14       		.uleb128 0x14
- 3233 1458 75250000 		.4byte	.LASF470
+ 3233 1458 82250000 		.4byte	.LASF470
  3234 145c 14       		.byte	0x14
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 113
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 113
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3235 145d 45       		.byte	0x45
@@ -6731,7 +7184,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3242 146a 11       		.uleb128 0x11
  3243 146b 70110000 		.4byte	0x1170
  3244 146f 06       		.uleb128 0x6
- 3245 1470 E3210000 		.4byte	.LASF471
+ 3245 1470 F0210000 		.4byte	.LASF471
  3246 1474 14       		.byte	0x14
  3247 1475 48       		.byte	0x48
  3248 1476 1F140000 		.4byte	0x141f
@@ -6742,12 +7195,12 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3253 1482 03       		.byte	0x3
  3254 1483 AC140000 		.4byte	0x14ac
  3255 1487 21       		.uleb128 0x21
- 3256 1488 B1230000 		.4byte	.LASF472
+ 3256 1488 BE230000 		.4byte	.LASF472
  3257 148c 03       		.byte	0x3
  3258 148d 3B01     		.2byte	0x13b
  3259 148f AC140000 		.4byte	0x14ac
  3260 1493 21       		.uleb128 0x21
- 3261 1494 431F0000 		.4byte	.LASF473
+ 3261 1494 891F0000 		.4byte	.LASF473
  3262 1498 03       		.byte	0x3
  3263 1499 3B01     		.2byte	0x13b
  3264 149b 9A040000 		.4byte	0x49a
@@ -6778,7 +7231,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3289 14d2 A9       		.byte	0xa9
  3290 14d3 03       		.byte	0x3
  3291 14d4 E4140000 		.4byte	0x14e4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 114
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 114
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3292 14d8 23       		.uleb128 0x23
@@ -6788,14 +7245,14 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3296 14df 9A040000 		.4byte	0x49a
  3297 14e3 00       		.byte	0
  3298 14e4 24       		.uleb128 0x24
- 3299 14e5 48210000 		.4byte	.LASF532
+ 3299 14e5 55210000 		.4byte	.LASF532
  3300 14e9 04       		.byte	0x4
  3301 14ea 0703     		.2byte	0x307
  3302 14ec 9A040000 		.4byte	0x49a
  3303 14f0 03       		.byte	0x3
  3304 14f1 0E150000 		.4byte	0x150e
  3305 14f5 21       		.uleb128 0x21
- 3306 14f6 B1230000 		.4byte	.LASF472
+ 3306 14f6 BE230000 		.4byte	.LASF472
  3307 14fa 04       		.byte	0x4
  3308 14fb 0703     		.2byte	0x307
  3309 14fd 0E150000 		.4byte	0x150e
@@ -6809,13 +7266,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3317 150f 04       		.byte	0x4
  3318 1510 1C090000 		.4byte	0x91c
  3319 1514 20       		.uleb128 0x20
- 3320 1515 4C250000 		.4byte	.LASF479
+ 3320 1515 59250000 		.4byte	.LASF479
  3321 1519 04       		.byte	0x4
  3322 151a 2503     		.2byte	0x325
  3323 151c 03       		.byte	0x3
  3324 151d 46150000 		.4byte	0x1546
  3325 1521 21       		.uleb128 0x21
- 3326 1522 B1230000 		.4byte	.LASF472
+ 3326 1522 BE230000 		.4byte	.LASF472
  3327 1526 04       		.byte	0x4
  3328 1527 2503     		.2byte	0x325
  3329 1529 0E150000 		.4byte	0x150e
@@ -6831,14 +7288,18 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3339 1541 9A040000 		.4byte	0x49a
  3340 1545 00       		.byte	0
  3341 1546 25       		.uleb128 0x25
- 3342 1547 C41C0000 		.4byte	.LASF487
+ 3342 1547 0A1D0000 		.4byte	.LASF487
  3343 154b 01       		.byte	0x1
  3344 154c 1D       		.byte	0x1d
  3345 154d 00000000 		.4byte	.LFB863
  3346 1551 14000000 		.4byte	.LFE863-.LFB863
  3347 1555 01       		.uleb128 0x1
  3348 1556 9C       		.byte	0x9c
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 115
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 115
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3349 1557 26       		.uleb128 0x26
@@ -6865,7 +7326,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3370 1587 51       		.byte	0x51
  3371 1588 00       		.byte	0
  3372 1589 26       		.uleb128 0x26
- 3373 158a B6230000 		.4byte	.LASF484
+ 3373 158a C3230000 		.4byte	.LASF484
  3374 158e 01       		.byte	0x1
  3375 158f 2D       		.byte	0x2d
  3376 1590 00000000 		.4byte	.LFB865
@@ -6898,7 +7359,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3403 15d2 0E000000 		.4byte	.LBB24
  3404 15d6 08000000 		.4byte	.LBE24-.LBB24
  3405 15da 01       		.byte	0x1
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 116
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 116
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3406 15db 42       		.byte	0x42
@@ -6958,7 +7423,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3460 1650 5F       		.byte	0x5f
  3461 1651 00000000 		.4byte	.LFB869
  3462 1655 1C000000 		.4byte	.LFE869-.LFB869
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 117
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 117
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3463 1659 01       		.uleb128 0x1
@@ -7018,19 +7487,23 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3517 16da 6400     		.ascii	"d\000"
  3518 16dc 01       		.byte	0x1
  3519 16dd AD       		.byte	0xad
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 118
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 118
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3520 16de 8D110000 		.4byte	0x118d
  3521 16e2 F0000000 		.4byte	.LLST11
  3522 16e6 27       		.uleb128 0x27
- 3523 16e7 F01B0000 		.4byte	.LASF490
+ 3523 16e7 361C0000 		.4byte	.LASF490
  3524 16eb 01       		.byte	0x1
  3525 16ec AD       		.byte	0xad
  3526 16ed 60040000 		.4byte	0x460
  3527 16f1 0E010000 		.4byte	.LLST12
  3528 16f5 31       		.uleb128 0x31
- 3529 16f6 24220000 		.4byte	.LASF411
+ 3529 16f6 31220000 		.4byte	.LASF411
  3530 16fa 01       		.byte	0x1
  3531 16fb AE       		.byte	0xae
  3532 16fc 60040000 		.4byte	0x460
@@ -7078,7 +7551,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3574 1751 01       		.uleb128 0x1
  3575 1752 50       		.byte	0x50
  3576 1753 02       		.uleb128 0x2
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 119
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 119
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3577 1754 08       		.byte	0x8
@@ -7114,7 +7591,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3607 1787 E51B0000 		.4byte	0x1be5
  3608 178b 00       		.byte	0
  3609 178c 26       		.uleb128 0x26
- 3610 178d 28200000 		.4byte	.LASF491
+ 3610 178d 6E200000 		.4byte	.LASF491
  3611 1791 01       		.byte	0x1
  3612 1792 A4       		.byte	0xa4
  3613 1793 00000000 		.4byte	.LFB871
@@ -7138,7 +7615,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3631 17bb 30       		.byte	0x30
  3632 17bc 2E       		.uleb128 0x2e
  3633 17bd 01       		.uleb128 0x1
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 120
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 120
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3634 17be 51       		.byte	0x51
@@ -7178,7 +7659,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3668 17f9 6E040000 		.4byte	0x46e
  3669 17fd B2010000 		.4byte	.LLST16
  3670 1801 31       		.uleb128 0x31
- 3671 1802 24220000 		.4byte	.LASF411
+ 3671 1802 31220000 		.4byte	.LASF411
  3672 1806 01       		.byte	0x1
  3673 1807 C4       		.byte	0xc4
  3674 1808 60040000 		.4byte	0x460
@@ -7198,7 +7679,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3688 1828 2E       		.uleb128 0x2e
  3689 1829 01       		.uleb128 0x1
  3690 182a 51       		.byte	0x51
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 121
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 121
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3691 182b 01       		.uleb128 0x1
@@ -7258,7 +7743,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3745 1892 31       		.byte	0x31
  3746 1893 2E       		.uleb128 0x2e
  3747 1894 01       		.uleb128 0x1
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 122
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 122
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3748 1895 51       		.byte	0x51
@@ -7318,7 +7807,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3802 18ea 52       		.byte	0x52
  3803 18eb 01       		.uleb128 0x1
  3804 18ec 31       		.byte	0x31
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 123
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 123
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3805 18ed 00       		.byte	0
@@ -7333,7 +7826,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3814 18fc 00       		.byte	0
  3815 18fd 00       		.byte	0
  3816 18fe 34       		.uleb128 0x34
- 3817 18ff C3220000 		.4byte	.LASF495
+ 3817 18ff D0220000 		.4byte	.LASF495
  3818 1903 01       		.byte	0x1
  3819 1904 CE       		.byte	0xce
  3820 1905 60040000 		.4byte	0x460
@@ -7357,7 +7850,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3838 1938 00       		.byte	0
  3839 1939 00       		.byte	0
  3840 193a 34       		.uleb128 0x34
- 3841 193b 42220000 		.4byte	.LASF496
+ 3841 193b 4F220000 		.4byte	.LASF496
  3842 193f 01       		.byte	0x1
  3843 1940 D2       		.byte	0xd2
  3844 1941 60040000 		.4byte	0x460
@@ -7378,7 +7871,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3859 196b 2A       		.uleb128 0x2a
  3860 196c F5140000 		.4byte	0x14f5
  3861 1970 13020000 		.4byte	.LLST20
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 124
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 124
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3862 1974 00       		.byte	0
@@ -7438,7 +7935,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3916 19e7 00000000 		.4byte	.LFB877
  3917 19eb 2C000000 		.4byte	.LFE877-.LFB877
  3918 19ef 01       		.uleb128 0x1
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 125
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 125
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3919 19f0 9C       		.byte	0x9c
@@ -7498,7 +7999,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3973 1a63 00000000 		.4byte	power_timeout
  3974 1a67 36       		.uleb128 0x36
  3975 1a68 9C020000 		.4byte	.LASF501
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 126
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 126
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  3976 1a6c 01       		.byte	0x1
@@ -7515,7 +8020,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3987 1a84 0E       		.uleb128 0xe
  3988 1a85 8F040000 		.4byte	0x48f
  3989 1a89 38       		.uleb128 0x38
- 3990 1a8a E61D0000 		.4byte	.LASF503
+ 3990 1a8a 2C1E0000 		.4byte	.LASF503
  3991 1a8e 0B       		.byte	0xb
  3992 1a8f A7       		.byte	0xa7
  3993 1a90 941A0000 		.4byte	0x1a94
@@ -7525,7 +8030,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  3997 1a9a 11       		.uleb128 0x11
  3998 1a9b 580D0000 		.4byte	0xd58
  3999 1a9f 37       		.uleb128 0x37
- 4000 1aa0 B8210000 		.4byte	.LASF504
+ 4000 1aa0 C5210000 		.4byte	.LASF504
  4001 1aa4 13       		.byte	0x13
  4002 1aa5 2202     		.2byte	0x222
  4003 1aa7 C7130000 		.4byte	0x13c7
@@ -7549,7 +8054,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4021 1ad5 00       		.byte	0
  4022 1ad6 00       		.byte	0
  4023 1ad7 37       		.uleb128 0x37
- 4024 1ad8 49200000 		.4byte	.LASF506
+ 4024 1ad8 8F200000 		.4byte	.LASF506
  4025 1adc 13       		.byte	0x13
  4026 1add 2D02     		.2byte	0x22d
  4027 1adf C71A0000 		.4byte	0x1ac7
@@ -7558,7 +8063,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4030 1ae8 16       		.byte	0x16
  4031 1ae9 19       		.byte	0x19
  4032 1aea 1A140000 		.4byte	0x141a
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 127
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 127
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4033 1aee 38       		.uleb128 0x38
@@ -7579,12 +8088,12 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4048 1b0f 1F       		.byte	0x1f
  4049 1b10 041B0000 		.4byte	0x1b04
  4050 1b14 38       		.uleb128 0x38
- 4051 1b15 9D250000 		.4byte	.LASF511
+ 4051 1b15 AA250000 		.4byte	.LASF511
  4052 1b19 1A       		.byte	0x1a
  4053 1b1a 1F       		.byte	0x1f
  4054 1b1b 041B0000 		.4byte	0x1b04
  4055 1b1f 37       		.uleb128 0x37
- 4056 1b20 D01C0000 		.4byte	.LASF512
+ 4056 1b20 161D0000 		.4byte	.LASF512
  4057 1b24 14       		.byte	0x14
  4058 1b25 6001     		.2byte	0x160
  4059 1b27 9A040000 		.4byte	0x49a
@@ -7598,7 +8107,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4067 1b3b 11       		.uleb128 0x11
  4068 1b3c 6F140000 		.4byte	0x146f
  4069 1b40 37       		.uleb128 0x37
- 4070 1b41 CB1B0000 		.4byte	.LASF513
+ 4070 1b41 111C0000 		.4byte	.LASF513
  4071 1b45 14       		.byte	0x14
  4072 1b46 6401     		.2byte	0x164
  4073 1b48 4C1B0000 		.4byte	0x1b4c
@@ -7618,7 +8127,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4087 1b68 37010000 		.4byte	.LASF516
  4088 1b6c 1C       		.byte	0x1c
  4089 1b6d 24       		.byte	0x24
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 128
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 128
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4090 1b6e 721B0000 		.4byte	0x1b72
@@ -7655,8 +8168,8 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4121 1bb7 20       		.byte	0x20
  4122 1bb8 9E       		.byte	0x9e
  4123 1bb9 39       		.uleb128 0x39
- 4124 1bba 50240000 		.4byte	.LASF523
- 4125 1bbe 50240000 		.4byte	.LASF523
+ 4124 1bba 5D240000 		.4byte	.LASF523
+ 4125 1bbe 5D240000 		.4byte	.LASF523
  4126 1bc2 20       		.byte	0x20
  4127 1bc3 6D       		.byte	0x6d
  4128 1bc4 39       		.uleb128 0x39
@@ -7678,7 +8191,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4144 1be6 BB060000 		.4byte	.LASF527
  4145 1bea BB060000 		.4byte	.LASF527
  4146 1bee 20       		.byte	0x20
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 129
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 129
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4147 1bef 8E       		.byte	0x8e
@@ -7738,7 +8255,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4201 002d 00       		.byte	0
  4202 002e 03       		.uleb128 0x3
  4203 002f 0E       		.uleb128 0xe
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 130
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 130
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4204 0030 1C       		.uleb128 0x1c
@@ -7798,7 +8319,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4258 0066 00       		.byte	0
  4259 0067 03       		.uleb128 0x3
  4260 0068 0E       		.uleb128 0xe
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 131
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 131
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4261 0069 3A       		.uleb128 0x3a
@@ -7858,7 +8383,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4315 009f 2F       		.uleb128 0x2f
  4316 00a0 0B       		.uleb128 0xb
  4317 00a1 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 132
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 132
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4318 00a2 00       		.byte	0
@@ -7918,7 +8447,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4372 00d8 08       		.uleb128 0x8
  4373 00d9 3A       		.uleb128 0x3a
  4374 00da 0B       		.uleb128 0xb
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 133
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 133
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4375 00db 3B       		.uleb128 0x3b
@@ -7978,7 +8511,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4429 0111 03       		.uleb128 0x3
  4430 0112 08       		.uleb128 0x8
  4431 0113 3A       		.uleb128 0x3a
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 134
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 134
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4432 0114 0B       		.uleb128 0xb
@@ -8038,7 +8575,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4486 014a 15       		.uleb128 0x15
  4487 014b 01       		.byte	0x1
  4488 014c 27       		.uleb128 0x27
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 135
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 135
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4489 014d 19       		.uleb128 0x19
@@ -8098,7 +8639,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4543 0183 0B       		.uleb128 0xb
  4544 0184 01       		.uleb128 0x1
  4545 0185 13       		.uleb128 0x13
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 136
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 136
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4546 0186 00       		.byte	0
@@ -8158,7 +8703,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4600 01bc 27       		.uleb128 0x27
  4601 01bd 19       		.uleb128 0x19
  4602 01be 49       		.uleb128 0x49
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 137
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 137
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4603 01bf 13       		.uleb128 0x13
@@ -8218,7 +8767,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4657 01f7 00       		.byte	0
  4658 01f8 27       		.uleb128 0x27
  4659 01f9 05       		.uleb128 0x5
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 138
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 138
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4660 01fa 00       		.byte	0
@@ -8278,7 +8831,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4714 0230 01       		.byte	0x1
  4715 0231 31       		.uleb128 0x31
  4716 0232 13       		.uleb128 0x13
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 139
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 139
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4717 0233 11       		.uleb128 0x11
@@ -8338,7 +8895,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4771 0272 08       		.uleb128 0x8
  4772 0273 3A       		.uleb128 0x3a
  4773 0274 0B       		.uleb128 0xb
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 140
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 140
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4774 0275 3B       		.uleb128 0x3b
@@ -8398,7 +8959,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4828 02ab 3F       		.uleb128 0x3f
  4829 02ac 19       		.uleb128 0x19
  4830 02ad 03       		.uleb128 0x3
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 141
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 141
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4831 02ae 0E       		.uleb128 0xe
@@ -8458,7 +9023,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4885 02e5 03       		.uleb128 0x3
  4886 02e6 0E       		.uleb128 0xe
  4887 02e7 3A       		.uleb128 0x3a
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 142
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 142
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4888 02e8 0B       		.uleb128 0xb
@@ -8518,7 +9087,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4942 031e 03       		.uleb128 0x3
  4943 031f 0E       		.uleb128 0xe
  4944 0320 3A       		.uleb128 0x3a
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 143
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 143
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  4945 0321 0B       		.uleb128 0xb
@@ -8578,7 +9151,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  4999 006d 9F       		.byte	0x9f
  5000 006e 00000000 		.4byte	0
  5001 0072 00000000 		.4byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 144
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 144
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5002              	.LLST5:
@@ -8638,7 +9215,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5056 00fb 0B000000 		.4byte	.LVL14-1
  5057 00ff 46000000 		.4byte	.LFE872
  5058 0103 0100     		.2byte	0x1
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 145
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 145
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5059 0105 56       		.byte	0x56
@@ -8698,7 +9279,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5113 0189 00000000 		.4byte	0
  5114 018d 00000000 		.4byte	0
  5115              	.LLST15:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 146
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 146
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5116 0191 00000000 		.4byte	.LVL27
@@ -8758,7 +9343,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5170 0217 04000000 		.4byte	.LVL40
  5171 021b 0600     		.2byte	0x6
  5172 021d 0C       		.byte	0xc
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 147
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 147
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5173 021e 00033240 		.4byte	0x40320300
@@ -8818,7 +9407,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5227 02ab 50       		.byte	0x50
  5228 02ac 0E000000 		.4byte	.LVL50
  5229 02b0 24000000 		.4byte	.LVL54
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 148
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 148
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5230 02b4 0100     		.2byte	0x1
@@ -8878,7 +9471,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5284 002c 34000000 		.4byte	.LFE866-.LFB866
  5285 0030 00000000 		.4byte	.LFB869
  5286 0034 1C000000 		.4byte	.LFE869-.LFB869
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 149
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 149
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5287 0038 00000000 		.4byte	.LFB870
@@ -8938,7 +9535,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5341 0078 00000000 		.4byte	0
  5342 007c 00000000 		.4byte	0
  5343              		.section	.debug_line,"",%progbits
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 150
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 150
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5344              	.Ldebug_line0:
@@ -8998,7 +9599,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5365      7400
  5366              	.LASF514:
  5367 009d 50574D5F 		.ascii	"PWM_FAN_config\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 151
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 151
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5367      46414E5F 
@@ -9058,7 +9663,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5393 0142 6873696F 		.ascii	"hsiomBase\000"
  5393      6D426173 
  5393      6500
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 152
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 152
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5394              	.LASF101:
@@ -9118,7 +9727,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5415 022b 7564625F 		.ascii	"udb_interrupts_13_IRQn\000"
  5415      696E7465 
  5415      72727570 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 153
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 153
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5415      74735F31 
@@ -9178,7 +9791,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5441 02d7 63795F65 		.ascii	"cy_en_sar_range_detect_condition_t\000"
  5441      6E5F7361 
  5441      725F7261 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 154
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 154
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5441      6E67655F 
@@ -9238,7 +9855,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5461      69676E6D 
  5461      656E745F 
  5462              	.LASF448:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 155
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 155
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5463 03c7 63795F73 		.ascii	"cy_stc_tcpwm_pwm_config_t\000"
@@ -9298,7 +9919,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5481 04a3 7478576F 		.ascii	"txWordLength\000"
  5481      72644C65 
  5481      6E677468 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 156
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 156
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5481      00
@@ -9358,7 +9983,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5505      00
  5506              	.LASF167:
  5507 054b 6C6F6E67 		.ascii	"long int\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 157
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 157
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5507      20696E74 
@@ -9418,7 +10047,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5529      7075744D 
  5529      6F646500 
  5530              	.LASF300:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 158
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 158
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5531 0616 70657269 		.ascii	"periDiv8CtlOffset\000"
@@ -9478,7 +10111,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5553      435F4932 
  5553      434D6173 
  5553      74657253 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 159
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 159
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5553      656E6453 
@@ -9538,7 +10175,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5576              	.LASF521:
  5577 078f 6D797072 		.ascii	"myprintf\000"
  5577      696E7466 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 160
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 160
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5577      00
@@ -9598,7 +10239,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5599      52564544 
  5599      3100
  5600              	.LASF162:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 161
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 161
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5601 085a 756E7369 		.ascii	"unsigned char\000"
@@ -9658,7 +10303,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5623      72727570 
  5623      745F6C6F 
  5623      5F495251 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 162
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 162
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5624              	.LASF394:
@@ -9718,7 +10367,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5646              	.LASF125:
  5647 09c6 74637077 		.ascii	"tcpwm_1_interrupts_17_IRQn\000"
  5647      6D5F315F 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 163
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 163
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5647      696E7465 
@@ -9778,7 +10431,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5666              	.LASF427:
  5667 0aae 72756E4D 		.ascii	"runMode\000"
  5667      6F646500 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 164
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 164
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5668              	.LASF110:
@@ -9838,7 +10495,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5689 0b71 52455345 		.ascii	"RESERVED2\000"
  5689      52564544 
  5689      3200
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 165
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 165
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5690              	.LASF82:
@@ -9898,7 +10559,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5711 0c3c 63707573 		.ascii	"cpuss_interrupts_dw0_0_IRQn\000"
  5711      735F696E 
  5711      74657272 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 166
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 166
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5711      75707473 
@@ -9958,7 +10623,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5731      00
  5732              	.LASF324:
  5733 0d13 6970634C 		.ascii	"ipcLockStatusOffset\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 167
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 167
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5733      6F636B53 
@@ -10018,7 +10687,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5753      73436D34 
  5753      50777243 
  5753      746C4F66 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 168
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 168
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5753      66736574 
@@ -10078,7 +10751,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5774              	.LASF437:
  5775 0e9a 6B696C6C 		.ascii	"killMode\000"
  5775      4D6F6465 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 169
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 169
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5775      00
@@ -10138,7 +10815,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5797      72794D61 
  5797      6E616765 
  5797      6D656E74 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 170
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 170
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5797      5F495251 
@@ -10198,7 +10879,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5819      6C756500 
  5820              	.LASF382:
  5821 1015 72785369 		.ascii	"rxSignExtension\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 171
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 171
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5821      676E4578 
@@ -10258,7 +10943,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5841      725F696E 
  5841      697400
  5842              	.LASF269:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 172
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 172
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5843 10e0 736D6966 		.ascii	"smifDeviceNr\000"
@@ -10318,7 +11007,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5861      72727570 
  5861      74536F75 
  5861      72636573 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 173
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 173
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5861      00
@@ -10378,7 +11071,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5883      6E743332 
  5883      5F7400
  5884              	.LASF37:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 174
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 174
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5885 1289 63707573 		.ascii	"cpuss_interrupts_ipc_2_IRQn\000"
@@ -10438,7 +11135,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5905      6C655469 
  5905      6D653031 
  5905      00
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 175
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 175
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5906              	.LASF227:
@@ -10498,7 +11199,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5927      75707473 
  5927      5F647731 
  5928              	.LASF414:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 176
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 176
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5929 142b 72784275 		.ascii	"rxBufIdx\000"
@@ -10558,7 +11263,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5951      735F696E 
  5951      74657272 
  5951      75707473 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 177
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 177
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5951      5F697063 
@@ -10618,7 +11327,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5970 1638 656E6162 		.ascii	"enableCompareSwap\000"
  5970      6C65436F 
  5970      6D706172 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 178
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 178
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5970      65537761 
@@ -10678,7 +11391,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  5992      4F4E4E5F 
  5992      53544154 
  5992      455F434C 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 179
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 179
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  5993              	.LASF219:
@@ -10738,7 +11455,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  6015              	.LASF147:
  6016 17c4 7564625F 		.ascii	"udb_interrupts_15_IRQn\000"
  6016      696E7465 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 180
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 180
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  6016      72727570 
@@ -10798,7 +11519,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  6037              	.LASF73:
  6038 1885 63707573 		.ascii	"cpuss_interrupts_dw0_13_IRQn\000"
  6038      735F696E 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 181
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 181
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  6038      74657272 
@@ -10858,7 +11583,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  6060      6F73735F 
  6060      696E7465 
  6060      72727570 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 182
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 182
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  6060      745F7064 
@@ -10918,7 +11647,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  6080      74735F37 
  6081              	.LASF407:
  6082 1a2e 636F6E66 		.ascii	"configRouting\000"
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 183
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 183
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  6082      6967526F 
@@ -10978,7 +11711,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  6103              	.LASF480:
  6104 1aeb 76616C75 		.ascii	"value\000"
  6104      6500
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 184
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 184
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 
 
  6105              	.LASF290:
@@ -11001,6 +11738,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  6112 1b29 706F7765 		.ascii	"power_task\000"
  6112      725F7461 
  6112      736B00
+<<<<<<< HEAD
  6113              	.LASF373:
  6114 1b34 72785773 		.ascii	"rxWsPulseWidth\000"
  6114      50756C73 
@@ -11399,421 +12137,865 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 1
  6262 205a 696F7373 		.ascii	"ioss_interrupts_gpio_10_IRQn\000"
  6262      5F696E74 
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 191
+=======
+ 6113              	.LASF531:
+ 6114 1b34 433A5C50 		.ascii	"C:\\Projects\\Pain Drain\\Production2\\Firmware\\Pa"
+ 6114      726F6A65 
+ 6114      6374735C 
+ 6114      5061696E 
+ 6114      20447261 
+ 6115 1b62 696E4472 		.ascii	"inDrain\\PainDrain.cydsn\000"
+ 6115      61696E5C 
+ 6115      5061696E 
+ 6115      44726169 
+ 6115      6E2E6379 
+ 6116              	.LASF373:
+ 6117 1b7a 72785773 		.ascii	"rxWsPulseWidth\000"
+ 6117      50756C73 
+ 6117      65576964 
+ 6117      746800
+ 6118              	.LASF52:
+ 6119 1b89 7363625F 		.ascii	"scb_1_interrupt_IRQn\000"
+ 6119      315F696E 
+ 6119      74657272 
+ 6119      7570745F 
+ 6119      4952516E 
+ 6120              	.LASF465:
+ 6121 1b9e 63795F65 		.ascii	"cy_en_ble_conn_state_t\000"
+ 6121      6E5F626C 
+ 6121      655F636F 
+ 6121      6E6E5F73 
+ 6121      74617465 
+ 6122              	.LASF65:
+ 6123 1bb5 63707573 		.ascii	"cpuss_interrupts_dw0_5_IRQn\000"
+ 6123      735F696E 
+ 6123      74657272 
+ 6123      75707473 
+ 6123      5F647730 
+ 6124              	.LASF415:
+ 6125 1bd1 74784275 		.ascii	"txBuf\000"
+ 6125      6600
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 185
 
 
- 6262      65727275 
- 6262      7074735F 
- 6262      6770696F 
- 6263              	.LASF279:
- 6264 2077 666C6173 		.ascii	"flashProgramDelay\000"
- 6264      6850726F 
- 6264      6772616D 
- 6264      44656C61 
- 6264      7900
- 6265              	.LASF32:
- 6266 2089 73727373 		.ascii	"srss_interrupt_IRQn\000"
- 6266      5F696E74 
- 6266      65727275 
- 6266      70745F49 
- 6266      52516E00 
- 6267              	.LASF242:
- 6268 209d 75646242 		.ascii	"udbBase\000"
- 6268      61736500 
- 6269              	.LASF426:
- 6270 20a5 64656164 		.ascii	"deadTimeClocks\000"
- 6270      54696D65 
- 6270      436C6F63 
- 6270      6B7300
- 6271              	.LASF369:
- 6272 20b4 74784F76 		.ascii	"txOverheadValue\000"
- 6272      65726865 
- 6272      61645661 
- 6272      6C756500 
- 6273              	.LASF211:
- 6274 20c4 5644445F 		.ascii	"VDD_ACTIVE\000"
- 6274      41435449 
- 6274      564500
- 6275              	.LASF410:
- 6276 20cf 63795F63 		.ascii	"cy_cb_scb_spi_handle_events_t\000"
- 6276      625F7363 
- 6276      625F7370 
- 6276      695F6861 
- 6276      6E646C65 
- 6277              	.LASF531:
- 6278 20ed 433A5C50 		.ascii	"C:\\Projects\\PainDrain\\firmware\\PainDrain\\PainD"
- 6278      726F6A65 
- 6278      6374735C 
- 6278      5061696E 
- 6278      44726169 
- 6279 211b 7261696E 		.ascii	"rain.cydsn\000"
- 6279      2E637964 
- 6279      736E00
+ 6126              	.LASF108:
+ 6127 1bd7 74637077 		.ascii	"tcpwm_1_interrupts_0_IRQn\000"
+ 6127      6D5F315F 
+ 6127      696E7465 
+ 6127      72727570 
+ 6127      74735F30 
+ 6128              	.LASF455:
+ 6129 1bf1 43595F42 		.ascii	"CY_BLE_ADV_STATE_STOP_INITIATED\000"
+ 6129      4C455F41 
+ 6129      44565F53 
+ 6129      54415445 
+ 6129      5F53544F 
+ 6130              	.LASF513:
+ 6131 1c11 4144435F 		.ascii	"ADC_allConfigs\000"
+ 6131      616C6C43 
+ 6131      6F6E6669 
+ 6131      677300
+ 6132              	.LASF140:
+ 6133 1c20 7564625F 		.ascii	"udb_interrupts_8_IRQn\000"
+ 6133      696E7465 
+ 6133      72727570 
+ 6133      74735F38 
+ 6133      5F495251 
+ 6134              	.LASF490:
+ 6135 1c36 6E756D5F 		.ascii	"num_regs\000"
+ 6135      72656773 
+ 6135      00
+ 6136              	.LASF48:
+ 6137 1c3f 63707573 		.ascii	"cpuss_interrupts_ipc_13_IRQn\000"
+ 6137      735F696E 
+ 6137      74657272 
+ 6137      75707473 
+ 6137      5F697063 
+ 6138              	.LASF180:
+ 6139 1c5c 49434552 		.ascii	"ICER\000"
+ 6139      00
+ 6140              	.LASF253:
+ 6141 1c61 6770696F 		.ascii	"gpioVersion\000"
+ 6141      56657273 
+ 6141      696F6E00 
+ 6142              	.LASF360:
+ 6143 1c6d 74785773 		.ascii	"txWsPulseWidth\000"
+ 6143      50756C73 
+ 6143      65576964 
+ 6143      746800
+ 6144              	.LASF176:
+ 6145 1c7c 696E7433 		.ascii	"int32_t\000"
+ 6145      325F7400 
+ 6146              	.LASF215:
+ 6147 1c84 5644445F 		.ascii	"VDD_INTR_SET\000"
+ 6147      494E5452 
+ 6147      5F534554 
+ 6147      00
+ 6148              	.LASF260:
+ 6149 1c91 63707573 		.ascii	"cpussDwChNr\000"
+ 6149      73447743 
+ 6149      684E7200 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 186
+
+
+ 6150              	.LASF303:
+ 6151 1c9d 70657269 		.ascii	"periDiv24_5CtlOffset\000"
+ 6151      44697632 
+ 6151      345F3543 
+ 6151      746C4F66 
+ 6151      66736574 
+ 6152              	.LASF375:
+ 6153 1cb2 72785761 		.ascii	"rxWatchdogValue\000"
+ 6153      74636864 
+ 6153      6F675661 
+ 6153      6C756500 
+ 6154              	.LASF320:
+ 6155 1cc2 63707573 		.ascii	"cpussRam0Ctl0\000"
+ 6155      7352616D 
+ 6155      3043746C 
+ 6155      3000
+ 6156              	.LASF80:
+ 6157 1cd0 63707573 		.ascii	"cpuss_interrupts_dw1_4_IRQn\000"
+ 6157      735F696E 
+ 6157      74657272 
+ 6157      75707473 
+ 6157      5F647731 
+ 6158              	.LASF92:
+ 6159 1cec 63707573 		.ascii	"cpuss_interrupts_fault_0_IRQn\000"
+ 6159      735F696E 
+ 6159      74657272 
+ 6159      75707473 
+ 6159      5F666175 
+ 6160              	.LASF487:
+ 6161 1d0a 706F7765 		.ascii	"power_timer\000"
+ 6161      725F7469 
+ 6161      6D657200 
+ 6162              	.LASF512:
+ 6163 1d16 4144435F 		.ascii	"ADC_currentConfig\000"
+ 6163      63757272 
+ 6163      656E7443 
+ 6163      6F6E6669 
+ 6163      6700
+ 6164              	.LASF163:
+ 6165 1d28 5F5F696E 		.ascii	"__int16_t\000"
+ 6165      7431365F 
+ 6165      7400
+ 6166              	.LASF103:
+ 6167 1d32 74637077 		.ascii	"tcpwm_0_interrupts_3_IRQn\000"
+ 6167      6D5F305F 
+ 6167      696E7465 
+ 6167      72727570 
+ 6167      74735F33 
+ 6168              	.LASF94:
+ 6169 1d4c 63707573 		.ascii	"cpuss_interrupt_crypto_IRQn\000"
+ 6169      735F696E 
+ 6169      74657272 
+ 6169      7570745F 
+ 6169      63727970 
+ 6170              	.LASF218:
+ 6171 1d68 53544154 		.ascii	"STATUS\000"
+ 6171      555300
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 187
+
+
+ 6172              	.LASF296:
+ 6173 1d6f 70657269 		.ascii	"periDivCmdDivSelMsk\000"
+ 6173      44697643 
+ 6173      6D644469 
+ 6173      7653656C 
+ 6173      4D736B00 
+ 6174              	.LASF231:
+ 6175 1d83 434D445F 		.ascii	"CMD_STOP\000"
+ 6175      53544F50 
+ 6175      00
+ 6176              	.LASF353:
+ 6177 1d8c 7278456E 		.ascii	"rxEnabled\000"
+ 6177      61626C65 
+ 6177      6400
+ 6178              	.LASF251:
+ 6179 1d96 64775665 		.ascii	"dwVersion\000"
+ 6179      7273696F 
+ 6179      6E00
+ 6180              	.LASF202:
+ 6181 1da0 4346475F 		.ascii	"CFG_SIO\000"
+ 6181      53494F00 
+ 6182              	.LASF149:
+ 6183 1da8 61756469 		.ascii	"audioss_interrupt_i2s_IRQn\000"
+ 6183      6F73735F 
+ 6183      696E7465 
+ 6183      72727570 
+ 6183      745F6932 
+ 6184              	.LASF245:
+ 6185 1dc3 6770696F 		.ascii	"gpioBase\000"
+ 6185      42617365 
+ 6185      00
+ 6186              	.LASF100:
+ 6187 1dcc 74637077 		.ascii	"tcpwm_0_interrupts_0_IRQn\000"
+ 6187      6D5F305F 
+ 6187      696E7465 
+ 6187      72727570 
+ 6187      74735F30 
+ 6188              	.LASF133:
+ 6189 1de6 7564625F 		.ascii	"udb_interrupts_1_IRQn\000"
+ 6189      696E7465 
+ 6189      72727570 
+ 6189      74735F31 
+ 6189      5F495251 
+ 6190              	.LASF387:
+ 6191 1dfc 696E7472 		.ascii	"intrPriority\000"
+ 6191      5072696F 
+ 6191      72697479 
+ 6191      00
+ 6192              	.LASF273:
+ 6193 1e09 73797350 		.ascii	"sysPmSimoPresent\000"
+ 6193      6D53696D 
+ 6193      6F507265 
+ 6193      73656E74 
+ 6193      00
+ 6194              	.LASF277:
+ 6195 1e1a 666C6173 		.ascii	"flashPipeRequired\000"
+ 6195      68506970 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 188
+
+
+ 6195      65526571 
+ 6195      75697265 
+ 6195      6400
+ 6196              	.LASF503:
+ 6197 1e2c 63795F64 		.ascii	"cy_device\000"
+ 6197      65766963 
+ 6197      6500
+ 6198              	.LASF340:
+ 6199 1e36 43595F49 		.ascii	"CY_I2S_LEN16\000"
+ 6199      32535F4C 
+ 6199      454E3136 
+ 6199      00
+ 6200              	.LASF341:
+ 6201 1e43 43595F49 		.ascii	"CY_I2S_LEN18\000"
+ 6201      32535F4C 
+ 6201      454E3138 
+ 6201      00
+ 6202              	.LASF451:
+ 6203 1e50 63795F73 		.ascii	"cy_stc_ble_conn_handle_t\000"
+ 6203      74635F62 
+ 6203      6C655F63 
+ 6203      6F6E6E5F 
+ 6203      68616E64 
+ 6204              	.LASF7:
+ 6205 1e69 44656275 		.ascii	"DebugMonitor_IRQn\000"
+ 6205      674D6F6E 
+ 6205      69746F72 
+ 6205      5F495251 
+ 6205      6E00
+ 6206              	.LASF442:
+ 6207 1e7b 73746172 		.ascii	"startInputMode\000"
+ 6207      74496E70 
+ 6207      75744D6F 
+ 6207      646500
+ 6208              	.LASF47:
+ 6209 1e8a 63707573 		.ascii	"cpuss_interrupts_ipc_12_IRQn\000"
+ 6209      735F696E 
+ 6209      74657272 
+ 6209      75707473 
+ 6209      5F697063 
+ 6210              	.LASF405:
+ 6211 1ea7 6D757853 		.ascii	"muxSwitch\000"
+ 6211      77697463 
+ 6211      6800
+ 6212              	.LASF459:
+ 6213 1eb1 43595F42 		.ascii	"CY_BLE_CONN_STATE_CONNECTED\000"
+ 6213      4C455F43 
+ 6213      4F4E4E5F 
+ 6213      53544154 
+ 6213      455F434F 
+ 6214              	.LASF89:
+ 6215 1ecd 63707573 		.ascii	"cpuss_interrupts_dw1_13_IRQn\000"
+ 6215      735F696E 
+ 6215      74657272 
+ 6215      75707473 
+ 6215      5F647731 
+ 6216              	.LASF57:
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 189
+
+
+ 6217 1eea 7363625F 		.ascii	"scb_6_interrupt_IRQn\000"
+ 6217      365F696E 
+ 6217      74657272 
+ 6217      7570745F 
+ 6217      4952516E 
+ 6218              	.LASF222:
+ 6219 1eff 50455249 		.ascii	"PERIOD_BUFF\000"
+ 6219      4F445F42 
+ 6219      55464600 
+ 6220              	.LASF390:
+ 6221 1f0b 43595F53 		.ascii	"CY_SAR_RANGE_COND_INSIDE\000"
+ 6221      41525F52 
+ 6221      414E4745 
+ 6221      5F434F4E 
+ 6221      445F494E 
+ 6222              	.LASF330:
+ 6223 1f24 75696E74 		.ascii	"uint8\000"
+ 6223      3800
+ 6224              	.LASF257:
+ 6225 1f2a 70726F74 		.ascii	"protVersion\000"
+ 6225      56657273 
+ 6225      696F6E00 
+ 6226              	.LASF342:
+ 6227 1f36 43595F49 		.ascii	"CY_I2S_LEN20\000"
+ 6227      32535F4C 
+ 6227      454E3230 
+ 6227      00
+ 6228              	.LASF142:
+ 6229 1f43 7564625F 		.ascii	"udb_interrupts_10_IRQn\000"
+ 6229      696E7465 
+ 6229      72727570 
+ 6229      74735F31 
+ 6229      305F4952 
+ 6230              	.LASF256:
+ 6231 1f5a 70657269 		.ascii	"periVersion\000"
+ 6231      56657273 
+ 6231      696F6E00 
+ 6232              	.LASF420:
+ 6233 1f66 63795F73 		.ascii	"cy_stc_scb_spi_context_t\000"
+ 6233      74635F73 
+ 6233      63625F73 
+ 6233      70695F63 
+ 6233      6F6E7465 
+ 6234              	.LASF158:
+ 6235 1f7f 73686F72 		.ascii	"short int\000"
+ 6235      7420696E 
+ 6235      7400
+ 6236              	.LASF473:
+ 6237 1f89 636E744E 		.ascii	"cntNum\000"
+ 6237      756D00
+ 6238              	.LASF376:
+ 6239 1f90 72785364 		.ascii	"rxSdiLatchingTime\000"
+ 6239      694C6174 
+ 6239      6368696E 
+ 6239      6754696D 
+ 6239      6500
+ 6240              	.LASF96:
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 190
+
+
+ 6241 1fa2 63707573 		.ascii	"cpuss_interrupts_cm0_cti_0_IRQn\000"
+ 6241      735F696E 
+ 6241      74657272 
+ 6241      75707473 
+ 6241      5F636D30 
+ 6242              	.LASF27:
+ 6243 1fc2 6C70636F 		.ascii	"lpcomp_interrupt_IRQn\000"
+ 6243      6D705F69 
+ 6243      6E746572 
+ 6243      72757074 
+ 6243      5F495251 
+ 6244              	.LASF33:
+ 6245 1fd8 70617373 		.ascii	"pass_interrupt_ctbs_IRQn\000"
+ 6245      5F696E74 
+ 6245      65727275 
+ 6245      70745F63 
+ 6245      7462735F 
+ 6246              	.LASF174:
+ 6247 1ff1 696E7431 		.ascii	"int16_t\000"
+ 6247      365F7400 
+ 6248              	.LASF43:
+ 6249 1ff9 63707573 		.ascii	"cpuss_interrupts_ipc_8_IRQn\000"
+ 6249      735F696E 
+ 6249      74657272 
+ 6249      75707473 
+ 6249      5F697063 
+ 6250              	.LASF282:
+ 6251 2015 666C6173 		.ascii	"flashCtlMainWs1Freq\000"
+ 6251      6843746C 
+ 6251      4D61696E 
+ 6251      57733146 
+ 6251      72657100 
+ 6252              	.LASF402:
+ 6253 2029 696E7472 		.ascii	"intrMask\000"
+ 6253      4D61736B 
+ 6253      00
+ 6254              	.LASF19:
+ 6255 2032 696F7373 		.ascii	"ioss_interrupts_gpio_9_IRQn\000"
+ 6255      5F696E74 
+ 6255      65727275 
+ 6255      7074735F 
+ 6255      6770696F 
+ 6256              	.LASF99:
+ 6257 204e 63707573 		.ascii	"cpuss_interrupts_cm4_cti_1_IRQn\000"
+ 6257      735F696E 
+ 6257      74657272 
+ 6257      75707473 
+ 6257      5F636D34 
+ 6258              	.LASF491:
+ 6259 206e 706F7765 		.ascii	"power_get_diag_data\000"
+ 6259      725F6765 
+ 6259      745F6469 
+ 6259      61675F64 
+ 6259      61746100 
+ 6260              	.LASF344:
+ 6261 2082 43595F49 		.ascii	"CY_I2S_LEN32\000"
+ 6261      32535F4C 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 191
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+
+
+ 6261      454E3332 
+ 6261      00
+ 6262              	.LASF506:
+ 6263 208f 63795F62 		.ascii	"cy_ble_connState\000"
+ 6263      6C655F63 
+ 6263      6F6E6E53 
+ 6263      74617465 
+ 6263      00
+ 6264              	.LASF20:
+ 6265 20a0 696F7373 		.ascii	"ioss_interrupts_gpio_10_IRQn\000"
+ 6265      5F696E74 
+ 6265      65727275 
+ 6265      7074735F 
+ 6265      6770696F 
+ 6266              	.LASF279:
+ 6267 20bd 666C6173 		.ascii	"flashProgramDelay\000"
+ 6267      6850726F 
+ 6267      6772616D 
+ 6267      44656C61 
+ 6267      7900
+ 6268              	.LASF32:
+ 6269 20cf 73727373 		.ascii	"srss_interrupt_IRQn\000"
+ 6269      5F696E74 
+ 6269      65727275 
+ 6269      70745F49 
+ 6269      52516E00 
+ 6270              	.LASF242:
+ 6271 20e3 75646242 		.ascii	"udbBase\000"
+ 6271      61736500 
+ 6272              	.LASF426:
+ 6273 20eb 64656164 		.ascii	"deadTimeClocks\000"
+ 6273      54696D65 
+ 6273      436C6F63 
+ 6273      6B7300
+ 6274              	.LASF369:
+ 6275 20fa 74784F76 		.ascii	"txOverheadValue\000"
+ 6275      65726865 
+ 6275      61645661 
+ 6275      6C756500 
+ 6276              	.LASF211:
+ 6277 210a 5644445F 		.ascii	"VDD_ACTIVE\000"
+ 6277      41435449 
+ 6277      564500
+ 6278              	.LASF410:
+ 6279 2115 63795F63 		.ascii	"cy_cb_scb_spi_handle_events_t\000"
+ 6279      625F7363 
+ 6279      625F7370 
+ 6279      695F6861 
+ 6279      6E646C65 
  6280              	.LASF234:
- 6281 2126 54435057 		.ascii	"TCPWM_V1_Type\000"
+ 6281 2133 54435057 		.ascii	"TCPWM_V1_Type\000"
  6281      4D5F5631 
  6281      5F547970 
  6281      6500
  6282              	.LASF308:
- 6283 2134 6770696F 		.ascii	"gpioPrtCfgSioOffset\000"
+ 6283 2141 6770696F 		.ascii	"gpioPrtCfgSioOffset\000"
  6283      50727443 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 192
+
+
  6283      66675369 
  6283      6F4F6666 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 192
 
 
+=======
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  6283      73657400 
  6284              	.LASF532:
- 6285 2148 43795F47 		.ascii	"Cy_GPIO_Read\000"
+ 6285 2155 43795F47 		.ascii	"Cy_GPIO_Read\000"
  6285      50494F5F 
  6285      52656164 
  6285      00
  6286              	.LASF406:
- 6287 2155 6D757853 		.ascii	"muxSwitchSqCtrl\000"
+ 6287 2162 6D757853 		.ascii	"muxSwitchSqCtrl\000"
  6287      77697463 
  6287      68537143 
  6287      74726C00 
  6288              	.LASF75:
- 6289 2165 63707573 		.ascii	"cpuss_interrupts_dw0_15_IRQn\000"
+ 6289 2172 63707573 		.ascii	"cpuss_interrupts_dw0_15_IRQn\000"
  6289      735F696E 
  6289      74657272 
  6289      75707473 
  6289      5F647730 
  6290              	.LASF36:
- 6291 2182 63707573 		.ascii	"cpuss_interrupts_ipc_1_IRQn\000"
+ 6291 218f 63707573 		.ascii	"cpuss_interrupts_ipc_1_IRQn\000"
  6291      735F696E 
  6291      74657272 
  6291      75707473 
  6291      5F697063 
  6292              	.LASF104:
- 6293 219e 74637077 		.ascii	"tcpwm_0_interrupts_4_IRQn\000"
+ 6293 21ab 74637077 		.ascii	"tcpwm_0_interrupts_4_IRQn\000"
  6293      6D5F305F 
  6293      696E7465 
  6293      72727570 
  6293      74735F34 
  6294              	.LASF504:
- 6295 21b8 63795F62 		.ascii	"cy_ble_advState\000"
+ 6295 21c5 63795F62 		.ascii	"cy_ble_advState\000"
  6295      6C655F61 
  6295      64765374 
  6295      61746500 
  6296              	.LASF126:
- 6297 21c8 74637077 		.ascii	"tcpwm_1_interrupts_18_IRQn\000"
+ 6297 21d5 74637077 		.ascii	"tcpwm_1_interrupts_18_IRQn\000"
  6297      6D5F315F 
  6297      696E7465 
  6297      72727570 
  6297      74735F31 
  6298              	.LASF471:
- 6299 21e3 4144435F 		.ascii	"ADC_CONFIG_STRUCT\000"
+ 6299 21f0 4144435F 		.ascii	"ADC_CONFIG_STRUCT\000"
  6299      434F4E46 
  6299      49475F53 
  6299      54525543 
  6299      5400
  6300              	.LASF444:
- 6301 21f5 6B696C6C 		.ascii	"killInputMode\000"
+ 6301 2202 6B696C6C 		.ascii	"killInputMode\000"
  6301      496E7075 
  6301      744D6F64 
  6301      6500
  6302              	.LASF372:
- 6303 2203 7278416C 		.ascii	"rxAlignment\000"
+ 6303 2210 7278416C 		.ascii	"rxAlignment\000"
  6303      69676E6D 
  6303      656E7400 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 193
+
+
  6304              	.LASF54:
+<<<<<<< HEAD
  6305 220f 7363625F 		.ascii	"scb_3_interrupt_IRQn\000"
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 193
 
 
+=======
+ 6305 221c 7363625F 		.ascii	"scb_3_interrupt_IRQn\000"
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  6305      335F696E 
  6305      74657272 
  6305      7570745F 
  6305      4952516E 
  6306              	.LASF411:
- 6307 2224 73746174 		.ascii	"status\000"
+ 6307 2231 73746174 		.ascii	"status\000"
  6307      757300
  6308              	.LASF151:
- 6309 222b 70726F66 		.ascii	"profile_interrupt_IRQn\000"
+ 6309 2238 70726F66 		.ascii	"profile_interrupt_IRQn\000"
  6309      696C655F 
  6309      696E7465 
  6309      72727570 
  6309      745F4952 
  6310              	.LASF496:
- 6311 2242 4932435F 		.ascii	"I2C_SDA_Read\000"
+ 6311 224f 4932435F 		.ascii	"I2C_SDA_Read\000"
  6311      5344415F 
  6311      52656164 
  6311      00
  6312              	.LASF26:
- 6313 224f 696F7373 		.ascii	"ioss_interrupt_vdd_IRQn\000"
+ 6313 225c 696F7373 		.ascii	"ioss_interrupt_vdd_IRQn\000"
  6313      5F696E74 
  6313      65727275 
  6313      70745F76 
  6313      64645F49 
  6314              	.LASF111:
- 6315 2267 74637077 		.ascii	"tcpwm_1_interrupts_3_IRQn\000"
+ 6315 2274 74637077 		.ascii	"tcpwm_1_interrupts_3_IRQn\000"
  6315      6D5F315F 
  6315      696E7465 
  6315      72727570 
  6315      74735F33 
  6316              	.LASF346:
- 6317 2281 43595F49 		.ascii	"CY_I2S_OVHDATA_ZERO\000"
+ 6317 228e 43595F49 		.ascii	"CY_I2S_OVHDATA_ZERO\000"
  6317      32535F4F 
  6317      56484441 
  6317      54415F5A 
  6317      45524F00 
  6318              	.LASF170:
- 6319 2295 6C6F6E67 		.ascii	"long long int\000"
+ 6319 22a2 6C6F6E67 		.ascii	"long long int\000"
  6319      206C6F6E 
  6319      6720696E 
  6319      7400
  6320              	.LASF177:
- 6321 22a3 75696E74 		.ascii	"uint32_t\000"
+ 6321 22b0 75696E74 		.ascii	"uint32_t\000"
  6321      33325F74 
  6321      00
  6322              	.LASF399:
- 6323 22ac 72616E67 		.ascii	"rangeCond\000"
+ 6323 22b9 72616E67 		.ascii	"rangeCond\000"
  6323      65436F6E 
  6323      6400
  6324              	.LASF425:
- 6325 22b6 70776D41 		.ascii	"pwmAlignment\000"
+ 6325 22c3 70776D41 		.ascii	"pwmAlignment\000"
  6325      6C69676E 
  6325      6D656E74 
  6325      00
  6326              	.LASF495:
- 6327 22c3 4932435F 		.ascii	"I2C_SCL_Read\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 194
+
+
+ 6327 22d0 4932435F 		.ascii	"I2C_SCL_Read\000"
  6327      53434C5F 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 194
 
 
+=======
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  6327      52656164 
  6327      00
  6328              	.LASF428:
- 6329 22d0 70657269 		.ascii	"period0\000"
+ 6329 22dd 70657269 		.ascii	"period0\000"
  6329      6F643000 
  6330              	.LASF83:
- 6331 22d8 63707573 		.ascii	"cpuss_interrupts_dw1_7_IRQn\000"
+ 6331 22e5 63707573 		.ascii	"cpuss_interrupts_dw1_7_IRQn\000"
  6331      735F696E 
  6331      74657272 
  6331      75707473 
  6331      5F647731 
  6332              	.LASF377:
- 6333 22f4 72785363 		.ascii	"rxSckoInversion\000"
+ 6333 2301 72785363 		.ascii	"rxSckoInversion\000"
  6333      6B6F496E 
  6333      76657273 
  6333      696F6E00 
  6334              	.LASF68:
- 6335 2304 63707573 		.ascii	"cpuss_interrupts_dw0_8_IRQn\000"
+ 6335 2311 63707573 		.ascii	"cpuss_interrupts_dw0_8_IRQn\000"
  6335      735F696E 
  6335      74657272 
  6335      75707473 
  6335      5F647730 
  6336              	.LASF366:
- 6337 2320 74784368 		.ascii	"txChannels\000"
+ 6337 232d 74784368 		.ascii	"txChannels\000"
  6337      616E6E65 
  6337      6C7300
  6338              	.LASF288:
- 6339 232b 64774368 		.ascii	"dwChCtlPrioPos\000"
+ 6339 2338 64774368 		.ascii	"dwChCtlPrioPos\000"
  6339      43746C50 
  6339      72696F50 
  6339      6F7300
  6340              	.LASF247:
- 6341 233a 69706342 		.ascii	"ipcBase\000"
+ 6341 2347 69706342 		.ascii	"ipcBase\000"
  6341      61736500 
  6342              	.LASF88:
- 6343 2342 63707573 		.ascii	"cpuss_interrupts_dw1_12_IRQn\000"
+ 6343 234f 63707573 		.ascii	"cpuss_interrupts_dw1_12_IRQn\000"
  6343      735F696E 
  6343      74657272 
  6343      75707473 
  6343      5F647731 
  6344              	.LASF289:
- 6345 235f 64774368 		.ascii	"dwChCtlPreemptablePos\000"
+ 6345 236c 64774368 		.ascii	"dwChCtlPreemptablePos\000"
  6345      43746C50 
  6345      7265656D 
  6345      70746162 
  6345      6C65506F 
  6346              	.LASF165:
- 6347 2375 73686F72 		.ascii	"short unsigned int\000"
+ 6347 2382 73686F72 		.ascii	"short unsigned int\000"
  6347      7420756E 
  6347      7369676E 
  6347      65642069 
  6347      6E7400
  6348              	.LASF355:
- 6349 2388 7278446D 		.ascii	"rxDmaTrigger\000"
+ 6349 2395 7278446D 		.ascii	"rxDmaTrigger\000"
  6349      61547269 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 195
+
+
  6349      67676572 
  6349      00
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 195
 
 
+=======
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  6350              	.LASF61:
- 6351 2395 63707573 		.ascii	"cpuss_interrupts_dw0_1_IRQn\000"
+ 6351 23a2 63707573 		.ascii	"cpuss_interrupts_dw0_1_IRQn\000"
  6351      735F696E 
  6351      74657272 
  6351      75707473 
  6351      5F647730 
  6352              	.LASF472:
- 6353 23b1 62617365 		.ascii	"base\000"
+ 6353 23be 62617365 		.ascii	"base\000"
  6353      00
  6354              	.LASF484:
- 6355 23b6 6770696F 		.ascii	"gpio_interrupt_handler\000"
+ 6355 23c3 6770696F 		.ascii	"gpio_interrupt_handler\000"
  6355      5F696E74 
  6355      65727275 
  6355      70745F68 
  6355      616E646C 
  6356              	.LASF278:
- 6357 23cd 666C6173 		.ascii	"flashWriteDelay\000"
+ 6357 23da 666C6173 		.ascii	"flashWriteDelay\000"
  6357      68577269 
  6357      74654465 
  6357      6C617900 
  6358              	.LASF35:
- 6359 23dd 63707573 		.ascii	"cpuss_interrupts_ipc_0_IRQn\000"
+ 6359 23ea 63707573 		.ascii	"cpuss_interrupts_ipc_0_IRQn\000"
  6359      735F696E 
  6359      74657272 
  6359      75707473 
  6359      5F697063 
  6360              	.LASF299:
- 6361 23f9 70657269 		.ascii	"periDivCmdPaTypeSelPos\000"
+ 6361 2406 70657269 		.ascii	"periDivCmdPaTypeSelPos\000"
  6361      44697643 
  6361      6D645061 
  6361      54797065 
  6361      53656C50 
  6362              	.LASF136:
- 6363 2410 7564625F 		.ascii	"udb_interrupts_4_IRQn\000"
+ 6363 241d 7564625F 		.ascii	"udb_interrupts_4_IRQn\000"
  6363      696E7465 
  6363      72727570 
  6363      74735F34 
  6363      5F495251 
  6364              	.LASF11:
- 6365 2426 696F7373 		.ascii	"ioss_interrupts_gpio_1_IRQn\000"
+ 6365 2433 696F7373 		.ascii	"ioss_interrupts_gpio_1_IRQn\000"
  6365      5F696E74 
  6365      65727275 
  6365      7074735F 
  6365      6770696F 
  6366              	.LASF323:
- 6367 2442 69706353 		.ascii	"ipcStructSize\000"
+ 6367 244f 69706353 		.ascii	"ipcStructSize\000"
  6367      74727563 
  6367      7453697A 
  6367      6500
  6368              	.LASF523:
- 6369 2450 6D794932 		.ascii	"myI2C_I2CMasterSendStart\000"
+ 6369 245d 6D794932 		.ascii	"myI2C_I2CMasterSendStart\000"
  6369      435F4932 
  6369      434D6173 
  6369      74657253 
  6369      656E6453 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 196
+
+
  6370              	.LASF292:
+<<<<<<< HEAD
  6371 2469 70657269 		.ascii	"periTrCmdOffset\000"
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 196
 
 
+=======
+ 6371 2476 70657269 		.ascii	"periTrCmdOffset\000"
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  6371      5472436D 
  6371      644F6666 
  6371      73657400 
  6372              	.LASF166:
- 6373 2479 5F5F696E 		.ascii	"__int32_t\000"
+ 6373 2486 5F5F696E 		.ascii	"__int32_t\000"
  6373      7433325F 
  6373      7400
  6374              	.LASF436:
- 6375 2483 696E7665 		.ascii	"invertPWMOutN\000"
+ 6375 2490 696E7665 		.ascii	"invertPWMOutN\000"
  6375      72745057 
  6375      4D4F7574 
  6375      4E00
  6376              	.LASF98:
- 6377 2491 63707573 		.ascii	"cpuss_interrupts_cm4_cti_0_IRQn\000"
+ 6377 249e 63707573 		.ascii	"cpuss_interrupts_cm4_cti_0_IRQn\000"
  6377      735F696E 
  6377      74657272 
  6377      75707473 
  6377      5F636D34 
  6378              	.LASF76:
- 6379 24b1 63707573 		.ascii	"cpuss_interrupts_dw1_0_IRQn\000"
+ 6379 24be 63707573 		.ascii	"cpuss_interrupts_dw1_0_IRQn\000"
  6379      735F696E 
  6379      74657272 
  6379      75707473 
  6379      5F647731 
  6380              	.LASF359:
- 6381 24cd 7478416C 		.ascii	"txAlignment\000"
+ 6381 24da 7478416C 		.ascii	"txAlignment\000"
  6381      69676E6D 
  6381      656E7400 
  6382              	.LASF450:
- 6383 24d9 61747449 		.ascii	"attId\000"
+ 6383 24e6 61747449 		.ascii	"attId\000"
  6383      6400
  6384              	.LASF441:
- 6385 24df 72656C6F 		.ascii	"reloadInput\000"
+ 6385 24ec 72656C6F 		.ascii	"reloadInput\000"
  6385      6164496E 
  6385      70757400 
  6386              	.LASF178:
- 6387 24eb 49534552 		.ascii	"ISER\000"
+ 6387 24f8 49534552 		.ascii	"ISER\000"
  6387      00
  6388              	.LASF50:
- 6389 24f0 63707573 		.ascii	"cpuss_interrupts_ipc_15_IRQn\000"
+ 6389 24fd 63707573 		.ascii	"cpuss_interrupts_ipc_15_IRQn\000"
  6389      735F696E 
  6389      74657272 
  6389      75707473 
  6389      5F697063 
  6390              	.LASF28:
- 6391 250d 7363625F 		.ascii	"scb_8_interrupt_IRQn\000"
+ 6391 251a 7363625F 		.ascii	"scb_8_interrupt_IRQn\000"
  6391      385F696E 
  6391      74657272 
  6391      7570745F 
  6391      4952516E 
  6392              	.LASF31:
- 6393 2522 73727373 		.ascii	"srss_interrupt_backup_IRQn\000"
+ 6393 252f 73727373 		.ascii	"srss_interrupt_backup_IRQn\000"
  6393      5F696E74 
  6393      65727275 
  6393      70745F62 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 197
+
+
  6393      61636B75 
  6394              	.LASF2:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\ccd2SUCf.s 			page 197
 
 
  6395 253d 48617264 		.ascii	"HardFault_IRQn\000"
+=======
+ 6395 254a 48617264 		.ascii	"HardFault_IRQn\000"
+>>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  6395      4661756C 
  6395      745F4952 
  6395      516E00
  6396              	.LASF479:
- 6397 254c 43795F47 		.ascii	"Cy_GPIO_Write\000"
+ 6397 2559 43795F47 		.ascii	"Cy_GPIO_Write\000"
  6397      50494F5F 
  6397      57726974 
  6397      6500
  6398              	.LASF129:
- 6399 255a 74637077 		.ascii	"tcpwm_1_interrupts_21_IRQn\000"
+ 6399 2567 74637077 		.ascii	"tcpwm_1_interrupts_21_IRQn\000"
  6399      6D5F315F 
  6399      696E7465 
  6399      72727570 
  6399      74735F32 
  6400              	.LASF470:
- 6401 2575 636C6B44 		.ascii	"clkDivider\000"
+ 6401 2582 636C6B44 		.ascii	"clkDivider\000"
  6401      69766964 
  6401      657200
  6402              	.LASF454:
- 6403 2580 43595F42 		.ascii	"CY_BLE_ADV_STATE_ADVERTISING\000"
+ 6403 258d 43595F42 		.ascii	"CY_BLE_ADV_STATE_ADVERTISING\000"
  6403      4C455F41 
  6403      44565F53 
  6403      54415445 
  6403      5F414456 
  6404              	.LASF511:
- 6405 259d 50574D5F 		.ascii	"PWM_TENS_config\000"
+ 6405 25aa 50574D5F 		.ascii	"PWM_TENS_config\000"
  6405      54454E53 
  6405      5F636F6E 
  6405      66696700 
  6406              	.LASF443:
- 6407 25ad 73746172 		.ascii	"startInput\000"
+ 6407 25ba 73746172 		.ascii	"startInput\000"
  6407      74496E70 
  6407      757400
  6408              	.LASF281:
- 6409 25b8 666C6173 		.ascii	"flashCtlMainWs0Freq\000"
+ 6409 25c5 666C6173 		.ascii	"flashCtlMainWs0Freq\000"
  6409      6843746C 
  6409      4D61696E 
  6409      57733046 
  6409      72657100 
  6410              	.LASF254:
- 6411 25cc 6873696F 		.ascii	"hsiomVersion\000"
+ 6411 25d9 6873696F 		.ascii	"hsiomVersion\000"
  6411      6D566572 
  6411      73696F6E 
  6411      00
  6412              	.LASF333:
- 6413 25d9 43595F53 		.ascii	"CY_SYSPM_WAIT_FOR_EVENT\000"
+ 6413 25e6 43595F53 		.ascii	"CY_SYSPM_WAIT_FOR_EVENT\000"
  6413      5953504D 
  6413      5F574149 
  6413      545F464F 
  6413      525F4556 
  6414              	.LASF286:
- 6415 25f1 64774368 		.ascii	"dwChOffset\000"
+ 6415 25fe 64774368 		.ascii	"dwChOffset\000"
  6415      4F666673 
  6415      657400
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccJulhHJ.s 			page 198
+
+
  6416              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
