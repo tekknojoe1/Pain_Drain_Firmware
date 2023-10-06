@@ -429,7 +429,6 @@ void lcdReset(void) {
 void sendData(uint8_t data) {
     uint32_t masterStatus;
     cy_en_scb_spi_status_t spiStatus;
-    uint32_t masterStatus;
     int count;
     uint32_t txBuffer;
     uint32_t rxBuffer;
@@ -470,7 +469,6 @@ void sendData(uint8_t data) {
 void sendCommand(uint8_t cmd) {
     uint32_t masterStatus;
     cy_en_scb_spi_status_t spiStatus;
-    uint32_t masterStatus;
     int count;
     uint32_t txBuffer;
     uint32_t rxBuffer;
@@ -497,21 +495,12 @@ void sendCommand(uint8_t cmd) {
     Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
     Cy_SCB_SPI_ClearRxFifo(SPI_HW);
     txBuffer = Cy_SCB_SPI_Write(SPI_HW, commandToSend);
-<<<<<<< HEAD
-    //rxBuffer = Cy_SCB_SPI_Read(SPI_HW);
-    // Wait for the transfer to complete
-=======
     /* Clear Master status and Tx FIFO status. */;
-    
->>>>>>> 829675390091965bba4239573d466f1d7fae694f
+
     //spiStatus = Cy_SCB_SPI_Transfer(SPI_HW, &txBuffer, &rxBuffer, sizeof(commandToSend), &SPI_context);
     do {
         count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
     } while (count < 1);
-<<<<<<< HEAD
-
-=======
->>>>>>> 829675390091965bba4239573d466f1d7fae694f
     // Set to high after the spi is successful
     Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 1);
 }
@@ -745,7 +734,6 @@ int HostMain(void)
     LCDinit();
     //ST7789_DrawPixel(50, 50, 0x07E0);
     sendCommand(0x21);
-<<<<<<< HEAD
     ST7789_DrawPixel(50, 50, 0x07E0);
     ST7789_DrawPixel(51, 50, 0x07E0);
     ST7789_DrawPixel(52, 50, 0x07E0);
@@ -754,15 +742,7 @@ int HostMain(void)
     ST7789_DrawPixel(55, 50, 0x07E0);
     ST7789_DrawPixel(56, 50, 0x07E0);
     //sendCommand(0x20);
-    //drawRectangle(10, 10, 50, 100, 0xF800);
-=======
-<<<<<<< HEAD
-    sendCommand(0x20);
-=======
-    //sendCommand(0x20);
->>>>>>> 829675390091965bba4239573d466f1d7fae694f
-    drawRectangle(10, 10, 50, 100, 0xF800);
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+
     //st7789_display_test();
     //st7789_basic_init();
     
