@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PainDrain-000\PainDrain\Host Files\Source Files\host_main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PainDrain-000\PainDrain\Host Files\Source Files\driver_st7789.c">
 <ExpandedNodeIds>
 <v>PainDrain-000</v>
 <v>PainDrain-000\PainDrain</v>
@@ -130,12 +130,6 @@
 <v>PainDrain-000\PainDrain\Generated_Source\PSoC6</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\main_cm4.c</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\system_psoc6_cm4.c</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\components</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\components\ui_comp_hook.c</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\fonts</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\images</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\images\ui_img_fire_icon_small_png.c</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\images\ui_img_paindraindevicewithoutbackgroundresized_png.c</v>
@@ -197,6 +191,12 @@
 <v>PainDrain-000\PainDrain\Host Files\Source Files\user_interface.c</v>
 <v>PainDrain-000\PainDrain\Host Files\Source Files\vibe.c</v>
 <v>PainDrain-000\PainDrain\Generated_Source</v>
+<v>PainDrain-000\PainDrain\Generated_Source\PSoC6</v>
+<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\pdl</v>
+<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\ADC</v>
+<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\ADC_intSarClock</v>
+<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\AMP_PWM</v>
+<v>PainDrain-000\PainDrain\Generated_Source\PSoC6\BLE</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -579,14 +579,34 @@
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
-<OpenDocs />
+<OpenDocs>
+<name v=".\host_main.c" />
+<name v=".\driver_st7789_display_test.c" />
+<name v=".\driver_st7789_basic.c" />
+<name v=".\driver_st7789_interface_template.c" />
+<name v=".\debug.c" />
+<name v=".\debug.h" />
+<name v=".\myprintf.h" />
+<name v=".\ui\images\ui_img_fire_icon_small_png.c" />
+<name v=".\ui\images\ui_img_paindraindevicewithoutbackgroundresized_png.c" />
+<name v=".\font.c" />
+<name v=".\st7735.h" />
+<name v=".\driver_st7789_display_test.h" />
+<name v=".\power.c" />
+<name v=".\TopDesign\TopDesign.cysch" />
+<name v=".\Generated_Source\PSoC6\SPI.h" />
+<name v=".\Generated_Source\PSoC6\pdl\drivers\peripheral\scb\cy_scb_spi.h" />
+<name v=".\Generated_Source\PSoC6\pdl\drivers\peripheral\scb\cy_scb_spi.c" />
+<name v=".\driver_st7789.c" />
+<name v=".\st7735.c" />
+</OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
   Actipro Docking/MDI for WinForms
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="2209, 980" SelectedTabbedMdiWindow="c43c11b6-57f8-4c62-a566-c57113368457"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="c43c11b6-57f8-4c62-a566-c57113368457" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1101, 980" SelectedTabbedMdiWindow="e0c3e1db-1ea2-422c-95ad-02d1450ea053"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="c43c11b6-57f8-4c62-a566-c57113368457" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\host_main.c" Guid="e0c3e1db-1ea2-422c-95ad-02d1450ea053" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\driver_st7789_display_test.c" Guid="74e3ccdc-e0a5-4e61-821e-5a018eabe58d" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\driver_st7789_basic.c" Guid="395d1b50-33cb-40b8-882f-7642999f4d4d" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\driver_st7789_interface_template.c" Guid="c1c60c24-1471-469d-886c-b7a79a316856" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\debug.c" Guid="2d140d94-951d-4a78-be8d-cc23e77636c9" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\debug.h" Guid="731b3778-0839-4dd2-b541-a9c03f09627e" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\myprintf.h" Guid="f02cbc99-101b-4d98-a7c8-c82f90fcf5cf" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\ui\images\ui_img_fire_icon_small_png.c" Guid="b6b671c4-27c6-4d6d-a0fd-941479abccf8" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\ui\images\ui_img_paindraindevicewithoutbackgroundresized_png.c" Guid="de9266c7-2ace-43f3-8fc5-8117506addf7" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\font.c" Guid="08319f3e-6ce4-4f03-8be4-968c0fb457d7" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\st7735.h" Guid="a1dfc145-0f3e-4c30-a58e-eae111032ed9" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\driver_st7789_display_test.h" Guid="73e95b3c-1cd4-4d65-8169-b3dc89f1a94d" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\power.c" Guid="983a4cf1-cdbc-4ddf-9f2a-976f0a0dd881" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\TopDesign\TopDesign.cysch" Guid="70d4b617-e648-4b8a-8a58-458c652cc9ad" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\Generated_Source\PSoC6\SPI.h" Guid="b1b66fd5-d0b2-41af-a0ba-4e614c0531a8" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\Generated_Source\PSoC6\pdl\drivers\peripheral\scb\cy_scb_spi.h" Guid="afbd0504-9be2-43c9-a3f4-65bb9e32a2d7" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\Generated_Source\PSoC6\pdl\drivers\peripheral\scb\cy_scb_spi.c" Guid="274f1111-95bf-4bba-903e-cbb6f02e4459" /></TabbedMdiContainer><TabbedMdiContainer Size="1104, 980" SelectedTabbedMdiWindow="3557e6d8-bfc8-4110-8b92-3843df492b64"><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\driver_st7789.c" Guid="0a5e5648-6886-42f3-86d3-8e6e129bbe3d" /><DocumentWindow Key="C:\Projects\PainDrain\firmware\PainDrain\PainDrain.cydsn\st7735.c" Guid="3557e6d8-bfc8-4110-8b92-3843df492b64" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

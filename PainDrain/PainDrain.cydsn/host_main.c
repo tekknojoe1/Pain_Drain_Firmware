@@ -428,6 +428,7 @@ void lcdReset(void) {
 // Function to send a command byte over SPI
 void sendData(uint8_t data) {
     cy_en_scb_spi_status_t spiStatus;
+    uint32_t masterStatus;
     int count;
     uint32_t txBuffer;
     uint32_t rxBuffer;
@@ -437,6 +438,9 @@ void sendData(uint8_t data) {
     Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 0);
     // Send the 9-bit command byte over SPI
         /* Clear Rx FIFO status. */
+    Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
+    Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
+    Cy_SCB_SPI_ClearTxFifo(SPI_HW);
     Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
     Cy_SCB_SPI_ClearRxFifo(SPI_HW);
     txBuffer = Cy_SCB_SPI_Write(SPI_HW, dataToSend);
@@ -453,6 +457,7 @@ void sendData(uint8_t data) {
 
 void sendCommand(uint8_t cmd) {
     cy_en_scb_spi_status_t spiStatus;
+    uint32_t masterStatus;
     int count;
     uint32_t txBuffer;
     uint32_t rxBuffer;
@@ -463,6 +468,9 @@ void sendCommand(uint8_t cmd) {
     // Send the 9-bit data byte over SPI
     //Cy_SCB_SPI_WriteArray(SPI_HW, &commandToSend, 1);
         /* Clear Rx FIFO status. */
+    Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
+    Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
+    Cy_SCB_SPI_ClearTxFifo(SPI_HW);
     Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
     Cy_SCB_SPI_ClearRxFifo(SPI_HW);
     txBuffer = Cy_SCB_SPI_Write(SPI_HW, commandToSend);
@@ -478,7 +486,13 @@ void sendCommand(uint8_t cmd) {
 
 void LCDinit(void)
 {
-    lcdReset();
+    /*
+    Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 1);
+    CyDelay(1); // Delay 1ms
+    Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 0);
+    CyDelay(10); // Delay 10ms
+    Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 1);
+    CyDelay(120); // Delay 120ms
     sendCommand(0x11); //SLPOUT (11h): Sleep Out
     CyDelay(120); //Delay 120ms
     sendCommand(0x36); //MADCTL (36h): Memory Data Access Control - Default
@@ -488,6 +502,7 @@ void LCDinit(void)
     sendCommand(0xB2); //PORCTRL (B2h): Porch Setting - Default
     sendData(0x0C);
     sendData(0x0C);
+    sendData(0x00);
     sendData(0x33);
     sendData(0x33);
     sendCommand(0xB7); //GCTRL (B7h): Gate Control
@@ -541,28 +556,124 @@ void LCDinit(void)
     sendData(0x2B);
     sendData(0x2F);
     sendCommand(0x29); //DISPON (29h): Display On
+    */
+    
+    lcdReset();
+    CyDelay(1); //Delay 1ms
+    lcdReset();
+    CyDelay(10); //Delay 10ms
+    lcdReset();
+    CyDelay(120); //Delay 120ms
+    sendCommand(0x11); //SLPOUT (11h): Sleep Out
+    CyDelay(120); //Delay 120ms
+    sendCommand(0x36); //MADCTL (36h): Memory Data Access Control - Default
+    sendData(0x00);
+    sendCommand(0x3A); //COLMOD (3Ah): Interface Pixel Format
+    sendData(0x05);
+    sendCommand(0xB2); //PORCTRL (B2h): Porch Setting - Default
+    sendData(0x0C);
+    sendData(0x0C);
+    sendData(0x00);
+    sendData(0x33);
+    sendData(0x33);
+    sendCommand(0xB7); //GCTRL (B7h): Gate Control
+    sendData(0x75);
+    sendCommand(0xBB);//VCOMS (BBh): VCOM Setting
+    sendData(0x13);
+    sendCommand(0xC0); //LCMCTRL (C0h): LCM Control - Default
+    sendData(0x2C);
+    sendCommand(0xC2); //VDVVRHEN (C2h): VDV and VRH Command Enable - Default
+    sendData(0x01);
+    sendCommand(0xC3); //VRHS (C3h): VRH Set
+    sendData(0x13);
+    sendCommand(0xC4); //VDVS (C4h): VDV Set - Default
+    sendData(0x20);
+    sendCommand(0xC6); //FRCTRL2 (C6h): Frame Rate Control in Normal Mode - Default
+    sendData(0x0F);
+    sendCommand(0xD0); //PWCTRL1 (D0h): Power Control 1 - Default
+    sendData(0xA4);
+    sendData(0xA1);
+    sendCommand(0xD6); //Undocumented
+    sendData(0xA1);
+    sendCommand(0x21); //INVON (21h): Display Inversion On
+    sendCommand(0xE0); //PVGAMCTRL (E0h): Positive Voltage Gamma Control
+    sendData(0xD0);
+    sendData(0x08);
+    sendData(0x10);
+    sendData(0x0D);
+    sendData(0x0C);
+    sendData(0x07);
+    sendData(0x37);
+    sendData(0x53);
+    sendData(0x4C);
+    sendData(0x39);
+    sendData(0x15);
+    sendData(0x15);
+    sendData(0x2A);
+    sendData(0x2D);
+    sendCommand(0xE1); //NVGAMCTRL (E1h): Negative Voltage Gamma Control
+    sendData(0xD0);
+    sendData(0x0D);
+    sendData(0x12);
+    sendData(0x08);
+    sendData(0x08);
+    sendData(0x15);
+    sendData(0x34);
+    sendData(0x34);
+    sendData(0x4A);
+    sendData(0x36);
+    sendData(0x12);
+    sendData(0x13);
+    sendData(0x2B);
+    sendData(0x2F);
+    sendData(0x29); //DISPON (29h): Display On
 }
 void SetAddressWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) {
+    
+    x1 = x1 + ((240-240)/2);
+	x2 = x2 + ((320-280)/2);
+	
+	//uint8_t ColumnAddress[4] = {XStart >> 8, XStart & 0xFF, XEnd >> 8, XEnd & 0xFF};
     // Send command to set column address range
     sendCommand(0x2A); // CASET (2Ah): Column Address Set
-    sendData((x1 >> 8) & 0xFF); // Start Column High-Byte
+    sendData(x1 >> 8); // Start Column High-Byte
     sendData(x1 & 0xFF); // Start Column Low-Byte
-    sendData((x2 >> 8) & 0xFF); // End Column High-Byte
+    sendData((x2 >> 8)); // End Column High-Byte
     sendData(x2 & 0xFF); // End Column Low-Byte
-
+//uint8_t RowAddress[4] = {YStart >> 8, YStart & 0xFF, YEnd >> 8, YEnd & 0xFF};
     // Send command to set page address range
     sendCommand(0x2B); // RASET (2Bh): Row Address Set
-    sendData((y1 >> 8) & 0xFF); // Start Page High-Byte
+    sendData((y1 >> 8)); // Start Page High-Byte
     sendData(y1 & 0xFF); // Start Page Low-Byte
-    sendData((y2 >> 8) & 0xFF); // End Page High-Byte
+    sendData((y2 >> 8)); // End Page High-Byte
     sendData(y2 & 0xFF); // End Page Low-Byte
 
     // Send command to enable memory write
     sendCommand(0x2C); // RAMWR (2Ch): Memory Write
 }
-
+void ST7789_DrawPixel(uint16_t XPos, uint16_t YPos, uint16_t Color)
+{
+	
+	//uint8_t colorBuff[2] = {Color >> 8, Color & 0xFF};
+	
+	/* ---------------- Size Control ---------------- */
+	if ((XPos < 0) || (XPos >= 240) || (YPos < 0) || (YPos >= 280))
+	{
+		return;
+	}
+	
+	SetAddressWindow(XPos, YPos, XPos, YPos);
+	
+	/* ---------------- Write Pixel ----------------- */
+    sendData(Color >> 8);
+    sendData(Color & 0xFF);
+    DBG_PRINTF("Pixel drawn\r\n");
+	//ST7789_TransmitData(colorBuff, sizeof(colorBuff));
+	
+}
 void drawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color) {
     // Set the address window for the rectangle
+    DBG_PRINTF("Drawing rectangle\r\n");
     SetAddressWindow(x1, y1, x2, y2);
 
     // Calculate the number of pixels to draw
@@ -600,9 +711,17 @@ int HostMain(void)
     //st7789_basic_init();
     SPI_Start();
     LCDinit();
+    //ST7789_DrawPixel(50, 50, 0x07E0);
     sendCommand(0x21);
+    ST7789_DrawPixel(50, 50, 0x07E0);
+    ST7789_DrawPixel(51, 50, 0x07E0);
+    ST7789_DrawPixel(52, 50, 0x07E0);
+    ST7789_DrawPixel(53, 50, 0x07E0);
+    ST7789_DrawPixel(54, 50, 0x07E0);
+    ST7789_DrawPixel(55, 50, 0x07E0);
+    ST7789_DrawPixel(56, 50, 0x07E0);
     //sendCommand(0x20);
-    drawRectangle(10, 10, 50, 100, 0xF800);
+    //drawRectangle(10, 10, 50, 100, 0xF800);
     //st7789_display_test();
     //st7789_basic_init();
     
