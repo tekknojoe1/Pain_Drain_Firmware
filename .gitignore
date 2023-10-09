@@ -1,0 +1,13 @@
+# Ignore all files and directories by default
+*
+# Track all files of specific types recursively in all directories below the location of .gitignore
+!**/*.c
+!**/*.h
+!**/*.cydwr
+!**/*.cywrk
+!**/*.cysch
+!**/*.cyprj
+!.gitignore
+
+
+
