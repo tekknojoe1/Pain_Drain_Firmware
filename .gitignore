@@ -1,8 +1,9 @@
-# Exclude specific files
+# Exclude specific files root folder
 /PainDrain/PainDrain.cywrk.dev
 /PainDrain/PainDrain.cywrk.haske
 /PainDrain/PainDrain.cywrk.joe
 /PainDrain/PainDrain.cywrk.joeha
+# PainDrain.cydsn folder
 /PainDrain/PainDrain.cydsn/CortexM0p
 /PainDrain/PainDrain.cydsn/CortexM4
 /PainDrain/PainDrain.cydsn/Export
@@ -19,6 +20,33 @@
 /PainDrain/PainDrain.cydsn/*.rpt
 /PainDrain/PainDrain.cydsn/*.dev
 /PainDrain/PainDrain.cydsn/*.html
+# codegentemp folder
+/PainDrain/PainDrain.cydsn/codegentemp/*.log
+/PainDrain/PainDrain.cydsn/codegentemp/*.ld
+/PainDrain/PainDrain.cydsn/codegentemp/*.scat
+/PainDrain/PainDrain.cydsn/codegentemp/*.inc
+/PainDrain/PainDrain.cydsn/codegentemp/*.txt
+/PainDrain/PainDrain.cydsn/codegentemp/*.lib
+/PainDrain/PainDrain.cydsn/codegentemp/*.bvf
+/PainDrain/PainDrain.cydsn/codegentemp/*.ctl
+/PainDrain/PainDrain.cydsn/codegentemp/*.cycdx
+/PainDrain/PainDrain.cydsn/codegentemp/*.cyfit
+/PainDrain/PainDrain.cydsn/codegentemp/*.dsf
+/PainDrain/PainDrain.cydsn/codegentemp/*.pci
+/PainDrain/PainDrain.cydsn/codegentemp/*.pco
+/PainDrain/PainDrain.cydsn/codegentemp/*.plc_log
+/PainDrain/PainDrain.cydsn/codegentemp/*.route
+/PainDrain/PainDrain.cydsn/codegentemp/*.rpt
+/PainDrain/PainDrain.cydsn/codegentemp/*.rt_log
+/PainDrain/PainDrain.cydsn/codegentemp/*.sdc
+/PainDrain/PainDrain.cydsn/codegentemp/*.sdf
+/PainDrain/PainDrain.cydsn/codegentemp/*.tr
+/PainDrain/PainDrain.cydsn/codegentemp/*.v
+/PainDrain/PainDrain.cydsn/codegentemp/*.vh2
+/PainDrain/PainDrain.cydsn/codegentemp/*.wde
+/PainDrain/PainDrain.cydsn/codegentemp/*.html
+/PainDrain/PainDrain.cydsn/codegentemp/*.xml
+
 
 
 
