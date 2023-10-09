@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 1
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 1
 
 
    1              		.syntax unified
@@ -62,11 +58,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
   28:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** #endif /* (CY_BLE_IAS_SERVER) */
   29:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** 
   30:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** #ifdef CY_BLE_IAS_CLIENT
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 2
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 2
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 2
 
 
   31:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** /* IAS Center Service characteristics GATT DB handles structure */
@@ -126,11 +118,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
   85:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c ****         /* Registers Event Handler for the IAS Service */
   86:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c ****         apiResult = Cy_BLE_RegisterServiceEventHandler(&Cy_BLE_IAS_EventHandler);
   87:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 3
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 3
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 3
 
 
   88:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c ****     #ifdef CY_BLE_IAS_SERVER
@@ -190,11 +178,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  142:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** *  IAS only has events for the GATT server. There are no events for the GATT
  143:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** *  client since the client sends data without waiting for response. Therefore
  144:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** *  there is no need to register a callback through Cy_BLE_IAS_RegisterAttrCallback
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 4
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 4
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 4
 
 
  145:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** *  for an IAS GATT client.
@@ -254,11 +238,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  199:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** 
  200:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** 
  201:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** /******************************************************************************
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 5
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 5
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 5
 
 
  202:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** * Function Name: Cy_BLE_IASS_WriteCmdEventHandler
@@ -318,11 +298,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
   60              		.cfi_offset 4, -8
   61              		.cfi_offset 14, -4
   62 0026 88B0     		sub	sp, sp, #32
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 6
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 6
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 6
 
 
   63              		.cfi_def_cfa_offset 40
@@ -382,11 +358,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
   97 0064 054A     		ldr	r2, .L6+8
   98 0066 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
   99 0068 03F0FE03 		and	r3, r3, #254
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 7
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 7
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 7
 
 
  100 006c 1370     		strb	r3, [r2]
@@ -446,11 +418,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  144 000a 0093     		str	r3, [sp]
  145 000c 0193     		str	r3, [sp, #4]
  146 000e 0293     		str	r3, [sp, #8]
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 8
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 8
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 8
 
 
  147 0010 0393     		str	r3, [sp, #12]
@@ -510,11 +478,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  260:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** *               value data should be stored.
  261:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** *
  262:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** * \return
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 9
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 9
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 9
 
 
  263:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** *  A return value of type cy_en_ble_api_result_t.
@@ -574,11 +538,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  317:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c ****     {
  318:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c ****         if(discCharInfo->uuid.uuid16 == CY_BLE_UUID_CHAR_ALERT_LEVEL)
  319:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c ****         {
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 10
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 10
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 10
 
 
  320:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c ****             /* Save Alert Level Characteristic handle */
@@ -638,11 +598,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  374:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** *  A return value of type cy_en_ble_api_result_t.
  375:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** *   * CY_BLE_SUCCESS - The request was sent successfully
  376:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** *   * CY_BLE_ERROR_INVALID_PARAMETER - Validation of the input parameters failed
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 11
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 11
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 11
 
 
  377:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** *   * CY_BLE_ERROR_MEMORY_ALLOCATION_FAILED - Memory allocation failed
@@ -702,11 +658,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  431:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** * \return
  432:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** *  A return value of type cy_en_ble_gatt_err_code_t.
  433:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** *
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 12
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 12
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 12
 
 
  434:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** ******************************************************************************/
@@ -766,11 +718,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  466:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c ****             /**************************************************************************
  467:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c ****              * Handling GATT Server Events
  468:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c ****              ***************************************************************************/
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 13
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 13
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 13
 
 
  469:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c ****         #ifdef CY_BLE_IAS_SERVER
@@ -830,11 +778,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  237              		.type	Cy_BLE_IAS_Init, %function
  238              	Cy_BLE_IAS_Init:
  239              	.LFB255:
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 14
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 14
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 14
 
 
   73:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c ****     cy_en_ble_api_result_t apiResult;
@@ -894,11 +838,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  285              	.L23:
  286 0020 00000000 		.word	.LANCHOR0
  287 0024 00000000 		.word	Cy_BLE_IAS_EventHandler
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 15
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 15
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 15
 
 
  288 0028 01001600 		.word	1441793
@@ -958,11 +898,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  335              		.global	Cy_BLE_IASS_GetCharacteristicValue
  336              		.thumb
  337              		.thumb_func
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 16
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 16
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 16
 
 
  338              		.type	Cy_BLE_IASS_GetCharacteristicValue, %function
@@ -1022,11 +958,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  383 0030 08B1     		cbz	r0, .L36
  384              	.LBE4:
  272:Generated_Source\PSoC6\pdl\middleware\ble/cy_ble_ias.c **** 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 17
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 17
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 17
 
 
  385              		.loc 1 272 0
@@ -1086,11 +1018,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  436              	Cy_BLE_IAS_ApplCallback:
  437 0000 00000000 		.space	4
  438              		.type	cy_ble_iasConfigPtr, %object
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 18
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 18
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 18
 
 
  439              		.size	cy_ble_iasConfigPtr, 4
@@ -1150,11 +1078,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  493 0049 1A0A0000 		.4byte	.LASF5
  494 004d 02       		.byte	0x2
  495 004e 1D       		.byte	0x1d
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 19
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 19
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 19
 
 
  496 004f 53000000 		.4byte	0x53
@@ -1213,13 +1137,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  549 00b4 08       		.byte	0x8
  550 00b5 B7150000 		.4byte	.LASF16
  551 00b9 04       		.uleb128 0x4
-<<<<<<< HEAD
- 552 00ba F9100000 		.4byte	.LASF17
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 20
-=======
  552 00ba 0F110000 		.4byte	.LASF17
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 20
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 20
 
 
  553 00be 03       		.byte	0x3
@@ -1279,11 +1198,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  607 012d 08       		.uleb128 0x8
  608 012e 781E0000 		.4byte	.LASF26
  609 0132 04       		.byte	0x4
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 21
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 21
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 21
 
 
  610 0133 3B       		.byte	0x3b
@@ -1343,11 +1258,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  664 019f 46       		.byte	0x46
  665 01a0 B9000000 		.4byte	0xb9
  666 01a4 2B       		.byte	0x2b
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 22
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 22
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 22
 
 
  667 01a5 08       		.uleb128 0x8
@@ -1407,11 +1318,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  721 0211 08       		.uleb128 0x8
  722 0212 751A0000 		.4byte	.LASF45
  723 0216 04       		.byte	0x4
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 23
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 23
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 23
 
 
  724 0217 52       		.byte	0x52
@@ -1471,11 +1378,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  778 0283 5B       		.byte	0x5b
  779 0284 B9000000 		.4byte	0xb9
  780 0288 42       		.byte	0x42
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 24
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 24
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 24
 
 
  781 0289 08       		.uleb128 0x8
@@ -1535,11 +1438,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  835 02f5 08       		.uleb128 0x8
  836 02f6 9B4F0000 		.4byte	.LASF64
  837 02fa 04       		.byte	0x4
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 25
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 25
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 25
 
 
  838 02fb 65       		.byte	0x65
@@ -1599,11 +1498,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  892 0367 72       		.byte	0x72
  893 0368 B9000000 		.4byte	0xb9
  894 036c 60       		.byte	0x60
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 26
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 26
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 26
 
 
  895 036d 08       		.uleb128 0x8
@@ -1663,11 +1558,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  949 03d9 08       		.uleb128 0x8
  950 03da 1D0D0000 		.4byte	.LASF83
  951 03de 04       		.byte	0x4
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 27
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 27
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 27
 
 
  952 03df 80       		.byte	0x80
@@ -1727,11 +1618,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  1006 044b 8D       		.byte	0x8d
  1007 044c E5000000 		.4byte	0xe5
  1008 0450 84       		.byte	0x84
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 28
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 28
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 28
 
 
  1009 0451 08       		.uleb128 0x8
@@ -1791,11 +1678,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  1063 04bd 08       		.uleb128 0x8
  1064 04be E4110000 		.4byte	.LASF102
  1065 04c2 04       		.byte	0x4
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 29
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 29
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 29
 
 
  1066 04c3 97       		.byte	0x97
@@ -1855,11 +1738,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  1120 052d 41320000 		.4byte	.LASF111
  1121 0531 00       		.byte	0
  1122 0532 0B       		.uleb128 0xb
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 30
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 30
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 30
 
 
  1123 0533 56210000 		.4byte	.LASF112
@@ -1919,11 +1798,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  1177 05b1 C4200000 		.4byte	.LASF130
  1178 05b5 0C20     		.2byte	0x200c
  1179 05b7 0B       		.uleb128 0xb
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 31
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 31
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 31
 
 
  1180 05b8 48370000 		.4byte	.LASF131
@@ -1983,11 +1858,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  1234 0636 3E030000 		.4byte	.LASF149
  1235 063a 0730     		.2byte	0x3007
  1236 063c 0B       		.uleb128 0xb
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 32
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 32
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 32
 
 
  1237 063d A6020000 		.4byte	.LASF150
@@ -2047,11 +1918,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  1291 06bb F9140000 		.4byte	.LASF168
  1292 06bf 0440     		.2byte	0x4004
  1293 06c1 0B       		.uleb128 0xb
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 33
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 33
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 33
 
 
  1294 06c2 240A0000 		.4byte	.LASF169
@@ -2111,11 +1978,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  1348 0740 BE360000 		.4byte	.LASF187
  1349 0744 1740     		.2byte	0x4017
  1350 0746 0B       		.uleb128 0xb
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 34
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 34
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 34
 
 
  1351 0747 DA2B0000 		.4byte	.LASF188
@@ -2175,11 +2038,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  1405 07c5 261D0000 		.4byte	.LASF206
  1406 07c9 0F50     		.2byte	0x500f
  1407 07cb 0B       		.uleb128 0xb
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 35
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 35
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 35
 
 
  1408 07cc 20360000 		.4byte	.LASF207
@@ -2239,11 +2098,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  1462 084a 461D0000 		.4byte	.LASF225
  1463 084e 0960     		.2byte	0x6009
  1464 0850 0B       		.uleb128 0xb
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 36
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 36
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 36
 
 
  1465 0851 9F3B0000 		.4byte	.LASF226
@@ -2303,11 +2158,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  1519 08e2 E01A0000 		.4byte	.LASF241
  1520 08e6 0B001600 		.4byte	0x16000b
  1521 08ea 0D       		.uleb128 0xd
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 37
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 37
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 37
 
 
  1522 08eb 31420000 		.4byte	.LASF242
@@ -2367,11 +2218,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  1576 098a 4305     		.2byte	0x543
  1577 098c 6B080000 		.4byte	0x86b
  1578 0990 0E       		.uleb128 0xe
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 38
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 38
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 38
 
 
  1579 0991 04       		.byte	0x4
@@ -2430,13 +2277,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  1632 09fd 68090000 		.4byte	.LASF270
  1633 0a01 07       		.byte	0x7
  1634 0a02 0A       		.uleb128 0xa
-<<<<<<< HEAD
- 1635 0a03 3B230000 		.4byte	.LASF271
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 39
-=======
  1635 0a03 51230000 		.4byte	.LASF271
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 39
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 39
 
 
  1636 0a07 08       		.byte	0x8
@@ -2495,13 +2337,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  1689 0a6f 26440000 		.4byte	.LASF289
  1690 0a73 81       		.byte	0x81
  1691 0a74 0A       		.uleb128 0xa
-<<<<<<< HEAD
- 1692 0a75 0C2D0000 		.4byte	.LASF290
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 40
-=======
  1692 0a75 222D0000 		.4byte	.LASF290
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 40
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 40
 
 
  1693 0a79 81       		.byte	0x81
@@ -2561,11 +2398,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  1747 0ae6 6C656E00 		.ascii	"len\000"
  1748 0aea 07       		.byte	0x7
  1749 0aeb 9A01     		.2byte	0x19a
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 41
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 41
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 41
 
 
  1750 0aed CF000000 		.4byte	0xcf
@@ -2624,13 +2457,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  1803 0b5e 0C       		.byte	0xc
  1804 0b5f 00       		.byte	0
  1805 0b60 0C       		.uleb128 0xc
-<<<<<<< HEAD
- 1806 0b61 A7390000 		.4byte	.LASF310
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 42
-=======
  1806 0b61 BD390000 		.4byte	.LASF310
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 42
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 42
 
 
  1807 0b65 07       		.byte	0x7
@@ -2690,11 +2518,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  1861 0bd2 0A       		.uleb128 0xa
  1862 0bd3 750B0000 		.4byte	.LASF323
  1863 0bd7 07       		.byte	0x7
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 43
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 43
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 43
 
 
  1864 0bd8 00       		.byte	0
@@ -2754,11 +2578,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  1918 0c4a 13       		.uleb128 0x13
  1919 0c4b 5A0C0000 		.4byte	0xc5a
  1920 0c4f 14       		.uleb128 0x14
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 44
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 44
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 44
 
 
  1921 0c50 E5000000 		.4byte	0xe5
@@ -2818,11 +2638,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  1975 0cb9 0C       		.byte	0xc
  1976 0cba 37       		.byte	0x37
  1977 0cbb E40C0000 		.4byte	0xce4
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 45
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 45
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 45
 
 
  1978 0cbf 08       		.uleb128 0x8
@@ -2882,11 +2698,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  2032 0d28 2C000000 		.4byte	0x2c
  2033 0d2c 0D       		.byte	0xd
  2034 0d2d BA       		.byte	0xba
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 46
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 46
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 46
 
 
  2035 0d2e 07180000 		.4byte	0x1807
@@ -2945,13 +2757,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  2088 0dcc D9070000 		.4byte	.LASF360
  2089 0dd0 11000100 		.4byte	0x10011
  2090 0dd4 0D       		.uleb128 0xd
-<<<<<<< HEAD
- 2091 0dd5 704C0000 		.4byte	.LASF361
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 47
-=======
  2091 0dd5 7D4C0000 		.4byte	.LASF361
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 47
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 47
 
 
  2092 0dd9 12000100 		.4byte	0x10012
@@ -3010,13 +2817,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  2145 0e77 EA270000 		.4byte	.LASF379
  2146 0e7b 24000100 		.4byte	0x10024
  2147 0e7f 0D       		.uleb128 0xd
-<<<<<<< HEAD
- 2148 0e80 41190000 		.4byte	.LASF380
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 48
-=======
  2148 0e80 57190000 		.4byte	.LASF380
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 48
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 48
 
 
  2149 0e84 25000100 		.4byte	0x10025
@@ -3075,13 +2877,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  2202 0f22 35310000 		.4byte	.LASF398
  2203 0f26 37000100 		.4byte	0x10037
  2204 0f2a 0D       		.uleb128 0xd
-<<<<<<< HEAD
- 2205 0f2b AA010000 		.4byte	.LASF399
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 49
-=======
  2205 0f2b C0010000 		.4byte	.LASF399
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 49
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 49
 
 
  2206 0f2f 38000100 		.4byte	0x10038
@@ -3140,13 +2937,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  2259 0fcd 90050000 		.4byte	.LASF417
  2260 0fd1 4A000100 		.4byte	0x1004a
  2261 0fd5 0D       		.uleb128 0xd
-<<<<<<< HEAD
- 2262 0fd6 0D3F0000 		.4byte	.LASF418
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 50
-=======
  2262 0fd6 533F0000 		.4byte	.LASF418
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 50
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 50
 
 
  2263 0fda 4B000100 		.4byte	0x1004b
@@ -3205,13 +2997,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  2316 1078 F44F0000 		.4byte	.LASF436
  2317 107c 5D000100 		.4byte	0x1005d
  2318 1080 0D       		.uleb128 0xd
-<<<<<<< HEAD
- 2319 1081 881E0000 		.4byte	.LASF437
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 51
-=======
  2319 1081 9E1E0000 		.4byte	.LASF437
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 51
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 51
 
 
  2320 1085 5E000100 		.4byte	0x1005e
@@ -3270,13 +3057,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  2373 1123 6A210000 		.4byte	.LASF455
  2374 1127 70000100 		.4byte	0x10070
  2375 112b 0D       		.uleb128 0xd
-<<<<<<< HEAD
- 2376 112c 190D0000 		.4byte	.LASF456
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 52
-=======
  2376 112c 2F0D0000 		.4byte	.LASF456
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 52
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 52
 
 
  2377 1130 71000100 		.4byte	0x10071
@@ -3335,13 +3117,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  2430 11ce 632D0000 		.4byte	.LASF474
  2431 11d2 83000100 		.4byte	0x10083
  2432 11d6 0D       		.uleb128 0xd
-<<<<<<< HEAD
- 2433 11d7 F7060000 		.4byte	.LASF475
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 53
-=======
  2433 11d7 0D070000 		.4byte	.LASF475
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 53
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 53
 
 
  2434 11db 84000100 		.4byte	0x10084
@@ -3400,13 +3177,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  2487 1279 64360000 		.4byte	.LASF493
  2488 127d 96000100 		.4byte	0x10096
  2489 1281 0D       		.uleb128 0xd
-<<<<<<< HEAD
- 2490 1282 01110000 		.4byte	.LASF494
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 54
-=======
  2490 1282 17110000 		.4byte	.LASF494
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 54
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 54
 
 
  2491 1286 97000100 		.4byte	0x10097
@@ -3465,13 +3237,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  2544 1324 29070000 		.4byte	.LASF512
  2545 1328 A9000100 		.4byte	0x100a9
  2546 132c 0D       		.uleb128 0xd
-<<<<<<< HEAD
- 2547 132d A13C0000 		.4byte	.LASF513
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 55
-=======
  2547 132d E73C0000 		.4byte	.LASF513
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 55
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 55
 
 
  2548 1331 AA000100 		.4byte	0x100aa
@@ -3530,13 +3297,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  2601 13cf 6C050000 		.4byte	.LASF531
  2602 13d3 BC000100 		.4byte	0x100bc
  2603 13d7 0D       		.uleb128 0xd
-<<<<<<< HEAD
- 2604 13d8 2E4F0000 		.4byte	.LASF532
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 56
-=======
  2604 13d8 3B4F0000 		.4byte	.LASF532
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 56
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 56
 
 
  2605 13dc BD000100 		.4byte	0x100bd
@@ -3595,13 +3357,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  2658 147a 7F1D0000 		.4byte	.LASF550
  2659 147e CF000100 		.4byte	0x100cf
  2660 1482 0D       		.uleb128 0xd
-<<<<<<< HEAD
- 2661 1483 CF480000 		.4byte	.LASF551
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 57
-=======
  2661 1483 DC480000 		.4byte	.LASF551
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 57
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 57
 
 
  2662 1487 D0000100 		.4byte	0x100d0
@@ -3660,13 +3417,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  2715 1525 B7480000 		.4byte	.LASF569
  2716 1529 E2000100 		.4byte	0x100e2
  2717 152d 0D       		.uleb128 0xd
-<<<<<<< HEAD
- 2718 152e 1F400000 		.4byte	.LASF570
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 58
-=======
  2718 152e 65400000 		.4byte	.LASF570
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 58
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 58
 
 
  2719 1532 E3000100 		.4byte	0x100e3
@@ -3725,13 +3477,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  2772 15d0 1E260000 		.4byte	.LASF588
  2773 15d4 F5000100 		.4byte	0x100f5
  2774 15d8 0D       		.uleb128 0xd
-<<<<<<< HEAD
- 2775 15d9 8F180000 		.4byte	.LASF589
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 59
-=======
  2775 15d9 A5180000 		.4byte	.LASF589
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 59
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 59
 
 
  2776 15dd F6000100 		.4byte	0x100f6
@@ -3790,13 +3537,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  2829 167b 25010000 		.4byte	.LASF607
  2830 167f 08010100 		.4byte	0x10108
  2831 1683 0D       		.uleb128 0xd
-<<<<<<< HEAD
- 2832 1684 FF210000 		.4byte	.LASF608
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 60
-=======
  2832 1684 15220000 		.4byte	.LASF608
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 60
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 60
 
 
  2833 1688 09010100 		.4byte	0x10109
@@ -3855,13 +3597,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  2886 1726 8B460000 		.4byte	.LASF626
  2887 172a 1B010100 		.4byte	0x1011b
  2888 172e 0D       		.uleb128 0xd
-<<<<<<< HEAD
- 2889 172f 7A2B0000 		.4byte	.LASF627
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 61
-=======
  2889 172f 902B0000 		.4byte	.LASF627
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 61
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 61
 
 
  2890 1733 1C010100 		.4byte	0x1011c
@@ -3920,13 +3657,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  2943 17d1 74060000 		.4byte	.LASF645
  2944 17d5 2E010100 		.4byte	0x1012e
  2945 17d9 0D       		.uleb128 0xd
-<<<<<<< HEAD
- 2946 17da D9370000 		.4byte	.LASF646
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 62
-=======
  2946 17da EF370000 		.4byte	.LASF646
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 62
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 62
 
 
  2947 17de 2F010100 		.4byte	0x1012f
@@ -3986,11 +3718,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  3001 1866 02       		.uleb128 0x2
  3002 1867 91       		.byte	0x91
  3003 1868 5C       		.sleb128 -36
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 63
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 63
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 63
 
 
  3004 1869 1B       		.uleb128 0x1b
@@ -4050,11 +3778,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  3058 18c6 91       		.byte	0x91
  3059 18c7 60       		.sleb128 -32
  3060 18c8 1D       		.uleb128 0x1d
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 64
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 64
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 64
 
 
  3061 18c9 32000000 		.4byte	.LVL5
@@ -4114,11 +3838,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  3115 193f 23       		.uleb128 0x23
  3116 1940 54430000 		.4byte	.LASF662
  3117 1944 01       		.byte	0x1
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 65
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 65
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 65
 
 
  3118 1945 48       		.byte	0x48
@@ -4178,11 +3898,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  3172 19c3 64010000 		.4byte	.LLST6
  3173 19c7 00       		.byte	0
  3174 19c8 25       		.uleb128 0x25
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 66
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 66
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 66
 
 
  3175 19c9 75020000 		.4byte	.LASF664
@@ -4241,13 +3957,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  3228 1a46 00       		.byte	0
  3229 1a47 00       		.byte	0
  3230 1a48 19       		.uleb128 0x19
-<<<<<<< HEAD
- 3231 1a49 764F0000 		.4byte	.LASF667
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 67
-=======
  3231 1a49 834F0000 		.4byte	.LASF667
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 67
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 67
 
 
  3232 1a4d 01       		.byte	0x1
@@ -4307,11 +4018,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  3286 1ac9 08       		.byte	0x8
  3287 1aca 2D02     		.2byte	0x22d
  3288 1acc B41A0000 		.4byte	0x1ab4
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 68
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 68
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 68
 
 
  3289 1ad0 2D       		.uleb128 0x2d
@@ -4371,11 +4078,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  3343 001c 00       		.byte	0
  3344 001d 00       		.byte	0
  3345 001e 03       		.uleb128 0x3
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 69
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 69
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 69
 
 
  3346 001f 24       		.uleb128 0x24
@@ -4435,11 +4138,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  3400 0055 0E       		.uleb128 0xe
  3401 0056 3A       		.uleb128 0x3a
  3402 0057 0B       		.uleb128 0xb
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 70
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 70
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 70
 
 
  3403 0058 3B       		.uleb128 0x3b
@@ -4499,11 +4198,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  3457 008e 0D       		.uleb128 0xd
  3458 008f 28       		.uleb128 0x28
  3459 0090 00       		.byte	0
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 71
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 71
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 71
 
 
  3460 0091 03       		.uleb128 0x3
@@ -4563,11 +4258,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  3514 00c7 01       		.uleb128 0x1
  3515 00c8 13       		.uleb128 0x13
  3516 00c9 00       		.byte	0
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 72
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 72
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 72
 
 
  3517 00ca 00       		.byte	0
@@ -4627,11 +4318,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  3571 0100 40       		.uleb128 0x40
  3572 0101 18       		.uleb128 0x18
  3573 0102 9742     		.uleb128 0x2117
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 73
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 73
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 73
 
 
  3574 0104 19       		.uleb128 0x19
@@ -4691,11 +4378,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  3628 013a 00       		.byte	0
  3629 013b 1B       		.uleb128 0x1b
  3630 013c 898201   		.uleb128 0x4109
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 74
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 74
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 74
 
 
  3631 013f 01       		.byte	0x1
@@ -4755,11 +4438,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  3685 017b 0B       		.uleb128 0xb
  3686 017c 3B       		.uleb128 0x3b
  3687 017d 05       		.uleb128 0x5
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 75
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 75
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 75
 
 
  3688 017e 49       		.uleb128 0x49
@@ -4819,11 +4498,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  3742 01b8 49       		.uleb128 0x49
  3743 01b9 13       		.uleb128 0x13
  3744 01ba 11       		.uleb128 0x11
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 76
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 76
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 76
 
 
  3745 01bb 01       		.uleb128 0x1
@@ -4883,11 +4558,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  3799 01f3 34       		.uleb128 0x34
  3800 01f4 00       		.byte	0
  3801 01f5 03       		.uleb128 0x3
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 77
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 77
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 77
 
 
  3802 01f6 0E       		.uleb128 0xe
@@ -4947,11 +4618,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  3856 022c 0E       		.uleb128 0xe
  3857 022d 3A       		.uleb128 0x3a
  3858 022e 0B       		.uleb128 0xb
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 78
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 78
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 78
 
 
  3859 022f 3B       		.uleb128 0x3b
@@ -5011,11 +4678,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  3913 0265 03       		.uleb128 0x3
  3914 0266 0E       		.uleb128 0xe
  3915 0267 3A       		.uleb128 0x3a
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 79
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 79
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 79
 
 
  3916 0268 0B       		.uleb128 0xb
@@ -5075,11 +4738,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  3970 004a 0100     		.2byte	0x1
  3971 004c 50       		.byte	0x50
  3972 004d 25000000 		.4byte	.LVL10-1
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 80
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 80
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 80
 
 
  3973 0051 2A000000 		.4byte	.LVL11
@@ -5139,11 +4798,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4027 00d0 0D000000 		.4byte	.LVL15-1
  4028 00d4 0500     		.2byte	0x5
  4029 00d6 03       		.byte	0x3
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 81
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 81
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 81
 
 
  4030 00d7 00000000 		.4byte	cy_ble_iasConfigPtr
@@ -5203,11 +4858,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4084 0164 00000000 		.4byte	.LVL19
  4085 0168 10000000 		.4byte	.LVL22
  4086 016c 0200     		.2byte	0x2
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 82
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 82
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 82
 
 
  4087 016e 30       		.byte	0x30
@@ -5267,11 +4918,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4141 01eb 00000000 		.4byte	0
  4142              	.LLST8:
  4143 01ef 00000000 		.4byte	.LVL23
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 83
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 83
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 83
 
 
  4144 01f3 2F000000 		.4byte	.LVL27-1
@@ -5331,11 +4978,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4198 0274 54000000 		.4byte	.LFE259
  4199 0278 0400     		.2byte	0x4
  4200 027a F3       		.byte	0xf3
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 84
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 84
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 84
 
 
  4201 027b 01       		.uleb128 0x1
@@ -5395,11 +5038,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4255 0004 32000000 		.4byte	.LBE4
  4256 0008 36000000 		.4byte	.LBB5
  4257 000c 3A000000 		.4byte	.LBE5
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 85
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 85
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 85
 
 
  4258 0010 00000000 		.4byte	0
@@ -5459,11 +5098,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4288      6772616D 
  4288      44656C61 
  4288      7900
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 86
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 86
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 86
 
 
  4289              	.LASF342:
@@ -5523,19 +5158,12 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4308      4C455F47 
  4308      4154545F 
  4308      4552525F 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 87
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 87
 
 
  4308      52454144 
  4309              	.LASF399:
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 87
-
-
- 4310 01aa 43595F42 		.ascii	"CY_BLE_EVT_BCSS_INDICATION_ENABLED\000"
-=======
  4310 01c0 43595F42 		.ascii	"CY_BLE_EVT_BCSS_INDICATION_ENABLED\000"
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4310      4C455F45 
  4310      56545F42 
  4310      4353535F 
@@ -5590,17 +5218,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4328      74506172 
  4328      616D00
  4329              	.LASF535:
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 88
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 88
 
 
  4330 02d4 43595F42 		.ascii	"CY_BLE_EVT_IPSS_READ_CHAR\000"
  4330      4C455F45 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 88
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4330      56545F49 
  4330      5053535F 
  4330      52454144 
@@ -5656,18 +5278,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4348      56545F42 
  4348      4C53535F 
  4348      494E4449 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 89
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 89
 
 
  4349              	.LASF118:
-<<<<<<< HEAD
- 4350 0402 43595F42 		.ascii	"CY_BLE_EVT_HARDWARE_ERROR\000"
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 89
-
-
-=======
  4350 0418 43595F42 		.ascii	"CY_BLE_EVT_HARDWARE_ERROR\000"
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4350      4C455F45 
  4350      56545F48 
  4350      41524457 
@@ -5723,17 +5338,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4368 0523 43595F42 		.ascii	"CY_BLE_GATT_ERR_WRITE_NOT_PERMITTED\000"
  4368      4C455F47 
  4368      4154545F 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 90
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 90
 
 
  4368      4552525F 
  4368      57524954 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 90
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4369              	.LASF401:
  4370 0547 43595F42 		.ascii	"CY_BLE_EVT_BCSS_INDICATION_CONFIRMED\000"
  4370      4C455F45 
@@ -5789,17 +5398,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4388 064b 43595F42 		.ascii	"CY_BLE_GATT_ERR_PREPARE_WRITE_QUEUE_FULL\000"
  4388      4C455F47 
  4388      4154545F 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 91
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 91
 
 
  4388      4552525F 
  4388      50524550 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 91
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4389              	.LASF645:
  4390 0674 43595F42 		.ascii	"CY_BLE_EVT_BTSS_EXEC_WRITE_REQ\000"
  4390      4C455F45 
@@ -5855,17 +5458,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4408 0769 43595F42 		.ascii	"CY_BLE_EVT_ESSS_INDICATION_CONFIRMATION\000"
  4408      4C455F45 
  4408      56545F45 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 92
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 92
 
 
  4408      5353535F 
  4408      494E4449 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 92
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4409              	.LASF434:
  4410 0791 43595F42 		.ascii	"CY_BLE_EVT_CPSS_INDICATION_ENABLED\000"
  4410      4C455F45 
@@ -5921,17 +5518,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4426      4C585343 
  4426      5F54494D 
  4427              	.LASF341:
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 93
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 93
 
 
  4428 08c1 63616C6C 		.ascii	"callbackFunc\000"
  4428      6261636B 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 93
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4428      46756E63 
  4428      00
  4429              	.LASF476:
@@ -5987,19 +5578,12 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4446      4C455F45 
  4446      56545F55 
  4446      4453435F 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 94
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 94
 
 
  4446      4E4F5449 
  4447              	.LASF345:
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 94
-
-
- 4448 09d3 43595F42 		.ascii	"CY_BLE_LONG_TERM_KEY_REQUEST_REPLY\000"
-=======
  4448 09e9 43595F42 		.ascii	"CY_BLE_LONG_TERM_KEY_REQUEST_REPLY\000"
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4448      4C455F4C 
  4448      4F4E475F 
  4448      5445524D 
@@ -6054,19 +5638,12 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4466      4C455F45 
  4466      56545F52 
  4466      53435353 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 95
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 95
 
 
  4466      5F575249 
  4467              	.LASF114:
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 95
-
-
- 4468 0af7 43595F42 		.ascii	"CY_BLE_EVT_STACK_BUSY_STATUS\000"
-=======
  4468 0b0d 43595F42 		.ascii	"CY_BLE_EVT_STACK_BUSY_STATUS\000"
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4468      4C455F45 
  4468      56545F53 
  4468      5441434B 
@@ -6121,17 +5698,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4486 0c2b 43595F42 		.ascii	"CY_BLE_EVT_HRSS_NOTIFICATION_ENABLED\000"
  4486      4C455F45 
  4486      56545F48 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 96
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 96
 
 
  4486      5253535F 
  4486      4E4F5449 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 96
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4487              	.LASF415:
  4488 0c50 43595F42 		.ascii	"CY_BLE_EVT_BLSC_WRITE_DESCR_RESPONSE\000"
  4488      4C455F45 
@@ -6187,17 +5758,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4504      53435343 
  4504      5F524541 
  4505              	.LASF641:
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 97
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 97
 
 
  4506 0d53 43595F42 		.ascii	"CY_BLE_EVT_BTSS_NOTIFICATION_DISABLED\000"
  4506      4C455F45 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 97
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4506      56545F42 
  4506      5453535F 
  4506      4E4F5449 
@@ -6253,17 +5818,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4524 0e8b 43595F42 		.ascii	"CY_BLE_EVT_GLSC_WRITE_CHAR_RESPONSE\000"
  4524      4C455F45 
  4524      56545F47 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 98
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 98
 
 
  4524      4C53435F 
  4524      57524954 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 98
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4525              	.LASF132:
  4526 0eaf 43595F42 		.ascii	"CY_BLE_EVT_SET_HOST_CHANNEL_COMPLETE\000"
  4526      4C455F45 
@@ -6319,17 +5878,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4542      41545443 
  4542      5F494E43 
  4543              	.LASF549:
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 99
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 99
 
 
  4544 0fd2 43595F42 		.ascii	"CY_BLE_EVT_LNSS_INDICATION_DISABLED\000"
  4544      4C455F45 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 99
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4544      56545F4C 
  4544      4E53535F 
  4544      494E4449 
@@ -6385,17 +5938,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4562      4150435F 
  4562      44495245 
  4563              	.LASF17:
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 100
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 100
 
 
  4564 110f 75696E74 		.ascii	"uint8_t\000"
  4564      385F7400 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 100
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4565              	.LASF494:
  4566 1117 43595F42 		.ascii	"CY_BLE_EVT_HIDSS_NOTIFICATION_ENABLED\000"
  4566      4C455F45 
@@ -6451,17 +5998,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4583              	.LASF224:
  4584 1229 43595F42 		.ascii	"CY_BLE_EVT_L2CAP_CBFC_RX_CREDIT_IND\000"
  4584      4C455F45 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 101
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 101
 
 
  4584      56545F4C 
  4584      32434150 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 101
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4584      5F434246 
  4585              	.LASF211:
  4586 124d 43595F42 		.ascii	"CY_BLE_EVT_GATTS_HANDLE_VALUE_CNF\000"
@@ -6517,17 +6058,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4602      20636861 
  4602      7200
  4603              	.LASF565:
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 102
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 102
 
 
  4604 1365 43595F42 		.ascii	"CY_BLE_EVT_PASSC_READ_CHAR_RESPONSE\000"
  4604      4C455F45 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 102
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4604      56545F50 
  4604      41535343 
  4604      5F524541 
@@ -6583,17 +6118,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4622 148d 63795F62 		.ascii	"cy_ble_connHandle\000"
  4622      6C655F63 
  4622      6F6E6E48 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 103
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 103
 
 
  4622      616E646C 
  4622      6500
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 103
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4623              	.LASF209:
  4624 149f 43595F42 		.ascii	"CY_BLE_EVT_GATTC_HANDLE_VALUE_NTF\000"
  4624      4C455F45 
@@ -6649,17 +6178,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4644 1574 43595F42 		.ascii	"CY_BLE_EVT_CSCSS_WRITE_CHAR\000"
  4644      4C455F45 
  4644      56545F43 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 104
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 104
 
 
  4644      53435353 
  4644      5F575249 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 104
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4645              	.LASF351:
  4646 1590 43595F42 		.ascii	"CY_BLE_EVT_GATTC_SRVC_DISCOVERY_FAILED\000"
  4646      4C455F45 
@@ -6715,17 +6238,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4664 16ad 43595F42 		.ascii	"CY_BLE_EVT_SET_PHY_COMPLETE\000"
  4664      4C455F45 
  4664      56545F53 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 105
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 105
 
 
  4664      45545F50 
  4664      48595F43 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 105
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4665              	.LASF505:
  4666 16c9 43595F42 		.ascii	"CY_BLE_EVT_HIDSC_WRITE_DESCR_RESPONSE\000"
  4666      4C455F45 
@@ -6781,17 +6298,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4683              	.LASF180:
  4684 17e7 43595F42 		.ascii	"CY_BLE_EVT_GAP_ENHANCE_CONN_COMPLETE\000"
  4684      4C455F45 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 106
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 106
 
 
  4684      56545F47 
  4684      41505F45 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 106
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4684      4E48414E 
  4685              	.LASF216:
  4686 180c 43595F42 		.ascii	"CY_BLE_EVT_L2CAP_CONN_PARAM_UPDATE_REQ\000"
@@ -6847,17 +6358,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4703              	.LASF382:
  4704 1932 43595F42 		.ascii	"CY_BLE_EVT_ANCSC_READ_DESCR_RESPONSE\000"
  4704      4C455F45 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 107
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 107
 
 
  4704      56545F41 
  4704      4E435343 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 107
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4704      5F524541 
  4705              	.LASF380:
  4706 1957 43595F42 		.ascii	"CY_BLE_EVT_ANCSC_NOTIFICATION\000"
@@ -6913,17 +6418,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4724 1a58 43595F42 		.ascii	"CY_BLE_EVT_BLSC_NOTIFICATION\000"
  4724      4C455F45 
  4724      56545F42 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 108
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 108
 
 
  4724      4C53435F 
  4724      4E4F5449 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 108
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4725              	.LASF45:
  4726 1a75 63707573 		.ascii	"cpussIpc0Irq\000"
  4726      73497063 
@@ -6979,17 +6478,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4742      44574152 
  4743              	.LASF397:
  4744 1b82 43595F42 		.ascii	"CY_BLE_EVT_BASC_READ_DESCR_RESPONSE\000"
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 109
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 109
 
 
  4744      4C455F45 
  4744      56545F42 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 109
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4744      4153435F 
  4744      52454144 
  4745              	.LASF408:
@@ -7045,17 +6538,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4762      5F4D4943 
  4762      5F415554 
  4763              	.LASF555:
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 110
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 110
 
 
  4764 1cb2 43595F42 		.ascii	"CY_BLE_EVT_LNSC_NOTIFICATION\000"
  4764      4C455F45 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 110
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4764      56545F4C 
  4764      4E53435F 
  4764      4E4F5449 
@@ -7111,17 +6598,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4782 1dcb 43595F42 		.ascii	"CY_BLE_EVT_IPSC_ERROR_RESPONSE\000"
  4782      4C455F45 
  4782      56545F49 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 111
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 111
 
 
  4782      5053435F 
  4782      4552524F 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 111
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4783              	.LASF578:
  4784 1dea 43595F42 		.ascii	"CY_BLE_EVT_PLXSC_READ_DESCR_RESPONSE\000"
  4784      4C455F45 
@@ -7177,19 +6658,12 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4802      44697632 
  4802      345F3543 
  4802      746C4F66 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 112
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 112
 
 
  4802      66736574 
  4803              	.LASF376:
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 112
-
-
- 4804 1ee6 43595F42 		.ascii	"CY_BLE_EVT_AIOSC_ERROR_RESPONSE\000"
-=======
  4804 1efc 43595F42 		.ascii	"CY_BLE_EVT_AIOSC_ERROR_RESPONSE\000"
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4804      4C455F45 
  4804      56545F41 
  4804      494F5343 
@@ -7244,17 +6718,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4820      52454144 
  4821              	.LASF604:
  4822 2030 43595F42 		.ascii	"CY_BLE_EVT_TPSC_READ_CHAR_RESPONSE\000"
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 113
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 113
 
 
  4822      4C455F45 
  4822      56545F54 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 113
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4822      5053435F 
  4822      52454144 
  4823              	.LASF54:
@@ -7310,17 +6778,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4841      00
  4842              	.LASF112:
  4843 2156 43595F42 		.ascii	"CY_BLE_EVT_STACK_ON\000"
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 114
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 114
 
 
  4843      4C455F45 
  4843      56545F53 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 114
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4843      5441434B 
  4843      5F4F4E00 
  4844              	.LASF455:
@@ -7376,17 +6838,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4860      37373135 
  4861 229f 6F667466 		.ascii	"oftfp -mfpu=fpv4-sp-d16 -mthumb -g -Og -ffunction-s"
  4861      70202D6D 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 115
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 115
 
 
  4861      6670753D 
  4861      66707634 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 115
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4861      2D73702D 
  4862 22d2 65637469 		.ascii	"ections -ffat-lto-objects\000"
  4862      6F6E7320 
@@ -7442,17 +6898,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4879              	.LASF200:
  4880 23f1 43595F42 		.ascii	"CY_BLE_EVT_GATTC_READ_RSP\000"
  4880      4C455F45 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 116
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 116
 
 
  4880      56545F47 
  4880      41545443 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 116
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4880      5F524541 
  4881              	.LASF652:
  4882 240b 64624174 		.ascii	"dbAttrValInfo\000"
@@ -7508,17 +6958,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4899              	.LASF319:
  4900 24f1 43595F42 		.ascii	"CY_BLE_CONN_STATE_CLIENT_SRVC_DISCOVERING\000"
  4900      4C455F43 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 117
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 117
 
 
  4900      4F4E4E5F 
  4900      53544154 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 117
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4900      455F434C 
  4901              	.LASF467:
  4902 251b 43595F42 		.ascii	"CY_BLE_EVT_CTSC_WRITE_CHAR_RESPONSE\000"
@@ -7574,19 +7018,12 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4919              	.LASF22:
  4920 2614 63707573 		.ascii	"cpussBase\000"
  4920      73426173 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 118
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 118
 
 
  4920      6500
  4921              	.LASF588:
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 118
-
-
- 4922 2608 43595F42 		.ascii	"CY_BLE_EVT_RSCSC_INDICATION\000"
-=======
  4922 261e 43595F42 		.ascii	"CY_BLE_EVT_RSCSC_INDICATION\000"
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4922      4C455F45 
  4922      56545F52 
  4922      53435343 
@@ -7641,17 +7078,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4940      7400
  4941              	.LASF471:
  4942 2706 43595F42 		.ascii	"CY_BLE_EVT_ESSS_INDICATION_ENABLED\000"
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 119
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 119
 
 
  4942      4C455F45 
  4942      56545F45 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 119
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4942      5353535F 
  4942      494E4449 
  4943              	.LASF676:
@@ -7707,17 +7138,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4960      49445343 
  4960      5F4E4F54 
  4961              	.LASF498:
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 120
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 120
 
 
  4962 2847 43595F42 		.ascii	"CY_BLE_EVT_HIDSS_SUSPEND\000"
  4962      4C455F45 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 120
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4962      56545F48 
  4962      49445353 
  4962      5F535553 
@@ -7773,17 +7198,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  4980      4E4F5449 
  4981              	.LASF576:
  4982 295e 43595F42 		.ascii	"CY_BLE_EVT_PLXSC_READ_CHAR_RESPONSE\000"
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 121
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 121
 
 
  4982      4C455F45 
  4982      56545F50 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 121
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  4982      4C585343 
  4982      5F524541 
  4983              	.LASF236:
@@ -7839,19 +7258,12 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5000      44697631 
  5000      365F3543 
  5000      746C4F66 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 122
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 122
 
 
  5000      66736574 
  5001              	.LASF430:
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 122
-
-
- 5002 2a7e 43595F42 		.ascii	"CY_BLE_EVT_CGMSC_READ_DESCR_RESPONSE\000"
-=======
  5002 2a94 43595F42 		.ascii	"CY_BLE_EVT_CGMSC_READ_DESCR_RESPONSE\000"
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5002      4C455F45 
  5002      56545F43 
  5002      474D5343 
@@ -7906,18 +7318,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5019              	.LASF109:
  5020 2bae 666C6F61 		.ascii	"float\000"
  5020      7400
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 123
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 123
 
 
  5021              	.LASF383:
-<<<<<<< HEAD
- 5022 2b9e 43595F42 		.ascii	"CY_BLE_EVT_ANCSC_WRITE_DESCR_RESPONSE\000"
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 123
-
-
-=======
  5022 2bb4 43595F42 		.ascii	"CY_BLE_EVT_ANCSC_WRITE_DESCR_RESPONSE\000"
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5022      4C455F45 
  5022      56545F41 
  5022      4E435343 
@@ -7973,17 +7378,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5040      48616E64 
  5040      6C6500
  5041              	.LASF564:
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 124
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 124
 
 
  5042 2cbd 43595F42 		.ascii	"CY_BLE_EVT_PASSC_NOTIFICATION\000"
  5042      4C455F45 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 124
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5042      56545F50 
  5042      41535343 
  5042      5F4E4F54 
@@ -8039,18 +7438,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5060      56545F57 
  5060      50545343 
  5060      5F524541 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 125
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 125
 
 
  5061              	.LASF334:
-<<<<<<< HEAD
- 5062 2de4 63795F65 		.ascii	"cy_en_ble_ias_char_index_t\000"
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 125
-
-
-=======
  5062 2dfa 63795F65 		.ascii	"cy_en_ble_ias_char_index_t\000"
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5062      6E5F626C 
  5062      655F6961 
  5062      735F6368 
@@ -8106,19 +7498,12 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5080      4C455F45 
  5080      56545F47 
  5080      41505F4B 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 126
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 126
 
 
  5080      45595052 
  5081              	.LASF87:
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 126
-
-
- 5082 2f1c 6770696F 		.ascii	"gpioPrtIntrCfgOffset\000"
-=======
  5082 2f32 6770696F 		.ascii	"gpioPrtIntrCfgOffset\000"
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5082      50727449 
  5082      6E747243 
  5082      66674F66 
@@ -8173,17 +7558,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5099              	.LASF468:
  5100 3039 43595F42 		.ascii	"CY_BLE_EVT_DISC_READ_CHAR_RESPONSE\000"
  5100      4C455F45 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 127
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 127
 
 
  5100      56545F44 
  5100      4953435F 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 127
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5100      52454144 
  5101              	.LASF611:
  5102 305c 43595F42 		.ascii	"CY_BLE_EVT_UDSS_NOTIFICATION_DISABLED\000"
@@ -8239,17 +7618,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5119              	.LASF95:
  5120 3170 63707573 		.ascii	"cpussCm0StatusOffset\000"
  5120      73436D30 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 128
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 128
 
 
  5120      53746174 
  5120      75734F66 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 128
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5120      66736574 
  5121              	.LASF495:
  5122 3185 43595F42 		.ascii	"CY_BLE_EVT_HIDSS_NOTIFICATION_DISABLED\000"
@@ -8305,17 +7678,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5138      4972714E 
  5138      7200
  5139              	.LASF205:
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 129
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 129
 
 
  5140 3286 43595F42 		.ascii	"CY_BLE_EVT_GATTS_WRITE_CMD_REQ\000"
  5140      4C455F45 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 129
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5140      56545F47 
  5140      41545453 
  5140      5F575249 
@@ -8371,17 +7738,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5158 33b7 43595F42 		.ascii	"CY_BLE_EVT_SET_CE_LENGTH_COMPLETE\000"
  5158      4C455F45 
  5158      56545F53 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 130
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 130
 
 
  5158      45545F43 
  5158      455F4C45 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 130
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5159              	.LASF286:
  5160 33d9 43595F42 		.ascii	"CY_BLE_GATT_ERR_OP_CODE_NOT_SUPPORTED\000"
  5160      4C455F47 
@@ -8437,17 +7798,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5176      5F4E4F54 
  5177              	.LASF596:
  5178 3503 43595F42 		.ascii	"CY_BLE_EVT_SCPSS_NOTIFICATION_DISABLED\000"
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 131
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 131
 
 
  5178      4C455F45 
  5178      56545F53 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 131
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5178      43505353 
  5178      5F4E4F54 
  5179              	.LASF2:
@@ -8503,17 +7858,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5196      41545453 
  5196      5F455845 
  5197              	.LASF246:
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 132
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 132
 
 
  5198 3640 43595F42 		.ascii	"CY_BLE_ERROR_L2CAP_PSM_NOT_IN_RANGE\000"
  5198      4C455F45 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 132
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5198      52524F52 
  5198      5F4C3243 
  5198      41505F50 
@@ -8569,17 +7918,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5216      45545F52 
  5216      50415F45 
  5217              	.LASF284:
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 133
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 133
 
 
  5218 376b 43595F42 		.ascii	"CY_BLE_GATT_ERR_HTS_OUT_OF_RANGE\000"
  5218      4C455F47 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 133
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5218      4154545F 
  5218      4552525F 
  5218      4854535F 
@@ -8635,17 +7978,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5236 38a5 43595F42 		.ascii	"CY_BLE_EVT_LE_PING_AUTH_TIMEOUT\000"
  5236      4C455F45 
  5236      56545F4C 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 134
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 134
 
 
  5236      455F5049 
  5236      4E475F41 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 134
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5237              	.LASF19:
  5238 38c5 75696E74 		.ascii	"uint16_t\000"
  5238      31365F74 
@@ -8701,17 +8038,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5256 39bd 63795F73 		.ascii	"cy_stc_ble_gatt_write_param_t\000"
  5256      74635F62 
  5256      6C655F67 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 135
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 135
 
 
  5256      6174745F 
  5256      77726974 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 135
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5257              	.LASF318:
  5258 39db 43595F42 		.ascii	"CY_BLE_CONN_STATE_CONNECTED\000"
  5258      4C455F43 
@@ -8761,562 +8092,13 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5273              	.LASF184:
  5274 3ac4 43595F42 		.ascii	"CY_BLE_EVT_GAP_KEYS_GEN_COMPLETE\000"
  5274      4C455F45 
-<<<<<<< HEAD
- 5274      52524F52 
- 5274      5F4C3243 
- 5274      41505F50 
- 5275              	.LASF314:
- 5276 3aeb 43595F42 		.ascii	"CY_BLE_ADV_STATE_STOP_INITIATED\000"
- 5276      4C455F41 
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 136
-
-
- 5276      44565F53 
- 5276      54415445 
- 5276      5F53544F 
- 5277              	.LASF373:
- 5278 3b0b 43595F42 		.ascii	"CY_BLE_EVT_AIOSC_WRITE_CHAR_RESPONSE\000"
- 5278      4C455F45 
- 5278      56545F41 
- 5278      494F5343 
- 5278      5F575249 
- 5279              	.LASF358:
- 5280 3b30 43595F42 		.ascii	"CY_BLE_EVT_GATTC_SRVC_DISCOVERY_COMPLETE\000"
- 5280      4C455F45 
- 5280      56545F47 
- 5280      41545443 
- 5280      5F535256 
- 5281              	.LASF226:
- 5282 3b59 43595F42 		.ascii	"CY_BLE_EVT_L2CAP_CBFC_DATA_WRITE_IND\000"
- 5282      4C455F45 
- 5282      56545F4C 
- 5282      32434150 
- 5282      5F434246 
- 5283              	.LASF93:
- 5284 3b7e 63707573 		.ascii	"cpussCm4ClockCtlOffset\000"
- 5284      73436D34 
- 5284      436C6F63 
- 5284      6B43746C 
- 5284      4F666673 
- 5285              	.LASF343:
- 5286 3b95 43595F42 		.ascii	"CY_BLE_AUTHENTICATION_REQUEST_REPLY\000"
- 5286      4C455F41 
- 5286      55544845 
- 5286      4E544943 
- 5286      4154494F 
- 5287              	.LASF20:
- 5288 3bb9 696E7433 		.ascii	"int32_t\000"
- 5288      325F7400 
- 5289              	.LASF43:
- 5290 3bc1 63707573 		.ascii	"cpussDwChNr\000"
- 5290      73447743 
- 5290      684E7200 
- 5291              	.LASF405:
- 5292 3bcd 43595F42 		.ascii	"CY_BLE_EVT_BCSC_WRITE_DESCR_RESPONSE\000"
- 5292      4C455F45 
- 5292      56545F42 
- 5292      4353435F 
- 5292      57524954 
- 5293              	.LASF621:
- 5294 3bf2 43595F42 		.ascii	"CY_BLE_EVT_WPTSS_NOTIFICATION_ENABLED\000"
- 5294      4C455F45 
- 5294      56545F57 
- 5294      50545353 
- 5294      5F4E4F54 
- 5295              	.LASF273:
- 5296 3c18 43595F42 		.ascii	"CY_BLE_GATT_ERR_ATTRIBUTE_NOT_FOUND\000"
- 5296      4C455F47 
- 5296      4154545F 
- 5296      4552525F 
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 137
-
-
- 5296      41545452 
- 5297              	.LASF663:
- 5298 3c3c 43795F42 		.ascii	"Cy_BLE_IAS_RegisterAttrCallback\000"
- 5298      4C455F49 
- 5298      41535F52 
- 5298      65676973 
- 5298      74657241 
- 5299              	.LASF490:
- 5300 3c5c 43595F42 		.ascii	"CY_BLE_EVT_GLSC_READ_CHAR_RESPONSE\000"
- 5300      4C455F45 
- 5300      56545F47 
- 5300      4C53435F 
- 5300      52454144 
- 5301              	.LASF356:
- 5302 3c7f 43595F42 		.ascii	"CY_BLE_EVT_GATTC_CHAR_DUPLICATION\000"
- 5302      4C455F45 
- 5302      56545F47 
- 5302      41545443 
- 5302      5F434841 
- 5303              	.LASF513:
- 5304 3ca1 43595F42 		.ascii	"CY_BLE_EVT_HPSC_WRITE_CHAR_RESPONSE\000"
- 5304      4C455F45 
- 5304      56545F48 
- 5304      5053435F 
- 5304      57524954 
- 5305              	.LASF484:
- 5306 3cc5 43595F42 		.ascii	"CY_BLE_EVT_GLSS_INDICATION_CONFIRMED\000"
- 5306      4C455F45 
- 5306      56545F47 
- 5306      4C53535F 
- 5306      494E4449 
- 5307              	.LASF309:
- 5308 3cea 636F6E6E 		.ascii	"connHandle\000"
- 5308      48616E64 
- 5308      6C6500
- 5309              	.LASF679:
- 5310 3cf5 47656E65 		.ascii	"Generated_Source\\PSoC6\\pdl\\middleware\\ble\\cy_b"
- 5310      72617465 
- 5310      645F536F 
- 5310      75726365 
- 5310      5C50536F 
- 5311 3d23 6C655F69 		.ascii	"le_ias.c\000"
- 5311      61732E63 
- 5311      00
- 5312              	.LASF6:
- 5313 3d2c 5F5F696E 		.ascii	"__int16_t\000"
- 5313      7431365F 
- 5313      7400
- 5314              	.LASF275:
- 5315 3d36 43595F42 		.ascii	"CY_BLE_GATT_ERR_INSUFFICIENT_ENC_KEY_SIZE\000"
- 5315      4C455F47 
- 5315      4154545F 
- 5315      4552525F 
- 5315      494E5355 
- 5316              	.LASF182:
- 5317 3d60 43595F42 		.ascii	"CY_BLE_EVT_GAP_SMP_NEGOTIATED_AUTH_INFO\000"
- 5317      4C455F45 
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 138
-
-
- 5317      56545F47 
- 5317      41505F53 
- 5317      4D505F4E 
- 5318              	.LASF381:
- 5319 3d88 43595F42 		.ascii	"CY_BLE_EVT_ANCSC_WRITE_CHAR_RESPONSE\000"
- 5319      4C455F45 
- 5319      56545F41 
- 5319      4E435343 
- 5319      5F575249 
- 5320              	.LASF617:
- 5321 3dad 43595F42 		.ascii	"CY_BLE_EVT_UDSC_WRITE_CHAR_RESPONSE\000"
- 5321      4C455F45 
- 5321      56545F55 
- 5321      4453435F 
- 5321      57524954 
- 5322              	.LASF79:
- 5323 3dd1 70657269 		.ascii	"periDivCmdDivSelMsk\000"
- 5323      44697643 
- 5323      6D644469 
- 5323      7653656C 
- 5323      4D736B00 
- 5324              	.LASF217:
- 5325 3de5 43595F42 		.ascii	"CY_BLE_EVT_L2CAP_CONN_PARAM_UPDATE_RSP\000"
- 5325      4C455F45 
- 5325      56545F4C 
- 5325      32434150 
- 5325      5F434F4E 
- 5326              	.LASF281:
- 5327 3e0c 43595F42 		.ascii	"CY_BLE_GATT_ERR_HEART_RATE_CONTROL_POINT_NOT_SUPPOR"
- 5327      4C455F47 
- 5327      4154545F 
- 5327      4552525F 
- 5327      48454152 
- 5328 3e3f 54454400 		.ascii	"TED\000"
- 5329              	.LASF530:
- 5330 3e43 43595F42 		.ascii	"CY_BLE_EVT_HTSC_READ_CHAR_RESPONSE\000"
- 5330      4C455F45 
- 5330      56545F48 
- 5330      5453435F 
- 5330      52454144 
- 5331              	.LASF277:
- 5332 3e66 43595F42 		.ascii	"CY_BLE_GATT_ERR_UNLIKELY_ERROR\000"
- 5332      4C455F47 
- 5332      4154545F 
- 5332      4552525F 
- 5332      554E4C49 
- 5333              	.LASF34:
- 5334 3e85 64775665 		.ascii	"dwVersion\000"
- 5334      7273696F 
- 5334      6E00
- 5335              	.LASF201:
- 5336 3e8f 43595F42 		.ascii	"CY_BLE_EVT_GATTC_READ_BLOB_RSP\000"
- 5336      4C455F45 
- 5336      56545F47 
- 5336      41545443 
- 5336      5F524541 
- 5337              	.LASF28:
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 139
-
-
- 5338 3eae 6770696F 		.ascii	"gpioBase\000"
- 5338      42617365 
- 5338      00
- 5339              	.LASF307:
- 5340 3eb7 63795F73 		.ascii	"cy_stc_ble_gatt_handle_value_pair_t\000"
- 5340      74635F62 
- 5340      6C655F67 
- 5340      6174745F 
- 5340      68616E64 
- 5341              	.LASF57:
- 5342 3edb 70726F74 		.ascii	"protBusMasterMask\000"
- 5342      4275734D 
- 5342      61737465 
- 5342      724D6173 
- 5342      6B00
- 5343              	.LASF56:
- 5344 3eed 73797350 		.ascii	"sysPmSimoPresent\000"
- 5344      6D53696D 
- 5344      6F507265 
- 5344      73656E74 
- 5344      00
- 5345              	.LASF227:
- 5346 3efe 43595F42 		.ascii	"CY_BLE_EVT_MAX\000"
- 5346      4C455F45 
- 5346      56545F4D 
- 5346      415800
- 5347              	.LASF418:
- 5348 3f0d 43595F42 		.ascii	"CY_BLE_EVT_BMSC_WRITE_CHAR_RESPONSE\000"
- 5348      4C455F45 
- 5348      56545F42 
- 5348      4D53435F 
- 5348      57524954 
- 5349              	.LASF326:
- 5350 3f31 68616E64 		.ascii	"handleValuePair\000"
- 5350      6C655661 
- 5350      6C756550 
- 5350      61697200 
- 5351              	.LASF668:
- 5352 3f41 63795F64 		.ascii	"cy_device\000"
- 5352      65766963 
- 5352      6500
- 5353              	.LASF606:
- 5354 3f4b 43595F42 		.ascii	"CY_BLE_EVT_TPSC_WRITE_DESCR_RESPONSE\000"
- 5354      4C455F45 
- 5354      56545F54 
- 5354      5053435F 
- 5354      57524954 
- 5355              	.LASF262:
- 5356 3f70 63795F73 		.ascii	"cy_stc_ble_conn_handle_t\000"
- 5356      74635F62 
- 5356      6C655F63 
- 5356      6F6E6E5F 
- 5356      68616E64 
- 5357              	.LASF461:
- 5358 3f89 43595F42 		.ascii	"CY_BLE_EVT_CTSS_NOTIFICATION_DISABLED\000"
- 5358      4C455F45 
- 5358      56545F43 
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 140
-
-
- 5358      5453535F 
- 5358      4E4F5449 
- 5359              	.LASF546:
- 5360 3faf 43595F42 		.ascii	"CY_BLE_EVT_LLSC_READ_CHAR_RESPONSE\000"
- 5360      4C455F45 
- 5360      56545F4C 
- 5360      4C53435F 
- 5360      52454144 
- 5361              	.LASF170:
- 5362 3fd2 43595F42 		.ascii	"CY_BLE_EVT_GAPP_ADVERTISEMENT_START_STOP\000"
- 5362      4C455F45 
- 5362      56545F47 
- 5362      4150505F 
- 5362      41445645 
- 5363              	.LASF372:
- 5364 3ffb 43595F42 		.ascii	"CY_BLE_EVT_AIOSC_READ_CHAR_RESPONSE\000"
- 5364      4C455F45 
- 5364      56545F41 
- 5364      494F5343 
- 5364      5F524541 
- 5365              	.LASF570:
- 5366 401f 43595F42 		.ascii	"CY_BLE_EVT_PLXSS_INDICATION_CONFIRMED\000"
- 5366      4C455F45 
- 5366      56545F50 
- 5366      4C585353 
- 5366      5F494E44 
- 5367              	.LASF582:
- 5368 4045 43595F42 		.ascii	"CY_BLE_EVT_RSCSS_NOTIFICATION_DISABLED\000"
- 5368      4C455F45 
- 5368      56545F52 
- 5368      53435353 
- 5368      5F4E4F54 
- 5369              	.LASF238:
- 5370 406c 43595F42 		.ascii	"CY_BLE_ERROR_DEVICE_ALREADY_EXISTS\000"
- 5370      4C455F45 
- 5370      52524F52 
- 5370      5F444556 
- 5370      4943455F 
- 5371              	.LASF482:
- 5372 408f 43595F42 		.ascii	"CY_BLE_EVT_GLSS_INDICATION_ENABLED\000"
- 5372      4C455F45 
- 5372      56545F47 
- 5372      4C53535F 
- 5372      494E4449 
- 5373              	.LASF644:
- 5374 40b2 43595F42 		.ascii	"CY_BLE_EVT_BTSS_PREP_WRITE_REQ\000"
- 5374      4C455F45 
- 5374      56545F42 
- 5374      5453535F 
- 5374      50524550 
- 5375              	.LASF350:
- 5376 40d1 43595F42 		.ascii	"CY_BLE_EVT_GATTC_INDICATION\000"
- 5376      4C455F45 
- 5376      56545F47 
- 5376      41545443 
- 5376      5F494E44 
- 5377              	.LASF560:
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 141
-
-
- 5378 40ed 43595F42 		.ascii	"CY_BLE_EVT_NDCSC_READ_CHAR_RESPONSE\000"
- 5378      4C455F45 
- 5378      56545F4E 
- 5378      44435343 
- 5378      5F524541 
- 5379              	.LASF214:
- 5380 4111 43595F42 		.ascii	"CY_BLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ\000"
- 5380      4C455F45 
- 5380      56545F47 
- 5380      41545453 
- 5380      5F524541 
- 5381              	.LASF375:
- 5382 413b 43595F42 		.ascii	"CY_BLE_EVT_AIOSC_WRITE_DESCR_RESPONSE\000"
- 5382      4C455F45 
- 5382      56545F41 
- 5382      494F5343 
- 5382      5F575249 
- 5383              	.LASF120:
- 5384 4161 43595F42 		.ascii	"CY_BLE_EVT_READ_AUTH_PAYLOAD_TO_COMPLETE\000"
- 5384      4C455F45 
- 5384      56545F52 
- 5384      4541445F 
- 5384      41555448 
- 5385              	.LASF237:
- 5386 418a 43595F42 		.ascii	"CY_BLE_ERROR_NO_DEVICE_ENTITY\000"
- 5386      4C455F45 
- 5386      52524F52 
- 5386      5F4E4F5F 
- 5386      44455649 
- 5387              	.LASF231:
- 5388 41a8 43595F42 		.ascii	"CY_BLE_ERROR_INVALID_PARAMETER\000"
- 5388      4C455F45 
- 5388      52524F52 
- 5388      5F494E56 
- 5388      414C4944 
- 5389              	.LASF121:
- 5390 41c7 43595F42 		.ascii	"CY_BLE_EVT_GET_CHANNEL_MAP_COMPLETE\000"
- 5390      4C455F45 
- 5390      56545F47 
- 5390      45545F43 
- 5390      48414E4E 
- 5391              	.LASF242:
- 5392 41eb 43595F42 		.ascii	"CY_BLE_ERROR_L2CAP_PSM_WRONG_ENCODING\000"
- 5392      4C455F45 
- 5392      52524F52 
- 5392      5F4C3243 
- 5392      41505F50 
- 5393              	.LASF653:
- 5394 4211 7772436D 		.ascii	"wrCmdParam\000"
- 5394      64506172 
- 5394      616D00
- 5395              	.LASF39:
- 5396 421c 70657269 		.ascii	"periVersion\000"
- 5396      56657273 
- 5396      696F6E00 
- 5397              	.LASF316:
- 5398 4228 43595F42 		.ascii	"CY_BLE_CONN_STATE_DISCONNECTED\000"
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 142
-
-
- 5398      4C455F43 
- 5398      4F4E4E5F 
- 5398      53544154 
- 5398      455F4449 
- 5399              	.LASF410:
- 5400 4247 43595F42 		.ascii	"CY_BLE_EVT_BLSS_NOTIFICATION_DISABLED\000"
- 5400      4C455F45 
- 5400      56545F42 
- 5400      4C53535F 
- 5400      4E4F5449 
- 5401              	.LASF7:
- 5402 426d 73686F72 		.ascii	"short int\000"
- 5402      7420696E 
- 5402      7400
- 5403              	.LASF156:
- 5404 4277 43595F42 		.ascii	"CY_BLE_EVT_STACK_SHUTDOWN_COMPLETE\000"
- 5404      4C455F45 
- 5404      56545F53 
- 5404      5441434B 
- 5404      5F534855 
- 5405              	.LASF308:
- 5406 429a 68616E64 		.ascii	"handleValPair\000"
- 5406      6C655661 
- 5406      6C506169 
- 5406      7200
- 5407              	.LASF147:
- 5408 42a8 43595F42 		.ascii	"CY_BLE_EVT_GET_TX_PWR_COMPLETE\000"
- 5408      4C455F45 
- 5408      56545F47 
- 5408      45545F54 
- 5408      585F5057 
- 5409              	.LASF396:
- 5410 42c7 43595F42 		.ascii	"CY_BLE_EVT_BASC_READ_CHAR_RESPONSE\000"
- 5410      4C455F45 
- 5410      56545F42 
- 5410      4153435F 
- 5410      52454144 
- 5411              	.LASF145:
- 5412 42ea 43595F42 		.ascii	"CY_BLE_EVT_GET_DEVICE_ADDR_COMPLETE\000"
- 5412      4C455F45 
- 5412      56545F47 
- 5412      45545F44 
- 5412      45564943 
- 5413              	.LASF662:
- 5414 430e 43795F42 		.ascii	"Cy_BLE_IAS_Init\000"
- 5414      4C455F49 
- 5414      41535F49 
- 5414      6E697400 
- 5415              	.LASF348:
- 5416 431e 43595F42 		.ascii	"CY_BLE_EVT_GATTS_INDICATION_ENABLED\000"
- 5416      4C455F45 
- 5416      56545F47 
- 5416      41545453 
- 5416      5F494E44 
- 5417              	.LASF562:
- 5418 4342 43595F42 		.ascii	"CY_BLE_EVT_PASSS_NOTIFICATION_DISABLED\000"
- 5418      4C455F45 
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 143
-
-
- 5418      56545F50 
- 5418      41535353 
- 5418      5F4E4F54 
- 5419              	.LASF268:
- 5420 4369 43595F42 		.ascii	"CY_BLE_GATT_ERR_INSUFFICIENT_AUTHENTICATION\000"
- 5420      4C455F47 
- 5420      4154545F 
- 5420      4552525F 
- 5420      494E5355 
- 5421              	.LASF497:
- 5422 4395 43595F42 		.ascii	"CY_BLE_EVT_HIDSS_REPORT_MODE_ENTER\000"
- 5422      4C455F45 
- 5422      56545F48 
- 5422      49445353 
- 5422      5F524550 
- 5423              	.LASF18:
- 5424 43b8 696E7431 		.ascii	"int16_t\000"
- 5424      365F7400 
- 5425              	.LASF593:
- 5426 43c0 43595F42 		.ascii	"CY_BLE_EVT_RTUSS_WRITE_CHAR_CMD\000"
- 5426      4C455F45 
- 5426      56545F52 
- 5426      54555353 
- 5426      5F575249 
- 5427              	.LASF289:
- 5428 43e0 43595F42 		.ascii	"CY_BLE_GATTS_ERR_OPERATION_FAILED\000"
- 5428      4C455F47 
- 5428      41545453 
- 5428      5F455252 
- 5428      5F4F5045 
- 5429              	.LASF371:
- 5430 4402 43595F42 		.ascii	"CY_BLE_EVT_AIOSC_INDICATION\000"
- 5430      4C455F45 
- 5430      56545F41 
- 5430      494F5343 
- 5430      5F494E44 
- 5431              	.LASF65:
- 5432 441e 666C6173 		.ascii	"flashCtlMainWs1Freq\000"
- 5432      6843746C 
- 5432      4D61696E 
- 5432      57733146 
- 5432      72657100 
- 5433              	.LASF389:
- 5434 4432 43595F42 		.ascii	"CY_BLE_EVT_ANSC_READ_CHAR_RESPONSE\000"
- 5434      4C455F45 
- 5434      56545F41 
- 5434      4E53435F 
- 5434      52454144 
- 5435              	.LASF533:
- 5436 4455 43595F42 		.ascii	"CY_BLE_EVT_HTSC_WRITE_DESCR_RESPONSE\000"
- 5436      4C455F45 
- 5436      56545F48 
- 5436      5453435F 
- 5436      57524954 
- 5437              	.LASF365:
- 5438 447a 43595F42 		.ascii	"CY_BLE_EVT_AIOSS_INDICATION_ENABLED\000"
- 5438      4C455F45 
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 144
-
-
- 5438      56545F41 
- 5438      494F5353 
- 5438      5F494E44 
- 5439              	.LASF404:
- 5440 449e 43595F42 		.ascii	"CY_BLE_EVT_BCSC_READ_DESCR_RESPONSE\000"
- 5440      4C455F45 
- 5440      56545F42 
- 5440      4353435F 
- 5440      52454144 
- 5441              	.LASF212:
- 5442 44c2 43595F42 		.ascii	"CY_BLE_EVT_GATTS_DATA_SIGNED_CMD_REQ\000"
- 5442      4C455F45 
- 5442      56545F47 
- 5442      41545453 
- 5442      5F444154 
- 5443              	.LASF171:
- 5444 44e7 43595F42 		.ascii	"CY_BLE_EVT_GAP_DEVICE_CONNECTED\000"
- 5444      4C455F45 
- 5444      56545F47 
- 5444      41505F44 
- 5444      45564943 
- 5445              	.LASF158:
- 5446 4507 43595F42 		.ascii	"CY_BLE_EVT_RADIO_VOLTAGE_LEVEL\000"
- 5446      4C455F45 
- 5446      56545F52 
- 5446      4144494F 
- 5446      5F564F4C 
- 5447              	.LASF673:
- 5448 4526 63795F62 		.ascii	"cy_ble_connState\000"
- 5448      6C655F63 
- 5448      6F6E6E53 
- 5448      74617465 
- 5448      00
- 5449              	.LASF301:
- 5450 4537 63795F65 		.ascii	"cy_en_ble_gatt_err_code_t\000"
- 5450      6E5F626C 
- 5450      655F6761 
- 5450      74745F65 
- 5450      72725F63 
- 5451              	.LASF60:
- 5452 4551 666C6173 		.ascii	"flashPipeRequired\000"
- 5452      68506970 
- 5452      65526571 
- 5452      75697265 
- 5452      6400
- 5453              	.LASF650:
- 5454 4563 43595F42 		.ascii	"CY_BLE_EVT_GATTC_DISC_DESCR_GET_RANGE\000"
- 5454      4C455F45 
- 5454      56545F47 
- 5454      41545443 
- 5454      5F444953 
- 5455              	.LASF240:
- 5456 4589 43595F42 		.ascii	"CY_BLE_ERROR_GAP_ROLE\000"
- 5456      4C455F45 
- 5456      52524F52 
- 5456      5F474150 
- 5456      5F524F4C 
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 145
-=======
  5274      56545F47 
  5274      41505F4B 
  5274      4559535F 
  5275              	.LASF244:
  5276 3ae5 43595F42 		.ascii	"CY_BLE_ERROR_L2CAP_PSM_NOT_REGISTERED\000"
  5276      4C455F45 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 136
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 136
 
 
  5276      52524F52 
@@ -9376,7 +8158,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5295      56545F42 
  5295      4353435F 
  5295      57524954 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 137
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 137
 
 
  5296              	.LASF621:
@@ -9436,7 +8218,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5314      00
  5315              	.LASF6:
  5316 3d72 5F5F696E 		.ascii	"__int16_t\000"
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 138
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 138
 
 
  5316      7431365F 
@@ -9496,7 +8278,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5335      4154545F 
  5335      4552525F 
  5335      554E4C49 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 139
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 139
 
 
  5336              	.LASF34:
@@ -9556,7 +8338,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5357      4C455F45 
  5357      56545F54 
  5357      5053435F 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 140
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 140
 
 
  5357      57524954 
@@ -9616,7 +8398,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5375      494E4449 
  5376              	.LASF644:
  5377 40f8 43595F42 		.ascii	"CY_BLE_EVT_BTSS_PREP_WRITE_REQ\000"
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 141
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 141
 
 
  5377      4C455F45 
@@ -9676,7 +8458,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5395      4C455F45 
  5395      52524F52 
  5395      5F4C3243 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 142
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 142
 
 
  5395      41505F50 
@@ -9736,7 +8518,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5416              	.LASF662:
  5417 4354 43795F42 		.ascii	"Cy_BLE_IAS_Init\000"
  5417      4C455F49 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 143
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 143
 
 
  5417      41535F49 
@@ -9796,7 +8578,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5437 4478 43595F42 		.ascii	"CY_BLE_EVT_ANSC_READ_CHAR_RESPONSE\000"
  5437      4C455F45 
  5437      56545F41 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 144
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 144
 
 
  5437      4E53435F 
@@ -9856,8 +8638,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5455      75697265 
  5455      6400
  5456              	.LASF650:
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 145
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 145
 
 
  5457 45a9 43595F42 		.ascii	"CY_BLE_EVT_GATTC_DISC_DESCR_GET_RANGE\000"
@@ -9917,17 +8698,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5477 46b3 6770696F 		.ascii	"gpioPrtCfgSioOffset\000"
  5477      50727443 
  5477      66675369 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 146
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 146
 
 
  5477      6F4F6666 
  5477      73657400 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 146
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5478              	.LASF477:
  5479 46c7 43595F42 		.ascii	"CY_BLE_EVT_ESSC_INDICATION\000"
  5479      4C455F45 
@@ -9983,17 +8758,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5495      4D41435F 
  5496              	.LASF55:
  5497 47c4 75646250 		.ascii	"udbPresent\000"
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 147
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 147
 
 
  5497      72657365 
  5497      6E7400
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 147
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5498              	.LASF367:
  5499 47cf 43595F42 		.ascii	"CY_BLE_EVT_AIOSS_INDICATION_CONFIRMED\000"
  5499      4C455F45 
@@ -10049,18 +8818,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5517      56545F50 
  5517      4C585353 
  5517      5F494E44 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 148
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 148
 
 
  5518              	.LASF551:
-<<<<<<< HEAD
- 5519 48cf 43595F42 		.ascii	"CY_BLE_EVT_LNSS_NOTIFICATION_ENABLED\000"
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 148
-
-
-=======
  5519 48dc 43595F42 		.ascii	"CY_BLE_EVT_LNSS_NOTIFICATION_ENABLED\000"
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5519      4C455F45 
  5519      56545F4C 
  5519      4E53535F 
@@ -10116,17 +8878,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5537      72696F50 
  5537      6F7300
  5538              	.LASF344:
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 149
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 149
 
 
  5539 4a07 43595F42 		.ascii	"CY_BLE_PASSKEY_ENTRY_REQUEST_REPLY\000"
  5539      4C455F50 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 149
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5539      4153534B 
  5539      45595F45 
  5539      4E545259 
@@ -10182,19 +8938,12 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5558      4C455F45 
  5558      52524F52 
  5558      5F494E56 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 150
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 150
 
 
  5558      414C4944 
  5559              	.LASF574:
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 150
-
-
- 5560 4b18 43595F42 		.ascii	"CY_BLE_EVT_PLXSC_INDICATION\000"
-=======
  5560 4b25 43595F42 		.ascii	"CY_BLE_EVT_PLXSC_INDICATION\000"
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5560      4C455F45 
  5560      56545F50 
  5560      4C585343 
@@ -10249,19 +8998,12 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5578 4c27 69706353 		.ascii	"ipcStructSize\000"
  5578      74727563 
  5578      7453697A 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 151
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 151
 
 
  5578      6500
  5579              	.LASF303:
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 151
-
-
- 5580 4c28 61637475 		.ascii	"actualLen\000"
-=======
  5580 4c35 61637475 		.ascii	"actualLen\000"
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5580      616C4C65 
  5580      6E00
  5581              	.LASF295:
@@ -10316,17 +9058,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5600 4d24 43595F42 		.ascii	"CY_BLE_EVT_ANSC_WRITE_CHAR_RESPONSE\000"
  5600      4C455F45 
  5600      56545F41 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 152
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 152
 
 
  5600      4E53435F 
  5600      57524954 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 152
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5601              	.LASF507:
  5602 4d48 43595F42 		.ascii	"CY_BLE_EVT_HPSS_NOTIFICATION_DISABLED\000"
  5602      4C455F45 
@@ -10382,17 +9118,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5618      5353435F 
  5618      57524954 
  5619              	.LASF639:
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 153
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 153
 
 
  5620 4e8b 43595F42 		.ascii	"CY_BLE_EVT_WSSC_WRITE_DESCR_RESPONSE\000"
  5620      4C455F45 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 153
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5620      56545F57 
  5620      5353435F 
  5620      57524954 
@@ -10448,17 +9178,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 1
  5638 4fce 43595F42 		.ascii	"CY_BLE_EVT_TPSS_NOTIFICATION_DISABLED\000"
  5638      4C455F45 
  5638      56545F54 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\cc4TCfDq.s 			page 154
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cciK0WDx.s 			page 154
 
 
  5638      5053535F 
  5638      4E4F5449 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccOTDTDp.s 			page 154
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  5639              	.LASF436:
  5640 4ff4 43595F42 		.ascii	"CY_BLE_EVT_CPSS_INDICATION_CONFIRMED\000"
  5640      4C455F45 

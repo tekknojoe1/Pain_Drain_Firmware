@@ -1,10 +1,6 @@
 // ======================================================================
 // PainDrain.v generated from TopDesign.cysch
-<<<<<<< HEAD
-// 10/06/2023 at 10:07
-=======
-// 10/05/2023 at 15:39
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+// 10/06/2023 at 15:34
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -211,7 +207,7 @@ endmodule
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v"
 `endif
 
-// SCB_SPI_PDL_v2_0(BitsOrder=1, BufferMinSize=64, ByteMode=true, ClkDesFrequency=8000, ClkMinusTolerance=100, ClkPlusTolerance=5, ClockFromTerm=false, DataRate=2000, DeassertSelectLine=false, DeepSleepCapable=false, EnableFreeRunSclk=false, EnableInputFilter=false, EnableInterruptTerm=false, EnableLateMisoSample=false, EnableRxOutput=false, EnableSpimMisoTerm=false, EnableSpimMosiTerm=true, EnableSpimSclkTerm=true, EnableSpimSs0Term=true, EnableSpimSs1Term=false, EnableSpimSs2Term=false, EnableSpimSs3Term=false, EnableSpisMisoTerm=false, EnableSpisMosiTerm=false, EnableSpisSclkTerm=false, EnableSpisSsTerm=false, EnableTriggerOutput=false, EnableTxOutput=false, EnableWakeup=false, InterruptMode=1, IntrMasterSlaveMask=0, IntrMasterSpiDone=false, IntrRxFull=false, IntrRxMask=0, IntrRxNotEmpty=false, IntrRxOverflow=false, IntrRxTrigger=false, IntrRxUnderflow=false, IntrSlaveBusError=false, IntrTxEmpty=false, IntrTxMask=0, IntrTxNotFull=false, IntrTxOverflow=false, IntrTxTrigger=false, IntrTxUnderflow=false, IsDmaCapable=true, IsEnableWakeupVisible=false, IsMasterEnabled=true, IsRxTriggerLevelVisible=false, IsTxTriggerLevelVisible=false, MasterMode=true, MaxFifoLevel=127, MinOvsFactor=2, Mode=1, OvsFactor=4, RemoveIntr=false, RemoveMasterMiso=true, RemoveMasterMosi=true, RemoveMasterSclk=true, RemoveMasterSs0Pin=true, RemoveMasterSs1Pin=true, RemoveMasterSs2Pin=true, RemoveMasterSs3Pin=true, RemoveMiso=true, RemoveMosi=false, RemoveSclk=false, RemoveSlaveMiso=true, RemoveSlaveMosi=true, RemoveSlaveSclk=true, RemoveSlaveSS=true, RxDataWidth=8, RxTriggerLevel=63, SclkMode=0, SelectLinesNumber=1, ShowTerminals=true, SpiMode=1, Ss0Polarity=0, Ss1Polarity=0, Ss2Polarity=0, Ss3Polarity=0, SubMode=0, SymbolShape=3, TxDataWidth=8, TxTriggerLevel=63, UseIntr=true, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=SCB_SPI_PDL_v2_0, CY_CONFIG_TITLE=SPI, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=SPI, CY_INSTANCE_SHORT_NAME=SPI, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=scb, CY_PDL_DRIVER_REQ_VERSION=2.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=SPI, )
+// SCB_SPI_PDL_v2_0(BitsOrder=1, BufferMinSize=64, ByteMode=false, ClkDesFrequency=8000, ClkMinusTolerance=100, ClkPlusTolerance=5, ClockFromTerm=false, DataRate=2000, DeassertSelectLine=false, DeepSleepCapable=false, EnableFreeRunSclk=false, EnableInputFilter=false, EnableInterruptTerm=false, EnableLateMisoSample=false, EnableRxOutput=false, EnableSpimMisoTerm=false, EnableSpimMosiTerm=true, EnableSpimSclkTerm=true, EnableSpimSs0Term=true, EnableSpimSs1Term=false, EnableSpimSs2Term=false, EnableSpimSs3Term=false, EnableSpisMisoTerm=false, EnableSpisMosiTerm=false, EnableSpisSclkTerm=false, EnableSpisSsTerm=false, EnableTriggerOutput=false, EnableTxOutput=false, EnableWakeup=false, InterruptMode=1, IntrMasterSlaveMask=0, IntrMasterSpiDone=false, IntrRxFull=false, IntrRxMask=0, IntrRxNotEmpty=false, IntrRxOverflow=false, IntrRxTrigger=false, IntrRxUnderflow=false, IntrSlaveBusError=false, IntrTxEmpty=false, IntrTxMask=0, IntrTxNotFull=false, IntrTxOverflow=false, IntrTxTrigger=false, IntrTxUnderflow=false, IsDmaCapable=true, IsEnableWakeupVisible=false, IsMasterEnabled=true, IsRxTriggerLevelVisible=false, IsTxTriggerLevelVisible=false, MasterMode=true, MaxFifoLevel=63, MinOvsFactor=2, Mode=1, OvsFactor=4, RemoveIntr=false, RemoveMasterMiso=true, RemoveMasterMosi=true, RemoveMasterSclk=true, RemoveMasterSs0Pin=true, RemoveMasterSs1Pin=true, RemoveMasterSs2Pin=true, RemoveMasterSs3Pin=true, RemoveMiso=true, RemoveMosi=false, RemoveSclk=false, RemoveSlaveMiso=true, RemoveSlaveMosi=true, RemoveSlaveSclk=true, RemoveSlaveSS=true, RxDataWidth=9, RxTriggerLevel=63, SclkMode=0, SelectLinesNumber=1, ShowTerminals=true, SpiMode=1, Ss0Polarity=0, Ss1Polarity=0, Ss2Polarity=0, Ss3Polarity=0, SubMode=0, SymbolShape=3, TxDataWidth=9, TxTriggerLevel=63, UseIntr=true, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=SCB_SPI_PDL_v2_0, CY_CONFIG_TITLE=SPI, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=SPI, CY_INSTANCE_SHORT_NAME=SPI, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=scb, CY_PDL_DRIVER_REQ_VERSION=2.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=SPI, )
 module SCB_SPI_PDL_v2_0_2 (
     clock,
     interrupt,
@@ -2282,7 +2278,6 @@ module top ;
           wire  Net_123;
           wire  Net_122;
           wire  Net_121;
-          wire  Net_120;
           wire  Net_119;
           wire  Net_118;
           wire  Net_117;
@@ -2291,6 +2286,7 @@ module top ;
           wire  Net_107;
           wire  Net_106;
           wire  Net_105;
+          wire  Net_120;
     electrical  Net_301;
           wire  Net_71;
 
@@ -3284,11 +3280,7 @@ module top ;
 		#(.id("a4676f6b-0478-4d3c-9890-6ac86cc75611"),
 		  .source_clock_id("2FB4EC85-8328-4C5A-9ED9-8B63060178EB"),
 		  .divisor(0),
-<<<<<<< HEAD
 		  .period("20000000"),
-=======
-		  .period("40000000"),
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
 		  .is_direct(0),
 		  .is_digital(0))
 		Clock_3
