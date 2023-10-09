@@ -1,13 +1,31 @@
-# Ignore all files and directories by default
-*
-# Track all files of specific types recursively in all directories below the location of .gitignore
-!**/*.c
-!**/*.h
-!**/*.cydwr
-!**/*.cywrk
-!**/*.cysch
-!**/*.cyprj
-!.gitignore
+# Exclude specific files
+/PainDrain/PainDrain.cywrk.dev
+/PainDrain/PainDrain.cywrk.haske
+/PainDrain/PainDrain.cywrk.joe
+/PainDrain/PainDrain.cywrk.joeha
+/PainDrain/PainDrain.cydsn/CortexM0p
+/PainDrain/PainDrain.cydsn/CortexM4
+/PainDrain/PainDrain.cydsn/Export
+/PainDrain/PainDrain.cydsn/gcc
+/PainDrain/PainDrain.cydsn/*.log
+/PainDrain/PainDrain.cydsn/*.old
+/PainDrain/PainDrain.cydsn/*.icf
+/PainDrain/PainDrain.cydsn/*.ld
+/PainDrain/PainDrain.cydsn/*.scat
+/PainDrain/PainDrain.cydsn/*joeha
+/PainDrain/PainDrain.cydsn/*.joe
+/PainDrain/PainDrain.cydsn/*.haske
+/PainDrain/PainDrain.cydsn/*.zunis
+/PainDrain/PainDrain.cydsn/*.rpt
+/PainDrain/PainDrain.cydsn/*.dev
+/PainDrain/PainDrain.cydsn/*.html
+
+
+
+
+
+
+
 
 
 
