@@ -434,7 +434,7 @@ void sendData(uint8_t data) {
     uint32_t rxBuffer;
     // 9th bit is 1 for data
     uint16_t dataToSend = (1 << 8) | data;
-    DBG_PRINTF("dataToSend %d\r\n", dataToSend);
+    //DBG_PRINTF("dataToSend %d\r\n", dataToSend);
     Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 0);
     
     /* Clear Master status and Tx FIFO status. */
@@ -474,7 +474,7 @@ void sendCommand(uint8_t cmd) {
     uint32_t rxBuffer;
     // 9th bit is 0 for command
     uint16_t commandToSend = (0 << 8) | cmd;
-    DBG_PRINTF("commandToSend %d\r\n", commandToSend);
+    //DBG_PRINTF("commandToSend %d\r\n", commandToSend);
     Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 0);
     
     /* Clear Master status and Tx FIFO status. */
@@ -688,20 +688,20 @@ void ST7789_DrawPixel(uint16_t XPos, uint16_t YPos, uint16_t Color)
 	/* ---------------- Write Pixel ----------------- */
     sendData(Color >> 8);
     sendData(Color & 0xFF);
-    DBG_PRINTF("Pixel drawn\r\n");
+    //DBG_PRINTF("Pixel drawn\r\n");
 	//ST7789_TransmitData(colorBuff, sizeof(colorBuff));
 	
 }
 void drawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color) {
     // Set the address window for the rectangle
-    DBG_PRINTF("Drawing rectangle\r\n");
+    //DBG_PRINTF("Drawing rectangle\r\n");
     SetAddressWindow(x1, y1, x2, y2);
 
     // Calculate the number of pixels to draw
     uint32_t pixelCount = (uint32_t)(x2 - x1 + 1) * (y2 - y1 + 1);
 
     // Send the color data for each pixel
-    DBG_PRINTF("pixel count: %d\r\n", pixelCount);
+    //DBG_PRINTF("pixel count: %d\r\n", pixelCount);
     for (uint32_t i = 0; i < pixelCount; i++) {
         sendData((color >> 8) & 0xFF); // Send high-byte of color
         sendData(color & 0xFF); // Send low-byte of color
@@ -728,7 +728,7 @@ int HostMain(void)
     //drawRectangle(50, 50, 100, 100, 0xF800); // Draw a red rectangle at (50, 50) to (100, 100)
     /* Initialization the user interface: LEDs, SW2, etc.  */
     //InitUserInterface();
-    DBG_PRINTF("Entering\r\n");
+    //DBG_PRINTF("Entering\r\n");
     //st7789_basic_init();
     SPI_Start();
     LCDinit();
