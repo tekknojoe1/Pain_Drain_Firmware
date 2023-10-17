@@ -1,5 +1,5 @@
 -- Project:   C:\Projects\Pain Drain\Production2\Firmware\PainDrain\PainDrain.cydsn\PainDrain.cyprj
--- Generated: 10/06/2023 15:34:51
+-- Generated: 10/10/2023 10:43:04
 -- PSoC Creator  4.4
 
 ENTITY PainDrain IS
@@ -88,10 +88,6 @@ ARCHITECTURE __DEFAULT__ OF PainDrain IS
     SIGNAL Net_105 : bit;
     SIGNAL Net_106 : bit;
     SIGNAL Net_107 : bit;
-    SIGNAL Net_112 : bit;
-    SIGNAL Net_113 : bit;
-    SIGNAL Net_118 : bit;
-    SIGNAL Net_119 : bit;
     SIGNAL Net_154_ff12 : bit;
     ATTRIBUTE global_signal OF Net_154_ff12 : SIGNAL IS true;
     SIGNAL Net_155 : bit;
@@ -193,12 +189,6 @@ ARCHITECTURE __DEFAULT__ OF PainDrain IS
     SIGNAL \ADC:Net_428_ff49\ : bit;
     ATTRIBUTE global_signal OF \ADC:Net_428_ff49\ : SIGNAL IS true;
     SIGNAL \BLE:Net_1\ : bit;
-    SIGNAL \SPI:Net_488\ : bit;
-    SIGNAL \SPI:Net_489\ : bit;
-    SIGNAL \SPI:Net_498\ : bit;
-    SIGNAL \SPI:Net_847_ff0\ : bit;
-    ATTRIBUTE global_signal OF \SPI:Net_847_ff0\ : SIGNAL IS true;
-    SIGNAL \SPI:intr_wire\ : bit;
     SIGNAL __ONE__ : bit;
     ATTRIBUTE POWER OF __ONE__ : SIGNAL IS true;
     SIGNAL __ZERO__ : bit;
@@ -276,8 +266,6 @@ ARCHITECTURE __DEFAULT__ OF PainDrain IS
     ATTRIBUTE Location OF MY_UART_PIN(0) : LABEL IS "P6[6]";
     ATTRIBUTE Location OF \BLE:cy_mxs40_ble\ : LABEL IS "F(BLE,0)";
     ATTRIBUTE Location OF \BLE:bless_isr\ : LABEL IS "[IntrContainer=(0)][IntrId=(24)]";
-    ATTRIBUTE Location OF \SPI:SCB\ : LABEL IS "F(SCB,2)";
-    ATTRIBUTE Location OF \SPI:SCB_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(43)]";
     ATTRIBUTE Location OF WDTIsr : LABEL IS "[IntrContainer=(0)][IntrId=(22)]";
     ATTRIBUTE Location OF \PWM_TENS2:TCPWM\ : LABEL IS "F(TCPWM,4)";
     ATTRIBUTE Location OF \AMP_PWM:TCPWM\ : LABEL IS "F(TCPWM,7)";
@@ -632,27 +620,6 @@ ARCHITECTURE __DEFAULT__ OF PainDrain IS
             clock : IN std_ulogic;
             interrupt : OUT std_ulogic);
     END COMPONENT;
-    COMPONENT SCB
-        PORT (
-            clock : IN std_ulogic;
-            uart_rx : IN std_ulogic;
-            uart_tx : OUT std_ulogic;
-            uart_rts : OUT std_ulogic;
-            uart_cts : OUT std_ulogic;
-            i2c_scl : IN std_ulogic;
-            i2c_sda : IN std_ulogic;
-            spi_clk : OUT std_ulogic;
-            spi_select_0 : OUT std_ulogic;
-            spi_select_1 : OUT std_ulogic;
-            spi_select_2 : OUT std_ulogic;
-            spi_select_3 : OUT std_ulogic;
-            spi_mosi : OUT std_ulogic;
-            spi_miso : OUT std_ulogic;
-            interrupt : OUT std_ulogic;
-            tr_tx_req : OUT std_ulogic;
-            tr_rx_req : OUT std_ulogic;
-            tr_i2c_scl_filtered : OUT std_ulogic);
-    END COMPONENT;
     COMPONENT SRSS
         PORT (
             clock_timer : IN std_ulogic;
@@ -710,13 +677,11 @@ BEGIN
             ff_div_11 => Net_448_ff17,
             ff_div_12 => Net_576_ff16,
             ff_div_13 => Net_591_ff14,
-            ff_div_0 => open,
             ff_div_49 => \ADC:Net_428_ff49\,
             ff_div_14 => open,
             ff_div_15 => Net_551_ff11,
             ff_div_16 => open,
             ff_div_17 => open,
-            ff_div_2 => \SPI:Net_847_ff0\,
             ff_div_18 => Net_712_ff15,
             ff_div_20 => Net_380_ff13,
             ff_div_26 => Net_154_ff12,
@@ -1816,14 +1781,14 @@ BEGIN
             i2c_mode => "0",
             ibuf_enabled => "0",
             id => "312d335a-be65-47d4-bb29-6a90b9f9eb92",
-            init_dr_st => "1",
+            init_dr_st => "0",
             input_sync => "0",
             intr_mode => "00",
             io_voltage => "",
             max_frequency => "100",
             oe_conn => "0",
             oe_sync => "0",
-            output_conn => "1",
+            output_conn => "0",
             output_current_cap => "8",
             output_sync => "0",
             pin_aliases => "",
@@ -1853,8 +1818,6 @@ BEGIN
         PORT MAP(
             pa_out => DISP_SCK(0)__PA,
             oe => open,
-            pin_input => Net_119,
-            pad_out => DISP_SCK(0)_PAD,
             pad_in => DISP_SCK(0)_PAD,
             in_clock => open,
             in_clock_en => open,
@@ -1866,7 +1829,7 @@ BEGIN
     DISP_MOSI:logicalport
         GENERIC MAP(
             cy_registers => "",
-            drive_mode => "110",
+            drive_mode => "010",
             drive_strength => "0",
             hotswap_needed => "0",
             i2c_mode => "0",
@@ -1879,7 +1842,7 @@ BEGIN
             max_frequency => "100",
             oe_conn => "0",
             oe_sync => "0",
-            output_conn => "1",
+            output_conn => "0",
             output_current_cap => "8",
             output_sync => "0",
             pin_aliases => "",
@@ -1909,8 +1872,6 @@ BEGIN
         PORT MAP(
             pa_out => DISP_MOSI(0)__PA,
             oe => open,
-            pin_input => Net_118,
-            pad_out => DISP_MOSI(0)_PAD,
             pad_in => DISP_MOSI(0)_PAD,
             in_clock => open,
             in_clock_en => open,
@@ -2490,39 +2451,6 @@ BEGIN
             int_type => "10")
         PORT MAP(
             interrupt => \BLE:Net_1\,
-            clock => ClockBlock_PeriClk);
-
-    \SPI:SCB\:SCB
-        GENERIC MAP(
-            cy_registers => "",
-            master => 1,
-            mode => 1,
-            requires_io_preconfigure => 0)
-        PORT MAP(
-            clock => \SPI:Net_847_ff0\,
-            uart_rx => open,
-            uart_tx => \SPI:Net_488\,
-            uart_rts => \SPI:Net_489\,
-            uart_cts => open,
-            spi_clk => Net_119,
-            spi_select_3 => open,
-            spi_select_2 => open,
-            spi_select_1 => open,
-            spi_select_0 => open,
-            spi_mosi => Net_118,
-            spi_miso => open,
-            interrupt => \SPI:intr_wire\,
-            tr_tx_req => Net_113,
-            tr_rx_req => Net_112,
-            tr_i2c_scl_filtered => \SPI:Net_498\);
-
-    \SPI:SCB_IRQ\:interrupt
-        GENERIC MAP(
-            cy_registers => "",
-            deepsleep_required => 0,
-            int_type => "10")
-        PORT MAP(
-            interrupt => \SPI:intr_wire\,
             clock => ClockBlock_PeriClk);
 
     WDTIsr:interrupt

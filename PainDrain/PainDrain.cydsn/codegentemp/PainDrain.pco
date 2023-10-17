@@ -1,5 +1,5 @@
 # PainDrain
-# 2023-10-06 21:34:38Z
+# 2023-10-10 16:42:59Z
 
 dont_use_location SMIF -1 -1 0
 dont_use_location p4usbcell -1 -1 0
@@ -41,8 +41,6 @@ set_io "TEMP_USER_EN(0)" iocell 7 2
 set_io "MY_UART_PIN(0)" iocell 6 6
 set_location "\BLE:cy_mxs40_ble\" BLE -1 -1 0
 set_location "\BLE:bless_isr\" interrupt -1 -1 24
-set_location "\SPI:SCB\" SCB -1 -1 2
-set_location "\SPI:SCB_IRQ\" interrupt -1 -1 43
 set_location "WDTIsr" interrupt -1 -1 22
 set_location "\PWM_TENS2:TCPWM\" TCPWM -1 -1 4
 set_location "\AMP_PWM:TCPWM\" TCPWM -1 -1 7

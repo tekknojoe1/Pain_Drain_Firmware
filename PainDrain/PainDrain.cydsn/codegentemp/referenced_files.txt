@@ -15,7 +15,6 @@
     <Dir fileName="drivers/peripheral/profile/" buildType="OTHER;;;;" />
     <Dir fileName="drivers/peripheral/prot/" buildType="OTHER;;;;" />
     <Dir fileName="drivers/peripheral/sar/" buildType="OTHER;;;;" />
-    <Dir fileName="drivers/peripheral/scb/" buildType="OTHER;;;;" />
     <Dir fileName="drivers/peripheral/sysanalog/" buildType="OTHER;;;;" />
     <Dir fileName="drivers/peripheral/sysclk/" buildType="OTHER;;;;" />
     <Dir fileName="drivers/peripheral/sysint/" buildType="OTHER;;;;" />
@@ -106,18 +105,6 @@
           <folder folderName="sar">
             <file fileName="cy_sar.c" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.5\drivers\peripheral\sar\cy_sar.c" buildType="SOURCE_C;;;;" copyLocal="True" isTemplate="False" />
             <file fileName="cy_sar.h" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.5\drivers\peripheral\sar\cy_sar.h" buildType="HEADER;;;;" copyLocal="True" isTemplate="False" />
-          </folder>
-          <folder folderName="scb">
-            <file fileName="cy_scb_common.c" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.5\drivers\peripheral\scb\cy_scb_common.c" buildType="SOURCE_C;;;;" copyLocal="True" isTemplate="False" />
-            <file fileName="cy_scb_common.h" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.5\drivers\peripheral\scb\cy_scb_common.h" buildType="HEADER;;;;" copyLocal="True" isTemplate="False" />
-            <file fileName="cy_scb_i2c.c" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.5\drivers\peripheral\scb\cy_scb_i2c.c" buildType="SOURCE_C;;;;" copyLocal="True" isTemplate="False" />
-            <file fileName="cy_scb_i2c.h" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.5\drivers\peripheral\scb\cy_scb_i2c.h" buildType="HEADER;;;;" copyLocal="True" isTemplate="False" />
-            <file fileName="cy_scb_ezi2c.c" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.5\drivers\peripheral\scb\cy_scb_ezi2c.c" buildType="SOURCE_C;;;;" copyLocal="True" isTemplate="False" />
-            <file fileName="cy_scb_ezi2c.h" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.5\drivers\peripheral\scb\cy_scb_ezi2c.h" buildType="HEADER;;;;" copyLocal="True" isTemplate="False" />
-            <file fileName="cy_scb_spi.c" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.5\drivers\peripheral\scb\cy_scb_spi.c" buildType="SOURCE_C;;;;" copyLocal="True" isTemplate="False" />
-            <file fileName="cy_scb_spi.h" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.5\drivers\peripheral\scb\cy_scb_spi.h" buildType="HEADER;;;;" copyLocal="True" isTemplate="False" />
-            <file fileName="cy_scb_uart.c" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.5\drivers\peripheral\scb\cy_scb_uart.c" buildType="SOURCE_C;;;;" copyLocal="True" isTemplate="False" />
-            <file fileName="cy_scb_uart.h" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.5\drivers\peripheral\scb\cy_scb_uart.h" buildType="HEADER;;;;" copyLocal="True" isTemplate="False" />
           </folder>
           <folder folderName="sysanalog">
             <file fileName="cy_sysanalog.c" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.5\drivers\peripheral\sysanalog\cy_sysanalog.c" buildType="SOURCE_C;;;;" copyLocal="True" isTemplate="False" />

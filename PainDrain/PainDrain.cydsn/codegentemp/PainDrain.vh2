@@ -2,7 +2,7 @@
 --	Conversion of PainDrain.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Oct 06 15:34:27 2023
+--	Tue Oct 10 10:42:53 2023
 --
 
 USE cypress.cypress.all;
@@ -16,40 +16,8 @@ SIGNAL Net_106 : bit;
 SIGNAL Net_105 : bit;
 SIGNAL Net_107 : bit;
 SIGNAL \BLE:Net_1\ : bit;
-SIGNAL \SPI:Net_847\ : bit;
-SIGNAL \SPI:clock_wire\ : bit;
-SIGNAL \SPI:Net_28\ : bit;
-SIGNAL \SPI:Net_29\ : bit;
-SIGNAL zero : bit;
-SIGNAL \SPI:Net_488\ : bit;
-SIGNAL \SPI:Net_489\ : bit;
-SIGNAL \SPI:Net_490\ : bit;
-SIGNAL \SPI:Net_482\ : bit;
-SIGNAL \SPI:Net_483\ : bit;
-SIGNAL \SPI:sclk_m_wire\ : bit;
-SIGNAL \SPI:sclk_s_wire\ : bit;
-SIGNAL \SPI:select_m_wire_3\ : bit;
-SIGNAL \SPI:select_m_wire_2\ : bit;
-SIGNAL \SPI:select_m_wire_1\ : bit;
-SIGNAL \SPI:select_m_wire_0\ : bit;
-SIGNAL \SPI:select_s_wire\ : bit;
-SIGNAL \SPI:mosi_m_wire\ : bit;
-SIGNAL \SPI:miso_m_wire\ : bit;
-SIGNAL \SPI:mosi_s_wire\ : bit;
-SIGNAL \SPI:miso_s_wire\ : bit;
-SIGNAL \SPI:intr_wire\ : bit;
-SIGNAL Net_113 : bit;
-SIGNAL Net_112 : bit;
-SIGNAL \SPI:Net_498\ : bit;
-SIGNAL Net_110 : bit;
-SIGNAL Net_118 : bit;
-SIGNAL Net_119 : bit;
-SIGNAL Net_120 : bit;
-SIGNAL Net_121 : bit;
-SIGNAL Net_122 : bit;
-SIGNAL Net_123 : bit;
-SIGNAL Net_124 : bit;
 SIGNAL one : bit;
+SIGNAL zero : bit;
 SIGNAL tmpFB_0__DISP_CS_net_0 : bit;
 SIGNAL tmpIO_0__DISP_CS_net_0 : bit;
 TERMINAL tmpSIOVREF__DISP_CS_net_0 : bit;
@@ -574,9 +542,9 @@ SIGNAL tmpIO_0__MY_UART_PIN_net_0 : bit;
 TERMINAL tmpSIOVREF__MY_UART_PIN_net_0 : bit;
 BEGIN
 
-zero <=  ('0') ;
-
 one <=  ('1') ;
+
+zero <=  ('0') ;
 
 \BLE:cy_mxs40_ble\:cy_mxs40_ble_v1_0
 	GENERIC MAP(cy_registers=>"",
@@ -590,46 +558,6 @@ one <=  ('1') ;
 		deepsleep_required=>'1',
 		int_type=>"10")
 	PORT MAP(int_signal=>\BLE:Net_1\);
-\SPI:SCBCLK\:cy_clock_v1_0
-	GENERIC MAP(cy_registers=>"",
-		id=>"53160753-c805-44c9-adc5-df9f277623f4/b68e5b9d-7828-482d-a282-930f990e3b3e",
-		source_clock_id=>"",
-		divisor=>0,
-		period=>"125000000",
-		is_direct=>'0',
-		is_digital=>'0')
-	PORT MAP(clock_out=>\SPI:Net_847\,
-		dig_domain_out=>open);
-\SPI:SCB\:cy_mxs40_scb_v1_10
-	GENERIC MAP(cy_registers=>"",
-		requires_io_preconfigure=>'0',
-		mode=>1,
-		master=>'1')
-	PORT MAP(clock=>\SPI:Net_847\,
-		uart_rx=>zero,
-		uart_tx=>\SPI:Net_488\,
-		uart_rts=>\SPI:Net_489\,
-		uart_cts=>zero,
-		uart_tx_en=>\SPI:Net_490\,
-		i2c_scl=>\SPI:Net_482\,
-		i2c_sda=>\SPI:Net_483\,
-		spi_clk_m=>Net_119,
-		spi_clk_s=>zero,
-		spi_select_m=>(\SPI:select_m_wire_3\, \SPI:select_m_wire_2\, \SPI:select_m_wire_1\, \SPI:select_m_wire_0\),
-		spi_select_s=>zero,
-		spi_mosi_m=>Net_118,
-		spi_miso_m=>zero,
-		spi_mosi_s=>zero,
-		spi_miso_s=>\SPI:miso_s_wire\,
-		interrupt=>\SPI:intr_wire\,
-		tr_tx_req=>Net_113,
-		tr_rx_req=>Net_112,
-		tr_i2c_scl_filtered=>\SPI:Net_498\);
-\SPI:SCB_IRQ\:cy_mxs40_isr_v1_0
-	GENERIC MAP(cy_registers=>"",
-		deepsleep_required=>'0',
-		int_type=>"10")
-	PORT MAP(int_signal=>\SPI:intr_wire\);
 DISP_CS:cy_mxs40_gpio_v1_0
 	GENERIC MAP(cy_registers=>"",
 		width=>1,
@@ -2447,11 +2375,11 @@ DISP_SCK:cy_mxs40_gpio_v1_0
 		id=>"312d335a-be65-47d4-bb29-6a90b9f9eb92",
 		drive_mode=>"6",
 		ibuf_enabled=>"0",
-		init_dr_st=>"1",
+		init_dr_st=>"0",
 		input_sync=>"0",
 		intr_mode=>"0",
 		io_voltage=>"",
-		output_conn=>"1",
+		output_conn=>"0",
 		oe_conn=>"0",
 		output_sync=>"0",
 		oe_sync=>"0",
@@ -2466,7 +2394,7 @@ DISP_SCK:cy_mxs40_gpio_v1_0
 		use_annotation=>"0",
 		hotswap_needed=>"0")
 	PORT MAP(oe=>(one),
-		y=>Net_119,
+		y=>(zero),
 		fb=>(tmpFB_0__DISP_SCK_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__DISP_SCK_net_0),
@@ -2477,13 +2405,13 @@ DISP_MOSI:cy_mxs40_gpio_v1_0
 		width=>1,
 		sio_grp_cnt=>0,
 		id=>"ad5753ba-39a5-42d9-ab14-0deac1aa2094",
-		drive_mode=>"6",
+		drive_mode=>"2",
 		ibuf_enabled=>"0",
 		init_dr_st=>"1",
 		input_sync=>"0",
 		intr_mode=>"0",
 		io_voltage=>"",
-		output_conn=>"1",
+		output_conn=>"0",
 		oe_conn=>"0",
 		output_sync=>"0",
 		oe_sync=>"0",
@@ -2498,7 +2426,7 @@ DISP_MOSI:cy_mxs40_gpio_v1_0
 		use_annotation=>"0",
 		hotswap_needed=>"0")
 	PORT MAP(oe=>(one),
-		y=>Net_118,
+		y=>(zero),
 		fb=>(tmpFB_0__DISP_MOSI_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__DISP_MOSI_net_0),

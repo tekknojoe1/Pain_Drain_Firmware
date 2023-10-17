@@ -26,11 +26,6 @@
 #include "cy_profile.h"
 #include "cy_prot.h"
 #include "cy_sar.h"
-#include "cy_scb_common.h"
-#include "cy_scb_i2c.h"
-#include "cy_scb_ezi2c.h"
-#include "cy_scb_spi.h"
-#include "cy_scb_uart.h"
 #include "cy_sysanalog.h"
 #include "cy_sysclk.h"
 #include "cy_sysint.h"
@@ -162,7 +157,6 @@
 #include "cydisabledsheets.h"
 #include "BLE.h"
 #include "BLE_config.h"
-#include "SPI.h"
 #include "PWM_TENS2.h"
 #include "Clock_7.h"
 #include "AMP_PWM.h"
@@ -179,7 +173,6 @@
 #include "Clock_5.h"
 #include "PWM_PEL2.h"
 #include "Clock_6.h"
-#include "SPI_SCBCLK.h"
 #include "ADC_intSarClock.h"
 
 /*[]*/

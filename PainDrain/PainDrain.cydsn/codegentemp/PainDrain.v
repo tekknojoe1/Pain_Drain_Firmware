@@ -1,6 +1,6 @@
 // ======================================================================
 // PainDrain.v generated from TopDesign.cysch
-// 10/06/2023 at 15:34
+// 10/10/2023 at 10:42
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -168,194 +168,8 @@ module BLE_PDL_v2_0_1 (
 
 endmodule
 
-// Component: cy_virtualmux_v1_0
-`ifdef CY_BLK_DIR
-`undef CY_BLK_DIR
-`endif
-
-`ifdef WARP
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v"
-`else
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v"
-`endif
-
-// Component: ZeroTerminal
-`ifdef CY_BLK_DIR
-`undef CY_BLK_DIR
-`endif
-
-`ifdef WARP
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v"
-`else
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v"
-`endif
-
-// Component: or_v1_0
-`ifdef CY_BLK_DIR
-`undef CY_BLK_DIR
-`endif
-
-`ifdef WARP
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v"
-`else
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v"
-`endif
-
-// SCB_SPI_PDL_v2_0(BitsOrder=1, BufferMinSize=64, ByteMode=false, ClkDesFrequency=8000, ClkMinusTolerance=100, ClkPlusTolerance=5, ClockFromTerm=false, DataRate=2000, DeassertSelectLine=false, DeepSleepCapable=false, EnableFreeRunSclk=false, EnableInputFilter=false, EnableInterruptTerm=false, EnableLateMisoSample=false, EnableRxOutput=false, EnableSpimMisoTerm=false, EnableSpimMosiTerm=true, EnableSpimSclkTerm=true, EnableSpimSs0Term=true, EnableSpimSs1Term=false, EnableSpimSs2Term=false, EnableSpimSs3Term=false, EnableSpisMisoTerm=false, EnableSpisMosiTerm=false, EnableSpisSclkTerm=false, EnableSpisSsTerm=false, EnableTriggerOutput=false, EnableTxOutput=false, EnableWakeup=false, InterruptMode=1, IntrMasterSlaveMask=0, IntrMasterSpiDone=false, IntrRxFull=false, IntrRxMask=0, IntrRxNotEmpty=false, IntrRxOverflow=false, IntrRxTrigger=false, IntrRxUnderflow=false, IntrSlaveBusError=false, IntrTxEmpty=false, IntrTxMask=0, IntrTxNotFull=false, IntrTxOverflow=false, IntrTxTrigger=false, IntrTxUnderflow=false, IsDmaCapable=true, IsEnableWakeupVisible=false, IsMasterEnabled=true, IsRxTriggerLevelVisible=false, IsTxTriggerLevelVisible=false, MasterMode=true, MaxFifoLevel=63, MinOvsFactor=2, Mode=1, OvsFactor=4, RemoveIntr=false, RemoveMasterMiso=true, RemoveMasterMosi=true, RemoveMasterSclk=true, RemoveMasterSs0Pin=true, RemoveMasterSs1Pin=true, RemoveMasterSs2Pin=true, RemoveMasterSs3Pin=true, RemoveMiso=true, RemoveMosi=false, RemoveSclk=false, RemoveSlaveMiso=true, RemoveSlaveMosi=true, RemoveSlaveSclk=true, RemoveSlaveSS=true, RxDataWidth=9, RxTriggerLevel=63, SclkMode=0, SelectLinesNumber=1, ShowTerminals=true, SpiMode=1, Ss0Polarity=0, Ss1Polarity=0, Ss2Polarity=0, Ss3Polarity=0, SubMode=0, SymbolShape=3, TxDataWidth=9, TxTriggerLevel=63, UseIntr=true, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=SCB_SPI_PDL_v2_0, CY_CONFIG_TITLE=SPI, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=SPI, CY_INSTANCE_SHORT_NAME=SPI, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=scb, CY_PDL_DRIVER_REQ_VERSION=2.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=SPI, )
-module SCB_SPI_PDL_v2_0_2 (
-    clock,
-    interrupt,
-    m_miso,
-    m_mosi,
-    m_sclk,
-    m_ss0,
-    m_ss1,
-    m_ss2,
-    m_ss3,
-    rx_dma,
-    s_miso,
-    s_mosi,
-    s_sclk,
-    s_ss,
-    tx_dma);
-    input       clock;
-    output      interrupt;
-    input       m_miso;
-    output      m_mosi;
-    output      m_sclk;
-    output      m_ss0;
-    output      m_ss1;
-    output      m_ss2;
-    output      m_ss3;
-    output      rx_dma;
-    output      s_miso;
-    input       s_mosi;
-    input       s_sclk;
-    input       s_ss;
-    output      tx_dma;
-
-
-          wire  mosi_s_wire;
-          wire  clock_wire;
-          wire  intr_wire;
-          wire  mosi_m_wire;
-          wire  sclk_m_wire;
-          wire  miso_m_wire;
-          wire  miso_s_wire;
-          wire [3:0] select_m_wire;
-          wire  sclk_s_wire;
-          wire  select_s_wire;
-          wire  Net_490;
-          wire  Net_488;
-          wire  Net_480;
-          wire  Net_489;
-          wire  Net_481;
-          wire  Net_498;
-          wire  Net_483;
-          wire  Net_482;
-          wire  Net_29;
-          wire  Net_28;
-          wire  Net_228;
-          wire  Net_227;
-          wire  Net_218;
-          wire  Net_216;
-          wire  Net_138;
-          wire  Net_847;
-
-
-	cy_clock_v1_0
-		#(.id("53160753-c805-44c9-adc5-df9f277623f4/b68e5b9d-7828-482d-a282-930f990e3b3e"),
-		  .source_clock_id(""),
-		  .divisor(0),
-		  .period("125000000"),
-		  .is_direct(0),
-		  .is_digital(0))
-		SCBCLK
-		 (.clock_out(Net_847));
-
-
-	// clock_VM (cy_virtualmux_v1_0)
-	assign clock_wire = Net_847;
-
-    ZeroTerminal ZeroTerminal_7 (
-        .z(Net_28));
-
-
-    assign Net_29 = Net_28 | Net_847;
-
-    cy_mxs40_scb_v1_10 SCB (
-        .clock(clock_wire),
-        .i2c_scl(Net_482),
-        .i2c_sda(Net_483),
-        .interrupt(intr_wire),
-        .spi_clk_m(sclk_m_wire),
-        .spi_clk_s(sclk_s_wire),
-        .spi_miso_m(miso_m_wire),
-        .spi_miso_s(miso_s_wire),
-        .spi_mosi_m(mosi_m_wire),
-        .spi_mosi_s(mosi_s_wire),
-        .spi_select_m(select_m_wire[3:0]),
-        .spi_select_s(select_s_wire),
-        .tr_i2c_scl_filtered(Net_498),
-        .tr_rx_req(rx_dma),
-        .tr_tx_req(tx_dma),
-        .uart_cts(1'b0),
-        .uart_rts(Net_489),
-        .uart_rx(1'b0),
-        .uart_tx(Net_488),
-        .uart_tx_en(Net_490));
-    defparam SCB.master = 1;
-    defparam SCB.mode = 1;
-    defparam SCB.requires_io_preconfigure = 0;
-
-	// select_s_VM (cy_virtualmux_v1_0)
-	assign select_s_wire = s_ss;
-
-	// sclk_s_VM (cy_virtualmux_v1_0)
-	assign sclk_s_wire = s_sclk;
-
-	// mosi_s_VM (cy_virtualmux_v1_0)
-	assign mosi_s_wire = s_mosi;
-
-	// miso_m_VM (cy_virtualmux_v1_0)
-	assign miso_m_wire = m_miso;
-
-
-	cy_mxs40_isr_v1_0
-		#(.deepsleep_required(0),
-		  .int_type(2'b10))
-		SCB_IRQ
-		 (.int_signal(intr_wire));
-
-
-
-    assign interrupt = intr_wire;
-
-    assign m_mosi = mosi_m_wire;
-
-    assign m_sclk = sclk_m_wire;
-
-    assign m_ss0 = select_m_wire[0];
-
-    assign m_ss1 = select_m_wire[1];
-
-    assign m_ss2 = select_m_wire[2];
-
-    assign m_ss3 = select_m_wire[3];
-
-    assign s_miso = miso_s_wire;
-
-
-endmodule
-
 // TCPWM_PWM_PDL_v1_0(ClockPrescaler=0, Compare0=0, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=7, KillInputMasked=3, KillMode=2, Period0=624, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=7, StartInputMasked=3, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=PWM_TENS2, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PWM_TENS2, CY_INSTANCE_SHORT_NAME=PWM_TENS2, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PWM_TENS2, )
-module TCPWM_PWM_PDL_v1_0_3 (
+module TCPWM_PWM_PDL_v1_0_2 (
     clock,
     compare,
     count,
@@ -404,7 +218,7 @@ module TCPWM_PWM_PDL_v1_0_3 (
 endmodule
 
 // TCPWM_PWM_PDL_v1_0(ClockPrescaler=2, Compare0=16384, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=7, KillInputMasked=3, KillMode=2, Period0=32768, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=7, StartInputMasked=3, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=AMP_PWM, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=AMP_PWM, CY_INSTANCE_SHORT_NAME=AMP_PWM, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=AMP_PWM, )
-module TCPWM_PWM_PDL_v1_0_4 (
+module TCPWM_PWM_PDL_v1_0_3 (
     clock,
     compare,
     count,
@@ -453,7 +267,7 @@ module TCPWM_PWM_PDL_v1_0_4 (
 endmodule
 
 // TCPWM_PWM_PDL_v1_0(ClockPrescaler=0, Compare0=0, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=7, KillInputMasked=3, KillMode=2, Period0=624, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=7, StartInputMasked=3, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=PWM_TENS, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PWM_TENS, CY_INSTANCE_SHORT_NAME=PWM_TENS, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PWM_TENS, )
-module TCPWM_PWM_PDL_v1_0_5 (
+module TCPWM_PWM_PDL_v1_0_4 (
     clock,
     compare,
     count,
@@ -527,6 +341,45 @@ endmodule
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Bus_Connect_v2_50\Bus_Connect_v2_50.v"
 `endif
 
+// Component: ZeroTerminal
+`ifdef CY_BLK_DIR
+`undef CY_BLK_DIR
+`endif
+
+`ifdef WARP
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v"
+`else
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v"
+`endif
+
+// Component: cy_virtualmux_v1_0
+`ifdef CY_BLK_DIR
+`undef CY_BLK_DIR
+`endif
+
+`ifdef WARP
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v"
+`else
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v"
+`endif
+
+// Component: or_v1_0
+`ifdef CY_BLK_DIR
+`undef CY_BLK_DIR
+`endif
+
+`ifdef WARP
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v"
+`else
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v"
+`endif
+
 // Component: cy_constant_v1_0
 `ifdef CY_BLK_DIR
 `undef CY_BLK_DIR
@@ -554,7 +407,7 @@ endmodule
 `endif
 
 // Scan_ADC_v3_10(AclkMuxSelect=1, Config0=<?xml version="1.0" encoding="utf-16"?><CyConfigModel xmlns:Version="3_10"><SampleRateEditor>true</SampleRateEditor><SampleRate>100000</SampleRate><FreeRunning>true</FreeRunning><UseSoc>false</UseSoc><VrefBypass>true</VrefBypass><VrefSource>VREFSOURCE_VBGR</VrefSource><VrefVoltage>1.2</VrefVoltage><VnegSource>VNEGSOURCE_VREFSHORT</VnegSource><DiffResultFormat>SIGNED_FORMAT</DiffResultFormat><SingleEndedResultFormat>UNSIGNED_FORMAT</SingleEndedResultFormat><SamplesAveraged>TWO_SAMPLES</SamplesAveraged><AveragingMode>SEQUENTIAL_AVG</AveragingMode><AlternateResolution>EIGHT_BIT</AlternateResolution><CompareMode>LESS_THAN</CompareMode><LowLimit>512</LowLimit><HighLimit>3584</HighLimit><NumChannels>1</NumChannels><ChannelList><CyChannelModel><Enabled>true</Enabled><UseAltResolution>false</UseAltResolution><InputMode>SINGLE_ENDED_CHAN</InputMode><UseAveraging>false</UseAveraging><MinimumAcqTime>167</MinimumAcqTime><UseLimitInterrupt>false</UseLimitInterrupt><ActualAcqTime>8800</ActualAcqTime><UseSaturationInterrupt>false</UseSaturationInterrupt><ApertureTimer>0</ApertureTimer></CyChannelModel></ChannelList><ApertureTimers><int>111</int><int>2</int><int>2</int><int>2</int></ApertureTimers><AdcClockDivider>2</AdcClockDivider><FilterUabStartDelay>0</FilterUabStartDelay><ActualSampleRate>100000</ActualSampleRate><ActualAdcClockHz>12500000</ActualAdcClockHz><ActualScanUs>10</ActualScanUs></CyConfigModel>, Config0Filter=<pass_type=LOW_PASS>\r\n<shape=BUTTERWORTH>\r\n<primary_freq=10>\r\n<secondary_freq=-1>\r\n<notchEnabled=False>\r\n<modBitEnabled=False>\r\n<sampleRate=1000>\r\n<uabClockDivider=0>\r\n<sampleRateSource=AUTO>\r\n<filterGain_dB=0>\r\n<filterGain_Linear=1>\r\n<gainScale=DB>\r\n, Config0FilterDisplay=<FreqAxisUpper=150>\r\n<FreqAxisLower=0>\r\n<GainAxisUpper=0>\r\n<GainAxisLower=-140>\r\n<Display=16829571>\r\n, Config1=<?xml version="1.0" encoding="utf-16"?><CyConfigModel xmlns:Version="3_10"><SampleRateEditor>true</SampleRateEditor><SampleRate>100000</SampleRate><FreeRunning>true</FreeRunning><UseSoc>false</UseSoc><VrefBypass>true</VrefBypass><VrefSource>VREFSOURCE_VBGR</VrefSource><VrefVoltage>1.2</VrefVoltage><VnegSource>VNEGSOURCE_VREFSHORT</VnegSource><DiffResultFormat>SIGNED_FORMAT</DiffResultFormat><SingleEndedResultFormat>UNSIGNED_FORMAT</SingleEndedResultFormat><SamplesAveraged>TWO_SAMPLES</SamplesAveraged><AveragingMode>SEQUENTIAL_AVG</AveragingMode><AlternateResolution>EIGHT_BIT</AlternateResolution><CompareMode>LESS_THAN</CompareMode><LowLimit>512</LowLimit><HighLimit>3584</HighLimit><NumChannels>2</NumChannels><ChannelList><CyChannelModel><Enabled>true</Enabled><UseAltResolution>false</UseAltResolution><InputMode>DIFFERENTIAL_CHAN</InputMode><UseAveraging>false</UseAveraging><MinimumAcqTime>167</MinimumAcqTime><UseLimitInterrupt>false</UseLimitInterrupt><ActualAcqTime>7360</ActualAcqTime><UseSaturationInterrupt>false</UseSaturationInterrupt><ApertureTimer>0</ApertureTimer></CyChannelModel><CyChannelModel><Enabled>true</Enabled><UseAltResolution>false</UseAltResolution><InputMode>DIFFERENTIAL_CHAN</InputMode><UseAveraging>false</UseAveraging><MinimumAcqTime>167</MinimumAcqTime><UseLimitInterrupt>false</UseLimitInterrupt><ActualAcqTime>240</ActualAcqTime><UseSaturationInterrupt>false</UseSaturationInterrupt><ApertureTimer>1</ApertureTimer></CyChannelModel></ChannelList><ApertureTimers><int>93</int><int>4</int><int>2</int><int>2</int></ApertureTimers><AdcClockDivider>2</AdcClockDivider><FilterUabStartDelay>0</FilterUabStartDelay><ActualSampleRate>100000</ActualSampleRate><ActualAdcClockHz>12500000</ActualAdcClockHz><ActualScanUs>10</ActualScanUs></CyConfigModel>, Config1Filter=<pass_type=LOW_PASS>\r\n<shape=BUTTERWORTH>\r\n<primary_freq=10>\r\n<secondary_freq=-1>\r\n<notchEnabled=False>\r\n<modBitEnabled=False>\r\n<sampleRate=1000>\r\n<uabClockDivider=0>\r\n<sampleRateSource=AUTO>\r\n<filterGain_dB=0>\r\n<filterGain_Linear=1>\r\n<gainScale=DB>\r\n, Config1FilterDisplay=<FreqAxisUpper=150>\r\n<FreqAxisLower=0>\r\n<GainAxisUpper=0>\r\n<GainAxisLower=-140>\r\n<Display=16829571>\r\n, Config2=<?xml version="1.0" encoding="utf-16"?><CyConfigModel xmlns:Version="3_10"><SampleRateEditor>true</SampleRateEditor><SampleRate>100000</SampleRate><FreeRunning>true</FreeRunning><UseSoc>false</UseSoc><VrefBypass>true</VrefBypass><VrefSource>VREFSOURCE_VBGR</VrefSource><VrefVoltage>1.2</VrefVoltage><VnegSource>VNEGSOURCE_VREFSHORT</VnegSource><DiffResultFormat>SIGNED_FORMAT</DiffResultFormat><SingleEndedResultFormat>UNSIGNED_FORMAT</SingleEndedResultFormat><SamplesAveraged>TWO_SAMPLES</SamplesAveraged><AveragingMode>SEQUENTIAL_AVG</AveragingMode><AlternateResolution>EIGHT_BIT</AlternateResolution><CompareMode>LESS_THAN</CompareMode><LowLimit>512</LowLimit><HighLimit>3584</HighLimit><NumChannels>2</NumChannels><ChannelList><CyChannelModel><Enabled>true</Enabled><UseAltResolution>false</UseAltResolution><InputMode>DIFFERENTIAL_CHAN</InputMode><UseAveraging>false</UseAveraging><MinimumAcqTime>167</MinimumAcqTime><UseLimitInterrupt>false</UseLimitInterrupt><ActualAcqTime>7360</ActualAcqTime><UseSaturationInterrupt>false</UseSaturationInterrupt><ApertureTimer>0</ApertureTimer></CyChannelModel><CyChannelModel><Enabled>true</Enabled><UseAltResolution>false</UseAltResolution><InputMode>DIFFERENTIAL_CHAN</InputMode><UseAveraging>false</UseAveraging><MinimumAcqTime>167</MinimumAcqTime><UseLimitInterrupt>false</UseLimitInterrupt><ActualAcqTime>240</ActualAcqTime><UseSaturationInterrupt>false</UseSaturationInterrupt><ApertureTimer>1</ApertureTimer></CyChannelModel></ChannelList><ApertureTimers><int>93</int><int>4</int><int>2</int><int>2</int></ApertureTimers><AdcClockDivider>2</AdcClockDivider><FilterUabStartDelay>0</FilterUabStartDelay><ActualSampleRate>100000</ActualSampleRate><ActualAdcClockHz>12500000</ActualAdcClockHz><ActualScanUs>10</ActualScanUs></CyConfigModel>, Config2Filter=<pass_type=LOW_PASS>\r\n<shape=BUTTERWORTH>\r\n<primary_freq=10>\r\n<secondary_freq=-1>\r\n<notchEnabled=False>\r\n<modBitEnabled=False>\r\n<sampleRate=1000>\r\n<uabClockDivider=0>\r\n<sampleRateSource=AUTO>\r\n<filterGain_dB=0>\r\n<filterGain_Linear=1>\r\n<gainScale=DB>\r\n, Config2FilterDisplay=<FreqAxisUpper=150>\r\n<FreqAxisLower=0>\r\n<GainAxisUpper=0>\r\n<GainAxisLower=-140>\r\n<Display=16829571>\r\n, Config3=<?xml version="1.0" encoding="utf-16"?><CyConfigModel xmlns:Version="3_10"><SampleRateEditor>true</SampleRateEditor><SampleRate>100000</SampleRate><FreeRunning>true</FreeRunning><UseSoc>false</UseSoc><VrefBypass>true</VrefBypass><VrefSource>VREFSOURCE_VBGR</VrefSource><VrefVoltage>1.2</VrefVoltage><VnegSource>VNEGSOURCE_VREFSHORT</VnegSource><DiffResultFormat>SIGNED_FORMAT</DiffResultFormat><SingleEndedResultFormat>UNSIGNED_FORMAT</SingleEndedResultFormat><SamplesAveraged>TWO_SAMPLES</SamplesAveraged><AveragingMode>SEQUENTIAL_AVG</AveragingMode><AlternateResolution>EIGHT_BIT</AlternateResolution><CompareMode>LESS_THAN</CompareMode><LowLimit>512</LowLimit><HighLimit>3584</HighLimit><NumChannels>2</NumChannels><ChannelList><CyChannelModel><Enabled>true</Enabled><UseAltResolution>false</UseAltResolution><InputMode>DIFFERENTIAL_CHAN</InputMode><UseAveraging>false</UseAveraging><MinimumAcqTime>167</MinimumAcqTime><UseLimitInterrupt>false</UseLimitInterrupt><ActualAcqTime>7360</ActualAcqTime><UseSaturationInterrupt>false</UseSaturationInterrupt><ApertureTimer>0</ApertureTimer></CyChannelModel><CyChannelModel><Enabled>true</Enabled><UseAltResolution>false</UseAltResolution><InputMode>DIFFERENTIAL_CHAN</InputMode><UseAveraging>false</UseAveraging><MinimumAcqTime>167</MinimumAcqTime><UseLimitInterrupt>false</UseLimitInterrupt><ActualAcqTime>240</ActualAcqTime><UseSaturationInterrupt>false</UseSaturationInterrupt><ApertureTimer>1</ApertureTimer></CyChannelModel></ChannelList><ApertureTimers><int>93</int><int>4</int><int>2</int><int>2</int></ApertureTimers><AdcClockDivider>2</AdcClockDivider><FilterUabStartDelay>0</FilterUabStartDelay><ActualSampleRate>100000</ActualSampleRate><ActualAdcClockHz>12500000</ActualAdcClockHz><ActualScanUs>10</ActualScanUs></CyConfigModel>, Config3Filter=<pass_type=LOW_PASS>\r\n<shape=BUTTERWORTH>\r\n<primary_freq=10>\r\n<secondary_freq=-1>\r\n<notchEnabled=False>\r\n<modBitEnabled=False>\r\n<sampleRate=1000>\r\n<uabClockDivider=0>\r\n<sampleRateSource=AUTO>\r\n<filterGain_dB=0>\r\n<filterGain_Linear=1>\r\n<gainScale=DB>\r\n, Config3FilterDisplay=<FreqAxisUpper=150>\r\n<FreqAxisLower=0>\r\n<GainAxisUpper=0>\r\n<GainAxisLower=-140>\r\n<Display=16829571>\r\n, Debug=false, DeviceSeriesName=PSoC 63, ExternalClk=false, ExternalSoc=false, ExtVrefMuxSelect=3, FilterConfigMuxSelect_0=1, FilterConfigMuxSelect_1=1, FilterConfigMuxSelect_2=2, FilterConfigMuxSelect_3=3, FilterVinMuxSelect_1_0=0, FilterVinMuxSelect_2_0=0, FilterVinMuxSelect_2_1=0, FilterVinMuxSelect_3_0=0, FilterVinMuxSelect_3_1=0, FilterVinMuxSelect_3_2=0, IsEdgeTrigger=0, IsFilterPresent=false, NumConfigs=1, SarmuxDiffMask=0, SarmuxVinDiffWidth=1, SarmuxVinNegWidth=1, SarmuxVinPlusMuxSelect_0=0, SarmuxVinPlusMuxSelect_1=0, SarmuxVinPlusMuxSelect_10=0, SarmuxVinPlusMuxSelect_11=0, SarmuxVinPlusMuxSelect_12=0, SarmuxVinPlusMuxSelect_13=0, SarmuxVinPlusMuxSelect_14=0, SarmuxVinPlusMuxSelect_15=0, SarmuxVinPlusMuxSelect_16=0, SarmuxVinPlusMuxSelect_17=0, SarmuxVinPlusMuxSelect_18=0, SarmuxVinPlusMuxSelect_19=0, SarmuxVinPlusMuxSelect_2=0, SarmuxVinPlusMuxSelect_20=0, SarmuxVinPlusMuxSelect_21=0, SarmuxVinPlusMuxSelect_22=0, SarmuxVinPlusMuxSelect_23=0, SarmuxVinPlusMuxSelect_24=0, SarmuxVinPlusMuxSelect_25=0, SarmuxVinPlusMuxSelect_26=0, SarmuxVinPlusMuxSelect_27=0, SarmuxVinPlusMuxSelect_28=0, SarmuxVinPlusMuxSelect_29=0, SarmuxVinPlusMuxSelect_3=0, SarmuxVinPlusMuxSelect_30=0, SarmuxVinPlusMuxSelect_31=0, SarmuxVinPlusMuxSelect_32=0, SarmuxVinPlusMuxSelect_33=0, SarmuxVinPlusMuxSelect_34=0, SarmuxVinPlusMuxSelect_35=0, SarmuxVinPlusMuxSelect_36=0, SarmuxVinPlusMuxSelect_37=0, SarmuxVinPlusMuxSelect_38=0, SarmuxVinPlusMuxSelect_39=0, SarmuxVinPlusMuxSelect_4=0, SarmuxVinPlusMuxSelect_40=0, SarmuxVinPlusMuxSelect_41=0, SarmuxVinPlusMuxSelect_42=0, SarmuxVinPlusMuxSelect_43=0, SarmuxVinPlusMuxSelect_44=0, SarmuxVinPlusMuxSelect_45=0, SarmuxVinPlusMuxSelect_46=0, SarmuxVinPlusMuxSelect_47=0, SarmuxVinPlusMuxSelect_48=0, SarmuxVinPlusMuxSelect_49=0, SarmuxVinPlusMuxSelect_5=0, SarmuxVinPlusMuxSelect_50=0, SarmuxVinPlusMuxSelect_51=0, SarmuxVinPlusMuxSelect_52=0, SarmuxVinPlusMuxSelect_53=0, SarmuxVinPlusMuxSelect_54=0, SarmuxVinPlusMuxSelect_55=0, SarmuxVinPlusMuxSelect_56=0, SarmuxVinPlusMuxSelect_57=0, SarmuxVinPlusMuxSelect_58=0, SarmuxVinPlusMuxSelect_59=0, SarmuxVinPlusMuxSelect_6=0, SarmuxVinPlusMuxSelect_60=0, SarmuxVinPlusMuxSelect_61=0, SarmuxVinPlusMuxSelect_62=0, SarmuxVinPlusMuxSelect_63=0, SarmuxVinPlusMuxSelect_7=0, SarmuxVinPlusMuxSelect_8=0, SarmuxVinPlusMuxSelect_9=0, SocMuxSelect=1, Test_ConfigSpacing=15, Test_ExposeTestTerminals=false, VinMinusMuxSelect_0=1, VinMinusMuxSelect_1=1, VinMinusMuxSelect_10=1, VinMinusMuxSelect_11=1, VinMinusMuxSelect_12=1, VinMinusMuxSelect_13=1, VinMinusMuxSelect_14=1, VinMinusMuxSelect_15=1, VinMinusMuxSelect_16=1, VinMinusMuxSelect_17=1, VinMinusMuxSelect_18=1, VinMinusMuxSelect_19=1, VinMinusMuxSelect_2=1, VinMinusMuxSelect_20=1, VinMinusMuxSelect_21=1, VinMinusMuxSelect_22=1, VinMinusMuxSelect_23=1, VinMinusMuxSelect_24=1, VinMinusMuxSelect_25=1, VinMinusMuxSelect_26=1, VinMinusMuxSelect_27=1, VinMinusMuxSelect_28=1, VinMinusMuxSelect_29=1, VinMinusMuxSelect_3=1, VinMinusMuxSelect_30=1, VinMinusMuxSelect_31=1, VinMinusMuxSelect_32=1, VinMinusMuxSelect_33=1, VinMinusMuxSelect_34=1, VinMinusMuxSelect_35=1, VinMinusMuxSelect_36=1, VinMinusMuxSelect_37=1, VinMinusMuxSelect_38=1, VinMinusMuxSelect_39=1, VinMinusMuxSelect_4=1, VinMinusMuxSelect_40=1, VinMinusMuxSelect_41=1, VinMinusMuxSelect_42=1, VinMinusMuxSelect_43=1, VinMinusMuxSelect_44=1, VinMinusMuxSelect_45=1, VinMinusMuxSelect_46=1, VinMinusMuxSelect_47=1, VinMinusMuxSelect_48=1, VinMinusMuxSelect_49=1, VinMinusMuxSelect_5=1, VinMinusMuxSelect_50=1, VinMinusMuxSelect_51=1, VinMinusMuxSelect_52=1, VinMinusMuxSelect_53=1, VinMinusMuxSelect_54=1, VinMinusMuxSelect_55=1, VinMinusMuxSelect_56=1, VinMinusMuxSelect_57=1, VinMinusMuxSelect_58=1, VinMinusMuxSelect_59=1, VinMinusMuxSelect_6=1, VinMinusMuxSelect_60=1, VinMinusMuxSelect_61=1, VinMinusMuxSelect_62=1, VinMinusMuxSelect_63=1, VinMinusMuxSelect_7=1, VinMinusMuxSelect_8=1, VinMinusMuxSelect_9=1, VinNegMuxSelect_0=1, VinNegMuxSelect_1=1, VinNegMuxSelect_2=1, VinNegMuxSelect_3=1, VinPlusMuxSelect_0=0, VinPlusMuxSelect_1=1, VinPlusMuxSelect_10=1, VinPlusMuxSelect_11=1, VinPlusMuxSelect_12=1, VinPlusMuxSelect_13=1, VinPlusMuxSelect_14=1, VinPlusMuxSelect_15=1, VinPlusMuxSelect_16=1, VinPlusMuxSelect_17=1, VinPlusMuxSelect_18=1, VinPlusMuxSelect_19=1, VinPlusMuxSelect_2=1, VinPlusMuxSelect_20=1, VinPlusMuxSelect_21=1, VinPlusMuxSelect_22=1, VinPlusMuxSelect_23=1, VinPlusMuxSelect_24=1, VinPlusMuxSelect_25=1, VinPlusMuxSelect_26=1, VinPlusMuxSelect_27=1, VinPlusMuxSelect_28=1, VinPlusMuxSelect_29=1, VinPlusMuxSelect_3=1, VinPlusMuxSelect_30=1, VinPlusMuxSelect_31=1, VinPlusMuxSelect_32=1, VinPlusMuxSelect_33=1, VinPlusMuxSelect_34=1, VinPlusMuxSelect_35=1, VinPlusMuxSelect_36=1, VinPlusMuxSelect_37=1, VinPlusMuxSelect_38=1, VinPlusMuxSelect_39=1, VinPlusMuxSelect_4=1, VinPlusMuxSelect_40=1, VinPlusMuxSelect_41=1, VinPlusMuxSelect_42=1, VinPlusMuxSelect_43=1, VinPlusMuxSelect_44=1, VinPlusMuxSelect_45=1, VinPlusMuxSelect_46=1, VinPlusMuxSelect_47=1, VinPlusMuxSelect_48=1, VinPlusMuxSelect_49=1, VinPlusMuxSelect_5=1, VinPlusMuxSelect_50=1, VinPlusMuxSelect_51=1, VinPlusMuxSelect_52=1, VinPlusMuxSelect_53=1, VinPlusMuxSelect_54=1, VinPlusMuxSelect_55=1, VinPlusMuxSelect_56=1, VinPlusMuxSelect_57=1, VinPlusMuxSelect_58=1, VinPlusMuxSelect_59=1, VinPlusMuxSelect_6=1, VinPlusMuxSelect_60=1, VinPlusMuxSelect_61=1, VinPlusMuxSelect_62=1, VinPlusMuxSelect_63=1, VinPlusMuxSelect_7=1, VinPlusMuxSelect_8=1, VinPlusMuxSelect_9=1, VminusMuxSelect=2, VplusMuxSelect=1, VrefMuxSelect_0=1, VrefMuxSelect_1=1, VrefMuxSelect_2=1, VrefMuxSelect_3=1, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=Scan_ADC_v3_10, CY_CONFIG_TITLE=ADC, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=Scan_ADC_P6_v3_10.pdf, CY_FITTER_NAME=ADC, CY_INSTANCE_SHORT_NAME=ADC, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=10, CY_PDL_DRIVER_NAME=sar, CY_PDL_DRIVER_REQ_VERSION=1.20, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=ADC, )
-module Scan_ADC_v3_10_6 (
+module Scan_ADC_v3_10_5 (
     eos,
     sdone,
     t_chid,
@@ -1887,7 +1740,7 @@ module Scan_ADC_v3_10_6 (
 endmodule
 
 // TCPWM_PWM_PDL_v1_0(ClockPrescaler=0, Compare0=0, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=7, KillInputMasked=3, KillMode=2, Period0=256, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=7, StartInputMasked=3, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=PWM_FAN, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PWM_FAN, CY_INSTANCE_SHORT_NAME=PWM_FAN, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PWM_FAN, )
-module TCPWM_PWM_PDL_v1_0_7 (
+module TCPWM_PWM_PDL_v1_0_6 (
     clock,
     compare,
     count,
@@ -1936,7 +1789,7 @@ module TCPWM_PWM_PDL_v1_0_7 (
 endmodule
 
 // TCPWM_PWM_PDL_v1_0(ClockPrescaler=7, Compare0=0, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=7, KillInputMasked=3, KillMode=2, Period0=255, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=7, StartInputMasked=3, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=LCD_PWM, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=LCD_PWM, CY_INSTANCE_SHORT_NAME=LCD_PWM, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=LCD_PWM, )
-module TCPWM_PWM_PDL_v1_0_8 (
+module TCPWM_PWM_PDL_v1_0_7 (
     clock,
     compare,
     count,
@@ -1985,7 +1838,7 @@ module TCPWM_PWM_PDL_v1_0_8 (
 endmodule
 
 // I2S_PDL_v2_0(ClockDiv=16, ExtClk=false, RxAlignment=1, RxChannelLength=1, RxChannels=2, RxDmaTrigger=false, RxEnabled=false, RxFifoTriggerLevel=0, RxFull=false, RxMasterMode=1, RxNotEmpty=false, RxOverflow=false, RxSckiPolarity=0, RxSckoPolarity=0, RxSdiLatchingTime=0, RxSignExtension=0, RxTrig=false, RxUnderflow=false, RxWatchdogEnable=false, RxWatchdogValue=4294967295, RxWd=false, RxWordLength=1, RxWsPulseWidth=1, TxAlignment=1, TxChannelLength=1, TxChannels=2, TxDmaTrigger=false, TxEmpty=false, TxEnabled=true, TxFifoTriggerLevel=0, TxMasterMode=1, TxNotFull=false, TxOverflow=false, TxOverheadValue=0, TxSckiPolarity=0, TxSckoPolarity=0, TxSdoLatchingTime=0, TxTrig=false, TxUnderflow=false, TxWatchdogEnable=false, TxWatchdogValue=4294967295, TxWd=false, TxWordLength=1, TxWsPulseWidth=1, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=I2S_PDL_v2_0, CY_CONFIG_TITLE=I2S_PDL_v2_0, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=I2S, CY_INSTANCE_SHORT_NAME=I2S, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=i2s, CY_PDL_DRIVER_REQ_VERSION=2.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=I2S, )
-module I2S_PDL_v2_0_9 (
+module I2S_PDL_v2_0_8 (
     clk_if,
     interrupt,
     rx_dma,
@@ -2053,7 +1906,7 @@ module I2S_PDL_v2_0_9 (
 endmodule
 
 // TCPWM_PWM_PDL_v1_0(ClockPrescaler=0, Compare0=0, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=7, KillInputMasked=3, KillMode=2, Period0=256, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=7, StartInputMasked=3, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=PWM_PEL1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PWM_PEL1, CY_INSTANCE_SHORT_NAME=PWM_PEL1, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PWM_PEL1, )
-module TCPWM_PWM_PDL_v1_0_10 (
+module TCPWM_PWM_PDL_v1_0_9 (
     clock,
     compare,
     count,
@@ -2102,7 +1955,7 @@ module TCPWM_PWM_PDL_v1_0_10 (
 endmodule
 
 // TCPWM_PWM_PDL_v1_0(ClockPrescaler=0, Compare0=0, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=7, KillInputMasked=3, KillMode=2, Period0=256, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=7, StartInputMasked=3, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=PWM_PEL2, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PWM_PEL2, CY_INSTANCE_SHORT_NAME=PWM_PEL2, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PWM_PEL2, )
-module TCPWM_PWM_PDL_v1_0_11 (
+module TCPWM_PWM_PDL_v1_0_10 (
     clock,
     compare,
     count,
@@ -2269,24 +2122,9 @@ module top ;
           wire  Net_553;
           wire  Net_552;
           wire  Net_551;
-          wire  Net_113;
-          wire  Net_116;
-          wire  Net_115;
-          wire  Net_114;
-          wire  Net_124;
-          wire  Net_112;
-          wire  Net_123;
-          wire  Net_122;
-          wire  Net_121;
-          wire  Net_119;
-          wire  Net_118;
-          wire  Net_117;
-          wire  Net_110;
-          wire  Net_111;
           wire  Net_107;
           wire  Net_106;
           wire  Net_105;
-          wire  Net_120;
     electrical  Net_301;
           wire  Net_71;
 
@@ -2294,23 +2132,6 @@ module top ;
         .lna_rx_en(Net_105),
         .pa_lna_en(Net_106),
         .pa_tx_en(Net_107));
-
-    SCB_SPI_PDL_v2_0_2 SPI (
-        .clock(1'b0),
-        .interrupt(Net_110),
-        .m_miso(1'b0),
-        .m_mosi(Net_118),
-        .m_sclk(Net_119),
-        .m_ss0(Net_120),
-        .m_ss1(Net_121),
-        .m_ss2(Net_122),
-        .m_ss3(Net_123),
-        .rx_dma(Net_112),
-        .s_miso(Net_124),
-        .s_mosi(1'b0),
-        .s_sclk(1'b0),
-        .s_ss(1'b0),
-        .tx_dma(Net_113));
 
 	wire [0:0] tmpFB_0__DISP_CS_net;
 	wire [0:0] tmpIO_0__DISP_CS_net;
@@ -2507,7 +2328,7 @@ module top ;
 		  .siovref(tmpSIOVREF__I2C_SCL_net));
 
 
-    TCPWM_PWM_PDL_v1_0_3 PWM_TENS2 (
+    TCPWM_PWM_PDL_v1_0_2 PWM_TENS2 (
         .clock(Net_551),
         .compare(Net_552),
         .count(1'b1),
@@ -2713,7 +2534,7 @@ module top ;
 		 (.clock_out(Net_712));
 
 
-    TCPWM_PWM_PDL_v1_0_4 AMP_PWM (
+    TCPWM_PWM_PDL_v1_0_3 AMP_PWM (
         .clock(Net_712),
         .compare(Net_711),
         .count(1'b1),
@@ -2727,7 +2548,7 @@ module top ;
         .swap(1'b0),
         .undrflw(Net_710));
 
-    TCPWM_PWM_PDL_v1_0_5 PWM_TENS (
+    TCPWM_PWM_PDL_v1_0_4 PWM_TENS (
         .clock(Net_154),
         .compare(Net_155),
         .count(1'b1),
@@ -3005,7 +2826,7 @@ module top ;
 		  .siovref(tmpSIOVREF__TENS_USER_EN2_net));
 
 
-    Scan_ADC_v3_10_6 ADC (
+    Scan_ADC_v3_10_5 ADC (
         .eos(Net_289),
         .sdone(Net_290),
         .t_chid(Net_291[3:0]),
@@ -3103,7 +2924,7 @@ module top ;
 		 (.clock_out(Net_448));
 
 
-    TCPWM_PWM_PDL_v1_0_7 PWM_FAN (
+    TCPWM_PWM_PDL_v1_0_6 PWM_FAN (
         .clock(Net_448),
         .compare(Net_449),
         .count(1'b1),
@@ -3163,11 +2984,11 @@ module top ;
 		  .sio_grp_cnt(0),
 		  .drive_mode("6"),
 		  .ibuf_enabled("0"),
-		  .init_dr_st("1"),
+		  .init_dr_st("0"),
 		  .input_sync("0"),
 		  .intr_mode("0"),
 		  .io_voltage(""),
-		  .output_conn("1"),
+		  .output_conn("0"),
 		  .oe_conn("0"),
 		  .output_sync("0"),
 		  .oe_sync("0"),
@@ -3183,7 +3004,7 @@ module top ;
 		  .hotswap_needed("0"))
 		DISP_SCK
 		 (.oe({1'b1}),
-		  .y({Net_119}),
+		  .y({1'b0}),
 		  .fb({tmpFB_0__DISP_SCK_net[0:0]}),
 		  .io({tmpIO_0__DISP_SCK_net[0:0]}),
 		  .siovref(tmpSIOVREF__DISP_SCK_net));
@@ -3197,13 +3018,13 @@ module top ;
 		#(.id("ad5753ba-39a5-42d9-ab14-0deac1aa2094"),
 		  .width(1),
 		  .sio_grp_cnt(0),
-		  .drive_mode("6"),
+		  .drive_mode("2"),
 		  .ibuf_enabled("0"),
 		  .init_dr_st("1"),
 		  .input_sync("0"),
 		  .intr_mode("0"),
 		  .io_voltage(""),
-		  .output_conn("1"),
+		  .output_conn("0"),
 		  .oe_conn("0"),
 		  .output_sync("0"),
 		  .oe_sync("0"),
@@ -3219,7 +3040,7 @@ module top ;
 		  .hotswap_needed("0"))
 		DISP_MOSI
 		 (.oe({1'b1}),
-		  .y({Net_118}),
+		  .y({1'b0}),
 		  .fb({tmpFB_0__DISP_MOSI_net[0:0]}),
 		  .io({tmpIO_0__DISP_MOSI_net[0:0]}),
 		  .siovref(tmpSIOVREF__DISP_MOSI_net));
@@ -3261,7 +3082,7 @@ module top ;
 		  .siovref(tmpSIOVREF__BKLGT_PWM_net));
 
 
-    TCPWM_PWM_PDL_v1_0_8 LCD_PWM (
+    TCPWM_PWM_PDL_v1_0_7 LCD_PWM (
         .clock(Net_380),
         .compare(Net_379),
         .count(1'b1),
@@ -3446,7 +3267,7 @@ module top ;
 		  .siovref(tmpSIOVREF__AMP_SCK_net));
 
 
-    I2S_PDL_v2_0_9 I2S (
+    I2S_PDL_v2_0_8 I2S (
         .clk_if(1'b0),
         .interrupt(Net_524),
         .rx_dma(Net_525),
@@ -3510,7 +3331,7 @@ module top ;
 		  .siovref(tmpSIOVREF__TENS_PWM2_net));
 
 
-    TCPWM_PWM_PDL_v1_0_10 PWM_PEL1 (
+    TCPWM_PWM_PDL_v1_0_9 PWM_PEL1 (
         .clock(Net_576),
         .compare(Net_577),
         .count(1'b1),
@@ -3572,7 +3393,7 @@ module top ;
 		  .siovref(tmpSIOVREF__PEL_1_net));
 
 
-    TCPWM_PWM_PDL_v1_0_11 PWM_PEL2 (
+    TCPWM_PWM_PDL_v1_0_10 PWM_PEL2 (
         .clock(Net_591),
         .compare(Net_592),
         .count(1'b1),
