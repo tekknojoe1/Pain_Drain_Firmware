@@ -449,11 +449,11 @@ void sendData(uint8_t data) {
     
     // Send the 9-bit command byte over SPI
         /* Clear Rx FIFO status. */
-    Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
-    Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
-    Cy_SCB_SPI_ClearTxFifo(SPI_HW);
-    Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
-    Cy_SCB_SPI_ClearRxFifo(SPI_HW);
+    //Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
+    //Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
+    //Cy_SCB_SPI_ClearTxFifo(SPI_HW);
+    //Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
+    //Cy_SCB_SPI_ClearRxFifo(SPI_HW);
     txBuffer = Cy_SCB_SPI_Write(SPI_HW, dataToSend);
     //rxBuffer = Cy_SCB_SPI_Read(SPI_HW);
     // Wait for the transfer to complete
@@ -489,11 +489,11 @@ void sendCommand(uint8_t cmd) {
     // Send the 9-bit data byte over SPI
     //Cy_SCB_SPI_WriteArray(SPI_HW, &commandToSend, 1);
         /* Clear Rx FIFO status. */
-    Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
-    Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
-    Cy_SCB_SPI_ClearTxFifo(SPI_HW);
-    Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
-    Cy_SCB_SPI_ClearRxFifo(SPI_HW);
+    //Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
+    //Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
+    //Cy_SCB_SPI_ClearTxFifo(SPI_HW);
+    //Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
+    //Cy_SCB_SPI_ClearRxFifo(SPI_HW);
     txBuffer = Cy_SCB_SPI_Write(SPI_HW, commandToSend);
     /* Clear Master status and Tx FIFO status. */;
 
@@ -672,26 +672,29 @@ void SetAddressWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) {
     // Send command to enable memory write
     sendCommand(0x2C); // RAMWR (2Ch): Memory Write
 }
-void ST7789_DrawPixel(uint16_t XPos, uint16_t YPos, uint16_t Color)
-{
-	
-	//uint8_t colorBuff[2] = {Color >> 8, Color & 0xFF};
-	
-	/* ---------------- Size Control ---------------- */
-	if ((XPos < 0) || (XPos >= 240) || (YPos < 0) || (YPos >= 280))
-	{
-		return;
-	}
-	
-	SetAddressWindow(XPos, YPos, XPos, YPos);
-	
-	/* ---------------- Write Pixel ----------------- */
-    sendData(Color >> 8);
-    sendData(Color & 0xFF);
-    //DBG_PRINTF("Pixel drawn\r\n");
-	//ST7789_TransmitData(colorBuff, sizeof(colorBuff));
-	
+
+// Function to draw a pixel at (x, y) with a specified color
+void drawPixel(uint16_t x, uint16_t y, uint16_t color) {
+    // Set the column address range (X coordinate)
+    sendCommand(0x2A);  // Set column address
+    sendData(x >> 8);           // Start column high byte
+    sendData(x & 0xFF);         // Start column low byte
+    sendData((x + 1) >> 8);     // End column high byte
+    sendData((x + 1) & 0xFF);   // End column low byte
+
+    // Set the row address range (Y coordinate)
+    sendCommand(0x2B);  // Set row address
+    sendData(y >> 8);           // Start row high byte
+    sendData(y & 0xFF);         // Start row low byte
+    sendData((y + 1) >> 8);     // End row high byte
+    sendData((y + 1) & 0xFF);   // End row low byte
+
+    // Write pixel color data
+    sendCommand(0x2C);  // Memory write command
+    sendData(color >> 8);       // High byte of color data
+    sendData(color & 0xFF);     // Low byte of color data
 }
+
 void drawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color) {
     // Set the address window for the rectangle
     //DBG_PRINTF("Drawing rectangle\r\n");
@@ -733,14 +736,21 @@ int HostMain(void)
     SPI_Start();
     LCDinit();
     //ST7789_DrawPixel(50, 50, 0x07E0);
-    sendCommand(0x21);
-    ST7789_DrawPixel(50, 50, 0x07E0);
-    ST7789_DrawPixel(51, 50, 0x07E0);
-    ST7789_DrawPixel(52, 50, 0x07E0);
-    ST7789_DrawPixel(53, 50, 0x07E0);
-    ST7789_DrawPixel(54, 50, 0x07E0);
-    ST7789_DrawPixel(55, 50, 0x07E0);
-    ST7789_DrawPixel(56, 50, 0x07E0);
+    //sendCommand(0x21);
+    // Define the color white in RGB888 format
+    uint8_t red = 0xFF;
+    uint8_t green = 0xFF;
+    uint8_t blue = 0xFF;
+
+    // Combine the color channels into a single 24-bit color value
+    uint32_t color = (red << 16) | (green << 8) | blue;
+    drawPixel(50, 50, color);
+    drawPixel(51, 50, color);
+    drawPixel(52, 50, color);
+    drawPixel(53, 50, color);
+    drawPixel(54, 50, color);
+    drawPixel(55, 50, color);
+    drawPixel(56, 50, color);
     //sendCommand(0x20);
 
     //st7789_display_test();
