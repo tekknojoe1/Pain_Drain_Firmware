@@ -54,6 +54,7 @@
 #include "driver_st7789_display_test.h"
 #include <stdlib.h>
 #include "driver_st7789_display_image.h"
+#include "bitbang_spi.h"
 
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
 static volatile uint32_t           mainTimer  = 1u;
@@ -364,6 +365,7 @@ void AppCallBack(uint32 event, void *eventParam)
                     respondStringPtr = writeReq->handleValPair.value.val;
                     respondStringPtr[length] = '\0';
                     //DBG_PRINTF("value %s\r\n", (char *)respondStringPtr);
+
                     // Sends a write with response command
                     Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
                 }
@@ -428,7 +430,7 @@ void lcdReset(void) {
 // Function to send a command byte over SPI
 void sendData(uint8_t data) {
     uint32_t masterStatus;
-    cy_en_scb_spi_status_t spiStatus;
+    //cy_en_scb_spi_status_t spiStatus;
     int count;
     uint32_t txBuffer;
     uint32_t rxBuffer;
@@ -438,13 +440,13 @@ void sendData(uint8_t data) {
     Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 0);
     
     /* Clear Master status and Tx FIFO status. */
-    Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
-    Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
-    Cy_SCB_SPI_ClearTxFifo(SPI_HW);
+    //Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
+    //Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
+    //Cy_SCB_SPI_ClearTxFifo(SPI_HW);
     
     /* Clear Rx FIFO status. */
-    Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
-    Cy_SCB_SPI_ClearRxFifo(SPI_HW);
+    //Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
+    //Cy_SCB_SPI_ClearRxFifo(SPI_HW);
     
     
     // Send the 9-bit command byte over SPI
@@ -454,21 +456,23 @@ void sendData(uint8_t data) {
     //Cy_SCB_SPI_ClearTxFifo(SPI_HW);
     //Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
     //Cy_SCB_SPI_ClearRxFifo(SPI_HW);
-    txBuffer = Cy_SCB_SPI_Write(SPI_HW, dataToSend);
+    //txBuffer = Cy_SCB_SPI_Write(SPI_HW, dataToSend);
     //rxBuffer = Cy_SCB_SPI_Read(SPI_HW);
     // Wait for the transfer to complete
     //spiStatus = Cy_SCB_SPI_Transfer(SPI_HW, &txBuffer, &rxBuffer, sizeof(dataToSend), &SPI_context);
-    do {
-        count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
-    } while (count < 1);
+    //do {
+    //    count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
+    //} while (count < 1);
 
+    bbSPI_write(&dataToSend, 1);
+    
     // Set to high after the spi is successful
     Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 1);
 }
 
 void sendCommand(uint8_t cmd) {
     uint32_t masterStatus;
-    cy_en_scb_spi_status_t spiStatus;
+    //cy_en_scb_spi_status_t spiStatus;
     int count;
     uint32_t txBuffer;
     uint32_t rxBuffer;
@@ -478,13 +482,13 @@ void sendCommand(uint8_t cmd) {
     Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 0);
     
     /* Clear Master status and Tx FIFO status. */
-    Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
-    Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
-    Cy_SCB_SPI_ClearTxFifo(SPI_HW);
+    //Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
+    //Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
+    //Cy_SCB_SPI_ClearTxFifo(SPI_HW);
     
     /* Clear Rx FIFO status. */
-    Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
-    Cy_SCB_SPI_ClearRxFifo(SPI_HW);
+    //Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
+    //Cy_SCB_SPI_ClearRxFifo(SPI_HW);
     
     // Send the 9-bit data byte over SPI
     //Cy_SCB_SPI_WriteArray(SPI_HW, &commandToSend, 1);
@@ -494,13 +498,18 @@ void sendCommand(uint8_t cmd) {
     //Cy_SCB_SPI_ClearTxFifo(SPI_HW);
     //Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
     //Cy_SCB_SPI_ClearRxFifo(SPI_HW);
-    txBuffer = Cy_SCB_SPI_Write(SPI_HW, commandToSend);
+    //txBuffer = Cy_SCB_SPI_Write(SPI_HW, commandToSend);
     /* Clear Master status and Tx FIFO status. */;
 
     //spiStatus = Cy_SCB_SPI_Transfer(SPI_HW, &txBuffer, &rxBuffer, sizeof(commandToSend), &SPI_context);
-    do {
-        count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
-    } while (count < 1);
+    //do {
+    //    count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
+    //} while (count < 1);
+    
+    
+    bbSPI_write(&commandToSend, 1);
+    
+    
     // Set to high after the spi is successful
     Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 1);
 }
@@ -580,13 +589,9 @@ void LCDinit(void)
     */
     
     lcdReset();
-    CyDelay(1); //Delay 1ms
-    lcdReset();
-    CyDelay(10); //Delay 10ms
-    lcdReset();
-    CyDelay(120); //Delay 120ms
     sendCommand(0x11); //SLPOUT (11h): Sleep Out
     CyDelay(120); //Delay 120ms
+    
     sendCommand(0x36); //MADCTL (36h): Memory Data Access Control - Default
     sendData(0x00);
     sendCommand(0x3A); //COLMOD (3Ah): Interface Pixel Format
@@ -733,24 +738,28 @@ int HostMain(void)
     //InitUserInterface();
     //DBG_PRINTF("Entering\r\n");
     //st7789_basic_init();
-    SPI_Start();
+    //SPI_Start();
     LCDinit();
     //ST7789_DrawPixel(50, 50, 0x07E0);
-    //sendCommand(0x21);
-    // Define the color white in RGB888 format
-    uint8_t red = 0xFF;
-    uint8_t green = 0xFF;
-    uint8_t blue = 0xFF;
-
-    // Combine the color channels into a single 24-bit color value
-    uint32_t color = (red << 16) | (green << 8) | blue;
-    drawPixel(50, 50, color);
-    drawPixel(51, 50, color);
-    drawPixel(52, 50, color);
-    drawPixel(53, 50, color);
-    drawPixel(54, 50, color);
-    drawPixel(55, 50, color);
-    drawPixel(56, 50, color);
+    
+    //while (1) {
+    //    Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 0);
+    //    uint16 wd = 0x04;
+    //    uint16 rd[4];
+    //    bbSPI_write(&wd, 1);
+    //    bbSPI_dummy_clock_cycle(1); 
+    //    bbSPI_read(rd, 4);
+    //    Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 1);
+    //    CyDelay(1);
+    //}
+        
+    ST7789_DrawPixel(50, 50, 0x07E0);
+    ST7789_DrawPixel(51, 50, 0x07E0);
+    ST7789_DrawPixel(52, 50, 0x07E0);
+    ST7789_DrawPixel(53, 50, 0x07E0);
+    ST7789_DrawPixel(54, 50, 0x07E0);
+    ST7789_DrawPixel(55, 50, 0x07E0);
+    ST7789_DrawPixel(56, 50, 0x07E0);
     //sendCommand(0x20);
 
     //st7789_display_test();
@@ -765,6 +774,8 @@ int HostMain(void)
     PWM_FAN_Start();
     //PWM_VIBE_Start();
     PWM_TENS_Start();
+    PWM_TENS2_Start();
+    
     PWM_PEL1_Start();
     PWM_PEL2_Start();
     Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);  //Enable is low
@@ -778,7 +789,11 @@ int HostMain(void)
     ***************************************************************************/
     while(1)
     {
-        //DBG_PRINTF("Loops from main %d\r\n", loopcount++);
+        DBG_PRINTF("Loops from main %d\r\n", loopcount++);
+        //DBG_PRINTF("PWM1 from main %d\r\n", PWM_PEL1_GetCompare0());
+        //CyDelayUs(100);
+        //DBG_PRINTF("PWM2 from main %d\r\n", PWM_PEL2_GetCompare0());
+        //CyDelayUs(100);
         
        // checkForValueChange();
         //CyDelay(1000);

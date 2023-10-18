@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 1
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
    1              		.syntax unified
@@ -58,7 +62,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
   28:Generated_Source\PSoC6/SPI.c **** /** SPI_initVar indicates whether the SPI
   29:Generated_Source\PSoC6/SPI.c **** *  component has been initialized. The variable is initialized to 0
   30:Generated_Source\PSoC6/SPI.c **** *  and set to 1 the first time SPI_Start() is called.
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 2
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 2
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
   31:Generated_Source\PSoC6/SPI.c **** *  This allows  the component to restart without reinitialization
@@ -118,7 +126,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
   85:Generated_Source\PSoC6/SPI.c **** * Function Name: SPI_Start
   86:Generated_Source\PSoC6/SPI.c **** ****************************************************************************//**
   87:Generated_Source\PSoC6/SPI.c **** *
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 3
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 3
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
   88:Generated_Source\PSoC6/SPI.c **** * Invokes SPI_Init() and SPI_Enable().
@@ -178,7 +190,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
   16:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * \addtogroup group_scb_spi
   17:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * \{
   18:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * Driver API for SPI Peripheral.
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 4
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 4
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
   19:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** *
@@ -238,7 +254,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
   73:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * \snippet SCB_CompDatasheet_sut_01_revA.cydsn\spi_snippets.c SPI_CFG
   74:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** *
   75:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** ********************************************************************************
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 5
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 5
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
   76:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * \subsection group_scb_spi_pins Assign and Configure Pins
@@ -298,7 +318,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  130:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * \snippet SCB_CompDatasheet_sut_01_revA.cydsn\spi_snippets.c SPI_INTR_B
  131:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** *
  132:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** ********************************************************************************
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 6
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 6
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  133:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * \subsection group_scb_spi_enable Enable SPI
@@ -358,7 +382,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  187:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * to execute the transfer. Call \ref Cy_SCB_SPI_Transfer to start communication: for master
  188:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * mode calling this function starts a transaction with the slave. For slave mode
  189:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * the read and write buffers are prepared for the communication with the master.
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 7
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 7
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  190:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * After a transfer is started, the \ref Cy_SCB_SPI_Interrupt handles the
@@ -418,7 +446,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  244:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * High-Z, which can cause unexpected behavior of the SPI Slave due to possible
  245:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * glitches on these lines. These pins must keep the inactive level (the same state
  246:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * when SPI master is enabled and does not transfer data) before entering Deep
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 8
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 8
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  247:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * Sleep or Hibernate mode. To do that, write the GPIO data register of each pin
@@ -478,7 +510,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  301:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** *     <td>Boolean operations whose results are invariant shall not be
  302:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** *         permitted.</td>
  303:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** *     <td>The SCB block parameters can be a constant false or true depends on
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 9
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 9
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  304:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** *         the selected device and cause this violation.</td>
@@ -538,7 +574,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  358:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** *   <tr>
  359:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** *     <td>Added parameters validation for public API.</td>
  360:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** *     <td></td>
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 10
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 10
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  361:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** *   </tr>
@@ -598,7 +638,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  415:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h ****     /** One or more of input parameters are invalid */
  416:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h ****     CY_SCB_SPI_BAD_PARAM = (CY_SCB_ID | CY_PDL_STATUS_ERROR | CY_SCB_SPI_ID | 1U),
  417:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 11
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 11
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  418:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h ****     /**
@@ -658,7 +702,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  472:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** } cy_en_scb_spi_slave_select_t;
  473:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** 
  474:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** /** SPI Polarity */
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 12
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 12
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  475:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** typedef enum
@@ -718,7 +766,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  529:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h ****     */
  530:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h ****     uint32_t    rxDataWidth;
  531:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 13
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 13
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  532:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h ****     /**
@@ -778,7 +830,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  586:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h ****     * the RX trigger output goes high. This output can be connected
  587:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h ****     * to a DMA channel through a trigger mux.
  588:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h ****     * Also, it controls the \ref CY_SCB_SPI_RX_TRIGGER interrupt source.
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 14
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 14
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  589:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h ****     */
@@ -838,7 +894,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  643:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h ****     * \ref group_scb_spi_macros_callback_events occurs
  644:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h ****     */
  645:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h ****     cy_cb_scb_spi_handle_events_t cbEvents;
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 15
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 15
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  646:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** 
@@ -898,7 +958,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  700:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** 
  701:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** __STATIC_INLINE uint32_t Cy_SCB_SPI_GetTxFifoStatus  (CySCB_Type const *base);
  702:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** __STATIC_INLINE void     Cy_SCB_SPI_ClearTxFifoStatus(CySCB_Type *base, uint32_t clearMask);
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 16
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 16
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  703:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** 
@@ -958,7 +1022,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  757:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** */
  758:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** #define CY_SCB_SPI_TX_TRIGGER       (SCB_INTR_TX_TRIGGER_Msk)
  759:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** 
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 17
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 17
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  760:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** /** The TX FIFO is not full, there is a space for more data */
@@ -1018,7 +1086,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  814:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * function or assign mask for \ref Cy_SCB_SPI_ClearSlaveMasterStatus function.
  815:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** */
  816:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** /** The slave was deselected at the wrong time */
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 18
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 18
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  817:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** #define CY_SCB_SPI_SLAVE_ERR       (SCB_INTR_S_SPI_BUS_ERROR_Msk)
@@ -1078,7 +1150,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  871:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** #define CY_SCB_SPI_TRANSFER_CMPLT_EVENT    (0x02U)
  872:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** 
  873:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** /**
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 19
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 19
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  874:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * An error occurred during the transfer. This includes overflow, underflow
@@ -1138,7 +1214,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  928:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** #define CY_SCB_SPI_IS_DATA_WIDTH_VALID(width)       ( ((width) >= 4UL) && ((width) <= 16UL) )
  929:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** #define CY_SCB_SPI_IS_SS_POLARITY_VALID(polarity)   ( (0UL == ((polarity) & (~0x0FUL))) )
  930:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** #define CY_SCB_SPI_IS_BUFFER_VALID(txBuffer, rxBuffer, size)  ( ((size) > 0UL)  && \
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 20
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 20
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  931:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h ****                                                                  (false == ((NULL == (txBuffer)) &&
@@ -1198,7 +1278,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  985:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * \note
  986:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** * * The SPI master does not assign the slave select line immediately after
  987:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** *   the first data element is written into the TX FIFO. It takes up to two SCLK
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 21
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 21
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  988:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_spi.h **** *   clocks to assign the slave select line. Before this happens, the bus
@@ -1258,7 +1342,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  114:Generated_Source\PSoC6/SPI.c ****         SPI_initVar = 1U;
   59              		.loc 1 114 0
   60 001e 0122     		movs	r2, #1
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 22
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 22
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
   61 0020 044B     		ldr	r3, .L3
@@ -1318,7 +1406,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  105 0008 09000000 		.word	9
  106 000c 09000000 		.word	9
  107 0010 01       		.byte	1
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 23
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 23
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  108 0011 00       		.byte	0
@@ -1378,7 +1470,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  162 003b C5000000 		.4byte	.LASF3
  163 003f 03       		.byte	0x3
  164 0040 1D       		.byte	0x1d
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 24
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 24
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  165 0041 2C000000 		.4byte	0x2c
@@ -1438,7 +1534,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  219 00ad 03       		.uleb128 0x3
  220 00ae BA040000 		.4byte	.LASF15
  221 00b2 04       		.byte	0x4
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 25
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 25
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  222 00b3 24       		.byte	0x24
@@ -1498,7 +1598,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  276 012e C3000000 		.4byte	0xc3
  277 0132 02       		.byte	0x2
  278 0133 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 26
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 26
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  279 0134 07       		.uleb128 0x7
@@ -1558,7 +1662,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  333 01ab 1B0D0000 		.4byte	.LASF19
  334 01af 05       		.byte	0x5
  335 01b0 23       		.byte	0x23
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 27
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 27
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  336 01b1 CF000000 		.4byte	0xcf
@@ -1618,7 +1726,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  390 021d CA000000 		.4byte	0xca
  391 0221 48       		.byte	0x48
  392 0222 0B       		.uleb128 0xb
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 28
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 28
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  393 0223 0B060000 		.4byte	.LASF29
@@ -1678,7 +1790,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  447 028f D60C0000 		.4byte	.LASF38
  448 0293 05       		.byte	0x5
  449 0294 36       		.byte	0x36
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 29
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 29
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  450 0295 CA000000 		.4byte	0xca
@@ -1738,7 +1854,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  504 030a CF000000 		.4byte	0xcf
  505 030e 0C03     		.2byte	0x30c
  506 0310 0C       		.uleb128 0xc
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 30
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 30
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  507 0311 A7070000 		.4byte	.LASF48
@@ -1798,7 +1918,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  561 0386 100B0000 		.4byte	.LASF57
  562 038a 05       		.byte	0x5
  563 038b 49       		.byte	0x49
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 31
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 31
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  564 038c CA000000 		.4byte	0xca
@@ -1858,7 +1982,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  618 0401 77050000 		.4byte	0x577
  619 0405 D00E     		.2byte	0xed0
  620 0407 0C       		.uleb128 0xc
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 32
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 32
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  621 0408 0C090000 		.4byte	.LASF67
@@ -1918,7 +2046,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  675 047d 95020000 		.4byte	.LASF76
  676 0481 05       		.byte	0x5
  677 0482 5C       		.byte	0x5c
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 33
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 33
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  678 0483 8B050000 		.4byte	0x58b
@@ -1978,7 +2110,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  732 04f8 CF000000 		.4byte	0xcf
  733 04fc CC0F     		.2byte	0xfcc
  734 04fe 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 34
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 34
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  735 04ff 05       		.uleb128 0x5
@@ -2038,7 +2174,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  789 0586 05       		.uleb128 0x5
  790 0587 34010000 		.4byte	0x134
  791 058b 06       		.uleb128 0x6
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 35
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 35
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  792 058c 86050000 		.4byte	0x586
@@ -2098,7 +2238,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  846 05fc 0B       		.uleb128 0xb
  847 05fd B90A0000 		.4byte	.LASF94
  848 0601 07       		.byte	0x7
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 36
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 36
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  849 0602 3C       		.byte	0x3c
@@ -2158,7 +2302,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  903 066e 47       		.byte	0x47
  904 066f 97000000 		.4byte	0x97
  905 0673 2C       		.byte	0x2c
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 37
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 37
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  906 0674 0B       		.uleb128 0xb
@@ -2218,7 +2366,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  960 06e0 0B       		.uleb128 0xb
  961 06e1 5A0B0000 		.4byte	.LASF113
  962 06e5 07       		.byte	0x7
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 38
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 38
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  963 06e6 53       		.byte	0x53
@@ -2278,7 +2430,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  1017 0752 5C       		.byte	0x5c
  1018 0753 97000000 		.4byte	0x97
  1019 0757 43       		.byte	0x43
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 39
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 39
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  1020 0758 0B       		.uleb128 0xb
@@ -2338,7 +2494,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  1074 07c4 0B       		.uleb128 0xb
  1075 07c5 9C0C0000 		.4byte	.LASF132
  1076 07c9 07       		.byte	0x7
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 40
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 40
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  1077 07ca 66       		.byte	0x66
@@ -2398,7 +2558,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  1131 0836 73       		.byte	0x73
  1132 0837 B8000000 		.4byte	0xb8
  1133 083b 64       		.byte	0x64
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 41
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 41
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  1134 083c 0B       		.uleb128 0xb
@@ -2458,7 +2622,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  1188 08a8 0B       		.uleb128 0xb
  1189 08a9 060C0000 		.4byte	.LASF151
  1190 08ad 07       		.byte	0x7
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 42
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 42
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  1191 08ae 81       		.byte	0x81
@@ -2518,7 +2686,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  1245 091a 8E       		.byte	0x8e
  1246 091b B8000000 		.4byte	0xb8
  1247 091f 88       		.byte	0x88
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 43
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 43
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  1248 0920 0B       		.uleb128 0xb
@@ -2578,7 +2750,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  1302 098c 0B       		.uleb128 0xb
  1303 098d C80B0000 		.4byte	.LASF170
  1304 0991 07       		.byte	0x7
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 44
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 44
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  1305 0992 98       		.byte	0x98
@@ -2638,7 +2814,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  1359 09f9 2C000000 		.4byte	0x2c
  1360 09fd 02       		.byte	0x2
  1361 09fe AA01     		.2byte	0x1aa
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 45
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 45
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  1362 0a00 110A0000 		.4byte	0xa11
@@ -2698,7 +2878,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  1416 0a73 03       		.byte	0x3
  1417 0a74 00       		.byte	0
  1418 0a75 0D       		.uleb128 0xd
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 46
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 46
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  1419 0a76 74030000 		.4byte	.LASF192
@@ -2758,7 +2942,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  1473 0aea 15       		.uleb128 0x15
  1474 0aeb 38060000 		.4byte	.LASF221
  1475 0aef 34       		.byte	0x34
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 47
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 47
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  1476 0af0 02       		.byte	0x2
@@ -2818,7 +3006,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  1530 0b65 2A02     		.2byte	0x22a
  1531 0b67 E20B0000 		.4byte	0xbe2
  1532 0b6b 12       		.byte	0x12
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 48
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 48
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  1533 0b6c 16       		.uleb128 0x16
@@ -2878,7 +3070,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  1587 0be1 00       		.byte	0
  1588 0be2 02       		.uleb128 0x2
  1589 0be3 01       		.byte	0x1
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 49
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 49
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  1590 0be4 02       		.byte	0x2
@@ -2937,8 +3133,13 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  1643 0c58 CA000000 		.4byte	0xca
  1644 0c5c 18       		.byte	0x18
  1645 0c5d 16       		.uleb128 0x16
+<<<<<<< HEAD
  1646 0c5e 1A060000 		.4byte	.LASF230
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 50
+=======
+ 1646 0c5e 27060000 		.4byte	.LASF230
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 50
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  1647 0c62 02       		.byte	0x2
@@ -2998,7 +3199,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  1701 0cd9 01       		.uleb128 0x1
  1702 0cda 9C       		.byte	0x9c
  1703 0cdb 450D0000 		.4byte	0xd45
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 51
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 51
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  1704 0cdf 1A       		.uleb128 0x1a
@@ -3058,7 +3263,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  1758 0d51 04       		.byte	0x4
  1759 0d52 560D0000 		.4byte	0xd56
  1760 0d56 06       		.uleb128 0x6
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 52
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 52
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  1761 0d57 C9090000 		.4byte	0x9c9
@@ -3118,7 +3327,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  1815 0013 02       		.uleb128 0x2
  1816 0014 24       		.uleb128 0x24
  1817 0015 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 53
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 53
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  1818 0016 0B       		.uleb128 0xb
@@ -3178,7 +3391,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  1872 004c 00       		.byte	0
  1873 004d 08       		.uleb128 0x8
  1874 004e 21       		.uleb128 0x21
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 54
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 54
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  1875 004f 00       		.byte	0
@@ -3238,7 +3455,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  1929 0085 13       		.uleb128 0x13
  1930 0086 38       		.uleb128 0x38
  1931 0087 05       		.uleb128 0x5
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 55
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 55
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  1932 0088 00       		.byte	0
@@ -3298,7 +3519,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  1986 00be 0E       		.uleb128 0xe
  1987 00bf 1C       		.uleb128 0x1c
  1988 00c0 0B       		.uleb128 0xb
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 56
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 56
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  1989 00c1 00       		.byte	0
@@ -3358,7 +3583,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  2043 00f7 0B       		.uleb128 0xb
  2044 00f8 00       		.byte	0
  2045 00f9 00       		.byte	0
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 57
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 57
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  2046 00fa 17       		.uleb128 0x17
@@ -3418,7 +3647,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  2100 0131 00       		.byte	0
  2101 0132 1A       		.uleb128 0x1a
  2102 0133 1D       		.uleb128 0x1d
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 58
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 58
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  2103 0134 01       		.byte	0x1
@@ -3478,7 +3711,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  2157 016f 19       		.uleb128 0x19
  2158 0170 3C       		.uleb128 0x3c
  2159 0171 19       		.uleb128 0x19
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 59
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 59
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  2160 0172 00       		.byte	0
@@ -3538,7 +3775,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  2214 0024 00000000 		.4byte	0
  2215 0028 00000000 		.4byte	0
  2216              	.LLST2:
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 60
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 60
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  2217 002c 24000000 		.4byte	.LVL2
@@ -3598,7 +3839,11 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  2255 003c 72784275 		.ascii	"rxBufSize\000"
  2255      6653697A 
  2255      6500
+<<<<<<< HEAD
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 61
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 61
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
 
 
  2256              	.LASF134:
@@ -3631,6 +3876,7 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  2267 0097 70657269 		.ascii	"periClockNr\000"
  2267      436C6F63 
  2267      6B4E7200 
+<<<<<<< HEAD
  2268              	.LASF96:
  2269 00a3 70617373 		.ascii	"passBase\000"
  2269      42617365 
@@ -4082,6 +4328,461 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
 
 
  2444      736E00
+=======
+ 2268              	.LASF243:
+ 2269 00a3 433A5C50 		.ascii	"C:\\Projects\\Pain Drain\\Production2\\Firmware\\Pa"
+ 2269      726F6A65 
+ 2269      6374735C 
+ 2269      5061696E 
+ 2269      20447261 
+ 2270 00d1 696E4472 		.ascii	"inDrain\\PainDrain.cydsn\000"
+ 2270      61696E5C 
+ 2270      5061696E 
+ 2270      44726169 
+ 2270      6E2E6379 
+ 2271              	.LASF96:
+ 2272 00e9 70617373 		.ascii	"passBase\000"
+ 2272      42617365 
+ 2272      00
+ 2273              	.LASF33:
+ 2274 00f2 4932435F 		.ascii	"I2C_STATUS\000"
+ 2274      53544154 
+ 2274      555300
+ 2275              	.LASF109:
+ 2276 00fd 63707573 		.ascii	"cpussIpcIrqNr\000"
+ 2276      73497063 
+ 2276      4972714E 
+ 2276      7200
+ 2277              	.LASF3:
+ 2278 010b 5F5F7569 		.ascii	"__uint8_t\000"
+ 2278      6E74385F 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 62
+
+
+ 2278      7400
+ 2279              	.LASF153:
+ 2280 0115 70657269 		.ascii	"periDiv24_5CtlOffset\000"
+ 2280      44697632 
+ 2280      345F3543 
+ 2280      746C4F66 
+ 2280      66736574 
+ 2281              	.LASF160:
+ 2282 012a 63707573 		.ascii	"cpussCm4ClockCtlOffset\000"
+ 2282      73436D34 
+ 2282      436C6F63 
+ 2282      6B43746C 
+ 2282      4F666673 
+ 2283              	.LASF40:
+ 2284 0141 54585F46 		.ascii	"TX_FIFO_STATUS\000"
+ 2284      49464F5F 
+ 2284      53544154 
+ 2284      555300
+ 2285              	.LASF74:
+ 2286 0150 494E5452 		.ascii	"INTR_S_MASK\000"
+ 2286      5F535F4D 
+ 2286      41534B00 
+ 2287              	.LASF89:
+ 2288 015c 63707573 		.ascii	"cpussBase\000"
+ 2288      73426173 
+ 2288      6500
+ 2289              	.LASF138:
+ 2290 0166 64774368 		.ascii	"dwChCtlPrioPos\000"
+ 2290      43746C50 
+ 2290      72696F50 
+ 2290      6F7300
+ 2291              	.LASF11:
+ 2292 0175 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2292      206C6F6E 
+ 2292      6720756E 
+ 2292      7369676E 
+ 2292      65642069 
+ 2293              	.LASF142:
+ 2294 018c 70657269 		.ascii	"periTrCmdOffset\000"
+ 2294      5472436D 
+ 2294      644F6666 
+ 2294      73657400 
+ 2295              	.LASF166:
+ 2296 019c 63707573 		.ascii	"cpussSysTickCtlOffset\000"
+ 2296      73537973 
+ 2296      5469636B 
+ 2296      43746C4F 
+ 2296      66667365 
+ 2297              	.LASF227:
+ 2298 01b2 74784275 		.ascii	"txBuf\000"
+ 2298      6600
+ 2299              	.LASF211:
+ 2300 01b8 656E6162 		.ascii	"enableTransferSeperation\000"
+ 2300      6C655472 
+ 2300      616E7366 
+ 2300      65725365 
+ 2300      70657261 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 63
+
+
+ 2301              	.LASF127:
+ 2302 01d1 666C6173 		.ascii	"flashPipeRequired\000"
+ 2302      68506970 
+ 2302      65526571 
+ 2302      75697265 
+ 2302      6400
+ 2303              	.LASF212:
+ 2304 01e3 7373506F 		.ascii	"ssPolarity\000"
+ 2304      6C617269 
+ 2304      747900
+ 2305              	.LASF131:
+ 2306 01ee 666C6173 		.ascii	"flashCtlMainWs0Freq\000"
+ 2306      6843746C 
+ 2306      4D61696E 
+ 2306      57733046 
+ 2306      72657100 
+ 2307              	.LASF14:
+ 2308 0202 696E7431 		.ascii	"int16_t\000"
+ 2308      365F7400 
+ 2309              	.LASF10:
+ 2310 020a 6C6F6E67 		.ascii	"long long int\000"
+ 2310      206C6F6E 
+ 2310      6720696E 
+ 2310      7400
+ 2311              	.LASF2:
+ 2312 0218 7369676E 		.ascii	"signed char\000"
+ 2312      65642063 
+ 2312      68617200 
+ 2313              	.LASF218:
+ 2314 0224 6D617374 		.ascii	"masterSlaveIntEnableMask\000"
+ 2314      6572536C 
+ 2314      61766549 
+ 2314      6E74456E 
+ 2314      61626C65 
+ 2315              	.LASF147:
+ 2316 023d 70657269 		.ascii	"periDivCmdTypeSelPos\000"
+ 2316      44697643 
+ 2316      6D645479 
+ 2316      70655365 
+ 2316      6C506F73 
+ 2317              	.LASF93:
+ 2318 0252 70726F74 		.ascii	"protBase\000"
+ 2318      42617365 
+ 2318      00
+ 2319              	.LASF105:
+ 2320 025b 69706356 		.ascii	"ipcVersion\000"
+ 2320      65727369 
+ 2320      6F6E00
+ 2321              	.LASF167:
+ 2322 0266 63707573 		.ascii	"cpussCm0NmiCtlOffset\000"
+ 2322      73436D30 
+ 2322      4E6D6943 
+ 2322      746C4F66 
+ 2322      66736574 
+ 2323              	.LASF200:
+ 2324 027b 63795F63 		.ascii	"cy_cb_scb_spi_handle_events_t\000"
+ 2324      625F7363 
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 64
+
+
+ 2324      625F7370 
+ 2324      695F6861 
+ 2324      6E646C65 
+ 2325              	.LASF56:
+ 2326 0299 52455345 		.ascii	"RESERVED10\000"
+ 2326      52564544 
+ 2326      313000
+ 2327              	.LASF58:
+ 2328 02a4 52455345 		.ascii	"RESERVED11\000"
+ 2328      52564544 
+ 2328      313100
+ 2329              	.LASF61:
+ 2330 02af 52455345 		.ascii	"RESERVED12\000"
+ 2330      52564544 
+ 2330      313200
+ 2331              	.LASF63:
+ 2332 02ba 52455345 		.ascii	"RESERVED13\000"
+ 2332      52564544 
+ 2332      313300
+ 2333              	.LASF66:
+ 2334 02c5 52455345 		.ascii	"RESERVED14\000"
+ 2334      52564544 
+ 2334      313400
+ 2335              	.LASF71:
+ 2336 02d0 52455345 		.ascii	"RESERVED15\000"
+ 2336      52564544 
+ 2336      313500
+ 2337              	.LASF76:
+ 2338 02db 52455345 		.ascii	"RESERVED16\000"
+ 2338      52564544 
+ 2338      313600
+ 2339              	.LASF81:
+ 2340 02e6 52455345 		.ascii	"RESERVED17\000"
+ 2340      52564544 
+ 2340      313700
+ 2341              	.LASF7:
+ 2342 02f1 6C6F6E67 		.ascii	"long int\000"
+ 2342      20696E74 
+ 2342      00
+ 2343              	.LASF222:
+ 2344 02fa 63795F73 		.ascii	"cy_stc_scb_spi_context\000"
+ 2344      74635F73 
+ 2344      63625F73 
+ 2344      70695F63 
+ 2344      6F6E7465 
+ 2345              	.LASF184:
+ 2346 0311 43595F53 		.ascii	"CY_SCB_SPI_TI_COINCIDES\000"
+ 2346      43425F53 
+ 2346      50495F54 
+ 2346      495F434F 
+ 2346      494E4349 
+ 2347              	.LASF55:
+ 2348 0329 494E5452 		.ascii	"INTR_CAUSE\000"
+ 2348      5F434155 
+ 2348      534500
+ 2349              	.LASF189:
+ 2350 0334 43595F53 		.ascii	"CY_SCB_SPI_CPHA0_CPOL1\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 65
+
+
+ 2350      43425F53 
+ 2350      50495F43 
+ 2350      50484130 
+ 2350      5F43504F 
+ 2351              	.LASF82:
+ 2352 034b 494E5452 		.ascii	"INTR_RX\000"
+ 2352      5F525800 
+ 2353              	.LASF30:
+ 2354 0353 55415254 		.ascii	"UART_FLOW_CTRL\000"
+ 2354      5F464C4F 
+ 2354      575F4354 
+ 2354      524C00
+ 2355              	.LASF91:
+ 2356 0362 70657269 		.ascii	"periBase\000"
+ 2356      42617365 
+ 2356      00
+ 2357              	.LASF123:
+ 2358 036b 73797350 		.ascii	"sysPmSimoPresent\000"
+ 2358      6D53696D 
+ 2358      6F507265 
+ 2358      73656E74 
+ 2358      00
+ 2359              	.LASF42:
+ 2360 037c 54585F46 		.ascii	"TX_FIFO_WR\000"
+ 2360      49464F5F 
+ 2360      575200
+ 2361              	.LASF206:
+ 2362 0387 74784461 		.ascii	"txDataWidth\000"
+ 2362      74615769 
+ 2362      64746800 
+ 2363              	.LASF179:
+ 2364 0393 646F7562 		.ascii	"double\000"
+ 2364      6C6500
+ 2365              	.LASF152:
+ 2366 039a 70657269 		.ascii	"periDiv16_5CtlOffset\000"
+ 2366      44697631 
+ 2366      365F3543 
+ 2366      746C4F66 
+ 2366      66736574 
+ 2367              	.LASF116:
+ 2368 03af 73727373 		.ascii	"srssNumPll\000"
+ 2368      4E756D50 
+ 2368      6C6C00
+ 2369              	.LASF192:
+ 2370 03ba 63795F65 		.ascii	"cy_en_scb_spi_sclk_mode_t\000"
+ 2370      6E5F7363 
+ 2370      625F7370 
+ 2370      695F7363 
+ 2370      6C6B5F6D 
+ 2371              	.LASF213:
+ 2372 03d4 656E6162 		.ascii	"enableWakeFromSleep\000"
+ 2372      6C655761 
+ 2372      6B654672 
+ 2372      6F6D536C 
+ 2372      65657000 
+ 2373              	.LASF194:
+ 2374 03e8 43595F53 		.ascii	"CY_SCB_SPI_SLAVE_SELECT1\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 66
+
+
+ 2374      43425F53 
+ 2374      50495F53 
+ 2374      4C415645 
+ 2374      5F53454C 
+ 2375              	.LASF125:
+ 2376 0401 63727970 		.ascii	"cryptoMemSize\000"
+ 2376      746F4D65 
+ 2376      6D53697A 
+ 2376      6500
+ 2377              	.LASF150:
+ 2378 040f 70657269 		.ascii	"periDiv8CtlOffset\000"
+ 2378      44697638 
+ 2378      43746C4F 
+ 2378      66667365 
+ 2378      7400
+ 2379              	.LASF157:
+ 2380 0421 6770696F 		.ascii	"gpioPrtCfgOutOffset\000"
+ 2380      50727443 
+ 2380      66674F75 
+ 2380      744F6666 
+ 2380      73657400 
+ 2381              	.LASF90:
+ 2382 0435 666C6173 		.ascii	"flashcBase\000"
+ 2382      68634261 
+ 2382      736500
+ 2383              	.LASF8:
+ 2384 0440 5F5F7569 		.ascii	"__uint32_t\000"
+ 2384      6E743332 
+ 2384      5F7400
+ 2385              	.LASF220:
+ 2386 044b 63795F73 		.ascii	"cy_stc_scb_spi_config_t\000"
+ 2386      74635F73 
+ 2386      63625F73 
+ 2386      70695F63 
+ 2386      6F6E6669 
+ 2387              	.LASF4:
+ 2388 0463 5F5F696E 		.ascii	"__int16_t\000"
+ 2388      7431365F 
+ 2388      7400
+ 2389              	.LASF226:
+ 2390 046d 72784275 		.ascii	"rxBufIdx\000"
+ 2390      66496478 
+ 2390      00
+ 2391              	.LASF65:
+ 2392 0476 494E5452 		.ascii	"INTR_SPI_EC_MASKED\000"
+ 2392      5F535049 
+ 2392      5F45435F 
+ 2392      4D41534B 
+ 2392      454400
+ 2393              	.LASF23:
+ 2394 0489 5350495F 		.ascii	"SPI_CTRL\000"
+ 2394      4354524C 
+ 2394      00
+ 2395              	.LASF44:
+ 2396 0492 52585F43 		.ascii	"RX_CTRL\000"
+ 2396      54524C00 
+ 2397              	.LASF77:
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 67
+
+
+ 2398 049a 494E5452 		.ascii	"INTR_TX\000"
+ 2398      5F545800 
+ 2399              	.LASF163:
+ 2400 04a2 63707573 		.ascii	"cpussCm4PwrCtlOffset\000"
+ 2400      73436D34 
+ 2400      50777243 
+ 2400      746C4F66 
+ 2400      66736574 
+ 2401              	.LASF228:
+ 2402 04b7 74784275 		.ascii	"txBufSize\000"
+ 2402      6653697A 
+ 2402      6500
+ 2403              	.LASF158:
+ 2404 04c1 6770696F 		.ascii	"gpioPrtCfgSioOffset\000"
+ 2404      50727443 
+ 2404      66675369 
+ 2404      6F4F6666 
+ 2404      73657400 
+ 2405              	.LASF110:
+ 2406 04d5 63707573 		.ascii	"cpussDwChNr\000"
+ 2406      73447743 
+ 2406      684E7200 
+ 2407              	.LASF12:
+ 2408 04e1 756E7369 		.ascii	"unsigned int\000"
+ 2408      676E6564 
+ 2408      20696E74 
+ 2408      00
+ 2409              	.LASF181:
+ 2410 04ee 43595F53 		.ascii	"CY_SCB_SPI_MASTER\000"
+ 2410      43425F53 
+ 2410      50495F4D 
+ 2410      41535445 
+ 2410      5200
+ 2411              	.LASF15:
+ 2412 0500 75696E74 		.ascii	"uint16_t\000"
+ 2412      31365F74 
+ 2412      00
+ 2413              	.LASF83:
+ 2414 0509 494E5452 		.ascii	"INTR_RX_SET\000"
+ 2414      5F52585F 
+ 2414      53455400 
+ 2415              	.LASF176:
+ 2416 0515 63686172 		.ascii	"char_t\000"
+ 2416      5F7400
+ 2417              	.LASF28:
+ 2418 051c 55415254 		.ascii	"UART_RX_CTRL\000"
+ 2418      5F52585F 
+ 2418      4354524C 
+ 2418      00
+ 2419              	.LASF235:
+ 2420 0529 43795F53 		.ascii	"Cy_SCB_SPI_SetActiveSlaveSelect\000"
+ 2420      43425F53 
+ 2420      50495F53 
+ 2420      65744163 
+ 2420      74697665 
+ 2421              	.LASF85:
+ 2422 0549 494E5452 		.ascii	"INTR_RX_MASKED\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 68
+
+
+ 2422      5F52585F 
+ 2422      4D41534B 
+ 2422      454400
+ 2423              	.LASF9:
+ 2424 0558 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2424      20756E73 
+ 2424      69676E65 
+ 2424      6420696E 
+ 2424      7400
+ 2425              	.LASF21:
+ 2426 056a 434D445F 		.ascii	"CMD_RESP_STATUS\000"
+ 2426      52455350 
+ 2426      5F535441 
+ 2426      54555300 
+ 2427              	.LASF51:
+ 2428 057a 52585F46 		.ascii	"RX_FIFO_RD_SILENT\000"
+ 2428      49464F5F 
+ 2428      52445F53 
+ 2428      494C454E 
+ 2428      5400
+ 2429              	.LASF108:
+ 2430 058c 63707573 		.ascii	"cpussIpcNr\000"
+ 2430      73497063 
+ 2430      4E7200
+ 2431              	.LASF95:
+ 2432 0597 6770696F 		.ascii	"gpioBase\000"
+ 2432      42617365 
+ 2432      00
+ 2433              	.LASF27:
+ 2434 05a0 55415254 		.ascii	"UART_TX_CTRL\000"
+ 2434      5F54585F 
+ 2434      4354524C 
+ 2434      00
+ 2435              	.LASF133:
+ 2436 05ad 666C6173 		.ascii	"flashCtlMainWs2Freq\000"
+ 2436      6843746C 
+ 2436      4D61696E 
+ 2436      57733246 
+ 2436      72657100 
+ 2437              	.LASF120:
+ 2438 05c1 70617373 		.ascii	"passSarChannels\000"
+ 2438      53617243 
+ 2438      68616E6E 
+ 2438      656C7300 
+ 2439              	.LASF144:
+ 2440 05d1 70657269 		.ascii	"periTrGrOffset\000"
+ 2440      54724772 
+ 2440      4F666673 
+ 2440      657400
+ 2441              	.LASF217:
+ 2442 05e0 74784669 		.ascii	"txFifoIntEnableMask\000"
+ 2442      666F496E 
+ 2442      74456E61 
+ 2442      626C654D 
+ 2442      61736B00 
+ 2443              	.LASF171:
+ 2444 05f4 63707573 		.ascii	"cpussRam1Ctl0\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 69
+
+
+ 2444      7352616D 
+ 2444      3143746C 
+ 2444      3000
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
  2445              	.LASF86:
  2446 05f5 43795343 		.ascii	"CySCB_V1_Type\000"
  2446      425F5631 
@@ -4136,11 +4837,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  2467      20726576 
  2467      6973696F 
  2467      6E203233 
+<<<<<<< HEAD
  2467      37373135 
  2468 06db 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 70
 
 
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 70
+
+
+ 2467      37373135 
+ 2468 06e8 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
  2468      67202D66 
  2468      66756E63 
  2468      74696F6E 
@@ -4195,12 +4904,21 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  2486      41544348 
  2486      00
  2487              	.LASF99:
+<<<<<<< HEAD
  2488 07b0 63707573 		.ascii	"cpussVersion\000"
  2488      73566572 
  2488      73696F6E 
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 71
 
 
+=======
+ 2488 07bd 63707573 		.ascii	"cpussVersion\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 71
+
+
+ 2488      73566572 
+ 2488      73696F6E 
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
  2488      00
  2489              	.LASF233:
  2490 07bd 62617365 		.ascii	"base\000"
@@ -4256,12 +4974,21 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  2509              	.LASF136:
  2510 0852 64774368 		.ascii	"dwChOffset\000"
  2510      4F666673 
+<<<<<<< HEAD
  2510      657400
  2511              	.LASF238:
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 72
 
 
  2512 085d 5350495F 		.ascii	"SPI_initVar\000"
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 72
+
+
+ 2510      657400
+ 2511              	.LASF238:
+ 2512 086a 5350495F 		.ascii	"SPI_initVar\000"
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
  2512      696E6974 
  2512      56617200 
  2513              	.LASF87:
@@ -4316,11 +5043,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  2531              	.LASF67:
  2532 090c 494E5452 		.ascii	"INTR_M\000"
  2532      5F4D00
+<<<<<<< HEAD
  2533              	.LASF140:
  2534 0913 64775374 		.ascii	"dwStatusChIdxPos\000"
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 73
 
 
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 73
+
+
+ 2533              	.LASF140:
+ 2534 0920 64775374 		.ascii	"dwStatusChIdxPos\000"
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
  2534      61747573 
  2534      43684964 
  2534      78506F73 
@@ -4376,11 +5111,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  2558 09a1 52455345 		.ascii	"RESERVED3\000"
  2558      52564544 
  2558      3300
+<<<<<<< HEAD
  2559              	.LASF169:
  2560 09ab 63707573 		.ascii	"cpussRomCtl\000"
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 74
 
 
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 74
+
+
+ 2559              	.LASF169:
+ 2560 09b8 63707573 		.ascii	"cpussRomCtl\000"
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
  2560      73526F6D 
  2560      43746C00 
  2561              	.LASF43:
@@ -4436,11 +5179,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  2584      676E6564 
  2584      20636861 
  2584      7200
+<<<<<<< HEAD
  2585              	.LASF80:
  2586 0a50 494E5452 		.ascii	"INTR_TX_MASKED\000"
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 75
 
 
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 75
+
+
+ 2585              	.LASF80:
+ 2586 0a5d 494E5452 		.ascii	"INTR_TX_MASKED\000"
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
  2586      5F54585F 
  2586      4D41534B 
  2586      454400
@@ -4496,12 +5247,21 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  2608 0af8 494E5452 		.ascii	"INTR_S_MASKED\000"
  2608      5F535F4D 
  2608      41534B45 
+<<<<<<< HEAD
  2608      4400
  2609              	.LASF31:
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 76
 
 
  2610 0b06 52455345 		.ascii	"RESERVED2\000"
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 76
+
+
+ 2608      4400
+ 2609              	.LASF31:
+ 2610 0b13 52455345 		.ascii	"RESERVED2\000"
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
  2610      52564544 
  2610      3200
  2611              	.LASF57:
@@ -4556,11 +5316,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  2632      20646F75 
  2632      626C6500 
  2633              	.LASF177:
+<<<<<<< HEAD
  2634 0bab 63686172 		.ascii	"char\000"
  2634      00
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 77
 
 
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 77
+
+
+ 2634 0bb8 63686172 		.ascii	"char\000"
+ 2634      00
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
  2635              	.LASF234:
  2636 0bb0 736C6176 		.ascii	"slaveSelect\000"
  2636      6553656C 
@@ -4616,12 +5384,21 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  2658 0c45 494E5452 		.ascii	"INTR_TX_MASK\000"
  2658      5F54585F 
  2658      4D41534B 
+<<<<<<< HEAD
  2658      00
  2659              	.LASF195:
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 78
 
 
  2660 0c52 43595F53 		.ascii	"CY_SCB_SPI_SLAVE_SELECT2\000"
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 78
+
+
+ 2658      00
+ 2659              	.LASF195:
+ 2660 0c5f 43595F53 		.ascii	"CY_SCB_SPI_SLAVE_SELECT2\000"
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
  2660      43425F53 
  2660      50495F53 
  2660      4C415645 
@@ -4676,11 +5453,19 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  2681              	.LASF18:
  2682 0cf7 4354524C 		.ascii	"CTRL\000"
  2682      00
+<<<<<<< HEAD
  2683              	.LASF155:
  2684 0cfc 6770696F 		.ascii	"gpioPrtCfgOffset\000"
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 79
 
 
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 79
+
+
+ 2683              	.LASF155:
+ 2684 0d09 6770696F 		.ascii	"gpioPrtCfgOffset\000"
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
  2684      50727443 
  2684      66674F66 
  2684      66736574 
@@ -4736,12 +5521,21 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  2707              	.LASF34:
  2708 0d98 4932435F 		.ascii	"I2C_M_CMD\000"
  2708      4D5F434D 
+<<<<<<< HEAD
  2708      4400
  2709              	.LASF161:
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 80
 
 
  2710 0da2 63707573 		.ascii	"cpussCm4StatusOffset\000"
+=======
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 80
+
+
+ 2708      4400
+ 2709              	.LASF161:
+ 2710 0daf 63707573 		.ascii	"cpussCm4StatusOffset\000"
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
  2710      73436D34 
  2710      53746174 
  2710      75734F66 
@@ -4795,12 +5589,21 @@ ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 1
  2728 0e4a 69706342 		.ascii	"ipcBase\000"
  2728      61736500 
  2729              	.LASF148:
+<<<<<<< HEAD
  2730 0e52 70657269 		.ascii	"periDivCmdPaDivSelPos\000"
  2730      44697643 
  2730      6D645061 
 ARM GAS  C:\Users\haske\AppData\Local\Temp\cc8criIs.s 			page 81
 
 
+=======
+ 2730 0e5f 70657269 		.ascii	"periDivCmdPaDivSelPos\000"
+ARM GAS  C:\Users\dev\AppData\Local\Temp\cc9Gnh0B.s 			page 81
+
+
+ 2730      44697643 
+ 2730      6D645061 
+>>>>>>> 56f03cec889c1fef3d8fd4f1144da6b718b8c8a9
  2730      44697653 
  2730      656C506F 
  2731              	.LASF187:

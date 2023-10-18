@@ -8,20 +8,6 @@ net INDIVIDUAL_PICU_OUT_10
 	switch ":IOSScontainer:IOSS[0].interrupt_port_10==>:intc_0:interrupt10.interrupt"
 	term   ":intc_0:interrupt10.interrupt"
 end INDIVIDUAL_PICU_OUT_10
-net Net_118
-	term   ":SCBcontainer:SCB[2].spi_mosi"
-	switch ":SCBcontainer:SCB[2].spi_mosi==>:ioport9:hsiomOut0.fixedIn0_ACT_8"
-	switch ":ioport9:hsiomOut0.hsiomOut0==>:ioport9:smartio_mux_in0.direct_out"
-	switch ":ioport9:smartio_mux_in0.smartio_mux_in==>:ioport9:pin0.pin_input"
-	term   ":ioport9:pin0.pin_input"
-end Net_118
-net Net_119
-	term   ":SCBcontainer:SCB[2].spi_clk"
-	switch ":SCBcontainer:SCB[2].spi_clk==>:ioport9:hsiomOut2.fixedIn2_ACT_8"
-	switch ":ioport9:hsiomOut2.hsiomOut2==>:ioport9:smartio_mux_in2.direct_out"
-	switch ":ioport9:smartio_mux_in2.smartio_mux_in==>:ioport9:pin2.pin_input"
-	term   ":ioport9:pin2.pin_input"
-end Net_119
 net Net_154_ff12
 	term   ":Clockcontainer:Clock[0].ff_div_26"
 	switch ":Clockcontainer:Clock[0].ff_div_26==>:Clockcontainer:ff_permute.ff_div_26"
@@ -189,14 +175,3 @@ net \BLE:Net_1\
 	switch ":BLEcontainer:BLE[0].interrupt==>:intc_0:interrupt24.interrupt"
 	term   ":intc_0:interrupt24.interrupt"
 end \BLE:Net_1\
-net \SPI:Net_847_ff0\
-	term   ":Clockcontainer:Clock[0].ff_div_2"
-	switch ":Clockcontainer:Clock[0].ff_div_2==>:Clockcontainer:ff_permute.ff_div_2"
-	switch ":Clockcontainer:ff_permute.Clock[0]ff_div_2==>:SCBcontainer:SCB[2].clock"
-	term   ":SCBcontainer:SCB[2].clock"
-end \SPI:Net_847_ff0\
-net \SPI:intr_wire\
-	term   ":SCBcontainer:SCB[2].interrupt"
-	switch ":SCBcontainer:SCB[2].interrupt==>:intc_0:interrupt43.interrupt"
-	term   ":intc_0:interrupt43.interrupt"
-end \SPI:intr_wire\

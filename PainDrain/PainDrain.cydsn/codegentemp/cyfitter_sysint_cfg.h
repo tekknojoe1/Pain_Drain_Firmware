@@ -27,9 +27,6 @@
     #define WDTIsr__INTC_ASSIGNED 1u
     extern const cy_stc_sysint_t WDTIsr_cfg;
 
-    #define SPI_SCB_IRQ__INTC_ASSIGNED 1u
-    extern const cy_stc_sysint_t SPI_SCB_IRQ_cfg;
-
     #define ADC_IRQ__INTC_ASSIGNED 1u
     extern const cy_stc_sysint_t ADC_IRQ_cfg;
 

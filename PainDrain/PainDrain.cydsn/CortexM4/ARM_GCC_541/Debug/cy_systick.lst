@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 1
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 1
 
 
    1              		.syntax unified
@@ -62,11 +58,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
   28:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c **** * - Initializes the callback addresses with pointers to NULL
   29:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c **** * - Associates the SysTick system vector with the callback functions
   30:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c **** * - Sets the SysTick clock by calling \ref Cy_SysTick_SetClockSource()
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 2
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 2
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 2
 
 
   31:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c **** * - Sets the SysTick reload interval by calling \ref Cy_SysTick_SetReload()
@@ -126,11 +118,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
   85:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c **** *******************************************************************************/
   86:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c **** void Cy_SysTick_Disable(void)
   87:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c **** {
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 3
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 3
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 3
 
 
   88:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c ****     Cy_SysTick_DisableInterrupt();
@@ -190,11 +178,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  142:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c ****     }
  143:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c ****     else
  144:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c ****     {
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 4
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 4
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 4
 
 
  145:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c ****         returnValue =  (cy_en_systick_clock_source_t) ((uint32_t) _FLD2VAL(CPUSS_SYSTICK_CTL_CLOCK_
@@ -254,11 +238,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  199:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c **** * \return Returns the address of the specified callback function.
  200:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c **** * The NULL is returned if the specified address in not initialized or incorrect
  201:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c **** * parameter is specified.
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 5
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 5
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 5
 
 
  202:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c **** *
@@ -318,11 +298,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
   20:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** * \{
   21:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** * Provides vendor-specific SysTick API.
   22:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** *
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 6
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 6
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 6
 
 
   23:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** * The functions and other declarations used in this driver are in cy_systick.h. 
@@ -382,11 +358,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
   77:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** *     </td>
   78:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** *     <td>Driver library directory-structure simplification.</td>
   79:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** * </tr>
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 7
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 7
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 7
 
 
   80:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** *   <tr>
@@ -446,11 +418,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  134:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** /**
  135:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** * \addtogroup group_systick_functions
  136:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** * \{
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 8
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 8
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 8
 
 
  137:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** */
@@ -510,11 +478,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  191:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** *
  192:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** *******************************************************************************/
  193:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** __STATIC_INLINE void Cy_SysTick_EnableInterrupt(void)
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 9
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 9
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 9
 
 
  194:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** {
@@ -574,11 +538,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  248:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** ****************************************************************************//**
  249:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** *
  250:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** * Gets the current SysTick counter value.
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 10
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 10
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 10
 
 
  251:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.h **** *
@@ -638,11 +598,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
   47              		.cfi_offset 4, -8
   48              		.cfi_offset 14, -4
  234:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c ****     {
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 11
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 11
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 11
 
 
  235:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c ****         for (i=0u; i < CY_SYS_SYST_NUM_OF_CALLBACKS; i++)
@@ -702,11 +658,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
   71:Generated_Source\PSoC6\pdl\drivers\peripheral\systick/cy_systick.c ****     Cy_SysTick_EnableInterrupt();
   95              		.loc 1 71 0
   96              		.cfi_startproc
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 12
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 12
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 12
 
 
   97              		@ args = 0, pretend = 0, frame = 0
@@ -766,11 +718,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  146 0010 1A60     		str	r2, [r3]
  147 0012 7047     		bx	lr
  148              	.L15:
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 13
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 13
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 13
 
 
  149              		.align	2
@@ -830,11 +778,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  198 0034 00000000 		.word	cy_device
  199              		.cfi_endproc
  200              	.LFE142:
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 14
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 14
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 14
 
 
  201              		.size	Cy_SysTick_SetClockSource, .-Cy_SysTick_SetClockSource
@@ -894,11 +838,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  247              		.loc 2 227 0
  248 0020 24F07F44 		bic	r4, r4, #-16777216
  249              	.LVL14:
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 15
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 15
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 15
 
 
  250 0024 064B     		ldr	r3, .L25+12
@@ -958,11 +898,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  299 0014 D058     		ldr	r0, [r2, r3]
  300 0016 C0F30160 		ubfx	r0, r0, #24, #2
  301              	.LVL17:
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 16
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 16
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 16
 
 
  302 001a 7047     		bx	lr
@@ -1022,11 +958,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  348              		.loc 1 187 0
  349 0014 7047     		bx	lr
  350              	.L36:
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 17
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 17
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 17
 
 
  351 0016 00BF     		.align	2
@@ -1086,11 +1018,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  399      00000000 
  399      00000000 
  399      00000000 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 18
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 18
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 18
 
 
  399      00000000 
@@ -1150,11 +1078,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  453 0063 33080000 		.4byte	.LASF7
  454 0067 03       		.byte	0x3
  455 0068 3F       		.byte	0x3f
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 19
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 19
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 19
 
 
  456 0069 6D000000 		.4byte	0x6d
@@ -1214,11 +1138,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  510 00d5 74000000 		.4byte	0x74
  511 00d9 02       		.uleb128 0x2
  512 00da 08       		.byte	0x8
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 20
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 20
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 20
 
 
  513 00db 04       		.byte	0x4
@@ -1278,11 +1198,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  567 0147 3D       		.byte	0x3d
  568 0148 CE000000 		.4byte	0xce
  569 014c 18       		.byte	0x18
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 21
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 21
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 21
 
 
  570 014d 08       		.uleb128 0x8
@@ -1342,11 +1258,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  624 01b9 08       		.uleb128 0x8
  625 01ba D1010000 		.4byte	.LASF37
  626 01be 05       		.byte	0x5
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 22
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 22
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 22
 
 
  627 01bf 49       		.byte	0x49
@@ -1406,11 +1318,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  681 022b 54       		.byte	0x54
  682 022c AD000000 		.4byte	0xad
  683 0230 3A       		.byte	0x3a
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 23
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 23
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 23
 
 
  684 0231 08       		.uleb128 0x8
@@ -1470,11 +1378,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  738 029d 08       		.uleb128 0x8
  739 029e 00000000 		.4byte	.LASF56
  740 02a2 05       		.byte	0x5
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 24
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 24
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 24
 
 
  741 02a3 5E       		.byte	0x5e
@@ -1534,11 +1438,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  795 030f 67       		.byte	0x67
  796 0310 A2000000 		.4byte	0xa2
  797 0314 57       		.byte	0x57
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 25
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 25
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 25
 
 
  798 0315 08       		.uleb128 0x8
@@ -1598,11 +1498,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  852 0381 08       		.uleb128 0x8
  853 0382 5E030000 		.4byte	.LASF75
  854 0386 05       		.byte	0x5
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 26
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 26
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 26
 
 
  855 0387 77       		.byte	0x77
@@ -1662,11 +1558,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  909 03f3 82       		.byte	0x82
  910 03f4 B8000000 		.4byte	0xb8
  911 03f8 78       		.byte	0x78
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 27
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 27
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 27
 
 
  912 03f9 08       		.uleb128 0x8
@@ -1726,11 +1618,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  966 0465 08       		.uleb128 0x8
  967 0466 DD040000 		.4byte	.LASF94
  968 046a 05       		.byte	0x5
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 28
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 28
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 28
 
 
  969 046b 90       		.byte	0x90
@@ -1790,11 +1678,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  1023 04d7 99       		.byte	0x99
  1024 04d8 B8000000 		.4byte	0xb8
  1025 04dc AC       		.byte	0xac
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 29
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 29
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 29
 
 
  1026 04dd 08       		.uleb128 0x8
@@ -1854,11 +1738,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  1080 054b 0C       		.uleb128 0xc
  1081 054c E8030000 		.4byte	.LASF111
  1082 0550 06       		.byte	0x6
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 30
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 30
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 30
 
 
  1083 0551 FD02     		.2byte	0x2fd
@@ -1918,11 +1798,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  1137 05bc 8A050000 		.4byte	0x58a
  1138 05c0 11       		.uleb128 0x11
  1139 05c1 C5020000 		.4byte	.LASF146
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 31
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 31
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 31
 
 
  1140 05c5 02       		.byte	0x2
@@ -1982,11 +1858,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  1194 0631 FA080000 		.4byte	.LASF126
  1195 0635 01       		.byte	0x1
  1196 0636 46       		.byte	0x46
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 32
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 32
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 32
 
 
  1197 0637 00000000 		.4byte	.LFB140
@@ -2046,11 +1918,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  1251 06b5 53000000 		.4byte	.LASF130
  1252 06b9 01       		.byte	0x1
  1253 06ba 2B       		.byte	0x2b
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 33
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 33
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 33
 
 
  1254 06bb B5050000 		.4byte	0x5b5
@@ -2109,13 +1977,8 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  1307 0742 CC000000 		.4byte	.LLST6
  1308 0746 00       		.byte	0
  1309 0747 1E       		.uleb128 0x1e
-<<<<<<< HEAD
- 1310 0748 B9070000 		.4byte	.LASF134
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 34
-=======
  1310 0748 C6070000 		.4byte	.LASF134
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 34
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 34
 
 
  1311 074c 01       		.byte	0x1
@@ -2175,11 +2038,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  1365 07cd 22       		.uleb128 0x22
  1366 07ce EA000000 		.4byte	0xea
  1367 07d2 04       		.byte	0x4
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 35
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 35
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 35
 
 
  1368 07d3 00       		.byte	0
@@ -2239,11 +2098,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  1422 000f 10       		.uleb128 0x10
  1423 0010 17       		.uleb128 0x17
  1424 0011 00       		.byte	0
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 36
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 36
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 36
 
 
  1425 0012 00       		.byte	0
@@ -2303,11 +2158,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  1479 0048 0B       		.uleb128 0xb
  1480 0049 3A       		.uleb128 0x3a
  1481 004a 0B       		.uleb128 0xb
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 37
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 37
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 37
 
 
  1482 004b 3B       		.uleb128 0x3b
@@ -2367,11 +2218,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  1536 0081 3A       		.uleb128 0x3a
  1537 0082 0B       		.uleb128 0xb
  1538 0083 3B       		.uleb128 0x3b
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 38
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 38
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 38
 
 
  1539 0084 05       		.uleb128 0x5
@@ -2431,11 +2278,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  1593 00ba 03       		.uleb128 0x3
  1594 00bb 0E       		.uleb128 0xe
  1595 00bc 1C       		.uleb128 0x1c
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 39
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 39
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 39
 
 
  1596 00bd 0B       		.uleb128 0xb
@@ -2495,11 +2338,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  1650 00f3 0E       		.uleb128 0xe
  1651 00f4 3A       		.uleb128 0x3a
  1652 00f5 0B       		.uleb128 0xb
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 40
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 40
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 40
 
 
  1653 00f6 3B       		.uleb128 0x3b
@@ -2559,11 +2398,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  1707 012d 0B       		.uleb128 0xb
  1708 012e 49       		.uleb128 0x49
  1709 012f 13       		.uleb128 0x13
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 41
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 41
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 41
 
 
  1710 0130 02       		.uleb128 0x2
@@ -2623,11 +2458,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  1764 0167 13       		.uleb128 0x13
  1765 0168 02       		.uleb128 0x2
  1766 0169 17       		.uleb128 0x17
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 42
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 42
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 42
 
 
  1767 016a 00       		.byte	0
@@ -2687,11 +2518,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  1821 01a2 12       		.uleb128 0x12
  1822 01a3 06       		.uleb128 0x6
  1823 01a4 40       		.uleb128 0x40
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 43
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 43
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 43
 
 
  1824 01a5 18       		.uleb128 0x18
@@ -2751,11 +2578,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  1878 01dc 00       		.byte	0
  1879 01dd 23       		.uleb128 0x23
  1880 01de 34       		.uleb128 0x34
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 44
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 44
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 44
 
 
  1881 01df 00       		.byte	0
@@ -2815,11 +2638,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  1935              	.Ldebug_loc0:
  1936              	.LLST0:
  1937 0000 0C000000 		.4byte	.LVL0
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 45
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 45
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 45
 
 
  1938 0004 1A000000 		.4byte	.LVL3
@@ -2879,11 +2698,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  1992 0088 00000000 		.4byte	0
  1993              	.LLST4:
  1994 008c 04000000 		.4byte	.LVL9
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 46
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 46
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 46
 
 
  1995 0090 08000000 		.4byte	.LVL10
@@ -2943,11 +2758,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  2049              	.LLST8:
  2050 011e 0C000000 		.4byte	.LVL21
  2051 0122 12000000 		.4byte	.LVL22
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 47
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 47
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 47
 
 
  2052 0126 0100     		.2byte	0x1
@@ -3007,11 +2818,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  2106 0018 00000000 		.4byte	.LFB140
  2107 001c 18000000 		.4byte	.LFE140-.LFB140
  2108 0020 00000000 		.4byte	.LFB141
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 48
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 48
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 48
 
 
  2109 0024 18000000 		.4byte	.LFE141-.LFB141
@@ -3071,11 +2878,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  2152      59535449 
  2152      434B5F43 
  2152      4C4F434B 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 49
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 49
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 49
 
 
  2152      5F534F55 
@@ -3135,11 +2938,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  2174      6B43746C 
  2174      4F666673 
  2175              	.LASF21:
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 50
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 50
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 50
 
 
  2176 00e7 63707573 		.ascii	"cpussBase\000"
@@ -3199,11 +2998,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  2197              	.LASF11:
  2198 0191 6C6F6E67 		.ascii	"long long int\000"
  2198      206C6F6E 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 51
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 51
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 51
 
 
  2198      6720696E 
@@ -3263,11 +3058,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  2222 023d 73797350 		.ascii	"sysPmSimoPresent\000"
  2222      6D53696D 
  2222      6F507265 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 52
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 52
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 52
 
 
  2222      73656E74 
@@ -3327,11 +3118,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  2245              	.LASF124:
  2246 02ed 43795F53 		.ascii	"Cy_SysTick_DisableInterrupt\000"
  2246      79735469 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 53
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 53
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 53
 
 
  2246      636B5F44 
@@ -3391,11 +3178,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  2268      6843746C 
  2268      4D61696E 
  2268      57733246 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 54
-=======
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 54
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 54
 
 
  2268      72657100 
@@ -3409,115 +3192,6 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  2272      7352616D 
  2272      3143746C 
  2272      3000
-<<<<<<< HEAD
- 2273              	.LASF145:
- 2274 03c7 433A5C50 		.ascii	"C:\\Projects\\PainDrain\\firmware\\PainDrain\\PainD"
- 2274      726F6A65 
- 2274      6374735C 
- 2274      5061696E 
- 2274      44726169 
- 2275 03f5 7261696E 		.ascii	"rain.cydsn\000"
- 2275      2E637964 
- 2275      736E00
- 2276              	.LASF133:
- 2277 0400 43795F53 		.ascii	"Cy_SysTick_GetClockSource\000"
- 2277      79735469 
- 2277      636B5F47 
- 2277      6574436C 
- 2277      6F636B53 
- 2278              	.LASF135:
- 2279 041a 6E756D62 		.ascii	"number\000"
- 2279      657200
- 2280              	.LASF111:
- 2281 0421 53797354 		.ascii	"SysTick_Type\000"
- 2281      69636B5F 
- 2281      54797065 
- 2281      00
- 2282              	.LASF119:
- 2283 042e 43595F53 		.ascii	"CY_SYSTICK_CLOCK_SOURCE_CLK_ECO\000"
- 2283      59535449 
- 2283      434B5F43 
- 2283      4C4F434B 
- 2283      5F534F55 
- 2284              	.LASF35:
- 2285 044e 6770696F 		.ascii	"gpioVersion\000"
- 2285      56657273 
- 2285      696F6E00 
- 2286              	.LASF107:
- 2287 045a 63795F73 		.ascii	"cy_stc_device_t\000"
- 2287      74635F64 
- 2287      65766963 
- 2287      655F7400 
- 2288              	.LASF95:
- 2289 046a 63707573 		.ascii	"cpussCm4PwrCtlOffset\000"
- 2289      73436D34 
- 2289      50777243 
- 2289      746C4F66 
- 2289      66736574 
- 2290              	.LASF53:
- 2291 047f 65704D6F 		.ascii	"epMonitorNr\000"
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 55
-
-
- 2291      6E69746F 
- 2291      724E7200 
- 2292              	.LASF100:
- 2293 048b 63707573 		.ascii	"cpussCm4NmiCtlOffset\000"
- 2293      73436D34 
- 2293      4E6D6943 
- 2293      746C4F66 
- 2293      66736574 
- 2294              	.LASF96:
- 2295 04a0 63707573 		.ascii	"cpussTrimRamCtlOffset\000"
- 2295      73547269 
- 2295      6D52616D 
- 2295      43746C4F 
- 2295      66667365 
- 2296              	.LASF91:
- 2297 04b6 63707573 		.ascii	"cpussCm0ClockCtlOffset\000"
- 2297      73436D30 
- 2297      436C6F63 
- 2297      6B43746C 
- 2297      4F666673 
- 2298              	.LASF31:
- 2299 04cd 63707573 		.ascii	"cpussVersion\000"
- 2299      73566572 
- 2299      73696F6E 
- 2299      00
- 2300              	.LASF147:
- 2301 04da 43795F53 		.ascii	"Cy_SysTick_SetReload\000"
- 2301      79735469 
- 2301      636B5F53 
- 2301      65745265 
- 2301      6C6F6164 
- 2302              	.LASF38:
- 2303 04ef 70657269 		.ascii	"periVersion\000"
- 2303      56657273 
- 2303      696F6E00 
- 2304              	.LASF123:
- 2305 04fb 43795F53 		.ascii	"Cy_SysTick_EnableInterrupt\000"
- 2305      79735469 
- 2305      636B5F45 
- 2305      6E61626C 
- 2305      65496E74 
- 2306              	.LASF94:
- 2307 0516 63707573 		.ascii	"cpussCm0StatusOffset\000"
- 2307      73436D30 
- 2307      53746174 
- 2307      75734F66 
- 2307      66736574 
- 2308              	.LASF20:
- 2309 052b 73697A65 		.ascii	"sizetype\000"
- 2309      74797065 
- 2309      00
- 2310              	.LASF109:
- 2311 0534 4C4F4144 		.ascii	"LOAD\000"
- 2311      00
- 2312              	.LASF121:
- 2313 0539 43595F53 		.ascii	"CY_SYSTICK_CLOCK_SOURCE_CLK_CPU\000"
- 2313      59535449 
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 56
-=======
  2273              	.LASF133:
  2274 03c7 43795F53 		.ascii	"Cy_SysTick_GetClockSource\000"
  2274      79735469 
@@ -3564,7 +3238,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  2290      746C4F66 
  2290      66736574 
  2291              	.LASF96:
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 55
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 55
 
 
  2292 0467 63707573 		.ascii	"cpussTrimRamCtlOffset\000"
@@ -3624,8 +3298,7 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  2312      645F536F 
  2312      75726365 
  2312      5C50536F 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 56
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 56
 
 
  2313 054e 73797374 		.ascii	"systick\\cy_systick.c\000"
@@ -3685,18 +3358,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  2332 061d 63727970 		.ascii	"cryptoBase\000"
  2332      746F4261 
  2332      736500
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 57
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 57
 
 
  2333              	.LASF51:
-<<<<<<< HEAD
- 2334 061b 736D6966 		.ascii	"smifDeviceNr\000"
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 57
-
-
-=======
  2334 0628 736D6966 		.ascii	"smifDeviceNr\000"
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  2334      44657669 
  2334      63654E72 
  2334      00
@@ -3752,18 +3418,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  2352              	.LASF17:
  2353 0738 696E7433 		.ascii	"int32_t\000"
  2353      325F7400 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 58
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 58
 
 
  2354              	.LASF1:
-<<<<<<< HEAD
- 2355 0733 756E7369 		.ascii	"unsigned char\000"
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 58
-
-
-=======
  2355 0740 756E7369 		.ascii	"unsigned char\000"
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  2355      676E6564 
  2355      20636861 
  2355      7200
@@ -3819,19 +3478,12 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  2376              	.LASF39:
  2377 07ee 70726F74 		.ascii	"protVersion\000"
  2377      56657273 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 59
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 59
 
 
  2377      696F6E00 
  2378              	.LASF102:
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 59
-
-
- 2379 07ed 63707573 		.ascii	"cpussRam0Ctl0\000"
-=======
  2379 07fa 63707573 		.ascii	"cpussRam0Ctl0\000"
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  2379      7352616D 
  2379      3043746C 
  2379      3000
@@ -3886,19 +3538,12 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  2399 0897 69706353 		.ascii	"ipcStructSize\000"
  2399      74727563 
  2399      7453697A 
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 60
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 60
 
 
  2399      6500
  2400              	.LASF44:
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 60
-
-
- 2401 0898 63707573 		.ascii	"cpussIpc0Irq\000"
-=======
  2401 08a5 63707573 		.ascii	"cpussIpc0Irq\000"
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  2401      73497063 
  2401      30497271 
  2401      00
@@ -3953,17 +3598,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  2421      53697A65 
  2421      00
  2422              	.LASF14:
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 61
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 61
 
 
  2423 094d 75696E74 		.ascii	"uint8_t\000"
  2423      385F7400 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 61
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  2424              	.LASF93:
  2425 0955 63707573 		.ascii	"cpussCm4StatusOffset\000"
  2425      73436D34 
@@ -4019,17 +3658,11 @@ ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 1
  2443      44656C61 
  2443      7900
  2444              	.LASF132:
-ARM GAS  C:\Users\dev\AppData\Local\Temp\ccbWBDWZ.s 			page 62
+ARM GAS  C:\Users\dev\AppData\Local\Temp\ccgybill.s 			page 62
 
 
  2445 0a15 72657475 		.ascii	"returnValue\000"
  2445      726E5661 
-<<<<<<< HEAD
-ARM GAS  C:\Users\haske\AppData\Local\Temp\ccDsI7hh.s 			page 62
-
-
-=======
->>>>>>> 27fe41feedceecab881c9859da2481c0dd20ee74
  2445      6C756500 
  2446              	.LASF43:
  2447 0a21 63707573 		.ascii	"cpussFlashPaSize\000"
