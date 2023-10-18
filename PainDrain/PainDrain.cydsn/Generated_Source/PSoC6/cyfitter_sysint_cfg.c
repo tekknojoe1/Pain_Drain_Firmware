@@ -32,6 +32,12 @@
         .intrPriority = WDTIsr__INTC_CORTEXM4_PRIORITY
     };
 
+    /* SPI_SCB_IRQ */
+    const cy_stc_sysint_t SPI_SCB_IRQ_cfg = {
+        .intrSrc = (IRQn_Type)SPI_SCB_IRQ__INTC_NUMBER,
+        .intrPriority = SPI_SCB_IRQ__INTC_CORTEXM4_PRIORITY
+    };
+
     /* ADC_IRQ */
     const cy_stc_sysint_t ADC_IRQ_cfg = {
         .intrSrc = (IRQn_Type)ADC_IRQ__INTC_NUMBER,

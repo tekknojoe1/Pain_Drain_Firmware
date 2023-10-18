@@ -21,8 +21,8 @@
 #include "cyfitter_sysint.h"
 
 /* ADC */
-#define ADC_intSarClock__DIV_IDX 3
-#define ADC_intSarClock__DIV_NUM 3
+#define ADC_intSarClock__DIV_IDX 4
+#define ADC_intSarClock__DIV_NUM 4
 #define ADC_intSarClock__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 #define ADC_SAR__HW SAR
 #define ADC_SAR__IDX 0
@@ -36,6 +36,17 @@
 #define I2S_cy_mxs40_i2s__HW I2S
 #define I2S_cy_mxs40_i2s__IDX 0
 
+/* SPI */
+#define SPI_SCB__HW SCB2
+#define SPI_SCB__IDX 2
+#define SPI_SCB__SS0_POSITION 0u
+#define SPI_SCB__SS1_POSITION 1u
+#define SPI_SCB__SS2_POSITION 2u
+#define SPI_SCB__SS3_POSITION 3u
+#define SPI_SCBCLK__DIV_IDX 3
+#define SPI_SCBCLK__DIV_NUM 3
+#define SPI_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
+
 /* AMP_PWM */
 #define AMP_PWM_TCPWM__CNT_HW TCPWM0_CNT7
 #define AMP_PWM_TCPWM__CNT_IDX 7u
@@ -48,9 +59,9 @@
 #define Clock_1__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* Clock_2 */
-#define Clock_2__DIV_IDX 7
-#define Clock_2__DIV_NUM 7
-#define Clock_2__DIV_TYPE CY_SYSCLK_DIV_8_BIT
+#define Clock_2__DIV_IDX 8
+#define Clock_2__DIV_NUM 0
+#define Clock_2__DIV_TYPE CY_SYSCLK_DIV_16_BIT
 
 /* Clock_3 */
 #define Clock_3__DIV_IDX 2
@@ -63,18 +74,18 @@
 #define Clock_4__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* Clock_5 */
-#define Clock_5__DIV_IDX 6
-#define Clock_5__DIV_NUM 6
+#define Clock_5__DIV_IDX 7
+#define Clock_5__DIV_NUM 7
 #define Clock_5__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* Clock_6 */
-#define Clock_6__DIV_IDX 4
-#define Clock_6__DIV_NUM 4
+#define Clock_6__DIV_IDX 5
+#define Clock_6__DIV_NUM 5
 #define Clock_6__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* Clock_7 */
-#define Clock_7__DIV_IDX 5
-#define Clock_7__DIV_NUM 5
+#define Clock_7__DIV_IDX 6
+#define Clock_7__DIV_NUM 6
 #define Clock_7__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* LCD_PWM */

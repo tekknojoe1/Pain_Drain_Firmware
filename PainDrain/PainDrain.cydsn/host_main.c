@@ -413,19 +413,19 @@ void lcdReset(void) {
     
     // Delay 1ms
     // You may need to implement the Delayms function or use a built-in delay function
-    CyDelay(1); // Delay 1ms
+    CyDelay(20); // Delay 1ms
     
     // Set LCD_RESET pin low
     Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 0);
     
     // Delay 10ms
-    CyDelay(10); // Delay 10ms
+    CyDelay(100); // Delay 10ms
     
     // Set LCD_RESET pin high again
     Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 1);
     
     // Delay 120ms
-    CyDelay(120); // Delay 120ms
+    CyDelay(100); // Delay 120ms
 }
 // Function to send a command byte over SPI
 void sendData(uint8_t data) {
@@ -516,78 +516,82 @@ void sendCommand(uint8_t cmd) {
 
 void LCDinit(void)
 {
-    /*
-    Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 1);
-    CyDelay(1); // Delay 1ms
-    Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 0);
-    CyDelay(10); // Delay 10ms
-    Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 1);
-    CyDelay(120); // Delay 120ms
-    sendCommand(0x11); //SLPOUT (11h): Sleep Out
-    CyDelay(120); //Delay 120ms
-    sendCommand(0x36); //MADCTL (36h): Memory Data Access Control - Default
-    sendData(0x00);
-    sendCommand(0x3A); //COLMOD (3Ah): Interface Pixel Format
-    sendData(0x05);
-    sendCommand(0xB2); //PORCTRL (B2h): Porch Setting - Default
+    lcdReset();
+    sendCommand(0x28);
+    sendCommand(0x11); //Exit Sleep mode
+    CyDelay(100);
+    sendCommand(0x36);
+    sendData(0xA0);//MADCTL: memory data access control
+    sendCommand(0x3A);
+    sendData(0x65);//COLMOD: Interface Pixel format
+    sendCommand(0xB2);
     sendData(0x0C);
     sendData(0x0C);
     sendData(0x00);
     sendData(0x33);
-    sendData(0x33);
-    sendCommand(0xB7); //GCTRL (B7h): Gate Control
-    sendData(0x75);
-    sendCommand(0xBB); //VCOMS (BBh): VCOM Setting
-    sendData(0x13);
-    sendCommand(0xC0); //LCMCTRL (C0h): LCM Control - Default
-    sendData(0x2C);
-    sendCommand(0xC2); //VDVVRHEN (C2h): VDV and VRH Command Enable - Default
+    sendData(0x33);//PORCTRK: Porch setting
+    sendCommand(0xB7);
+    sendData(0x35);//GCTRL: Gate Control
+    sendCommand(0xBB);
+    sendData(0x2B);//VCOMS: VCOM setting
+    sendCommand(0xC0);
+    sendData(0x2C);//LCMCTRL: LCM Control
+    sendCommand(0xC2);
     sendData(0x01);
-    sendCommand(0xC3); //VRHS (C3h): VRH Set
-    sendData(0x13);
-    sendCommand(0xC4); //VDVS (C4h): VDV Set - Default
-    sendData(0x20);
-    sendCommand(0xC6); //FRCTRL2 (C6h): Frame Rate Control in Normal Mode - Default
-    sendData(0x0F);
-    sendCommand(0xD0); //PWCTRL1 (D0h): Power Control 1 - Default
+    sendData(0xFF);//VDVVRHEN: VDV and VRH Command Enable
+    sendCommand(0xC3);
+    sendData(0x11);//VRHS: VRH Set
+    sendCommand(0xC4);
+    sendData(0x20);//VDVS: VDV Set
+    sendCommand(0xC6);
+    sendData(0x0F);//FRCTRL2: Frame Rate control in normal mode
+    sendCommand(0xD0);
     sendData(0xA4);
-    sendData(0xA1);
-    sendCommand(0xD6); //Undocumented
-    sendData(0xA1);
-    sendCommand(0x21); //INVON (21h): Display Inversion On
-    sendCommand(0xE0); //PVGAMCTRL (E0h): Positive Voltage Gamma Control
+    sendData(0xA1);//PWCTRL1: Power Control 1
+    sendCommand(0xE0);
     sendData(0xD0);
-    sendData(0x08);
-    sendData(0x10);
+    sendData(0x00);
+    sendData(0x05);
+    sendData(0x0E);
+    sendData(0x15);
+    sendData(0x0D);
+    sendData(0x37);
+    sendData(0x43);
+    sendData(0x47);
+    sendData(0x09);
+    sendData(0x15);
+    sendData(0x12);
+    sendData(0x16);
+    sendData(0x19);//PVGAMCTRL: Positive Voltage Gamma control
+    sendCommand(0xE1);
+    sendData(0xD0);
+    sendData(0x00);
+    sendData(0x05);
     sendData(0x0D);
     sendData(0x0C);
-    sendData(0x07);
-    sendData(0x37);
-    sendData(0x53);
-    sendData(0x4C);
-    sendData(0x39);
-    sendData(0x15);
-    sendData(0x15);
-    sendData(0x2A);
+    sendData(0x06);
     sendData(0x2D);
-    sendCommand(0xE1); //NVGAMCTRL (E1h): Negative Voltage Gamma Control
-    sendData(0xD0);
-    sendData(0x0D);
-    sendData(0x12);
-    sendData(0x08);
-    sendData(0x08);
-    sendData(0x15);
-    sendData(0x34);
-    sendData(0x34);
-    sendData(0x4A);
-    sendData(0x36);
-    sendData(0x12);
-    sendData(0x13);
-    sendData(0x2B);
-    sendData(0x2F);
-    sendCommand(0x29); //DISPON (29h): Display On
-    */
+    sendData(0x44);
+    sendData(0x40);
+    sendData(0x0E);
+    sendData(0x1C);
+    sendData(0x18);
+    sendData(0x16);
+    sendData(0x19);//NVGAMCTRL: Negative Voltage Gamma control
+    sendCommand(0x2B);
+    sendData(0x00);
+    sendData(0x00);
+    sendData(0x00);
+    sendData(0xEF);//Y address set
+    sendCommand(0x2A);
+    sendData(0x00);
+    sendData(0x00);
+    sendData(0x01);
+    sendData(0x3F);//X address set
+    CyDelay(10);
+    sendCommand(0x29);
     
+    /*
     lcdReset();
     sendCommand(0x11); //SLPOUT (11h): Sleep Out
     CyDelay(120); //Delay 120ms
@@ -653,6 +657,7 @@ void LCDinit(void)
     sendData(0x2B);
     sendData(0x2F);
     sendData(0x29); //DISPON (29h): Display On
+    */
 }
 void SetAddressWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) {
     
@@ -698,6 +703,27 @@ void drawPixel(uint16_t x, uint16_t y, uint16_t color) {
     sendCommand(0x2C);  // Memory write command
     sendData(color >> 8);       // High byte of color data
     sendData(color & 0xFF);     // Low byte of color data
+}
+
+void ST7789_DrawPixel(uint16_t XPos, uint16_t YPos, uint16_t Color)
+{
+	
+	//uint8_t colorBuff[2] = {Color >> 8, Color & 0xFF};
+	
+	/* ---------------- Size Control ---------------- */
+	if ((XPos < 0) || (XPos >= 240) || (YPos < 0) || (YPos >= 280))
+	{
+		return;
+	}
+	
+	SetAddressWindow(XPos, YPos, XPos, YPos);
+	
+	/* ---------------- Write Pixel ----------------- */
+    sendData(Color >> 8);
+    sendData(Color & 0xFF);
+    DBG_PRINTF("Pixel drawn\r\n");
+	//ST7789_TransmitData(colorBuff, sizeof(colorBuff));
+	
 }
 
 void drawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color) {
