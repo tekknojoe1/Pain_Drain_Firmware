@@ -49,8 +49,8 @@ cy_stc_scb_spi_config_t const SPI_config =
 
     .oversample = 4UL,
 
-    .rxDataWidth              = 8UL,
-    .txDataWidth              = 8UL,
+    .rxDataWidth              = 9UL,
+    .txDataWidth              = 9UL,
     .enableMsbFirst           = true,
     .enableInputFilter        = false,
 

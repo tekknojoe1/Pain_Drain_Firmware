@@ -13,8 +13,12 @@
 
 #include <project.h>
 #include <stdlib.h>
+#include "debug.h"
 
 #define TENS_TIMER_INTERVAL_MS 10
+
+#define MAX_TENS_DUR_US 1200
+#define MAX_TENS_INTERVAL_MS 1000
 
 static int32 tens_timeout = -1;
 static int32 tens_interval_ms = 0;
@@ -125,6 +129,8 @@ void set_tens_amp (int item) {
         //PWM_TENS_SetCompare0(624 * item / 10);
         //power_flags_update(UI_MENU_TENS_AMP, 1);
         
+        /*
+        // For coarse control use the code below
         set_tens_dur(item); 
         
         set_tens_freq(item); //Enable tens timer
@@ -149,7 +155,30 @@ void set_tens_amp (int item) {
             PWM_TENS_SetCompare0(0);
             PWM_TENS2_SetCompare0(0);
             break;
-        }       
+        }
+        */
+        
+                               
+        // For finer control the below should work.
+        tens_dur_us = (item * MAX_TENS_DUR_US) / 100;
+        
+        // Not sure for the tens interval, as the values decrease differently.
+        tens_interval_ms = MAX_TENS_INTERVAL_MS / item;
+        if (tens_interval_ms > 0) 
+        tens_timeout = tens_interval_ms;
+        
+        int scaled_pwm_value = (item * 312) / 100;
+        
+        // Set TENS1 and wait before setting TENS2
+        PWM_TENS_SetCompare0(scaled_pwm_value);
+        DBG_PRINTF("Tens 1 PWM: %d\r\n", PWM_TENS_GetCompare0());
+        CyDelayUs((1000000 / tens_interval_ms) / 2); //Delay of 5-50uS
+        
+        // Set TENS2
+        PWM_TENS2_SetCompare0(scaled_pwm_value);
+        DBG_PRINTF("Tens 2 PWM: %d\r\n", PWM_TENS2_GetCompare0());
+        
+        
     }   
 }
 /* [] END OF FILE */
