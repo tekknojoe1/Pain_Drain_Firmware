@@ -313,6 +313,12 @@ void AppCallBack(uint32 event, void *eventParam)
                 cy_stc_ble_gatts_write_cmd_req_param_t *writeReq = (cy_stc_ble_gatts_write_cmd_req_param_t *)eventParam;
                 int length = writeReq->handleValPair.value.len;
                 char receivedCommand[length + 1];
+                int i = 0;
+                char *tokens[5]; // An array to store the tokens, assuming a maximum of 10 tokens
+                int token_count = 0; // To keep track of the number of tokens
+                char *token;
+                char *delimiter = " ";
+                
                 // Checks to see if its requesting the custom service characteristic
                 if(CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE == writeReq->handleValPair.attrHandle)
                 {
@@ -329,26 +335,48 @@ void AppCallBack(uint32 event, void *eventParam)
                     }
                     receivedCommand[length] = '\0';
                     DBG_PRINTF("Received string: %s\r\n", receivedCommand);
-
-                    switch(receivedCommand[0]){
+                    
+                    // This splits the received command into sections by space
+                    token = strtok(receivedCommand, delimiter); // Gets the first token
+                    
+                    // Stores each token or each value into an array called tokens
+                    while (token != NULL) {
+                        tokens[token_count] = token; // Store the token in the array
+                        token_count++;
+                        token = strtok(NULL, delimiter); // Get the next token
+                    }
+                    
+                    switch(tokens[0][0]){
                         case 't':
                         {
-                            int temperatureValue = atoi(&receivedCommand[1]); // Convert the numeric part after 't'
+                            int temperatureValue = atoi(tokens[1]); // Convert the numeric part after 't'
                             DBG_PRINTF("t value: %d\r\n", temperatureValue);
                             //set_temp(temperatureValue);  
                             break;
                         }
                         case 'T':
                         {
-                            int tensValue = atoi(&receivedCommand[1]);
-                            DBG_PRINTF("T value: %d\r\n", tensValue);
-                            //set_tens(tensValue);
+                            int tensAmpValue = atoi(tokens[1]);
+                            double tensDurationValue = atof(tokens[2]);
+                            double tensPeriodValue = atof(tokens[3]);
+                            DBG_PRINTF("T value amp: %d\r\n", tensAmpValue);
+                            DBG_PRINTF("T value duration: %s\r\n", tokens[2]);
+                            DBG_PRINTF("T value period: %s\r\n", tokens[3]);
+                            set_tens_amp(tensAmpValue);
+                            set_tens_dur(tensDurationValue);
+                            set_tens_freq(tensPeriodValue);
                             break;
                         }
                         case 'v':
                         {
-                            int vibeValue = atoi(&receivedCommand[1]);
-                            DBG_PRINTF("v value: %d\r\n", vibeValue);
+                            char *waveType = tokens[1];
+                            int vibeAmp = atoi(tokens[2]);
+                            int vibeFreq = atoi(tokens[3]);
+                            int vibeWaveform = atoi(tokens[4]);
+                            DBG_PRINTF("v waveType: %s\r\n", waveType);
+                            DBG_PRINTF("v amp: %d\r\n", vibeAmp);
+                            DBG_PRINTF("v freq: %d\r\n", vibeFreq);
+                            DBG_PRINTF("v waveform: %d\r\n", vibeWaveform);
                             //set_vibe(&receivedCommand[1], vibeValue);
                             break;
                         }
@@ -360,6 +388,7 @@ void AppCallBack(uint32 event, void *eventParam)
                         
                         
                     }
+
                     //DBG_PRINTF("length %d\r\n", length);
                     respondStringPtr = (uint8_t *)malloc(length+1 * sizeof(uint8_t));
                     respondStringPtr = writeReq->handleValPair.value.val;
@@ -765,7 +794,7 @@ int HostMain(void)
     //DBG_PRINTF("Entering\r\n");
     //st7789_basic_init();
     //SPI_Start();
-    LCDinit();
+    //LCDinit();
     //ST7789_DrawPixel(50, 50, 0x07E0);
     
     //while (1) {
@@ -778,7 +807,7 @@ int HostMain(void)
     //    Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 1);
     //    CyDelay(1);
     //}
-        
+    /*
     ST7789_DrawPixel(50, 50, 0x07E0);
     ST7789_DrawPixel(51, 50, 0x07E0);
     ST7789_DrawPixel(52, 50, 0x07E0);
@@ -786,6 +815,7 @@ int HostMain(void)
     ST7789_DrawPixel(54, 50, 0x07E0);
     ST7789_DrawPixel(55, 50, 0x07E0);
     ST7789_DrawPixel(56, 50, 0x07E0);
+    */
     //sendCommand(0x20);
 
     //st7789_display_test();
@@ -801,6 +831,8 @@ int HostMain(void)
     //PWM_VIBE_Start();
     PWM_TENS_Start();
     PWM_TENS2_Start();
+    PWM_TENS_Enable();
+    PWM_TENS2_Enable();
     
     PWM_PEL1_Start();
     PWM_PEL2_Start();
@@ -815,7 +847,7 @@ int HostMain(void)
     ***************************************************************************/
     while(1)
     {
-        DBG_PRINTF("Loops from main %d\r\n", loopcount++);
+        //DBG_PRINTF("Loops from main %d\r\n", loopcount++);
         //DBG_PRINTF("PWM1 from main %d\r\n", PWM_PEL1_GetCompare0());
         //CyDelayUs(100);
         //DBG_PRINTF("PWM2 from main %d\r\n", PWM_PEL2_GetCompare0());

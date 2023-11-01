@@ -100,13 +100,18 @@ void power_wakeup( void ) {
 }
 
 void power_task( void ) {
-    return; //this code below is old
-    
+    //return; //this code below is old
     //Power button detection to wakeup
+    //DBG_PRINTF("Waking up: %d\r\n", Cy_GPIO_Read(PWR_BTN_PORT, PWR_BTN_NUM));
+    //Cy_GPIO_Write(PWR_BTN_PORT, PWR_BTN_NUM, 0);
     if (Cy_GPIO_Read(PWR_BTN_PORT, PWR_BTN_NUM) == 0) {
         power_wakeup();
+        DBG_PRINTF("Waking up\r\n");
     }
+    cy_en_gpio_status_t initStatus;
     
+    //initStatus = Cy_GPIO_Pin_Init(PWR_BTN_PORT, PWR_BTN_NUM, &PWR_BTN_);
+    //DBG_PRINTF("Power flag %d\r\n", power_flags);
     power_flags_update(POWER_FLAG_CHG, !Cy_GPIO_Read(CHG_PG_PORT, CHG_PG_NUM) );    
 
     switch (power_state) {
@@ -151,6 +156,7 @@ void power_task( void ) {
             
             //We wake up here
             power_wakeup();
+            DBG_PRINTF("Powering down\r\n");
             
             power_state = POWER_IDLE;            
         break;
