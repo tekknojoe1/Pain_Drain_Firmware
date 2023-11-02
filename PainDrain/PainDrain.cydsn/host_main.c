@@ -335,14 +335,14 @@ void AppCallBack(uint32 event, void *eventParam)
                         {
                             int temperatureValue = atoi(&receivedCommand[1]); // Convert the numeric part after 't'
                             DBG_PRINTF("t value: %d\r\n", temperatureValue);
-                            //set_temp(temperatureValue);  
+                            set_temp(temperatureValue);  
                             break;
                         }
                         case 'T':
                         {
                             int tensValue = atoi(&receivedCommand[1]);
                             DBG_PRINTF("T value: %d\r\n", tensValue);
-                            //set_tens(tensValue);
+                            set_tens_amp(tensValue);
                             break;
                         }
                         case 'v':
@@ -772,24 +772,28 @@ int HostMain(void)
     //PWM_VIBE_Start();
     PWM_TENS_Start();
     PWM_TENS2_Start();
+    PWM_TENS_Enable();
+    PWM_TENS2_Enable();
     
     PWM_PEL1_Start();
     PWM_PEL2_Start();
     Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);  //Enable is low
-    
+    //PWM_PEL1_Enable(); // PELs need to be enabled to set them.
+    //PWM_PEL2_Enable();
     //power_init();
     
-    
+    // Testing setting PEL1
+    //set_temp(10);
       
     /***************************************************************************
     * Main polling loop
     ***************************************************************************/
     while(1)
     {
-        DBG_PRINTF("Loops from main %d\r\n", loopcount++);
-        //DBG_PRINTF("PWM1 from main %d\r\n", PWM_PEL1_GetCompare0());
+        //DBG_PRINTF("Loops from main %d\r\n", loopcount++);
+        DBG_PRINTF("PWM1 from main %d\r\n", PWM_PEL1_GetCompare0());
         //CyDelayUs(100);
-        //DBG_PRINTF("PWM2 from main %d\r\n", PWM_PEL2_GetCompare0());
+        DBG_PRINTF("PWM2 from main %d\r\n", PWM_PEL2_GetCompare0());
         //CyDelayUs(100);
         
        // checkForValueChange();

@@ -111,11 +111,11 @@ void set_tens_dur (int item) {
     }
 }
 
-void set_tens_amp (int item) {
+void set_tens_amp (int tensValue) {
 
     //300 us on, 300 us off and 300 us in reverse direction
        
-    if (item == 0) {
+    if (tensValue == 0) {
         //power_5v_off();
         PWM_TENS_SetCompare0(0);
         PWM_TENS2_SetCompare0(0);
@@ -160,14 +160,14 @@ void set_tens_amp (int item) {
         
                                
         // For finer control the below should work.
-        tens_dur_us = (item * MAX_TENS_DUR_US) / 100;
+        tens_dur_us = (tensValue * MAX_TENS_DUR_US) / 100;
         
         // Not sure for the tens interval, as the values decrease differently.
-        tens_interval_ms = MAX_TENS_INTERVAL_MS / item;
+        tens_interval_ms = MAX_TENS_INTERVAL_MS / tensValue;
         if (tens_interval_ms > 0) 
         tens_timeout = tens_interval_ms;
         
-        int scaled_pwm_value = (item * 312) / 100;
+        int scaled_pwm_value = (tensValue * 312) / 100;
         
         // Set TENS1 and wait before setting TENS2
         PWM_TENS_SetCompare0(scaled_pwm_value);
