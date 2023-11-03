@@ -312,9 +312,10 @@ void AppCallBack(uint32 event, void *eventParam)
             {
                 cy_stc_ble_gatts_write_cmd_req_param_t *writeReq = (cy_stc_ble_gatts_write_cmd_req_param_t *)eventParam;
                 int length = writeReq->handleValPair.value.len;
+                DBG_PRINTF("Length: %d\r\n", length);
                 char receivedCommand[length + 1];
                 int i = 0;
-                char *tokens[5]; // An array to store the tokens, assuming a maximum of 10 tokens
+                char *tokens[10]; // An array to store the tokens, assuming a maximum of 10 tokens
                 int token_count = 0; // To keep track of the number of tokens
                 char *token;
                 char *delimiter = " ";
@@ -349,6 +350,11 @@ void AppCallBack(uint32 event, void *eventParam)
                     switch(tokens[0][0]){
                         case 't':
                         {
+                            /*
+                            Packet information contains
+                            1: t - Temperature
+                            2: Temperature
+                            */
                             int temperatureValue = atoi(tokens[1]); // Convert the numeric part after 't'
                             DBG_PRINTF("t value: %d\r\n", temperatureValue);
                             //set_temp(temperatureValue);  
@@ -356,19 +362,51 @@ void AppCallBack(uint32 event, void *eventParam)
                         }
                         case 'T':
                         {
-                            int tensAmpValue = atoi(tokens[1]);
-                            double tensDurationValue = atof(tokens[2]);
-                            double tensPeriodValue = atof(tokens[3]);
-                            DBG_PRINTF("T value amp: %d\r\n", tensAmpValue);
-                            DBG_PRINTF("T value duration: %s\r\n", tokens[2]);
-                            DBG_PRINTF("T value period: %s\r\n", tokens[3]);
-                            set_tens_amp(tensAmpValue);
-                            set_tens_dur(tensDurationValue);
-                            set_tens_freq(tensPeriodValue);
+                            /*
+                            Packet information contains
+                            1: T - TENS
+                            2: Amplitude 
+                            3: Duration
+                            4: Period
+                            5: Channel
+                            */
+                            if(tokens[1][0] == 'p'){
+                                /*
+                                Packet information contains
+                                1: T - TENS
+                                2: p - Phase
+                                3: Degree
+                                */
+                                int tensPhase = atoi(tokens[2]);
+                                DBG_PRINTF("T value phase: %d\r\n", tensPhase);
+                            }
+                            else{
+                                int tensAmpValue = atoi(tokens[1]);
+                                double tensDurationValue = atof(tokens[2]);
+                                double tensPeriodValue = atof(tokens[3]);
+                                int tensChannel = atoi(tokens[4]);
+                                int phaseDegree = atoi(tokens[5]);
+                                DBG_PRINTF("T value amp: %d\r\n", tensAmpValue);
+                                DBG_PRINTF("T value duration: %s\r\n", tokens[2]);
+                                DBG_PRINTF("T value period: %s\r\n", tokens[3]);
+                                DBG_PRINTF("T Channel: %d\r\n", tensChannel);
+                                set_tens_amp(tensAmpValue);
+                                set_tens_dur(tensDurationValue);
+                                set_tens_freq(tensPeriodValue);   
+                            }
+                            
                             break;
                         }
                         case 'v':
                         {
+                            /*
+                            Packet information contains
+                            1: v - Vibration
+                            2: Wavetype
+                            3: Amplitude 
+                            4: Frequency
+                            5: Wavefrom
+                            */
                             char *waveType = tokens[1];
                             int vibeAmp = atoi(tokens[2]);
                             int vibeFreq = atoi(tokens[3]);
