@@ -35,6 +35,7 @@
 /* I2S */
 #define I2S_cy_mxs40_i2s__HW I2S
 #define I2S_cy_mxs40_i2s__IDX 0
+#define I2S_cy_mxs40_i2s__TR_I2S_TX_REQ TRIG13_IN_AUDIOSS_TR_I2S_TX_REQ
 
 /* SPI */
 #define SPI_SCB__HW SCB2
@@ -99,6 +100,13 @@
 #define PWM_FAN_TCPWM__CNT_IDX 0u
 #define PWM_FAN_TCPWM__HW TCPWM0
 #define PWM_FAN_TCPWM__IDX 0u
+
+/* DMA_Play */
+#define DMA_Play_DW__BLOCK_HW DW0
+#define DMA_Play_DW__BLOCK_NUMBER 0u
+#define DMA_Play_DW__CHANNEL_HW DW0_CH_STRUCT0
+#define DMA_Play_DW__CHANNEL_NUMBER 0u
+#define DMA_Play_DW__TR_IN TRIG0_OUT_CPUSS_DW0_TR_IN0
 
 /* PWM_PEL1 */
 #define PWM_PEL1_TCPWM__CNT_HW TCPWM0_CNT1

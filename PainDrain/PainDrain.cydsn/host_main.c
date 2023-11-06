@@ -370,10 +370,13 @@ int HostMain(void)
     
     PWM_TENS_Start();
     PWM_TENS2_Start();
-    
+    PWM_TENS_Enable();
+    PWM_TENS2_Enable();
     
     PWM_PEL1_Start();
     PWM_PEL2_Start();
+    //PWM_PEL1_Enable();
+    //PWM_PEL2_Enable();
     Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);  //Enable is low
     
     power_init();
@@ -386,10 +389,10 @@ int HostMain(void)
     while(1)
     {
         //DBG_PRINTF("Loops from main %d\r\n", loopcount++);
-        //DBG_PRINTF("PWM1 from main %d\r\n", PWM_PEL1_GetCompare0());
-        //CyDelayUs(100);
-        //DBG_PRINTF("PWM2 from main %d\r\n", PWM_PEL2_GetCompare0());
-        //CyDelayUs(100);
+        DBG_PRINTF("PWM1 from main %d\r\n", PWM_PEL1_GetCompare0());
+        CyDelayUs(100);
+        DBG_PRINTF("PWM2 from main %d\r\n", PWM_PEL2_GetCompare0());
+        CyDelayUs(100);
         
         /* Cy_BLE_ProcessEvents() allows BLE stack to process pending events */
         Cy_BLE_ProcessEvents();
