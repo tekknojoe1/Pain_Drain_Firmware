@@ -15,7 +15,7 @@
 void set_tens_task(void);
 void set_tens_freq(int item);
 void set_tens_dur(int item);
-void set_tens_amp(int item);
+void set_tens_amp(int tensValue);
 
 #endif /* TENS_H */
 /* [] END OF FILE */
