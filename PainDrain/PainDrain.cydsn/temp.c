@@ -9,13 +9,17 @@
  *
  * ========================================
 */
-#include <project.h>
+
+#include "temp.h"
+#include "debug.h"
 #include <stdio.h>
+#include <project.h>
 #include <stdlib.h>
 #include "debug.h"
-#include "temp.h"
 
-#define MAX_PWM_VALUE 204 // limit to 80 percent of 255
+
+#define MAX_PEL_PWM_VALUE 204 // limit to 80 percent of 255
+
 #define MAX_FAN_PWM_VALUE 160 // limit to 62.5 percent of 255
 
 void set_temp(int value){
@@ -24,7 +28,7 @@ void set_temp(int value){
     value = (value < -100) ? -100 : (value > 100) ? 100 : value;
     
     // Scale the value to the PWM range
-    int scaled_pel_pwm = ( abs(value) * MAX_PWM_VALUE) / 100;
+    int scaled_pel_pwm = ( abs(value) * MAX_PEL_PWM_VALUE) / 100;
     
     if(value > 0){
         // Turn off PEL2
@@ -33,7 +37,7 @@ void set_temp(int value){
         
         // Turn on PEL1       
         Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 1);  //Enable is high
-        PWM_PEL1_SetCompare0(scaled_pel_pwm); 
+        PWM_PEL1_SetCompare0(scaled_pel_pwm);
         DBG_PRINTF("PWM1 Value: %d\r\n", scaled_pel_pwm);
         DBG_PRINTF("PWM1 GetCompare: %d\r\n", PWM_PEL1_GetCompare0());
     } else if (value < 0) {
@@ -50,10 +54,11 @@ void set_temp(int value){
         // Turn off both PELs to save power
         PWM_PEL1_SetCompare0(0);
         PWM_PEL2_SetCompare0(0);
-        
         //PWM_PEL1_Disable();
         //PWM_PEL2_Disable();
         Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);  //Enable is low
+        DBG_PRINTF("Disabled PWM1 GetCompare: %d\r\n", PWM_PEL1_GetCompare0());
+        DBG_PRINTF("Disabled PWM2 GetCompare: %d\r\n", PWM_PEL2_GetCompare0());
     } 
 }
 

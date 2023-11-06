@@ -104,6 +104,7 @@ void set_tens_amp (int tensValue) {
     } else {                                                     
         int scaled_pwm_value = (tensValue * 312) / 100;
         
+
         // Set TENS1 and wait before setting TENS2
         PWM_TENS_SetCompare0(scaled_pwm_value);
         DBG_PRINTF("Tens 1 PWM: %d\r\n", PWM_TENS_GetCompare0());

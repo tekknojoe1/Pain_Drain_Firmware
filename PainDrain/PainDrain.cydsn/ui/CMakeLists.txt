@@ -1,0 +1,14 @@
+SET(SOURCES screens/ui_Splash_screen.c
+    screens/ui_TENS_screen.c
+    screens/ui_Temperature_screen.c
+    screens/ui_Vibration_screen.c
+    screens/ui_Presets_screen.c
+    screens/ui_Brigtness_screen.c
+    ui.c
+    components/ui_comp_hook.c
+    ui_helpers.c
+    images/ui_img_paindraindevicewithoutbackgroundresized_png.c
+    images/ui_img_snowflake_icon_small_png.c
+    images/ui_img_fire_icon_small_png.c)
+
+add_library(ui ${SOURCES})

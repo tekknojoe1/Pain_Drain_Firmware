@@ -21,8 +21,8 @@
 #include "cyfitter_sysint.h"
 
 /* ADC */
-#define ADC_intSarClock__DIV_IDX 3
-#define ADC_intSarClock__DIV_NUM 3
+#define ADC_intSarClock__DIV_IDX 4
+#define ADC_intSarClock__DIV_NUM 4
 #define ADC_intSarClock__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 #define ADC_SAR__HW SAR
 #define ADC_SAR__IDX 0
@@ -35,7 +35,6 @@
 /* I2S */
 #define I2S_cy_mxs40_i2s__HW I2S
 #define I2S_cy_mxs40_i2s__IDX 0
-#define I2S_cy_mxs40_i2s__TR_I2S_TX_REQ TRIG13_IN_AUDIOSS_TR_I2S_TX_REQ
 
 /* SPI */
 #define SPI_SCB__HW SCB2
@@ -44,8 +43,8 @@
 #define SPI_SCB__SS1_POSITION 1u
 #define SPI_SCB__SS2_POSITION 2u
 #define SPI_SCB__SS3_POSITION 3u
-#define SPI_SCBCLK__DIV_IDX 2
-#define SPI_SCBCLK__DIV_NUM 2
+#define SPI_SCBCLK__DIV_IDX 3
+#define SPI_SCBCLK__DIV_NUM 3
 #define SPI_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* AMP_PWM */
@@ -65,8 +64,8 @@
 #define Clock_2__DIV_TYPE CY_SYSCLK_DIV_16_BIT
 
 /* Clock_3 */
-#define Clock_3__DIV_IDX 7
-#define Clock_3__DIV_NUM 7
+#define Clock_3__DIV_IDX 2
+#define Clock_3__DIV_NUM 2
 #define Clock_3__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* Clock_4 */
@@ -75,18 +74,18 @@
 #define Clock_4__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* Clock_5 */
-#define Clock_5__DIV_IDX 6
-#define Clock_5__DIV_NUM 6
+#define Clock_5__DIV_IDX 7
+#define Clock_5__DIV_NUM 7
 #define Clock_5__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* Clock_6 */
-#define Clock_6__DIV_IDX 4
-#define Clock_6__DIV_NUM 4
+#define Clock_6__DIV_IDX 5
+#define Clock_6__DIV_NUM 5
 #define Clock_6__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* Clock_7 */
-#define Clock_7__DIV_IDX 5
-#define Clock_7__DIV_NUM 5
+#define Clock_7__DIV_IDX 6
+#define Clock_7__DIV_NUM 6
 #define Clock_7__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* LCD_PWM */
@@ -100,13 +99,6 @@
 #define PWM_FAN_TCPWM__CNT_IDX 0u
 #define PWM_FAN_TCPWM__HW TCPWM0
 #define PWM_FAN_TCPWM__IDX 0u
-
-/* DMA_Play */
-#define DMA_Play_DW__BLOCK_HW DW0
-#define DMA_Play_DW__BLOCK_NUMBER 0u
-#define DMA_Play_DW__CHANNEL_HW DW0_CH_STRUCT0
-#define DMA_Play_DW__CHANNEL_NUMBER 0u
-#define DMA_Play_DW__TR_IN TRIG0_OUT_CPUSS_DW0_TR_IN0
 
 /* PWM_PEL1 */
 #define PWM_PEL1_TCPWM__CNT_HW TCPWM0_CNT1

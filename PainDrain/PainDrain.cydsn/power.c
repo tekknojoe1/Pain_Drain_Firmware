@@ -10,6 +10,7 @@
 #include "my_i2c.h"
 #include "debug.h"
 
+
 #define POWER_TIMER_PERIOD_MS 10
 #define POWER_DISPLAY_TIMEOUT_SEC 20
 #define POWER_DISPLAY_TIMEOUT_INTERVAL (POWER_DISPLAY_TIMEOUT_SEC*1000 / POWER_TIMER_PERIOD_MS)
@@ -53,7 +54,7 @@ void gpio_interrupt_handler ( void ) {
 void power_init( void ) {
     
     
-    myI2C_Start();
+    //myI2C_Start();
     
     //Cy_SysInt_Init(&gpio_irq_cfg, gpio_interrupt_handler);
 	//NVIC_EnableIRQ(gpio_irq_cfg.intrSrc);
@@ -63,8 +64,10 @@ void power_init( void ) {
     
     LCD_PWM_Start();
     LCD_PWM_SetCompare0(MAX_LCD_PWM);  //Set to full brightness
+    DBG_PRINTF("Backlight on\r\n");
+
     
-    bq24298_init();
+    //bq24298_init();
     
     power_flags_update(POWER_FLAG_BLE, 1);
 }
@@ -97,12 +100,18 @@ void power_wakeup( void ) {
 }
 
 void power_task( void ) {
-    
+    //return; //this code below is old
     //Power button detection to wakeup
+    //DBG_PRINTF("Waking up: %d\r\n", Cy_GPIO_Read(PWR_BTN_PORT, PWR_BTN_NUM));
+    //Cy_GPIO_Write(PWR_BTN_PORT, PWR_BTN_NUM, 0);
     if (Cy_GPIO_Read(PWR_BTN_PORT, PWR_BTN_NUM) == 0) {
         power_wakeup();
+        DBG_PRINTF("Waking up\r\n");
     }
+    cy_en_gpio_status_t initStatus;
     
+    //initStatus = Cy_GPIO_Pin_Init(PWR_BTN_PORT, PWR_BTN_NUM, &PWR_BTN_);
+    //DBG_PRINTF("Power flag %d\r\n", power_flags);
     power_flags_update(POWER_FLAG_CHG, !Cy_GPIO_Read(CHG_PG_PORT, CHG_PG_NUM) );    
 
     switch (power_state) {
@@ -148,6 +157,7 @@ void power_task( void ) {
             
             //We wake up here
             power_wakeup();
+            DBG_PRINTF("Powering down\r\n");
             
             power_state = POWER_IDLE;            
         break;

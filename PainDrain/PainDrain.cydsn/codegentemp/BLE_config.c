@@ -166,7 +166,7 @@ static const cy_stc_ble_gaps_t cy_ble_gaps =
     0x0009u,    /* Handle of the Central Address Resolution characteristic */
     CY_BLE_GATT_INVALID_ATTR_HANDLE_VALUE, /* Handle of the Resolvable Private Address Only characteristic */
 };
-static uint8_t cy_ble_attValues[0x22u] = {
+static uint8_t cy_ble_attValues[0x53u] = {
     /* Device Name */
     (uint8_t)'P', (uint8_t)'a', (uint8_t)'i', (uint8_t)'n', (uint8_t)'D', (uint8_t)'r', (uint8_t)'a', (uint8_t)'i',
 (uint8_t)'n', 
@@ -193,7 +193,9 @@ static uint8_t cy_ble_attValues[0x22u] = {
     0x00u, 0x00u, 0x33u, 0x27u, 0x01u, 0x00u, 0x00u, 
 
     /* Custom Characteristic */
-    0x00u, 
+    0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 
 
 };
 #if(CY_BLE_GATT_DB_CCCD_COUNT != 0u)
@@ -220,7 +222,7 @@ static cy_stc_ble_gatts_att_gen_val_len_t cy_ble_attValuesLen[0x0Du] = {
     { 0x0002u, (void *)&cy_ble_attValuesCCCD[2] }, /* Client Characteristic Configuration */
     { 0x0010u, (void *)&cy_ble_attUuid128[0] }, /* Custom Service UUID */
     { 0x0010u, (void *)&cy_ble_attUuid128[1] }, /* Custom Characteristic UUID */
-    { 0x0001u, (void *)&cy_ble_attValues[33] }, /* Custom Characteristic */
+    { 0x0032u, (void *)&cy_ble_attValues[33] }, /* Custom Characteristic */
 };
 
 static const cy_stc_ble_gatts_db_t cy_ble_gattDB[0x18u] = {
@@ -247,7 +249,7 @@ static const cy_stc_ble_gatts_db_t cy_ble_gattDB[0x18u] = {
     { 0x0015u, 0x2902u /* Client Characteristic Configuration */, 0x030A0101u /* rd,wr     */, 0x0015u, {{0x0002u, (void *)&cy_ble_attValuesLen[9]}} },
     { 0x0016u, 0x2800u /* Primary service                     */, 0x08000001u /*           */, 0x0018u, {{0x0010u, (void *)&cy_ble_attValuesLen[10]}} },
     { 0x0017u, 0x2803u /* Characteristic                      */, 0x000E0001u /* rd,wr,wwr */, 0x0018u, {{0x0010u, (void *)&cy_ble_attValuesLen[11]}} },
-    { 0x0018u, 0x36A2u /* Custom Characteristic               */, 0x090E0101u /* rd,wr,wwr */, 0x0018u, {{0x0001u, (void *)&cy_ble_attValuesLen[12]}} },
+    { 0x0018u, 0x36A2u /* Custom Characteristic               */, 0x090E0101u /* rd,wr,wwr */, 0x0018u, {{0x0032u, (void *)&cy_ble_attValuesLen[12]}} },
 };
 
 #endif /* (CY_BLE_GATT_ROLE_SERVER) */

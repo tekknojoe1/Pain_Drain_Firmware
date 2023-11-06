@@ -31,7 +31,7 @@ const cy_stc_i2s_config_t I2S_config =
 {
     .txEnabled          = true,
     .rxEnabled          = false,
-    .txDmaTrigger       = true,
+    .txDmaTrigger       = false,
     .rxDmaTrigger       = false,
     .clkDiv             = 16U,
     .extClk             = false,
