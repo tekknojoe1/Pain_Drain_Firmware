@@ -390,9 +390,8 @@ void AppCallBack(uint32 event, void *eventParam)
                                 DBG_PRINTF("T value duration: %s\r\n", tokens[2]);
                                 DBG_PRINTF("T value period: %s\r\n", tokens[3]);
                                 DBG_PRINTF("T Channel: %d\r\n", tensChannel);
-                                set_tens_amp(tensAmpValue);
-                                set_tens_dur(tensDurationValue);
-                                set_tens_freq(tensPeriodValue);   
+                                
+                                set_tens_signal(tensChannel, tensAmpValue, tensDurationValue, tensPeriodValue, phaseDegree);
                             }
                             
                             break;

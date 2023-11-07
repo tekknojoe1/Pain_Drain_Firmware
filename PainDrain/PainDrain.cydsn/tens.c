@@ -20,9 +20,12 @@
 #define MAX_TENS_DUR_US 1200
 #define MAX_TENS_INTERVAL_MS 1000
 
+#define MAX_TENS_PWM_VALUE 312
 static int32 tens_timeout = -1;
 static int32 tens_interval_ms = 0;
 static int32 tens_dur_us = 0;
+
+static void set_phase_shift(int phase_degrees);
 
 void tens_timer(void){
     if (tens_timeout > 0) {
@@ -77,24 +80,20 @@ void set_tens_task( void ) {
     }
 }
 
-void set_tens_freq (int item) {
-    // Not sure for the tens interval, as the values decrease differently.
-    tens_interval_ms = MAX_TENS_INTERVAL_MS / item;
+void set_tens_freq (int period) {
+    tens_interval_ms = MAX_TENS_INTERVAL_MS / period;
     
     if (tens_interval_ms > 0) 
         tens_timeout = tens_interval_ms;
 }
 
-void set_tens_dur (int item) {
-    tens_dur_us = (item * MAX_TENS_DUR_US) / 100;
+void set_tens_dur (int duration) {
+    tens_dur_us = (duration * MAX_TENS_DUR_US) / 100;
 }
 
-void set_tens_amp (int tensValue) {
+void set_tens_amp (int amplitude) {
 
-    //300 us on, 300 us off and 300 us in reverse direction
-       
-    if (tensValue == 0) {
-        //power_5v_off();
+    if (amplitude == 0) {
         PWM_TENS_SetCompare0(0);
         PWM_TENS2_SetCompare0(0);
         //power_flags_update(UI_MENU_TENS_AMP, 0);
@@ -102,17 +101,42 @@ void set_tens_amp (int tensValue) {
         tens_interval_ms = -1; //Disable timer
         
     } else {                                                     
-        int scaled_pwm_value = (tensValue * 312) / 100;
+        int scaled_pwm_value = (amplitude * MAX_TENS_PWM_VALUE) / 100;
         
-
         // Set TENS1 and wait before setting TENS2
         PWM_TENS_SetCompare0(scaled_pwm_value);
         DBG_PRINTF("Tens 1 PWM: %d\r\n", PWM_TENS_GetCompare0());
         CyDelayUs((1000000 / tens_interval_ms) / 2); //Delay of 5-50uS
-        
+            
         // Set TENS2
         PWM_TENS2_SetCompare0(scaled_pwm_value);
         DBG_PRINTF("Tens 2 PWM: %d\r\n", PWM_TENS2_GetCompare0());
     }   
 }
+
+void set_phase_shift(int phase_degrees) {   
+   // Phase shift: PS = td/p * 360  -> td = (ps * p) / 360
+   // Time delay for phase shit
+   int tens_time_delay_ps = (phase_degrees * tens_interval_ms) / 360;
+   CyDelay(tens_time_delay_ps);
+}
+
+void set_tens_signal(int amplitude, int duration, int period, int channel, int phase) {
+    
+    set_tens_amp(amplitude);
+    
+    if(channel == 1){       
+        set_tens_freq(period);
+        set_tens_dur(duration);
+    } else if(channel == 2){
+        set_phase_shift(phase);
+        
+        set_tens_freq(period);
+        set_tens_dur(duration);
+    } else {
+        // disable the signal
+        set_tens_amp(0);
+    }   
+}
+
 /* [] END OF FILE */
