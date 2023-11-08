@@ -131,7 +131,7 @@ void set_tens_amp (int amplitude) {
 
 void set_tens_signal(int amplitude, int duration, int period, int channel, int phase) {
     
-    // Amplitude will be the same for both channels.
+    // Amplitude and Period will be the same for both channels.
     set_tens_amp(amplitude);
     set_tens_freq(period);
     tens_phase_shift = phase;
