@@ -352,8 +352,8 @@ void AppCallBack(uint32 event, void *eventParam)
                         {
                             /*
                             Packet information contains
-                            1: t - Temperature
-                            2: Temperature
+                            1: char t - Temperature
+                            2: int Temperature
                             */
                             int temperatureValue = atoi(tokens[1]); // Convert the numeric part after 't'
                             DBG_PRINTF("t value: %d\r\n", temperatureValue);
@@ -364,18 +364,18 @@ void AppCallBack(uint32 event, void *eventParam)
                         {
                             /*
                             Packet information contains
-                            1: T - TENS
-                            2: Amplitude 
-                            3: Duration
-                            4: Period
-                            5: Channel
+                            1: char T - TENS
+                            2: int Amplitude
+                            3: double Duration
+                            4: double Period
+                            5: int Channel
                             */
                             if(tokens[1][0] == 'p'){
                                 /*
                                 Packet information contains
-                                1: T - TENS
-                                2: p - Phase
-                                3: Degree
+                                1: char T - TENS
+                                2: char p - Phase
+                                3: int Phase Degree
                                 */
                                 int tensPhase = atoi(tokens[2]);
                                 DBG_PRINTF("T value phase: %d\r\n", tensPhase);
@@ -391,6 +391,7 @@ void AppCallBack(uint32 event, void *eventParam)
                                 DBG_PRINTF("T value period: %s\r\n", tokens[3]);
                                 DBG_PRINTF("T Channel: %d\r\n", tensChannel);
                                 set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  phaseDegree);
+
                             }
                             
                             break;
@@ -399,11 +400,11 @@ void AppCallBack(uint32 event, void *eventParam)
                         {
                             /*
                             Packet information contains
-                            1: v - Vibration
-                            2: Wavetype
-                            3: Amplitude 
-                            4: Frequency
-                            5: Wavefrom
+                            1: char v - Vibration
+                            2: String Wavetype
+                            3: int Amplitude
+                            4: int Frequency
+                            5: int Wavefrom
                             */
                             char *waveType = tokens[1];
                             int vibeAmp = atoi(tokens[2]);
