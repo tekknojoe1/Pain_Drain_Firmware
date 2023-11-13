@@ -390,8 +390,7 @@ void AppCallBack(uint32 event, void *eventParam)
                                 DBG_PRINTF("T value duration: %s\r\n", tokens[2]);
                                 DBG_PRINTF("T value period: %s\r\n", tokens[3]);
                                 DBG_PRINTF("T Channel: %d\r\n", tensChannel);
-                                
-                                set_tens_signal(tensChannel, tensAmpValue, tensDurationValue, tensPeriodValue, phaseDegree);
+                                set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  phaseDegree);
                             }
                             
                             break;
@@ -869,13 +868,9 @@ int HostMain(void)
     
     PWM_TENS_Start();
     PWM_TENS2_Start();
-    PWM_TENS_Enable();
-    PWM_TENS2_Enable();
     
     PWM_PEL1_Start();
     PWM_PEL2_Start();
-    //PWM_PEL1_Enable();
-    //PWM_PEL2_Enable();
     Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);  //Enable is low
     
     //power_init();
@@ -895,7 +890,11 @@ int HostMain(void)
         //LowPowerImplementation();
         power_task();
         
-        ui_task();        
+        ui_task();    
+        
+        // Test code for TENS
+        tens_timer();
+        set_tens_task();
          
         /* Update Alert Level value on the blue LED */
         switch(IasGetAlertLevel())
@@ -927,6 +926,5 @@ int HostMain(void)
         }
     }
 }
-
-    
+ 
 /* [] END OF FILE */

@@ -12,12 +12,13 @@
 #ifndef TENS_H
 #define TENS_H
 
+void tens_timer(void);
 void set_tens_task(void);
-void set_tens_freq(int period);
-void set_tens_dur(int duration);
+void set_tens_freq(double period);
+void set_tens_dur(int duration, int tens_dur_us);
 void set_tens_amp(int amplitude);
 void set_phase_shift(int phase_degrees);
-void set_tens_signal(int channel, int tens_amplitude, int tens_frequency, int tens_duration, int phase);
+void set_tens_signal(int amplitude, double duration, double period, int channel, int phase);
 
 #endif /* TENS_H */
 /* [] END OF FILE */
