@@ -312,7 +312,14 @@ void AppCallBack(uint32 event, void *eventParam)
             {
                 cy_stc_ble_gatts_write_cmd_req_param_t *writeReq = (cy_stc_ble_gatts_write_cmd_req_param_t *)eventParam;
                 int length = writeReq->handleValPair.value.len;
+                DBG_PRINTF("Length: %d\r\n", length);
                 char receivedCommand[length + 1];
+                int i = 0;
+                char *tokens[10]; // An array to store the tokens, assuming a maximum of 10 tokens
+                int token_count = 0; // To keep track of the number of tokens
+                char *token;
+                char *delimiter = " ";
+                
                 // Checks to see if its requesting the custom service characteristic
                 if(CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE == writeReq->handleValPair.attrHandle)
                 {
@@ -329,26 +336,83 @@ void AppCallBack(uint32 event, void *eventParam)
                     }
                     receivedCommand[length] = '\0';
                     DBG_PRINTF("Received string: %s\r\n", receivedCommand);
-
-                    switch(receivedCommand[0]){
+                    
+                    // This splits the received command into sections by space
+                    token = strtok(receivedCommand, delimiter); // Gets the first token
+                    
+                    // Stores each token or each value into an array called tokens
+                    while (token != NULL) {
+                        tokens[token_count] = token; // Store the token in the array
+                        token_count++;
+                        token = strtok(NULL, delimiter); // Get the next token
+                    }
+                    
+                    switch(tokens[0][0]){
                         case 't':
                         {
-                            int temperatureValue = atoi(&receivedCommand[1]); // Convert the numeric part after 't'
+                            /*
+                            Packet information contains
+                            1: char t - Temperature
+                            2: int Temperature
+                            */
+                            int temperatureValue = atoi(tokens[1]); // Convert the numeric part after 't'
                             DBG_PRINTF("t value: %d\r\n", temperatureValue);
                             set_temp(temperatureValue);  
                             break;
                         }
                         case 'T':
                         {
-                            int tensValue = atoi(&receivedCommand[1]);
-                            DBG_PRINTF("T value: %d\r\n", tensValue);
-                            set_tens_amp(tensValue);
+                            /*
+                            Packet information contains
+                            1: char T - TENS
+                            2: int Amplitude
+                            3: double Duration
+                            4: double Period
+                            5: int Channel
+                            */
+                            if(tokens[1][0] == 'p'){
+                                /*
+                                Packet information contains
+                                1: char T - TENS
+                                2: char p - Phase
+                                3: int Phase Degree
+                                */
+                                int tensPhase = atoi(tokens[2]);
+                                DBG_PRINTF("T value phase: %d\r\n", tensPhase);
+                            }
+                            else{
+                                int tensAmpValue = atoi(tokens[1]);
+                                double tensDurationValue = atof(tokens[2]);
+                                double tensPeriodValue = atof(tokens[3]);
+                                int tensChannel = atoi(tokens[4]);
+                                int phaseDegree = atoi(tokens[5]);
+                                DBG_PRINTF("T value amp: %d\r\n", tensAmpValue);
+                                DBG_PRINTF("T value duration: %s\r\n", tokens[2]);
+                                DBG_PRINTF("T value period: %s\r\n", tokens[3]);
+                                DBG_PRINTF("T Channel: %d\r\n", tensChannel);
+                                set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  phaseDegree);
+
+                            }
                             break;
                         }
                         case 'v':
                         {
-                            int vibeValue = atoi(&receivedCommand[1]);
-                            DBG_PRINTF("v value: %d\r\n", vibeValue);
+                            /*
+                            Packet information contains
+                            1: char v - Vibration
+                            2: String Wavetype
+                            3: int Amplitude
+                            4: int Frequency
+                            5: int Wavefrom
+                            */
+                            char *waveType = tokens[1];
+                            int vibeAmp = atoi(tokens[2]);
+                            int vibeFreq = atoi(tokens[3]);
+                            int vibeWaveform = atoi(tokens[4]);
+                            DBG_PRINTF("v waveType: %s\r\n", waveType);
+                            DBG_PRINTF("v amp: %d\r\n", vibeAmp);
+                            DBG_PRINTF("v freq: %d\r\n", vibeFreq);
+                            DBG_PRINTF("v waveform: %d\r\n", vibeWaveform);
                             //set_vibe(&receivedCommand[1], vibeValue);
                             break;
                         }
@@ -360,6 +424,7 @@ void AppCallBack(uint32 event, void *eventParam)
                         
                         
                     }
+
                     //DBG_PRINTF("length %d\r\n", length);
                     respondStringPtr = (uint8_t *)malloc(length+1 * sizeof(uint8_t));
                     respondStringPtr = writeReq->handleValPair.value.val;
@@ -413,19 +478,19 @@ void lcdReset(void) {
     
     // Delay 1ms
     // You may need to implement the Delayms function or use a built-in delay function
-    CyDelay(1); // Delay 1ms
+    CyDelay(20); // Delay 1ms
     
     // Set LCD_RESET pin low
     Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 0);
     
     // Delay 10ms
-    CyDelay(10); // Delay 10ms
+    CyDelay(100); // Delay 10ms
     
     // Set LCD_RESET pin high again
     Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 1);
     
     // Delay 120ms
-    CyDelay(120); // Delay 120ms
+    CyDelay(100); // Delay 120ms
 }
 // Function to send a command byte over SPI
 void sendData(uint8_t data) {
@@ -516,78 +581,82 @@ void sendCommand(uint8_t cmd) {
 
 void LCDinit(void)
 {
-    /*
-    Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 1);
-    CyDelay(1); // Delay 1ms
-    Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 0);
-    CyDelay(10); // Delay 10ms
-    Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 1);
-    CyDelay(120); // Delay 120ms
-    sendCommand(0x11); //SLPOUT (11h): Sleep Out
-    CyDelay(120); //Delay 120ms
-    sendCommand(0x36); //MADCTL (36h): Memory Data Access Control - Default
-    sendData(0x00);
-    sendCommand(0x3A); //COLMOD (3Ah): Interface Pixel Format
-    sendData(0x05);
-    sendCommand(0xB2); //PORCTRL (B2h): Porch Setting - Default
+    lcdReset();
+    sendCommand(0x28);
+    sendCommand(0x11); //Exit Sleep mode
+    CyDelay(100);
+    sendCommand(0x36);
+    sendData(0xA0);//MADCTL: memory data access control
+    sendCommand(0x3A);
+    sendData(0x65);//COLMOD: Interface Pixel format
+    sendCommand(0xB2);
     sendData(0x0C);
     sendData(0x0C);
     sendData(0x00);
     sendData(0x33);
-    sendData(0x33);
-    sendCommand(0xB7); //GCTRL (B7h): Gate Control
-    sendData(0x75);
-    sendCommand(0xBB); //VCOMS (BBh): VCOM Setting
-    sendData(0x13);
-    sendCommand(0xC0); //LCMCTRL (C0h): LCM Control - Default
-    sendData(0x2C);
-    sendCommand(0xC2); //VDVVRHEN (C2h): VDV and VRH Command Enable - Default
+    sendData(0x33);//PORCTRK: Porch setting
+    sendCommand(0xB7);
+    sendData(0x35);//GCTRL: Gate Control
+    sendCommand(0xBB);
+    sendData(0x2B);//VCOMS: VCOM setting
+    sendCommand(0xC0);
+    sendData(0x2C);//LCMCTRL: LCM Control
+    sendCommand(0xC2);
     sendData(0x01);
-    sendCommand(0xC3); //VRHS (C3h): VRH Set
-    sendData(0x13);
-    sendCommand(0xC4); //VDVS (C4h): VDV Set - Default
-    sendData(0x20);
-    sendCommand(0xC6); //FRCTRL2 (C6h): Frame Rate Control in Normal Mode - Default
-    sendData(0x0F);
-    sendCommand(0xD0); //PWCTRL1 (D0h): Power Control 1 - Default
+    sendData(0xFF);//VDVVRHEN: VDV and VRH Command Enable
+    sendCommand(0xC3);
+    sendData(0x11);//VRHS: VRH Set
+    sendCommand(0xC4);
+    sendData(0x20);//VDVS: VDV Set
+    sendCommand(0xC6);
+    sendData(0x0F);//FRCTRL2: Frame Rate control in normal mode
+    sendCommand(0xD0);
     sendData(0xA4);
-    sendData(0xA1);
-    sendCommand(0xD6); //Undocumented
-    sendData(0xA1);
-    sendCommand(0x21); //INVON (21h): Display Inversion On
-    sendCommand(0xE0); //PVGAMCTRL (E0h): Positive Voltage Gamma Control
+    sendData(0xA1);//PWCTRL1: Power Control 1
+    sendCommand(0xE0);
     sendData(0xD0);
-    sendData(0x08);
-    sendData(0x10);
+    sendData(0x00);
+    sendData(0x05);
+    sendData(0x0E);
+    sendData(0x15);
+    sendData(0x0D);
+    sendData(0x37);
+    sendData(0x43);
+    sendData(0x47);
+    sendData(0x09);
+    sendData(0x15);
+    sendData(0x12);
+    sendData(0x16);
+    sendData(0x19);//PVGAMCTRL: Positive Voltage Gamma control
+    sendCommand(0xE1);
+    sendData(0xD0);
+    sendData(0x00);
+    sendData(0x05);
     sendData(0x0D);
     sendData(0x0C);
-    sendData(0x07);
-    sendData(0x37);
-    sendData(0x53);
-    sendData(0x4C);
-    sendData(0x39);
-    sendData(0x15);
-    sendData(0x15);
-    sendData(0x2A);
+    sendData(0x06);
     sendData(0x2D);
-    sendCommand(0xE1); //NVGAMCTRL (E1h): Negative Voltage Gamma Control
-    sendData(0xD0);
-    sendData(0x0D);
-    sendData(0x12);
-    sendData(0x08);
-    sendData(0x08);
-    sendData(0x15);
-    sendData(0x34);
-    sendData(0x34);
-    sendData(0x4A);
-    sendData(0x36);
-    sendData(0x12);
-    sendData(0x13);
-    sendData(0x2B);
-    sendData(0x2F);
-    sendCommand(0x29); //DISPON (29h): Display On
-    */
+    sendData(0x44);
+    sendData(0x40);
+    sendData(0x0E);
+    sendData(0x1C);
+    sendData(0x18);
+    sendData(0x16);
+    sendData(0x19);//NVGAMCTRL: Negative Voltage Gamma control
+    sendCommand(0x2B);
+    sendData(0x00);
+    sendData(0x00);
+    sendData(0x00);
+    sendData(0xEF);//Y address set
+    sendCommand(0x2A);
+    sendData(0x00);
+    sendData(0x00);
+    sendData(0x01);
+    sendData(0x3F);//X address set
+    CyDelay(10);
+    sendCommand(0x29);
     
+    /*
     lcdReset();
     sendCommand(0x11); //SLPOUT (11h): Sleep Out
     CyDelay(120); //Delay 120ms
@@ -653,6 +722,7 @@ void LCDinit(void)
     sendData(0x2B);
     sendData(0x2F);
     sendData(0x29); //DISPON (29h): Display On
+    */
 }
 void SetAddressWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) {
     
@@ -677,6 +747,29 @@ void SetAddressWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) {
     // Send command to enable memory write
     sendCommand(0x2C); // RAMWR (2Ch): Memory Write
 }
+
+// Function to draw a pixel at (x, y) with a specified color
+void drawPixel(uint16_t x, uint16_t y, uint16_t color) {
+    // Set the column address range (X coordinate)
+    sendCommand(0x2A);  // Set column address
+    sendData(x >> 8);           // Start column high byte
+    sendData(x & 0xFF);         // Start column low byte
+    sendData((x + 1) >> 8);     // End column high byte
+    sendData((x + 1) & 0xFF);   // End column low byte
+
+    // Set the row address range (Y coordinate)
+    sendCommand(0x2B);  // Set row address
+    sendData(y >> 8);           // Start row high byte
+    sendData(y & 0xFF);         // Start row low byte
+    sendData((y + 1) >> 8);     // End row high byte
+    sendData((y + 1) & 0xFF);   // End row low byte
+
+    // Write pixel color data
+    sendCommand(0x2C);  // Memory write command
+    sendData(color >> 8);       // High byte of color data
+    sendData(color & 0xFF);     // Low byte of color data
+}
+
 void ST7789_DrawPixel(uint16_t XPos, uint16_t YPos, uint16_t Color)
 {
 	
@@ -697,16 +790,17 @@ void ST7789_DrawPixel(uint16_t XPos, uint16_t YPos, uint16_t Color)
 	//ST7789_TransmitData(colorBuff, sizeof(colorBuff));
 	
 }
+
 void drawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color) {
     // Set the address window for the rectangle
-    DBG_PRINTF("Drawing rectangle\r\n");
+    //DBG_PRINTF("Drawing rectangle\r\n");
     SetAddressWindow(x1, y1, x2, y2);
 
     // Calculate the number of pixels to draw
     uint32_t pixelCount = (uint32_t)(x2 - x1 + 1) * (y2 - y1 + 1);
 
     // Send the color data for each pixel
-    DBG_PRINTF("pixel count: %d\r\n", pixelCount);
+    //DBG_PRINTF("pixel count: %d\r\n", pixelCount);
     for (uint32_t i = 0; i < pixelCount; i++) {
         sendData((color >> 8) & 0xFF); // Send high-byte of color
         sendData(color & 0xFF); // Send low-byte of color
@@ -733,10 +827,10 @@ int HostMain(void)
     //drawRectangle(50, 50, 100, 100, 0xF800); // Draw a red rectangle at (50, 50) to (100, 100)
     /* Initialization the user interface: LEDs, SW2, etc.  */
     //InitUserInterface();
-    DBG_PRINTF("Entering\r\n");
+    //DBG_PRINTF("Entering\r\n");
     //st7789_basic_init();
     //SPI_Start();
-    LCDinit();
+    //LCDinit();
     //ST7789_DrawPixel(50, 50, 0x07E0);
     
     //while (1) {
@@ -749,7 +843,7 @@ int HostMain(void)
     //    Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 1);
     //    CyDelay(1);
     //}
-        
+    /*
     ST7789_DrawPixel(50, 50, 0x07E0);
     ST7789_DrawPixel(51, 50, 0x07E0);
     ST7789_DrawPixel(52, 50, 0x07E0);
@@ -757,6 +851,7 @@ int HostMain(void)
     ST7789_DrawPixel(54, 50, 0x07E0);
     ST7789_DrawPixel(55, 50, 0x07E0);
     ST7789_DrawPixel(56, 50, 0x07E0);
+    */
     //sendCommand(0x20);
 
     //st7789_display_test();
@@ -770,6 +865,7 @@ int HostMain(void)
     
     PWM_FAN_Start();
     //PWM_VIBE_Start();
+    
     PWM_TENS_Start();
     PWM_TENS2_Start();
     PWM_TENS_Enable();
@@ -791,13 +887,6 @@ int HostMain(void)
     while(1)
     {
         //DBG_PRINTF("Loops from main %d\r\n", loopcount++);
-        DBG_PRINTF("PWM1 from main %d\r\n", PWM_PEL1_GetCompare0());
-        //CyDelayUs(100);
-        DBG_PRINTF("PWM2 from main %d\r\n", PWM_PEL2_GetCompare0());
-        //CyDelayUs(100);
-        
-       // checkForValueChange();
-        //CyDelay(1000);
         /* Cy_BLE_ProcessEvents() allows BLE stack to process pending events */
         Cy_BLE_ProcessEvents();
         
@@ -805,7 +894,11 @@ int HostMain(void)
         //LowPowerImplementation();
         power_task();
         
-        ui_task();        
+        ui_task();    
+        
+        // Test code for TENS
+        tens_timer();
+        set_tens_task();
          
         /* Update Alert Level value on the blue LED */
         switch(IasGetAlertLevel())
@@ -837,6 +930,5 @@ int HostMain(void)
         }
     }
 }
-
-    
+ 
 /* [] END OF FILE */

@@ -17,8 +17,10 @@
 #include <stdlib.h>
 #include "debug.h"
 
+
 #define MAX_PEL_PWM_VALUE 256 // limit to 100 percent of 255
 #define MAX_FAN_PWM_VALUE 40 // limit to 62.5 percent of 255
+
 
 void set_temp(int value){
 
