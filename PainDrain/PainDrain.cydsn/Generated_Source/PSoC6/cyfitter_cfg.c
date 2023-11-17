@@ -652,7 +652,7 @@ void Cy_SystemInit(void)
 	        .out        = 0x00000010u,
 	        .intrMask   = 0x00000000u,
 	        .intrCfg    = 0x00000000u,
-	        .cfg        = 0x000A0000u,
+	        .cfg        = 0x000A0006u,
 	        .cfgIn      = 0x00000000u,
 	        .cfgOut     = 0x00000000u,
 	        .cfgSIO     = 0x00000000u,
@@ -700,10 +700,10 @@ void Cy_SystemInit(void)
 	{
 	    const cy_stc_gpio_prt_config_t port7_cfg =
 	    {
-	        .out        = 0x00000000u,
+	        .out        = 0x00000080u,
 	        .intrMask   = 0x00000000u,
 	        .intrCfg    = 0x00000000u,
-	        .cfg        = 0x60000680u,
+	        .cfg        = 0xA0000680u,
 	        .cfgIn      = 0x00000000u,
 	        .cfgOut     = 0x00000000u,
 	        .cfgSIO     = 0x00000000u,
@@ -734,10 +734,10 @@ void Cy_SystemInit(void)
 	{
 	    const cy_stc_gpio_prt_config_t port10_cfg =
 	    {
-	        .out        = 0x0000003Bu,
-	        .intrMask   = 0x00000010u,
-	        .intrCfg    = 0x00000200u,
-	        .cfg        = 0x060A66AAu,
+	        .out        = 0x0000002Bu,
+	        .intrMask   = 0x00000000u,
+	        .intrCfg    = 0x00000000u,
+	        .cfg        = 0x060066AAu,
 	        .cfgIn      = 0x00000000u,
 	        .cfgOut     = 0x00000000u,
 	        .cfgSIO     = 0x00000000u,

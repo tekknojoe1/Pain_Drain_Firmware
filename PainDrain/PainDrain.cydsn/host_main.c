@@ -177,7 +177,7 @@ void AppCallBack(uint32 event, void *eventParam)
         case CY_BLE_EVT_STACK_SHUTDOWN_COMPLETE:
             /* Hibernate */
             //UpdateLedState();
-            //Cy_SysPm_Hibernate(); //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            Cy_SysPm_Hibernate(); //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             power_flags_update(POWER_FLAG_BLE, 0);  //Turn off ble power flag
             break;
             
@@ -827,7 +827,7 @@ int HostMain(void)
     //LCDinit();
     //drawRectangle(50, 50, 100, 100, 0xF800); // Draw a red rectangle at (50, 50) to (100, 100)
     /* Initialization the user interface: LEDs, SW2, etc.  */
-    //InitUserInterface();
+    InitUserInterface();
     //DBG_PRINTF("Entering\r\n");
     //st7789_basic_init();
     //SPI_Start();
