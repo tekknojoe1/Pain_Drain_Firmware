@@ -19,7 +19,6 @@
 
 
 #define MAX_PEL_PWM_VALUE 204 // limit to 80 percent of 255
-
 #define MAX_FAN_PWM_VALUE 160 // limit to 62.5 percent of 255
 
 void set_temp(int value){
