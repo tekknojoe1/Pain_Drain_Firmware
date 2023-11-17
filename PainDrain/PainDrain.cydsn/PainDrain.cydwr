@@ -27,7 +27,7 @@
       <Data key="1e73c68a-ce89-4873-920b-ae1b36f1567c" value="TEMP_HI" />
       <Data key="2e64b1d8-c7cb-4fab-9fcb-73cbcefd0f3b/2aab8a93-e7dd-4bd4-8210-42652cd079c5" value="I2C_sda" />
       <Data key="2e64b1d8-c7cb-4fab-9fcb-73cbcefd0f3b/69c3b5e8-b094-4d65-b96b-9f4f3a9a8641" value="I2C_scl" />
-      <Data key="2f33711f-0aa3-421a-9df4-9a094444e572" value="SW2" />
+      <Data key="2f33711f-0aa3-421a-9df4-9a094444e572" value="PWR_BTN" />
       <Data key="3bebfee8-790b-4297-b73a-27818bdce71c" value="I2C_SCL" />
       <Data key="4cca878b-77b5-471d-8aeb-ad6925202455" value="PWR" />
       <Data key="5b688893-86b3-47ba-a57a-09140963bedf" value="CHG_OTA" />
@@ -1030,11 +1030,6 @@
         <Data key="Port Format" value="9,1" />
       </Group>
     </Group>
-    <Group key="a07ded08-7112-4c8f-875e-7a989f4b0b41">
-      <Group key="0">
-        <Data key="Port Format" value="7,7" />
-      </Group>
-    </Group>
     <Group key="a61270bc-07ec-447d-ac9e-34cfe85c30e9">
       <Group key="0">
         <Data key="Port Format" value="6,2" />
@@ -1115,7 +1110,11 @@
         <Data key="Port Format" value="10,3" />
       </Group>
     </Group>
-    <Group key="UnAssigned Pins" />
+    <Group key="UnAssigned Pins">
+      <Group key="a07ded08-7112-4c8f-875e-7a989f4b0b41">
+        <Data key="0" value="133447302138192329" />
+      </Group>
+    </Group>
     <Group key="Unlocked Pins" />
   </Group>
   <Group key="PlaceDir">
