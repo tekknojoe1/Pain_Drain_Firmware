@@ -826,7 +826,7 @@ int HostMain(void)
     //LCDinit();
     //drawRectangle(50, 50, 100, 100, 0xF800); // Draw a red rectangle at (50, 50) to (100, 100)
     /* Initialization the user interface: LEDs, SW2, etc.  */
-    //InitUserInterface();
+    InitUserInterface();
     //DBG_PRINTF("Entering\r\n");
     //st7789_basic_init();
     //SPI_Start();
@@ -871,8 +871,8 @@ int HostMain(void)
     PWM_TENS_Enable();
     PWM_TENS2_Enable();
     
-    PWM_PEL1_Start();
-    PWM_PEL2_Start();
+    temp_init();
+    
     Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);  //Enable is low
     //PWM_PEL1_Enable(); // PELs need to be enabled to set them.
     //PWM_PEL2_Enable();
@@ -889,12 +889,12 @@ int HostMain(void)
         //DBG_PRINTF("Loops from main %d\r\n", loopcount++);
         /* Cy_BLE_ProcessEvents() allows BLE stack to process pending events */
         Cy_BLE_ProcessEvents();
-        
+       
         /* To achieve low power */
         //LowPowerImplementation();
         power_task();
         
-        ui_task();    
+        //ui_task();    
         
         // Test code for TENS
         tens_timer();

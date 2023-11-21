@@ -21,6 +21,15 @@
 #define MAX_PEL_PWM_VALUE 256 // limit to 100 percent of 255
 #define MAX_FAN_PWM_VALUE 40 // limit to 62.5 percent of 255
 
+void temp_init(void) {
+  
+    PWM_PEL1_Start();
+    PWM_PEL2_Start();
+    
+    PWM_PEL1_SetCompare0(0);
+    PWM_PEL2_SetCompare0(0);
+}
+
 
 void set_temp(int value){
 

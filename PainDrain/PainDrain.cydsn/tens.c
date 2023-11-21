@@ -40,21 +40,66 @@ void tens_timer(void){
 }
 
 void set_channel_one(void) {
+    /*
     //On positive direction
     DBG_PRINTF("Channel 1 On positive direction \r\n");
     
+    //Enable channel 1
+    Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 1);      
+    
     // Channel 1 Positive Direction
-    Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 1);        
     Cy_GPIO_Write(TENS_POS1_PORT, TENS_POS1_NUM, 1);
+    Cy_GPIO_Write(TENS_NEG1_PORT, TENS_NEG1_0_NUM, 0);
     
     CyDelayUs(tens_one_dur_us);
     
     //Off state in between
     DBG_PRINTF("Channel 1 Off state in between \r\n");
     
+    Cy_GPIO_Write(TENS_POS1_PORT, TENS_POS1_NUM, 0);
+    Cy_GPIO_Write(TENS_NEG1_PORT, TENS_NEG1_0_NUM, 0);
+    
+    
+    CyDelayUs(tens_one_dur_us);
+    
     // Channel 1 Negative Direction
     Cy_GPIO_Write(TENS_POS1_PORT, TENS_POS1_NUM, 0);
-    Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 0);  
+    Cy_GPIO_Write(TENS_NEG1_PORT, TENS_NEG1_0_NUM, 1);
+    
+    CyDelayUs(tens_one_dur_us);
+    
+    //Disable channel and direction controls until next cycle
+    Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 0);    
+    Cy_GPIO_Write(TENS_POS1_PORT, TENS_POS1_NUM, 0);
+    Cy_GPIO_Write(TENS_NEG1_PORT, TENS_NEG1_0_NUM, 0);
+    */
+    
+    //On positive direction
+    DBG_PRINTF("Channel 1 On positive direction \r\n");
+    DBG_PRINTF("Channel 1 duration: %d\r\n", tens_one_dur_us);
+    Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 1);
+    Cy_GPIO_Write(TENS_POS1_PORT, TENS_POS1_NUM, 1);
+    
+    CyDelayUs(tens_one_dur_us);
+    
+    //Off state in between
+    DBG_PRINTF("Channel 1 Off state in between \r\n");
+    Cy_GPIO_Write(TENS_POS1_PORT, TENS_POS1_NUM, 0);
+    Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 0);
+    
+    CyDelayUs(tens_one_dur_us);
+    
+    //On negative direction
+    DBG_PRINTF("Channel 1 On negative direction \r\n");
+    Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 1);
+    Cy_GPIO_Write(TENS_NEG1_PORT, TENS_NEG1_NUM, 1);
+    
+    CyDelayUs(tens_one_dur_us);
+    
+    //Off state in between
+    DBG_PRINTF("Channel 1 Off state in between \r\n");
+    Cy_GPIO_Write(TENS_NEG1_PORT, TENS_NEG1_NUM, 0);
+    Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 0);
 }
 
 void set_tens_task( void ) {
@@ -68,20 +113,65 @@ void set_tens_task( void ) {
     if (tens_timeout == 0 && tens_two_dur_us > 0) {
         //On positive direction
         DBG_PRINTF("Channel 2 On positive direction \r\n");
-            
-        // Channel 2 Positive Direction
+        DBG_PRINTF("Channel 2 duration: %d\r\n", tens_two_dur_us);
         Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 1);
         Cy_GPIO_Write(TENS_POS2_PORT, TENS_POS2_NUM, 1);
         
-        CyDelayUs(tens_two_dur_us);
+        CyDelayUs(tens_one_dur_us);
         
         //Off state in between
         DBG_PRINTF("Channel 2 Off state in between \r\n");
-        
-        // Channel 2 Negative Direction
         Cy_GPIO_Write(TENS_POS2_PORT, TENS_POS2_NUM, 0);
         Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 0);
-    } else if (tens_timeout == 0 && tens_interval_ms > 0 && (tens_one_dur_us > 0 || tens_two_dur_us > 0)) {
+        
+        CyDelayUs(tens_one_dur_us);
+        
+        //On negative direction
+        DBG_PRINTF("Channel 2 On negative direction \r\n");
+        Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 1);
+        Cy_GPIO_Write(TENS_NEG2_PORT, TENS_NEG2_NUM, 1);
+        
+        CyDelayUs(tens_one_dur_us);
+        
+        //Off state in between
+        DBG_PRINTF("Channel 2 Off state in between \r\n");
+        Cy_GPIO_Write(TENS_NEG2_PORT, TENS_NEG2_NUM, 0);
+        Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 0);
+        /*
+        //On positive direction
+        DBG_PRINTF("Channel 2 On positive direction \r\n");
+            
+        //Enable channel 2
+        Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 1);      
+        
+        // Channel 1 Positive Direction
+        Cy_GPIO_Write(TENS_POS2_PORT, TENS_POS2_NUM, 1);
+        Cy_GPIO_Write(TENS_NEG2_PORT, TENS_NEG2_0_NUM, 0);
+        
+        CyDelayUs(tens_one_dur_us);
+        
+        //Off state in between
+        DBG_PRINTF("Channel 1 Off state in between \r\n");
+        
+        Cy_GPIO_Write(TENS_POS2_PORT, TENS_POS2_NUM, 0);
+        Cy_GPIO_Write(TENS_NEG2_PORT, TENS_NEG2_0_NUM, 0);
+        
+        
+        CyDelayUs(tens_one_dur_us);
+        
+        // Channel 1 Negative Direction
+        Cy_GPIO_Write(TENS_POS2_PORT, TENS_POS2_NUM, 0);
+        Cy_GPIO_Write(TENS_NEG2_PORT, TENS_NEG2_0_NUM, 1);
+        
+        CyDelayUs(tens_one_dur_us);
+        
+        //Disable channel and direction controls until next cycle
+        Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 0);    
+        Cy_GPIO_Write(TENS_POS2_PORT, TENS_POS2_NUM, 0);
+        Cy_GPIO_Write(TENS_NEG2_PORT, TENS_NEG2_0_NUM, 0);
+        */ 
+    } 
+    if (tens_timeout == 0 && tens_interval_ms > 0 && (tens_one_dur_us > 0 || tens_two_dur_us > 0)) {
         tens_timeout = tens_interval_ms;
         tens_full_timeout = tens_timeout;     
     }
@@ -140,10 +230,8 @@ void set_tens_amp (int amplitude) {
 void set_tens_signal(int amplitude, double duration, double period, int channel, int phase) {
     
     int duration_case = (int)(duration*10);
-    // Amplitude and Period will be the same for both channels.   
-    set_tens_amp(amplitude);
-    set_tens_freq(period);
     tens_phase_shift = phase;
+    
     if(channel == 0){
         // Amplitude and Period will be the same for both channels.
         set_tens_amp(amplitude);
@@ -154,10 +242,10 @@ void set_tens_signal(int amplitude, double duration, double period, int channel,
         set_tens_dur(duration_case, &tens_two_dur_us);        
     } else {
         // disable the signal
-        set_tens_amp(0);
-        set_tens_freq(0);
-        set_tens_dur(0, &tens_one_dur_us);
-        set_tens_dur(0, &tens_two_dur_us);
+        //set_tens_amp(0);
+        //set_tens_freq(0);
+        //set_tens_dur(0, &tens_one_dur_us);
+        //set_tens_dur(0, &tens_two_dur_us);
     }   
 }
 /* [] END OF FILE */

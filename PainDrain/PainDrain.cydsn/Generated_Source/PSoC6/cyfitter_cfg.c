@@ -731,10 +731,10 @@ void Cy_SystemInit(void)
 	{
 	    const cy_stc_gpio_prt_config_t port10_cfg =
 	    {
-	        .out        = 0x0000003Bu,
-	        .intrMask   = 0x00000010u,
-	        .intrCfg    = 0x00000200u,
-	        .cfg        = 0x060A66AAu,
+	        .out        = 0x0000002Bu,
+	        .intrMask   = 0x00000000u,
+	        .intrCfg    = 0x00000000u,
+	        .cfg        = 0x060066AAu,
 	        .cfgIn      = 0x00000000u,
 	        .cfgOut     = 0x00000000u,
 	        .cfgSIO     = 0x00000000u,

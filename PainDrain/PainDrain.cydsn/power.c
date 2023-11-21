@@ -104,7 +104,7 @@ void power_task( void ) {
     //Power button detection to wakeup
     //DBG_PRINTF("Waking up: %d\r\n", Cy_GPIO_Read(PWR_BTN_PORT, PWR_BTN_NUM));
     //Cy_GPIO_Write(PWR_BTN_PORT, PWR_BTN_NUM, 0);
-    if (Cy_GPIO_Read(PWR_BTN_PORT, PWR_BTN_NUM) == 0) {
+    if (Cy_GPIO_Read(PWR_PORT, PWR_NUM) == 0) {
         power_wakeup();
         DBG_PRINTF("Waking up\r\n");
     }

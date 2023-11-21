@@ -37,13 +37,12 @@
   </block>
   <block name="TENS_PWM2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Clock_4" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="TENS_SENSE" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="CHG_STAT" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="PWM_TENS2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="TCPWM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   </block>
   <block name="I2C_SCL" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="PWR_BTN" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="AMP_MCK" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="CHG_TS" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="CHG_PG" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="WDTIsr" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -57,9 +56,10 @@
   <block name="GlobalSignal_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="PWR" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="DISP_RST" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="TENS_USER_EN1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="TENS_NEG2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="TENS_POS2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="TENS_NEG1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="TENS_SENSE" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="ADC" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="cy_analog_noconnect_27" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="vinMinusMux_27" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -366,16 +366,15 @@
     <block name="cy_analog_noconnect_173" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   </block>
   <block name="TENS_USER_EN2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="TENS_USER_EN1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="TENS_POS1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="TENS_NEG1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="PWM_TENS" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
+    <block name="TCPWM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  </block>
   <block name="AMP_PWM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="TCPWM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   </block>
   <block name="Clock_7" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="AMP_MCK" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="TENS_POS1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="TENS_PWM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Clock_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="PWM_TENS" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
-    <block name="TCPWM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  </block>
 </blockRegMap>
