@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include "debug.h"
 #include "temp.h"
+#include <math.h> 
 
 #include "vibe.h"
 /*
@@ -48,9 +49,25 @@ void PlayRecordedData(void)
      Start playing the recorded data by enabling the DMAs 
     Cy_DMA_Channel_Enable(DMA_Play_HW, DMA_Play_DW_CHANNEL);
 }
-*/
+
 void set_vibe(const char* waveform, int freqeuncy, int amplitude){
     
+    int channel = 0;
+
+    // Using a sine waveform for vibrations
+    if (strcmp(waveform, "sine") == 0) {
+        // Calculate the number of samples per cycle
+        int samples_per_cycle = BUFFER_SIZE / frequency;
+
+        // Generate sine waveform data and add it to the array
+        for (int i = 0; i < BUFFER_SIZE; ++i) {
+            // Assuming linear vibration response to sine wave
+            float time_in_seconds = (float)i / (float)BUFFER_SIZE;
+            float angle = 2.0 * M_PI * frequency * time_in_seconds;
+            recorded_data[channel][i] = (int16_t)(amplitude * sin(angle));
+        }
+    }
 }
+*/
 
 /* [] END OF FILE */

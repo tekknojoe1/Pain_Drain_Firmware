@@ -357,11 +357,12 @@ void AppCallBack(uint32 event, void *eventParam)
                             */
                             int temperatureValue = atoi(tokens[1]); // Convert the numeric part after 't'
                             DBG_PRINTF("t value: %d\r\n", temperatureValue);
-                            //set_temp(temperatureValue);  
+                            set_temp(temperatureValue);  
                             break;
                         }
                         case 'T':
                         {
+                            int tensPhase;
                             /*
                             Packet information contains
                             1: T - TENS
@@ -377,7 +378,7 @@ void AppCallBack(uint32 event, void *eventParam)
                                 2: p - Phase
                                 3: Degree
                                 */
-                                int tensPhase = atoi(tokens[2]);
+                                tensPhase = atoi(tokens[2]);
                                 DBG_PRINTF("T value phase: %d\r\n", tensPhase);
                             }
                             else{
@@ -385,12 +386,12 @@ void AppCallBack(uint32 event, void *eventParam)
                                 double tensDurationValue = atof(tokens[2]);
                                 double tensPeriodValue = atof(tokens[3]);
                                 int tensChannel = atoi(tokens[4]);
-                                int phaseDegree = atoi(tokens[5]);
+                                //int phaseDegree = atoi(tokens[5]);
                                 DBG_PRINTF("T value amp: %d\r\n", tensAmpValue);
                                 DBG_PRINTF("T value duration: %s\r\n", tokens[2]);
                                 DBG_PRINTF("T value period: %s\r\n", tokens[3]);
                                 DBG_PRINTF("T Channel: %d\r\n", tensChannel);
-                                set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  phaseDegree);
+                                set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  tensPhase);
                             }
                             
                             break;
@@ -868,11 +869,8 @@ int HostMain(void)
     
     PWM_TENS_Start();
     PWM_TENS2_Start();
-    PWM_TENS_Enable();
-    PWM_TENS2_Enable();
     
-    PWM_PEL1_Start();
-    PWM_PEL2_Start();
+    temp_init();
     Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);  //Enable is low
     
     //power_init();
