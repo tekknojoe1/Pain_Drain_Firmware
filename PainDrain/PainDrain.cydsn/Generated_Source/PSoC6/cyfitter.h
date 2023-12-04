@@ -47,11 +47,6 @@
 #define Clock_1__DIV_NUM 1
 #define Clock_1__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
-/* Clock_2 */
-#define Clock_2__DIV_IDX 7
-#define Clock_2__DIV_NUM 7
-#define Clock_2__DIV_TYPE CY_SYSCLK_DIV_8_BIT
-
 /* Clock_3 */
 #define Clock_3__DIV_IDX 2
 #define Clock_3__DIV_NUM 2
@@ -83,21 +78,15 @@
 #define LCD_PWM_TCPWM__HW TCPWM1
 #define LCD_PWM_TCPWM__IDX 1u
 
-/* PWM_FAN */
-#define PWM_FAN_TCPWM__CNT_HW TCPWM0_CNT0
-#define PWM_FAN_TCPWM__CNT_IDX 0u
-#define PWM_FAN_TCPWM__HW TCPWM0
-#define PWM_FAN_TCPWM__IDX 0u
-
 /* PWM_PEL1 */
-#define PWM_PEL1_TCPWM__CNT_HW TCPWM0_CNT1
-#define PWM_PEL1_TCPWM__CNT_IDX 1u
+#define PWM_PEL1_TCPWM__CNT_HW TCPWM0_CNT0
+#define PWM_PEL1_TCPWM__CNT_IDX 0u
 #define PWM_PEL1_TCPWM__HW TCPWM0
 #define PWM_PEL1_TCPWM__IDX 0u
 
 /* PWM_PEL2 */
-#define PWM_PEL2_TCPWM__CNT_HW TCPWM0_CNT2
-#define PWM_PEL2_TCPWM__CNT_IDX 2u
+#define PWM_PEL2_TCPWM__CNT_HW TCPWM0_CNT1
+#define PWM_PEL2_TCPWM__CNT_IDX 1u
 #define PWM_PEL2_TCPWM__HW TCPWM0
 #define PWM_PEL2_TCPWM__IDX 0u
 

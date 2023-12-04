@@ -863,13 +863,12 @@ int HostMain(void)
     /* Initialize BLE Services */
     IasInit();
     
-    PWM_FAN_Start();
     //PWM_VIBE_Start();
     
     PWM_TENS_Start();
     PWM_TENS2_Start();
-    PWM_TENS_Enable();
-    PWM_TENS2_Enable();
+    //PWM_TENS_Enable();
+    //PWM_TENS2_Enable();
     
     temp_init();
     

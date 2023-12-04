@@ -163,8 +163,6 @@
 #include "PWM_TENS.h"
 #include "Clock_1.h"
 #include "ADC.h"
-#include "Clock_2.h"
-#include "PWM_FAN.h"
 #include "LCD_PWM.h"
 #include "Clock_3.h"
 #include "I2S.h"

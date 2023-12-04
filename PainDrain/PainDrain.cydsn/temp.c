@@ -85,10 +85,11 @@ void set_fan(int value){
     //Update Fan
     if (value == 0) {
         //Turn fan off
-        PWM_FAN_SetCompare0(0);
+        Cy_GPIO_Write(FAN_EN_PORT, FAN_EN_NUM, 0);
     } else {
         //Adjust fan
-        PWM_FAN_SetCompare0(scaled_fan_pwm);
+        Cy_GPIO_Write(FAN_EN_PORT, FAN_EN_NUM, 1);
+        //PWM_FAN_SetCompare0(scaled_fan_pwm);
     }
 }
 /* [] END OF FILE */
