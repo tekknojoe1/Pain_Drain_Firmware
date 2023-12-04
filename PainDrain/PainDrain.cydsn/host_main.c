@@ -177,7 +177,7 @@ void AppCallBack(uint32 event, void *eventParam)
         case CY_BLE_EVT_STACK_SHUTDOWN_COMPLETE:
             /* Hibernate */
             //UpdateLedState();
-            //Cy_SysPm_Hibernate(); //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            Cy_SysPm_Hibernate(); //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             power_flags_update(POWER_FLAG_BLE, 0);  //Turn off ble power flag
             break;
             
@@ -413,7 +413,8 @@ void AppCallBack(uint32 event, void *eventParam)
                             DBG_PRINTF("v amp: %d\r\n", vibeAmp);
                             DBG_PRINTF("v freq: %d\r\n", vibeFreq);
                             DBG_PRINTF("v waveform: %d\r\n", vibeWaveform);
-                            //set_vibe(&receivedCommand[1], vibeValue);
+                            set_vibe(waveType, vibeAmp, vibeFreq, vibeWaveform);
+                           
                             break;
                         }
                         default:
@@ -898,7 +899,15 @@ int HostMain(void)
         // Test code for TENS
         tens_timer();
         set_tens_task();
-         
+        
+        
+        /* Start the I2S interface */
+        I2S_Start();
+        vibe_init();
+        
+        set_vibe_task();
+        
+        
         /* Update Alert Level value on the blue LED */
         switch(IasGetAlertLevel())
         {
