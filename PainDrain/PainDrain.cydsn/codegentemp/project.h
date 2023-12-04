@@ -15,6 +15,7 @@
 ********************************************************************************/
 
 #include "cyble_416045_02.h"
+#include "cy_dma.h"
 #include "cy_efuse.h"
 #include "cy_flash.h"
 #include "cy_gpio.h"
@@ -179,6 +180,7 @@
 #include "Clock_5.h"
 #include "PWM_PEL2.h"
 #include "Clock_6.h"
+#include "DMA_Play.h"
 #include "SPI_SCBCLK.h"
 #include "ADC_intSarClock.h"
 

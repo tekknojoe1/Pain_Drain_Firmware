@@ -12,7 +12,9 @@
 #ifndef VIBE_H
 #define VIBE_H
 
-void set_vibe(const char* waveform, int freqeuncy, int amplitude);
+void set_vibe_task(void);
+void vibe_init(void);
+void set_vibe(const char* waveType, int amplitude, int frequency, int waveform);
 
 #endif
 /* [] END OF FILE */
