@@ -309,7 +309,7 @@ void AppCallBack(uint32 event, void *eventParam)
             
             
         case CY_BLE_EVT_GATTS_WRITE_REQ:
-            {
+            {                 
                 cy_stc_ble_gatts_write_cmd_req_param_t *writeReq = (cy_stc_ble_gatts_write_cmd_req_param_t *)eventParam;
                 int length = writeReq->handleValPair.value.len;
                 DBG_PRINTF("Length: %d\r\n", length);
@@ -346,7 +346,6 @@ void AppCallBack(uint32 event, void *eventParam)
                         token_count++;
                         token = strtok(NULL, delimiter); // Get the next token
                     }
-                    
                     switch(tokens[0][0]){
                         case 't':
                         {
@@ -418,6 +417,43 @@ void AppCallBack(uint32 event, void *eventParam)
                            
                             break;
                         }
+                        
+                        case 'r':
+                        {
+                            /*
+                            Packet information contains
+                            1: char r - register
+                            2: int register address
+                            */
+                            
+                            uint8_t testValue = 0;
+                            
+                            // Calculate the number of digits in the integer
+                            int numDigits = snprintf(NULL, 0, "%u", testValue);
+
+                            // Allocate memory for the string, including space for the null terminator
+                            char* addrValue = (char*)malloc(numDigits + 1);
+
+                            // Check if memory allocation is successful
+                            if (addrValue != NULL) {
+                                // Convert the uint8 to a string
+                                sprintf(addrValue, "%u", testValue);
+
+                                // Don't forget to free the allocated memory when done
+                                //free(addrValue);
+                            } else {
+                                // Handle memory allocation failure
+                                DBG_PRINTF("Memory allocation failed\r\n");  
+                                return; // Return an error code
+                            }
+
+                            int registerAddress = atoi(tokens[1]);
+                            
+                            writeReq->handleValPair.value.val = (uint8 *) addrValue;
+                            
+                            break;
+                        }
+                        
                         default:
                         {
                             DBG_PRINTF("Error\r\n");
@@ -431,7 +467,7 @@ void AppCallBack(uint32 event, void *eventParam)
                     respondStringPtr = (uint8_t *)malloc(length+1 * sizeof(uint8_t));
                     respondStringPtr = writeReq->handleValPair.value.val;
                     respondStringPtr[length] = '\0';
-                    //DBG_PRINTF("value %s\r\n", (char *)respondStringPtr);
+                    DBG_PRINTF("Test %s\r\n", (char *)writeReq->handleValPair.value.val);
 
                     // Sends a write with response command
                     Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
