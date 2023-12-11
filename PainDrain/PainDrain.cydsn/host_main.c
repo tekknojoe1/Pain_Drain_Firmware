@@ -420,7 +420,9 @@ void AppCallBack(uint32 event, void *eventParam)
                         
                         case 'r':
                         {
+                            
                             /*
+                            Only used for debugging and checking register map information
                             Packet information contains
                             1: char r - register
                             2: int register address
@@ -439,17 +441,17 @@ void AppCallBack(uint32 event, void *eventParam)
                                 // Convert the uint8 to a string
                                 sprintf(addrValue, "%u", testValue);
 
-                                // Don't forget to free the allocated memory when done
-                                //free(addrValue);
                             } else {
                                 // Handle memory allocation failure
                                 DBG_PRINTF("Memory allocation failed\r\n");  
-                                return; // Return an error code
+                                return;
                             }
 
-                            int registerAddress = atoi(tokens[1]);
+                            //int registerAddress = atoi(tokens[1]);
                             
                             writeReq->handleValPair.value.val = (uint8 *) addrValue;
+                                // Don't forget to free the allocated memory when done
+                                //free(addrValue);
                             
                             break;
                         }
