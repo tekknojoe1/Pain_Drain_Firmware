@@ -312,7 +312,7 @@ void AppCallBack(uint32 event, void *eventParam)
             {
                 cy_stc_ble_gatts_write_cmd_req_param_t *writeReq = (cy_stc_ble_gatts_write_cmd_req_param_t *)eventParam;
                 int length = writeReq->handleValPair.value.len;
-                DBG_PRINTF("Length: %d\r\n", length);
+                //DBG_PRINTF("Length: %d\r\n", length);
                 char receivedCommand[length + 1];
                 int i = 0;
                 char *tokens[10]; // An array to store the tokens, assuming a maximum of 10 tokens
@@ -335,7 +335,7 @@ void AppCallBack(uint32 event, void *eventParam)
                         receivedCommand[i] = (char)writeReq->handleValPair.value.val[i];
                     }
                     receivedCommand[length] = '\0';
-                    DBG_PRINTF("Received string: %s\r\n", receivedCommand);
+                    //DBG_PRINTF("Received string: %s\r\n", receivedCommand);
                     
                     // This splits the received command into sections by space
                     token = strtok(receivedCommand, delimiter); // Gets the first token
@@ -388,9 +388,9 @@ void AppCallBack(uint32 event, void *eventParam)
                                 int tensChannel = atoi(tokens[4]);
                                 //int phaseDegree = atoi(tokens[5]);
                                 DBG_PRINTF("T value amp: %d\r\n", tensAmpValue);
-                                DBG_PRINTF("T value duration: %s\r\n", tokens[2]);
-                                DBG_PRINTF("T value period: %s\r\n", tokens[3]);
-                                DBG_PRINTF("T Channel: %d\r\n", tensChannel);
+                                //DBG_PRINTF("T value duration: %s\r\n", tokens[2]);
+                                //DBG_PRINTF("T value period: %s\r\n", tokens[3]);
+                                //DBG_PRINTF("T Channel: %d\r\n", tensChannel);
                                 set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  tensPhase);
                             }
                             
