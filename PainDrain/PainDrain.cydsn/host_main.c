@@ -417,6 +417,53 @@ void AppCallBack(uint32 event, void *eventParam)
                             //set_vibe(&receivedCommand[1], vibeValue);
                             break;
                         }
+                        
+                        case 'r':
+                        {
+                            
+                            /*
+                            Only used for debugging and checking register map information
+                            Packet information contains
+                            1: char r - register
+                            2: int register address
+                            */
+                            
+                            uint8_t testValue = 0;
+                            uint8_t reg_address = 0x00;
+                            uint8_t read_reg_data[1];
+                            
+                            // Calculate the number of digits in the integer
+                            int numDigits = snprintf(NULL, 0, "%u", testValue);
+
+                            // Allocate memory for the string, including space for the null terminator
+                            char* addrValue = (char*)malloc(numDigits + 1);
+                            
+                            // Check if memory allocation is successful
+                            if (addrValue != NULL) {
+                                // Convert the uint8 to a string
+                                sprintf(addrValue, "%u", testValue);
+
+                            } else {
+                                // Handle memory allocation failure
+                                DBG_PRINTF("Memory allocation failed\r\n");  
+                                return;
+                            }
+                            
+                            // Set low for I2C communication
+                            Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);
+                            vibe_i2c_read_reg(reg_address, read_reg_data, 1);
+                            
+                            DBG_PRINTF("read_reg_data: %d\r\n", read_reg_data[0]);
+                            //int registerAddress = atoi(tokens[1]);
+                            
+                            writeReq->handleValPair.value.val = (uint8 *) addrValue;
+                                // Don't forget to free the allocated memory when done
+                                //free(addrValue);
+                            
+                            break;
+                        }
+                        
+                        
                         default:
                         {
                             DBG_PRINTF("Error\r\n");
@@ -871,7 +918,13 @@ int HostMain(void)
     PWM_TENS2_Start();
     
     temp_init();
-    Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);  //Enable is low
+    
+    AMP_PWM_Start();
+//    int temp = 16384;
+//    int set_amp = (100 * 16384) / 100;
+//    AMP_PWM_SetCompare0(set_amp);
+    // Enable is high for amp_enable
+    Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 1);
     
     //power_init();
     
