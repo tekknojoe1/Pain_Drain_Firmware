@@ -275,7 +275,7 @@ static void ClockInit(void)
 	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 1u, 3u);
 	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 1u);
 	Cy_SysClk_PeriphAssignDivider(PCLK_TCPWM1_CLOCKS0, CY_SYSCLK_DIV_16_5_BIT, 0u);
-	Cy_SysClk_PeriphSetFracDivider(CY_SYSCLK_DIV_16_5_BIT, 0u, 1u, 1u);
+	Cy_SysClk_PeriphSetFracDivider(CY_SYSCLK_DIV_16_5_BIT, 0u, 1u, 2u);
 	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_16_5_BIT, 0u);
 	Cy_SysClk_PeriphAssignDivider(PCLK_TCPWM1_CLOCKS1, CY_SYSCLK_DIV_8_BIT, 2u);
 	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 2u, 0u);
@@ -657,7 +657,7 @@ void Cy_SystemInit(void)
 	        .out        = 0x00000010u,
 	        .intrMask   = 0x00000000u,
 	        .intrCfg    = 0x00000000u,
-	        .cfg        = 0x000A0006u,
+	        .cfg        = 0x000A0000u,
 	        .cfgIn      = 0x00000000u,
 	        .cfgOut     = 0x00000000u,
 	        .cfgSIO     = 0x00000000u,
@@ -705,10 +705,10 @@ void Cy_SystemInit(void)
 	{
 	    const cy_stc_gpio_prt_config_t port7_cfg =
 	    {
-	        .out        = 0x00000080u,
+	        .out        = 0x00000000u,
 	        .intrMask   = 0x00000000u,
 	        .intrCfg    = 0x00000000u,
-	        .cfg        = 0xA0000680u,
+	        .cfg        = 0x60000680u,
 	        .cfgIn      = 0x00000000u,
 	        .cfgOut     = 0x00000000u,
 	        .cfgSIO     = 0x00000000u,
@@ -739,10 +739,10 @@ void Cy_SystemInit(void)
 	{
 	    const cy_stc_gpio_prt_config_t port10_cfg =
 	    {
-	        .out        = 0x0000002Bu,
-	        .intrMask   = 0x00000000u,
-	        .intrCfg    = 0x00000000u,
-	        .cfg        = 0x060066AAu,
+	        .out        = 0x0000003Bu,
+	        .intrMask   = 0x00000010u,
+	        .intrCfg    = 0x00000200u,
+	        .cfg        = 0x060A66AAu,
 	        .cfgIn      = 0x00000000u,
 	        .cfgOut     = 0x00000000u,
 	        .cfgSIO     = 0x00000000u,
