@@ -49,10 +49,10 @@
 #define SPI_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* AMP_PWM */
-#define AMP_PWM_TCPWM__CNT_HW TCPWM0_CNT7
-#define AMP_PWM_TCPWM__CNT_IDX 7u
-#define AMP_PWM_TCPWM__HW TCPWM0
-#define AMP_PWM_TCPWM__IDX 0u
+#define AMP_PWM_TCPWM__CNT_HW TCPWM1_CNT0
+#define AMP_PWM_TCPWM__CNT_IDX 0u
+#define AMP_PWM_TCPWM__HW TCPWM1
+#define AMP_PWM_TCPWM__IDX 1u
 
 /* Clock_1 */
 #define Clock_1__DIV_IDX 1
@@ -60,9 +60,9 @@
 #define Clock_1__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* Clock_2 */
-#define Clock_2__DIV_IDX 8
-#define Clock_2__DIV_NUM 0
-#define Clock_2__DIV_TYPE CY_SYSCLK_DIV_16_BIT
+#define Clock_2__DIV_IDX 7
+#define Clock_2__DIV_NUM 7
+#define Clock_2__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* Clock_3 */
 #define Clock_3__DIV_IDX 2
@@ -75,8 +75,8 @@
 #define Clock_4__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* Clock_5 */
-#define Clock_5__DIV_IDX 7
-#define Clock_5__DIV_NUM 7
+#define Clock_5__DIV_IDX 6
+#define Clock_5__DIV_NUM 6
 #define Clock_5__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* Clock_6 */
@@ -85,9 +85,9 @@
 #define Clock_6__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* Clock_7 */
-#define Clock_7__DIV_IDX 6
-#define Clock_7__DIV_NUM 6
-#define Clock_7__DIV_TYPE CY_SYSCLK_DIV_8_BIT
+#define Clock_7__DIV_IDX 24
+#define Clock_7__DIV_NUM 0
+#define Clock_7__DIV_TYPE CY_SYSCLK_DIV_16_5_BIT
 
 /* LCD_PWM */
 #define LCD_PWM_TCPWM__CNT_HW TCPWM1_CNT1
@@ -121,10 +121,10 @@
 #define PWM_PEL2_TCPWM__IDX 0u
 
 /* PWM_TENS */
-#define PWM_TENS_TCPWM__CNT_HW TCPWM1_CNT7
+#define PWM_TENS_TCPWM__CNT_HW TCPWM0_CNT7
 #define PWM_TENS_TCPWM__CNT_IDX 7u
-#define PWM_TENS_TCPWM__HW TCPWM1
-#define PWM_TENS_TCPWM__IDX 1u
+#define PWM_TENS_TCPWM__HW TCPWM0
+#define PWM_TENS_TCPWM__IDX 0u
 
 /* PWM_TENS2 */
 #define PWM_TENS2_TCPWM__CNT_HW TCPWM0_CNT4
@@ -276,12 +276,9 @@
 #define CYDEV_CLK_HFCLK0__HZ 50000000U
 #define CYDEV_CLK_HFCLK0__KHZ 50000U
 #define CYDEV_CLK_HFCLK0__MHZ 50U
-#define CYDEV_CLK_HFCLK1__HZ 16307692U
-#define CYDEV_CLK_HFCLK1__KHZ 16307U
-#define CYDEV_CLK_HFCLK1__MHZ 16U
-#define CYDEV_CLK_HFCLK4__HZ 2038461U
-#define CYDEV_CLK_HFCLK4__KHZ 2038U
-#define CYDEV_CLK_HFCLK4__MHZ 2U
+#define CYDEV_CLK_HFCLK1__HZ 8000000U
+#define CYDEV_CLK_HFCLK1__KHZ 8000U
+#define CYDEV_CLK_HFCLK1__MHZ 8U
 #define CYDEV_CLK_ILO__HZ 32000U
 #define CYDEV_CLK_ILO__KHZ 32U
 #define CYDEV_CLK_ILO__MHZ 0U
@@ -312,9 +309,6 @@
 #define CYDEV_CLK_PILO__HZ 32768U
 #define CYDEV_CLK_PILO__KHZ 32U
 #define CYDEV_CLK_PILO__MHZ 0U
-#define CYDEV_CLK_PLL0__HZ 16307692U
-#define CYDEV_CLK_PLL0__KHZ 16307U
-#define CYDEV_CLK_PLL0__MHZ 16U
 #define CYDEV_CLK_PUMPCLK__HZ 25000000U
 #define CYDEV_CLK_PUMPCLK__KHZ 25000U
 #define CYDEV_CLK_PUMPCLK__MHZ 25U

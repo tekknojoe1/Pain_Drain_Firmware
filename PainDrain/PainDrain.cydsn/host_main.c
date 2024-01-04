@@ -55,6 +55,7 @@
 #include <stdlib.h>
 #include "driver_st7789_display_image.h"
 #include "bitbang_spi.h"
+#include "my_i2c.h"
 
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
 static volatile uint32_t           mainTimer  = 1u;
@@ -427,7 +428,22 @@ void AppCallBack(uint32 event, void *eventParam)
                             1: char r - register
                             2: int register address
                             */
+                            int status;
+                            int i;
+                            uint8_t* ptr;
+                            myI2C_I2CMasterClearStatus();
+                            /*
+                            status = myI2C_I2CMasterSendStart(BQ24298_I2C_ADDR, 0);
+                            status = myI2C_I2CMasterWriteByte(0x00);
+                            status = myI2C_I2CMasterSendRestart(BQ24298_I2C_ADDR, 1);
                             
+
+                            ptr[0] = myI2C_I2CMasterReadByte(0);
+                            
+                            myI2C_I2CMasterSendStop();
+                            */
+                            //char *ptr = (int *)0x00;
+                            DBG_PRINTF("Value at address 0x00: %d\r\n", *ptr);
                             uint8_t testValue = 0;
                             
                             // Calculate the number of digits in the integer
