@@ -9,17 +9,46 @@
  *
  * ========================================
 */
-#include <project.h>
-#include <stdio.h>
+
 #include "debug.h"
 #include "temp.h"
 #include "vibe.h"
+#include "my_i2c.h"
+#include <project.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h> 
+
+
+
+
+// Device address: 0x20
+#define MA12070P_I2C_ADDR 0x20
+
+void vibe_i2c_read_reg(uint8_t reg, uint8_t* d, int num_regs) {
+    int status;
+    int i;
+    
+    myI2C_I2CMasterClearStatus();
+    
+    status = myI2C_I2CMasterSendStart(MA12070P_I2C_ADDR, 0);
+    DBG_PRINTF("Status check 1: %d \r\n", status);
+    status = myI2C_I2CMasterWriteByte(reg);
+    DBG_PRINTF("Status check 2: %d \r\n", status);
+    status = myI2C_I2CMasterSendRestart(MA12070P_I2C_ADDR, 1);
+    DBG_PRINTF("Status check 3: %d \r\n", status);
+    
+    for (i=0;i<num_regs-1;i++) {
+        d[i] = myI2C_I2CMasterReadByte(1);
+    }
+    d[num_regs-1] = myI2C_I2CMasterReadByte(0);
+    
+    myI2C_I2CMasterSendStop();   
+}
+
+/*
 #include "cy_dma.h"
 #include "DMA_Play.h"
-#include <stdio.h>
-#include <project.h>
-#include <stdlib.h>
-#include <math.h>
 
 // Size of the recorded buffer 
 //#define BUFFER_SIZE     32768u
@@ -70,40 +99,24 @@ void vibe_init(void){
     Cy_DMA_Descriptor_SetDstAddress(&DMA_Play_SRAM_to_I2S, (void *)&I2S_HW->TX_FIFO_WR);
 }
 
-
-void set_vibe(const char* waveType, int amplitude, int frequency, int waveform){
+void set_vibe(const char* waveform, int freqeuncy, int amplitude){
     
     int channel = 0;
-    if(amplitude > 0){
-       isVibeOn = true;
-    }
-    else {
-       isVibeOn = false;   
-    }
-    if(strcmp(waveType, "sine") == 0){
+
+    // Using a sine waveform for vibrations
+    if (strcmp(waveform, "sine") == 0) {
         // Calculate the number of samples per cycle
         int samples_per_cycle = BUFFER_SIZE / frequency;
+
         // Generate sine waveform data and add it to the array
-        for (unsigned int i = 0; i < BUFFER_SIZE; ++i) {
+        for (int i = 0; i < BUFFER_SIZE; ++i) {
             // Assuming linear vibration response to sine wave
             float time_in_seconds = (float)i / (float)BUFFER_SIZE;
             float angle = 2.0 * M_PI * frequency * time_in_seconds;
             recorded_data[channel][i] = (int16_t)(amplitude * sin(angle));
         }
-     DBG_PRINTF("Sine true \r\n");   
-    }
-    else if(strcmp(waveType, "square") == 0){
-     DBG_PRINTF("square true \r\n");   
-    }
-    else if(strcmp(waveType, "triangle") == 0){
-     DBG_PRINTF("triangle true \r\n");   
-    }
-    else if(strcmp(waveType, "sawtooth") == 0){
-     DBG_PRINTF("sawtooth true \r\n");   
-    }
-    else{
-     DBG_PRINTF("ERROR\r\n");   
     }
 }
+*/
 
 /* [] END OF FILE */

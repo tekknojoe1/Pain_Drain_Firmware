@@ -12,6 +12,7 @@
 
 #include <my_i2c.h>
 #include "power.h"
+#include "debug.h"
 
 int myI2C_state = myI2C_IDLE;
 
@@ -179,7 +180,7 @@ uint32 myI2C_I2CMasterSendRestart(uint32 slaveAddress, uint32 bitRnW) {
 		
 		I2C_SCL_Write(1);
 		I2C_SDA_Write(1);
-		
+		DBG_PRINTF("Inside myI2C_I2CMasterSendRestart, myI2C_FAILED:  %d \r\n", ack);
 		return myI2C_FAILED;
 	}
 	
@@ -199,7 +200,7 @@ uint32 myI2C_I2CMasterSendRestart(uint32 slaveAddress, uint32 bitRnW) {
 			myI2C_state = myI2C_READ;
 		}
 	}
-	
+	DBG_PRINTF("Inside myI2C_I2CMasterSendRestart, ack:  %d \r\n", ack);
 	return ack;
 }
 	
@@ -333,7 +334,7 @@ uint32 myI2C_I2CMasterWriteByte(uint32 theByte)
 		myI2C_I2CMasterSendStop();
 		myI2C_I2CMasterClearStatus();
 	}
-		
+	DBG_PRINTF("Inside myI2C_I2CMasterWriteByte, ack:  %d \r\n", ack);	
 	return ack;
 	
 }
@@ -366,8 +367,10 @@ uint32  myI2C_I2CMasterReadByte(uint32 ackNack) {
 		CyDelayUs(4);
 		I2C_SCL_Write(1);
 		
-		if (myI2C_SCLidle() == myI2C_FAILED)
+		if (myI2C_SCLidle() == myI2C_FAILED){
+            DBG_PRINTF("Inside myI2C_I2CMasterReadByte, myI2C_FAILED:  %d \r\n", d);
 			return myI2C_FAILED;
+        }
 		
 		CyDelayUs(4);
 		
@@ -389,7 +392,7 @@ uint32  myI2C_I2CMasterReadByte(uint32 ackNack) {
 	I2C_SCL_Write(1);
 	CyDelayUs(4);
 	I2C_SCL_Write(0);
-	
+	DBG_PRINTF("Inside myI2C_I2CMasterReadByte, ackNack:  %d \r\n", ackNack);
 	return d;
 		
 }

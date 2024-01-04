@@ -313,7 +313,7 @@ void AppCallBack(uint32 event, void *eventParam)
             {                 
                 cy_stc_ble_gatts_write_cmd_req_param_t *writeReq = (cy_stc_ble_gatts_write_cmd_req_param_t *)eventParam;
                 int length = writeReq->handleValPair.value.len;
-                DBG_PRINTF("Length: %d\r\n", length);
+                //DBG_PRINTF("Length: %d\r\n", length);
                 char receivedCommand[length + 1];
                 int i = 0;
                 char *tokens[10]; // An array to store the tokens, assuming a maximum of 10 tokens
@@ -336,7 +336,7 @@ void AppCallBack(uint32 event, void *eventParam)
                         receivedCommand[i] = (char)writeReq->handleValPair.value.val[i];
                     }
                     receivedCommand[length] = '\0';
-                    DBG_PRINTF("Received string: %s\r\n", receivedCommand);
+                    //DBG_PRINTF("Received string: %s\r\n", receivedCommand);
                     
                     // This splits the received command into sections by space
                     token = strtok(receivedCommand, delimiter); // Gets the first token
@@ -357,11 +357,12 @@ void AppCallBack(uint32 event, void *eventParam)
                             */
                             int temperatureValue = atoi(tokens[1]); // Convert the numeric part after 't'
                             DBG_PRINTF("t value: %d\r\n", temperatureValue);
-                            //set_temp(temperatureValue);  
+                            set_temp(temperatureValue);  
                             break;
                         }
                         case 'T':
                         {
+                            int tensPhase;
                             /*
                             Packet information contains
                             1: char T - TENS
@@ -377,7 +378,7 @@ void AppCallBack(uint32 event, void *eventParam)
                                 2: char p - Phase
                                 3: int Phase Degree
                                 */
-                                int tensPhase = atoi(tokens[2]);
+                                tensPhase = atoi(tokens[2]);
                                 DBG_PRINTF("T value phase: %d\r\n", tensPhase);
                             }
                             else{
@@ -385,13 +386,12 @@ void AppCallBack(uint32 event, void *eventParam)
                                 double tensDurationValue = atof(tokens[2]);
                                 double tensPeriodValue = atof(tokens[3]);
                                 int tensChannel = atoi(tokens[4]);
-                                int phaseDegree = atoi(tokens[5]);
+                                //int phaseDegree = atoi(tokens[5]);
                                 DBG_PRINTF("T value amp: %d\r\n", tensAmpValue);
-                                DBG_PRINTF("T value duration: %s\r\n", tokens[2]);
-                                DBG_PRINTF("T value period: %s\r\n", tokens[3]);
-                                DBG_PRINTF("T Channel: %d\r\n", tensChannel);
-                                set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  phaseDegree);
-
+                                //DBG_PRINTF("T value duration: %s\r\n", tokens[2]);
+                                //DBG_PRINTF("T value period: %s\r\n", tokens[3]);
+                                //DBG_PRINTF("T Channel: %d\r\n", tensChannel);
+                                set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  tensPhase);
                             }
                             
                             break;
@@ -428,30 +428,17 @@ void AppCallBack(uint32 event, void *eventParam)
                             1: char r - register
                             2: int register address
                             */
-                            int status;
-                            int i;
-                            uint8_t* ptr;
-                            myI2C_I2CMasterClearStatus();
-                            /*
-                            status = myI2C_I2CMasterSendStart(BQ24298_I2C_ADDR, 0);
-                            status = myI2C_I2CMasterWriteByte(0x00);
-                            status = myI2C_I2CMasterSendRestart(BQ24298_I2C_ADDR, 1);
                             
-
-                            ptr[0] = myI2C_I2CMasterReadByte(0);
-                            
-                            myI2C_I2CMasterSendStop();
-                            */
-                            //char *ptr = (int *)0x00;
-                            DBG_PRINTF("Value at address 0x00: %d\r\n", *ptr);
                             uint8_t testValue = 0;
+                            uint8_t reg_address = 0x00;
+                            uint8_t read_reg_data[1];
                             
                             // Calculate the number of digits in the integer
                             int numDigits = snprintf(NULL, 0, "%u", testValue);
 
                             // Allocate memory for the string, including space for the null terminator
                             char* addrValue = (char*)malloc(numDigits + 1);
-
+                            
                             // Check if memory allocation is successful
                             if (addrValue != NULL) {
                                 // Convert the uint8 to a string
@@ -462,7 +449,12 @@ void AppCallBack(uint32 event, void *eventParam)
                                 DBG_PRINTF("Memory allocation failed\r\n");  
                                 return;
                             }
-
+                            
+                            // Set low for I2C communication
+                            Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);
+                            vibe_i2c_read_reg(reg_address, read_reg_data, 1);
+                            
+                            DBG_PRINTF("read_reg_data: %d\r\n", read_reg_data[0]);
                             //int registerAddress = atoi(tokens[1]);
                             
                             writeReq->handleValPair.value.val = (uint8 *) addrValue;
@@ -471,6 +463,7 @@ void AppCallBack(uint32 event, void *eventParam)
                             
                             break;
                         }
+                        
                         
                         default:
                         {
@@ -925,9 +918,14 @@ int HostMain(void)
     PWM_TENS_Start();
     PWM_TENS2_Start();
     
-    PWM_PEL1_Start();
-    PWM_PEL2_Start();
-    Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);  //Enable is low
+    temp_init();
+    
+    AMP_PWM_Start();
+//    int temp = 16384;
+//    int set_amp = (100 * 16384) / 100;
+//    AMP_PWM_SetCompare0(set_amp);
+    // Enable is high for amp_enable
+    Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 1);
     
     //power_init();
     
@@ -946,7 +944,7 @@ int HostMain(void)
         //LowPowerImplementation();
         power_task();
         
-        ui_task();    
+        //ui_task();    
         
         // Test code for TENS
         tens_timer();
