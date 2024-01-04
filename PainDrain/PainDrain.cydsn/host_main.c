@@ -414,7 +414,7 @@ void AppCallBack(uint32 event, void *eventParam)
                             DBG_PRINTF("v amp: %d\r\n", vibeAmp);
                             DBG_PRINTF("v freq: %d\r\n", vibeFreq);
                             DBG_PRINTF("v waveform: %d\r\n", vibeWaveform);
-                            set_vibe(waveType, vibeAmp, vibeFreq, vibeWaveform);
+                            //set_vibe(waveType, vibeAmp, vibeFreq, vibeWaveform);
                            
                             break;
                         }
@@ -949,14 +949,6 @@ int HostMain(void)
         // Test code for TENS
         tens_timer();
         set_tens_task();
-        
-        
-        /* Start the I2S interface */
-        I2S_Start();
-        vibe_init();
-        
-        set_vibe_task();
-        
         
         /* Update Alert Level value on the blue LED */
         switch(IasGetAlertLevel())
