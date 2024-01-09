@@ -114,7 +114,7 @@ void set_tens_freq (double period) {
     
     tens_interval_ms = (int) (period*TENS_INTERVAL_MS);
     
-    DBG_PRINTF("tens_interval_ms: %d \r\n", tens_interval_ms);
+    //DBG_PRINTF("tens_interval_ms: %d \r\n", tens_interval_ms);
     if (tens_interval_ms > 0) {
         tens_timeout = tens_interval_ms;
         tens_full_timeout = tens_timeout;

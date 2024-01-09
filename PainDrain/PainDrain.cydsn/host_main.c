@@ -309,7 +309,7 @@ void AppCallBack(uint32 event, void *eventParam)
             
             
         case CY_BLE_EVT_GATTS_WRITE_REQ:
-            {
+            {                 
                 cy_stc_ble_gatts_write_cmd_req_param_t *writeReq = (cy_stc_ble_gatts_write_cmd_req_param_t *)eventParam;
                 int length = writeReq->handleValPair.value.len;
                 //DBG_PRINTF("Length: %d\r\n", length);
@@ -346,7 +346,6 @@ void AppCallBack(uint32 event, void *eventParam)
                         token_count++;
                         token = strtok(NULL, delimiter); // Get the next token
                     }
-                    
                     switch(tokens[0][0]){
                         case 't':
                         {
@@ -414,7 +413,8 @@ void AppCallBack(uint32 event, void *eventParam)
                             DBG_PRINTF("v amp: %d\r\n", vibeAmp);
                             DBG_PRINTF("v freq: %d\r\n", vibeFreq);
                             DBG_PRINTF("v waveform: %d\r\n", vibeWaveform);
-                            //set_vibe(&receivedCommand[1], vibeValue);
+                            //set_vibe(waveType, vibeAmp, vibeFreq, vibeWaveform);
+                           
                             break;
                         }
                         
@@ -478,7 +478,7 @@ void AppCallBack(uint32 event, void *eventParam)
                     respondStringPtr = (uint8_t *)malloc(length+1 * sizeof(uint8_t));
                     respondStringPtr = writeReq->handleValPair.value.val;
                     respondStringPtr[length] = '\0';
-                    //DBG_PRINTF("value %s\r\n", (char *)respondStringPtr);
+                    DBG_PRINTF("Test %s\r\n", (char *)writeReq->handleValPair.value.val);
 
                     // Sends a write with response command
                     Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
@@ -949,7 +949,15 @@ int HostMain(void)
         // Test code for TENS
         tens_timer();
         set_tens_task();
-         
+        
+        
+        /* Start the I2S interface */
+        I2S_Start();
+        //vibe_init();
+        
+        //set_vibe_task();
+        
+        
         /* Update Alert Level value on the blue LED */
         switch(IasGetAlertLevel())
         {

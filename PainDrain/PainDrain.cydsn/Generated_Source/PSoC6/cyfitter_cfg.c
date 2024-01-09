@@ -203,7 +203,7 @@ static void ClockInit(void)
 	Cy_SysClk_ClkHfSetSource(0u, CY_SYSCLK_CLKHF_IN_CLKPATH0);
 	Cy_SysClk_ClkHfSetDivider(0u, CY_SYSCLK_CLKHF_NO_DIVIDE);
 	Cy_SysClk_ClkHfEnable(0u);
-	Cy_SysClk_ClkHfSetSource(1u, CY_SYSCLK_CLKHF_IN_CLKPATH0);
+	Cy_SysClk_ClkHfSetSource(1u, CY_SYSCLK_CLKHF_IN_CLKPATH1);
 	Cy_SysClk_ClkHfSetDivider(1u, CY_SYSCLK_CLKHF_NO_DIVIDE);
 	Cy_SysClk_ClkHfEnable(1u);
 
@@ -275,7 +275,7 @@ static void ClockInit(void)
 	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 1u, 3u);
 	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 1u);
 	Cy_SysClk_PeriphAssignDivider(PCLK_TCPWM1_CLOCKS0, CY_SYSCLK_DIV_16_5_BIT, 0u);
-	Cy_SysClk_PeriphSetFracDivider(CY_SYSCLK_DIV_16_5_BIT, 0u, 1u, 2u);
+	Cy_SysClk_PeriphSetFracDivider(CY_SYSCLK_DIV_16_5_BIT, 0u, 1u, 1u);
 	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_16_5_BIT, 0u);
 	Cy_SysClk_PeriphAssignDivider(PCLK_TCPWM1_CLOCKS1, CY_SYSCLK_DIV_8_BIT, 2u);
 	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 2u, 0u);
@@ -654,10 +654,10 @@ void Cy_SystemInit(void)
 	{
 	    const cy_stc_gpio_prt_config_t port0_cfg =
 	    {
-	        .out        = 0x00000010u,
+	        .out        = 0x00000011u,
 	        .intrMask   = 0x00000000u,
 	        .intrCfg    = 0x00000000u,
-	        .cfg        = 0x000A0006u,
+	        .cfg        = 0x000A000Au,
 	        .cfgIn      = 0x00000000u,
 	        .cfgOut     = 0x00000000u,
 	        .cfgSIO     = 0x00000000u,
@@ -705,10 +705,10 @@ void Cy_SystemInit(void)
 	{
 	    const cy_stc_gpio_prt_config_t port7_cfg =
 	    {
-	        .out        = 0x00000080u,
+	        .out        = 0x00000000u,
 	        .intrMask   = 0x00000000u,
 	        .intrCfg    = 0x00000000u,
-	        .cfg        = 0xA0000680u,
+	        .cfg        = 0x60000680u,
 	        .cfgIn      = 0x00000000u,
 	        .cfgOut     = 0x00000000u,
 	        .cfgSIO     = 0x00000000u,
