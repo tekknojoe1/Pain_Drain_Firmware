@@ -12,6 +12,7 @@
 #ifndef TEMP_H
 #define TEMP_H
 
+void temp_init( void );
 void set_temp(int value);
 void set_fan(int value);
 

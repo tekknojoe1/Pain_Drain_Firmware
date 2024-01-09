@@ -11,8 +11,11 @@
 */
 #ifndef VIBE_H
 #define VIBE_H
-
+    
+#include <project.h>
+    
 void set_vibe(const char* waveform, int freqeuncy, int amplitude);
+void vibe_i2c_read_reg(uint8_t reg, uint8_t* d, int num_regs);
 
 #endif
 /* [] END OF FILE */
