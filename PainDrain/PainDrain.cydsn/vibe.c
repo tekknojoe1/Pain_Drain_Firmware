@@ -32,11 +32,11 @@ void vibe_i2c_read_reg(uint8_t reg, uint8_t* d, int num_regs) {
     myI2C_I2CMasterClearStatus();
     
     status = myI2C_I2CMasterSendStart(MA12070P_I2C_ADDR, 0);
-    DBG_PRINTF("Status check 1: %d \r\n", status);
+    //DBG_PRINTF("Status check 1: %d \r\n", status);
     status = myI2C_I2CMasterWriteByte(reg);
-    DBG_PRINTF("Status check 2: %d \r\n", status);
+    //DBG_PRINTF("Status check 2: %d \r\n", status);
     status = myI2C_I2CMasterSendRestart(MA12070P_I2C_ADDR, 1);
-    DBG_PRINTF("Status check 3: %d \r\n", status);
+    //DBG_PRINTF("Status check 3: %d \r\n", status);
     
     for (i=0;i<num_regs-1;i++) {
         d[i] = myI2C_I2CMasterReadByte(1);

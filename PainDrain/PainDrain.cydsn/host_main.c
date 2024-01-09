@@ -282,8 +282,8 @@ void AppCallBack(uint32 event, void *eventParam)
                 cy_stc_ble_gatt_handle_value_pair_t handleValuePair;
     
                 // Set the value field to point to the data array
-                DBG_PRINTF("reading response %s\r\n", (char *)respondStringPtr);
-                DBG_PRINTF("Sending to Perpherial\r\n");
+                //DBG_PRINTF("reading response %s\r\n", (char *)respondStringPtr);
+                //DBG_PRINTF("Sending to Perpherial\r\n");
                 handleValuePair.value.val = respondStringPtr;
                 handleValuePair.value.len = MAX_LENGTH;
                 handleValuePair.attrHandle = CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE;
@@ -297,9 +297,9 @@ void AppCallBack(uint32 event, void *eventParam)
                 
                 // Test to see if charger was working properly
                 pinReadValue = Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM);
-                DBG_PRINTF("charge status: %d\r\n", pinReadValue);
+                //DBG_PRINTF("charge status: %d\r\n", pinReadValue);
                 
-                DBG_PRINTF("entered read case custom service\r\n");
+                //DBG_PRINTF("entered read case custom service\r\n");
                 
             }
             break;
@@ -429,7 +429,7 @@ void AppCallBack(uint32 event, void *eventParam)
                             */
                             
                             uint8_t testValue = 0;
-                            uint8_t reg_address = 0x00;
+                            uint8_t reg_address = 0x7C;
                             uint8_t read_reg_data[1];
                             
                             // Calculate the number of digits in the integer
@@ -451,6 +451,7 @@ void AppCallBack(uint32 event, void *eventParam)
                             
                             // Set low for I2C communication
                             Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);
+                            CyDelayUs(100);
                             vibe_i2c_read_reg(reg_address, read_reg_data, 1);
                             
                             DBG_PRINTF("read_reg_data: %d\r\n", read_reg_data[0]);
