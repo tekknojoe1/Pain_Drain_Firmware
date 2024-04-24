@@ -1,9 +1,9 @@
 /*******************************************************************************
-* File Name: AMP_PWM.c
+* File Name: PWM_VIBE.c
 * Version 1.0
 *
 * Description:
-*  This file provides the source code to the API for the AMP_PWM
+*  This file provides the source code to the API for the PWM_VIBE
 *  component.
 *
 ********************************************************************************
@@ -13,30 +13,30 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#include "AMP_PWM.h"
+#include "PWM_VIBE.h"
 
-/** Indicates whether or not the AMP_PWM has been initialized. 
+/** Indicates whether or not the PWM_VIBE has been initialized. 
 *  The variable is initialized to 0 and set to 1 the first time 
-*  AMP_PWM_Start() is called. This allows the Component to 
+*  PWM_VIBE_Start() is called. This allows the Component to 
 *  restart without reinitialization after the first call to 
-*  the AMP_PWM_Start() routine.
+*  the PWM_VIBE_Start() routine.
 */
-uint8_t AMP_PWM_initVar = 0U;
+uint8_t PWM_VIBE_initVar = 0U;
 
 /** The instance-specific configuration structure. This should be used in the 
-*  associated AMP_PWM_Init() function.
+*  associated PWM_VIBE_Init() function.
 */ 
-cy_stc_tcpwm_pwm_config_t const AMP_PWM_config =
+cy_stc_tcpwm_pwm_config_t const PWM_VIBE_config =
 {
     .pwmMode = 4UL,
-    .clockPrescaler = 2UL,
+    .clockPrescaler = 0UL,
     .pwmAlignment = 0UL,
     .deadTimeClocks = 0UL,
     .runMode = 0UL,
-    .period0 = 32768UL,
+    .period0 = 624UL,
     .period1 = 32768UL,
     .enablePeriodSwap = false,
-    .compare0 = 16384UL,
+    .compare0 = 0UL,
     .compare1 = 16384UL,
     .enableCompareSwap = false,
     .interruptSources = 0UL,
@@ -57,31 +57,31 @@ cy_stc_tcpwm_pwm_config_t const AMP_PWM_config =
 
 
 /*******************************************************************************
-* Function Name: AMP_PWM_Start
+* Function Name: PWM_VIBE_Start
 ****************************************************************************//**
 *
-*  Calls the AMP_PWM_Init() when called the first time and enables 
-*  the AMP_PWM. For subsequent calls the configuration is left 
+*  Calls the PWM_VIBE_Init() when called the first time and enables 
+*  the PWM_VIBE. For subsequent calls the configuration is left 
 *  unchanged and the component is just enabled.
 *
 * \globalvars
-*  \ref AMP_PWM_initVar
+*  \ref PWM_VIBE_initVar
 *
 *******************************************************************************/
-void AMP_PWM_Start(void)
+void PWM_VIBE_Start(void)
 {
-    if (0U == AMP_PWM_initVar)
+    if (0U == PWM_VIBE_initVar)
     {
-        (void) Cy_TCPWM_PWM_Init(AMP_PWM_HW, AMP_PWM_CNT_NUM, &AMP_PWM_config);
+        (void) Cy_TCPWM_PWM_Init(PWM_VIBE_HW, PWM_VIBE_CNT_NUM, &PWM_VIBE_config);
 
-        AMP_PWM_initVar = 1U;
+        PWM_VIBE_initVar = 1U;
     }
 
-    Cy_TCPWM_Enable_Multiple(AMP_PWM_HW, AMP_PWM_CNT_MASK);
+    Cy_TCPWM_Enable_Multiple(PWM_VIBE_HW, PWM_VIBE_CNT_MASK);
     
-    #if (AMP_PWM_INPUT_DISABLED == 7UL)
-        Cy_TCPWM_TriggerStart(AMP_PWM_HW, AMP_PWM_CNT_MASK);
-    #endif /* (AMP_PWM_INPUT_DISABLED == 7UL) */    
+    #if (PWM_VIBE_INPUT_DISABLED == 7UL)
+        Cy_TCPWM_TriggerStart(PWM_VIBE_HW, PWM_VIBE_CNT_MASK);
+    #endif /* (PWM_VIBE_INPUT_DISABLED == 7UL) */    
 }
 
 

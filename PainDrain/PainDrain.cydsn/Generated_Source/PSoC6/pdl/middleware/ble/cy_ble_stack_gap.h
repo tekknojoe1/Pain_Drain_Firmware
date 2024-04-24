@@ -1,6 +1,6 @@
 /*******************************************************************************
 * \file cy_ble_stack_gap.h
-* \version 2.70
+* \version 2.90
 *
 * \brief
 *  This file contains declarations of public BLE APIs of the Generic Access Profile.
@@ -12,7 +12,7 @@
 *
 ********************************************************************************
 * \copyright
-* Copyright 2017-2021, Cypress Semiconductor Corporation. All rights reserved.
+* Copyright 2017-2023, Cypress Semiconductor Corporation. All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -1642,6 +1642,7 @@ cy_en_ble_api_result_t Cy_BLE_GAP_AuthSendKeyPress
 *
 *  \param param: parameter is of type 'cy_stc_ble_gap_sc_oob_info_t'.
 *              If 'param->rand' is NULL, BLE Stack will generate 16 Bytes random number and then will generate OOB data.
+*              The application should ensure that provided 'param->rand' is not all Zeros.
 *
 * \return
 *  cy_en_ble_api_result_t : Return value indicates whether the function succeeded or
@@ -1650,7 +1651,7 @@ cy_en_ble_api_result_t Cy_BLE_GAP_AuthSendKeyPress
 *  Errors codes                          | Description
 *  ------------                          | -----------
 *  CY_BLE_SUCCESS                        | On successful operation.
-*  CY_BLE_ERROR_INVALID_PARAMETER        | If 'param' is NULL.
+*  CY_BLE_ERROR_INVALID_PARAMETER        | If 'param' is NULL or if 'param->rand' is all Zeros.
 *  CY_BLE_ERROR_INSUFFICIENT_RESOURCES   | BLE Stack resources are unavailable.
 *  CY_BLE_ERROR_NO_DEVICE_ENTITY         | Device identified using 'bdHandle' does not exist.
 *  CY_BLE_ERROR_MEMORY_ALLOCATION_FAILED | Sufficient memory is not available to handle this request.
@@ -1823,7 +1824,7 @@ cy_en_ble_api_result_t Cy_BLE_GAP_GetBondList
 *   ------------                     | -----------
 *   CY_BLE_SUCCESS                   | On successful operation.
 *   CY_BLE_ERROR_INVALID_PARAMETER   | On specifying NULL as input parameter for 'bdAddr'.
-*   CY_BLE_ERROR_INVALID_OPERATION   | Operation is not permitted when device is in connected state.
+*   CY_BLE_ERROR_INVALID_OPERATION   | Operation is not permitted when device is in encryption/authentication in-progress or successfully completed state.
 *
 ******************************************************************************/
 cy_en_ble_api_result_t Cy_BLE_GAP_RemoveDeviceFromBondList

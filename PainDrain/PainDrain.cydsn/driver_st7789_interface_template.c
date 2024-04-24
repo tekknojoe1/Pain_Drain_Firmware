@@ -49,12 +49,12 @@
  */
 uint8_t st7789_interface_spi_init(void)
 {
-    cy_en_scb_spi_status_t initStatus;
+    //cy_en_scb_spi_status_t initStatus;
         
     /* Configure component */
-    initStatus = Cy_SCB_SPI_Init(SPI_HW, &SPI_config, NULL);
+    //initStatus = Cy_SCB_SPI_Init(SPI_HW, &SPI_config, NULL);
         
-    Cy_SCB_SPI_Enable(SPI_HW);
+    //Cy_SCB_SPI_Enable(SPI_HW);
     
     
     __enable_irq(); /* Enable global interrupts. */
@@ -88,12 +88,14 @@ uint8_t st7789_interface_spi_write_cmd(uint16_t *buf, uint16_t len)
     uint8_t d;
     uint8_t res;
     int count;
-
+    /*
     Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
     Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
     Cy_SCB_SPI_ClearTxFifo(SPI_HW);
-    
+    */
     /* Clear Rx FIFO status. */
+    
+    /*
     Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
     Cy_SCB_SPI_ClearRxFifo(SPI_HW);
     
@@ -108,7 +110,7 @@ uint8_t st7789_interface_spi_write_cmd(uint16_t *buf, uint16_t len)
     
     d = Cy_SCB_SPI_Read(SPI_HW); 
     DBG_PRINTF("d value: %d\r\n", d);
-
+    */
     return res;
 }
 

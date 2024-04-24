@@ -62,8 +62,8 @@ void power_init( void ) {
     
     power_timeout = POWER_DISPLAY_TIMEOUT_INTERVAL;
     
-    LCD_PWM_Start();
-    LCD_PWM_SetCompare0(MAX_LCD_PWM);  //Set to full brightness
+    //LCD_PWM_Start();
+    //LCD_PWM_SetCompare0(MAX_LCD_PWM);  //Set to full brightness
     DBG_PRINTF("Backlight on\r\n");
 
     
@@ -95,13 +95,19 @@ void power_5v_off( void ) {
 void power_wakeup( void ) {
     
     power_timeout = POWER_DISPLAY_TIMEOUT_INTERVAL;
-    LCD_PWM_SetCompare0(MAX_LCD_PWM);  //Set to full brightness 
+    //LCD_PWM_SetCompare0(MAX_LCD_PWM);  //Set to full brightness 
     
 }
 
 void power_task( void ) {
     //return; //this code below is old
     //Power button detection to wakeup
+    //DBG_PRINTF("Waking up: %d\r\n", Cy_GPIO_Read(PWR_BTN_PORT, PWR_BTN_NUM));
+    //Cy_GPIO_Write(PWR_BTN_PORT, PWR_BTN_NUM, 0);
+    if (Cy_GPIO_Read(PWR_PORT, PWR_NUM) == 0) {
+        power_wakeup();
+        DBG_PRINTF("Waking up\r\n");
+    }
     cy_en_gpio_status_t initStatus;
     
     //initStatus = Cy_GPIO_Pin_Init(PWR_BTN_PORT, PWR_BTN_NUM, &PWR_BTN_);
@@ -124,7 +130,7 @@ void power_task( void ) {
                 if (Cy_GPIO_Read(CHG_PG_PORT, CHG_PG_NUM) != 0) {  //Don't turn off the LCD screen if we are charging
                 
                     //Lets just turn off the display
-                    LCD_PWM_SetCompare0(0); 
+                    //LCD_PWM_SetCompare0(0); 
                     
                     if (power_flags == 0) {
                         //We don't have any active sub devices running so lets power all the way off.

@@ -1,13 +1,13 @@
 /***************************************************************************//**
 * \file CY_BLE_ips.c
-* \version 2.70
+* \version 2.90
 *
 * \brief
 *  Contains the source code for Indoor Positioning Service.
 *
 ********************************************************************************
 * \copyright
-* Copyright 2017-2021, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2017-2023, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.

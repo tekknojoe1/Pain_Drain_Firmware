@@ -1,6 +1,6 @@
 /*******************************************************************************
 * \file cy_ble_stack_gap_peripheral.h
-* \version 2.70
+* \version 2.90
 *
 * \brief
 *  This file contains declarations of public BLE APIs of Generic Access Profile.
@@ -12,7 +12,7 @@
 *
 ********************************************************************************
 * \copyright
-* Copyright 2017-2021, Cypress Semiconductor Corporation. All rights reserved.
+* Copyright 2017-2023, Cypress Semiconductor Corporation. All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
