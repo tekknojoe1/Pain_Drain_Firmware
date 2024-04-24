@@ -1,9 +1,9 @@
 /***************************************************************************//**
-* \file     Clock_3.h
+* \file     Clock_2.h
 * \version  1.0
 *
 * \brief
-* Provides the source code to the API for the Clock_3 Component.
+* Provides the source code to the API for the Clock_2 Component.
 *
 ********************************************************************************
 * \copyright
@@ -13,8 +13,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_Clock_3_NAME_Clock_3_H)
-#define CY_Clock_3_NAME_Clock_3_H
+#if !defined(CY_Clock_2_NAME_Clock_2_H)
+#define CY_Clock_2_NAME_Clock_2_H
 
 /* For _DIV_TYPE and _DIV_NUM #defines */
 #include "cyfitter.h"
@@ -32,9 +32,9 @@
 * @{
 */
 /** The peripheral clock divider number */
-#define Clock_3_DIV_NUM ((uint32_t)Clock_3__DIV_NUM)
+#define Clock_2_DIV_NUM ((uint32_t)Clock_2__DIV_NUM)
 /** The peripheral clock divider type */
-#define Clock_3_DIV_TYPE ((cy_en_divider_types_t)Clock_3__DIV_TYPE)
+#define Clock_2_DIV_TYPE ((cy_en_divider_types_t)Clock_2__DIV_TYPE)
 /** @} group_macros */
 
 /***************************************
@@ -47,7 +47,7 @@
 */
 
 /*******************************************************************************
-* Function Name: Clock_3_Enable
+* Function Name: Clock_2_Enable
 ****************************************************************************//**
 *
 * Enables the programmable clock divider assigned to this Component.
@@ -57,13 +57,13 @@
 * \return None
 *
 *******************************************************************************/
-__STATIC_INLINE void Clock_3_Enable(void)
+__STATIC_INLINE void Clock_2_Enable(void)
 {
-    (void)Cy_SysClk_PeriphEnableDivider(Clock_3_DIV_TYPE, Clock_3_DIV_NUM);
+    (void)Cy_SysClk_PeriphEnableDivider(Clock_2_DIV_TYPE, Clock_2_DIV_NUM);
 }
 
 /*******************************************************************************
-* Function Name: Clock_3_Disable
+* Function Name: Clock_2_Disable
 ****************************************************************************//**
 *
 * Disables the programmable clock divider assigned to this Component.
@@ -73,17 +73,17 @@ __STATIC_INLINE void Clock_3_Enable(void)
 * \return None
 *
 *******************************************************************************/
-__STATIC_INLINE void Clock_3_Disable(void)
+__STATIC_INLINE void Clock_2_Disable(void)
 {
-    (void)Cy_SysClk_PeriphDisableDivider(Clock_3_DIV_TYPE, Clock_3_DIV_NUM);
+    (void)Cy_SysClk_PeriphDisableDivider(Clock_2_DIV_TYPE, Clock_2_DIV_NUM);
 }
 
 /*******************************************************************************
-* Function Name: Clock_3_SetDivider
+* Function Name: Clock_2_SetDivider
 ****************************************************************************//**
 *
 * Sets the value of a programmable clock divider assigned to this Component.
-* This is only used for integer dividers. Use Clock_3_SetFracDivider()
+* This is only used for integer dividers. Use Clock_2_SetFracDivider()
 * for setting factional dividers.
 *
 * \param dividerValue
@@ -95,18 +95,18 @@ __STATIC_INLINE void Clock_3_Disable(void)
 * \return None
 *
 *******************************************************************************/
-__STATIC_INLINE void Clock_3_SetDivider(uint32_t dividerValue)
+__STATIC_INLINE void Clock_2_SetDivider(uint32_t dividerValue)
 {
-    (void)Cy_SysClk_PeriphSetDivider(Clock_3_DIV_TYPE, Clock_3_DIV_NUM, dividerValue);
+    (void)Cy_SysClk_PeriphSetDivider(Clock_2_DIV_TYPE, Clock_2_DIV_NUM, dividerValue);
 }
 
 /*******************************************************************************
-* Function Name: Clock_3_GetDivider
+* Function Name: Clock_2_GetDivider
 ****************************************************************************//**
 *
 * Returns the integer divider value for the programmable clock divider assigned
 * to this Component. This is only used for integer dividers.
-* Use Clock_3_GetFracDivider() with a fractional divider.
+* Use Clock_2_GetFracDivider() with a fractional divider.
 *
 * \param None
 *
@@ -116,17 +116,17 @@ __STATIC_INLINE void Clock_3_SetDivider(uint32_t dividerValue)
 * or division by 1 to 256 (8-bit divider) or 1 to 65536 (16-bit divider).
 *
 *******************************************************************************/
-__STATIC_INLINE uint32_t Clock_3_GetDivider(void)
+__STATIC_INLINE uint32_t Clock_2_GetDivider(void)
 {
-    return Cy_SysClk_PeriphGetDivider(Clock_3_DIV_TYPE, Clock_3_DIV_NUM);
+    return Cy_SysClk_PeriphGetDivider(Clock_2_DIV_TYPE, Clock_2_DIV_NUM);
 }
 
 /*******************************************************************************
-* Function Name: Clock_3_SetFracDivider
+* Function Name: Clock_2_SetFracDivider
 ****************************************************************************//**
 *
 * Sets the values of a programmable clock divider assigned to this Component.
-* This is only used for fractional dividers. Use Clock_3_SetDivider()
+* This is only used for fractional dividers. Use Clock_2_SetDivider()
 * for setting integer dividers.
 *
 * \param dividerIntValue
@@ -143,18 +143,18 @@ __STATIC_INLINE uint32_t Clock_3_GetDivider(void)
 * \return None
 *
 *******************************************************************************/
-__STATIC_INLINE void Clock_3_SetFracDivider(uint32_t dividerIntValue, uint32_t dividerFracValue)
+__STATIC_INLINE void Clock_2_SetFracDivider(uint32_t dividerIntValue, uint32_t dividerFracValue)
 {
-    (void)Cy_SysClk_PeriphSetFracDivider(Clock_3_DIV_TYPE, Clock_3_DIV_NUM, dividerIntValue, dividerFracValue);
+    (void)Cy_SysClk_PeriphSetFracDivider(Clock_2_DIV_TYPE, Clock_2_DIV_NUM, dividerIntValue, dividerFracValue);
 }
 
 /*******************************************************************************
-* Function Name: Clock_3_GetFracDivider
+* Function Name: Clock_2_GetFracDivider
 ****************************************************************************//**
 *
 * Returns the divider values for the programmable clock divider assigned to this
 * Component. This is only used for fractional dividers.
-* Use Clock_3_GetDivider() with an integer divider.
+* Use Clock_2_GetDivider() with an integer divider.
 *
 * \param *dividerIntValue
 * pointer to return integer divider value
@@ -165,13 +165,13 @@ __STATIC_INLINE void Clock_3_SetFracDivider(uint32_t dividerIntValue, uint32_t d
 * \return None. Loads pointed-to variables.
 *
 *******************************************************************************/
-__STATIC_INLINE void Clock_3_GetFracDivider(uint32_t *dividerIntValue, uint32_t *dividerFracValue)
+__STATIC_INLINE void Clock_2_GetFracDivider(uint32_t *dividerIntValue, uint32_t *dividerFracValue)
 {
-    Cy_SysClk_PeriphGetFracDivider(Clock_3_DIV_TYPE, Clock_3_DIV_NUM, dividerIntValue, dividerFracValue);
+    Cy_SysClk_PeriphGetFracDivider(Clock_2_DIV_TYPE, Clock_2_DIV_NUM, dividerIntValue, dividerFracValue);
 }
 
 /** @} general */
 
-#endif /* CY_CLOCK_Clock_3_H */
+#endif /* CY_CLOCK_Clock_2_H */
 
 /* [] END OF FILE */

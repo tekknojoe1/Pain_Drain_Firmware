@@ -1,13 +1,13 @@
 /***************************************************************************//**
 * \file cy_ble_gap.c
-* \version 2.70
+* \version 2.90
 *
 * \brief
 *  This file contains the source code for the GAP API of the BLE Middleware.
 *
 ********************************************************************************
 * \copyright
-* Copyright 2017-2021, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2017-2023, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.

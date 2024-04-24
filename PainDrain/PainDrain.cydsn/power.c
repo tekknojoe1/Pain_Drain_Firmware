@@ -62,8 +62,8 @@ void power_init( void ) {
     
     power_timeout = POWER_DISPLAY_TIMEOUT_INTERVAL;
     
-    LCD_PWM_Start();
-    LCD_PWM_SetCompare0(MAX_LCD_PWM);  //Set to full brightness
+    //LCD_PWM_Start();
+    //LCD_PWM_SetCompare0(MAX_LCD_PWM);  //Set to full brightness
     DBG_PRINTF("Backlight on\r\n");
 
     
@@ -95,7 +95,7 @@ void power_5v_off( void ) {
 void power_wakeup( void ) {
     
     power_timeout = POWER_DISPLAY_TIMEOUT_INTERVAL;
-    LCD_PWM_SetCompare0(MAX_LCD_PWM);  //Set to full brightness 
+    //LCD_PWM_SetCompare0(MAX_LCD_PWM);  //Set to full brightness 
     
 }
 
@@ -130,7 +130,7 @@ void power_task( void ) {
                 if (Cy_GPIO_Read(CHG_PG_PORT, CHG_PG_NUM) != 0) {  //Don't turn off the LCD screen if we are charging
                 
                     //Lets just turn off the display
-                    LCD_PWM_SetCompare0(0); 
+                    //LCD_PWM_SetCompare0(0); 
                     
                     if (power_flags == 0) {
                         //We don't have any active sub devices running so lets power all the way off.

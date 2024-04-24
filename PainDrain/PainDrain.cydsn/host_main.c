@@ -43,17 +43,17 @@
 
 
 #include "common.h"
-#include "user_interface.h"
+//#include "user_interface.h"
 #include "ias.h"
 #include "power.h"
 #include "debug.h"
 #include "temp.h"
 #include "tens.h"
 #include "vibe.h"
-#include "driver_st7789_basic.h"
-#include "driver_st7789_display_test.h"
+//#include "driver_st7789_basic.h"
+//#include "driver_st7789_display_test.h"
 #include <stdlib.h>
-#include "driver_st7789_display_image.h"
+//#include "driver_st7789_display_image.h"
 #include "bitbang_spi.h"
 
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
@@ -140,7 +140,7 @@ void AppCallBack(uint32 event, void *eventParam)
             /* BLE link is established */
             keyInfo.SecKeyParam.bdHandle = (*(cy_stc_ble_gap_connected_param_t *)eventParam).bdHandle;
             Cy_BLE_GAP_SetSecurityKeys(&keyInfo);
-            UpdateLedState();   
+            //UpdateLedState();    FIXME
             break;
 
         case CY_BLE_EVT_GAPP_ADVERTISEMENT_START_STOP:
@@ -149,7 +149,7 @@ void AppCallBack(uint32 event, void *eventParam)
                 /* Fast and slow advertising period complete, go to low power  
                  * mode (Hibernate) and wait for an external
                  * user event to wake up the device again */
-                UpdateLedState();   
+                //UpdateLedState();   FIXME
                 Cy_BLE_Stop();             
             }
             break;
@@ -164,7 +164,7 @@ void AppCallBack(uint32 event, void *eventParam)
                (((cy_stc_ble_timeout_param_t *)eventParam)->timerHandle == timerParam.timerHandle))
             {
                 /* Update Led State */
-                UpdateLedState();
+                //UpdateLedState();         FIXME
                 
                 /* Indicate that timer is raised to the main loop */
                 mainTimer++;
@@ -417,6 +417,52 @@ void AppCallBack(uint32 event, void *eventParam)
                            
                             break;
                         }
+                        case 'r':
+                        {
+                            
+                            /*
+                            Only used for debugging and checking register map information
+                            Packet information contains
+                            1: char r - register
+                            2: int register address
+                            */
+                            
+                            uint8_t testValue = 0;
+                            
+                            // For testing I2C
+                            uint8_t reg_address = 0x01;
+                            uint8_t read_reg_data[1];
+                            
+                            // Calculate the number of digits in the integer
+                            //int numDigits = sprintf(NULL, 0, "%u", testValue);
+
+                            // Allocate memory for the string, including space for the null terminator
+                            //char* addrValue = (char*)malloc(numDigits + 1);
+                            
+                            // Check if memory allocation is successful
+                            //if (addrValue != NULL) {
+                                // Convert the uint8 to a string
+                            //    sprintf(addrValue, "%u", testValue);
+
+                            //} else {
+                                // Handle memory allocation failure
+                            //    DBG_PRINTF("Memory allocation failed\r\n");  
+                            //    return;
+                            //}
+                            
+                            // Testiong I2C communication                            
+                            //Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0); // Set low for I2C communication
+                            vibe_i2c_read_reg(reg_address, read_reg_data, 1);
+
+                            //int registerAddress = atoi(tokens[1]);
+                            
+                            //writeReq->handleValPair.value.val = (uint8 *) addrValue;
+                                // Don't forget to free the allocated memory when done
+                                //free(addrValue);
+                            
+                            break;
+                        }
+                        
                         default:
                         {
                             DBG_PRINTF("Error\r\n");
@@ -475,20 +521,20 @@ void LowPowerImplementation(void)
 // This is all testing
 void lcdReset(void) {
     // Set LCD_RESET pin high
-    Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 1);
+   // Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 1);
     
     // Delay 1ms
     // You may need to implement the Delayms function or use a built-in delay function
     CyDelay(20); // Delay 1ms
     
     // Set LCD_RESET pin low
-    Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 0);
+    //Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 0);
     
     // Delay 10ms
     CyDelay(100); // Delay 10ms
     
     // Set LCD_RESET pin high again
-    Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 1);
+    //Cy_GPIO_Write(DISP_RST_PORT, DISP_RST_NUM, 1);
     
     // Delay 120ms
     CyDelay(100); // Delay 120ms
@@ -503,7 +549,7 @@ void sendData(uint8_t data) {
     // 9th bit is 1 for data
     uint16_t dataToSend = (1 << 8) | data;
     //DBG_PRINTF("dataToSend %d\r\n", dataToSend);
-    Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 0);
+    //Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 0);
     
     /* Clear Master status and Tx FIFO status. */
     //Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
@@ -533,7 +579,7 @@ void sendData(uint8_t data) {
     bbSPI_write(&dataToSend, 1);
     
     // Set to high after the spi is successful
-    Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 1);
+    //Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 1);
 }
 
 void sendCommand(uint8_t cmd) {
@@ -545,7 +591,7 @@ void sendCommand(uint8_t cmd) {
     // 9th bit is 0 for command
     uint16_t commandToSend = (0 << 8) | cmd;
     //DBG_PRINTF("commandToSend %d\r\n", commandToSend);
-    Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 0);
+    //Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 0);
     
     /* Clear Master status and Tx FIFO status. */
     //Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
@@ -577,7 +623,7 @@ void sendCommand(uint8_t cmd) {
     
     
     // Set to high after the spi is successful
-    Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 1);
+    //Cy_GPIO_Write(DISP_CS_0_PORT, DISP_CS_0_NUM, 1);
 }
 
 void LCDinit(void)
@@ -827,7 +873,7 @@ int HostMain(void)
     //LCDinit();
     //drawRectangle(50, 50, 100, 100, 0xF800); // Draw a red rectangle at (50, 50) to (100, 100)
     /* Initialization the user interface: LEDs, SW2, etc.  */
-    InitUserInterface();
+    //InitUserInterface();
     //DBG_PRINTF("Entering\r\n");
     //st7789_basic_init();
     //SPI_Start();
@@ -873,13 +919,9 @@ int HostMain(void)
     
     temp_init();
     
-    Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);  //Enable is low
-    //PWM_PEL1_Enable(); // PELs need to be enabled to set them.
-    //PWM_PEL2_Enable();
-    //power_init();
-    
-    // Testing setting PEL1
-    //set_temp(10);
+    //AMP_PWM_Start();
+    // Enable is high for amp_enable, I2C Testing
+    //Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 1);
       
     /***************************************************************************
     * Main polling loop
@@ -902,7 +944,7 @@ int HostMain(void)
         
         
         /* Start the I2S interface */
-        I2S_Start();
+        //I2S_Start();
         vibe_init();
         
         set_vibe_task();
