@@ -9,17 +9,46 @@
  *
  * ========================================
 */
-#include <project.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+
 #include "debug.h"
 #include "temp.h"
 #include "vibe.h"
-//#include "cy_dma.h"
-//#include "DMA_Play.h"
-
 #include "my_i2c.h"
+#include <project.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h> 
+
+
+
+
+// Device address: 0x20
+#define MA12070P_I2C_ADDR 0x20
+
+void vibe_i2c_read_reg(uint8_t reg, uint8_t* d, int num_regs) {
+    int status;
+    int i;
+    
+    myI2C_I2CMasterClearStatus();
+    
+    status = myI2C_I2CMasterSendStart(MA12070P_I2C_ADDR, 0);
+    //DBG_PRINTF("Status check 1: %d \r\n", status);
+    status = myI2C_I2CMasterWriteByte(reg);
+    //DBG_PRINTF("Status check 2: %d \r\n", status);
+    status = myI2C_I2CMasterSendRestart(MA12070P_I2C_ADDR, 1);
+    //DBG_PRINTF("Status check 3: %d \r\n", status);
+    
+    for (i=0;i<num_regs-1;i++) {
+        d[i] = myI2C_I2CMasterReadByte(1);
+    }
+    d[num_regs-1] = myI2C_I2CMasterReadByte(0);
+    
+    myI2C_I2CMasterSendStop();   
+}
+
+/*
+#include "cy_dma.h"
+#include "DMA_Play.h"
 
 // Size of the recorded buffer 
 //#define BUFFER_SIZE     32768u
@@ -86,6 +115,7 @@ void generateSineWave(){
 }
 */
 
+/*
 void vibe_init(void){
     // Initialize the DMA for playback (DMA_PLAY) and its descriptor addresses 
     //DMA_Play_Init();
@@ -129,5 +159,6 @@ void set_vibe(const char* waveType, int amplitude, int frequency, int waveform){
      DBG_PRINTF("ERROR\r\n");   
     }
 }
+*/
 
 /* [] END OF FILE */

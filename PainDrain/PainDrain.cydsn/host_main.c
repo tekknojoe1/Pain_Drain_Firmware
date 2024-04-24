@@ -282,8 +282,8 @@ void AppCallBack(uint32 event, void *eventParam)
                 cy_stc_ble_gatt_handle_value_pair_t handleValuePair;
     
                 // Set the value field to point to the data array
-                DBG_PRINTF("reading response %s\r\n", (char *)respondStringPtr);
-                DBG_PRINTF("Sending to Perpherial\r\n");
+                //DBG_PRINTF("reading response %s\r\n", (char *)respondStringPtr);
+                //DBG_PRINTF("Sending to Perpherial\r\n");
                 handleValuePair.value.val = respondStringPtr;
                 handleValuePair.value.len = MAX_LENGTH;
                 handleValuePair.attrHandle = CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE;
@@ -297,9 +297,9 @@ void AppCallBack(uint32 event, void *eventParam)
                 
                 // Test to see if charger was working properly
                 pinReadValue = Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM);
-                DBG_PRINTF("charge status: %d\r\n", pinReadValue);
+                //DBG_PRINTF("charge status: %d\r\n", pinReadValue);
                 
-                DBG_PRINTF("entered read case custom service\r\n");
+                //DBG_PRINTF("entered read case custom service\r\n");
                 
             }
             break;
@@ -309,10 +309,10 @@ void AppCallBack(uint32 event, void *eventParam)
             
             
         case CY_BLE_EVT_GATTS_WRITE_REQ:
-            {
+            {                 
                 cy_stc_ble_gatts_write_cmd_req_param_t *writeReq = (cy_stc_ble_gatts_write_cmd_req_param_t *)eventParam;
                 int length = writeReq->handleValPair.value.len;
-                DBG_PRINTF("Length: %d\r\n", length);
+                //DBG_PRINTF("Length: %d\r\n", length);
                 char receivedCommand[length + 1];
                 int i = 0;
                 char *tokens[10]; // An array to store the tokens, assuming a maximum of 10 tokens
@@ -335,7 +335,7 @@ void AppCallBack(uint32 event, void *eventParam)
                         receivedCommand[i] = (char)writeReq->handleValPair.value.val[i];
                     }
                     receivedCommand[length] = '\0';
-                    DBG_PRINTF("Received string: %s\r\n", receivedCommand);
+                    //DBG_PRINTF("Received string: %s\r\n", receivedCommand);
                     
                     // This splits the received command into sections by space
                     token = strtok(receivedCommand, delimiter); // Gets the first token
@@ -346,7 +346,6 @@ void AppCallBack(uint32 event, void *eventParam)
                         token_count++;
                         token = strtok(NULL, delimiter); // Get the next token
                     }
-                    
                     switch(tokens[0][0]){
                         case 't':
                         {
@@ -362,6 +361,7 @@ void AppCallBack(uint32 event, void *eventParam)
                         }
                         case 'T':
                         {
+                            int tensPhase;
                             /*
                             Packet information contains
                             1: char T - TENS
@@ -377,7 +377,7 @@ void AppCallBack(uint32 event, void *eventParam)
                                 2: char p - Phase
                                 3: int Phase Degree
                                 */
-                                int tensPhase = atoi(tokens[2]);
+                                tensPhase = atoi(tokens[2]);
                                 DBG_PRINTF("T value phase: %d\r\n", tensPhase);
                             }
                             else{
@@ -385,13 +385,12 @@ void AppCallBack(uint32 event, void *eventParam)
                                 double tensDurationValue = atof(tokens[2]);
                                 double tensPeriodValue = atof(tokens[3]);
                                 int tensChannel = atoi(tokens[4]);
-                                int phaseDegree = atoi(tokens[5]);
+                                //int phaseDegree = atoi(tokens[5]);
                                 DBG_PRINTF("T value amp: %d\r\n", tensAmpValue);
-                                DBG_PRINTF("T value duration: %s\r\n", tokens[2]);
-                                DBG_PRINTF("T value period: %s\r\n", tokens[3]);
-                                DBG_PRINTF("T Channel: %d\r\n", tensChannel);
-                                set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  phaseDegree);
-
+                                //DBG_PRINTF("T value duration: %s\r\n", tokens[2]);
+                                //DBG_PRINTF("T value period: %s\r\n", tokens[3]);
+                                //DBG_PRINTF("T Channel: %d\r\n", tensChannel);
+                                set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  tensPhase);
                             }
                             break;
                         }
@@ -413,7 +412,7 @@ void AppCallBack(uint32 event, void *eventParam)
                             DBG_PRINTF("v amp: %d\r\n", vibeAmp);
                             DBG_PRINTF("v freq: %d\r\n", vibeFreq);
                             DBG_PRINTF("v waveform: %d\r\n", vibeWaveform);
-                            set_vibe(waveType, vibeAmp, vibeFreq, vibeWaveform);
+                            //set_vibe(waveType, vibeAmp, vibeFreq, vibeWaveform);
                            
                             break;
                         }
@@ -428,35 +427,35 @@ void AppCallBack(uint32 event, void *eventParam)
                             */
                             
                             uint8_t testValue = 0;
-                            
-                            // For testing I2C
-                            uint8_t reg_address = 0x01;
+                            uint8_t reg_address = 0x7C;
                             uint8_t read_reg_data[1];
                             
                             // Calculate the number of digits in the integer
-                            //int numDigits = sprintf(NULL, 0, "%u", testValue);
+                            int numDigits = snprintf(NULL, 0, "%u", testValue);
 
                             // Allocate memory for the string, including space for the null terminator
-                            //char* addrValue = (char*)malloc(numDigits + 1);
+                            char* addrValue = (char*)malloc(numDigits + 1);
                             
                             // Check if memory allocation is successful
-                            //if (addrValue != NULL) {
+                            if (addrValue != NULL) {
                                 // Convert the uint8 to a string
-                            //    sprintf(addrValue, "%u", testValue);
+                                sprintf(addrValue, "%u", testValue);
 
-                            //} else {
+                            } else {
                                 // Handle memory allocation failure
-                            //    DBG_PRINTF("Memory allocation failed\r\n");  
-                            //    return;
-                            //}
+                                DBG_PRINTF("Memory allocation failed\r\n");  
+                                return;
+                            }
                             
-                            // Testiong I2C communication                            
-                            //Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0); // Set low for I2C communication
+                            // Set low for I2C communication
+                            //Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);
+                            CyDelayUs(100);
                             vibe_i2c_read_reg(reg_address, read_reg_data, 1);
-
+                            
+                            DBG_PRINTF("read_reg_data: %d\r\n", read_reg_data[0]);
                             //int registerAddress = atoi(tokens[1]);
                             
-                            //writeReq->handleValPair.value.val = (uint8 *) addrValue;
+                            writeReq->handleValPair.value.val = (uint8 *) addrValue;
                                 // Don't forget to free the allocated memory when done
                                 //free(addrValue);
                             
@@ -476,7 +475,7 @@ void AppCallBack(uint32 event, void *eventParam)
                     respondStringPtr = (uint8_t *)malloc(length+1 * sizeof(uint8_t));
                     respondStringPtr = writeReq->handleValPair.value.val;
                     respondStringPtr[length] = '\0';
-                    //DBG_PRINTF("value %s\r\n", (char *)respondStringPtr);
+                    DBG_PRINTF("Test %s\r\n", (char *)writeReq->handleValPair.value.val);
 
                     // Sends a write with response command
                     Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
@@ -918,6 +917,18 @@ int HostMain(void)
     //PWM_TENS2_Enable();
     
     temp_init();
+
+    
+    //AMP_PWM_Start();
+//    int temp = 16384;
+//    int set_amp = (100 * 16384) / 100;
+//    AMP_PWM_SetCompare0(set_amp);
+    // Enable is high for amp_enable
+    //Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 1);
+    
+    //power_init();
+    
+
     
     //AMP_PWM_Start();
     // Enable is high for amp_enable, I2C Testing
@@ -944,10 +955,13 @@ int HostMain(void)
         
         
         /* Start the I2S interface */
+
         //I2S_Start();
-        vibe_init();
+        //vibe_init();
+        //I2S_Start();
+        //vibe_init();
         
-        set_vibe_task();
+        //set_vibe_task();
         
         
         /* Update Alert Level value on the blue LED */

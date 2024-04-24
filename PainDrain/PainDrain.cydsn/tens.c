@@ -41,33 +41,31 @@ void tens_timer(void){
 
 void set_channel_one(void) {
     //On positive direction
-    DBG_PRINTF("Channel 1 On positive direction \r\n");
-    DBG_PRINTF("Channel 1 duration: %d\r\n", tens_one_dur_ms);
+    //DBG_PRINTF("Channel 1 On positive direction \r\n");
+    //DBG_PRINTF("Channel 1 duration: %d\r\n", tens_one_dur_ms);
     Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 1);
-
     Cy_GPIO_Write(TENS_POS1_PORT, TENS_POS1_NUM, 1);
-    
+    //DBG_PRINTF("Channel 1 duration: %d\r\n", tens_one_dur_ms);
     CyDelay(tens_one_dur_ms);
     
     //Off state in between
-    DBG_PRINTF("Channel 1 Off state in between \r\n");
-
+    //DBG_PRINTF("Channel 1 Off state in between \r\n");
     Cy_GPIO_Write(TENS_POS1_PORT, TENS_POS1_NUM, 0);
     Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 0);
     
     CyDelay(tens_one_dur_ms);
     
     //On negative direction
-    DBG_PRINTF("Channel 1 On negative direction \r\n");
+    //DBG_PRINTF("Channel 1 On negative direction \r\n");
     Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 1);
     Cy_GPIO_Write(TENS_NEG1_PORT, TENS_NEG1_NUM, 1);
     
     CyDelay(tens_one_dur_ms);
     
     //Off state in between
-    DBG_PRINTF("Channel 1 Off state in between \r\n");
+    //DBG_PRINTF("Channel 1 Off state in between \r\n");
     Cy_GPIO_Write(TENS_NEG1_PORT, TENS_NEG1_NUM, 0);
-    Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 0);
+    Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 0); 
 }
 
 void set_tens_task( void ) {
@@ -80,33 +78,31 @@ void set_tens_task( void ) {
     // Checks if Channel 2 is on, otherwise update the tens_timeout
     if (tens_timeout == 0 && tens_two_dur_ms > 0) {
         //On positive direction
-        DBG_PRINTF("Channel 2 On positive direction \r\n");
-        DBG_PRINTF("Channel 2 duration: %d\r\n", tens_two_dur_ms);
-
+        //DBG_PRINTF("Channel 2 On positive direction \r\n");
+        //DBG_PRINTF("Channel 2 duration: %d\r\n", tens_two_dur_ms);
         Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 1);
         Cy_GPIO_Write(TENS_POS2_PORT, TENS_POS2_NUM, 1);
         
         CyDelay(tens_two_dur_ms);
         
         //Off state in between
-        DBG_PRINTF("Channel 2 Off state in between \r\n");
-
+        //DBG_PRINTF("Channel 2 Off state in between \r\n");
         Cy_GPIO_Write(TENS_POS2_PORT, TENS_POS2_NUM, 0);
         Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 0);
         
         CyDelay(tens_two_dur_ms);
         
         //On negative direction
-        DBG_PRINTF("Channel 2 On negative direction \r\n");
+        //DBG_PRINTF("Channel 2 On negative direction \r\n");
         Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 1);
         Cy_GPIO_Write(TENS_NEG2_PORT, TENS_NEG2_NUM, 1);
         
         CyDelay(tens_two_dur_ms);
         
         //Off state in between
-        DBG_PRINTF("Channel 2 Off state in between \r\n");
+        //DBG_PRINTF("Channel 2 Off state in between \r\n");
         Cy_GPIO_Write(TENS_NEG2_PORT, TENS_NEG2_NUM, 0);
-        Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 0); 
+        Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 0);
     } 
     if (tens_timeout == 0 && tens_interval_ms > 0 && (tens_one_dur_ms > 0 || tens_two_dur_ms > 0)) {
         tens_timeout = tens_interval_ms;
@@ -144,6 +140,7 @@ void set_tens_dur(int duration, int32 *tens_dur_ms){
 void set_tens_amp (int amplitude) {
 
     if (amplitude == 0) {
+        DBG_PRINTF("Amplitude is off at 0 %d \r\n");
         PWM_TENS_SetCompare0(0);
         PWM_TENS2_SetCompare0(0);
         //power_flags_update(UI_MENU_TENS_AMP, 0);      
@@ -175,8 +172,10 @@ void set_tens_signal(int amplitude, double duration, double period, int channel,
         set_tens_freq(period);
     } else if(channel == 1){
         set_tens_dur(duration_case, &tens_one_dur_ms);
+        //DBG_PRINTF("Channel 1 duration: %d\r\n", tens_one_dur_ms);
     } else if(channel == 2){  
-        set_tens_dur(duration_case, &tens_two_dur_ms);        
+        set_tens_dur(duration_case, &tens_two_dur_ms); 
+        //DBG_PRINTF("Channel 2 duration: %d\r\n", tens_two_dur_ms);
     } else {
         // disable the signal
         //set_tens_amp(0);

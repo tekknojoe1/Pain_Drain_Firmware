@@ -205,9 +205,6 @@ static void ClockInit(void)
 	Cy_SysClk_ClkHfSetSource(1u, CY_SYSCLK_CLKHF_IN_CLKPATH1);
 	Cy_SysClk_ClkHfSetDivider(1u, CY_SYSCLK_CLKHF_NO_DIVIDE);
 	Cy_SysClk_ClkHfEnable(1u);
-	Cy_SysClk_ClkHfSetSource(4u, CY_SYSCLK_CLKHF_IN_CLKPATH1);
-	Cy_SysClk_ClkHfSetDivider(4u, CY_SYSCLK_CLKHF_DIVIDE_BY_8);
-	Cy_SysClk_ClkHfEnable(4u);
 
 	/* Configure Path Clocks */
 	Cy_SysClk_ClkPathSetSource(1, CY_SYSCLK_CLKPATH_IN_IMO);
