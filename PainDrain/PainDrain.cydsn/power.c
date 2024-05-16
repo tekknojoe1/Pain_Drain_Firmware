@@ -21,6 +21,7 @@
 static int power_state = 0;
 static uint32 power_timeout = 0;
 static uint32 power_flags = 0;   //Each bit indicates an active system. If all bits are zero we power down the entire device
+uint8_t chargingStatus;
 
 
 
@@ -104,6 +105,35 @@ void power_task( void ) {
     //Power button detection to wakeup
     //DBG_PRINTF("Waking up: %d\r\n", Cy_GPIO_Read(PWR_BTN_PORT, PWR_BTN_NUM));
     //Cy_GPIO_Write(PWR_BTN_PORT, PWR_BTN_NUM, 0);
+    
+    // Calls get battery status to read charge pin
+    uint8_t newChargingStatus = get_charging_status();
+    if(chargingStatus != newChargingStatus){
+        // Assigns value change to global variable
+        chargingStatus = newChargingStatus;
+        if(chargingStatus == 1){
+            // Its charging
+            DBG_PRINTF("Charging\r\n");
+            // Sends to phone and returns a bool
+            bool result = send_data_to_phone(&chargingStatus, 1);
+            if(result){
+                DBG_PRINTF("Charging Status sent\r\n");
+            }
+        } else if(chargingStatus == 0){
+            // Its not charging
+            DBG_PRINTF("Not Charging\r\n");
+            // Sends to phone and returns a bool
+            bool result = send_data_to_phone(&chargingStatus, 1);
+            if(result){
+                DBG_PRINTF("Not Charging Status sent\r\n");
+            }
+        } else {
+            // Charging Status wasn't 0 or 1
+            DBG_PRINTF("Charge Status is not 1 or 0\r\n");
+        }
+        
+    }
+    
     if (Cy_GPIO_Read(PWR_PORT, PWR_NUM) == 0) {
         power_wakeup();
         DBG_PRINTF("Waking up\r\n");
@@ -142,6 +172,12 @@ void power_task( void ) {
                 }   
             }
             
+            //Read the gas gauge chip and post the result
+            
+            
+            
+            
+            
             Cy_SysPm_Sleep(CY_SYSPM_WAIT_FOR_INTERRUPT);
         
         break;
@@ -162,6 +198,51 @@ void power_task( void ) {
             power_state = POWER_IDLE;            
         break;
     }  
+}
+
+/*
+get_charging_status() - reads the charging pin value. 1 - high, 0 - low
+*/
+uint32_t get_charging_status(){
+    return Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM);
+}
+
+/*
+send_data_to_phone() - Takes the data to be sent to phone and the length in bytes of the data.
+This sends a notification to the phone so that the phone can execute functions when a new value is recieved from device
+*/
+bool send_data_to_phone(uint8_t* data, uint16_t length){
+    cy_en_ble_api_result_t gattErr;
+    cy_stc_ble_conn_handle_t connHandle;
+    cy_stc_ble_gatt_handle_value_pair_t handleValuePair;
+    handleValuePair.value.val = data;
+    handleValuePair.value.len = length;
+    
+    /*
+    Not sure if this is needed code is needed yet
+    
+    connHandle.attId = 1; //Not sure what needs to be assigned here if anything needs to be assigned
+    connHandle.bdHandle = (CY_BLE_GAP_MAX_BONDED_DEVICE +CY_BLE_MAX_CONNECTION_INSTANCES)-1; // This should be the first device connected. Can be found under cy_stc_ble_conn_handle_t in PDL Documentation
+    */
+    
+    // Using Cy_BLE_GATTS_SendNotification() instead of Cy_BLE_GATTS_WriteAttributeValueLocal() so the phone can get notified when it has been sent something
+    gattErr = Cy_BLE_GATTS_SendNotification(&connHandle, &handleValuePair);
+    if(gattErr == CY_BLE_SUCCESS){
+        DBG_PRINTF("Success\r\n"); 
+        return true;
+    } else if(gattErr == CY_BLE_ERROR_NO_DEVICE_ENTITY){
+        DBG_PRINTF("There is no connection for the corresponding bdHandle\r\n");      
+    } else if(gattErr == CY_BLE_ERROR_INVALID_PARAMETER){
+        DBG_PRINTF("Validation of the input parameter failed\r\n");      
+    } else if(gattErr == CY_BLE_ERROR_INVALID_OPERATION){
+        DBG_PRINTF("This operation is not permitted. Or an error was returned during the write attribute value in the GATT database\r\n");      
+    } else if(gattErr == CY_BLE_ERROR_NTF_DISABLED){
+        DBG_PRINTF("Characteristic notifications disabled\r\n");      
+    } else{
+        DBG_PRINTF("Unknown Error\r\n");       
+    }
+    return false;
+    
 }
 
 void power_get_diag_data(uint8 d[]) {
