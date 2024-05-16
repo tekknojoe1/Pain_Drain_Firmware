@@ -1,3 +1,4 @@
+
 /* ========================================
  *
  * Copyright YOUR COMPANY, THE YEAR
@@ -9,14 +10,16 @@
  *
  * ========================================
 */
-#ifndef TEMP_H
-#define TEMP_H
 
-void temp_init( void );
-void set_temp(int value);
-void set_fan(int value);
+#if !defined(bitbang_spi_H)
+#define bitbang_spi_H
+	
+#include <project.h>
 
-#endif
+void bbSPI_write(uint16 buffer[], uint8 count);
+void bbSPI_read(uint16 buffer[], uint8 count);
+void bbSPI_dummy_clock_cycle(uint8 count);
+
+#endif /* bitbang_spi_H */
 
 /* [] END OF FILE */
-
