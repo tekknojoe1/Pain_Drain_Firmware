@@ -90,7 +90,7 @@ void vibe_i2c_read_reg(uint8_t reg, uint8_t* d, int num_regs) {
 }
 
 // Function to play recorded data
-void set_vibe_task(void)
+void PlayRecordedData(void)
 {
     if(isVibeOn){
         // Start playing the recorded data by enabling the DMAs 

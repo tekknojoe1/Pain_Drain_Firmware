@@ -51,6 +51,7 @@
 #include "vibe.h"
 #include <stdlib.h>
 #include "bitbang_spi.h"
+#include "my_i2c.h"
 
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
 static volatile uint32_t           mainTimer  = 1u;
@@ -456,10 +457,28 @@ void AppCallBack(uint32 event, void *eventParam)
                     }
 
                     //DBG_PRINTF("length %d\r\n", length);
-                    respondStringPtr = (uint8_t *)malloc(length+1 * sizeof(uint8_t));
-                    respondStringPtr = writeReq->handleValPair.value.val;
-                    respondStringPtr[length] = '\0';
-                    DBG_PRINTF("Test %s\r\n", (char *)writeReq->handleValPair.value.val);
+                    
+                    // Allocate memory for the string plus one extra byte for the null terminator
+                    respondStringPtr = (uint8_t *)malloc((length + 1) * sizeof(uint8_t));
+
+                    // Check if memory allocation was successful
+                    if (respondStringPtr != NULL) {
+                        // Copy the string from writeReq->handleValPair.value.val to respondStringPtr
+                        memcpy(respondStringPtr, writeReq->handleValPair.value.val, length);
+                        
+                        // Null-terminate the string
+                        respondStringPtr[length] = '\0';
+                    } else {
+                        // Handle memory allocation failure
+                        // Print an error message or take appropriate action
+                        DBG_PRINTF("Memory Allocation Failed\r\n");
+                    }
+
+                    //testing!!!!!!!!!!!!!!!!
+                    //respondStringPtr = (uint8_t *)malloc(length+1 * sizeof(uint8_t));
+                    //respondStringPtr = writeReq->handleValPair.value.val;
+                    //respondStringPtr[length] = '\0';
+                    //DBG_PRINTF("Test %s\r\n", (char *)writeReq->handleValPair.value.val);
 
                     // Sends a write with response command
                     Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
@@ -518,6 +537,7 @@ void LowPowerImplementation(void)
 *******************************************************************************/
 int HostMain(void)
 {  
+    
     power_init();
 
     /* Start BLE component and register generic event handler */

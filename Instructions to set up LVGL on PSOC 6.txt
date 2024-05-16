@@ -1,0 +1,23 @@
+Instructions for LVGL setup on PSOC 6 Cy8kit-062-BLE with CY8CKIT-028-TFT
+
+Firstly you can follow the example LVGL project here on github
+https://github.com/Infineon/mtb-example-lvgl-demo
+
+1.) This explains that Modulus Toolbox is needed to get the example project and be able to run the LVGL_Demo project. 
+
+2.) Once created in the top level of the project folder structure create a folder named ui. This should be on the same level as the source folder.
+
+3.) Once that is ready I used Squareline studio to make my UI. To import that in you will need to go into 
+Squareline studio -> Your project or an example one -> Export -> Export to the example project in Modulus toolbox to the ui folder
+
+Now you will need to do some configurations. 
+
+4.) Firstly go into the source folder -> tft_task.c -> tft_task function. In there you will see a function called lv_demo_music(). Comment this out
+since this is the demo project stuff and in place of that we will put ui_init() this will be our new ui project.
+
+5.) In the same file #include "../ui/ui.h"
+
+6.) Finally if you build and get errors with it not recognizing the new ui files you might have to adjust the include statement in ui -> ui.h
+I got errors and my include was #include "lvgl/lvgl.h" I had to make it "lvgl" and I also had to change one of the fontsizes from 18 to 16. 
+
+Once that is all fixed you should be good to go but you might have some errors. Just try to fix those small errors.
