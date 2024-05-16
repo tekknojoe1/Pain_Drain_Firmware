@@ -1,0 +1,42 @@
+# PainDrain
+# 2024-05-16 16:27:51Z
+
+dont_use_location SMIF -1 -1 0
+dont_use_location p4usbcell -1 -1 0
+dont_use_location USB -1 -1 0
+dont_use_location usbcell -1 -1 0
+set_location "ClockGenBlock" CLK_GEN -1 -1 0
+set_io "DISP_CS(0)" iocell 6 2
+set_io "DISP_INT(0)" iocell 7 1
+set_io "DISP_RST(0)" iocell 5 4
+set_io "PWR(0)" iocell 0 4
+set_io "I2C_SCL(0)" iocell 6 4
+set_io "CHG_STAT(0)" iocell 10 0
+set_io "CHG_PG(0)" iocell 10 1
+set_io "CHG_TS(0)" iocell 9 3
+set_io "PWR_BTN(0)" iocell 10 4
+set_io "AMP_MCK(0)" iocell 9 4
+set_io "TENS_PWM(0)" iocell 5 6
+set_io "TENS_POS1(0)" iocell 10 2
+set_io "TENS_NEG1(0)" iocell 12 6
+set_io "TENS_POS2(0)" iocell 12 7
+set_io "TENS_NEG2(0)" iocell 5 5
+set_io "TENS_USER_EN1(0)" iocell 6 3
+set_io "TENS_USER_EN2(0)" iocell 7 7
+set_io "TENS_SENSE(0)" iocell 10 5
+set_io "FAN_PWM(0)" iocell 10 3
+set_io "CHG_CE(0)" iocell 10 6
+set_io "DISP_SCK(0)" iocell 9 2
+set_io "DISP_MOSI(0)" iocell 9 0
+set_io "BKLGT_PWM(0)" iocell 9 6
+set_io "I2C_SDA(0)" iocell 6 5
+set_io "AMP_SDO(0)" iocell 5 3
+set_io "AMP_WS(0)" iocell 5 2
+set_io "AMP_SCK(0)" iocell 5 1
+set_io "TENS_PWM2(0)" iocell 5 0
+set_io "PEL_1(0)" iocell 9 5
+set_io "PEL_2(0)" iocell 9 1
+set_io "TEMP_USER_EN(0)" iocell 7 2
+set_io "MY_UART_PIN(0)" iocell 6 6
+set_location "\ADC:SAR\" SARADC -1 -1 0
+set_location "SRSS" SRSS -1 -1 0
