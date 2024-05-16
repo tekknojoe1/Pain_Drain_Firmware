@@ -2,7 +2,7 @@
 --	Conversion of PainDrain.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Jan 04 11:24:19 2024
+--	Thu May 16 10:27:46 2024
 --
 
 USE cypress.cypress.all;
@@ -87,6 +87,9 @@ TERMINAL tmpSIOVREF__CHG_PG_net_0 : bit;
 SIGNAL tmpFB_0__CHG_TS_net_0 : bit;
 SIGNAL tmpIO_0__CHG_TS_net_0 : bit;
 TERMINAL tmpSIOVREF__CHG_TS_net_0 : bit;
+SIGNAL tmpFB_0__PWR_BTN_net_0 : bit;
+SIGNAL tmpIO_0__PWR_BTN_net_0 : bit;
+TERMINAL tmpSIOVREF__PWR_BTN_net_0 : bit;
 SIGNAL Net_713 : bit;
 SIGNAL tmpFB_0__AMP_MCK_net_0 : bit;
 SIGNAL tmpIO_0__AMP_MCK_net_0 : bit;
@@ -97,11 +100,11 @@ SIGNAL \AMP_PWM:count\ : bit;
 SIGNAL \AMP_PWM:reload\ : bit;
 SIGNAL \AMP_PWM:kill\ : bit;
 SIGNAL \AMP_PWM:start\ : bit;
-SIGNAL Net_710 : bit;
-SIGNAL Net_711 : bit;
-SIGNAL Net_709 : bit;
-SIGNAL Net_714 : bit;
-SIGNAL Net_708 : bit;
+SIGNAL Net_875 : bit;
+SIGNAL Net_866 : bit;
+SIGNAL Net_870 : bit;
+SIGNAL Net_871 : bit;
+SIGNAL Net_868 : bit;
 SIGNAL Net_154 : bit;
 SIGNAL \PWM_TENS:swap\ : bit;
 SIGNAL \PWM_TENS:count\ : bit;
@@ -569,13 +572,8 @@ TERMINAL tmpSIOVREF__TEMP_USER_EN_net_0 : bit;
 SIGNAL tmpFB_0__MY_UART_PIN_net_0 : bit;
 SIGNAL tmpIO_0__MY_UART_PIN_net_0 : bit;
 TERMINAL tmpSIOVREF__MY_UART_PIN_net_0 : bit;
-TERMINAL Net_842 : bit;
-TERMINAL Net_22 : bit;
-SIGNAL tmpFB_0__PWR_BTN_net_0 : bit;
-SIGNAL tmpIO_0__PWR_BTN_net_0 : bit;
-TERMINAL tmpSIOVREF__PWR_BTN_net_0 : bit;
-SIGNAL Net_845 : bit;
-SIGNAL Net_843 : bit;
+SIGNAL Net_844 : bit;
+SIGNAL Net_842 : bit;
 BEGIN
 
 zero <=  ('0') ;
@@ -914,6 +912,38 @@ CHG_TS:cy_mxs40_gpio_v1_0
 		io=>(tmpIO_0__CHG_TS_net_0),
 		annotation=>(open),
 		siovref=>(tmpSIOVREF__CHG_TS_net_0));
+PWR_BTN:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"bc209d9c-7c22-49a1-91b4-caf261ba77d0",
+		drive_mode=>"2",
+		ibuf_enabled=>"1",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"2",
+		io_voltage=>"",
+		output_conn=>"0",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"I",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"0",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>(tmpFB_0__PWR_BTN_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__PWR_BTN_net_0),
+		annotation=>(open),
+		siovref=>(tmpSIOVREF__PWR_BTN_net_0));
 AMP_MCK:cy_mxs40_gpio_v1_0
 	GENERIC MAP(cy_registers=>"",
 		width=>1,
@@ -966,12 +996,12 @@ Clock_7:cy_clock_v1_0
 		reload=>zero,
 		stop=>zero,
 		start=>zero,
-		tr_underflow=>Net_710,
-		tr_compare_match=>Net_711,
-		tr_overflow=>Net_709,
-		line_compl=>Net_714,
+		tr_underflow=>Net_875,
+		tr_compare_match=>Net_866,
+		tr_overflow=>Net_870,
+		line_compl=>Net_871,
 		line=>Net_713,
-		interrupt=>Net_708);
+		interrupt=>Net_868);
 \PWM_TENS:TCPWM\:cy_mxs40_tcpwm_v1_0
 	GENERIC MAP(cy_registers=>"",
 		width=>16,
@@ -2919,53 +2949,11 @@ MY_UART_PIN:cy_mxs40_gpio_v1_0
 		io=>(tmpIO_0__MY_UART_PIN_net_0),
 		annotation=>(open),
 		siovref=>(tmpSIOVREF__MY_UART_PIN_net_0));
-SW_1:cy_annotation_universal_v1_0
-	GENERIC MAP(comp_name=>"SwitchSPST_v1_0",
-		port_names=>"T1, T2",
-		width=>2)
-	PORT MAP(connect=>(Net_842, Net_22));
-GND_4:cy_annotation_universal_v1_0
-	GENERIC MAP(comp_name=>"Gnd_v1_0",
-		port_names=>"T1",
-		width=>1)
-	PORT MAP(connect=>Net_22);
-PWR_BTN:cy_mxs40_gpio_v1_0
-	GENERIC MAP(cy_registers=>"",
-		width=>1,
-		sio_grp_cnt=>0,
-		id=>"2f33711f-0aa3-421a-9df4-9a094444e572",
-		drive_mode=>"2",
-		ibuf_enabled=>"1",
-		init_dr_st=>"1",
-		input_sync=>"0",
-		intr_mode=>"0",
-		io_voltage=>"",
-		output_conn=>"0",
-		oe_conn=>"0",
-		output_sync=>"0",
-		oe_sync=>"0",
-		drive_strength=>"0",
-		max_frequency=>"100",
-		output_current_cap=>"8",
-		i2c_mode=>"0",
-		pin_aliases=>"",
-		pin_mode=>"I",
-		slew_rate=>"0",
-		vtrip=>"0",
-		use_annotation=>"1",
-		hotswap_needed=>"0")
-	PORT MAP(oe=>(one),
-		y=>(zero),
-		fb=>(tmpFB_0__PWR_BTN_net_0),
-		analog=>(open),
-		io=>(tmpIO_0__PWR_BTN_net_0),
-		annotation=>Net_842,
-		siovref=>(tmpSIOVREF__PWR_BTN_net_0));
 \DMA_Play:DW\:cy_mxs40_dw_v1_0
 	GENERIC MAP(cy_registers=>"",
 		priority=>"11")
 	PORT MAP(tr_in=>Net_531,
-		tr_out=>Net_845,
-		interrupt=>Net_843);
+		tr_out=>Net_844,
+		interrupt=>Net_842);
 
 END R_T_L;

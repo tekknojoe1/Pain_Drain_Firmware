@@ -1,6 +1,6 @@
 // ======================================================================
 // PainDrain.v generated from TopDesign.cysch
-// 01/04/2024 at 11:24
+// 05/16/2024 at 10:27
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -2052,7 +2052,7 @@ module I2S_PDL_v2_0_9 (
 
 endmodule
 
-// TCPWM_PWM_PDL_v1_0(ClockPrescaler=0, Compare0=0, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=7, KillInputMasked=3, KillMode=2, Period0=256, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=7, StartInputMasked=3, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=PWM_PEL1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PWM_PEL1, CY_INSTANCE_SHORT_NAME=PWM_PEL1, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PWM_PEL1, )
+// TCPWM_PWM_PDL_v1_0(ClockPrescaler=0, Compare0=0, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=7, KillInputMasked=3, KillMode=2, Period0=255, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=7, StartInputMasked=3, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=PWM_PEL1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PWM_PEL1, CY_INSTANCE_SHORT_NAME=PWM_PEL1, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PWM_PEL1, )
 module TCPWM_PWM_PDL_v1_0_10 (
     clock,
     compare,
@@ -2101,7 +2101,7 @@ module TCPWM_PWM_PDL_v1_0_10 (
 
 endmodule
 
-// TCPWM_PWM_PDL_v1_0(ClockPrescaler=0, Compare0=0, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=7, KillInputMasked=3, KillMode=2, Period0=256, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=7, StartInputMasked=3, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=PWM_PEL2, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PWM_PEL2, CY_INSTANCE_SHORT_NAME=PWM_PEL2, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PWM_PEL2, )
+// TCPWM_PWM_PDL_v1_0(ClockPrescaler=0, Compare0=0, Compare1=16384, CountInput=7, CountInputMasked=3, DeadClocks=0, EnableCompareSwap=false, EnablePeriodSwap=false, InterruptSource=0, InvertPwm=false, InvertPwm_n=false, KillInput=7, KillInputMasked=3, KillMode=2, Period0=255, Period1=32768, PwmAlignment=0, PwmMode=4, ReloadInput=7, ReloadInputMasked=3, Resolution=16, RunMode=0, StartInput=7, StartInputMasked=3, SwapInput=7, SwapInputMasked=3, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_PWM_PDL_v1_0, CY_CONFIG_TITLE=PWM_PEL2, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PWM_PEL2, CY_INSTANCE_SHORT_NAME=PWM_PEL2, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=tcpwm, CY_PDL_DRIVER_REQ_VERSION=1.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PWM_PEL2, )
 module TCPWM_PWM_PDL_v1_0_11 (
     clock,
     compare,
@@ -2174,9 +2174,8 @@ endmodule
 // top
 module top ;
 
-          wire  Net_845;
-          wire  Net_843;
-    electrical  Net_842;
+          wire  Net_844;
+          wire  Net_842;
           wire  Net_743;
           wire  Net_602;
           wire  Net_601;
@@ -2267,17 +2266,17 @@ module top ;
           wire  Net_156;
           wire  Net_155;
           wire  Net_154;
-          wire  Net_710;
-          wire  Net_707;
-          wire  Net_705;
-          wire  Net_704;
-          wire  Net_714;
-          wire  Net_709;
-          wire  Net_703;
-          wire  Net_708;
-          wire  Net_706;
-          wire  Net_711;
-          wire  Net_752;
+          wire  Net_875;
+          wire  Net_874;
+          wire  Net_873;
+          wire  Net_872;
+          wire  Net_871;
+          wire  Net_870;
+          wire  Net_869;
+          wire  Net_868;
+          wire  Net_867;
+          wire  Net_866;
+          wire  Net_879;
           wire  Net_712;
           wire  Net_713;
           wire  Net_562;
@@ -2311,7 +2310,6 @@ module top ;
           wire  Net_106;
           wire  Net_105;
           wire  Net_531;
-    electrical  Net_22;
     electrical  Net_301;
           wire  Net_71;
 
@@ -2654,6 +2652,42 @@ module top ;
 		  .siovref(tmpSIOVREF__CHG_TS_net));
 
 
+	wire [0:0] tmpFB_0__PWR_BTN_net;
+	wire [0:0] tmpIO_0__PWR_BTN_net;
+	electrical [0:0] tmpSIOVREF__PWR_BTN_net;
+
+	cy_mxs40_gpio_v1_0
+		#(.id("bc209d9c-7c22-49a1-91b4-caf261ba77d0"),
+		  .width(1),
+		  .sio_grp_cnt(0),
+		  .drive_mode("2"),
+		  .ibuf_enabled("1"),
+		  .init_dr_st("1"),
+		  .input_sync("0"),
+		  .intr_mode("2"),
+		  .io_voltage(""),
+		  .output_conn("0"),
+		  .oe_conn("0"),
+		  .output_sync("0"),
+		  .oe_sync("0"),
+		  .drive_strength("0"),
+		  .max_frequency("100"),
+		  .i2c_mode("0"),
+		  .output_current_cap("8"),
+		  .pin_aliases(""),
+		  .pin_mode("I"),
+		  .slew_rate("0"),
+		  .vtrip("0"),
+		  .use_annotation("0"),
+		  .hotswap_needed("0"))
+		PWR_BTN
+		 (.oe({1'b1}),
+		  .y({1'b0}),
+		  .fb({tmpFB_0__PWR_BTN_net[0:0]}),
+		  .io({tmpIO_0__PWR_BTN_net[0:0]}),
+		  .siovref(tmpSIOVREF__PWR_BTN_net));
+
+
 	wire [0:0] tmpFB_0__AMP_MCK_net;
 	wire [0:0] tmpIO_0__AMP_MCK_net;
 	electrical [0:0] tmpSIOVREF__AMP_MCK_net;
@@ -2704,17 +2738,17 @@ module top ;
 
     TCPWM_PWM_PDL_v1_0_4 AMP_PWM (
         .clock(Net_712),
-        .compare(Net_711),
+        .compare(Net_866),
         .count(1'b1),
-        .interrupt(Net_708),
+        .interrupt(Net_868),
         .kill(1'b0),
-        .ovrflw(Net_709),
+        .ovrflw(Net_870),
         .pwm(Net_713),
-        .pwm_n(Net_714),
+        .pwm_n(Net_871),
         .reload(1'b0),
         .start(1'b0),
         .swap(1'b0),
-        .undrflw(Net_710));
+        .undrflw(Net_875));
 
     TCPWM_PWM_PDL_v1_0_5 PWM_TENS (
         .clock(Net_154),
@@ -3695,66 +3729,10 @@ module top ;
 		  .siovref(tmpSIOVREF__MY_UART_PIN_net));
 
 
-    cy_annotation_universal_v1_0 SW_1 (
-        .connect({
-            Net_842,
-            Net_22
-        })
-    );
-    defparam SW_1.comp_name = "SwitchSPST_v1_0";
-    defparam SW_1.port_names = "T1, T2";
-    defparam SW_1.width = 2;
-
-    cy_annotation_universal_v1_0 GND_4 (
-        .connect({
-            Net_22
-        })
-    );
-    defparam GND_4.comp_name = "Gnd_v1_0";
-    defparam GND_4.port_names = "T1";
-    defparam GND_4.width = 1;
-
-	wire [0:0] tmpFB_0__PWR_BTN_net;
-	wire [0:0] tmpIO_0__PWR_BTN_net;
-	electrical [0:0] tmpSIOVREF__PWR_BTN_net;
-
-	cy_mxs40_gpio_v1_0
-		#(.id("2f33711f-0aa3-421a-9df4-9a094444e572"),
-		  .width(1),
-		  .sio_grp_cnt(0),
-		  .drive_mode("2"),
-		  .ibuf_enabled("1"),
-		  .init_dr_st("1"),
-		  .input_sync("0"),
-		  .intr_mode("0"),
-		  .io_voltage(""),
-		  .output_conn("0"),
-		  .oe_conn("0"),
-		  .output_sync("0"),
-		  .oe_sync("0"),
-		  .drive_strength("0"),
-		  .max_frequency("100"),
-		  .i2c_mode("0"),
-		  .output_current_cap("8"),
-		  .pin_aliases(""),
-		  .pin_mode("I"),
-		  .slew_rate("0"),
-		  .vtrip("0"),
-		  .use_annotation("1"),
-		  .hotswap_needed("0"))
-		PWR_BTN
-		 (.oe({1'b1}),
-		  .y({1'b0}),
-		  .fb({tmpFB_0__PWR_BTN_net[0:0]}),
-		  .io({tmpIO_0__PWR_BTN_net[0:0]}),
-		  .siovref(tmpSIOVREF__PWR_BTN_net),
-		  .annotation({Net_842}));
-
-
     DMA_PDL_v2_0_12 DMA_Play (
-        .interrupt(Net_843),
+        .interrupt(Net_842),
         .tr_in(Net_531),
-        .tr_out(Net_845));
+        .tr_out(Net_844));
 
 
 

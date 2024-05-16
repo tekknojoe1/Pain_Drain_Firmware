@@ -1,5 +1,5 @@
 -- Project:   PainDrain
--- Generated: 01/04/2024 11:24:24
+-- Generated: 05/16/2024 10:27:52
 -- PSoC Creator  4.4
 
 ENTITY PainDrain IS
@@ -12,6 +12,7 @@ ENTITY PainDrain IS
         CHG_STAT(0)_PAD : IN std_ulogic;
         CHG_PG(0)_PAD : IN std_ulogic;
         CHG_TS(0)_PAD : OUT std_ulogic;
+        PWR_BTN(0)_PAD : IN std_ulogic;
         AMP_MCK(0)_PAD : OUT std_ulogic;
         TENS_PWM(0)_PAD : OUT std_ulogic;
         TENS_POS1(0)_PAD : OUT std_ulogic;
@@ -33,8 +34,7 @@ ENTITY PainDrain IS
         PEL_1(0)_PAD : OUT std_ulogic;
         PEL_2(0)_PAD : OUT std_ulogic;
         TEMP_USER_EN(0)_PAD : OUT std_ulogic;
-        MY_UART_PIN(0)_PAD : OUT std_ulogic;
-        PWR_BTN(0)_PAD : IN std_ulogic);
+        MY_UART_PIN(0)_PAD : OUT std_ulogic);
     ATTRIBUTE voltage_VBACKUP OF __DEFAULT__ : ENTITY IS 3.3e0;
     ATTRIBUTE voltage_VDDA_CSD OF __DEFAULT__ : ENTITY IS 3.3e0;
     ATTRIBUTE voltage_VDDIO_A OF __DEFAULT__ : ENTITY IS 3.3e0;
@@ -166,16 +166,16 @@ ARCHITECTURE __DEFAULT__ OF PainDrain IS
     SIGNAL Net_597 : bit;
     SIGNAL Net_598 : bit;
     SIGNAL Net_602 : bit;
-    SIGNAL Net_708 : bit;
-    SIGNAL Net_709 : bit;
-    SIGNAL Net_710 : bit;
-    SIGNAL Net_711 : bit;
     SIGNAL Net_712_ff11 : bit;
     ATTRIBUTE global_signal OF Net_712_ff11 : SIGNAL IS true;
     SIGNAL Net_713 : bit;
-    SIGNAL Net_714 : bit;
-    SIGNAL Net_843 : bit;
-    SIGNAL Net_845 : bit;
+    SIGNAL Net_842 : bit;
+    SIGNAL Net_844 : bit;
+    SIGNAL Net_866 : bit;
+    SIGNAL Net_868 : bit;
+    SIGNAL Net_870 : bit;
+    SIGNAL Net_871 : bit;
+    SIGNAL Net_875 : bit;
     SIGNAL PEL_1(0)__PA : bit;
     SIGNAL PEL_2(0)__PA : bit;
     SIGNAL PM_INT_OUT : bit;
@@ -228,54 +228,54 @@ ARCHITECTURE __DEFAULT__ OF PainDrain IS
     ATTRIBUTE Location OF CHG_PG(0) : LABEL IS "P10[1]";
     ATTRIBUTE lib_model OF CHG_TS(0) : LABEL IS "iocell8";
     ATTRIBUTE Location OF CHG_TS(0) : LABEL IS "P9[3]";
-    ATTRIBUTE lib_model OF AMP_MCK(0) : LABEL IS "iocell9";
+    ATTRIBUTE lib_model OF PWR_BTN(0) : LABEL IS "iocell9";
+    ATTRIBUTE Location OF PWR_BTN(0) : LABEL IS "P10[4]";
+    ATTRIBUTE lib_model OF AMP_MCK(0) : LABEL IS "iocell10";
     ATTRIBUTE Location OF AMP_MCK(0) : LABEL IS "P9[4]";
-    ATTRIBUTE lib_model OF TENS_PWM(0) : LABEL IS "iocell10";
+    ATTRIBUTE lib_model OF TENS_PWM(0) : LABEL IS "iocell11";
     ATTRIBUTE Location OF TENS_PWM(0) : LABEL IS "P5[6]";
-    ATTRIBUTE lib_model OF TENS_POS1(0) : LABEL IS "iocell11";
+    ATTRIBUTE lib_model OF TENS_POS1(0) : LABEL IS "iocell12";
     ATTRIBUTE Location OF TENS_POS1(0) : LABEL IS "P10[2]";
-    ATTRIBUTE lib_model OF TENS_NEG1(0) : LABEL IS "iocell12";
+    ATTRIBUTE lib_model OF TENS_NEG1(0) : LABEL IS "iocell13";
     ATTRIBUTE Location OF TENS_NEG1(0) : LABEL IS "P12[6]";
-    ATTRIBUTE lib_model OF TENS_POS2(0) : LABEL IS "iocell13";
+    ATTRIBUTE lib_model OF TENS_POS2(0) : LABEL IS "iocell14";
     ATTRIBUTE Location OF TENS_POS2(0) : LABEL IS "P12[7]";
-    ATTRIBUTE lib_model OF TENS_NEG2(0) : LABEL IS "iocell14";
+    ATTRIBUTE lib_model OF TENS_NEG2(0) : LABEL IS "iocell15";
     ATTRIBUTE Location OF TENS_NEG2(0) : LABEL IS "P5[5]";
-    ATTRIBUTE lib_model OF TENS_USER_EN1(0) : LABEL IS "iocell15";
+    ATTRIBUTE lib_model OF TENS_USER_EN1(0) : LABEL IS "iocell16";
     ATTRIBUTE Location OF TENS_USER_EN1(0) : LABEL IS "P6[3]";
-    ATTRIBUTE lib_model OF TENS_USER_EN2(0) : LABEL IS "iocell16";
-    ATTRIBUTE Location OF TENS_USER_EN2(0) : LABEL IS "P0[0]";
-    ATTRIBUTE lib_model OF TENS_SENSE(0) : LABEL IS "iocell17";
+    ATTRIBUTE lib_model OF TENS_USER_EN2(0) : LABEL IS "iocell17";
+    ATTRIBUTE Location OF TENS_USER_EN2(0) : LABEL IS "P7[7]";
+    ATTRIBUTE lib_model OF TENS_SENSE(0) : LABEL IS "iocell18";
     ATTRIBUTE Location OF TENS_SENSE(0) : LABEL IS "P10[5]";
-    ATTRIBUTE lib_model OF FAN_PWM(0) : LABEL IS "iocell18";
+    ATTRIBUTE lib_model OF FAN_PWM(0) : LABEL IS "iocell19";
     ATTRIBUTE Location OF FAN_PWM(0) : LABEL IS "P10[3]";
-    ATTRIBUTE lib_model OF CHG_CE(0) : LABEL IS "iocell19";
+    ATTRIBUTE lib_model OF CHG_CE(0) : LABEL IS "iocell20";
     ATTRIBUTE Location OF CHG_CE(0) : LABEL IS "P10[6]";
-    ATTRIBUTE lib_model OF DISP_SCK(0) : LABEL IS "iocell20";
+    ATTRIBUTE lib_model OF DISP_SCK(0) : LABEL IS "iocell21";
     ATTRIBUTE Location OF DISP_SCK(0) : LABEL IS "P9[2]";
-    ATTRIBUTE lib_model OF DISP_MOSI(0) : LABEL IS "iocell21";
+    ATTRIBUTE lib_model OF DISP_MOSI(0) : LABEL IS "iocell22";
     ATTRIBUTE Location OF DISP_MOSI(0) : LABEL IS "P9[0]";
-    ATTRIBUTE lib_model OF BKLGT_PWM(0) : LABEL IS "iocell22";
+    ATTRIBUTE lib_model OF BKLGT_PWM(0) : LABEL IS "iocell23";
     ATTRIBUTE Location OF BKLGT_PWM(0) : LABEL IS "P9[6]";
-    ATTRIBUTE lib_model OF I2C_SDA(0) : LABEL IS "iocell23";
+    ATTRIBUTE lib_model OF I2C_SDA(0) : LABEL IS "iocell24";
     ATTRIBUTE Location OF I2C_SDA(0) : LABEL IS "P6[5]";
-    ATTRIBUTE lib_model OF AMP_SDO(0) : LABEL IS "iocell24";
+    ATTRIBUTE lib_model OF AMP_SDO(0) : LABEL IS "iocell25";
     ATTRIBUTE Location OF AMP_SDO(0) : LABEL IS "P5[3]";
-    ATTRIBUTE lib_model OF AMP_WS(0) : LABEL IS "iocell25";
+    ATTRIBUTE lib_model OF AMP_WS(0) : LABEL IS "iocell26";
     ATTRIBUTE Location OF AMP_WS(0) : LABEL IS "P5[2]";
-    ATTRIBUTE lib_model OF AMP_SCK(0) : LABEL IS "iocell26";
+    ATTRIBUTE lib_model OF AMP_SCK(0) : LABEL IS "iocell27";
     ATTRIBUTE Location OF AMP_SCK(0) : LABEL IS "P5[1]";
-    ATTRIBUTE lib_model OF TENS_PWM2(0) : LABEL IS "iocell27";
+    ATTRIBUTE lib_model OF TENS_PWM2(0) : LABEL IS "iocell28";
     ATTRIBUTE Location OF TENS_PWM2(0) : LABEL IS "P5[0]";
-    ATTRIBUTE lib_model OF PEL_1(0) : LABEL IS "iocell28";
+    ATTRIBUTE lib_model OF PEL_1(0) : LABEL IS "iocell29";
     ATTRIBUTE Location OF PEL_1(0) : LABEL IS "P9[5]";
-    ATTRIBUTE lib_model OF PEL_2(0) : LABEL IS "iocell29";
+    ATTRIBUTE lib_model OF PEL_2(0) : LABEL IS "iocell30";
     ATTRIBUTE Location OF PEL_2(0) : LABEL IS "P9[1]";
-    ATTRIBUTE lib_model OF TEMP_USER_EN(0) : LABEL IS "iocell30";
+    ATTRIBUTE lib_model OF TEMP_USER_EN(0) : LABEL IS "iocell31";
     ATTRIBUTE Location OF TEMP_USER_EN(0) : LABEL IS "P7[2]";
-    ATTRIBUTE lib_model OF MY_UART_PIN(0) : LABEL IS "iocell31";
+    ATTRIBUTE lib_model OF MY_UART_PIN(0) : LABEL IS "iocell32";
     ATTRIBUTE Location OF MY_UART_PIN(0) : LABEL IS "P6[6]";
-    ATTRIBUTE lib_model OF PWR_BTN(0) : LABEL IS "iocell32";
-    ATTRIBUTE Location OF PWR_BTN(0) : LABEL IS "P7[7]";
     ATTRIBUTE Location OF \BLE:cy_mxs40_ble\ : LABEL IS "F(BLE,0)";
     ATTRIBUTE Location OF \BLE:bless_isr\ : LABEL IS "[IntrContainer=(0)][IntrId=(24)]";
     ATTRIBUTE Location OF \SPI:SCB\ : LABEL IS "F(SCB,2)";
@@ -1158,6 +1158,60 @@ BEGIN
             pa_out => CHG_TS(0)__PA,
             oe => open,
             pad_in => CHG_TS(0)_PAD,
+            in_clock => open,
+            in_clock_en => open,
+            in_reset => open,
+            out_clock => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    PWR_BTN:logicalport
+        GENERIC MAP(
+            cy_registers => "",
+            drive_mode => "010",
+            drive_strength => "0",
+            hotswap_needed => "0",
+            i2c_mode => "0",
+            ibuf_enabled => "1",
+            id => "bc209d9c-7c22-49a1-91b4-caf261ba77d0",
+            init_dr_st => "1",
+            input_sync => "0",
+            intr_mode => "10",
+            io_voltage => "",
+            max_frequency => "100",
+            oe_conn => "0",
+            oe_sync => "0",
+            output_conn => "0",
+            output_current_cap => "8",
+            output_sync => "0",
+            pin_aliases => "",
+            pin_mode => "B",
+            sio_grp_cnt => 0,
+            slew_rate => "0",
+            use_annotation => "0",
+            vtrip => "00",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0);
+
+    PWR_BTN(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "PWR_BTN",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => PWR_BTN(0)__PA,
+            oe => open,
+            pad_in => PWR_BTN(0)_PAD,
             in_clock => open,
             in_clock_en => open,
             in_reset => open,
@@ -2430,60 +2484,6 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    PWR_BTN:logicalport
-        GENERIC MAP(
-            cy_registers => "",
-            drive_mode => "010",
-            drive_strength => "0",
-            hotswap_needed => "0",
-            i2c_mode => "0",
-            ibuf_enabled => "1",
-            id => "2f33711f-0aa3-421a-9df4-9a094444e572",
-            init_dr_st => "1",
-            input_sync => "0",
-            intr_mode => "00",
-            io_voltage => "",
-            max_frequency => "100",
-            oe_conn => "0",
-            oe_sync => "0",
-            output_conn => "0",
-            output_current_cap => "8",
-            output_sync => "0",
-            pin_aliases => "",
-            pin_mode => "B",
-            sio_grp_cnt => 0,
-            slew_rate => "0",
-            use_annotation => "1",
-            vtrip => "00",
-            width => 1,
-            in_clk_inv => 0,
-            in_clken_inv => 0,
-            in_clken_mode => 1,
-            in_rst_inv => 0,
-            out_clk_inv => 0,
-            out_clken_inv => 0,
-            out_clken_mode => 1,
-            out_rst_inv => 0);
-
-    PWR_BTN(0):iocell
-        GENERIC MAP(
-            in_sync_mode => 0,
-            out_sync_mode => 0,
-            oe_sync_mode => 0,
-            logicalport => "PWR_BTN",
-            logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
-        PORT MAP(
-            pa_out => PWR_BTN(0)__PA,
-            oe => open,
-            pad_in => PWR_BTN(0)_PAD,
-            in_clock => open,
-            in_clock_en => open,
-            in_reset => open,
-            out_clock => open,
-            out_clock_en => open,
-            out_reset => open);
-
     \BLE:cy_mxs40_ble\:BLE
         GENERIC MAP(
             cy_registers => "",
@@ -2576,12 +2576,12 @@ BEGIN
             reload => '0',
             stop => '0',
             start => '0',
-            tr_underflow => Net_710,
-            tr_compare_match => Net_711,
-            tr_overflow => Net_709,
-            line_compl => Net_714,
+            tr_underflow => Net_875,
+            tr_compare_match => Net_866,
+            tr_overflow => Net_870,
+            line_compl => Net_871,
             line => Net_713,
-            interrupt => Net_708);
+            interrupt => Net_868);
 
     \PWM_TENS:TCPWM\:TCPWM
         GENERIC MAP(
@@ -2753,8 +2753,8 @@ BEGIN
             priority => "11")
         PORT MAP(
             dmareq => Net_531,
-            termout => Net_845,
-            interrupt => Net_843,
+            termout => Net_844,
+            interrupt => Net_842,
             clock => ClockBlock_PeriClk);
 
     SRSS:SRSS
