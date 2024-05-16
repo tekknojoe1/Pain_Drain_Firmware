@@ -190,7 +190,7 @@ void WdtInterruptHandler(void)
 		//Cy_GPIO_Inv(BLUE_LED_WDT_INT_0_PORT, BLUE_LED_WDT_INT_0_NUM);
         
         power_timer();
-        ui_timer();
+        //ui_timer();
 	}
 }
 

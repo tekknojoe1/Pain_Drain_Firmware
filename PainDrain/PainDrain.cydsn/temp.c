@@ -30,7 +30,6 @@ void temp_init(void) {
     
     PWM_PEL1_SetCompare0(0);
     PWM_PEL2_SetCompare0(0);
-    PWM_FAN_SetCompare0(0);
 }
 
 void set_temp(int value){
@@ -46,8 +45,8 @@ void set_temp(int value){
         PWM_PEL2_SetCompare0(0);
         //PWM_PEL2_Disable();
         
-        // Turn on PEL1       
-        Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 1);  //Enable is high
+        // Turn on PEL1
+        //Cy_GPIO_Write(TEMP_USER_EN1_PORT, TEMP_USER_EN1_NUM, 1);  //Enable is high
         PWM_PEL1_SetCompare0(scaled_pel_pwm);
         DBG_PRINTF("PWM1 Value: %d\r\n", scaled_pel_pwm);
         DBG_PRINTF("PWM1 GetCompare: %d\r\n", PWM_PEL1_GetCompare0());
@@ -58,8 +57,8 @@ void set_temp(int value){
         PWM_PEL1_SetCompare0(0);
         //PWM_PEL1_Disable();
         
-        // Turn on PEL2        
-        Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 1);  //Enable is high
+        // Turn on PEL2
+        //Cy_GPIO_Write(TEMP_USER_EN1_PORT, TEMP_USER_EN1_NUM, 1);  //Enable is high
         PWM_PEL2_SetCompare0(scaled_pel_pwm);
         DBG_PRINTF("PWM2 Value: %d\r\n", scaled_pel_pwm);
         DBG_PRINTF("PWM2 GetCompare: %d\r\n", PWM_PEL2_GetCompare0());
@@ -72,9 +71,10 @@ void set_temp(int value){
         set_fan(0);
         //PWM_PEL1_Disable();
         //PWM_PEL2_Disable();
-        Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);  //Enable is low
+        //Cy_GPIO_Write(TEMP_USER_EN1_PORT, TEMP_USER_EN1_NUM, 0);  //Enable is low
         DBG_PRINTF("Disabled PWM1 GetCompare: %d\r\n", PWM_PEL1_GetCompare0());
         DBG_PRINTF("Disabled PWM2 GetCompare: %d\r\n", PWM_PEL2_GetCompare0());
+        set_fan(0);
     } 
 }
 
@@ -89,10 +89,11 @@ void set_fan(int value){
     //Update Fan
     if (value == 0) {
         //Turn fan off
-        PWM_FAN_SetCompare0(0);
+        Cy_GPIO_Write(FAN_EN_PORT, FAN_EN_NUM, 0);
     } else {
         //Adjust fan
-        PWM_FAN_SetCompare0(value);
+        Cy_GPIO_Write(FAN_EN_PORT, FAN_EN_NUM, 1);
+        //PWM_FAN_SetCompare0(scaled_fan_pwm);
     }
     DBG_PRINTF("Fan value: %d\r\n", scaled_fan_pwm);
 }

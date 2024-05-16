@@ -121,21 +121,19 @@ void set_tens_freq (double period) {
     }
 }
 
-
 void set_tens_dur(int duration, int32 *tens_dur_ms){
-    int tolerance = 30;
     switch (duration) {
         default: *tens_dur_ms = 0; break;   
-        case 1: *tens_dur_ms = 100 - tolerance; break;
-        case 2: *tens_dur_ms = 200 - tolerance; break;
-        case 3: *tens_dur_ms = 300 - tolerance; break;
-        case 4: *tens_dur_ms = 400 - tolerance; break;
-        case 5: *tens_dur_ms = 500 - tolerance; break;
-        case 6: *tens_dur_ms = 600 - tolerance; break;
-        case 7: *tens_dur_ms = 700 - tolerance; break;
-        case 8: *tens_dur_ms = 800 - tolerance; break;
-        case 9: *tens_dur_ms = 900 - tolerance; break;
-        case 10: *tens_dur_ms = 1000 - tolerance; break;
+        case 1: *tens_dur_ms = 100; break;
+        case 2: *tens_dur_ms = 200; break;
+        case 3: *tens_dur_ms = 300; break;
+        case 4: *tens_dur_ms = 400; break;
+        case 5: *tens_dur_ms = 500; break;
+        case 6: *tens_dur_ms = 600; break;
+        case 7: *tens_dur_ms = 700; break;
+        case 8: *tens_dur_ms = 800; break;
+        case 9: *tens_dur_ms = 900; break;
+        case 10: *tens_dur_ms = 1000; break;
     }
 }
 
@@ -147,7 +145,6 @@ void set_tens_amp (int amplitude) {
         PWM_TENS2_SetCompare0(0);
         //power_flags_update(UI_MENU_TENS_AMP, 0);      
         tens_interval_ms = -1; //Disable timer
-        
     } else {           
         // Limiting PWM Value
         int scaled_pwm_value = (amplitude * MAX_TENS_PWM_VALUE) / 100;
@@ -167,8 +164,8 @@ void set_tens_amp (int amplitude) {
 void set_tens_signal(int amplitude, double duration, double period, int channel, int phase) {
     
     int duration_case = (int)(duration*10);
-
     tens_phase_shift = phase;
+    
     if(channel == 0){
         // Amplitude and Period will be the same for both channels.
         set_tens_amp(amplitude);

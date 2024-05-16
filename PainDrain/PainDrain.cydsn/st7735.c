@@ -140,12 +140,12 @@ void ST7735_Reset ( void )
 void ST7735_SPI_Init (void)
 {
   
-    cy_en_scb_spi_status_t initStatus;
+    //cy_en_scb_spi_status_t initStatus;
         
     /* Configure component */
-    initStatus = Cy_SCB_SPI_Init(SPI_HW, &SPI_config, NULL);
+    //initStatus = Cy_SCB_SPI_Init(SPI_HW, &SPI_config, NULL);
         
-    Cy_SCB_SPI_Enable(SPI_HW);
+    //Cy_SCB_SPI_Enable(SPI_HW);
     
     
     __enable_irq(); /* Enable global interrupts. */
@@ -266,20 +266,20 @@ uint8_t ST7735_CommandSend (uint8_t data)
     // transmitting data
       
     /* Clear Master status and Tx FIFO status. */
-    Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
-    Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
-    Cy_SCB_SPI_ClearTxFifo(SPI_HW);
+    //Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
+    //Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
+    //Cy_SCB_SPI_ClearTxFifo(SPI_HW);
     
     /* Clear Rx FIFO status. */
-    Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
-    Cy_SCB_SPI_ClearRxFifo(SPI_HW);
+    //Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
+    //Cy_SCB_SPI_ClearRxFifo(SPI_HW);
     
     
     
-    Cy_SCB_SPI_Write(SPI_HW, data);
+    //Cy_SCB_SPI_Write(SPI_HW, data);
     
     do {
-        count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
+        //count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
     } while (count < 1);
         
     //do
@@ -288,7 +288,7 @@ uint8_t ST7735_CommandSend (uint8_t data)
     //    
     //}while ( (masterStatus != (CY_SCB_SPI_MASTER_DONE)) );
     
-    d = Cy_SCB_SPI_Read(SPI_HW);  
+    //d = Cy_SCB_SPI_Read(SPI_HW);  
     
     
     
@@ -325,20 +325,20 @@ uint8_t ST7735_Data8BitsSend (uint8_t data)
     // transmitting data
       
     /* Clear Master status and Tx FIFO status. */
-    Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
-    Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
-    Cy_SCB_SPI_ClearTxFifo(SPI_HW);
+    //Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
+    //Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
+    //Cy_SCB_SPI_ClearTxFifo(SPI_HW);
     
     /* Clear Rx FIFO status. */
-    Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
-    Cy_SCB_SPI_ClearRxFifo(SPI_HW);
+    //Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
+   // Cy_SCB_SPI_ClearRxFifo(SPI_HW);
     
     
     
-    Cy_SCB_SPI_Write(SPI_HW, data);
+    //Cy_SCB_SPI_Write(SPI_HW, data);
     
     do {
-        count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
+        //count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
     } while (count < 1);
         
     //do
@@ -347,7 +347,7 @@ uint8_t ST7735_Data8BitsSend (uint8_t data)
     //    
     //}while ( (masterStatus != (CY_SCB_SPI_MASTER_DONE)) );
     
-    d = Cy_SCB_SPI_Read(SPI_HW);  
+    //d = Cy_SCB_SPI_Read(SPI_HW);  
     
     
     
@@ -384,21 +384,21 @@ uint8_t ST7735_Data16BitsSend (uint16_t data)
     
     
     /* Clear Master status and Tx FIFO status. */
-    Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
-    Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
-    Cy_SCB_SPI_ClearTxFifo(SPI_HW);
+    //Cy_SCB_SPI_ClearSlaveMasterStatus(SPI_HW, masterStatus);
+    //Cy_SCB_SPI_ClearTxFifoStatus(SPI_HW, CY_SCB_SPI_TX_INTR_MASK );
+   // Cy_SCB_SPI_ClearTxFifo(SPI_HW);
     
     /* Clear Rx FIFO status. */
-    Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
-    Cy_SCB_SPI_ClearRxFifo(SPI_HW);
+    //Cy_SCB_SPI_ClearRxFifoStatus(SPI_HW, CY_SCB_SPI_RX_INTR_MASK );
+    //Cy_SCB_SPI_ClearRxFifo(SPI_HW);
     
     d[0] = data>>8;
     d[1] = data & 0xFF;
     
-    Cy_SCB_SPI_WriteArray(SPI_HW, d, 2);
+    //Cy_SCB_SPI_WriteArray(SPI_HW, d, 2);
     
     do {
-        count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
+        //count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
     } while (count < 2);
     
     //do
@@ -407,8 +407,8 @@ uint8_t ST7735_Data16BitsSend (uint16_t data)
     //    
     //}while ( (masterStatus != (CY_SCB_SPI_MASTER_DONE)) );
     
-    d[0] = Cy_SCB_SPI_Read(SPI_HW); 
-    d[1] = Cy_SCB_SPI_Read(SPI_HW); 
+    //d[0] = Cy_SCB_SPI_Read(SPI_HW); 
+    //d[1] = Cy_SCB_SPI_Read(SPI_HW); 
     
     
     // transmitting data high byte
