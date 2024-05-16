@@ -492,6 +492,7 @@ void AppCallBack(uint32 event, void *eventParam)
                         DBG_PRINTF("Memory Allocation Failed\r\n");
                     }
 
+                    //testing!!!!!!!!!!!!!!!!
                     //respondStringPtr = (uint8_t *)malloc(length+1 * sizeof(uint8_t));
                     //respondStringPtr = writeReq->handleValPair.value.val;
                     //respondStringPtr[length] = '\0';
