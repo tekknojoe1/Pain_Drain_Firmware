@@ -30,7 +30,6 @@ void temp_init(void) {
     
     PWM_PEL1_SetCompare0(0);
     PWM_PEL2_SetCompare0(0);
-    //PWM_FAN_SetCompare0(0);
 }
 
 void set_temp(int value){

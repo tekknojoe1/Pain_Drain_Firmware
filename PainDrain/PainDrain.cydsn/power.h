@@ -18,6 +18,8 @@ void power_wakeup( void );
 void power_i2c_read_reg(uint8_t reg, uint8_t* d, int num_regs);
 void power_i2c_write_reg(uint8_t reg, uint8_t d);
 void power_get_diag_data(uint8 d[]);
+uint32_t get_charging_status();
+bool send_data_to_phone(uint8_t* value, uint16_t length);
 void power_flags_update(int flag, int state);
 void power_5v_on( void );
 void power_5v_off( void );
