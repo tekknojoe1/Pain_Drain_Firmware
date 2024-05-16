@@ -1,0 +1,37 @@
+# .gitignore file for PSoC 6 on PSoC Creator 4.2
+
+# Log files
+*.log
+*.rpt
+
+# Regeneratable configuration
+**/*.cydsn/Export/*
+**/*.cydsn/armgcc/*
+**/*.cydsn/iar/*
+**/*.cydsn/mdk/*
+**/*.cydsn/*.icf
+**/*.cydsn/*.ld
+**/*.cydsn/*.scat
+**/*.cydsn/*.cycdx
+**/*.cydsn/*.cyfit
+**/*.cydsn/*.cyprj.*
+**/*.cydsn/*.cywrk.*
+*.svd
+*.zip
+
+# Intermediate files
+**/*.cydsn/codegentemp/*
+**/*.cydsn/Generated_Source/*
+
+# Results
+**/*.cydsn/CortexM4/*
+**/*.cydsn/CortexM3/*
+**/*.cydsn/CortexM0p/*
+**/*.cydsn/CortexM0/*
+**/*.cydsn/DP8051/*
+**/*.cydsn/*_timing.html
+**/*.cydsn/*_datasheet.pdf
+
+# Archives
+Backup/*
+Archive/*
