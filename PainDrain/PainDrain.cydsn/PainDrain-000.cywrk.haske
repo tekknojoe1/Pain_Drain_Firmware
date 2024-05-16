@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PainDrain-000\PainDrain\CM4 (Core 1)">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>PainDrain-000</v>
 <v>PainDrain-000\PainDrain</v>
@@ -62,28 +62,6 @@
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\ARM MDK Generic\startup_psoc6_01_cm4.s</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\main_cm4.c</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\system_psoc6_cm4.c</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\components</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\components\ui_comp_hook.c</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\fonts</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\images</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\images\ui_img_fire_icon_small_png.c</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\images\ui_img_paindraindevicewithoutbackgroundresized_png.c</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\images\ui_img_snowflake_icon_small_png.c</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens\ui_Brigtness_screen.c</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens\ui_Presets_screen.c</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens\ui_Splash_screen.c</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens\ui_Temperature_screen.c</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens\ui_TENS_screen.c</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\screens\ui_Vibration_screen.c</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\CMakeLists.txt</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\filelist.txt</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\lv_conf.h</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\ui.c</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\ui.h</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\ui_events.h</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\ui_helpers.c</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui\ui_helpers.h</v>
 <v>PainDrain-000\PainDrain\Host Files</v>
 <v>PainDrain-000\PainDrain\Host Files\Header Files</v>
 <v>PainDrain-000\PainDrain\Host Files\Header Files\bitbang_spi.h</v>
@@ -152,7 +130,6 @@
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\ARM MDK Generic\startup_psoc6_01_cm4.s</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\main_cm4.c</v>
 <v>PainDrain-000\PainDrain\CM4 (Core 1)\Source Files\system_psoc6_cm4.c</v>
-<v>PainDrain-000\PainDrain\CM4 (Core 1)\ui</v>
 <v>PainDrain-000\PainDrain\Host Files</v>
 <v>PainDrain-000\PainDrain\Host Files\Header Files</v>
 <v>PainDrain-000\PainDrain\Host Files\Header Files\bitbang_spi.h</v>
@@ -179,6 +156,7 @@
 <v>PainDrain-000\PainDrain\Host Files\Source Files</v>
 <v>PainDrain-000\PainDrain\Host Files\Source Files\bitbang_spi.c</v>
 <v>PainDrain-000\PainDrain\Host Files\Source Files\bq24298.c</v>
+<v>PainDrain-000\PainDrain\Host Files\Source Files\debug.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PainDrain-000">
@@ -418,18 +396,6 @@
 <v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\Listing Files\system_psoc6_cm4.lst</v>
 <v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\Listing Files\temp.lst</v>
 <v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\Listing Files\tens.lst</v>
-<v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\Listing Files\ui.lst</v>
-<v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\Listing Files\ui_Brigtness_screen.lst</v>
-<v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\Listing Files\ui_comp_hook.lst</v>
-<v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\Listing Files\ui_helpers.lst</v>
-<v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\Listing Files\ui_img_fire_icon_small_png.lst</v>
-<v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\Listing Files\ui_img_paindraindevicewithoutbackgroundresized_png.lst</v>
-<v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\Listing Files\ui_img_snowflake_icon_small_png.lst</v>
-<v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\Listing Files\ui_Presets_screen.lst</v>
-<v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\Listing Files\ui_Splash_screen.lst</v>
-<v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\Listing Files\ui_Temperature_screen.lst</v>
-<v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\Listing Files\ui_TENS_screen.lst</v>
-<v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\Listing Files\ui_Vibration_screen.lst</v>
 <v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\Listing Files\user_interface.lst</v>
 <v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\Listing Files\vibe.lst</v>
 <v>PainDrain-000\PainDrain\CortexM4\ARM_GCC_541\Debug\PainDrain.elf</v>
@@ -442,51 +408,6 @@
 <VisibleNodeIds>
 <v>PainDrain-000</v>
 <v>PainDrain-000\PainDrain</v>
-<v>PainDrain-000\PainDrain\CortexM0p</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\ADC.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\ADC_INIT.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\ADC_INT.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\ADC_PM.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\AMP_PWM.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\BLE.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\BLE_bas_config.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\BLE_config.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\BLE_custom_config.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\BLE_ias_config.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_aios.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_ancs.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_ans.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_bas.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_bcs.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_bls.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_bms.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_bts.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_cgms.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_clk.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_cps.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_cscs.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_cts.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_custom.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_dis.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_ess.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_event_handler.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_gap.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_gatt.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_gls.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_hal_int.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_hal_pvt.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_hids.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_hps.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_hrs.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_hts.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_ias.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_ips.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_lls.lst</v>
-<v>PainDrain-000\PainDrain\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_lns.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
