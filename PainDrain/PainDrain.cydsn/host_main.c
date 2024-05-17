@@ -41,7 +41,6 @@
 * limited by and subject to the applicable Cypress software license agreement.
 *****************************************************************************/
 
-//test commit 2
 #include "common.h"
 #include "ias.h"
 #include "power.h"
