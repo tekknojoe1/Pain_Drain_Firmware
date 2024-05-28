@@ -23,7 +23,35 @@ static uint32 power_timeout = 0;
 static uint32 power_flags = 0;   //Each bit indicates an active system. If all bits are zero we power down the entire device
 uint8_t chargingStatus;
 
+void power_led_off(void) {
+    Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 0);
+    Cy_GPIO_Write(LED_GREEN_PORT, LED_GREEN_NUM, 0);
+    Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 0);
+}
 
+void power_led_lowbatt(void) {
+    Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 1);
+    Cy_GPIO_Write(LED_GREEN_PORT, LED_GREEN_NUM, 0);
+    Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 0);
+}
+
+void power_led_charging(void) {
+    Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 1);
+    Cy_GPIO_Write(LED_GREEN_PORT, LED_GREEN_NUM, 1);
+    Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 0);
+}
+
+void power_led_charged(void) {
+    Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 0);
+    Cy_GPIO_Write(LED_GREEN_PORT, LED_GREEN_NUM, 1);
+    Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 0);
+}
+
+void power_led_ble(void) {
+    Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 0);
+    Cy_GPIO_Write(LED_GREEN_PORT, LED_GREEN_NUM, 0);
+    Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 1);
+}
 
 
 
@@ -55,7 +83,7 @@ void gpio_interrupt_handler ( void ) {
 void power_init( void ) {
     
     
-    //myI2C_Start();
+    myI2C_Start();
     
     //Cy_SysInt_Init(&gpio_irq_cfg, gpio_interrupt_handler);
 	//NVIC_EnableIRQ(gpio_irq_cfg.intrSrc);
@@ -68,7 +96,7 @@ void power_init( void ) {
     DBG_PRINTF("Backlight on\r\n");
 
     
-    //bq24298_init();
+    bq24298_init();
     
     power_flags_update(POWER_FLAG_BLE, 1);
 }
@@ -101,6 +129,14 @@ void power_wakeup( void ) {
 }
 
 void power_task( void ) {
+    
+    if (Cy_GPIO_Read(CHG_STAT_PORT, CHG_STAT_NUM) == 0) {
+        power_led_charging();
+    } else {
+        power_led_off();
+    }
+    
+    
     //return; //this code below is old
     //Power button detection to wakeup
     //DBG_PRINTF("Waking up: %d\r\n", Cy_GPIO_Read(PWR_BTN_PORT, PWR_BTN_NUM));
@@ -114,6 +150,7 @@ void power_task( void ) {
         if(chargingStatus == 1){
             // Its charging
             DBG_PRINTF("Charging\r\n");
+                        
             // Sends to phone and returns a bool
             bool result = send_data_to_phone(&chargingStatus, 1);
             if(result){
@@ -122,6 +159,8 @@ void power_task( void ) {
         } else if(chargingStatus == 0){
             // Its not charging
             DBG_PRINTF("Not Charging\r\n");
+            
+                       
             // Sends to phone and returns a bool
             bool result = send_data_to_phone(&chargingStatus, 1);
             if(result){
@@ -186,6 +225,8 @@ void power_task( void ) {
             
             //FIXME: Disable WDT
             //FIXME: Configure power button as wakeup source
+            
+            power_led_off();
 
             Cy_BLE_Stop();   
             Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT);
