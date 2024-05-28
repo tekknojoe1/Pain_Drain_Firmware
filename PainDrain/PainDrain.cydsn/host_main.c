@@ -129,6 +129,9 @@ void AppCallBack(uint32 event, void *eventParam)
         case CY_BLE_EVT_GAP_DEVICE_DISCONNECTED:                             
             /* Start BLE advertisement for 180 seconds and update link status on LEDs */
             Cy_BLE_GAPP_StartAdvertisement(CY_BLE_ADVERTISING_FAST, CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX);
+            //blink_blue_LED();
+            UpdateLedState();
+            DBG_PRINTF("Advertising\r\n");
             IasSetAlertLevel(NO_ALERT);
             break;
 
@@ -136,7 +139,9 @@ void AppCallBack(uint32 event, void *eventParam)
             /* BLE link is established */
             keyInfo.SecKeyParam.bdHandle = (*(cy_stc_ble_gap_connected_param_t *)eventParam).bdHandle;
             Cy_BLE_GAP_SetSecurityKeys(&keyInfo);
-            //UpdateLedState();    FIXME
+            DBG_PRINTF("connected \r\n");
+            //UpdateLedState();
+            Connected_LED();
             break;
 
         case CY_BLE_EVT_GAPP_ADVERTISEMENT_START_STOP:
@@ -146,6 +151,7 @@ void AppCallBack(uint32 event, void *eventParam)
                  * mode (Hibernate) and wait for an external
                  * user event to wake up the device again */
                 //UpdateLedState();   FIXME
+                UpdateLedState();
                 Cy_BLE_Stop();             
             }
             break;
@@ -160,7 +166,7 @@ void AppCallBack(uint32 event, void *eventParam)
                (((cy_stc_ble_timeout_param_t *)eventParam)->timerHandle == timerParam.timerHandle))
             {
                 /* Update Led State */
-                //UpdateLedState();         FIXME
+                UpdateLedState();        //FIXME
                 
                 /* Indicate that timer is raised to the main loop */
                 mainTimer++;
@@ -172,8 +178,8 @@ void AppCallBack(uint32 event, void *eventParam)
 
         case CY_BLE_EVT_STACK_SHUTDOWN_COMPLETE:
             /* Hibernate */
-            //UpdateLedState();
-            Cy_SysPm_Hibernate(); //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            UpdateLedState();
+            Cy_SysPm_Hibernate(); // This is needed to use wakeup button
             power_flags_update(POWER_FLAG_BLE, 0);  //Turn off ble power flag
             break;
             
@@ -268,13 +274,12 @@ void AppCallBack(uint32 event, void *eventParam)
             {
                 // Create a handle-value pair structure
                 cy_stc_ble_gatt_handle_value_pair_t handleValuePair;
-    
-                //DBG_PRINTF("reading response %s\r\n", (char *)respondStringPtr);
-                //DBG_PRINTF("Sending to Perpherial\r\n");
+
                 // Populates the HandValuePair attributes to send over to phone app
                 handleValuePair.value.val = respondStringPtr;
                 handleValuePair.value.len = MAX_LENGTH;
                 handleValuePair.attrHandle = CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE;
+                
                 // Writes the value to central device and returns an error code if there is one
                 gattErr = Cy_BLE_GATTS_WriteAttributeValueLocal(&handleValuePair);
                 if (gattErr != CY_BLE_GATT_ERR_NONE)
@@ -282,7 +287,10 @@ void AppCallBack(uint32 event, void *eventParam)
                     // Handle error
                     DBG_PRINTF("Read error\r\n");
                 }
+              
                 
+                // End of working code
+
                 // Test to see if charger was working properly
                 pinReadValue = Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM);
                 //DBG_PRINTF("charge status: %d\r\n", pinReadValue);
@@ -297,9 +305,11 @@ void AppCallBack(uint32 event, void *eventParam)
             
             
         case CY_BLE_EVT_GATTS_WRITE_REQ: // Executes when mobile app writes something to device
-            {                 
+            {    
+
                 cy_stc_ble_gatts_write_cmd_req_param_t *writeReq = (cy_stc_ble_gatts_write_cmd_req_param_t *)eventParam;
                 int length = writeReq->handleValPair.value.len;
+                cy_en_ble_api_result_t writeError;
                 //DBG_PRINTF("Length: %d\r\n", length);
                 char receivedCommand[length + 1];
                 int i = 0;
@@ -307,6 +317,7 @@ void AppCallBack(uint32 event, void *eventParam)
                 int token_count = 0; // To keep track of the number of tokens
                 char *token;
                 char *delimiter = " ";
+                
                 
                 // Checks to see if its requesting the custom service characteristic
                 if(CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE == writeReq->handleValPair.attrHandle)
@@ -319,7 +330,7 @@ void AppCallBack(uint32 event, void *eventParam)
                     }
                     // Add a null terminator to mark end of string
                     receivedCommand[length] = '\0';
-                    //DBG_PRINTF("Received string: %s\r\n", receivedCommand);
+                    DBG_PRINTF("Received string: %s\r\n", receivedCommand);
                     
                     // This splits the received command into sections by single space
                     token = strtok(receivedCommand, delimiter); // Gets the first token
@@ -454,8 +465,6 @@ void AppCallBack(uint32 event, void *eventParam)
                         
                         
                     }
-
-                    //DBG_PRINTF("length %d\r\n", length);
                     
                     // Allocate memory for the string plus one extra byte for the null terminator
                     respondStringPtr = (uint8_t *)malloc((length + 1) * sizeof(uint8_t));
@@ -468,19 +477,41 @@ void AppCallBack(uint32 event, void *eventParam)
                         // Null-terminate the string
                         respondStringPtr[length] = '\0';
                     } else {
-                        // Handle memory allocation failure
-                        // Print an error message or take appropriate action
+                        // Memory allocation failure
                         DBG_PRINTF("Memory Allocation Failed\r\n");
                     }
 
-                    //testing!!!!!!!!!!!!!!!!
-                    //respondStringPtr = (uint8_t *)malloc(length+1 * sizeof(uint8_t));
-                    //respondStringPtr = writeReq->handleValPair.value.val;
-                    //respondStringPtr[length] = '\0';
-                    //DBG_PRINTF("Test %s\r\n", (char *)writeReq->handleValPair.value.val);
 
                     // Sends a write with response command
+                    writeError = Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
+                    if( writeError != CY_BLE_SUCCESS ){
+                        DBG_PRINTF("Write rsp failed\r\n");
+                    }
+                    
+                    bool result = send_data_to_phone(writeReq->handleValPair.value.val, writeReq->handleValPair.value.len, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+                    if(!result){
+                        DBG_PRINTF("Failed to send to phone\r\n");
+                    }
+                }
+                
+                // This is the custom characteristic descriptor case. This is only called to enable notifications. It is triggured by the mobile app.
+                else if(CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE == writeReq->handleValPair.attrHandle)
+                {
+                    /* Read the write request parameter */
+                    Cy_BLE_GATTS_WriteAttributeValuePeer(cy_ble_connHandle, &writeReq->handleValPair);
+                    
+                    /* Send the response to the write request received */
+                    cy_en_ble_api_result_t rsp;
                     Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
+                    if( rsp != CY_BLE_SUCCESS ){
+                        DBG_PRINTF("Write rsp failed for notifications\r\n");
+                    }
+                    bool isNotificationsEnabled = Cy_BLE_GATTS_IsNotificationEnabled(cy_ble_connHandle, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+                    if ( isNotificationsEnabled){
+                        DBG_PRINTF("Notifications enabled\r\n");
+                    } else{
+                        DBG_PRINTF("Notifications disabled\r\n");
+                    }
                 }
             //call a function to process the data received in the eventParam
                  break;
@@ -539,8 +570,12 @@ int HostMain(void)
     
     power_init();
 
+    Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW); // This enables the wakeup button
+    
+    
     /* Start BLE component and register generic event handler */
     Cy_BLE_Start(AppCallBack);
+    
     
     /* Initialize BLE Services */
     IasInit();
@@ -553,7 +588,7 @@ int HostMain(void)
     //PWM_TENS2_Enable();
     
     temp_init();
-
+    
     
     //AMP_PWM_Start();
 //    int temp = 16384;

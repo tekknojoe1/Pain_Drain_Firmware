@@ -22,6 +22,7 @@ static int power_state = 0;
 static uint32 power_timeout = 0;
 static uint32 power_flags = 0;   //Each bit indicates an active system. If all bits are zero we power down the entire device
 uint8_t chargingStatus;
+bool triggerBattery = false;
 
 
 
@@ -55,7 +56,7 @@ void gpio_interrupt_handler ( void ) {
 void power_init( void ) {
     
     
-    //myI2C_Start();
+    myI2C_Start();
     
     //Cy_SysInt_Init(&gpio_irq_cfg, gpio_interrupt_handler);
 	//NVIC_EnableIRQ(gpio_irq_cfg.intrSrc);
@@ -68,7 +69,7 @@ void power_init( void ) {
     DBG_PRINTF("Backlight on\r\n");
 
     
-    //bq24298_init();
+    bq24298_init();
     
     power_flags_update(POWER_FLAG_BLE, 1);
 }
@@ -91,7 +92,17 @@ void power_5v_off( void ) {
     
 }
 
+void power_led_charging(void) {
+    Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 0);
+    Cy_GPIO_Write(LED_GREEN_PORT, LED_GREEN_NUM, 1);
+    Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 0);
+}
 
+void power_led_off(void) {
+    Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 0);
+    Cy_GPIO_Write(LED_GREEN_PORT, LED_GREEN_NUM, 0);
+    Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 0);
+}
 
 void power_wakeup( void ) {
     
@@ -106,6 +117,13 @@ void power_task( void ) {
     //DBG_PRINTF("Waking up: %d\r\n", Cy_GPIO_Read(PWR_BTN_PORT, PWR_BTN_NUM));
     //Cy_GPIO_Write(PWR_BTN_PORT, PWR_BTN_NUM, 0);
     
+    if (Cy_GPIO_Read(CHG_STAT_PORT, CHG_STAT_NUM) == 0) {
+        power_led_charging();
+    } else {
+        //power_led_off();
+    }
+    //DBG_PRINTF("Charging PIN Status %d\r\n", Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM));
+    //Cy_GPIO_Write(LED_RED_0_PORT, LED_RED_0_NUM, 1);
     // Calls get battery status to read charge pin
     uint8_t newChargingStatus = get_charging_status();
     if(chargingStatus != newChargingStatus){
@@ -114,16 +132,27 @@ void power_task( void ) {
         if(chargingStatus == 1){
             // Its charging
             DBG_PRINTF("Charging\r\n");
+            
+            uint8_t* data;
+            data = (uint8_t*)"charging 1";
+            
             // Sends to phone and returns a bool
-            bool result = send_data_to_phone(&chargingStatus, 1);
+            bool result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+            // Was successful
             if(result){
                 DBG_PRINTF("Charging Status sent\r\n");
             }
+            
         } else if(chargingStatus == 0){
             // Its not charging
             DBG_PRINTF("Not Charging\r\n");
+            
+            uint8_t* data;
+            data = (uint8_t*)"charging 0";
+            
             // Sends to phone and returns a bool
-            bool result = send_data_to_phone(&chargingStatus, 1);
+            bool result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+            // was successful
             if(result){
                 DBG_PRINTF("Not Charging Status sent\r\n");
             }
@@ -137,6 +166,21 @@ void power_task( void ) {
     if (Cy_GPIO_Read(PWR_PORT, PWR_NUM) == 0) {
         power_wakeup();
         DBG_PRINTF("Waking up\r\n");
+        
+        // test code to test charging notification just so it doesn't execute for however long the user holds the button down
+        Charging_LED();
+        CyDelay(2000);
+        uint8_t* data;
+        if(triggerBattery){
+            data = (uint8_t*)"charging 1";
+            send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+        } else{
+            data = (uint8_t*)"charging 0";
+            send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+        }
+        triggerBattery = !triggerBattery;
+        // end of test code
+        
     }
     cy_en_gpio_status_t initStatus;
     
@@ -201,34 +245,27 @@ void power_task( void ) {
 }
 
 /*
-get_charging_status() - reads the charging pin value. 1 - high, 0 - low
+get_charging_status() - reads the charging pin value. 1 - Not Charging, 0 - Charging
 */
 uint32_t get_charging_status(){
     return Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM);
 }
 
 /*
-send_data_to_phone() - Takes the data to be sent to phone and the length in bytes of the data.
+send_data_to_phone() - Takes the data to be sent to phone, the length in bytes of the data, and the characteristic handle 
+of which ble characterstic you want to send to. Some characteristics can be found in the BLE_config.c file.
 This sends a notification to the phone so that the phone can execute functions when a new value is recieved from device
 */
-bool send_data_to_phone(uint8_t* data, uint16_t length){
+bool send_data_to_phone(uint8_t* data, uint16_t length, uint8_t characteristic){
     cy_en_ble_api_result_t gattErr;
-    cy_stc_ble_conn_handle_t connHandle;
     cy_stc_ble_gatt_handle_value_pair_t handleValuePair;
     handleValuePair.value.val = data;
     handleValuePair.value.len = length;
-    
-    /*
-    Not sure if this is needed code is needed yet
-    
-    connHandle.attId = 1; //Not sure what needs to be assigned here if anything needs to be assigned
-    connHandle.bdHandle = (CY_BLE_GAP_MAX_BONDED_DEVICE +CY_BLE_MAX_CONNECTION_INSTANCES)-1; // This should be the first device connected. Can be found under cy_stc_ble_conn_handle_t in PDL Documentation
-    */
-    
-    // Using Cy_BLE_GATTS_SendNotification() instead of Cy_BLE_GATTS_WriteAttributeValueLocal() so the phone can get notified when it has been sent something
-    gattErr = Cy_BLE_GATTS_SendNotification(&connHandle, &handleValuePair);
-    if(gattErr == CY_BLE_SUCCESS){
-        DBG_PRINTF("Success\r\n"); 
+    handleValuePair.attrHandle = characteristic;
+   
+    // Sends notification
+    gattErr = Cy_BLE_GATTS_SendNotification(cy_ble_connHandle, &handleValuePair);
+    if(gattErr == CY_BLE_SUCCESS){ 
         return true;
     } else if(gattErr == CY_BLE_ERROR_NO_DEVICE_ENTITY){
         DBG_PRINTF("There is no connection for the corresponding bdHandle\r\n");      
@@ -301,5 +338,97 @@ void I2C_SDA_Write(int state) {
     Cy_GPIO_Write(I2C_SDA_PORT, I2C_SDA_NUM, state);    
 }
 
+void Advertising_LED(){
+    Cy_GPIO_Write(LED_BLUE_0_PORT, LED_BLUE_0_NUM, 1);  // Turn on the LED
+    CyDelay(500);  // Wait for 50 milliseconds
+    Cy_GPIO_Write(LED_BLUE_0_PORT, LED_BLUE_0_NUM, 0);  // Turn off the LED
+}
+
+void Connected_LED(){
+    Cy_GPIO_Write(LED_BLUE_0_PORT, LED_BLUE_0_NUM, 1);  // Turn on the LED
+    CyDelay(3000);  // Wait for 3 seconds
+    Cy_GPIO_Write(LED_BLUE_0_PORT, LED_BLUE_0_NUM, 0);  // Turn off the LED
+}
+void Charging_LED(){
+    Cy_GPIO_Write(LED_RED_0_PORT, LED_RED_0_NUM, 1);
+    Cy_GPIO_Write(LED_GREEN_0_PORT, LED_GREEN_0_NUM, 1);
+    //CyDelay(500);
+    //Cy_GPIO_Write(LED_BLUE_0_PORT, LED_BLUE_0_NUM, 0);  // Turn on the LED
+}
+void Off_LED(){
+    Cy_GPIO_Write(LED_RED_0_PORT, LED_RED_0_NUM, 0);
+    Cy_GPIO_Write(LED_GREEN_0_PORT, LED_GREEN_0_NUM, 0);
+    Cy_GPIO_Write(LED_GREEN_0_PORT, LED_GREEN_0_NUM, 0);
+}
+
+/*******************************************************************************
+* Function Name: UpdateLedState
+********************************************************************************
+*
+* Summary:
+*  This function updates LED status based on current BLE state.
+*
+*******************************************************************************/
+void UpdateLedState(void)
+{
+#if(SYS_VOLTAGE >= RGB_LED_MIN_VOLTAGE_MV) 
+    if(Cy_BLE_GetAdvertisementState() == CY_BLE_ADV_STATE_ADVERTISING)
+    {
+        DBG_PRINTF("Here1\r\n");
+        /* In advertising state, turn off disconnect indication LED */
+        //Disconnect_LED_Write(LED_OFF);
+
+        /* Blink advertising indication LED */
+        //Advertising_LED();
+        Charging_LED();
+        
+        /* Turn off Alert LED */
+        //Alert_LED_Write(LED_OFF);
+    }
+    else if(Cy_BLE_GetConnectionState(cy_ble_connHandle[0]) == CY_BLE_CONN_STATE_CONNECTED)
+    {
+        //DBG_PRINTF("Here1\r\n");
+        /* In advertising state, turn off disconnect indication LED */
+        //Disconnect_LED_Write(LED_OFF);
+
+        /* Blink advertising indication LED */
+        //Connected_LED();
+        
+        /* Turn off Alert LED */
+        //Alert_LED_Write(LED_OFF);
+    }
+    else if(Cy_BLE_GetNumOfActiveConn() == 0u)
+    {
+        DBG_PRINTF("Here2\r\n");
+        /* If in disconnected state, turn on disconnect indication LED and turn
+        * off Advertising LED.
+        */
+        //Disconnect_LED_Write(LED_ON);
+        //Advertising_LED_Write(LED_OFF);
+        
+        /* Turn off Alert LED */
+        //Alert_LED_Write(LED_OFF);
+    }
+    else 
+    {
+        DBG_PRINTF("Here3\r\n");
+        /* In connected state, turn off disconnect indication and advertising 
+        * indication LEDs. 
+        */
+        //Disconnect_LED_Write(LED_OFF);
+        //Advertising_LED_Write(LED_OFF);
+    }
+#else
+    /* 
+     *   If VDDD < 2.7 volts (DWR->System), only the red LED will be used:
+     *     BLINK - Alert Level: Mild Alert
+     *     OFF   - Alert Level: No Alert
+     *     ON    - Alert Level: High Alert    
+     *
+     *     Updating Alert_LED executed in the Main polling loop
+     */        
+#endif /* #if(CYDEV_VDDD_MV >= RGB_LED_MIN_VOLTAGE_MV) */  
+}
+/* [] END OF FILE */
 
 
