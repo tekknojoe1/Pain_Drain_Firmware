@@ -24,7 +24,35 @@ static uint32 power_flags = 0;   //Each bit indicates an active system. If all b
 uint8_t chargingStatus;
 bool triggerBattery = false;
 
+void power_led_off(void) {
+    Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 0);
+    Cy_GPIO_Write(LED_GREEN_PORT, LED_GREEN_NUM, 0);
+    Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 0);
+}
 
+void power_led_lowbatt(void) {
+    Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 1);
+    Cy_GPIO_Write(LED_GREEN_PORT, LED_GREEN_NUM, 0);
+    Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 0);
+}
+
+void power_led_charging(void) {
+    Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 1);
+    Cy_GPIO_Write(LED_GREEN_PORT, LED_GREEN_NUM, 1);
+    Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 0);
+}
+
+void power_led_charged(void) {
+    Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 0);
+    Cy_GPIO_Write(LED_GREEN_PORT, LED_GREEN_NUM, 1);
+    Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 0);
+}
+
+void power_led_ble(void) {
+    Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 0);
+    Cy_GPIO_Write(LED_GREEN_PORT, LED_GREEN_NUM, 0);
+    Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 1);
+}
 
 
 
@@ -112,6 +140,14 @@ void power_wakeup( void ) {
 }
 
 void power_task( void ) {
+    
+    if (Cy_GPIO_Read(CHG_STAT_PORT, CHG_STAT_NUM) == 0) {
+        power_led_charging();
+    } else {
+        power_led_off();
+    }
+    
+    
     //return; //this code below is old
     //Power button detection to wakeup
     //DBG_PRINTF("Waking up: %d\r\n", Cy_GPIO_Read(PWR_BTN_PORT, PWR_BTN_NUM));
@@ -230,6 +266,8 @@ void power_task( void ) {
             
             //FIXME: Disable WDT
             //FIXME: Configure power button as wakeup source
+            
+            power_led_off();
 
             Cy_BLE_Stop();   
             Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT);
