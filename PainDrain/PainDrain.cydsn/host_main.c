@@ -66,6 +66,7 @@ uint8_t data2[] = {0x01, 0x02, 0x03, 0x04}; // Replace with your actual data
 unsigned int MAX_LENGTH = 20;
 uint8 fakeBatteryPercentage = 100;
 int previousValue = -1;
+BatteryStatus batteryStatus;
 
 int getExternalValue() {
     // Simulate getting an external value (e.g., sensor reading)
@@ -101,7 +102,7 @@ void checkForValueChange() {
 *******************************************************************************/
 void AppCallBack(uint32 event, void *eventParam)
 {
-   
+    //DBG_PRINTF("e=%d\r\n", event);
     cy_en_ble_gatt_err_code_t gattErr = CY_BLE_GATT_ERR_NONE;
     static cy_stc_ble_gap_sec_key_info_t keyInfo =
     {
@@ -121,7 +122,6 @@ void AppCallBack(uint32 event, void *eventParam)
     {
         
         DBG_PRINTF("e=%d\r\n", event);
-        
         /* Mandatory events to be handled by Find Me Target design */
         case CY_BLE_EVT_STACK_ON:
             Cy_BLE_GAP_GenerateKeys(&keyInfo);
@@ -129,9 +129,8 @@ void AppCallBack(uint32 event, void *eventParam)
         case CY_BLE_EVT_GAP_DEVICE_DISCONNECTED:                             
             /* Start BLE advertisement for 180 seconds and update link status on LEDs */
             Cy_BLE_GAPP_StartAdvertisement(CY_BLE_ADVERTISING_FAST, CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX);
-            //blink_blue_LED();
             UpdateLedState();
-            DBG_PRINTF("Advertising\r\n");
+            //DBG_PRINTF("Disconnected\r\n");
             IasSetAlertLevel(NO_ALERT);
             break;
 
@@ -139,14 +138,13 @@ void AppCallBack(uint32 event, void *eventParam)
             /* BLE link is established */
             keyInfo.SecKeyParam.bdHandle = (*(cy_stc_ble_gap_connected_param_t *)eventParam).bdHandle;
             Cy_BLE_GAP_SetSecurityKeys(&keyInfo);
-            DBG_PRINTF("connected \r\n");
-            //UpdateLedState();
-            Connected_LED();
+            //DBG_PRINTF("connected \r\n");
+            //power_led_connected();
+            UpdateLedState();
             break;
 
         case CY_BLE_EVT_GAPP_ADVERTISEMENT_START_STOP:
-            if(Cy_BLE_GetAdvertisementState() == CY_BLE_ADV_STATE_STOPPED)
-            {   
+            if(Cy_BLE_GetAdvertisementState() == CY_BLE_ADV_STATE_STOPPED){   
                 /* Fast and slow advertising period complete, go to low power  
                  * mode (Hibernate) and wait for an external
                  * user event to wake up the device again */
@@ -455,6 +453,27 @@ void AppCallBack(uint32 event, void *eventParam)
                                 //free(addrValue);
                             
                             break;
+                        }
+                        
+                        case 'B':
+                        {
+                            if(atoi(tokens[1]) == 0){
+                                batteryStatus = NOT_CHARGING;
+                                DBG_PRINTF("Assign B 0\r\n");
+                                //DBG_PRINTF("Assign B 1\r\n", receivedCommand);
+                            }else if(atoi(tokens[1]) == 1){
+                                batteryStatus = CHARGING;
+                                DBG_PRINTF("Assign B 1\r\n");
+                                //DBG_PRINTF("Assign B 1\r\n", receivedCommand);
+                            } else if(atoi(tokens[1]) == 2){
+                                DBG_PRINTF("Assign B 2\r\n");
+                                //DBG_PRINTF("Assign B 2\r\n", receivedCommand);
+                                batteryStatus = FULLY_CHARGED;
+                            } else if(atoi(tokens[1]) == 3){
+                                batteryStatus = LOW_BATTERY;
+                                DBG_PRINTF("Assign B 3\r\n");
+                                //DBG_PRINTF("Assign B 3\r\n", receivedCommand);
+                            }
                         }
                         
                         default:

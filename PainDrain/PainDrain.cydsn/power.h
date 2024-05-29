@@ -32,6 +32,21 @@ int I2C_SDA_Read( void );
 void I2C_SCL_Write(int state);
 void I2C_SDA_Write(int state);
 void UpdateLedState(void);
-void Advertising_LED(void);
-void Connected_LED(void);
-void Charging_LED(void);
+void power_led_off(void);
+void power_led_charging(void);
+void power_led_lowbatt(void);
+void power_led_charged(void);
+void power_led_ble(void);
+void power_led_advertising(void);
+void power_led_connected(void);
+
+// Define the enum for battery status
+typedef enum {
+    NOT_CHARGING,
+    CHARGING,
+    FULLY_CHARGED,
+    LOW_BATTERY,
+} BatteryStatus;
+
+// Declare an external variable for battery status
+extern BatteryStatus batteryStatus;

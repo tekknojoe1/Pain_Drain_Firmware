@@ -23,6 +23,9 @@ static uint32 power_timeout = 0;
 static uint32 power_flags = 0;   //Each bit indicates an active system. If all bits are zero we power down the entire device
 uint8_t chargingStatus;
 bool triggerBattery = false;
+bool isConnected = false;
+bool chargingValueSent = false;
+bool notChargingValueSent = false;
 
 void power_led_off(void) {
     Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 0);
@@ -54,7 +57,16 @@ void power_led_ble(void) {
     Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 1);
 }
 
-
+void power_led_advertising(void){
+    power_led_ble();
+    CyDelay(500); // Wait half for blink effect
+    power_led_off();
+}
+void power_led_connected(void){
+    power_led_ble();
+    CyDelay(3000); // Wait 3 seconds
+    power_led_off();
+}
 
 void power_timer( void ) {    //Called every 100ms when the WDT is enabled
     
@@ -120,18 +132,6 @@ void power_5v_off( void ) {
     
 }
 
-void power_led_charging(void) {
-    Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 0);
-    Cy_GPIO_Write(LED_GREEN_PORT, LED_GREEN_NUM, 1);
-    Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 0);
-}
-
-void power_led_off(void) {
-    Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 0);
-    Cy_GPIO_Write(LED_GREEN_PORT, LED_GREEN_NUM, 0);
-    Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 0);
-}
-
 void power_wakeup( void ) {
     
     power_timeout = POWER_DISPLAY_TIMEOUT_INTERVAL;
@@ -142,24 +142,14 @@ void power_wakeup( void ) {
 void power_task( void ) {
     
     if (Cy_GPIO_Read(CHG_STAT_PORT, CHG_STAT_NUM) == 0) {
-        power_led_charging();
-    } else {
-        power_led_off();
-    }
-    
-    
-    //return; //this code below is old
-    //Power button detection to wakeup
-    //DBG_PRINTF("Waking up: %d\r\n", Cy_GPIO_Read(PWR_BTN_PORT, PWR_BTN_NUM));
-    //Cy_GPIO_Write(PWR_BTN_PORT, PWR_BTN_NUM, 0);
-    
-    if (Cy_GPIO_Read(CHG_STAT_PORT, CHG_STAT_NUM) == 0) {
-        power_led_charging();
+        //power_led_charging();
     } else {
         //power_led_off();
     }
+    
+    //Power button detection to wakeup
+
     //DBG_PRINTF("Charging PIN Status %d\r\n", Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM));
-    //Cy_GPIO_Write(LED_RED_0_PORT, LED_RED_0_NUM, 1);
     // Calls get battery status to read charge pin
     uint8_t newChargingStatus = get_charging_status();
     if(chargingStatus != newChargingStatus){
@@ -167,7 +157,7 @@ void power_task( void ) {
         chargingStatus = newChargingStatus;
         if(chargingStatus == 1){
             // Its charging
-            DBG_PRINTF("Charging\r\n");
+            //DBG_PRINTF("Charging\r\n");
             
             uint8_t* data;
             data = (uint8_t*)"charging 1";
@@ -204,7 +194,7 @@ void power_task( void ) {
         DBG_PRINTF("Waking up\r\n");
         
         // test code to test charging notification just so it doesn't execute for however long the user holds the button down
-        Charging_LED();
+        //power_led_charging();
         CyDelay(2000);
         uint8_t* data;
         if(triggerBattery){
@@ -215,6 +205,7 @@ void power_task( void ) {
             send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
         }
         triggerBattery = !triggerBattery;
+        //power_led_off();
         // end of test code
         
     }
@@ -376,28 +367,6 @@ void I2C_SDA_Write(int state) {
     Cy_GPIO_Write(I2C_SDA_PORT, I2C_SDA_NUM, state);    
 }
 
-void Advertising_LED(){
-    Cy_GPIO_Write(LED_BLUE_0_PORT, LED_BLUE_0_NUM, 1);  // Turn on the LED
-    CyDelay(500);  // Wait for 50 milliseconds
-    Cy_GPIO_Write(LED_BLUE_0_PORT, LED_BLUE_0_NUM, 0);  // Turn off the LED
-}
-
-void Connected_LED(){
-    Cy_GPIO_Write(LED_BLUE_0_PORT, LED_BLUE_0_NUM, 1);  // Turn on the LED
-    CyDelay(3000);  // Wait for 3 seconds
-    Cy_GPIO_Write(LED_BLUE_0_PORT, LED_BLUE_0_NUM, 0);  // Turn off the LED
-}
-void Charging_LED(){
-    Cy_GPIO_Write(LED_RED_0_PORT, LED_RED_0_NUM, 1);
-    Cy_GPIO_Write(LED_GREEN_0_PORT, LED_GREEN_0_NUM, 1);
-    //CyDelay(500);
-    //Cy_GPIO_Write(LED_BLUE_0_PORT, LED_BLUE_0_NUM, 0);  // Turn on the LED
-}
-void Off_LED(){
-    Cy_GPIO_Write(LED_RED_0_PORT, LED_RED_0_NUM, 0);
-    Cy_GPIO_Write(LED_GREEN_0_PORT, LED_GREEN_0_NUM, 0);
-    Cy_GPIO_Write(LED_GREEN_0_PORT, LED_GREEN_0_NUM, 0);
-}
 
 /*******************************************************************************
 * Function Name: UpdateLedState
@@ -412,32 +381,22 @@ void UpdateLedState(void)
 #if(SYS_VOLTAGE >= RGB_LED_MIN_VOLTAGE_MV) 
     if(Cy_BLE_GetAdvertisementState() == CY_BLE_ADV_STATE_ADVERTISING)
     {
-        DBG_PRINTF("Here1\r\n");
-        /* In advertising state, turn off disconnect indication LED */
-        //Disconnect_LED_Write(LED_OFF);
-
-        /* Blink advertising indication LED */
-        //Advertising_LED();
-        Charging_LED();
-        
-        /* Turn off Alert LED */
-        //Alert_LED_Write(LED_OFF);
+        //Blink advertising indication LED
+        power_led_advertising();
     }
-    else if(Cy_BLE_GetConnectionState(cy_ble_connHandle[0]) == CY_BLE_CONN_STATE_CONNECTED)
+    // Handles connected LED and executes once per connection
+    else if(Cy_BLE_GetNumOfActiveConn() > 0u && !isConnected)
     {
-        //DBG_PRINTF("Here1\r\n");
-        /* In advertising state, turn off disconnect indication LED */
-        //Disconnect_LED_Write(LED_OFF);
-
-        /* Blink advertising indication LED */
-        //Connected_LED();
         
-        /* Turn off Alert LED */
-        //Alert_LED_Write(LED_OFF);
+        DBG_PRINTF("Connected\r\n");
+        // Connected indication LED
+        power_led_connected();
+        isConnected = true;
+        
     }
-    else if(Cy_BLE_GetNumOfActiveConn() == 0u)
+    // Handles Disconnected LED and executes once per Disconnection
+    else if(Cy_BLE_GetNumOfActiveConn() == 0u && isConnected)
     {
-        DBG_PRINTF("Here2\r\n");
         /* If in disconnected state, turn on disconnect indication LED and turn
         * off Advertising LED.
         */
@@ -446,10 +405,63 @@ void UpdateLedState(void)
         
         /* Turn off Alert LED */
         //Alert_LED_Write(LED_OFF);
+        DBG_PRINTF("Disconnected\r\n");
+        isConnected = false;
+    }
+    // Handles Charging LED
+    else if(batteryStatus == CHARGING)
+    {
+        power_led_off();
+        power_led_charging();
+
+        if(!chargingValueSent){
+            uint8_t* data;
+            data = (uint8_t*)"charging 0";
+            //DBG_PRINTF("Charging HERE\r\n");
+            bool result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+            // was successful
+            if(result){
+                DBG_PRINTF("Charging Status sent\r\n");
+                notChargingValueSent = false;
+                chargingValueSent = true;
+            }
+        }
+    }
+    else if(batteryStatus == FULLY_CHARGED)
+    {
+        power_led_off();
+        power_led_charged();
+        //isCharging = false;
+        //DBG_PRINTF("Fully Charged\r\n");
+        
+    }
+    else if(batteryStatus == LOW_BATTERY)
+    {
+        power_led_off();
+        power_led_lowbatt();
+        //isCharging = false;
+        //DBG_PRINTF("Low Battery\r\n");
+        
+    }
+    else if(batteryStatus == NOT_CHARGING)
+    {
+        power_led_off();
+        if(!notChargingValueSent){
+            uint8_t* data;
+            data = (uint8_t*)"charging 1";
+            //DBG_PRINTF("Charging HERE\r\n");
+            bool result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+            // was successful
+            if(result){
+                DBG_PRINTF("Not Charging Status sent\r\n");
+                notChargingValueSent = true;
+                chargingValueSent = false;
+            }
+        }
+        
     }
     else 
     {
-        DBG_PRINTF("Here3\r\n");
         /* In connected state, turn off disconnect indication and advertising 
         * indication LEDs. 
         */
