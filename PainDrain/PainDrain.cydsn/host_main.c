@@ -67,6 +67,11 @@ unsigned int MAX_LENGTH = 20;
 uint8 fakeBatteryPercentage = 100;
 int previousValue = -1;
 BatteryStatus batteryStatus;
+int tensPhase;
+int tensAmpValue;
+double tensDurationValue;
+int tensPeriodValue;
+int tensChannel;
 
 int getExternalValue() {
     // Simulate getting an external value (e.g., sensor reading)
@@ -354,7 +359,13 @@ void AppCallBack(uint32 event, void *eventParam)
                         }
                         case 'T':
                         {
+                            /*
                             int tensPhase;
+                            int tensAmpValue;
+                            double tensDurationValue;
+                            int tensPeriodValue;
+                            int tensChannel;
+                            */
                             /*
                             Packet information contains
                             1: char T - TENS
@@ -374,17 +385,18 @@ void AppCallBack(uint32 event, void *eventParam)
                                 DBG_PRINTF("T value phase: %d\r\n", tensPhase);
                             }
                             else{
-                                int tensAmpValue = atoi(tokens[1]);
-                                double tensDurationValue = atof(tokens[2]);
-                                double tensPeriodValue = atof(tokens[3]);
-                                int tensChannel = atoi(tokens[4]);
+                                tensAmpValue = atoi(tokens[1]);
+                                tensDurationValue = atof(tokens[2]);
+                                tensPeriodValue = atoi(tokens[3]);
+                                tensChannel = atoi(tokens[4]);
                                 //int phaseDegree = atoi(tokens[5]);
                                 DBG_PRINTF("T value amp: %d\r\n", tensAmpValue);
-                                //DBG_PRINTF("T value duration: %s\r\n", tokens[2]);
-                                //DBG_PRINTF("T value period: %s\r\n", tokens[3]);
-                                //DBG_PRINTF("T Channel: %d\r\n", tensChannel);
-                                set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  tensPhase);
+                                DBG_PRINTF("T value duration: %s\r\n", tokens[2]);
+                                DBG_PRINTF("T value period: %d\r\n", tensPeriodValue);
+                                DBG_PRINTF("T Channel: %d\r\n", tensChannel);
+                                //set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  tensPhase);
                             }
+                            set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  tensPhase);
                             break;
                         }
                         case 'v':
@@ -392,16 +404,15 @@ void AppCallBack(uint32 event, void *eventParam)
                             /*
                             Packet information contains
                             1: char v - Vibration
-                            2: String Wavetype
-                            3: int Amplitude
-                            4: int Frequency
-                            5: int Wavefrom
+                            2: int Amplitude
+                            3: int Frequency
+                            4: int Wavefrom
                             */
-                            char *waveType = tokens[1];
-                            int vibeAmp = atoi(tokens[2]);
-                            int vibeFreq = atoi(tokens[3]);
-                            int vibeWaveform = atoi(tokens[4]);
-                            DBG_PRINTF("v waveType: %s\r\n", waveType);
+                            //char *waveType = tokens[1];
+                            int vibeAmp = atoi(tokens[1]);
+                            int vibeFreq = atoi(tokens[2]);
+                            int vibeWaveform = atoi(tokens[3]);
+                            //DBG_PRINTF("v waveType: %s\r\n", waveType);
                             DBG_PRINTF("v amp: %d\r\n", vibeAmp);
                             DBG_PRINTF("v freq: %d\r\n", vibeFreq);
                             DBG_PRINTF("v waveform: %d\r\n", vibeWaveform);

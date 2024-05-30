@@ -145,7 +145,8 @@ void set_tens_amp (int amplitude) {
         PWM_TENS2_SetCompare0(0);
         //power_flags_update(UI_MENU_TENS_AMP, 0);      
         tens_interval_ms = -1; //Disable timer
-    } else {           
+    } else { 
+        DBG_PRINTF("Amplitude is on\r\n");
         // Limiting PWM Value
         int scaled_pwm_value = (amplitude * MAX_TENS_PWM_VALUE) / 100;
         
@@ -161,7 +162,7 @@ void set_tens_amp (int amplitude) {
 }
 
 // Helper function to make setting a signal easier to channel 1 and 2
-void set_tens_signal(int amplitude, double duration, double period, int channel, int phase) {
+void set_tens_signal(int amplitude, double duration, int period, int channel, int phase) {
     
     int duration_case = (int)(duration*10);
     tens_phase_shift = phase;
@@ -171,12 +172,15 @@ void set_tens_signal(int amplitude, double duration, double period, int channel,
         set_tens_amp(amplitude);
         set_tens_freq(period);
     } else if(channel == 1){
+        DBG_PRINTF("Channel 1\r\n");
         set_tens_dur(duration_case, &tens_one_dur_ms);
-        //DBG_PRINTF("Channel 1 duration: %d\r\n", tens_one_dur_ms);
-    } else if(channel == 2){  
+        DBG_PRINTF("Channel 1 duration: %d\r\n", tens_one_dur_ms);
+    } else if(channel == 2){ 
+        DBG_PRINTF("Channel 2\r\n");
         set_tens_dur(duration_case, &tens_two_dur_ms); 
-        //DBG_PRINTF("Channel 2 duration: %d\r\n", tens_two_dur_ms);
+        DBG_PRINTF("Channel 2 duration: %d\r\n", tens_two_dur_ms);
     } else {
+        DBG_PRINTF("No Channel\r\n");
         // disable the signal
         //set_tens_amp(0);
         //set_tens_freq(0);
