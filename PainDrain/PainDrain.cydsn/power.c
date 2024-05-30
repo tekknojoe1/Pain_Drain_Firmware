@@ -27,7 +27,7 @@ bool triggerBattery = false;
 bool isConnected = false;
 bool chargingValueSent = false;
 bool notChargingValueSent = false;
-int reg_num = 0;
+//int reg_num = 0;
 
 void power_led_off(void) {
     Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 0);
@@ -143,7 +143,7 @@ void power_wakeup( void ) {
 
 void power_task( void ) {
     
-    reg_num = 0;
+    //reg_num = 0;
     bq25883_read_all_reg();
     
     
@@ -338,15 +338,15 @@ void power_i2c_read_reg(uint8_t reg, uint8_t* d, int num_regs) {
     
     for (i=0;i<num_regs-1;i++) {
         d[i] = myI2C_I2CMasterReadByte(1);
-        if(reg_array[reg_num] != d[i]){
-            DBG_PRINTF("Different reg 0x%x: old: %d new: %d\r\n", reg_num, reg_array[reg_num], d[i]); 
-            reg_array[reg_num] = d[i];
+        if(reg_array[reg] != d[i]){
+            DBG_PRINTF("Different reg 0x%x: old: %d new: %d\r\n", reg, reg_array[reg], d[i]); 
+            reg_array[reg] = d[i];
         }
     }
     d[num_regs-1] = myI2C_I2CMasterReadByte(0);
     
     myI2C_I2CMasterSendStop();
-    reg_num++;
+    //reg_num++;
     
 }
 
