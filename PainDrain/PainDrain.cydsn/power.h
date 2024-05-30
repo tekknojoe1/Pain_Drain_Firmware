@@ -50,3 +50,5 @@ typedef enum {
 
 // Declare an external variable for battery status
 extern BatteryStatus batteryStatus;
+
+uint8_t reg_array[38];

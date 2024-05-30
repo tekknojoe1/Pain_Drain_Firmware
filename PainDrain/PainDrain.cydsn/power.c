@@ -9,6 +9,7 @@
 #include "bq24298.h"
 #include "my_i2c.h"
 #include "debug.h"
+#include "bq25883.h"
 
 
 #define POWER_TIMER_PERIOD_MS 10
@@ -26,6 +27,7 @@ bool triggerBattery = false;
 bool isConnected = false;
 bool chargingValueSent = false;
 bool notChargingValueSent = false;
+int reg_num = 0;
 
 void power_led_off(void) {
     Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 0);
@@ -96,7 +98,7 @@ void gpio_interrupt_handler ( void ) {
 void power_init( void ) {
     
     
-    myI2C_Start();
+    //myI2C_Start();
     
     //Cy_SysInt_Init(&gpio_irq_cfg, gpio_interrupt_handler);
 	//NVIC_EnableIRQ(gpio_irq_cfg.intrSrc);
@@ -109,7 +111,7 @@ void power_init( void ) {
     DBG_PRINTF("Backlight on\r\n");
 
     
-    bq24298_init();
+    //bq24298_init();
     
     power_flags_update(POWER_FLAG_BLE, 1);
 }
@@ -140,6 +142,10 @@ void power_wakeup( void ) {
 }
 
 void power_task( void ) {
+    
+    reg_num = 0;
+    bq25883_read_all_reg();
+    
     
     if (Cy_GPIO_Read(CHG_STAT_PORT, CHG_STAT_NUM) == 0) {
         //power_led_charging();
@@ -332,13 +338,17 @@ void power_i2c_read_reg(uint8_t reg, uint8_t* d, int num_regs) {
     
     for (i=0;i<num_regs-1;i++) {
         d[i] = myI2C_I2CMasterReadByte(1);
+        if(reg_array[reg_num] != d[i]){
+            DBG_PRINTF("Different reg 0x%x: old: %d new: %d\r\n", reg_num, reg_array[reg_num], d[i]); 
+            reg_array[reg_num] = d[i];
+        }
     }
     d[num_regs-1] = myI2C_I2CMasterReadByte(0);
     
     myI2C_I2CMasterSendStop();
+    reg_num++;
     
 }
-
 
 void power_i2c_write_reg(uint8_t reg, uint8_t d) {
     int status;
