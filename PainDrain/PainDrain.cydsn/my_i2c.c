@@ -189,6 +189,7 @@ uint32 myI2C_I2CMasterSendRestart(uint32 slaveAddress, uint32 bitRnW) {
 	myI2C_state = myI2C_ADDR;
 	
 	ack = myI2C_I2CMasterWriteByte(sa);
+    DBG_PRINTF("Status: %d \r\n", ack);
 	
 	if (ack) {
 		myI2C_I2CMasterSendStop();
@@ -200,7 +201,7 @@ uint32 myI2C_I2CMasterSendRestart(uint32 slaveAddress, uint32 bitRnW) {
 			myI2C_state = myI2C_READ;
 		}
 	}
-	//DBG_PRINTF("Inside myI2C_I2CMasterSendRestart, ack:  %d \r\n", ack);
+	DBG_PRINTF("Inside myI2C_I2CMasterSendRestart, ack:  %d \r\n", ack);
 	return ack;
 }
 	
@@ -334,7 +335,7 @@ uint32 myI2C_I2CMasterWriteByte(uint32 theByte)
 		myI2C_I2CMasterSendStop();
 		myI2C_I2CMasterClearStatus();
 	}
-	//DBG_PRINTF("Inside myI2C_I2CMasterWriteByte, ack:  %d \r\n", ack);	
+	DBG_PRINTF("Inside myI2C_I2CMasterWriteByte, ack:  %d \r\n", ack);	
 	return ack;
 	
 }
@@ -392,7 +393,7 @@ uint32  myI2C_I2CMasterReadByte(uint32 ackNack) {
 	I2C_SCL_Write(1);
 	CyDelayUs(4);
 	I2C_SCL_Write(0);
-	//DBG_PRINTF("Inside myI2C_I2CMasterReadByte, ackNack:  %d \r\n", ackNack);
+	DBG_PRINTF("Inside myI2C_I2CMasterReadByte, ackNack:  %d \r\n", ackNack);
 	return d;
 		
 }

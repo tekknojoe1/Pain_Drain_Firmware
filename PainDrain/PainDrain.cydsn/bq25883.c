@@ -34,12 +34,11 @@ void bq25883_init( void ) {
 }
 
 void bq25883_write_reg(int reg, int d) {
-    power_i2c_write_reg(reg, d);
+    power_i2c_write_reg(BQ25883_I2C_ADDR, reg, d);
 }
 
-
 void bq25883_read_reg(uint8_t reg, uint8_t* d, int num_regs) {
-    power_i2c_read_reg(reg, d, num_regs);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, reg, d, num_regs);
 }
 
 void bq25883_read_all_reg() {
@@ -50,16 +49,16 @@ void bq25883_read_all_reg() {
     //power_i2c_read_reg(BQ2588X_REG_VINDPM, &reg_value, 2);
     //power_i2c_read_reg(BQ2588X_REG_IINDPM, &reg_value, 2);
     //power_i2c_read_reg(BQ2588X_REG_PRECHG_TERM, &reg_value, 2);
-    power_i2c_read_reg(BQ2588X_REG_CHG_CTRL1, &reg_value, 2);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, BQ2588X_REG_CHG_CTRL1, &reg_value, 2);
     //power_i2c_read_reg(BQ2588X_REG_CHG_CTRL2, &reg_value, 2);
     //power_i2c_read_reg(BQ2588X_REG_CHG_CTRL3, &reg_value, 2);
     //power_i2c_read_reg(BQ2588X_REG_CHG_CTRL4, &reg_value, 2);
     //power_i2c_read_reg(BQ2588X_REG_OTG_CTRL, &reg_value, 2);
     //power_i2c_read_reg(BQ2588X_REG_ICO_LIMIT, &reg_value, 2);
-    power_i2c_read_reg(BQ2588X_REG_CHG_STATUS1, &reg_value, 2);
-    power_i2c_read_reg(BQ2588X_REG_CHG_STATUS2, &reg_value, 2);
-    power_i2c_read_reg(BQ2588X_REG_NTC_STATUS, &reg_value, 2);
-    power_i2c_read_reg(BQ2588X_REG_FAULT_STATUS, &reg_value, 2);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, BQ2588X_REG_CHG_STATUS1, &reg_value, 2);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, BQ2588X_REG_CHG_STATUS2, &reg_value, 2);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, BQ2588X_REG_NTC_STATUS, &reg_value, 2);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, BQ2588X_REG_FAULT_STATUS, &reg_value, 2);
     //power_i2c_read_reg(BQ2588X_REG_CHG_FLAG1, &reg_value, 2);
     //power_i2c_read_reg(BQ2588X_REG_CHG_FLAG2, &reg_value, 2);
     //power_i2c_read_reg(BQ2588X_REG_FAULT_FLAG, &reg_value, 2);
@@ -84,11 +83,4 @@ void bq25883_read_all_reg() {
     //power_i2c_read_reg(BQ2588X_REG_TDIE_ADC_0, &reg_value, 2);
     //power_i2c_read_reg(BQ2588X_REG_PART_NUM, &reg_value, 2);
 }
-
-/*
-0x00 input source control
-0x01 Power-On Configuration 
-0x05 Charge Termination/Timer Control 
-0x07 Misc Operation Control 
-*/
 /* [] END OF FILE */
