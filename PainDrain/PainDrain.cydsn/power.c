@@ -143,6 +143,8 @@ void power_wakeup( void ) {
 
 void power_task( void ) {
     
+    //DBG_PRINTF(".");
+    
     //reg_num = 0;
     bq25883_read_all_reg();
     
