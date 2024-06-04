@@ -34,12 +34,11 @@ void bq25883_init( void ) {
 }
 
 void bq25883_write_reg(int reg, int d) {
-    power_i2c_write_reg(reg, d);
+    power_i2c_write_reg(BQ25883_I2C_ADDR, reg, d);
 }
 
-
 void bq25883_read_reg(uint8_t reg, uint8_t* d, int num_regs) {
-    power_i2c_read_reg(reg, d, num_regs);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, reg, d, num_regs);
 }
 
 void bq25883_read_all_reg() {
@@ -56,16 +55,16 @@ void bq25883_read_all_reg() {
     //power_i2c_read_reg(BQ2588X_REG_CHG_CTRL4, &reg_value, 2);
     //power_i2c_read_reg(BQ2588X_REG_OTG_CTRL, &reg_value, 2);
     //power_i2c_read_reg(BQ2588X_REG_ICO_LIMIT, &reg_value, 2);
-    power_i2c_read_reg(BQ2588X_REG_CHG_STATUS1, &reg_value, 2);
-    power_i2c_read_reg(BQ2588X_REG_CHG_STATUS2, &reg_value, 2);
-    power_i2c_read_reg(BQ2588X_REG_NTC_STATUS, &reg_value, 2);
-    power_i2c_read_reg(BQ2588X_REG_FAULT_STATUS, &reg_value, 2);
-    power_i2c_read_reg(BQ2588X_REG_CHG_FLAG1, &reg_value, 2);
-    power_i2c_read_reg(BQ2588X_REG_CHG_FLAG2, &reg_value, 2);
-    power_i2c_read_reg(BQ2588X_REG_FAULT_FLAG, &reg_value, 2);
-    power_i2c_read_reg(BQ2588X_REG_CHG_INT_MASK1, &reg_value, 2);
-    power_i2c_read_reg(BQ2588X_REG_CHG_INT_MASK2, &reg_value, 2);
-    power_i2c_read_reg(BQ2588X_REG_FAULT_INT_MASK, &reg_value, 2);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, BQ2588X_REG_CHG_STATUS1, &reg_value, 2);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, BQ2588X_REG_CHG_STATUS2, &reg_value, 2);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, BQ2588X_REG_NTC_STATUS, &reg_value, 2);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, BQ2588X_REG_FAULT_STATUS, &reg_value, 2);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, BQ2588X_REG_CHG_FLAG1, &reg_value, 2);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, BQ2588X_REG_CHG_FLAG2, &reg_value, 2);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, BQ2588X_REG_FAULT_FLAG, &reg_value, 2);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, BQ2588X_REG_CHG_INT_MASK1, &reg_value, 2);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, BQ2588X_REG_CHG_INT_MASK2, &reg_value, 2);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, BQ2588X_REG_FAULT_INT_MASK, &reg_value, 2);
     //power_i2c_read_reg(BQ2588X_REG_ADC_CTRL, &reg_value, 2);
     //power_i2c_read_reg(BQ2588X_REG_ADC_FUNC_DIS, &reg_value, 2);
     //power_i2c_read_reg(BQ2588X_REG_IBUS_ADC_1, &reg_value, 2);

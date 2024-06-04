@@ -22,12 +22,12 @@ void bq24298_init( void ) {
 }
 
 void bq24298_write_reg(int reg, int d) {
-    power_i2c_write_reg(reg, d);
+    power_i2c_write_reg(BQ24298_I2C_ADDR, reg, d);
 }
 
 
 void bq24298_read_reg(uint8_t reg, uint8_t* d, int num_regs) {
-    power_i2c_read_reg(reg, d, num_regs);
+    power_i2c_read_reg(BQ24298_I2C_ADDR, reg, d, num_regs);
 }
 
 

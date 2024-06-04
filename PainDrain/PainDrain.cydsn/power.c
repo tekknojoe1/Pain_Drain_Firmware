@@ -10,6 +10,7 @@
 #include "my_i2c.h"
 #include "debug.h"
 #include "bq25883.h"
+#include "bq28Z610.h"
 
 
 #define POWER_TIMER_PERIOD_MS 10
@@ -111,7 +112,17 @@ void power_init( void ) {
     DBG_PRINTF("Backlight on\r\n");
 
     
-    //bq24298_init();
+    //bq28Z610_init();
+
+    uint8_t lsb;
+    uint8_t msb;
+
+    power_i2c_read_reg(BQ28Z610_I2C_ADDR, 0x00, &lsb, 1);
+    power_i2c_read_reg(BQ28Z610_I2C_ADDR, 0x01, &msb, 1);
+    uint16_t value = (msb << 8) | lsb;
+    DBG_PRINTF("Combined Value: %d\r\n", value);
+    //bq25883_read_reg(0x00, &lsb, 2);
+    
     
     power_flags_update(POWER_FLAG_BLE, 1);
 }
@@ -119,18 +130,18 @@ void power_init( void ) {
 void power_5v_on( void ) {
     uint8 d;
     
-    power_i2c_read_reg(CHG_PWR_ON_CFG_REG, &d, 1);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, CHG_PWR_ON_CFG_REG, &d, 1);
     d |= CHG_PWR_ON_CFG_OTGCONFIG_MASK;
-    power_i2c_write_reg(CHG_PWR_ON_CFG_REG, d);    
+    power_i2c_write_reg(BQ25883_I2C_ADDR, CHG_PWR_ON_CFG_REG, d);    
     
 }
 
 void power_5v_off( void ) {
     uint8 d;
     
-    power_i2c_read_reg(CHG_PWR_ON_CFG_REG, &d, 1);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, CHG_PWR_ON_CFG_REG, &d, 1);
     d &= ~CHG_PWR_ON_CFG_OTGCONFIG_MASK;
-    power_i2c_write_reg(CHG_PWR_ON_CFG_REG, d);  
+    power_i2c_write_reg(BQ25883_I2C_ADDR, CHG_PWR_ON_CFG_REG, d);  
     
 }
 
@@ -146,7 +157,7 @@ void power_task( void ) {
     //DBG_PRINTF(".");
     
     //reg_num = 0;
-    bq25883_read_all_reg();
+    //bq25883_read_all_reg();
     
     
     if (Cy_GPIO_Read(CHG_STAT_PORT, CHG_STAT_NUM) == 0) {
@@ -323,40 +334,41 @@ void power_get_diag_data(uint8 d[]) {
     
     memset(d, 0, CHG_VNDR_PART_REV_REG+1);
     
-    power_i2c_read_reg(0, d, CHG_VNDR_PART_REV_REG+1);  
+    power_i2c_read_reg(BQ25883_I2C_ADDR, 0, d, CHG_VNDR_PART_REV_REG+1);  
       
         
 }
 
-void power_i2c_read_reg(uint8_t reg, uint8_t* d, int num_regs) {
+void power_i2c_read_reg(uint8_t deviceAddr, uint8_t reg, uint8_t* d, int num_regs) {
     int status;
     int i;
     
     myI2C_I2CMasterClearStatus();
     
-    status = myI2C_I2CMasterSendStart(BQ24298_I2C_ADDR, 0);
+    status = myI2C_I2CMasterSendStart(deviceAddr, 0);
     status = myI2C_I2CMasterWriteByte(reg);
-    status = myI2C_I2CMasterSendRestart(BQ24298_I2C_ADDR, 1);
+    status = myI2C_I2CMasterSendRestart(deviceAddr, 1);
     
     for (i=0;i<num_regs-1;i++) {
         d[i] = myI2C_I2CMasterReadByte(1);
+        //DBG_PRINTF("reg 0x%x: %d\r\n", reg, d[i]);
+        /*
         if(reg_array[reg] != d[i]){
             DBG_PRINTF("Different reg 0x%x: old: %d new: %d\r\n", reg, reg_array[reg], d[i]); 
             reg_array[reg] = d[i];
         }
+        */
     }
     d[num_regs-1] = myI2C_I2CMasterReadByte(0);
     
     myI2C_I2CMasterSendStop();
-    //reg_num++;
-    
 }
 
-void power_i2c_write_reg(uint8_t reg, uint8_t d) {
+void power_i2c_write_reg(uint8_t deviceAddr, uint8_t reg, uint8_t d) {
     int status;
     
     myI2C_I2CMasterClearStatus();
-    status = myI2C_I2CMasterSendStart(BQ24298_I2C_ADDR, 0);
+    status = myI2C_I2CMasterSendStart(deviceAddr, 0);
 	status = myI2C_I2CMasterWriteByte(reg); 
 	status = myI2C_I2CMasterWriteByte(d); 
     myI2C_I2CMasterSendStop();
