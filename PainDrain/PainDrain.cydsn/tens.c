@@ -163,15 +163,15 @@ void set_tens_amp (int amplitude) {
 
 // Helper function to make setting a signal easier to channel 1 and 2
 void set_tens_signal(int amplitude, double duration, int period, int channel, int phase) {
+    DBG_PRINTF("amp \r\n");
     
     int duration_case = (int)(duration*10);
     tens_phase_shift = phase;
-    
-    if(channel == 0){
-        // Amplitude and Period will be the same for both channels.
-        set_tens_amp(amplitude);
-        set_tens_freq(period);
-    } else if(channel == 1){
+    //DBG_PRINTF("Channel 0\r\n");
+    // Amplitude and Period will be the same for both channels.
+    set_tens_amp(amplitude);
+    set_tens_freq(period);
+    if(channel == 1){
         DBG_PRINTF("Channel 1\r\n");
         set_tens_dur(duration_case, &tens_one_dur_ms);
         DBG_PRINTF("Channel 1 duration: %d\r\n", tens_one_dur_ms);
@@ -180,12 +180,12 @@ void set_tens_signal(int amplitude, double duration, int period, int channel, in
         set_tens_dur(duration_case, &tens_two_dur_ms); 
         DBG_PRINTF("Channel 2 duration: %d\r\n", tens_two_dur_ms);
     } else {
-        DBG_PRINTF("No Channel\r\n");
+        DBG_PRINTF("Disabling Tens\r\n");
         // disable the signal
-        //set_tens_amp(0);
-        //set_tens_freq(0);
-        //set_tens_dur(0, &tens_one_dur_ms);
-        //set_tens_dur(0, &tens_two_dur_ms);
+        set_tens_amp(0);
+        set_tens_freq(0);
+        set_tens_dur(0, &tens_one_dur_ms);
+        set_tens_dur(0, &tens_two_dur_ms);
     }   
 }
 /* [] END OF FILE */

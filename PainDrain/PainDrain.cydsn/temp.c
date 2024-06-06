@@ -65,6 +65,7 @@ void set_temp(int value){
        // set_fan(set_fan_based_on_temp(abs(value)));
         set_fan(value);
     } else { 
+        DBG_PRINTF("Disable Temp\r\n");
         // Turn off both PELs to save power
         PWM_PEL1_SetCompare0(0);
         PWM_PEL2_SetCompare0(0);
@@ -85,14 +86,15 @@ void set_fan(int value){
     
     // scale the value to the PWM range
     int scaled_fan_pwm = ( abs(value) * MAX_FAN_PWM_VALUE) / 100;
-    
+    DBG_PRINTF("Value: %d\r\n", value);
     //Update Fan
     if (value == 0) {
         //Turn fan off
+        DBG_PRINTF("PIN Low\r\n");
         Cy_GPIO_Write(FAN_EN_PORT, FAN_EN_NUM, 0);
     } else {
         //Adjust fan
-        Cy_GPIO_Write(FAN_EN_PORT, FAN_EN_NUM, 1);
+        //Cy_GPIO_Write(FAN_EN_PORT, FAN_EN_NUM, 1);
         //PWM_FAN_SetCompare0(scaled_fan_pwm);
     }
     DBG_PRINTF("Fan value: %d\r\n", scaled_fan_pwm);
