@@ -24,6 +24,10 @@
 
 // Device address: 0x20
 #define MA12070P_I2C_ADDR 0x20
+#define PWM_PERIOD 624
+#define MAX_PWM_VALUE 390  // 62.5% of 624
+
+
 
 void vibe_i2c_read_reg(uint8_t reg, uint8_t* d, int num_regs) {
     int status;
@@ -44,6 +48,13 @@ void vibe_i2c_read_reg(uint8_t reg, uint8_t* d, int num_regs) {
     d[num_regs-1] = myI2C_I2CMasterReadByte(0);
     
     myI2C_I2CMasterSendStop();   
+}
+
+void vibe_turn_on_motor(){
+    DBG_PRINTF("Status: %d\r\n", PWM_VIBE_GetStatus());
+    DBG_PRINTF("Get compare: %d\r\n", PWM_VIBE_GetCompare0());
+    DBG_PRINTF("period: %d\r\n", PWM_VIBE_GetPeriod0());
+    //PWM_VIBE_SetCompare0(15); //16
 }
 
 /*

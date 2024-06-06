@@ -333,7 +333,7 @@ void AppCallBack(uint32 event, void *eventParam)
                     }
                     // Add a null terminator to mark end of string
                     receivedCommand[length] = '\0';
-                    DBG_PRINTF("Received string: %s\r\n", receivedCommand);
+                    //DBG_PRINTF("Received string: %s\r\n", receivedCommand);
                     
                     // This splits the received command into sections by single space
                     token = strtok(receivedCommand, delimiter); // Gets the first token
@@ -353,7 +353,7 @@ void AppCallBack(uint32 event, void *eventParam)
                             2: int Temperature
                             */
                             int temperatureValue = atoi(tokens[1]); // Convert the numeric part after 't'
-                            DBG_PRINTF("t value: %d\r\n", temperatureValue);
+                            DBG_PRINTF("temperature: %d\r\n", temperatureValue);
                             set_temp(temperatureValue);  
                             break;
                         }
@@ -382,7 +382,7 @@ void AppCallBack(uint32 event, void *eventParam)
                                 3: int Phase Degree
                                 */
                                 tensPhase = atoi(tokens[2]);
-                                DBG_PRINTF("T value phase: %d\r\n", tensPhase);
+                                DBG_PRINTF("Tens phase: %d\r\n", tensPhase);
                             }
                             else{
                                 tensAmpValue = atoi(tokens[1]);
@@ -390,11 +390,10 @@ void AppCallBack(uint32 event, void *eventParam)
                                 tensPeriodValue = atoi(tokens[3]);
                                 tensChannel = atoi(tokens[4]);
                                 //int phaseDegree = atoi(tokens[5]);
-                                DBG_PRINTF("T value amp: %d\r\n", tensAmpValue);
-                                DBG_PRINTF("T value duration: %s\r\n", tokens[2]);
-                                DBG_PRINTF("T value period: %d\r\n", tensPeriodValue);
-                                DBG_PRINTF("T Channel: %d\r\n", tensChannel);
-                                //set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  tensPhase);
+                                DBG_PRINTF("Tens amplitude: %d\r\n", tensAmpValue);
+                                DBG_PRINTF("Tens duration: %s\r\n", tokens[2]);
+                                DBG_PRINTF("Tens period: %d\r\n", tensPeriodValue);
+                                DBG_PRINTF("Tens Channel: %d\r\n", tensChannel);
                             }
                             set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  tensPhase);
                             break;
@@ -413,56 +412,11 @@ void AppCallBack(uint32 event, void *eventParam)
                             int vibeFreq = atoi(tokens[2]);
                             int vibeWaveform = atoi(tokens[3]);
                             //DBG_PRINTF("v waveType: %s\r\n", waveType);
-                            DBG_PRINTF("v amp: %d\r\n", vibeAmp);
-                            DBG_PRINTF("v freq: %d\r\n", vibeFreq);
-                            DBG_PRINTF("v waveform: %d\r\n", vibeWaveform);
+                            DBG_PRINTF("vibration Intensity: %d\r\n", vibeAmp);
+                            DBG_PRINTF("vibration frequency: %d\r\n", vibeFreq);
+                            //DBG_PRINTF("vibration waveform: %d\r\n", vibeWaveform);
                             //set_vibe(waveType, vibeAmp, vibeFreq, vibeWaveform);
                            
-                            break;
-                        }
-                        case 'r':
-                        {
-                            
-                            /*
-                            Only used for debugging and checking register map information
-                            Packet information contains
-                            1: char r - register
-                            2: int register address
-                            */
-                            
-                            uint8_t testValue = 0;
-                            uint8_t reg_address = 0x7C;
-                            uint8_t read_reg_data[1];
-                            
-                            // Calculate the number of digits in the integer
-                            int numDigits = snprintf(NULL, 0, "%u", testValue);
-
-                            // Allocate memory for the string, including space for the null terminator
-                            char* addrValue = (char*)malloc(numDigits + 1);
-                            
-                            // Check if memory allocation is successful
-                            if (addrValue != NULL) {
-                                // Convert the uint8 to a string
-                                sprintf(addrValue, "%u", testValue);
-
-                            } else {
-                                // Handle memory allocation failure
-                                DBG_PRINTF("Memory allocation failed\r\n");  
-                                return;
-                            }
-                            
-                            // Set low for I2C communication
-                            //Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);
-                            CyDelayUs(100);
-                            vibe_i2c_read_reg(reg_address, read_reg_data, 1);
-                            
-                            DBG_PRINTF("read_reg_data: %d\r\n", read_reg_data[0]);
-                            //int registerAddress = atoi(tokens[1]);
-                            
-                            writeReq->handleValPair.value.val = (uint8 *) addrValue;
-                                // Don't forget to free the allocated memory when done
-                                //free(addrValue);
-                            
                             break;
                         }
                         
@@ -517,7 +471,6 @@ void AppCallBack(uint32 event, void *eventParam)
                     if( writeError != CY_BLE_SUCCESS ){
                         DBG_PRINTF("Write rsp failed\r\n");
                     }
-                    
                     bool result = send_data_to_phone(writeReq->handleValPair.value.val, writeReq->handleValPair.value.len, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
                     if(!result){
                         DBG_PRINTF("Failed to send to phone\r\n");
@@ -614,6 +567,8 @@ int HostMain(void)
     
     PWM_TENS_Start();
     PWM_TENS2_Start();
+    PWM_VIBE_Start();
+    //vibe_turn_on_motor();
     //PWM_TENS_Enable();
     //PWM_TENS2_Enable();
     

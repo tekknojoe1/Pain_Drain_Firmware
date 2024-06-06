@@ -11,6 +11,8 @@
 #include "debug.h"
 #include "bq25883.h"
 #include "bq28Z610.h"
+#include "tens.h"
+#include "temp.h"
 
 
 #define POWER_TIMER_PERIOD_MS 10
@@ -113,14 +115,14 @@ void power_init( void ) {
 
     
     //bq28Z610_init();
+    //bq25883_init();
+    //uint8_t lsb;
+    //uint8_t msb;
 
-    uint8_t lsb;
-    uint8_t msb;
-
-    power_i2c_read_reg(BQ28Z610_I2C_ADDR, 0x00, &lsb, 1);
-    power_i2c_read_reg(BQ28Z610_I2C_ADDR, 0x01, &msb, 1);
-    uint16_t value = (msb << 8) | lsb;
-    DBG_PRINTF("Combined Value: %d\r\n", value);
+    //power_i2c_read_reg(BQ28Z610_I2C_ADDR, 0x02, &lsb, 2);
+    //power_i2c_read_reg(BQ28Z610_I2C_ADDR, 0x03, &msb, 2);
+    //uint16_t value = (msb << 8) | lsb;
+    //DBG_PRINTF("Combined Value: %d\r\n", value);
     //bq25883_read_reg(0x00, &lsb, 2);
     
     
@@ -153,80 +155,21 @@ void power_wakeup( void ) {
 }
 
 void power_task( void ) {
-    
-    //DBG_PRINTF(".");
-    
-    //reg_num = 0;
     //bq25883_read_all_reg();
-    
-    
-    if (Cy_GPIO_Read(CHG_STAT_PORT, CHG_STAT_NUM) == 0) {
-        //power_led_charging();
-    } else {
-        //power_led_off();
-    }
-    
-    //Power button detection to wakeup
+    /*
+    uint8_t lsb;
+    uint8_t msb;
 
-    //DBG_PRINTF("Charging PIN Status %d\r\n", Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM));
-    // Calls get battery status to read charge pin
-    uint8_t newChargingStatus = get_charging_status();
-    if(chargingStatus != newChargingStatus){
-        // Assigns value change to global variable
-        chargingStatus = newChargingStatus;
-        if(chargingStatus == 1){
-            // Its charging
-            //DBG_PRINTF("Charging\r\n");
-            
-            uint8_t* data;
-            data = (uint8_t*)"charging 1";
-            
-            // Sends to phone and returns a bool
-            bool result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
-            // Was successful
-            if(result){
-                DBG_PRINTF("Charging Status sent\r\n");
-            }
-            
-        } else if(chargingStatus == 0){
-            // Its not charging
-            DBG_PRINTF("Not Charging\r\n");
-            
-            uint8_t* data;
-            data = (uint8_t*)"charging 0";
-            
-            // Sends to phone and returns a bool
-            bool result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
-            // was successful
-            if(result){
-                DBG_PRINTF("Not Charging Status sent\r\n");
-            }
-        } else {
-            // Charging Status wasn't 0 or 1
-            DBG_PRINTF("Charge Status is not 1 or 0\r\n");
-        }
-        
-    }
+    power_i2c_read_reg(BQ28Z610_I2C_ADDR, 0x00, &lsb, 1);
+    power_i2c_read_reg(BQ28Z610_I2C_ADDR, 0x01, &msb, 1);
+    uint16_t value = (msb << 8) | lsb;
+    DBG_PRINTF("Combined Value: %d\r\n", value);
+    */   
+    check_charger();
     
     if (Cy_GPIO_Read(PWR_PORT, PWR_NUM) == 0) {
         power_wakeup();
-        DBG_PRINTF("Waking up\r\n");
-        
-        // test code to test charging notification just so it doesn't execute for however long the user holds the button down
-        //power_led_charging();
-        CyDelay(2000);
-        uint8_t* data;
-        if(triggerBattery){
-            data = (uint8_t*)"charging 1";
-            send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
-        } else{
-            data = (uint8_t*)"charging 0";
-            send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
-        }
-        triggerBattery = !triggerBattery;
-        //power_led_off();
-        // end of test code
-        
+        DBG_PRINTF("Waking up\r\n");       
     }
     cy_en_gpio_status_t initStatus;
     
@@ -312,21 +255,69 @@ bool send_data_to_phone(uint8_t* data, uint16_t length, uint8_t characteristic){
     handleValuePair.attrHandle = characteristic;
    
     // Sends notification
-    gattErr = Cy_BLE_GATTS_SendNotification(cy_ble_connHandle, &handleValuePair);
-    if(gattErr == CY_BLE_SUCCESS){ 
-        return true;
-    } else if(gattErr == CY_BLE_ERROR_NO_DEVICE_ENTITY){
-        DBG_PRINTF("There is no connection for the corresponding bdHandle\r\n");      
-    } else if(gattErr == CY_BLE_ERROR_INVALID_PARAMETER){
-        DBG_PRINTF("Validation of the input parameter failed\r\n");      
-    } else if(gattErr == CY_BLE_ERROR_INVALID_OPERATION){
-        DBG_PRINTF("This operation is not permitted. Or an error was returned during the write attribute value in the GATT database\r\n");      
-    } else if(gattErr == CY_BLE_ERROR_NTF_DISABLED){
-        DBG_PRINTF("Characteristic notifications disabled\r\n");      
-    } else{
-        DBG_PRINTF("Unknown Error\r\n");       
+    if(Cy_BLE_GetConnectionState(cy_ble_connHandle[0]) == CY_BLE_CONN_STATE_CONNECTED){
+        gattErr = Cy_BLE_GATTS_SendNotification(cy_ble_connHandle, &handleValuePair);
+        if(gattErr == CY_BLE_SUCCESS){ 
+            return true;
+        } else if(gattErr == CY_BLE_ERROR_NO_DEVICE_ENTITY){
+            DBG_PRINTF("There is no connection for the corresponding bdHandle\r\n");      
+        } else if(gattErr == CY_BLE_ERROR_INVALID_PARAMETER){
+            DBG_PRINTF("Validation of the input parameter failed\r\n");      
+        } else if(gattErr == CY_BLE_ERROR_INVALID_OPERATION){
+            DBG_PRINTF("This operation is not permitted. Or an error was returned during the write attribute value in the GATT database\r\n");      
+        } else if(gattErr == CY_BLE_ERROR_NTF_DISABLED){
+            DBG_PRINTF("Characteristic notifications disabled\r\n");      
+        } else{
+            DBG_PRINTF("Unknown Error\r\n");       
+        }
     }
     return false;
+    
+}
+
+/*
+check_charger() - Reads the charging pin and detects if device is charging. Updates LEDs and sends
+notification to phone when charging status is changed.
+*/
+void check_charger() {
+    uint8_t newChargingStatus = get_charging_status();
+    
+    // Check if the charging status has changed
+    if (chargingStatus != newChargingStatus) {
+        // Update the global chargingStatus variable
+        chargingStatus = newChargingStatus;
+        
+        // Update the batteryStatus based on the new charging status
+        if (chargingStatus == 0) {
+            shut_off_all_stimuli();
+            batteryStatus = CHARGING;
+            uint8_t* data = (uint8_t*)"charging 0";
+            
+            // Send data to phone if connected
+            bool result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+            if (result) {
+                DBG_PRINTF("Charging Status sent\r\n");
+            }
+            
+        } else if (chargingStatus == 1) {
+            batteryStatus = NOT_CHARGING;
+            uint8_t* data = (uint8_t*)"charging 1";
+
+            bool result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+            if (result) {
+                DBG_PRINTF("Not Charging Status sent\r\n");
+            }
+            
+        } else {
+            DBG_PRINTF("Charge Status is not 1 or 0\r\n");
+        }
+    }
+}
+
+void shut_off_all_stimuli(){
+    PWM_VIBE_SetCompare0(0); // Turns off vibe motor
+    set_tens_signal(0, 0.0, 0, 0, 0); // Turns off tens
+    set_temp(0);
     
 }
 
@@ -352,12 +343,12 @@ void power_i2c_read_reg(uint8_t deviceAddr, uint8_t reg, uint8_t* d, int num_reg
     for (i=0;i<num_regs-1;i++) {
         d[i] = myI2C_I2CMasterReadByte(1);
         //DBG_PRINTF("reg 0x%x: %d\r\n", reg, d[i]);
-        /*
+        
         if(reg_array[reg] != d[i]){
-            DBG_PRINTF("Different reg 0x%x: old: %d new: %d\r\n", reg, reg_array[reg], d[i]); 
+            DBG_PRINTF("Different reg 0x%x: old: 0x%x new: 0x%x\r\n", reg, reg_array[reg], d[i]); 
             reg_array[reg] = d[i];
         }
-        */
+        
     }
     d[num_regs-1] = myI2C_I2CMasterReadByte(0);
     
@@ -441,7 +432,6 @@ void UpdateLedState(void)
         if(!chargingValueSent){
             uint8_t* data;
             data = (uint8_t*)"charging 0";
-            //DBG_PRINTF("Charging HERE\r\n");
             bool result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
             // was successful
             if(result){
@@ -454,18 +444,12 @@ void UpdateLedState(void)
     else if(batteryStatus == FULLY_CHARGED)
     {
         power_led_off();
-        power_led_charged();
-        //isCharging = false;
-        //DBG_PRINTF("Fully Charged\r\n");
-        
+        power_led_charged();  
     }
     else if(batteryStatus == LOW_BATTERY)
     {
         power_led_off();
         power_led_lowbatt();
-        //isCharging = false;
-        //DBG_PRINTF("Low Battery\r\n");
-        
     }
     else if(batteryStatus == NOT_CHARGING)
     {
@@ -473,7 +457,6 @@ void UpdateLedState(void)
         if(!notChargingValueSent){
             uint8_t* data;
             data = (uint8_t*)"charging 1";
-            //DBG_PRINTF("Charging HERE\r\n");
             bool result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
             // was successful
             if(result){
