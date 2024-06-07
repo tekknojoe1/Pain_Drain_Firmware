@@ -24,8 +24,10 @@
 
 // Device address: 0x20
 #define MA12070P_I2C_ADDR 0x20
-#define PWM_PERIOD 624
-#define MAX_PWM_VALUE 390  // 62.5% of 624
+#define PWM_PERIOD 100
+#define MAX_PWM_VALUE 62  // 62.5% of 624
+#define MAX_PERCENTAGE .625
+#define MIN_PERCENTAGE .16
 
 
 
@@ -50,11 +52,21 @@ void vibe_i2c_read_reg(uint8_t reg, uint8_t* d, int num_regs) {
     myI2C_I2CMasterSendStop();   
 }
 
-void vibe_turn_on_motor(){
-    DBG_PRINTF("Status: %d\r\n", PWM_VIBE_GetStatus());
-    DBG_PRINTF("Get compare: %d\r\n", PWM_VIBE_GetCompare0());
-    DBG_PRINTF("period: %d\r\n", PWM_VIBE_GetPeriod0());
-    //PWM_VIBE_SetCompare0(15); //16
+void set_vibe(int intensity, int frequency){
+    uint32_t period = PWM_VIBE_GetPeriod0();
+    if(period != PWM_PERIOD){
+        PWM_VIBE_SetPeriod0(PWM_PERIOD);
+    }
+    int maxPWM = period * MAX_PERCENTAGE;
+    int minPWM = period * MIN_PERCENTAGE;
+    DBG_PRINTF("Intensity: %d maxPWM: %d\r\n", intensity, maxPWM);
+    if(intensity >= maxPWM){
+        PWM_VIBE_SetCompare0(maxPWM);
+    } else if(intensity <= minPWM){
+        PWM_VIBE_SetCompare0(minPWM);
+    } else{
+        PWM_VIBE_SetCompare0(intensity);
+    }
 }
 
 /*

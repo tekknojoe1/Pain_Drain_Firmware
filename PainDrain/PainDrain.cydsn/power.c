@@ -318,6 +318,7 @@ void shut_off_all_stimuli(){
     PWM_VIBE_SetCompare0(0); // Turns off vibe motor
     set_tens_signal(0, 0.0, 0, 0, 0); // Turns off tens
     set_temp(0);
+    DBG_PRINTF("Shut off all stimuli\r\n");
     
 }
 
