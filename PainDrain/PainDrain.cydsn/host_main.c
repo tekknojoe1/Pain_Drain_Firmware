@@ -408,14 +408,14 @@ void AppCallBack(uint32 event, void *eventParam)
                             4: int Wavefrom
                             */
                             //char *waveType = tokens[1];
-                            int vibeAmp = atoi(tokens[1]);
+                            int vibeIntensity = atoi(tokens[1]);
                             int vibeFreq = atoi(tokens[2]);
-                            int vibeWaveform = atoi(tokens[3]);
+                            //int vibeWaveform = atoi(tokens[3]);
                             //DBG_PRINTF("v waveType: %s\r\n", waveType);
-                            DBG_PRINTF("vibration Intensity: %d\r\n", vibeAmp);
+                            DBG_PRINTF("vibration Intensity: %d\r\n", vibeIntensity);
                             DBG_PRINTF("vibration frequency: %d\r\n", vibeFreq);
                             //DBG_PRINTF("vibration waveform: %d\r\n", vibeWaveform);
-                            //set_vibe(waveType, vibeAmp, vibeFreq, vibeWaveform);
+                            set_vibe(vibeIntensity, vibeFreq);
                            
                             break;
                         }
