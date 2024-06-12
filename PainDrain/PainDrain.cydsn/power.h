@@ -12,6 +12,10 @@
 #define POWER_FLAG_CHG 30
 #define LED_ON                          (0u)
 #define LED_OFF                         (1u)
+#define BATTERY_FULLY_CHARGED           (2u)
+#define BATTERY_CHARGING                (0u)
+#define BATTERY_NOT_CHARGING            (1u)
+#define BATTERY_LOW                     (3u)
 
 void power_init( void );
 void power_task( void );
@@ -41,6 +45,7 @@ void power_led_charged(void);
 void power_led_ble(void);
 void power_led_advertising(void);
 void power_led_connected(void);
+void reset_timer_cycles(void);
 
 // Define the enum for battery status
 typedef enum {
@@ -51,6 +56,6 @@ typedef enum {
 } BatteryStatus;
 
 // Declare an external variable for battery status
-extern BatteryStatus batteryStatus;
+extern BatteryStatus battery_status;
 
-uint8_t reg_array[38];
+uint16_t reg_array[38];

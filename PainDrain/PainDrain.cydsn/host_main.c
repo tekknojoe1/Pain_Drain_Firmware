@@ -66,7 +66,7 @@ uint8_t data2[] = {0x01, 0x02, 0x03, 0x04}; // Replace with your actual data
 unsigned int MAX_LENGTH = 20;
 uint8 fakeBatteryPercentage = 100;
 int previousValue = -1;
-BatteryStatus batteryStatus;
+BatteryStatus battery_status;
 int tensPhase;
 int tensAmpValue;
 double tensDurationValue;
@@ -107,6 +107,7 @@ void checkForValueChange() {
 *******************************************************************************/
 void AppCallBack(uint32 event, void *eventParam)
 {
+    //DBG_PRINTF("App call back events\r\n");
     //DBG_PRINTF("e=%d\r\n", event);
     cy_en_ble_gatt_err_code_t gattErr = CY_BLE_GATT_ERR_NONE;
     static cy_stc_ble_gap_sec_key_info_t keyInfo =
@@ -423,19 +424,19 @@ void AppCallBack(uint32 event, void *eventParam)
                         case 'B':
                         {
                             if(atoi(tokens[1]) == 0){
-                                batteryStatus = NOT_CHARGING;
+                                battery_status = NOT_CHARGING;
                                 DBG_PRINTF("Assign B 0\r\n");
                                 //DBG_PRINTF("Assign B 1\r\n", receivedCommand);
                             }else if(atoi(tokens[1]) == 1){
-                                batteryStatus = CHARGING;
+                                battery_status = CHARGING;
                                 DBG_PRINTF("Assign B 1\r\n");
                                 //DBG_PRINTF("Assign B 1\r\n", receivedCommand);
                             } else if(atoi(tokens[1]) == 2){
                                 DBG_PRINTF("Assign B 2\r\n");
                                 //DBG_PRINTF("Assign B 2\r\n", receivedCommand);
-                                batteryStatus = FULLY_CHARGED;
+                                battery_status = FULLY_CHARGED;
                             } else if(atoi(tokens[1]) == 3){
-                                batteryStatus = LOW_BATTERY;
+                                battery_status = LOW_BATTERY;
                                 DBG_PRINTF("Assign B 3\r\n");
                                 //DBG_PRINTF("Assign B 3\r\n", receivedCommand);
                             }
@@ -597,15 +598,19 @@ int HostMain(void)
     {
         //DBG_PRINTF("Loops from main %d\r\n", loopcount++);
         /* Cy_BLE_ProcessEvents() allows BLE stack to process pending events */
+        //uint32_t startTime = Cy_SysTick_GetValue();
+        //DBG_PRINTF("TICK value: %d\r\n", startTime);
         Cy_BLE_ProcessEvents();
        
         /* To achieve low power */
         //LowPowerImplementation();
+        //DBG_PRINTF("power task\r\n");
         power_task();
         
         //ui_task();    
         
         // Test code for TENS
+        //DBG_PRINTF("tens task\r\n");
         tens_timer();
         set_tens_task();
         
@@ -616,8 +621,8 @@ int HostMain(void)
         //vibe_init();
         //I2S_Start();
         //vibe_init();
-        
-        //set_vibe_task();
+        //DBG_PRINTF("vibe task\r\n");
+        vibe_task();
         
         
         /* Update Alert Level value on the blue LED */

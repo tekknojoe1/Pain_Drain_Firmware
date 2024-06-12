@@ -21,5 +21,6 @@
 void bq28Z610_init( void );
 void bq28Z610_write_reg(int reg, int d);
 void bq28Z610_read_reg(uint8_t reg, uint8_t* d, int num_regs);
+void bq28Z610_read_all_reg();
 
 /* [] END OF FILE */
