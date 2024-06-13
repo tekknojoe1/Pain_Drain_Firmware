@@ -66,7 +66,7 @@ uint8_t data2[] = {0x01, 0x02, 0x03, 0x04}; // Replace with your actual data
 unsigned int MAX_LENGTH = 20;
 uint8 fakeBatteryPercentage = 100;
 int previousValue = -1;
-BatteryStatus battery_status;
+DeviceStatus device_status;
 int tensPhase;
 int tensAmpValue;
 double tensDurationValue;
@@ -135,7 +135,7 @@ void AppCallBack(uint32 event, void *eventParam)
         case CY_BLE_EVT_GAP_DEVICE_DISCONNECTED:                             
             /* Start BLE advertisement for 180 seconds and update link status on LEDs */
             Cy_BLE_GAPP_StartAdvertisement(CY_BLE_ADVERTISING_FAST, CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX);
-            UpdateLedState();
+            //UpdateLedState();
             //DBG_PRINTF("Disconnected\r\n");
             IasSetAlertLevel(NO_ALERT);
             break;
@@ -146,7 +146,9 @@ void AppCallBack(uint32 event, void *eventParam)
             Cy_BLE_GAP_SetSecurityKeys(&keyInfo);
             //DBG_PRINTF("connected \r\n");
             //power_led_connected();
-            UpdateLedState();
+            DBG_PRINTF("CONNECTED\r\n");
+            //device_status = CONNECTED;
+            //UpdateLedState();
             break;
 
         case CY_BLE_EVT_GAPP_ADVERTISEMENT_START_STOP:
@@ -155,7 +157,7 @@ void AppCallBack(uint32 event, void *eventParam)
                  * mode (Hibernate) and wait for an external
                  * user event to wake up the device again */
                 //UpdateLedState();   FIXME
-                UpdateLedState();
+                //UpdateLedState();
                 Cy_BLE_Stop();             
             }
             break;
@@ -170,7 +172,7 @@ void AppCallBack(uint32 event, void *eventParam)
                (((cy_stc_ble_timeout_param_t *)eventParam)->timerHandle == timerParam.timerHandle))
             {
                 /* Update Led State */
-                UpdateLedState();        //FIXME
+                //UpdateLedState();        //FIXME
                 
                 /* Indicate that timer is raised to the main loop */
                 mainTimer++;
@@ -182,7 +184,7 @@ void AppCallBack(uint32 event, void *eventParam)
 
         case CY_BLE_EVT_STACK_SHUTDOWN_COMPLETE:
             /* Hibernate */
-            UpdateLedState();
+            //UpdateLedState();
             Cy_SysPm_Hibernate(); // This is needed to use wakeup button
             power_flags_update(POWER_FLAG_BLE, 0);  //Turn off ble power flag
             break;
@@ -423,23 +425,45 @@ void AppCallBack(uint32 event, void *eventParam)
                         
                         case 'B':
                         {
+                            DBG_PRINTF("HERE\r\n");
                             if(atoi(tokens[1]) == 0){
-                                battery_status = NOT_CHARGING;
+                                device_status = NOT_CHARGING;
                                 DBG_PRINTF("Assign B 0\r\n");
                                 //DBG_PRINTF("Assign B 1\r\n", receivedCommand);
                             }else if(atoi(tokens[1]) == 1){
-                                battery_status = CHARGING;
+                                device_status = CHARGING;
                                 DBG_PRINTF("Assign B 1\r\n");
                                 //DBG_PRINTF("Assign B 1\r\n", receivedCommand);
                             } else if(atoi(tokens[1]) == 2){
                                 DBG_PRINTF("Assign B 2\r\n");
                                 //DBG_PRINTF("Assign B 2\r\n", receivedCommand);
-                                battery_status = FULLY_CHARGED;
+                                device_status = FULLY_CHARGED;
                             } else if(atoi(tokens[1]) == 3){
-                                battery_status = LOW_BATTERY;
+                                device_status = LOW_BATTERY;
                                 DBG_PRINTF("Assign B 3\r\n");
                                 //DBG_PRINTF("Assign B 3\r\n", receivedCommand);
-                            }
+                            } else if(atoi(tokens[1]) == 4){
+                                device_status = MEDIUM_BATTERY;
+                                DBG_PRINTF("Assign B 4\r\n");
+                                //DBG_PRINTF("Assign B 3\r\n", receivedCommand);
+                            } else if(atoi(tokens[1]) == 5){
+                                device_status = NORMAL_OPERATION;
+                                DBG_PRINTF("Assign B 5\r\n");
+                                //DBG_PRINTF("Assign B 3\r\n", receivedCommand);
+                            } else if(atoi(tokens[1]) == 6){
+                                device_status = WARNING;
+                                DBG_PRINTF("Assign B 6\r\n");
+                                //DBG_PRINTF("Assign B 3\r\n", receivedCommand);
+                            } 
+                            //else if(atoi(tokens[1]) == 7){
+                            //    device_status = ADVERTISING;
+                            //    DBG_PRINTF("Assign B 7\r\n");
+                            //    //DBG_PRINTF("Assign B 3\r\n", receivedCommand);
+                            //} else if(atoi(tokens[1]) == 8){
+                            //    device_status = CONNECTED;
+                            //    DBG_PRINTF("Assign B 8\r\n");
+                            //    //DBG_PRINTF("Assign B 3\r\n", receivedCommand);
+                            //}
                         }
                         
                         default:
@@ -606,7 +630,25 @@ int HostMain(void)
         //LowPowerImplementation();
         //DBG_PRINTF("power task\r\n");
         power_task();
-        
+        /*
+        if (device_status == NOT_CHARGING) {
+            DBG_PRINTF("NOT_CHARGING\r\n");
+        } else if (device_status == CHARGING) {
+            DBG_PRINTF("CHARGING IN MAIN\r\n");
+        } else if (device_status == FULLY_CHARGED) {
+            DBG_PRINTF("FULLY_CHARGED\r\n");
+        } else if (device_status == LOW_BATTERY) {
+            DBG_PRINTF("LOW_BATTERY\r\n");
+        } else if (device_status == MEDIUM_BATTERY) {
+            DBG_PRINTF("MEDIUM_BATTERY\r\n");
+        } else if (device_status == NORMAL_OPERATION) {
+            DBG_PRINTF("NORMAL_OPERATION\r\n");
+        } else if (device_status == WARNING) {
+            DBG_PRINTF("WARNING\r\n");
+        } else {
+            DBG_PRINTF("UNKNOWN_STATUS\r\n");
+        }
+        */
         //ui_task();    
         
         // Test code for TENS
@@ -623,6 +665,7 @@ int HostMain(void)
         //vibe_init();
         //DBG_PRINTF("vibe task\r\n");
         vibe_task();
+        UpdateLedState();
         
         
         /* Update Alert Level value on the blue LED */

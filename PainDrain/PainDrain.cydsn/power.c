@@ -19,8 +19,9 @@
 #define POWER_TIMER_PERIOD_MS 10
 #define POWER_DISPLAY_TIMEOUT_SEC 20
 #define POWER_DISPLAY_TIMEOUT_INTERVAL (POWER_DISPLAY_TIMEOUT_SEC*1000 / POWER_TIMER_PERIOD_MS)
-#define POWER_LED_ADVERTISING_TIMER 2
-#define POWER_LED_CONNECTED_TIMER 6
+#define POWER_LED_SLOW_BLINK_TIMER 180
+#define POWER_LED_FAST_BLINK_TIMER 90
+#define POWER_LED_CONNECTED_TIMER 600
 
 #define POWER_IDLE 0
 #define POWER_DOWN 10
@@ -28,7 +29,7 @@
 static int power_state = 0;
 static uint32 power_timeout = 0;
 static uint32 power_flags = 0;   //Each bit indicates an active system. If all bits are zero we power down the entire device
-uint8_t charging_status;
+DeviceStatus last_device_status;
 bool triggerBattery = false;
 bool isConnected = false;
 bool chargingValueSent = false;
@@ -55,7 +56,7 @@ void power_led_charging(void) {
     Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 0);
 }
 
-void power_led_charged(void) {
+void power_led_green(void) {
     Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 0);
     Cy_GPIO_Write(LED_GREEN_PORT, LED_GREEN_NUM, 1);
     Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 0);
@@ -68,8 +69,11 @@ void power_led_ble(void) {
 }
 
 void power_led_advertising(void){
-    DBG_PRINTF("advertising timer: %d \r\n", cycles);
-    if(cycles < POWER_LED_ADVERTISING_TIMER / 2){
+    if(cycles >= POWER_LED_SLOW_BLINK_TIMER){
+        cycles = 0;
+    }
+    //DBG_PRINTF("advertising timer: %d \r\n", cycles);
+    if(cycles < POWER_LED_SLOW_BLINK_TIMER / 2){
         power_led_ble();
     } else{
         power_led_off();
@@ -77,8 +81,11 @@ void power_led_advertising(void){
     cycles++;
 }
 void power_led_connected(void){
+    if(cycles > POWER_LED_CONNECTED_TIMER){
+        cycles = 0;
+    }
     if(!isConnected){
-        DBG_PRINTF("connected timer: %d \r\n", cycles);
+        //DBG_PRINTF("connected timer: %d \r\n", cycles);
         if(cycles >= POWER_LED_CONNECTED_TIMER){
             power_led_off();
             isConnected = true;
@@ -87,6 +94,21 @@ void power_led_connected(void){
             cycles++; 
         } 
     }
+}
+
+void power_led_normal(void){
+    if(cycles >= POWER_LED_FAST_BLINK_TIMER){
+        cycles = 0;
+    }
+    //DBG_PRINTF("cycles: %d\r\n", cycles);
+
+    if(cycles < POWER_LED_FAST_BLINK_TIMER / 2){
+        power_led_green(); 
+    } else{
+        power_led_off();
+    } 
+    cycles++;
+    
 }
 
 void reset_timer_cycles(){
@@ -218,7 +240,7 @@ void power_task( void ) {
                     //Lets just turn off the display
                     //LCD_PWM_SetCompare0(0); 
                     
-                    if (power_flags == 0 && battery_status == NOT_CHARGING) {
+                    if (power_flags == 0 && device_status == NOT_CHARGING) {
                         //We don't have any active sub devices running so lets power all the way off.
                         
                         power_state = POWER_DOWN;
@@ -259,23 +281,73 @@ void power_task( void ) {
 }
 
 /*
-get_charging_status() - reads the charging pin value. 1 - Not Charging, 0 - Charging
+check_charger() - Reads the charging pin and detects if device is charging, fully charged, normal operation,
+low battery, warning, etc. Updates LEDs and sends notification to phone when charging status is changed.
 */
-uint32_t get_charging_status(){
+void check_charger() {
+    // Read charging status
     uint8_t charge_status_register[1];
     power_i2c_read_reg(BQ25883_I2C_ADDR, 0xB, charge_status_register, 1);
-    if((charge_status_register[0] & 0x07) == 0x06){
-        //battery_status = FULLY_CHARGED;
-        return BATTERY_FULLY_CHARGED;
+
+    // Determine the current device status
+    if ((charge_status_register[0] & 0x07) == 0x06) {
+        device_status = FULLY_CHARGED;
+    } else if (Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM) == 0) {
+        
+        device_status = CHARGING;
+    } else if (Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM) == 1 && isConnected) {
+        device_status = NORMAL_OPERATION;
+    } else if (Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM) == 1) {
+        device_status = NOT_CHARGING;
+    } else {
+        device_status = WARNING;
     }
-    /*
-    if(reg_array[0x0B] != charge_status_register[0]){
-        DBG_PRINTF("Different reg 0x%x: old: 0x%x new: 0x%x\r\n", 0x0B, reg_array[0x0B], charge_status_register[0]); 
-        reg_array[0x0B] = charge_status_register[0];
+
+    // Check if the charging status has changed
+    if (last_device_status != device_status) {
+        // Update the global charging status variable
+        last_device_status = device_status;
+        DBG_PRINTF("charging_status: %d \r\n", device_status);
+
+        // Update the battery status based on the new charging status
+        uint8_t* data = NULL;
+        switch (device_status) {
+            case CHARGING:
+                shut_off_all_stimuli();
+                data = (uint8_t*)"charge";
+                break;
+            case NOT_CHARGING:
+                data = (uint8_t*)"no charge";
+                break;
+            case FULLY_CHARGED:
+                data = (uint8_t*)"full batt";
+                break;
+            case LOW_BATTERY:
+                data = (uint8_t*)"low batt";
+                break;
+            case NORMAL_OPERATION:
+                data = (uint8_t*)"normal";
+                // Handle normal operation status if needed
+                break;
+            default:
+                DBG_PRINTF("Charge Status is not 1 or 0\r\n");
+                return;
+        }
+
+        // Send data to phone if applicable
+        if (data != NULL) {
+            //DBG_PRINTF("not null\r\n");
+            uint8_t length = strlen((char*)data);
+            DBG_PRINTF("length: %d\r\n", length);
+            bool result = send_data_to_phone(data, length, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+            if (result) {
+                DBG_PRINTF("Status sent: %s\r\n", data);
+            }
+        }
     }
-    */
-    return Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM);
 }
+
+
 
 /*
 send_data_to_phone() - Takes the data to be sent to phone, the length in bytes of the data, and the characteristic handle 
@@ -308,63 +380,6 @@ bool send_data_to_phone(uint8_t* data, uint16_t length, uint8_t characteristic){
     }
     return false;
     
-}
-
-/*
-check_charger() - Reads the charging pin and detects if device is charging. Updates LEDs and sends
-notification to phone when charging status is changed.
-*/
-void check_charger() {
-    uint8_t new_charging_status = get_charging_status();
-    
-    // Check if the charging status has changed
-    if (charging_status != new_charging_status) {
-        // Update the global charging Status variable
-        charging_status = new_charging_status;
-        
-        // Update the batteryStatus based on the new charging status
-        if (charging_status == BATTERY_CHARGING) {
-            shut_off_all_stimuli();
-            battery_status = CHARGING;
-            uint8_t* data = (uint8_t*)"charging 0";
-            
-            // Send data to phone if connected
-            bool result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
-            if (result) {
-                DBG_PRINTF("Charging Status sent\r\n");
-            }
-            
-        } else if (charging_status == BATTERY_NOT_CHARGING) {
-            battery_status = NOT_CHARGING;
-            uint8_t* data = (uint8_t*)"charging 1";
-
-            bool result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
-            if (result) {
-                DBG_PRINTF("Not Charging Status sent\r\n");
-            }
-            
-        } else if (charging_status == BATTERY_FULLY_CHARGED) {
-            battery_status = FULLY_CHARGED;
-            uint8_t* data = (uint8_t*)"charging 2";
-
-            bool result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
-            if (result) {
-                DBG_PRINTF("Fully Charged Charging Status sent\r\n");
-            }
-            
-        } else if (charging_status == BATTERY_LOW) {
-            battery_status = LOW_BATTERY;
-            uint8_t* data = (uint8_t*)"charging 3";
-
-            bool result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
-            if (result) {
-                DBG_PRINTF("Low Battery Status sent\r\n");
-            }
-            
-        } else {
-            DBG_PRINTF("Charge Status is not 1 or 0\r\n");
-        }
-    }
 }
 
 void shut_off_all_stimuli(){
@@ -450,15 +465,33 @@ void I2C_SDA_Write(int state) {
 *******************************************************************************/
 void UpdateLedState(void)
 {
+    //if (device_status == NOT_CHARGING) {
+    //    DBG_PRINTF("NOT_CHARGING\r\n");
+    //} else if (device_status == CHARGING) {
+    //    DBG_PRINTF("CHARGING IN MAIN\r\n");
+    //} else if (device_status == FULLY_CHARGED) {
+    //    DBG_PRINTF("FULLY_CHARGED\r\n");
+    //} else if (device_status == LOW_BATTERY) {
+    //    DBG_PRINTF("LOW_BATTERY\r\n");
+    //} else if (device_status == MEDIUM_BATTERY) {
+    //    DBG_PRINTF("MEDIUM_BATTERY\r\n");
+    //} else if (device_status == NORMAL_OPERATION) {
+    //    DBG_PRINTF("NORMAL_OPERATION\r\n");
+    //} else if (device_status == WARNING) {
+    //    DBG_PRINTF("WARNING\r\n");
+    //} else {
+    //    DBG_PRINTF("UNKNOWN_STATUS\r\n");
+    //}
 #if(SYS_VOLTAGE >= RGB_LED_MIN_VOLTAGE_MV) 
     if(Cy_BLE_GetAdvertisementState() == CY_BLE_ADV_STATE_ADVERTISING)
     {
         
         //Blink advertising indication LED
         power_led_advertising();
+        
     }
     // Handles connected LED and executes once per connection
-    else if(Cy_BLE_GetNumOfActiveConn() > 0u)
+    else if(Cy_BLE_GetNumOfActiveConn() > 0u && !isConnected)
     {
         if(isConnected){
             reset_timer_cycles();   
@@ -485,11 +518,11 @@ void UpdateLedState(void)
         isConnected = false;
     }
     // Handles Charging LED
-    else if(battery_status == CHARGING)
+    else if(device_status == CHARGING)
     {
-        power_led_off();
+        //power_led_off();
         power_led_charging();
-
+        //DBG_PRINTF("CHARGING\r\n");
         if(!chargingValueSent){
             uint8_t* data;
             data = (uint8_t*)"charging 0";
@@ -502,17 +535,17 @@ void UpdateLedState(void)
             }
         }
     }
-    else if(battery_status == FULLY_CHARGED)
+    else if(device_status == FULLY_CHARGED)
     {
         power_led_off();
-        power_led_charged();  
+        power_led_green();  
     }
-    else if(battery_status == LOW_BATTERY)
+    else if(device_status == LOW_BATTERY)
     {
         power_led_off();
         power_led_lowbatt();
     }
-    else if(battery_status == NOT_CHARGING)
+    else if(device_status == NOT_CHARGING)
     {
         power_led_off();
         if(!notChargingValueSent){
@@ -527,6 +560,11 @@ void UpdateLedState(void)
             }
         }
         
+    }
+    else if(device_status == NORMAL_OPERATION)
+    {
+        //DBG_PRINTF("HERE\r\n");
+        power_led_normal();
     }
     else 
     {

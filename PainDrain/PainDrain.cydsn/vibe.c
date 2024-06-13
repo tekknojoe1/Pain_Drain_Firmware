@@ -30,7 +30,7 @@
 #define MIN_PERCENTAGE .16
 #define FREQUENCY_PERIOD 2
 #define PWM_OFF 0
-#define VIBE_TIMER_CYCLES 120 // 120 cycles will be the same as 2 seconds
+#define VIBE_TIMER_CYCLES 200 // 120 cycles will be the same as 2 seconds
 
 int off_time = 0;
 int timer_cycles = 0;
@@ -67,7 +67,7 @@ void set_vibe(int intensity, int frequency){
     vibe_intensity = intensity;
     on_time = ((double)intensity / 100.0) * VIBE_TIMER_CYCLES; // Calculates the on_time of the motor
     off_time = VIBE_TIMER_CYCLES - on_time;                  // Calculates the off_time of the motor
-    DBG_PRINTF("on time: %d off time: %d\r\n", on_time, off_time);
+    //DBG_PRINTF("on time: %d off time: %d\r\n", on_time, off_time);
     
     
     uint32_t pwm_period = PWM_VIBE_GetPeriod0();
