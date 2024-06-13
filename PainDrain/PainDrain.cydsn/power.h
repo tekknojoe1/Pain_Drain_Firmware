@@ -12,6 +12,25 @@
 #define POWER_FLAG_CHG 30
 #define LED_ON                          (0u)
 #define LED_OFF                         (1u)
+//#define BATTERY_CHARGING                (0u)
+//#define BATTERY_NOT_CHARGING            (1u)
+//#define BATTERY_FULLY_CHARGED           (2u)
+//#define BATTERY_LOW                     (3u)
+//#define BATTERY_NORMAL_OPERATION        (4u)
+
+// Define the enum for battery status
+typedef enum {
+    NOT_CHARGING,
+    CHARGING,
+    FULLY_CHARGED,
+    LOW_BATTERY,
+    MEDIUM_BATTERY,
+    NORMAL_OPERATION,
+    WARNING
+} DeviceStatus;
+
+// Declare an external variable for battery status
+extern DeviceStatus device_status;
 
 void power_init( void );
 void power_task( void );
@@ -20,7 +39,6 @@ void power_wakeup( void );
 void power_i2c_read_reg(uint8_t deviceAddr, uint8_t reg, uint8_t* d, int num_regs);
 void power_i2c_write_reg(uint8_t deviceAddr, uint8_t reg, uint8_t d);
 void power_get_diag_data(uint8 d[]);
-uint32_t get_charging_status();
 bool send_data_to_phone(uint8_t* value, uint16_t length, uint8_t characteristic);
 void check_charger();
 void shut_off_all_stimuli();
@@ -37,20 +55,10 @@ void UpdateLedState(void);
 void power_led_off(void);
 void power_led_charging(void);
 void power_led_lowbatt(void);
-void power_led_charged(void);
+void power_led_green(void);
 void power_led_ble(void);
 void power_led_advertising(void);
 void power_led_connected(void);
+void reset_timer_cycles(void);
 
-// Define the enum for battery status
-typedef enum {
-    NOT_CHARGING,
-    CHARGING,
-    FULLY_CHARGED,
-    LOW_BATTERY,
-} BatteryStatus;
-
-// Declare an external variable for battery status
-extern BatteryStatus batteryStatus;
-
-uint8_t reg_array[38];
+uint16_t reg_array[38];

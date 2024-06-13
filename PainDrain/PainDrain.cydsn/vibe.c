@@ -25,10 +25,21 @@
 // Device address: 0x20
 #define MA12070P_I2C_ADDR 0x20
 #define PWM_PERIOD 100
-#define MAX_PWM_VALUE 62  // 62.5% of 624
+//#define MAX_PWM_VALUE 62.5  // 62.5% of 624
 #define MAX_PERCENTAGE .625
 #define MIN_PERCENTAGE .16
+#define FREQUENCY_PERIOD 2
+#define PWM_OFF 0
+#define VIBE_TIMER_CYCLES 200 // 120 cycles will be the same as 2 seconds
 
+int off_time = 0;
+int timer_cycles = 0;
+int on_time = 0;
+double motor_speed = 0.0; 
+int max_PWM = 0;
+int min_PWM = 0;
+bool is_vibe_on = false;
+int vibe_intensity = 0;
 
 
 void vibe_i2c_read_reg(uint8_t reg, uint8_t* d, int num_regs) {
@@ -53,21 +64,52 @@ void vibe_i2c_read_reg(uint8_t reg, uint8_t* d, int num_regs) {
 }
 
 void set_vibe(int intensity, int frequency){
-    uint32_t period = PWM_VIBE_GetPeriod0();
-    if(period != PWM_PERIOD){
+    vibe_intensity = intensity;
+    on_time = ((double)intensity / 100.0) * VIBE_TIMER_CYCLES; // Calculates the on_time of the motor
+    off_time = VIBE_TIMER_CYCLES - on_time;                  // Calculates the off_time of the motor
+    //DBG_PRINTF("on time: %d off time: %d\r\n", on_time, off_time);
+    
+    
+    uint32_t pwm_period = PWM_VIBE_GetPeriod0();
+    if(pwm_period != PWM_PERIOD){
         PWM_VIBE_SetPeriod0(PWM_PERIOD);
     }
-    int maxPWM = period * MAX_PERCENTAGE;
-    int minPWM = period * MIN_PERCENTAGE;
-    DBG_PRINTF("Intensity: %d maxPWM: %d\r\n", intensity, maxPWM);
-    if(intensity >= maxPWM){
-        PWM_VIBE_SetCompare0(maxPWM);
-    } else if(intensity <= minPWM){
-        PWM_VIBE_SetCompare0(minPWM);
+    max_PWM = pwm_period * MAX_PERCENTAGE;
+    min_PWM = pwm_period * MIN_PERCENTAGE;
+  
+    double scaled_motor_value = (frequency / 100.0) * (max_PWM - min_PWM) + min_PWM; // Calculates what the pwm value should be relative to the slider value received
+    //DBG_PRINTF("frequency: %d maxPWM: %d minPWM: %d Scaled frequency: %d\r\n", frequency, maxPWM, minPWM, (int)scaled_motor_value);
+    
+    if(scaled_motor_value >= max_PWM){
+        DBG_PRINTF("Over max\r\n");
+        motor_speed = max_PWM;
+    } else if(scaled_motor_value <= min_PWM){
+        motor_speed = 0;
     } else{
-        PWM_VIBE_SetCompare0(intensity);
+        DBG_PRINTF("not above or below\r\n");
+        motor_speed = scaled_motor_value;
+    }
+    
+}
+
+void vibe_task( void ){
+    if(timer_cycles >= VIBE_TIMER_CYCLES){
+        timer_cycles = 0;   
+    }
+    if(vibe_intensity == 100){
+        PWM_VIBE_SetCompare0(motor_speed);
+    } else if (vibe_intensity > 0 &&  motor_speed > min_PWM){          
+        if(timer_cycles <= on_time ){
+            PWM_VIBE_SetCompare0(motor_speed);           
+        } else {
+            PWM_VIBE_SetCompare0(PWM_OFF);
+        }
+        timer_cycles++;
+    } else{
+        PWM_VIBE_SetCompare0(PWM_OFF);
     }
 }
+
 
 /*
 #include "cy_dma.h"

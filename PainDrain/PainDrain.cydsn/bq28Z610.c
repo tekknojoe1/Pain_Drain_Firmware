@@ -26,6 +26,10 @@ void bq28Z610_read_reg(uint8_t reg, uint8_t* d, int num_regs) {
     power_i2c_read_reg(BQ28Z610_I2C_ADDR, reg, d, num_regs);
 }
 
+void bq28Z610_read_all_reg() {
+    //power_i2c_read_reg(BQ28Z610_I2C_ADDR, 0x00, &reg_value, 2);
+}
+
 void bq28Z610_init( void ){
     uint8_t d;
     //power_i2c_write_reg(BQ28Z610_I2C_ADDR, reg, d);
