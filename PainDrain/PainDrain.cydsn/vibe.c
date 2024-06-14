@@ -30,7 +30,7 @@
 #define MIN_PERCENTAGE .16
 #define FREQUENCY_PERIOD 2
 #define PWM_OFF 0
-#define VIBE_TIMER_CYCLES 200 // 120 cycles will be the same as 2 seconds
+#define VIBE_TIMER_CYCLES 200 // 200 cycles will be the same as 2 seconds
 
 int off_time = 0;
 int timer_cycles = 0;
@@ -100,12 +100,16 @@ void vibe_task( void ){
         PWM_VIBE_SetCompare0(motor_speed);
     } else if (vibe_intensity > 0 &&  motor_speed > min_PWM){          
         if(timer_cycles <= on_time ){
+            //DBG_PRINTF("HERE\r\n");
+            //PWM_VIBE_Enable();
             PWM_VIBE_SetCompare0(motor_speed);           
         } else {
+            //PWM_VIBE_Disable();
             PWM_VIBE_SetCompare0(PWM_OFF);
         }
         timer_cycles++;
     } else{
+        //PWM_VIBE_Disable();
         PWM_VIBE_SetCompare0(PWM_OFF);
     }
 }
