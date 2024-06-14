@@ -114,6 +114,7 @@ void power_init( void ) {
     
     //bq28Z610_init();
 
+    /*
     uint8_t lsb;
     uint8_t msb;
 
@@ -121,6 +122,7 @@ void power_init( void ) {
     power_i2c_read_reg(BQ28Z610_I2C_ADDR, 0x01, &msb, 1);
     uint16_t value = (msb << 8) | lsb;
     DBG_PRINTF("Combined Value: %d\r\n", value);
+    */
     //bq25883_read_reg(0x00, &lsb, 2);
     
     
@@ -154,10 +156,22 @@ void power_wakeup( void ) {
 
 void power_task( void ) {
     
-    //DBG_PRINTF(".");
+    uint8_t arr[2];
+
+    int status;
     
-    //reg_num = 0;
-    //bq25883_read_all_reg();
+    
+    //myI2C_I2CMasterSendStop();
+    //DBG_PRINTF("%d\r\n", status);
+    //return;
+    
+    power_i2c_read_reg(BQ28Z610_I2C_ADDR, 0x00, arr, 2);  //Start at address 0 and read both 0 and 1
+    
+    
+    //power_i2c_read_reg(BQ28Z610_I2C_ADDR, 0x00, arr, 2);
+    //power_i2c_read_reg(BQ28Z610_I2C_ADDR, 0x01, &msb, 1);
+    int16_t value = (arr[0] << 8) | arr[1];
+    DBG_PRINTF("Combined Value: %d\r\n", value);
     
     
     if (Cy_GPIO_Read(CHG_STAT_PORT, CHG_STAT_NUM) == 0) {
