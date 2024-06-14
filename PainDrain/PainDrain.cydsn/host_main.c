@@ -66,7 +66,7 @@ uint8_t data2[] = {0x01, 0x02, 0x03, 0x04}; // Replace with your actual data
 unsigned int MAX_LENGTH = 20;
 uint8 fakeBatteryPercentage = 100;
 int previousValue = -1;
-BatteryStatus batteryStatus;
+DeviceStatus device_status;
 int tensPhase;
 int tensAmpValue;
 double tensDurationValue;
@@ -107,6 +107,7 @@ void checkForValueChange() {
 *******************************************************************************/
 void AppCallBack(uint32 event, void *eventParam)
 {
+    //DBG_PRINTF("App call back events\r\n");
     //DBG_PRINTF("e=%d\r\n", event);
     cy_en_ble_gatt_err_code_t gattErr = CY_BLE_GATT_ERR_NONE;
     static cy_stc_ble_gap_sec_key_info_t keyInfo =
@@ -134,7 +135,7 @@ void AppCallBack(uint32 event, void *eventParam)
         case CY_BLE_EVT_GAP_DEVICE_DISCONNECTED:                             
             /* Start BLE advertisement for 180 seconds and update link status on LEDs */
             Cy_BLE_GAPP_StartAdvertisement(CY_BLE_ADVERTISING_FAST, CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX);
-            UpdateLedState();
+            //UpdateLedState();
             //DBG_PRINTF("Disconnected\r\n");
             IasSetAlertLevel(NO_ALERT);
             break;
@@ -145,7 +146,9 @@ void AppCallBack(uint32 event, void *eventParam)
             Cy_BLE_GAP_SetSecurityKeys(&keyInfo);
             //DBG_PRINTF("connected \r\n");
             //power_led_connected();
-            UpdateLedState();
+            DBG_PRINTF("CONNECTED\r\n");
+            //device_status = CONNECTED;
+            //UpdateLedState();
             break;
 
         case CY_BLE_EVT_GAPP_ADVERTISEMENT_START_STOP:
@@ -154,7 +157,7 @@ void AppCallBack(uint32 event, void *eventParam)
                  * mode (Hibernate) and wait for an external
                  * user event to wake up the device again */
                 //UpdateLedState();   FIXME
-                UpdateLedState();
+                //UpdateLedState();
                 Cy_BLE_Stop();             
             }
             break;
@@ -169,7 +172,7 @@ void AppCallBack(uint32 event, void *eventParam)
                (((cy_stc_ble_timeout_param_t *)eventParam)->timerHandle == timerParam.timerHandle))
             {
                 /* Update Led State */
-                UpdateLedState();        //FIXME
+                //UpdateLedState();        //FIXME
                 
                 /* Indicate that timer is raised to the main loop */
                 mainTimer++;
@@ -181,7 +184,7 @@ void AppCallBack(uint32 event, void *eventParam)
 
         case CY_BLE_EVT_STACK_SHUTDOWN_COMPLETE:
             /* Hibernate */
-            UpdateLedState();
+            //UpdateLedState();
             Cy_SysPm_Hibernate(); // This is needed to use wakeup button
             power_flags_update(POWER_FLAG_BLE, 0);  //Turn off ble power flag
             break;
@@ -333,7 +336,7 @@ void AppCallBack(uint32 event, void *eventParam)
                     }
                     // Add a null terminator to mark end of string
                     receivedCommand[length] = '\0';
-                    DBG_PRINTF("Received string: %s\r\n", receivedCommand);
+                    //DBG_PRINTF("Received string: %s\r\n", receivedCommand);
                     
                     // This splits the received command into sections by single space
                     token = strtok(receivedCommand, delimiter); // Gets the first token
@@ -353,7 +356,7 @@ void AppCallBack(uint32 event, void *eventParam)
                             2: int Temperature
                             */
                             int temperatureValue = atoi(tokens[1]); // Convert the numeric part after 't'
-                            DBG_PRINTF("t value: %d\r\n", temperatureValue);
+                            DBG_PRINTF("temperature: %d\r\n", temperatureValue);
                             set_temp(temperatureValue);  
                             break;
                         }
@@ -382,7 +385,7 @@ void AppCallBack(uint32 event, void *eventParam)
                                 3: int Phase Degree
                                 */
                                 tensPhase = atoi(tokens[2]);
-                                DBG_PRINTF("T value phase: %d\r\n", tensPhase);
+                                DBG_PRINTF("Tens phase: %d\r\n", tensPhase);
                             }
                             else{
                                 tensAmpValue = atoi(tokens[1]);
@@ -390,11 +393,10 @@ void AppCallBack(uint32 event, void *eventParam)
                                 tensPeriodValue = atoi(tokens[3]);
                                 tensChannel = atoi(tokens[4]);
                                 //int phaseDegree = atoi(tokens[5]);
-                                DBG_PRINTF("T value amp: %d\r\n", tensAmpValue);
-                                DBG_PRINTF("T value duration: %s\r\n", tokens[2]);
-                                DBG_PRINTF("T value period: %d\r\n", tensPeriodValue);
-                                DBG_PRINTF("T Channel: %d\r\n", tensChannel);
-                                //set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  tensPhase);
+                                DBG_PRINTF("Tens amplitude: %d\r\n", tensAmpValue);
+                                DBG_PRINTF("Tens duration: %s\r\n", tokens[2]);
+                                DBG_PRINTF("Tens period: %d\r\n", tensPeriodValue);
+                                DBG_PRINTF("Tens Channel: %d\r\n", tensChannel);
                             }
                             set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  tensPhase);
                             break;
@@ -409,82 +411,59 @@ void AppCallBack(uint32 event, void *eventParam)
                             4: int Wavefrom
                             */
                             //char *waveType = tokens[1];
-                            int vibeAmp = atoi(tokens[1]);
+                            int vibeIntensity = atoi(tokens[1]);
                             int vibeFreq = atoi(tokens[2]);
-                            int vibeWaveform = atoi(tokens[3]);
+                            //int vibeWaveform = atoi(tokens[3]);
                             //DBG_PRINTF("v waveType: %s\r\n", waveType);
-                            DBG_PRINTF("v amp: %d\r\n", vibeAmp);
-                            DBG_PRINTF("v freq: %d\r\n", vibeFreq);
-                            DBG_PRINTF("v waveform: %d\r\n", vibeWaveform);
-                            //set_vibe(waveType, vibeAmp, vibeFreq, vibeWaveform);
+                            DBG_PRINTF("vibration Intensity: %d\r\n", vibeIntensity);
+                            DBG_PRINTF("vibration frequency: %d\r\n", vibeFreq);
+                            //DBG_PRINTF("vibration waveform: %d\r\n", vibeWaveform);
+                            set_vibe(vibeIntensity, vibeFreq);
                            
-                            break;
-                        }
-                        case 'r':
-                        {
-                            
-                            /*
-                            Only used for debugging and checking register map information
-                            Packet information contains
-                            1: char r - register
-                            2: int register address
-                            */
-                            
-                            uint8_t testValue = 0;
-                            uint8_t reg_address = 0x7C;
-                            uint8_t read_reg_data[1];
-                            
-                            // Calculate the number of digits in the integer
-                            int numDigits = snprintf(NULL, 0, "%u", testValue);
-
-                            // Allocate memory for the string, including space for the null terminator
-                            char* addrValue = (char*)malloc(numDigits + 1);
-                            
-                            // Check if memory allocation is successful
-                            if (addrValue != NULL) {
-                                // Convert the uint8 to a string
-                                sprintf(addrValue, "%u", testValue);
-
-                            } else {
-                                // Handle memory allocation failure
-                                DBG_PRINTF("Memory allocation failed\r\n");  
-                                return;
-                            }
-                            
-                            // Set low for I2C communication
-                            //Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 0);
-                            CyDelayUs(100);
-                            vibe_i2c_read_reg(reg_address, read_reg_data, 1);
-                            
-                            DBG_PRINTF("read_reg_data: %d\r\n", read_reg_data[0]);
-                            //int registerAddress = atoi(tokens[1]);
-                            
-                            writeReq->handleValPair.value.val = (uint8 *) addrValue;
-                                // Don't forget to free the allocated memory when done
-                                //free(addrValue);
-                            
                             break;
                         }
                         
                         case 'B':
                         {
+                            DBG_PRINTF("HERE\r\n");
                             if(atoi(tokens[1]) == 0){
-                                batteryStatus = NOT_CHARGING;
+                                device_status = NOT_CHARGING;
                                 DBG_PRINTF("Assign B 0\r\n");
                                 //DBG_PRINTF("Assign B 1\r\n", receivedCommand);
                             }else if(atoi(tokens[1]) == 1){
-                                batteryStatus = CHARGING;
+                                device_status = CHARGING;
                                 DBG_PRINTF("Assign B 1\r\n");
                                 //DBG_PRINTF("Assign B 1\r\n", receivedCommand);
                             } else if(atoi(tokens[1]) == 2){
                                 DBG_PRINTF("Assign B 2\r\n");
                                 //DBG_PRINTF("Assign B 2\r\n", receivedCommand);
-                                batteryStatus = FULLY_CHARGED;
+                                device_status = FULLY_CHARGED;
                             } else if(atoi(tokens[1]) == 3){
-                                batteryStatus = LOW_BATTERY;
+                                device_status = LOW_BATTERY;
                                 DBG_PRINTF("Assign B 3\r\n");
                                 //DBG_PRINTF("Assign B 3\r\n", receivedCommand);
-                            }
+                            } else if(atoi(tokens[1]) == 4){
+                                device_status = MEDIUM_BATTERY;
+                                DBG_PRINTF("Assign B 4\r\n");
+                                //DBG_PRINTF("Assign B 3\r\n", receivedCommand);
+                            } else if(atoi(tokens[1]) == 5){
+                                device_status = NORMAL;
+                                DBG_PRINTF("Assign B 5\r\n");
+                                //DBG_PRINTF("Assign B 3\r\n", receivedCommand);
+                            } else if(atoi(tokens[1]) == 6){
+                                device_status = WARNING;
+                                DBG_PRINTF("Assign B 6\r\n");
+                                //DBG_PRINTF("Assign B 3\r\n", receivedCommand);
+                            } 
+                            //else if(atoi(tokens[1]) == 7){
+                            //    device_status = ADVERTISING;
+                            //    DBG_PRINTF("Assign B 7\r\n");
+                            //    //DBG_PRINTF("Assign B 3\r\n", receivedCommand);
+                            //} else if(atoi(tokens[1]) == 8){
+                            //    device_status = CONNECTED;
+                            //    DBG_PRINTF("Assign B 8\r\n");
+                            //    //DBG_PRINTF("Assign B 3\r\n", receivedCommand);
+                            //}
                         }
                         
                         default:
@@ -517,7 +496,6 @@ void AppCallBack(uint32 event, void *eventParam)
                     if( writeError != CY_BLE_SUCCESS ){
                         DBG_PRINTF("Write rsp failed\r\n");
                     }
-                    
                     bool result = send_data_to_phone(writeReq->handleValPair.value.val, writeReq->handleValPair.value.len, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
                     if(!result){
                         DBG_PRINTF("Failed to send to phone\r\n");
@@ -614,6 +592,8 @@ int HostMain(void)
     
     PWM_TENS_Start();
     PWM_TENS2_Start();
+    PWM_VIBE_Start();
+    //vibe_turn_on_motor();
     //PWM_TENS_Enable();
     //PWM_TENS2_Enable();
     
@@ -642,15 +622,37 @@ int HostMain(void)
     {
         //DBG_PRINTF("Loops from main %d\r\n", loopcount++);
         /* Cy_BLE_ProcessEvents() allows BLE stack to process pending events */
+        //uint32_t startTime = Cy_SysTick_GetValue();
+        //DBG_PRINTF("TICK value: %d\r\n", startTime);
         Cy_BLE_ProcessEvents();
        
         /* To achieve low power */
         //LowPowerImplementation();
+        //DBG_PRINTF("power task\r\n");
         power_task();
-        
+        /*
+        if (device_status == NOT_CHARGING) {
+            DBG_PRINTF("NOT_CHARGING\r\n");
+        } else if (device_status == CHARGING) {
+            DBG_PRINTF("CHARGING IN MAIN\r\n");
+        } else if (device_status == FULLY_CHARGED) {
+            DBG_PRINTF("FULLY_CHARGED\r\n");
+        } else if (device_status == LOW_BATTERY) {
+            DBG_PRINTF("LOW_BATTERY\r\n");
+        } else if (device_status == MEDIUM_BATTERY) {
+            DBG_PRINTF("MEDIUM_BATTERY\r\n");
+        } else if (device_status == NORMAL_OPERATION) {
+            DBG_PRINTF("NORMAL_OPERATION\r\n");
+        } else if (device_status == WARNING) {
+            DBG_PRINTF("WARNING\r\n");
+        } else {
+            DBG_PRINTF("UNKNOWN_STATUS\r\n");
+        }
+        */
         //ui_task();    
         
         // Test code for TENS
+        //DBG_PRINTF("tens task\r\n");
         tens_timer();
         set_tens_task();
         
@@ -661,8 +663,9 @@ int HostMain(void)
         //vibe_init();
         //I2S_Start();
         //vibe_init();
-        
-        //set_vibe_task();
+        //DBG_PRINTF("vibe task\r\n");
+        vibe_task();
+        UpdateLedState();
         
         
         /* Update Alert Level value on the blue LED */
