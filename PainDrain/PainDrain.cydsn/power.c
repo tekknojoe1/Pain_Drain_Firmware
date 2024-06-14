@@ -19,8 +19,8 @@
 #define POWER_TIMER_PERIOD_MS 10
 #define POWER_DISPLAY_TIMEOUT_SEC 20
 #define POWER_DISPLAY_TIMEOUT_INTERVAL (POWER_DISPLAY_TIMEOUT_SEC*1000 / POWER_TIMER_PERIOD_MS)
-#define POWER_LED_SLOW_BLINK_TIMER 180
-#define POWER_LED_FAST_BLINK_TIMER 90
+#define POWER_LED_SLOW_BLINK_TIMER 200
+#define POWER_LED_FAST_BLINK_TIMER 100
 #define POWER_LED_CONNECTED_TIMER 600
 
 #define POWER_IDLE 0
@@ -35,8 +35,6 @@ bool isConnected = false;
 bool chargingValueSent = false;
 bool notChargingValueSent = false;
 int cycles = 0;
-//int connected_led_timer = 0;
-//int reg_num = 0;
 
 void power_led_off(void) {
     Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 0);
@@ -44,13 +42,13 @@ void power_led_off(void) {
     Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 0);
 }
 
-void power_led_lowbatt(void) {
+void power_led_red(void) {
     Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 1);
     Cy_GPIO_Write(LED_GREEN_PORT, LED_GREEN_NUM, 0);
     Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 0);
 }
 
-void power_led_charging(void) {
+void power_led_yellow(void) {
     Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 1);
     Cy_GPIO_Write(LED_GREEN_PORT, LED_GREEN_NUM, 1);
     Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 0);
@@ -62,7 +60,7 @@ void power_led_green(void) {
     Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 0);
 }
 
-void power_led_ble(void) {
+void power_led_blue(void) {
     Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 0);
     Cy_GPIO_Write(LED_GREEN_PORT, LED_GREEN_NUM, 0);
     Cy_GPIO_Write(LED_BLUE_PORT, LED_BLUE_NUM, 1);
@@ -74,7 +72,7 @@ void power_led_advertising(void){
     }
     //DBG_PRINTF("advertising timer: %d \r\n", cycles);
     if(cycles < POWER_LED_SLOW_BLINK_TIMER / 2){
-        power_led_ble();
+        power_led_blue();
     } else{
         power_led_off();
     }
@@ -85,30 +83,55 @@ void power_led_connected(void){
         cycles = 0;
     }
     if(!isConnected){
-        //DBG_PRINTF("connected timer: %d \r\n", cycles);
         if(cycles >= POWER_LED_CONNECTED_TIMER){
             power_led_off();
             isConnected = true;
         } else{
-            power_led_ble();
+            power_led_blue();
             cycles++; 
         } 
     }
 }
 
-void power_led_normal(void){
+void power_led_charging(void){
     if(cycles >= POWER_LED_FAST_BLINK_TIMER){
         cycles = 0;
     }
-    //DBG_PRINTF("cycles: %d\r\n", cycles);
 
     if(cycles < POWER_LED_FAST_BLINK_TIMER / 2){
         power_led_green(); 
     } else{
         power_led_off();
     } 
-    cycles++;
-    
+    cycles++;   
+}
+
+/*
+This is used to do a slow led blink.
+*/
+void power_led_slow_blink(DeviceStatus status){
+    if(cycles >= POWER_LED_SLOW_BLINK_TIMER){
+        cycles = 0;
+    }
+    if(cycles < POWER_LED_SLOW_BLINK_TIMER / 2){
+        
+        switch (status){
+            case MEDIUM_BATTERY:
+                power_led_yellow();
+                break;
+            case LOW_BATTERY:
+                power_led_red();
+                break;
+            case NORMAL:
+                power_led_green();
+                break;
+            default:
+                break;
+        } 
+    } else{
+        power_led_off();
+    } 
+    cycles++;   
 }
 
 void reset_timer_cycles(){
@@ -287,16 +310,32 @@ low battery, warning, etc. Updates LEDs and sends notification to phone when cha
 void check_charger() {
     // Read charging status
     uint8_t charge_status_register[1];
+    uint8_t lower_bits;
     power_i2c_read_reg(BQ25883_I2C_ADDR, 0xB, charge_status_register, 1);
-
+    lower_bits = charge_status_register[0] & 0x07; // This grabs the 3 lower bits to determine charge status
+    //DBG_PRINTF("Charge reg: %d\r\n", lower_bits);
     // Determine the current device status
-    if ((charge_status_register[0] & 0x07) == 0x06) {
+    if (lower_bits == 0x06) {
         device_status = FULLY_CHARGED;
     } else if (Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM) == 0) {
-        
         device_status = CHARGING;
-    } else if (Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM) == 1 && isConnected) {
-        device_status = NORMAL_OPERATION;
+    } 
+    /*
+    These 3 if statements below need to be removed when we get battery guage working
+    Right now its only triggered by app for testing purposes
+    */
+    else if (device_status == MEDIUM_BATTERY) {
+        return;
+    } 
+    else if (device_status == LOW_BATTERY) {
+        return;
+    } 
+    else if (device_status == FULLY_CHARGED) {
+        return;
+    } 
+    // End of test code
+    else if (Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM) == 1 && isConnected) {
+        device_status = NORMAL;
     } else if (Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM) == 1) {
         device_status = NOT_CHARGING;
     } else {
@@ -325,7 +364,7 @@ void check_charger() {
             case LOW_BATTERY:
                 data = (uint8_t*)"low batt";
                 break;
-            case NORMAL_OPERATION:
+            case NORMAL:
                 data = (uint8_t*)"normal";
                 // Handle normal operation status if needed
                 break;
@@ -336,9 +375,7 @@ void check_charger() {
 
         // Send data to phone if applicable
         if (data != NULL) {
-            //DBG_PRINTF("not null\r\n");
             uint8_t length = strlen((char*)data);
-            DBG_PRINTF("length: %d\r\n", length);
             bool result = send_data_to_phone(data, length, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
             if (result) {
                 DBG_PRINTF("Status sent: %s\r\n", data);
@@ -537,13 +574,7 @@ void UpdateLedState(void)
     }
     else if(device_status == FULLY_CHARGED)
     {
-        power_led_off();
         power_led_green();  
-    }
-    else if(device_status == LOW_BATTERY)
-    {
-        power_led_off();
-        power_led_lowbatt();
     }
     else if(device_status == NOT_CHARGING)
     {
@@ -561,10 +592,17 @@ void UpdateLedState(void)
         }
         
     }
-    else if(device_status == NORMAL_OPERATION)
+    else if(device_status == NORMAL)
     {
-        //DBG_PRINTF("HERE\r\n");
-        power_led_normal();
+        power_led_slow_blink(NORMAL);
+    }
+    else if(device_status == MEDIUM_BATTERY)
+    {
+        power_led_slow_blink(MEDIUM_BATTERY);
+    }
+        else if(device_status == LOW_BATTERY)
+    {
+        power_led_slow_blink(LOW_BATTERY);
     }
     else 
     {

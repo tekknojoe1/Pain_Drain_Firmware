@@ -19,13 +19,23 @@
 //#define BATTERY_NORMAL_OPERATION        (4u)
 
 // Define the enum for battery status
+
+/*
+Not Charging - Not plugged in (no LED)
+Charging - Currently charging device (Fast green)
+Fully Charged - Plugged in and battery is at 100% (Solid Green)
+Low Battery - Battery is below 15% (Slow Red)
+Medium Battery - Battery is below 50% (slow yellow)
+Normal - Slow blink when device is not plugged in and battery is above 50% (Slow Green)
+Warning - Not implemented yet (Fast red)
+*/
 typedef enum {
     NOT_CHARGING,
     CHARGING,
     FULLY_CHARGED,
     LOW_BATTERY,
     MEDIUM_BATTERY,
-    NORMAL_OPERATION,
+    NORMAL,
     WARNING
 } DeviceStatus;
 
@@ -53,12 +63,14 @@ void I2C_SCL_Write(int state);
 void I2C_SDA_Write(int state);
 void UpdateLedState(void);
 void power_led_off(void);
-void power_led_charging(void);
-void power_led_lowbatt(void);
+void power_led_red(void);
+void power_led_yellow(void);
 void power_led_green(void);
-void power_led_ble(void);
+void power_led_blue(void);
+void power_led_charging(void);
 void power_led_advertising(void);
 void power_led_connected(void);
+void power_led_slow_blink (DeviceStatus status);
 void reset_timer_cycles(void);
 
 uint16_t reg_array[38];

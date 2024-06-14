@@ -447,7 +447,7 @@ void AppCallBack(uint32 event, void *eventParam)
                                 DBG_PRINTF("Assign B 4\r\n");
                                 //DBG_PRINTF("Assign B 3\r\n", receivedCommand);
                             } else if(atoi(tokens[1]) == 5){
-                                device_status = NORMAL_OPERATION;
+                                device_status = NORMAL;
                                 DBG_PRINTF("Assign B 5\r\n");
                                 //DBG_PRINTF("Assign B 3\r\n", receivedCommand);
                             } else if(atoi(tokens[1]) == 6){
