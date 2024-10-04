@@ -263,7 +263,7 @@ void power_task( void ) {
                     //Lets just turn off the display
                     //LCD_PWM_SetCompare0(0); 
                     
-                    if (power_flags == 0 && device_status == NOT_CHARGING) {
+                    if (power_flags == 0 && device_status != CHARGING) {
                         //We don't have any active sub devices running so lets power all the way off.
                         
                         power_state = POWER_DOWN;

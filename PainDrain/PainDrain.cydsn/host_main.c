@@ -69,8 +69,8 @@ int previousValue = -1;
 DeviceStatus device_status;
 int tensPhase;
 int tensAmpValue;
-double tensDurationValue;
-int tensPeriodValue;
+int tensModeValue;
+int tensPlayPauseValue;
 int tensChannel;
 
 int getExternalValue() {
@@ -91,6 +91,16 @@ void checkForValueChange() {
         DBG_PRINTF("Value changed: %d\r\n", newValue);
         previousValue = newValue;
     }
+}
+
+#define TIMER_PERIOD_MSEC   10000U   /* Timer period in milliseconds */
+
+void TimerInterruptHandler(void)
+{
+    /* Clear the terminal count interrupt */
+    Cy_TCPWM_ClearInterrupt(Timer_HW, Timer_CNT_NUM, CY_TCPWM_INT_ON_TC);
+    
+     tens_task();
 }
 
 /*******************************************************************************
@@ -389,16 +399,16 @@ void AppCallBack(uint32 event, void *eventParam)
                             }
                             else{
                                 tensAmpValue = atoi(tokens[1]);
-                                tensDurationValue = atof(tokens[2]);
-                                tensPeriodValue = atoi(tokens[3]);
+                                tensModeValue = atof(tokens[2]);
+                                tensPlayPauseValue = atoi(tokens[3]);
                                 tensChannel = atoi(tokens[4]);
-                                //int phaseDegree = atoi(tokens[5]);
+                                tensPhase = atoi(tokens[5]);
                                 DBG_PRINTF("Tens amplitude: %d\r\n", tensAmpValue);
-                                DBG_PRINTF("Tens duration: %s\r\n", tokens[2]);
-                                DBG_PRINTF("Tens period: %d\r\n", tensPeriodValue);
+                                DBG_PRINTF("Tens Mode: %s\r\n", tensModeValue);
+                                DBG_PRINTF("Tens Play Pause: %d\r\n", tensPlayPauseValue);
                                 DBG_PRINTF("Tens Channel: %d\r\n", tensChannel);
                             }
-                            set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  tensPhase);
+                            set_tens_signal(tensAmpValue, tensModeValue, tensPlayPauseValue, tensChannel,  tensPhase);
                             break;
                         }
                         case 'v':
@@ -590,8 +600,7 @@ int HostMain(void)
     
     //PWM_VIBE_Start();
     
-    PWM_TENS_Start();
-    PWM_TENS2_Start();
+    
     PWM_VIBE_Start();
     //vibe_turn_on_motor();
     //PWM_TENS_Enable();
@@ -614,6 +623,32 @@ int HostMain(void)
     //AMP_PWM_Start();
     // Enable is high for amp_enable, I2C Testing
     //Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 1);
+    
+    /* Initialize the interrupt vector table with the timer interrupt handler
+     * address and assign priority. */
+    Cy_SysInt_Init(&isrTimer_cfg, TimerInterruptHandler);
+    NVIC_ClearPendingIRQ(isrTimer_cfg.intrSrc);/* Clears the interrupt */
+    NVIC_EnableIRQ(isrTimer_cfg.intrSrc); /* Enable the core interrupt */
+    __enable_irq(); /* Enable global interrupts. */
+    
+    /* Start the TCPWM component in timer/counter mode. The return value of the
+     * function indicates whether the arguments are valid or not. It is not used
+     * here for simplicity. */
+    (void)Cy_TCPWM_Counter_Init(Timer_HW, Timer_CNT_NUM, &Timer_config);
+    Cy_TCPWM_Enable_Multiple(Timer_HW, Timer_CNT_MASK); /* Enable the counter instance */
+    
+    /* Set the timer period in milliseconds. To count N cycles, period should be
+     * set to N-1. */
+    Cy_TCPWM_Counter_SetPeriod(Timer_HW, Timer_CNT_NUM, TIMER_PERIOD_MSEC - 1);
+    
+    /* Trigger a software reload on the counter instance. This is required when 
+     * no other hardware input signal is connected to the component to act as
+     * a trigger source. */
+    Cy_TCPWM_TriggerReloadOrIndex(Timer_HW, Timer_CNT_MASK); 
+    
+    
+    
+    
       
     /***************************************************************************
     * Main polling loop
@@ -653,8 +688,8 @@ int HostMain(void)
         
         // Test code for TENS
         //DBG_PRINTF("tens task\r\n");
-        tens_timer();
-        set_tens_task();
+        
+       
         
         
         /* Start the I2S interface */
