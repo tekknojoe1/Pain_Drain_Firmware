@@ -22,7 +22,12 @@ void bq25883_init( void ) {
     
     //0x30
     DBG_PRINTF("BQ INIT Function\r\n");
-    bq25883_write_reg(BQ2588X_REG_CHG_CTRL1, 0x8D);
+    bq25883_write_reg(0x00, 0xA0);
+    
+    bq25883_write_reg(0x01, 0x28);
+    bq25883_write_reg(0x02, 0x05);
+    bq25883_write_reg(0x03, 0x33);
+    bq25883_write_reg(0x05, 0x00);
     //bq25883_write_reg(BQ2588X_REG_CHARGE_CURRENT, 0x1E);
     //bq25883_write_reg(BQ2588X_REG_IINDPM, 0x3C);
     //bq25883_write_reg(BQ2588X_REG_CHARGE_CURRENT, 0x5E);

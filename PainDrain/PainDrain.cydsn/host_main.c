@@ -363,42 +363,51 @@ void AppCallBack(uint32 event, void *eventParam)
                         case 'T':
                         {
                             /*
-                            int tensPhase;
-                            int tensAmpValue;
-                            double tensDurationValue;
-                            int tensPeriodValue;
-                            int tensChannel;
-                            */
-                            /*
                             Packet information contains
                             1: char T - TENS
-                            2: int Amplitude
-                            3: double Duration
-                            4: double Period
+                            2: int Intensity
+                            3: int Mode
+                            4: int play/pause button Pause = 0, Play = 1
                             5: int Channel
                             */
-                            if(tokens[1][0] == 'p'){
-                                /*
-                                Packet information contains
-                                1: char T - TENS
-                                2: char p - Phase
-                                3: int Phase Degree
-                                */
-                                tensPhase = atoi(tokens[2]);
-                                DBG_PRINTF("Tens phase: %d\r\n", tensPhase);
-                            }
-                            else{
-                                tensAmpValue = atoi(tokens[1]);
-                                tensDurationValue = atof(tokens[2]);
-                                tensPeriodValue = atoi(tokens[3]);
-                                tensChannel = atoi(tokens[4]);
-                                //int phaseDegree = atoi(tokens[5]);
-                                DBG_PRINTF("Tens amplitude: %d\r\n", tensAmpValue);
-                                DBG_PRINTF("Tens duration: %s\r\n", tokens[2]);
-                                DBG_PRINTF("Tens period: %d\r\n", tensPeriodValue);
-                                DBG_PRINTF("Tens Channel: %d\r\n", tensChannel);
-                            }
+                            int tensIntensityValue = atoi(tokens[1]);
+                            int tensMode = atoi(tokens[2]);
+                            int playPauseButton = atoi(tokens[3]);
+                            int channel = atoi(tokens[4]);
+                            //tensAmpValue = atoi(tokens[1]);
+                            tensDurationValue = atof(tokens[2]);
+                            tensPeriodValue = atoi(tokens[3]);
+                            tensChannel = atoi(tokens[4]);
+                            //int phaseDegree = atoi(tokens[5]);
+                            DBG_PRINTF("Tens Intensity: %d\r\n", tensIntensityValue);
+                            DBG_PRINTF("Tens mode: %d\r\n", tensMode);
+                            DBG_PRINTF("Tens play/pause button: %d\r\n", playPauseButton);
+                            DBG_PRINTF("Tens Channel: %d\r\n", channel);
+                            //if(tokens[1][0] == 'p'){
+                            //    /*
+                            //    Packet information contains
+                            //    1: char T - TENS
+                            //    2: char p - Phase
+                            //    3: int Phase Degree
+                            //    */
+                            //    tensPhase = atoi(tokens[2]);
+                            //    DBG_PRINTF("Tens phase: %d\r\n", tensPhase);
+                            //}
+                            //else{
+                            //    tensAmpValue = atoi(tokens[1]);
+                            //    tensDurationValue = atof(tokens[2]);
+                            //    tensPeriodValue = atoi(tokens[3]);
+                            //    tensChannel = atoi(tokens[4]);
+                            //    //int phaseDegree = atoi(tokens[5]);
+                            //    DBG_PRINTF("Tens amplitude: %d\r\n", tensAmpValue);
+                            //    DBG_PRINTF("Tens duration: %s\r\n", tokens[2]);
+                            //    DBG_PRINTF("Tens period: %d\r\n", tensPeriodValue);
+                            //    DBG_PRINTF("Tens Channel: %d\r\n", tensChannel);
+                            //}
                             set_tens_signal(tensAmpValue, tensDurationValue, tensPeriodValue, tensChannel,  tensPhase);
+                            
+                            // This will be modified soon
+                            //set_tens_signal(tensIntensityValue, tensMode, playPauseButton, channel);
                             break;
                         }
                         case 'v':
@@ -406,9 +415,7 @@ void AppCallBack(uint32 event, void *eventParam)
                             /*
                             Packet information contains
                             1: char v - Vibration
-                            2: int Amplitude
-                            3: int Frequency
-                            4: int Wavefrom
+                            2: int Intensity
                             */
                             //char *waveType = tokens[1];
                             int vibeIntensity = atoi(tokens[1]);

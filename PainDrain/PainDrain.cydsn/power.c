@@ -180,7 +180,7 @@ void power_init( void ) {
 
     
     //bq28Z610_init();
-    //bq25883_init();
+    bq25883_init();
     
     
     power_flags_update(POWER_FLAG_BLE, 1);
@@ -212,7 +212,7 @@ void power_wakeup( void ) {
 }
 
 void power_task( void ) {
-    //bq25883_read_all_reg();
+    bq25883_read_all_reg();
     /*
     uint8_t lsb;
     uint8_t msb;
@@ -263,7 +263,7 @@ void power_task( void ) {
                     //Lets just turn off the display
                     //LCD_PWM_SetCompare0(0); 
                     
-                    if (power_flags == 0 && device_status == NOT_CHARGING) {
+                    if (power_flags == 0 && device_status != CHARGING) {
                         //We don't have any active sub devices running so lets power all the way off.
                         
                         power_state = POWER_DOWN;
@@ -311,9 +311,11 @@ void check_charger() {
     // Read charging status
     uint8_t charge_status_register[1];
     uint8_t lower_bits;
-    power_i2c_read_reg(BQ25883_I2C_ADDR, 0xB, charge_status_register, 1);
+    power_i2c_read_reg(BQ25883_I2C_ADDR, BQ2588X_REG_CHG_STATUS1, charge_status_register, 1);
+    power_i2c_write_reg(BQ25883_I2C_ADDR, BQ2588X_REG_CHG_CTRL3, 0x42); // Resets watchdog timer
     lower_bits = charge_status_register[0] & 0x07; // This grabs the 3 lower bits to determine charge status
-    //DBG_PRINTF("Charge reg: %d\r\n", lower_bits);
+    DBG_PRINTF("Charge reg: %d\r\n", lower_bits);
+    
     // Determine the current device status
     if (lower_bits == 0x06) {
         device_status = FULLY_CHARGED;
@@ -452,12 +454,12 @@ void power_i2c_read_reg(uint8_t deviceAddr, uint8_t reg, uint8_t* d, int num_reg
         d[i] = myI2C_I2CMasterReadByte(1);
         CyDelay(10);
         //DBG_PRINTF("reg 0x%x: %d\r\n", reg, d[i]);
-        /*
+        
         if(reg_array[reg] != d[i]){
             DBG_PRINTF("Different reg 0x%x: old: 0x%x new: 0x%x\r\n", reg, reg_array[reg], d[i]); 
             reg_array[reg] = d[i];
         }
-        */
+        
     }
     d[num_regs-1] = myI2C_I2CMasterReadByte(0);
     
