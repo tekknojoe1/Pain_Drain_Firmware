@@ -35,6 +35,9 @@ bool isConnected = false;
 bool chargingValueSent = false;
 bool notChargingValueSent = false;
 int cycles = 0;
+int power_off_cycles = 0;
+bool shutdown_ready = false;  // Initialize to false
+
 
 void power_led_off(void) {
     Cy_GPIO_Write(LED_RED_PORT, LED_RED_NUM, 0);
@@ -162,6 +165,14 @@ void gpio_interrupt_handler ( void ) {
     
 }
 
+bool isDeviceCharging(){
+    if(Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM) == 0){
+        return true;
+    } else{
+        return false;  
+    }
+}
+
 
 void power_init( void ) {
     
@@ -210,6 +221,49 @@ void power_wakeup( void ) {
     //LCD_PWM_SetCompare0(MAX_LCD_PWM);  //Set to full brightness 
     
 }
+void power_off_device(){
+    DBG_PRINTF("POWRING OFF DEVICE\r\n");
+    // Turns off Leds
+    power_led_off();
+    Cy_BLE_Stop(); // Turns off BLE STACK 
+    Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT);
+    Cy_SysPm_Hibernate(); // Put system in hibernate
+}
+
+
+void check_power_button_press(){
+    
+    // Check if the power button is pressed
+    if (Cy_GPIO_Read(PWR_PORT, PWR_NUM) == 0) {  // Button is pressed
+        power_off_cycles++;  // Increment the cycle count while button is pressed
+
+        //DBG_PRINTF("Power cycles: %d\r\n", power_off_cycles);
+
+        // If the button is held for at least 600 cycles (3 seconds), set a flag to shut down
+        if (power_off_cycles >= 20) {
+            DBG_PRINTF("Button held for 600 cycles, waiting for release to shut down.\r\n");
+            shutdown_ready = true;  // Mark the system as ready for shutdown
+            power_led_blue();
+        }
+    } else {  // Button is released
+        // If the button was held for 600 cycles and shutdown is ready, enter hibernate
+        if (shutdown_ready) {
+            DBG_PRINTF("Button released after 600 cycles, powering down.\r\n");
+            // Switch power state to power down
+            power_state = POWER_DOWN;
+            
+            // Device will stay in hibernate until a wake-up event occurs
+        } else if (power_off_cycles > 0 && power_off_cycles < 20) {
+            // Short press detected, wake up the device
+            DBG_PRINTF("Button released before 600 cycles, waking up.\r\n");
+            power_wakeup();
+        }
+
+        // Reset the power off cycle count and shutdown flag when the button is released
+        power_off_cycles = 0;
+        shutdown_ready = false;  // Reset shutdown flag
+    }
+}
 
 void power_task( void ) {
     //bq25883_read_all_reg();
@@ -234,18 +288,17 @@ void power_task( void ) {
     */
     //DBG_PRINTF("Combined Value: %d\r\n", value);
     check_charger();
-    
-    if (Cy_GPIO_Read(PWR_PORT, PWR_NUM) == 0) {
-        power_wakeup();
-        DBG_PRINTF("Waking up\r\n");       
-    }
+    check_power_button_press();
+   
     cy_en_gpio_status_t initStatus;
     
     //initStatus = Cy_GPIO_Pin_Init(PWR_BTN_PORT, PWR_BTN_NUM, &PWR_BTN_);
     //DBG_PRINTF("Power flag %d\r\n", power_flags);
-    power_flags_update(POWER_FLAG_CHG, !Cy_GPIO_Read(CHG_PG_PORT, CHG_PG_NUM) );    
+    power_flags_update(POWER_FLAG_CHG, !Cy_GPIO_Read(CHG_PG_PORT, CHG_PG_NUM) );  
+    //DBG_PRINTF("Power state: %d\r\n", power_state);
 
     switch (power_state) {
+        
      
         default: //POWER_IDLE
             
@@ -267,6 +320,7 @@ void power_task( void ) {
                         //We don't have any active sub devices running so lets power all the way off.
                         
                         power_state = POWER_DOWN;
+                        
                     } 
                 } else {
                     power_wakeup(); 
@@ -287,15 +341,11 @@ void power_task( void ) {
             
             //FIXME: Disable WDT
             //FIXME: Configure power button as wakeup source
-            
-            power_led_off();
-
-            Cy_BLE_Stop();   
-            Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT);
-            Cy_SysPm_Hibernate();
+            //DBG_PRINTF("Powering down\r\n");
+            power_off_device();
             
             //We wake up here
-            power_wakeup();
+            //power_wakeup();
             DBG_PRINTF("Powering down\r\n");
             
             power_state = POWER_IDLE;            
@@ -311,13 +361,14 @@ void check_charger() {
     // Read charging status
     uint8_t charge_status_register[1];
     uint8_t lower_bits;
+    bool isCharging = isDeviceCharging();
     power_i2c_read_reg(BQ25883_I2C_ADDR, 0xB, charge_status_register, 1);
     lower_bits = charge_status_register[0] & 0x07; // This grabs the 3 lower bits to determine charge status
     //DBG_PRINTF("Charge reg: %d\r\n", lower_bits);
     // Determine the current device status
     if (lower_bits == 0x06) {
         device_status = FULLY_CHARGED;
-    } else if (Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM) == 0) {
+    } else if (isCharging) {
         device_status = CHARGING;
     } 
     /*
@@ -336,11 +387,12 @@ void check_charger() {
     // End of test code
     else if (Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM) == 1 && isConnected) {
         device_status = NORMAL;
-    } else if (Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM) == 1) {
+    } else if (!isCharging) {
         device_status = NOT_CHARGING;
     } else {
         device_status = WARNING;
     }
+    
 
     // Check if the charging status has changed
     if (last_device_status != device_status) {
@@ -353,9 +405,27 @@ void check_charger() {
         switch (device_status) {
             case CHARGING:
                 shut_off_all_stimuli();
+                //power_off_device();
+                cy_stc_ble_gap_disconnect_info_t disconnectInfo;
+                disconnectInfo.bdHandle = cy_ble_connHandle[0].bdHandle;
+                disconnectInfo.reason = CY_BLE_HCI_ERROR_OTHER_END_TERMINATED_USER;
+
+                Cy_BLE_GAP_Disconnect(&disconnectInfo); 
+                power_led_off();
+                power_led_green();
+                Cy_BLE_GAPP_StopAdvertisement();
+                //Cy_BLE_Stop(); // Turns off BLE STACK 
+                //Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT);
+                //Cy_SysPm_Hibernate(); // Put system in hibernate
+                //power_led_green();
                 data = (uint8_t*)"charge";
                 break;
             case NOT_CHARGING:
+        
+                if(Cy_BLE_GetAdvertisementState() == CY_BLE_ADV_STATE_STOPPED){
+                   Cy_BLE_GAPP_StartAdvertisement(CY_BLE_ADVERTISING_FAST, CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX); 
+                }
+                //power_led_off();
                 data = (uint8_t*)"no charge";
                 break;
             case FULLY_CHARGED:
@@ -550,7 +620,7 @@ void UpdateLedState(void)
         
         /* Turn off Alert LED */
         //Alert_LED_Write(LED_OFF);
-        DBG_PRINTF("Disconnected\r\n");
+        //DBG_PRINTF("Disconnected\r\n");
         reset_timer_cycles();
         isConnected = false;
     }
@@ -558,7 +628,8 @@ void UpdateLedState(void)
     else if(device_status == CHARGING)
     {
         //power_led_off();
-        power_led_charging();
+        //power_led_charging();
+        power_led_green();
         //DBG_PRINTF("CHARGING\r\n");
         if(!chargingValueSent){
             uint8_t* data;
@@ -594,7 +665,7 @@ void UpdateLedState(void)
     }
     else if(device_status == NORMAL)
     {
-        power_led_slow_blink(NORMAL);
+        //power_led_slow_blink(NORMAL);
     }
     else if(device_status == MEDIUM_BATTERY)
     {

@@ -77,7 +77,8 @@ void set_vibe(int intensity, int frequency){
     max_PWM = pwm_period * MAX_PERCENTAGE;
     min_PWM = pwm_period * MIN_PERCENTAGE;
   
-    double scaled_motor_value = (frequency / 100.0) * (max_PWM - min_PWM) + min_PWM; // Calculates what the pwm value should be relative to the slider value received
+    // Calculates what the pwm value should be relative to the slider value received
+    double scaled_motor_value = (frequency / 200.0) * (max_PWM - min_PWM) + min_PWM;
     //DBG_PRINTF("frequency: %d maxPWM: %d minPWM: %d Scaled frequency: %d\r\n", frequency, maxPWM, minPWM, (int)scaled_motor_value);
     
     if(scaled_motor_value >= max_PWM){
@@ -86,13 +87,18 @@ void set_vibe(int intensity, int frequency){
     } else if(scaled_motor_value <= min_PWM){
         motor_speed = 0;
     } else{
-        DBG_PRINTF("not above or below\r\n");
+        //DBG_PRINTF("not above or below\r\n");
         motor_speed = scaled_motor_value;
     }
     
 }
 
 void vibe_task( void ){
+    PWM_VIBE_SetCompare0(motor_speed);
+    
+    /*
+    Temporarily getting rid of the timer part for vibration
+    We might need this later if we decide to keep the intensity slider
     if(timer_cycles >= VIBE_TIMER_CYCLES){
         timer_cycles = 0;   
     }
@@ -112,6 +118,7 @@ void vibe_task( void ){
         //PWM_VIBE_Disable();
         PWM_VIBE_SetCompare0(PWM_OFF);
     }
+    */
 }
 
 

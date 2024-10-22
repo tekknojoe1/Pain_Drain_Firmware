@@ -99,8 +99,8 @@ void TimerInterruptHandler(void)
 {
     /* Clear the terminal count interrupt */
     Cy_TCPWM_ClearInterrupt(Timer_HW, Timer_CNT_NUM, CY_TCPWM_INT_ON_TC);
-    
-     tens_task();
+    //DBG_PRINTF("Tens interrupt trigger\r\n");
+    tens_task();
 }
 
 /*******************************************************************************
@@ -141,12 +141,16 @@ void AppCallBack(uint32 event, void *eventParam)
         /* Mandatory events to be handled by Find Me Target design */
         case CY_BLE_EVT_STACK_ON:
             Cy_BLE_GAP_GenerateKeys(&keyInfo);
+            DBG_PRINTF("STACK ON\r\n");
             
-        case CY_BLE_EVT_GAP_DEVICE_DISCONNECTED:                             
-            /* Start BLE advertisement for 180 seconds and update link status on LEDs */
-            Cy_BLE_GAPP_StartAdvertisement(CY_BLE_ADVERTISING_FAST, CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX);
+        case CY_BLE_EVT_GAP_DEVICE_DISCONNECTED:      
+            /* Start BLE advertisement for 180 seconds and update link status on LEDs if not charging*/
+            if(!isDeviceCharging()){
+                Cy_BLE_GAPP_StartAdvertisement(CY_BLE_ADVERTISING_FAST, CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX);
+            }
+            //Cy_BLE_GAPP_StartAdvertisement(CY_BLE_ADVERTISING_FAST, CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX);
             //UpdateLedState();
-            //DBG_PRINTF("Disconnected\r\n");
+            DBG_PRINTF("DISCONNECTED\r\n");
             IasSetAlertLevel(NO_ALERT);
             break;
 
@@ -168,7 +172,17 @@ void AppCallBack(uint32 event, void *eventParam)
                  * user event to wake up the device again */
                 //UpdateLedState();   FIXME
                 //UpdateLedState();
-                Cy_BLE_Stop();             
+                
+                // If not advertising and not charging then we power off the device
+                if(!isDeviceCharging()){
+                    power_off_device();
+                }
+                DBG_PRINTF("ADVERTISEMENT STOPPED\r\n");
+             
+                //power_led_off();
+                //Cy_BLE_Stop(); // Turns off BLE STACK 
+                //Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT);
+                //Cy_SysPm_Hibernate(); // Put system in hibernate
             }
             break;
 
@@ -190,11 +204,14 @@ void AppCallBack(uint32 event, void *eventParam)
             break;
             
         case CY_BLE_EVT_HARDWARE_ERROR:    /* This event indicates that some internal HW error has occurred */
+            DBG_PRINTF("INTERNAL HARDWARE ERROR");
             break;
 
         case CY_BLE_EVT_STACK_SHUTDOWN_COMPLETE:
             /* Hibernate */
             //UpdateLedState();
+            DBG_PRINTF("shutdown complete\r\n");
+            power_led_off();
             Cy_SysPm_Hibernate(); // This is needed to use wakeup button
             power_flags_update(POWER_FLAG_BLE, 0);  //Turn off ble power flag
             break;
@@ -293,6 +310,7 @@ void AppCallBack(uint32 event, void *eventParam)
 
                 // Populates the HandValuePair attributes to send over to phone app
                 handleValuePair.value.val = respondStringPtr;
+                //DBG_PRINTF("My response string: %s\r\n", (char *)respondStringPtr);
                 handleValuePair.value.len = MAX_LENGTH;
                 handleValuePair.attrHandle = CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE;
                 
@@ -373,41 +391,26 @@ void AppCallBack(uint32 event, void *eventParam)
                         case 'T':
                         {
                             /*
-                            int tensPhase;
-                            int tensAmpValue;
-                            double tensDurationValue;
-                            int tensPeriodValue;
-                            int tensChannel;
-                            */
-                            /*
                             Packet information contains
                             1: char T - TENS
                             2: int Amplitude
-                            3: double Duration
-                            4: double Period
+                            3: double Mode
+                            4: double Play/Pause
                             5: int Channel
+                            6: int Phase
                             */
-                            if(tokens[1][0] == 'p'){
-                                /*
-                                Packet information contains
-                                1: char T - TENS
-                                2: char p - Phase
-                                3: int Phase Degree
-                                */
-                                tensPhase = atoi(tokens[2]);
-                                DBG_PRINTF("Tens phase: %d\r\n", tensPhase);
-                            }
-                            else{
-                                tensAmpValue = atoi(tokens[1]);
-                                tensModeValue = atof(tokens[2]);
-                                tensPlayPauseValue = atoi(tokens[3]);
-                                tensChannel = atoi(tokens[4]);
-                                tensPhase = atoi(tokens[5]);
-                                DBG_PRINTF("Tens amplitude: %d\r\n", tensAmpValue);
-                                DBG_PRINTF("Tens Mode: %s\r\n", tensModeValue);
-                                DBG_PRINTF("Tens Play Pause: %d\r\n", tensPlayPauseValue);
-                                DBG_PRINTF("Tens Channel: %d\r\n", tensChannel);
-                            }
+                            tensAmpValue = atoi(tokens[1]);
+                            tensModeValue = atof(tokens[2]);
+                            tensPlayPauseValue = atoi(tokens[3]);
+                            tensChannel = atoi(tokens[4]);
+                            tensPhase = atoi(tokens[5]);
+                            DBG_PRINTF("Tens Intensity: %d\r\n", tensAmpValue);
+                            DBG_PRINTF("Tens Mode: %s\r\n", tensModeValue);
+                            DBG_PRINTF("Tens Play Pause: %d\r\n", tensPlayPauseValue);
+                            DBG_PRINTF("Tens Channel: %d\r\n", tensChannel);
+                            DBG_PRINTF("Tens Phase: %d\r\n", tensPhase);
+                            
+                            // I think there is a bug in this function. It seems to disconnect the device sometimes
                             set_tens_signal(tensAmpValue, tensModeValue, tensPlayPauseValue, tensChannel,  tensPhase);
                             break;
                         }
@@ -568,6 +571,26 @@ void LowPowerImplementation(void)
     Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT);
 }
 
+/*******************************************************************************
+* Function Name: void Switch_ISR(void)
+********************************************************************************
+*
+* Summary:
+*  This function is executed when GPIO interrupt is triggered.
+*
+* Parameters: None
+*
+* Return: None
+*
+*******************************************************************************/
+void Isr_switch(void)
+{
+    DBG_PRINTF("ISR Charge port interrrupt@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n");
+    /* Clears the triggered pin interrupt */
+	Cy_GPIO_ClearInterrupt(CHG_STAT_0_PORT, CHG_STAT_0_NUM);
+	NVIC_ClearPendingIRQ(SysInt_Switch_cfg.intrSrc);
+}
+
 
 
 /*******************************************************************************
@@ -585,11 +608,17 @@ void LowPowerImplementation(void)
 *******************************************************************************/
 int HostMain(void)
 {  
+    DBG_PRINTF("START OF PROGRAM\r\n");
     
     power_init();
 
-    Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW); // This enables the wakeup button
-    
+    //Testing
+    // If needed remove the LPComp1 component from the top design and unhook it from CHG_STAT pin
+    LPComp_1_Start();
+    Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW | CY_SYSPM_LPCOMP1_HIGH); // This enables the wakeup button
+    // End of Testing
+    // Comment this back in later
+    //Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW); // This enables the wakeup button
     
     /* Start BLE component and register generic event handler */
     Cy_BLE_Start(AppCallBack);
@@ -624,6 +653,7 @@ int HostMain(void)
     // Enable is high for amp_enable, I2C Testing
     //Cy_GPIO_Write(TEMP_USER_EN_PORT, TEMP_USER_EN_NUM, 1);
     
+    
     /* Initialize the interrupt vector table with the timer interrupt handler
      * address and assign priority. */
     Cy_SysInt_Init(&isrTimer_cfg, TimerInterruptHandler);
@@ -646,8 +676,21 @@ int HostMain(void)
      * a trigger source. */
     Cy_TCPWM_TriggerReloadOrIndex(Timer_HW, Timer_CNT_MASK); 
     
+    /* Interrupt for charge port */
+    Cy_SysInt_Init(&SysInt_Switch_cfg, Isr_switch);
+	NVIC_ClearPendingIRQ(SysInt_Switch_cfg.intrSrc);
+	NVIC_EnableIRQ(SysInt_Switch_cfg.intrSrc);
+    /* Check the IO status. If current status is frozen, unfreeze the system. */
+    if(Cy_SysPm_GetIoFreezeStatus())
+    {   /* Unfreeze the system */
+        Cy_SysPm_IoUnfreeze();
+    }
+    else
+    {
+        /* Do nothing */    
+    }
     
-    
+    int lastValue = 0; // remove after debugging
     
       
     /***************************************************************************
@@ -655,54 +698,29 @@ int HostMain(void)
     ***************************************************************************/
     while(1)
     {
-        //DBG_PRINTF("Loops from main %d\r\n", loopcount++);
-        /* Cy_BLE_ProcessEvents() allows BLE stack to process pending events */
-        //uint32_t startTime = Cy_SysTick_GetValue();
-        //DBG_PRINTF("TICK value: %d\r\n", startTime);
         Cy_BLE_ProcessEvents();
-       
-        /* To achieve low power */
-        //LowPowerImplementation();
-        //DBG_PRINTF("power task\r\n");
-        power_task();
-        /*
-        if (device_status == NOT_CHARGING) {
-            DBG_PRINTF("NOT_CHARGING\r\n");
-        } else if (device_status == CHARGING) {
-            DBG_PRINTF("CHARGING IN MAIN\r\n");
-        } else if (device_status == FULLY_CHARGED) {
-            DBG_PRINTF("FULLY_CHARGED\r\n");
-        } else if (device_status == LOW_BATTERY) {
-            DBG_PRINTF("LOW_BATTERY\r\n");
-        } else if (device_status == MEDIUM_BATTERY) {
-            DBG_PRINTF("MEDIUM_BATTERY\r\n");
-        } else if (device_status == NORMAL_OPERATION) {
-            DBG_PRINTF("NORMAL_OPERATION\r\n");
-        } else if (device_status == WARNING) {
-            DBG_PRINTF("WARNING\r\n");
-        } else {
-            DBG_PRINTF("UNKNOWN_STATUS\r\n");
+        int currentValue = Cy_LPComp_GetCompare(LPCOMP, CY_LPCOMP_CHANNEL_1);
+        DBG_PRINTF("lp comp value: %d\r\n", currentValue);
+        if(lastValue != currentValue){
+           DBG_PRINTF("@@@@@@@@@@@@@@@@@@@@@@@@@@@lp comp value: %d\r\n", currentValue); 
+           lastValue = currentValue;
         }
-        */
-        //ui_task();    
-        
-        // Test code for TENS
-        //DBG_PRINTF("tens task\r\n");
-        
-       
-        
-        
-        /* Start the I2S interface */
+        power_task();
 
-        //I2S_Start();
-        //vibe_init();
-        //I2S_Start();
-        //vibe_init();
-        //DBG_PRINTF("vibe task\r\n");
         vibe_task();
         UpdateLedState();
         
-        
+        /* If the comparison result is high, toggles LED every 500ms */
+        if(Cy_LPComp_GetCompare(LPCOMP, CY_LPCOMP_CHANNEL_0) == 1)
+        {
+ 
+        }
+        /* If the comparison result is low, goes to the hibernate mode */
+        else    
+        {   
+            /* System wakes up when LPComp channel 0 output is high */
+            Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW | CY_SYSPM_LPCOMP1_HIGH);
+        }
         /* Update Alert Level value on the blue LED */
         switch(IasGetAlertLevel())
         {
@@ -731,6 +749,8 @@ int HostMain(void)
             mainTimer = 0u;
             Cy_BLE_StartTimer(&timerParam);
         }
+        
+        //Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT); // remove after testing
     }
 }
  

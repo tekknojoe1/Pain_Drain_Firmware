@@ -51,10 +51,13 @@ void power_i2c_write_reg(uint8_t deviceAddr, uint8_t reg, uint8_t d);
 void power_get_diag_data(uint8 d[]);
 bool send_data_to_phone(uint8_t* value, uint16_t length, uint8_t characteristic);
 void check_charger();
+void check_power_button_press();
 void shut_off_all_stimuli();
 void power_flags_update(int flag, int state);
 void power_5v_on( void );
 void power_5v_off( void );
+void power_off_device();
+bool isDeviceCharging();
 
 
 int I2C_SCL_Read( void );
