@@ -585,7 +585,7 @@ void LowPowerImplementation(void)
 *******************************************************************************/
 void Isr_switch(void)
 {
-    DBG_PRINTF("ISR Charge port interrrupt@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n");
+    DBG_PRINTF("ISR Charge port interrrupt\r\n");
     /* Clears the triggered pin interrupt */
 	Cy_GPIO_ClearInterrupt(CHG_STAT_0_PORT, CHG_STAT_0_NUM);
 	NVIC_ClearPendingIRQ(SysInt_Switch_cfg.intrSrc);
@@ -615,7 +615,7 @@ int HostMain(void)
     //Testing
     // If needed remove the LPComp1 component from the top design and unhook it from CHG_STAT pin
     LPComp_1_Start();
-    Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW | CY_SYSPM_LPCOMP1_HIGH); // This enables the wakeup button
+    Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW| CY_SYSPM_LPCOMP1_LOW); // This allows wakeup on button and lpcomp 1 pin
     // End of Testing
     // Comment this back in later
     //Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW); // This enables the wakeup button
@@ -680,6 +680,8 @@ int HostMain(void)
     Cy_SysInt_Init(&SysInt_Switch_cfg, Isr_switch);
 	NVIC_ClearPendingIRQ(SysInt_Switch_cfg.intrSrc);
 	NVIC_EnableIRQ(SysInt_Switch_cfg.intrSrc);
+    
+    /// Might can get rid of the io unfreeze portion
     /* Check the IO status. If current status is frozen, unfreeze the system. */
     if(Cy_SysPm_GetIoFreezeStatus())
     {   /* Unfreeze the system */
@@ -690,7 +692,7 @@ int HostMain(void)
         /* Do nothing */    
     }
     
-    int lastValue = 0; // remove after debugging
+    int lastValue = 0; // remove after debugging used to track last lpcomp value
     
       
     /***************************************************************************
@@ -700,9 +702,9 @@ int HostMain(void)
     {
         Cy_BLE_ProcessEvents();
         int currentValue = Cy_LPComp_GetCompare(LPCOMP, CY_LPCOMP_CHANNEL_1);
-        DBG_PRINTF("lp comp value: %d\r\n", currentValue);
+        //DBG_PRINTF("lp comp changed value: %d\r\n", currentValue);
         if(lastValue != currentValue){
-           DBG_PRINTF("@@@@@@@@@@@@@@@@@@@@@@@@@@@lp comp value: %d\r\n", currentValue); 
+           DBG_PRINTF("@@@@@@@@@@@@@@@lp comp changed value: %d\r\n", currentValue); 
            lastValue = currentValue;
         }
         power_task();
@@ -710,17 +712,7 @@ int HostMain(void)
         vibe_task();
         UpdateLedState();
         
-        /* If the comparison result is high, toggles LED every 500ms */
-        if(Cy_LPComp_GetCompare(LPCOMP, CY_LPCOMP_CHANNEL_0) == 1)
-        {
- 
-        }
-        /* If the comparison result is low, goes to the hibernate mode */
-        else    
-        {   
-            /* System wakes up when LPComp channel 0 output is high */
-            Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW | CY_SYSPM_LPCOMP1_HIGH);
-        }
+        
         /* Update Alert Level value on the blue LED */
         switch(IasGetAlertLevel())
         {

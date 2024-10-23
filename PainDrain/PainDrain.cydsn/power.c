@@ -166,6 +166,7 @@ void gpio_interrupt_handler ( void ) {
 }
 
 bool isDeviceCharging(){
+    //DBG_PRINTF("Charge: %d\r\n", Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM));
     if(Cy_GPIO_Read(CHG_STAT_0_PORT, CHG_STAT_0_NUM) == 0){
         return true;
     } else{
@@ -239,9 +240,8 @@ void check_power_button_press(){
 
         //DBG_PRINTF("Power cycles: %d\r\n", power_off_cycles);
 
-        // If the button is held for at least 600 cycles (3 seconds), set a flag to shut down
-        if (power_off_cycles >= 20) {
-            DBG_PRINTF("Button held for 600 cycles, waiting for release to shut down.\r\n");
+        // If the button is held for at least 600 cycles (3 seconds) and device is not charging, set flag to shut down
+        if (power_off_cycles >= 600 && !isDeviceCharging()) {
             shutdown_ready = true;  // Mark the system as ready for shutdown
             power_led_blue();
         }
@@ -253,10 +253,10 @@ void check_power_button_press(){
             power_state = POWER_DOWN;
             
             // Device will stay in hibernate until a wake-up event occurs
-        } else if (power_off_cycles > 0 && power_off_cycles < 20) {
+        } else if (power_off_cycles > 0 && power_off_cycles < 600) {
             // Short press detected, wake up the device
             DBG_PRINTF("Button released before 600 cycles, waking up.\r\n");
-            power_wakeup();
+            //power_wakeup();
         }
 
         // Reset the power off cycle count and shutdown flag when the button is released
