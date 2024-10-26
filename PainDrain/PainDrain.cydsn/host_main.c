@@ -615,7 +615,7 @@ int HostMain(void)
     //Testing
     // If needed remove the LPComp1 component from the top design and unhook it from CHG_STAT pin
     LPComp_1_Start();
-    Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW| CY_SYSPM_LPCOMP1_LOW); // This allows wakeup on button and lpcomp 1 pin
+    Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW | CY_SYSPM_LPCOMP1_LOW); // This allows wakeup on button and lpcomp 1 pin
     // End of Testing
     // Comment this back in later
     //Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW); // This enables the wakeup button
@@ -681,18 +681,9 @@ int HostMain(void)
 	NVIC_ClearPendingIRQ(SysInt_Switch_cfg.intrSrc);
 	NVIC_EnableIRQ(SysInt_Switch_cfg.intrSrc);
     
-    /// Might can get rid of the io unfreeze portion
-    /* Check the IO status. If current status is frozen, unfreeze the system. */
-    if(Cy_SysPm_GetIoFreezeStatus())
-    {   /* Unfreeze the system */
-        Cy_SysPm_IoUnfreeze();
-    }
-    else
-    {
-        /* Do nothing */    
-    }
     
     int lastValue = 0; // remove after debugging used to track last lpcomp value
+    
     
       
     /***************************************************************************

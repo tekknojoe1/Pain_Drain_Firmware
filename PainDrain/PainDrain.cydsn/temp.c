@@ -108,7 +108,7 @@ void set_fan(int value){
         Cy_GPIO_Write(FAN_EN_PORT, FAN_EN_NUM, 0);
     } else {
         //Adjust fan
-        //Cy_GPIO_Write(FAN_EN_PORT, FAN_EN_NUM, 1);
+        Cy_GPIO_Write(FAN_EN_PORT, FAN_EN_NUM, 1);
         //PWM_FAN_SetCompare0(scaled_fan_pwm);
     }
     //DBG_PRINTF("Fan value: %d\r\n", scaled_fan_pwm);

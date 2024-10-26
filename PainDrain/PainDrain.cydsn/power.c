@@ -97,11 +97,11 @@ void power_led_connected(void){
 }
 
 void power_led_charging(void){
-    if(cycles >= POWER_LED_FAST_BLINK_TIMER){
+    if(cycles >= POWER_LED_SLOW_BLINK_TIMER){
         cycles = 0;
     }
 
-    if(cycles < POWER_LED_FAST_BLINK_TIMER / 2){
+    if(cycles < POWER_LED_SLOW_BLINK_TIMER / 2){
         power_led_green(); 
     } else{
         power_led_off();
@@ -628,8 +628,8 @@ void UpdateLedState(void)
     else if(device_status == CHARGING)
     {
         //power_led_off();
-        //power_led_charging();
-        power_led_green();
+        power_led_charging();
+        //power_led_green();
         //DBG_PRINTF("CHARGING\r\n");
         if(!chargingValueSent){
             uint8_t* data;
