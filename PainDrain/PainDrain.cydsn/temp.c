@@ -18,7 +18,7 @@
 #include "debug.h"
 
 
-#define MAX_PEL_PWM_VALUE 204 // limit to 80 percent of 255
+#define MAX_PEL_PWM_VALUE 255 // limit to 100 percent of 255
 #define MAX_FAN_PWM_VALUE 80 // limit to 62.5 percent of 255
 
 static int set_fan_based_on_temp(int temp_value);
@@ -39,30 +39,16 @@ void set_temp(int value){
     
     // Scale the value to the PWM range
     int scaled_pel_pwm = ( abs(value) * MAX_PEL_PWM_VALUE) / 100;
+    DBG_PRINTF("scaled temp value %d\r\n", scaled_pel_pwm);
+    DBG_PRINTF("temp value %d\r\n", value);
     
     if(value > 0){
-        // Turn off PEL2
-        PWM_PEL2_SetCompare0(0);
-        //PWM_PEL2_Disable();
-        
-        // Turn on PEL1
-        //Cy_GPIO_Write(TEMP_USER_EN1_PORT, TEMP_USER_EN1_NUM, 1);  //Enable is high
-        PWM_PEL1_SetCompare0(scaled_pel_pwm);
-        //DBG_PRINTF("PWM1 Value: %d\r\n", scaled_pel_pwm);
-        //DBG_PRINTF("PWM1 GetCompare: %d\r\n", PWM_PEL1_GetCompare0());
-        //set_fan(set_fan_based_on_temp(abs(value)));
+        PWM_PEL1_SetCompare0(0);                //PEL1 off
+        PWM_PEL2_SetCompare0(scaled_pel_pwm);   //PEL2 on
         set_fan(value);
     } else if (value < 0) {
-        // Turn off PEL1
-        PWM_PEL1_SetCompare0(0);
-        //PWM_PEL1_Disable();
-        
-        // Turn on PEL2
-        //Cy_GPIO_Write(TEMP_USER_EN1_PORT, TEMP_USER_EN1_NUM, 1);  //Enable is high
-        PWM_PEL2_SetCompare0(scaled_pel_pwm);
-        //DBG_PRINTF("PWM2 Value: %d\r\n", scaled_pel_pwm);
-        //DBG_PRINTF("PWM2 GetCompare: %d\r\n", PWM_PEL2_GetCompare0());
-       // set_fan(set_fan_based_on_temp(abs(value)));
+        PWM_PEL2_SetCompare0(0);                //PEL2 off
+        PWM_PEL1_SetCompare0(scaled_pel_pwm);   //PEL1 on
         set_fan(value);
     } else { 
         //DBG_PRINTF("Disable Temp\r\n");
@@ -94,7 +80,7 @@ void set_fan(int value){
         Cy_GPIO_Write(FAN_EN_PORT, FAN_EN_NUM, 0);
     } else {
         //Adjust fan
-        //Cy_GPIO_Write(FAN_EN_PORT, FAN_EN_NUM, 1);
+        Cy_GPIO_Write(FAN_EN_PORT, FAN_EN_NUM, 1);
         //PWM_FAN_SetCompare0(scaled_fan_pwm);
     }
     //DBG_PRINTF("Fan value: %d\r\n", scaled_fan_pwm);

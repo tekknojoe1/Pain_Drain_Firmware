@@ -52,6 +52,7 @@
       <Data key="99b7e91d-f2bc-44f6-a303-05e6bad54585" value="MCLK" />
       <Data key="289f1bbe-e4a2-4766-8c3c-d78781cd8247" value="AMP_MCK" />
       <Data key="312d335a-be65-47d4-bb29-6a90b9f9eb92" value="DISP_SCK" />
+      <Data key="490a58c7-eb4e-4bdb-b9e8-6d9fd24c1207" value="VREF" />
       <Data key="0513a1e8-8f1d-474c-8e43-2a8b6c1f57ed" value="BKLGT_PWM" />
       <Data key="714a0da0-4477-40ad-9016-a8ac4af8d520" value="TENS_NEG1" />
       <Data key="913ad5f5-fb72-408e-8215-1823edc226c4" value="TENS_PWM" />
@@ -1142,6 +1143,11 @@
     <Group key="312d335a-be65-47d4-bb29-6a90b9f9eb92">
       <Group key="0">
         <Data key="Port Format" value="9,2" />
+      </Group>
+    </Group>
+    <Group key="490a58c7-eb4e-4bdb-b9e8-6d9fd24c1207">
+      <Group key="0">
+        <Data key="Port Format" value="6,2" />
       </Group>
     </Group>
     <Group key="0513a1e8-8f1d-474c-8e43-2a8b6c1f57ed">

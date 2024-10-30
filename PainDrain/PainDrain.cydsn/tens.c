@@ -14,178 +14,456 @@
 #include <project.h>
 #include <stdlib.h>
 #include "debug.h"
+#include <math.h>
+#include "tens.h"
 
 #define TENS_TIMER_INTERVAL_MS 10
 #define TENS_INTERVAL_MS 100
-#define MAX_TENS_PWM_VALUE 312
+#define MAX_TENS_PWM_VALUE 550
 
-static int32 tens_timeout = -1;
-static int32 tens_full_timeout = 0; // Used for Phase Shift 180 Degrees
-static int32 tens_interval_ms = 0;
-static int32 tens_one_dur_ms = 0;
-static int32 tens_two_dur_ms = 0;
+#define TENS_TIMER_20MS_INTERVAL_MS 20
+#define TENS_TIMER_10MS_INTERVAL_MS 10
+
+#define TENS_MODE_1_DUR 284
+#define TENS_MODE_2_DUR 490
+
+static int32 tens_one_timeout = -1;
+static int32 tens_two_timeout = -1;
+static int32 tens_one_interval_ms = TENS_TIMER_20MS_INTERVAL_MS;
+static int32 tens_two_interval_ms = TENS_TIMER_20MS_INTERVAL_MS;
+static int tens_one_timeout_event = 0;
+static int tens_two_timeout_event = 0;
+static int32 tens_one_counter = 0;
+static int32 tens_two_counter = 0;
+static int32 tens_amplitude = 0;
 static int32 tens_phase_shift = 0;
+static int32 tens_one_mode = 1;
+static int32 tens_two_mode = 1;
+static int32 tens_one_on = 0;
+static int32 tens_two_on = 0;
+
+
+#define TENS_IDLE 0
+#define TENS_FRONT_PORCH 1
+#define TENS_RAMP_UP 2
+#define TENS_HOLD 3
+#define TENS_RAMP_DN 4
+#define TENS_OFF 5
+#define TENS_BACK_PORCH 6
+static int tens_one_state = 0;
+static int tens_two_state = 0;
+
+
+
 
 static void set_channel_one(void);
 
-void tens_timer(void){
-    if (tens_timeout > 0) {
-        tens_timeout -= TENS_TIMER_INTERVAL_MS;
-        //DBG_PRINTF("tens_timeout: %d \r\n", tens_timeout);
-        if (tens_timeout < 0) {
-            tens_timeout = 0;
-            tens_full_timeout = tens_timeout;
-        }
-    }
+void tens_init(void) {
+   
+    
 }
 
-void set_channel_one(void) {
+void tens_timer(void){
+    if (tens_one_timeout > 0) {
+        tens_one_timeout -= tens_one_interval_ms;
+        //DBG_PRINTF("tens_timeout: %d \r\n", tens_timeout);
+        if (tens_one_timeout < 0) {
+            tens_one_timeout = 0;
+            tens_one_timeout_event = 1;
+        }
+    }
+    
+    if (tens_two_timeout > 0) {
+        tens_two_timeout -= tens_two_interval_ms;
+        //DBG_PRINTF("tens_timeout: %d \r\n", tens_timeout);
+        if (tens_two_timeout < 0) {
+            tens_two_timeout = 0;
+            tens_two_timeout_event = 1;
+        }
+    }
+    
+}
+
+void tens_task( void ) {
+    
+    if (tens_amplitude == 0) {
+        
+        tens_one_state = TENS_IDLE;
+        tens_two_state = TENS_IDLE;
+        
+        return;
+    }
+    
+
+    //Channel 1
+    if (tens_one_mode == 1) {
+        //Channel 1 Mode 1 (20ms boundaries)
+        tens_one_interval_ms = TENS_TIMER_20MS_INTERVAL_MS;
+        //if (tens_one_timeout_event > 0) {
+        //    tens_one_timeout_event = 0;
+        
+        switch (tens_one_state) {
+            default: //idle
+                tens_one_counter = 0;
+                tens_one_state = TENS_RAMP_UP;
+                tens_two_counter = 0;
+                tens_two_state = TENS_IDLE;    //Make sure channel 2 is always in sync with channel 1
+            break;
+            
+            case TENS_RAMP_UP:
+                tens_one_counter += 10;    //Count up 10 ms
+                tens_seq_chan_one(TENS_MODE_1_DUR, tens_one_counter, 1200);       //do a sequence
+                if (tens_one_counter >= 1200) {
+                    tens_one_counter = 0;
+                    tens_one_state = TENS_HOLD;
+                }
+            break;
+            case TENS_HOLD:
+                tens_one_counter += 10;    //Count up 10 ms
+                tens_seq_chan_one(TENS_MODE_1_DUR, 1200, 1200);       //do a sequence
+                if (tens_one_counter >= 2800) {
+                    tens_one_counter = 0;
+                    tens_one_state = TENS_OFF;
+                }
+            break;
+            case TENS_OFF:
+                tens_one_counter += 10;    //Count up 10 ms
+                //No sequence
+                if (tens_one_counter >= 10000) {  //Off for 10 seconds
+                    tens_one_counter = 0;
+                    tens_one_state = TENS_IDLE;
+                }
+            break;
+        }
+        
+    } else {
+        //Channel 1 Mode 2 (10ms boundaries)
+        tens_one_interval_ms = TENS_TIMER_10MS_INTERVAL_MS;
+        //if (tens_one_timeout_event > 0) {
+        //    tens_one_timeout_event = 0;
+            
+        switch (tens_one_state) {
+            default: //idle
+                tens_one_counter = 0;
+                tens_one_state = TENS_RAMP_UP;
+                tens_two_counter = 0;
+                tens_two_state = TENS_IDLE;    //Make sure channel 2 is always in sync with channel 1
+            break;
+            case TENS_RAMP_UP:
+                tens_one_counter += 10;    //Count up 10 ms
+                tens_seq_chan_one(TENS_MODE_2_DUR, tens_one_counter, 1000);       //do a sequence
+                if (tens_one_counter >= 1000) {
+                    tens_one_counter = 0;
+                    tens_one_state = TENS_HOLD;
+                }
+            break;
+            case TENS_HOLD:
+                tens_one_counter += 10;    //Count up 10 ms
+                tens_seq_chan_one(TENS_MODE_2_DUR, 1000, 1000);       //do a sequence
+                if (tens_one_counter >= 2200) {
+                    tens_one_counter = 0;
+                    tens_one_state = TENS_RAMP_DN;
+                }
+            break;
+            case TENS_RAMP_DN:
+                tens_one_counter += 10;    //Count up 10 ms
+                tens_seq_chan_one(TENS_MODE_2_DUR, 800-tens_one_counter, 800);       //do a sequence
+                if (tens_one_counter >= 800) {
+                    tens_one_counter = 0;
+                    tens_one_state = TENS_OFF;
+                }
+            break;
+            case TENS_OFF:
+                tens_one_counter += 10;    //Count up 10 ms
+                //No sequence
+                if (tens_one_counter >= 10000) {  //Off for 10 seconds
+                    tens_one_counter = 0;
+                    tens_one_state = TENS_IDLE;
+                }
+            break;
+        }
+    }
+    
+        
+    //Channel 2 - behaves like channel 1, but can be 180 degrees out of phase
+    if (tens_two_mode == 1) {
+        //Channel 2 Mode 1 (20ms boundaries)
+        tens_two_interval_ms = TENS_TIMER_20MS_INTERVAL_MS;
+        //if (tens_two_timeout_event > 0) {
+        //    tens_two_timeout_event = 0;
+        
+        switch (tens_two_state) {
+            default: //idle
+                tens_two_counter = 0;
+                if (tens_phase_shift > 0) {
+                    tens_two_state = TENS_FRONT_PORCH;
+                } else {
+                    tens_two_state = TENS_RAMP_UP;
+                }
+            break;
+            case TENS_FRONT_PORCH:
+                tens_two_counter += 10;    //Count up 10 ms
+                //No sequence
+                if (tens_two_counter >= 7000) {  //Off for 5 seconds
+                    tens_two_counter = 0;
+                    tens_two_state = TENS_RAMP_UP;
+                }
+            break;
+            case TENS_RAMP_UP:
+                tens_two_counter += 10;    //Count up 10 ms
+                tens_seq_chan_two(TENS_MODE_1_DUR, tens_two_counter, 1200);       //do a sequence
+                if (tens_two_counter >= 1200) {
+                    tens_two_counter = 0;
+                    tens_two_state = TENS_HOLD;
+                }
+            break;
+            case TENS_HOLD:
+                tens_two_counter += 10;    //Count up 10 ms
+                tens_seq_chan_two(TENS_MODE_1_DUR, 1200, 1200);       //do a sequence
+                if (tens_two_counter >= 2800) {
+                    tens_two_counter = 0;
+                    if (tens_phase_shift > 0) {
+                        tens_two_state = TENS_BACK_PORCH;
+                    } else {
+                        tens_two_state = TENS_OFF;
+                    }
+                }
+            break;
+            case TENS_OFF:
+                tens_two_counter += 10;    //Count up 10 ms
+                //No sequence
+                if (tens_two_counter >= 10000) {  //Off for 10 seconds
+                    tens_two_counter = 0;
+                    tens_two_state = TENS_IDLE;
+                }
+            break;
+            case TENS_BACK_PORCH:
+                tens_two_counter += 10;    //Count up 10 ms
+                //No sequence
+                if (tens_two_counter >= 3000) {  //Off for 5 seconds
+                    tens_two_counter = 0;
+                    tens_two_state = TENS_IDLE;
+                }
+            break;
+        }
+        
+    } else {
+        //Channel 2 Mode 2 (10ms boundaries)
+        tens_two_interval_ms = TENS_TIMER_10MS_INTERVAL_MS;
+        //if (tens_two_timeout_event > 0) {
+        //    tens_two_timeout_event = 0;
+            
+        switch (tens_two_state) {
+            default: //idle
+                tens_two_counter = 0;
+                if (tens_phase_shift > 0) {
+                    tens_two_state = TENS_FRONT_PORCH;
+                } else {
+                    tens_two_state = TENS_RAMP_UP;
+                }
+            break;
+            case TENS_FRONT_PORCH:
+                tens_two_counter += 10;    //Count up 10 ms
+                //No sequence
+                if (tens_two_counter >= 5000) {  //Off for 5 seconds
+                    tens_two_counter = 0;
+                    tens_two_state = TENS_RAMP_UP;
+                }
+            break;
+            case TENS_RAMP_UP:
+                tens_two_counter += 10;    //Count up 10 ms
+                tens_seq_chan_two(TENS_MODE_2_DUR, tens_two_counter, 1000);       //do a sequence
+                if (tens_two_counter >= 1000) {
+                    tens_two_counter = 0;
+                    tens_two_state = TENS_HOLD;
+                }
+            break;
+            case TENS_HOLD:
+                tens_two_counter += 10;    //Count up 10 ms
+                tens_seq_chan_two(TENS_MODE_2_DUR, 1000, 1000);       //do a sequence
+                if (tens_two_counter >= 2200) {
+                    tens_two_counter = 0;
+                    tens_two_state = TENS_RAMP_DN;
+                }
+            break;
+            case TENS_RAMP_DN:
+                tens_two_counter += 10;    //Count up 10 ms
+                tens_seq_chan_two(TENS_MODE_2_DUR, 800-tens_two_counter, 800);       //do a sequence
+                if (tens_two_counter >= 800) {
+                    tens_two_counter = 0;
+                    if (tens_phase_shift > 0) {
+                        tens_two_state = TENS_BACK_PORCH;
+                    } else {
+                        tens_two_state = TENS_OFF;
+                    }
+                }
+            break;
+            case TENS_OFF:
+                tens_two_counter += 10;    //Count up 10 ms
+                //No sequence
+                if (tens_two_counter >= 10000) {  //Off for 10 seconds
+                    tens_two_counter = 0;
+                    tens_two_state = TENS_IDLE;
+                }
+            break;
+            case TENS_BACK_PORCH:
+                tens_two_counter += 10;    //Count up 10 ms
+                //No sequence
+                if (tens_two_counter >= 5000) {  //Off for 5 seconds
+                    tens_two_counter = 0;
+                    tens_two_state = TENS_IDLE;
+                }
+            break;
+        }
+    }
+   
+}
+
+
+void tens_seq_chan_one(int dur, int val, int max) {
+    
+    
     //On positive direction
     //DBG_PRINTF("Channel 1 On positive direction \r\n");
     //DBG_PRINTF("Channel 1 duration: %d\r\n", tens_one_dur_ms);
-    Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 1);
-    Cy_GPIO_Write(TENS_POS1_PORT, TENS_POS1_NUM, 1);
+    if (tens_one_on == 1) {
+        Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 1);
+        Cy_GPIO_Write(TENS_POS1_PORT, TENS_POS1_NUM, 1);
+    }
     //DBG_PRINTF("Channel 1 duration: %d\r\n", tens_one_dur_ms);
-    CyDelay(tens_one_dur_ms);
+    CyDelayUs(dur);
     
     //Off state in between
     //DBG_PRINTF("Channel 1 Off state in between \r\n");
     Cy_GPIO_Write(TENS_POS1_PORT, TENS_POS1_NUM, 0);
     Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 0);
     
-    CyDelay(tens_one_dur_ms);
+    CyDelayUs(dur);
     
     //On negative direction
     //DBG_PRINTF("Channel 1 On negative direction \r\n");
-    Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 1);
-    Cy_GPIO_Write(TENS_NEG1_PORT, TENS_NEG1_NUM, 1);
+    if (tens_one_on == 1) {
+        Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 1);
+        Cy_GPIO_Write(TENS_NEG1_PORT, TENS_NEG1_NUM, 1);
+    }
     
-    CyDelay(tens_one_dur_ms);
+    CyDelayUs(dur);
     
     //Off state in between
     //DBG_PRINTF("Channel 1 Off state in between \r\n");
     Cy_GPIO_Write(TENS_NEG1_PORT, TENS_NEG1_NUM, 0);
     Cy_GPIO_Write(TENS_USER_EN1_PORT, TENS_USER_EN1_NUM, 0); 
+    
+   
+    
 }
 
-void set_tens_task( void ) {
-    // Checks if there is a phase delay selected and executes at 50% of the tens_timer for 180 degrees shift
-    if(tens_phase_shift > 0 && (tens_timeout == tens_full_timeout/2) && tens_one_dur_ms > 0){
-        set_channel_one();
-    } else if (tens_phase_shift <= 0 && tens_timeout == 0 && tens_one_dur_ms > 0){
-        set_channel_one();
-    }
-    // Checks if Channel 2 is on, otherwise update the tens_timeout
-    if (tens_timeout == 0 && tens_two_dur_ms > 0) {
-        //On positive direction
-        //DBG_PRINTF("Channel 2 On positive direction \r\n");
-        //DBG_PRINTF("Channel 2 duration: %d\r\n", tens_two_dur_ms);
+void tens_seq_chan_two(int dur, int val, int max) {
+        
+    //On positive direction
+    //DBG_PRINTF("Channel 2 On positive direction \r\n");
+    //DBG_PRINTF("Channel 2 duration: %d\r\n", tens_two_dur_ms);
+    if (tens_two_on == 1) {
         Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 1);
         Cy_GPIO_Write(TENS_POS2_PORT, TENS_POS2_NUM, 1);
-        
-        CyDelay(tens_two_dur_ms);
-        
-        //Off state in between
-        //DBG_PRINTF("Channel 2 Off state in between \r\n");
-        Cy_GPIO_Write(TENS_POS2_PORT, TENS_POS2_NUM, 0);
-        Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 0);
-        
-        CyDelay(tens_two_dur_ms);
-        
-        //On negative direction
-        //DBG_PRINTF("Channel 2 On negative direction \r\n");
+    }
+    
+    CyDelayUs(dur);
+    
+    //Off state in between
+    //DBG_PRINTF("Channel 2 Off state in between \r\n");
+    Cy_GPIO_Write(TENS_POS2_PORT, TENS_POS2_NUM, 0);
+    Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 0);
+    
+    CyDelayUs(dur);
+    
+    //On negative direction
+    //DBG_PRINTF("Channel 2 On negative direction \r\n");
+    if (tens_two_on == 1) {
         Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 1);
         Cy_GPIO_Write(TENS_NEG2_PORT, TENS_NEG2_NUM, 1);
-        
-        CyDelay(tens_two_dur_ms);
-        
-        //Off state in between
-        //DBG_PRINTF("Channel 2 Off state in between \r\n");
-        Cy_GPIO_Write(TENS_NEG2_PORT, TENS_NEG2_NUM, 0);
-        Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 0);
-    } 
-    if (tens_timeout == 0 && tens_interval_ms > 0 && (tens_one_dur_ms > 0 || tens_two_dur_ms > 0)) {
-        tens_timeout = tens_interval_ms;
-        tens_full_timeout = tens_timeout;     
     }
+    
+    CyDelayUs(dur);
+    
+    //Off state in between
+    //DBG_PRINTF("Channel 2 Off state in between \r\n");
+    Cy_GPIO_Write(TENS_NEG2_PORT, TENS_NEG2_NUM, 0);
+    Cy_GPIO_Write(TENS_USER_EN2_PORT, TENS_USER_EN2_NUM, 0);
+    
+    
 }
 
-void set_tens_freq (double period) {
-    
-    tens_interval_ms = (int) (period*TENS_INTERVAL_MS);
-    
-    //DBG_PRINTF("tens_interval_ms: %d \r\n", tens_interval_ms);
-    if (tens_interval_ms > 0) {
-        tens_timeout = tens_interval_ms;
-        tens_full_timeout = tens_timeout;
-    }
-}
 
-void set_tens_dur(int duration, int32 *tens_dur_ms){
-    switch (duration) {
-        default: *tens_dur_ms = 0; break;   
-        case 1: *tens_dur_ms = 100; break;
-        case 2: *tens_dur_ms = 200; break;
-        case 3: *tens_dur_ms = 300; break;
-        case 4: *tens_dur_ms = 400; break;
-        case 5: *tens_dur_ms = 500; break;
-        case 6: *tens_dur_ms = 600; break;
-        case 7: *tens_dur_ms = 700; break;
-        case 8: *tens_dur_ms = 800; break;
-        case 9: *tens_dur_ms = 900; break;
-        case 10: *tens_dur_ms = 1000; break;
+
+
+
+void set_tens_mode(int channel, int mode) {
+    if (channel == 1) {
+        tens_one_mode = mode;
+    } else if (channel == 2) {
+        tens_two_mode = mode;
     }
 }
 
 void set_tens_amp (int amplitude) {
-
+    DBG_PRINTF("setting amp\r\n");
+    double comp;
+    
     if (amplitude == 0) {
-        //DBG_PRINTF("Amplitude is off at 0 %d \r\n");
-        PWM_TENS_SetCompare0(0);
-        PWM_TENS2_SetCompare0(0);
-        //power_flags_update(UI_MENU_TENS_AMP, 0);      
-        tens_interval_ms = -1; //Disable timer
-    } else { 
-        DBG_PRINTF("Amplitude is on\r\n");
-        // Limiting PWM Value
-        int scaled_pwm_value = (amplitude * MAX_TENS_PWM_VALUE) / 100;
+        DBG_PRINTF("Amp is 0\r\n");
+        PWM_TENS_Disable();
+        PWM_TENS2_Disable();
         
+    } else if (tens_amplitude == 0 && amplitude > 0) {
+        DBG_PRINTF("ten_amp local is 0 and amp is greater than 0\r\n");
+        PWM_TENS_Start();
+        CyDelayUs(50);
+        PWM_TENS2_Start();
+        
+    }
+    
+    tens_amplitude = amplitude;  
+    
+    if (tens_amplitude > 0) {  
+        DBG_PRINTF("amp is greater than 0\r\n");
         // Set TENS1 and wait before setting TENS2
-        PWM_TENS_SetCompare0(scaled_pwm_value);
-        //DBG_PRINTF("Tens 1 PWM: %d\r\n", PWM_TENS_GetCompare0());
-        CyDelayUs((1000000 / tens_interval_ms) / 2); //Delay of 5-50uS
+        comp = 0.0089 * pow(tens_amplitude, 2.0287);
+        if (comp < 0.0)
+            comp = 0.0;
+        else if (comp > 100.0)
+            comp = 100.0;
         
-        // Set TENS2
+        int scaled_pwm_value = (int)((comp * MAX_TENS_PWM_VALUE) / 100);
+        //DBG_PRINTF("pwm value: %d\r\n", scaled_pwm_value);
+        
+        PWM_TENS_SetCompare0(scaled_pwm_value);
         PWM_TENS2_SetCompare0(scaled_pwm_value);
-        //DBG_PRINTF("Tens 2 PWM: %d\r\n", PWM_TENS2_GetCompare0());
-    }   
+        
+    }
+    
+    
 }
 
 // Helper function to make setting a signal easier to channel 1 and 2
-void set_tens_signal(int amplitude, double duration, int period, int channel, int phase) {
-    //DBG_PRINTF("amp \r\n");
+void set_tens_signal(int amplitude, int mode, int play_pause, int channel, int phase) {
     
-    int duration_case = (int)(duration*10);
-    tens_phase_shift = phase;
-    //DBG_PRINTF("Channel 0\r\n");
-    // Amplitude and Period will be the same for both channels.
     set_tens_amp(amplitude);
-    set_tens_freq(period);
-    if(channel == 1){
-        //DBG_PRINTF("Channel 1\r\n");
-        set_tens_dur(duration_case, &tens_one_dur_ms);
-        //DBG_PRINTF("Channel 1 duration: %d\r\n", tens_one_dur_ms);
-    } else if(channel == 2){ 
-        //DBG_PRINTF("Channel 2\r\n");
-        set_tens_dur(duration_case, &tens_two_dur_ms); 
-        //DBG_PRINTF("Channel 2 duration: %d\r\n", tens_two_dur_ms);
+    
+    if (channel == 1) {
+        tens_one_mode = mode;
+        tens_one_on = play_pause;        
     } else {
-        //DBG_PRINTF("Disabling Tens\r\n");
-        // disable the signal
-        set_tens_amp(0);
-        set_tens_freq(0);
-        set_tens_dur(0, &tens_one_dur_ms);
-        set_tens_dur(0, &tens_two_dur_ms);
-    }   
+        tens_two_mode = mode;
+        tens_two_on = play_pause;
+    }
+    
+    tens_phase_shift = phase;
+    
 }
+
+
+
+
+
 /* [] END OF FILE */
