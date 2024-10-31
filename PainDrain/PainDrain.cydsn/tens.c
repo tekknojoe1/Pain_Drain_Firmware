@@ -418,7 +418,7 @@ void set_tens_amp (int amplitude) {
     } else if (tens_amplitude == 0 && amplitude > 0) {
         DBG_PRINTF("ten_amp local is 0 and amp is greater than 0\r\n");
         PWM_TENS_Start();
-        CyDelayUs(50);
+        CyDelayUs(25);
         PWM_TENS2_Start();
         
     }
