@@ -467,8 +467,8 @@ bool send_data_to_phone(uint8_t* data, uint16_t length, uint8_t characteristic){
     handleValuePair.value.val = data;
     handleValuePair.value.len = length;
     handleValuePair.attrHandle = characteristic;
-   
-    // Sends notification
+
+    // Sends notification when device is connected
     if(Cy_BLE_GetConnectionState(cy_ble_connHandle[0]) == CY_BLE_CONN_STATE_CONNECTED){
         gattErr = Cy_BLE_GATTS_SendNotification(cy_ble_connHandle, &handleValuePair);
         if(gattErr == CY_BLE_SUCCESS){ 
