@@ -249,6 +249,7 @@ void check_power_button_press(){
         // If the button was held for 600 cycles and shutdown is ready, enter hibernate
         if (shutdown_ready) {
             DBG_PRINTF("Button released after 600 cycles, powering down.\r\n");
+            CyDelayUs(100);
             // Switch power state to power down
             power_state = POWER_DOWN;
             
