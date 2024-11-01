@@ -351,8 +351,7 @@ void AppCallBack(uint32 event, void *eventParam)
                 int token_count = 0; // To keep track of the number of tokens
                 char *token;
                 char *delimiter = " ";
-                
-                
+
                 // Checks to see if its requesting the custom service characteristic
                 if(CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE == writeReq->handleValPair.attrHandle)
                 {
@@ -528,11 +527,14 @@ void AppCallBack(uint32 event, void *eventParam)
                         DBG_PRINTF("Write rsp failed for notifications\r\n");
                     }
                     bool isNotificationsEnabled = Cy_BLE_GATTS_IsNotificationEnabled(cy_ble_connHandle, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
-                    if ( isNotificationsEnabled){
+                    if ( isNotificationsEnabled ){
                         DBG_PRINTF("Notifications enabled\r\n");
                     } else{
                         DBG_PRINTF("Notifications disabled\r\n");
                     }
+                }
+                else {
+                 DBG_PRINTF("Characterisitic handle: %d\r\n", writeReq->handleValPair.attrHandle);   
                 }
             //call a function to process the data received in the eventParam
                  break;
@@ -615,6 +617,7 @@ int HostMain(void)
     //Testing
     // If needed remove the LPComp1 component from the top design and unhook it from CHG_STAT pin
     LPComp_1_Start();
+    //Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW); // Change this back to the line below
     Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW | CY_SYSPM_LPCOMP1_LOW); // This allows wakeup on button and lpcomp 1 pin
     // End of Testing
     // Comment this back in later

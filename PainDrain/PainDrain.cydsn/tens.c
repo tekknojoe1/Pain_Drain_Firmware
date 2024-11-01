@@ -418,7 +418,7 @@ void set_tens_amp (int amplitude) {
     } else if (tens_amplitude == 0 && amplitude > 0) {
         DBG_PRINTF("ten_amp local is 0 and amp is greater than 0\r\n");
         PWM_TENS_Start();
-        CyDelayUs(50);
+        CyDelayUs(25);
         PWM_TENS2_Start();
         
     }
@@ -435,7 +435,7 @@ void set_tens_amp (int amplitude) {
             comp = 100.0;
         
         int scaled_pwm_value = (int)((comp * MAX_TENS_PWM_VALUE) / 100);
-        //DBG_PRINTF("pwm value: %d\r\n", scaled_pwm_value);
+        DBG_PRINTF("pwm value: %d\r\n", scaled_pwm_value);
         
         PWM_TENS_SetCompare0(scaled_pwm_value);
         PWM_TENS2_SetCompare0(scaled_pwm_value);
