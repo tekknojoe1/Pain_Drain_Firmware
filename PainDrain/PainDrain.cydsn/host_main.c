@@ -51,6 +51,7 @@
 #include <stdlib.h>
 #include "bitbang_spi.h"
 #include "my_i2c.h"
+#include "flash_storage.h"
 
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
 static volatile uint32_t           mainTimer  = 1u;
@@ -72,6 +73,7 @@ int tensAmpValue;
 int tensModeValue;
 int tensPlayPauseValue;
 int tensChannel;
+
 
 int getExternalValue() {
     // Simulate getting an external value (e.g., sensor reading)
@@ -143,10 +145,12 @@ void AppCallBack(uint32 event, void *eventParam)
             Cy_BLE_GAP_GenerateKeys(&keyInfo);
             DBG_PRINTF("STACK ON\r\n");
             
-        case CY_BLE_EVT_GAP_DEVICE_DISCONNECTED:      
+        case CY_BLE_EVT_GAP_DEVICE_DISCONNECTED:  
             /* Start BLE advertisement for 180 seconds and update link status on LEDs if not charging*/
             if(!isDeviceCharging()){
+                DBG_PRINTF("HERE FIRST\r\n");
                 Cy_BLE_GAPP_StartAdvertisement(CY_BLE_ADVERTISING_FAST, CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX);
+                isAdvertisingInit = true;
             }
             //Cy_BLE_GAPP_StartAdvertisement(CY_BLE_ADVERTISING_FAST, CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX);
             //UpdateLedState();
@@ -172,12 +176,12 @@ void AppCallBack(uint32 event, void *eventParam)
                  * user event to wake up the device again */
                 //UpdateLedState();   FIXME
                 //UpdateLedState();
-                
+                DBG_PRINTF("ADVERTISEMENT STOPPED\r\n");
                 // If not advertising and not charging then we power off the device
-                if(!isDeviceCharging()){
+                if(!isDeviceCharging() && current_mode == BLUETOOTH_MODE){
                     power_off_device();
                 }
-                DBG_PRINTF("ADVERTISEMENT STOPPED\r\n");
+                
              
                 //power_led_off();
                 //Cy_BLE_Stop(); // Turns off BLE STACK 
@@ -360,11 +364,15 @@ void AppCallBack(uint32 event, void *eventParam)
                     {
                         // Grabs the data that the phone app sent
                         receivedCommand[i] = (char)writeReq->handleValPair.value.val[i];
+                        //writeFlashStorage[i] = writeReq->handleValPair.value.val[i];
+                        //DBG_PRINTF("data: %d\r\n", writeFlashStorage[i]);
                     }
                     // Add a null terminator to mark end of string
                     receivedCommand[length] = '\0';
-                    //DBG_PRINTF("Received string: %s\r\n", receivedCommand);
-                    
+                   
+                    DBG_PRINTF("Received string: %s\r\n", receivedCommand);
+                    writeToEeprom((uint8_t*)receivedCommand, sizeof(receivedCommand));
+
                     // This splits the received command into sections by single space
                     token = strtok(receivedCommand, delimiter); // Gets the first token
                     
@@ -393,13 +401,13 @@ void AppCallBack(uint32 event, void *eventParam)
                             Packet information contains
                             1: char T - TENS
                             2: int Amplitude
-                            3: double Mode
-                            4: double Play/Pause
+                            3: int Mode
+                            4: int Play/Pause
                             5: int Channel
                             6: int Phase
                             */
                             tensAmpValue = atoi(tokens[1]);
-                            tensModeValue = atof(tokens[2]);
+                            tensModeValue = atoi(tokens[2]);
                             tensPlayPauseValue = atoi(tokens[3]);
                             tensChannel = atoi(tokens[4]);
                             tensPhase = atoi(tokens[5]);
@@ -435,6 +443,24 @@ void AppCallBack(uint32 event, void *eventParam)
                             break;
                         }
                         
+                        case 'p':
+                        {
+                            
+                            /*
+                            Not implemented yet
+                            Used to save a preset to device using flash or EEPROM
+                            1: char p - preset
+                            2: int - preset Number
+                            3: char - Either T, t, or v for any of the stimuli
+                            4-9: This could contain either 1-5 more values. We basically 
+                            are just pulling the tens, temp, or vibe so based on which it is
+                            there could be 1-5 parameters
+                            */
+                            
+                            DBG_PRINTF("Preset\r\n");
+                            break;
+                        }
+                        
                         case 'B':
                         {
                             DBG_PRINTF("HERE\r\n");
@@ -467,6 +493,7 @@ void AppCallBack(uint32 event, void *eventParam)
                                 DBG_PRINTF("Assign B 6\r\n");
                                 //DBG_PRINTF("Assign B 3\r\n", receivedCommand);
                             } 
+                            break;
                             //else if(atoi(tokens[1]) == 7){
                             //    device_status = ADVERTISING;
                             //    DBG_PRINTF("Assign B 7\r\n");
@@ -480,6 +507,7 @@ void AppCallBack(uint32 event, void *eventParam)
                         
                         default:
                         {
+                            DBG_PRINTF("char: %c\r\n", tokens[0][0]);
                             DBG_PRINTF("Error\r\n");
                             break;
                         }
@@ -594,7 +622,6 @@ void Isr_switch(void)
 }
 
 
-
 /*******************************************************************************
 * Function Name: HostMain
 ********************************************************************************
@@ -613,15 +640,8 @@ int HostMain(void)
     DBG_PRINTF("START OF PROGRAM\r\n");
     
     power_init();
-
-    //Testing
-    // If needed remove the LPComp1 component from the top design and unhook it from CHG_STAT pin
     LPComp_1_Start();
-    //Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW); // Change this back to the line below
     Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW | CY_SYSPM_LPCOMP1_LOW); // This allows wakeup on button and lpcomp 1 pin
-    // End of Testing
-    // Comment this back in later
-    //Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW); // This enables the wakeup button
     
     /* Start BLE component and register generic event handler */
     Cy_BLE_Start(AppCallBack);
@@ -687,7 +707,7 @@ int HostMain(void)
     
     int lastValue = 0; // remove after debugging used to track last lpcomp value
     
-    
+    initEeprom();
       
     /***************************************************************************
     * Main polling loop
@@ -698,7 +718,7 @@ int HostMain(void)
         int currentValue = Cy_LPComp_GetCompare(LPCOMP, CY_LPCOMP_CHANNEL_1);
         //DBG_PRINTF("lp comp changed value: %d\r\n", currentValue);
         if(lastValue != currentValue){
-           DBG_PRINTF("@@@@@@@@@@@@@@@lp comp changed value: %d\r\n", currentValue); 
+           DBG_PRINTF("lp comp changed value: %d\r\n", currentValue); 
            lastValue = currentValue;
         }
         power_task();

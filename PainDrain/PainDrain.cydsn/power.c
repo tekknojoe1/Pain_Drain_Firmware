@@ -14,6 +14,7 @@
 #include "tens.h"
 #include "temp.h"
 #include "vibe.h"
+#include "flash_storage.h"
 
 
 #define POWER_TIMER_PERIOD_MS 10
@@ -25,11 +26,13 @@
 
 #define POWER_IDLE 0
 #define POWER_DOWN 10
+#define POWER_ACTIVE 2
 #define MAX_LCD_PWM 191 // limit to 80 percent of 255
-static int power_state = 0;
+static int power_state = POWER_IDLE;
 static uint32 power_timeout = 0;
 static uint32 power_flags = 0;   //Each bit indicates an active system. If all bits are zero we power down the entire device
 DeviceStatus last_device_status;
+DeviceMode current_mode;
 bool triggerBattery = false;
 bool isConnected = false;
 bool chargingValueSent = false;
@@ -37,6 +40,9 @@ bool notChargingValueSent = false;
 int cycles = 0;
 int power_off_cycles = 0;
 bool shutdown_ready = false;  // Initialize to false
+bool isAdvertisingInit = false;
+
+
 
 
 void power_led_off(void) {
@@ -108,6 +114,73 @@ void power_led_charging(void){
     } 
     cycles++;   
 }
+
+void preset_1_mode_led(void){
+    if(cycles >= POWER_LED_SLOW_BLINK_TIMER){
+        cycles = 0;
+    }
+
+    if(cycles < POWER_LED_SLOW_BLINK_TIMER / 2){
+        power_led_yellow(); 
+    } else{
+        power_led_off();
+    } 
+    cycles++;   
+}
+
+void preset_2_mode_led(void) {
+    // Total cycles for one slow blink (on + off)
+    if (cycles >= 300) {
+        cycles = 0;
+    }
+
+    // Define the threshold for fast blinks
+    int fast_blink_timer = 300 / 4;
+
+    if ((cycles % 300) < 300 / 2) {
+        // Within the slow blink "on" phase
+        if ((cycles % fast_blink_timer) < fast_blink_timer / 2) {
+            // Fast blink "on"
+            power_led_yellow();
+        } else {
+            // Fast blink "off"
+            power_led_off();
+        }
+    } else {
+        // Slow blink "off" phase
+        power_led_off();
+    }
+
+    cycles++;
+}
+
+void preset_3_mode_led(void) {
+    // Total cycles for one slow blink (on + off)
+    if (cycles >= 402) {
+        cycles = 0;
+    }
+
+    // Define the threshold for fast blinks
+    int fast_blink_timer = 402 / 6; // Divide slow "on" phase into 3 parts
+
+    if ((cycles % 402) < 402 / 2) {
+        // Within the slow blink "on" phase
+        if ((cycles % fast_blink_timer) < fast_blink_timer / 2) {
+            // Fast blink "on"
+            power_led_yellow();
+        } else {
+            // Fast blink "off"
+            power_led_off();
+        }
+    } else {
+        // Slow blink "off" phase
+        power_led_off();
+    }
+
+    cycles++;
+}
+
+
 
 /*
 This is used to do a slow led blink.
@@ -223,13 +296,14 @@ void power_wakeup( void ) {
     
 }
 void power_off_device(){
-    DBG_PRINTF("POWRING OFF DEVICE\r\n");
+    DBG_PRINTF("POWERING OFF DEVICE\r\n");
     // Turns off Leds
     power_led_off();
     Cy_BLE_Stop(); // Turns off BLE STACK 
     Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT);
     Cy_SysPm_Hibernate(); // Put system in hibernate
 }
+
 
 
 void check_power_button_press(){
@@ -243,21 +317,66 @@ void check_power_button_press(){
         // If the button is held for at least 600 cycles (3 seconds) and device is not charging, set flag to shut down
         if (power_off_cycles >= 600 && !isDeviceCharging()) {
             shutdown_ready = true;  // Mark the system as ready for shutdown
+            //DBG_PRINTF("Button ready for shutdown.\r\n");
             power_led_blue();
         }
     } else {  // Button is released
         // If the button was held for 600 cycles and shutdown is ready, enter hibernate
         if (shutdown_ready) {
             DBG_PRINTF("Button released after 600 cycles, powering down.\r\n");
-            CyDelayUs(100);
+            CyDelayUs(100); // 100ms delay to help combat button "bounce"
             // Switch power state to power down
             power_state = POWER_DOWN;
             
-            // Device will stay in hibernate until a wake-up event occurs
+        // Device will stay in hibernate until a wake-up event occurs
         } else if (power_off_cycles > 0 && power_off_cycles < 600) {
-            // Short press detected, wake up the device
-            DBG_PRINTF("Button released before 600 cycles, waking up.\r\n");
-            //power_wakeup();
+            DBG_PRINTF("power state: %d\r\n", power_state);
+            if(power_state == POWER_ACTIVE){
+                // Increment the mode
+                current_mode = (current_mode + 1) % (NO_ACTIVE_PRESET + 1); // Cycle through modes
+
+                // Handle actions for the new mode (optional)
+                switch (current_mode) {
+                    case BLUETOOTH_MODE:
+                        DBG_PRINTF("Switched to Bluetooth Mode.\r\n");
+                        // Perform actions for Bluetooth Mode
+                        break;
+                    case PRESET_1_MODE:
+                        DBG_PRINTF("Switched to Preset 1 Mode.\r\n");
+                        //writeFlashStorage[0] = 0x76;
+                        //writeToEeprom(writeFlashStorage, LOGICAL_EEPROM_SIZE);
+                        //readFromEeprom(eepromArray, LOGICAL_EEPROM_SIZE);
+                      
+                        // Perform actions for Preset 1
+                        break;
+                    case PRESET_2_MODE:
+                        DBG_PRINTF("Switched to Preset 2 Mode.\r\n");
+                        processEeprom();
+                        //readFromEeprom(eepromArray, LOGICAL_EEPROM_SIZE);
+                        
+                        //DBG_PRINTF("PRINTED -> %c\r\n", eepromArray[0]);
+                        // Perform actions for Preset 2
+                        break;
+                    case PRESET_3_MODE:
+                        DBG_PRINTF("Switched to Preset 3 Mode.\r\n");
+                        // Perform actions for Preset 3
+                        break;
+                    case NO_ACTIVE_PRESET:
+                        DBG_PRINTF("No Active Preset.\r\n");
+                        // Perform actions for No Active Preset
+                        break;
+                    default:
+                        DBG_PRINTF("Unknown Mode.\r\n");
+                        break;
+                }
+            } else{
+                // Short press detected, wake up the device
+                DBG_PRINTF("Button released before 600 cycles, waking up.\r\n");
+                power_state = POWER_ACTIVE;
+            }
+            
+
+      
         }
 
         // Reset the power off cycle count and shutdown flag when the button is released
@@ -424,6 +543,7 @@ void check_charger() {
             case NOT_CHARGING:
         
                 if(Cy_BLE_GetAdvertisementState() == CY_BLE_ADV_STATE_STOPPED){
+                    DBG_PRINTF("Here SECOND\r\n");
                    Cy_BLE_GAPP_StartAdvertisement(CY_BLE_ADVERTISING_FAST, CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX); 
                 }
                 //power_led_off();
@@ -573,65 +693,81 @@ void I2C_SDA_Write(int state) {
 *******************************************************************************/
 void UpdateLedState(void)
 {
-    //if (device_status == NOT_CHARGING) {
-    //    DBG_PRINTF("NOT_CHARGING\r\n");
-    //} else if (device_status == CHARGING) {
-    //    DBG_PRINTF("CHARGING IN MAIN\r\n");
-    //} else if (device_status == FULLY_CHARGED) {
-    //    DBG_PRINTF("FULLY_CHARGED\r\n");
-    //} else if (device_status == LOW_BATTERY) {
-    //    DBG_PRINTF("LOW_BATTERY\r\n");
-    //} else if (device_status == MEDIUM_BATTERY) {
-    //    DBG_PRINTF("MEDIUM_BATTERY\r\n");
-    //} else if (device_status == NORMAL_OPERATION) {
-    //    DBG_PRINTF("NORMAL_OPERATION\r\n");
-    //} else if (device_status == WARNING) {
-    //    DBG_PRINTF("WARNING\r\n");
-    //} else {
-    //    DBG_PRINTF("UNKNOWN_STATUS\r\n");
-    //}
 #if(SYS_VOLTAGE >= RGB_LED_MIN_VOLTAGE_MV) 
-    if(Cy_BLE_GetAdvertisementState() == CY_BLE_ADV_STATE_ADVERTISING)
-    {
+
+    if(!isDeviceCharging()) {
         
-        //Blink advertising indication LED
-        power_led_advertising();
-        
-    }
-    // Handles connected LED and executes once per connection
-    else if(Cy_BLE_GetNumOfActiveConn() > 0u && !isConnected)
-    {
-        if(isConnected){
-            reset_timer_cycles();   
-        }
-        //DBG_PRINTF("Connected\r\n");
-        //isConnected = true;
-        // Connected indication LED
-        power_led_connected();
-        
-    }
-    // Handles Disconnected LED and executes once per Disconnection
-    else if(Cy_BLE_GetNumOfActiveConn() == 0u && isConnected)
-    {
-        /* If in disconnected state, turn on disconnect indication LED and turn
-        * off Advertising LED.
-        */
-        //Disconnect_LED_Write(LED_ON);
-        //Advertising_LED_Write(LED_OFF);
-        
-        /* Turn off Alert LED */
-        //Alert_LED_Write(LED_OFF);
-        //DBG_PRINTF("Disconnected\r\n");
-        reset_timer_cycles();
-        isConnected = false;
-    }
-    // Handles Charging LED
-    else if(device_status == CHARGING)
-    {
         //power_led_off();
+        if(!notChargingValueSent){
+            uint8_t* data;
+            data = (uint8_t*)"charging 1";
+            bool result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+            // was successful
+            if(result){
+                DBG_PRINTF("Not Charging Status sent\r\n");
+                notChargingValueSent = true;
+                chargingValueSent = false;
+            }
+        }
+        // Checks to see what mode we are in
+        if(current_mode == BLUETOOTH_MODE)
+        {
+            // Handles connected LED and executes once per connection
+            if(Cy_BLE_GetNumOfActiveConn() > 0u && !isConnected)
+            {
+                if(isConnected){
+                    reset_timer_cycles();   
+                }
+                //DBG_PRINTF("Connected\r\n");
+                //isConnected = true;
+                // Connected indication LED
+                power_led_connected();
+                
+            }
+            // Handles Disconnected LED and executes once per Disconnection
+            else if(Cy_BLE_GetNumOfActiveConn() == 0u && isConnected)
+            {
+                /* If in disconnected state, turn on disconnect indication LED and turn
+                * off Advertising LED.
+                */
+                //Disconnect_LED_Write(LED_ON);
+                //Advertising_LED_Write(LED_OFF);
+                
+                /* Turn off Alert LED */
+                //Alert_LED_Write(LED_OFF);
+                //DBG_PRINTF("Disconnected\r\n");
+                reset_timer_cycles();
+                isConnected = false;
+            }
+            // If we are in ble mode then check if we are advertising if not and the device isn't charging then we will start advertising
+            else if(Cy_BLE_GetAdvertisementState() == CY_BLE_ADV_STATE_ADVERTISING) {
+                //Blink advertising indication LED
+                //DBG_PRINTF("Already advertising\r\n");
+                power_led_advertising();
+            } 
+            
+            else if(Cy_BLE_GetAdvertisementState() == CY_BLE_ADV_STATE_STOPPED && isAdvertisingInit){
+                Cy_BLE_GAPP_StartAdvertisement(CY_BLE_ADVERTISING_FAST, CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX);
+            }  
+            
+        } else if(current_mode == PRESET_1_MODE){
+            //Cy_BLE_GAPP_StopAdvertisement();
+            preset_1_mode_led();
+        } else if(current_mode == PRESET_2_MODE){
+            preset_2_mode_led();
+        } else if(current_mode == PRESET_3_MODE){
+            preset_3_mode_led();
+        }
+        
+        if(current_mode != BLUETOOTH_MODE){
+            //DBG_PRINTF("else block\r\n");
+            Cy_BLE_GAPP_StopAdvertisement();
+        }
+    } 
+    
+    else if(isDeviceCharging())
+    {
         power_led_charging();
-        //power_led_green();
-        //DBG_PRINTF("CHARGING\r\n");
         if(!chargingValueSent){
             uint8_t* data;
             data = (uint8_t*)"charging 0";
@@ -644,38 +780,7 @@ void UpdateLedState(void)
             }
         }
     }
-    else if(device_status == FULLY_CHARGED)
-    {
-        power_led_green();  
-    }
-    else if(device_status == NOT_CHARGING)
-    {
-        power_led_off();
-        if(!notChargingValueSent){
-            uint8_t* data;
-            data = (uint8_t*)"charging 1";
-            bool result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
-            // was successful
-            if(result){
-                DBG_PRINTF("Not Charging Status sent\r\n");
-                notChargingValueSent = true;
-                chargingValueSent = false;
-            }
-        }
-        
-    }
-    else if(device_status == NORMAL)
-    {
-        //power_led_slow_blink(NORMAL);
-    }
-    else if(device_status == MEDIUM_BATTERY)
-    {
-        power_led_slow_blink(MEDIUM_BATTERY);
-    }
-        else if(device_status == LOW_BATTERY)
-    {
-        power_led_slow_blink(LOW_BATTERY);
-    }
+    
     else 
     {
         /* In connected state, turn off disconnect indication and advertising 
@@ -684,6 +789,119 @@ void UpdateLedState(void)
         //Disconnect_LED_Write(LED_OFF);
         //Advertising_LED_Write(LED_OFF);
     }
+    
+    //// Checks to see what mode we are in
+    //if(current_mode == BLUETOOTH_MODE)
+    //{
+    //    //DBG_PRINTF("TESTING\r\n");
+    //    // If we are in ble mode then check if we are advertising if not and the device isn't charging then we will start advertising
+    //    if(Cy_BLE_GetAdvertisementState() == CY_BLE_ADV_STATE_ADVERTISING) {
+    //        //Blink advertising indication LED
+    //        //DBG_PRINTF("Already advertising\r\n");
+    //        power_led_advertising();
+    //    } else if(Cy_BLE_GetAdvertisementState() == CY_BLE_ADV_STATE_STOPPED && isAdvertisingInit){
+    //        if(!isDeviceCharging()){
+    //            
+    //            DBG_PRINTF("Advertising again\r\n");
+    //            Cy_BLE_GAPP_StartAdvertisement(CY_BLE_ADVERTISING_FAST, CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX);
+    //        }
+    //    } else {
+    //        //DBG_PRINTF("state %d \r\n", Cy_BLE_GetAdvertisementState());
+    //    }
+    //    
+    //}
+    //else if(current_mode == PRESET_1_MODE){
+    //    Cy_BLE_GAPP_StopAdvertisement();
+    //    DBG_PRINTF("Looping preset 1\r\n");
+    //}
+    //// Handles connected LED and executes once per connection
+    //else if(Cy_BLE_GetNumOfActiveConn() > 0u && !isConnected)
+    //{
+    //    if(isConnected){
+    //        reset_timer_cycles();   
+    //    }
+    //    //DBG_PRINTF("Connected\r\n");
+    //    //isConnected = true;
+    //    // Connected indication LED
+    //    power_led_connected();
+    //    
+    //}
+    //// Handles Disconnected LED and executes once per Disconnection
+    //else if(Cy_BLE_GetNumOfActiveConn() == 0u && isConnected)
+    //{
+    //    /* If in disconnected state, turn on disconnect indication LED and turn
+    //    * off Advertising LED.
+    //    */
+    //    //Disconnect_LED_Write(LED_ON);
+    //    //Advertising_LED_Write(LED_OFF);
+    //    
+    //    /* Turn off Alert LED */
+    //    //Alert_LED_Write(LED_OFF);
+    //    //DBG_PRINTF("Disconnected\r\n");
+    //    reset_timer_cycles();
+    //    isConnected = false;
+    //}
+    //// Handles Charging LED
+    //else if(device_status == CHARGING)
+    //{
+    //    DBG_PRINTF("Charging\r\n");
+    //    //power_led_off();
+    //    power_led_charging();
+    //    //power_led_green();
+    //    //DBG_PRINTF("CHARGING\r\n");
+    //    if(!chargingValueSent){
+    //        uint8_t* data;
+    //        data = (uint8_t*)"charging 0";
+    //        bool result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+    //        // was successful
+    //        if(result){
+    //            DBG_PRINTF("Charging Status sent\r\n");
+    //            notChargingValueSent = false;
+    //            chargingValueSent = true;
+    //        }
+    //    }
+    //}
+    //else if(device_status == FULLY_CHARGED)
+    //{
+    //    power_led_green();  
+    //}
+    //
+    //else if(device_status == NOT_CHARGING)
+    //{
+    //    power_led_off();
+    //    if(!notChargingValueSent){
+    //        uint8_t* data;
+    //        data = (uint8_t*)"charging 1";
+    //        bool result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+    //        // was successful
+    //        if(result){
+    //            DBG_PRINTF("Not Charging Status sent\r\n");
+    //            notChargingValueSent = true;
+    //            chargingValueSent = false;
+    //        }
+    //    }
+    //    
+    //}
+    //else if(device_status == NORMAL)
+    //{
+    //    //power_led_slow_blink(NORMAL);
+    //}
+    //else if(device_status == MEDIUM_BATTERY)
+    //{
+    //    power_led_slow_blink(MEDIUM_BATTERY);
+    //}
+    //    else if(device_status == LOW_BATTERY)
+    //{
+    //    power_led_slow_blink(LOW_BATTERY);
+    //}
+    //else 
+    //{
+    //    /* In connected state, turn off disconnect indication and advertising 
+    //    * indication LEDs. 
+    //    */
+    //    //Disconnect_LED_Write(LED_OFF);
+    //    //Advertising_LED_Write(LED_OFF);
+    //}
 #else
     /* 
      *   If VDDD < 2.7 volts (DWR->System), only the red LED will be used:
