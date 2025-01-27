@@ -102,14 +102,41 @@ void getEepromPreset(int presetNumber){
     }
 }
 
-void writeToEeprom(uint8_t* data, size_t size) {
+void writeToEeprom(uint8_t* data, size_t size, int preset) {
+    
+    if(preset == 1){
+        DBG_PRINTF("Writing to preset 1\r\n");
+    }else if(preset == 2){
+        DBG_PRINTF("Writing to preset 2\r\n");
+    }else if(preset == 3){
+        DBG_PRINTF("Writing to preset 3\r\n");
+    }
     /* Write data to EEPROM */
-    DBG_PRINTF("Writing data to EEPROM\r\n");
+    // Reinterpret data as an array of char* (strings)
+    //char** tokens = (char**)data;
+    
+    // Print the tokens
+    //DBG_PRINTF("Tokens being written:\r\n");
+    //for (size_t i = 0; i < size / sizeof(char*); i++) {
+    //    DBG_PRINTF("Token %d: %s\r\n", (int)i, tokens[i]);
+    //}
+    //DBG_PRINTF("Writing data to EEPROM\r\n");
     eepromReturnValue = Cy_Em_EEPROM_Write(LOGICAL_EEPROM_START, data, size, &Em_EEPROM_context);
     
-    if (eepromReturnValue != CY_EM_EEPROM_SUCCESS) {
-        HandleError();
+    if (eepromReturnValue == CY_EM_EEPROM_SUCCESS) {
+        DBG_PRINTF("SUCCESS\r\n", eepromReturnValue);
+    } else if(eepromReturnValue == CY_EM_EEPROM_BAD_CHECKSUM){
+        DBG_PRINTF("BAD CHECKSUM\r\n", eepromReturnValue);
+    } else if(eepromReturnValue == CY_EM_EEPROM_BAD_PARAM){
+        DBG_PRINTF("BAD PARAM\r\n", eepromReturnValue);
+    } else if(eepromReturnValue == CY_EM_EEPROM_BAD_DATA){
+        DBG_PRINTF("BAD DATA\r\n", eepromReturnValue);
+    } else if(eepromReturnValue == CY_EM_EEPROM_WRITE_FAIL){
+        DBG_PRINTF("WRITE FAIL\r\n", eepromReturnValue);
+    } else{
+        DBG_PRINTF("OTHER\r\n", eepromReturnValue);
     }
+   
 }
 
 void readFromEeprom(uint8_t* buffer, size_t size) {
@@ -118,6 +145,7 @@ void readFromEeprom(uint8_t* buffer, size_t size) {
     eepromReturnValue = Cy_Em_EEPROM_Read(LOGICAL_EEPROM_START, buffer, size, &Em_EEPROM_context);
     if (eepromReturnValue != CY_EM_EEPROM_SUCCESS) {
         HandleError();
+        DBG_PRINTF("ERROR: %d\r\n", eepromReturnValue);
     }
 }
 

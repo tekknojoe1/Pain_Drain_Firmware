@@ -5,7 +5,7 @@
 
 
 #include <project.h>
-
+#include "flash_storage.h"
 #define POWER_DIAG_DATA_SIZE 11
 
 #define POWER_FLAG_BLE 31

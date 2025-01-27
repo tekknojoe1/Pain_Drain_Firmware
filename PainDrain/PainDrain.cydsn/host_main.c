@@ -59,11 +59,11 @@ static volatile uint32_t           mainTimer  = 1u;
 static int loopcount = 0;
 
 uint8 newBatteryLevel = 0;
+Preset presets[MAX_PRESETS];
 uint8 value;
 uint8 *respondStringPtr;
 uint8 data[20];
 uint32_t pinReadValue;
-uint8_t data2[] = {0x01, 0x02, 0x03, 0x04}; // Replace with your actual data
 unsigned int MAX_LENGTH = 20;
 uint8 fakeBatteryPercentage = 100;
 int previousValue = -1;
@@ -371,7 +371,7 @@ void AppCallBack(uint32 event, void *eventParam)
                     receivedCommand[length] = '\0';
                    
                     DBG_PRINTF("Received string: %s\r\n", receivedCommand);
-                    writeToEeprom((uint8_t*)receivedCommand, sizeof(receivedCommand));
+                    //writeToEeprom((uint8_t*)receivedCommand, sizeof(receivedCommand), 1);
 
                     // This splits the received command into sections by single space
                     token = strtok(receivedCommand, delimiter); // Gets the first token
@@ -385,18 +385,24 @@ void AppCallBack(uint32 event, void *eventParam)
                     switch(tokens[0][0]){
                         case 't':
                         {
+                           
                             /*
                             Packet information contains
                             1: char t - Temperature
                             2: int Temperature
                             */
+                            TemperatureSetting tempSetting = {
+                                .temp = atoi(tokens[1]),  
+                            };
                             int temperatureValue = atoi(tokens[1]); // Convert the numeric part after 't'
-                            DBG_PRINTF("temperature: %d\r\n", temperatureValue);
+                            DBG_PRINTF("temperature: %d\r\n", tempSetting.temp);
                             set_temp(temperatureValue);  
                             break;
                         }
                         case 'T':
                         {
+                            
+                           
                             /*
                             Packet information contains
                             1: char T - TENS
@@ -411,11 +417,19 @@ void AppCallBack(uint32 event, void *eventParam)
                             tensPlayPauseValue = atoi(tokens[3]);
                             tensChannel = atoi(tokens[4]);
                             tensPhase = atoi(tokens[5]);
-                            DBG_PRINTF("Tens Intensity: %d\r\n", tensAmpValue);
-                            DBG_PRINTF("Tens Mode: %s\r\n", tensModeValue);
-                            DBG_PRINTF("Tens Play Pause: %d\r\n", tensPlayPauseValue);
-                            DBG_PRINTF("Tens Channel: %d\r\n", tensChannel);
-                            DBG_PRINTF("Tens Phase: %d\r\n", tensPhase);
+                            
+                            TensSetting tensSetting = {
+                                .amplitude = atoi(tokens[1]),
+                                .mode = atoi(tokens[2]),
+                                .play = atoi(tokens[3]),
+                                .channel = atoi(tokens[4]),
+                                .phase = atoi(tokens[5]),
+                            };
+                            DBG_PRINTF("Tens Intensity: %d\r\n", tensSetting.amplitude);
+                            DBG_PRINTF("Tens Mode: %s\r\n", tensSetting.mode);
+                            DBG_PRINTF("Tens Play Pause: %d\r\n", tensSetting.play);
+                            DBG_PRINTF("Tens Channel: %d\r\n", tensSetting.channel);
+                            DBG_PRINTF("Tens Phase: %d\r\n", tensSetting.phase);
                             
                             // I think there is a bug in this function. It seems to disconnect the device sometimes
                             set_tens_signal(tensAmpValue, tensModeValue, tensPlayPauseValue, tensChannel,  tensPhase);
@@ -457,6 +471,55 @@ void AppCallBack(uint32 event, void *eventParam)
                             there could be 1-5 parameters
                             */
                             
+                                // Parse the preset number
+                                int presetNumber = atoi(tokens[1]);
+
+                                if (presetNumber < 1 || presetNumber > MAX_PRESETS) {
+                                    DBG_PRINTF("Invalid preset number: %d\r\n", presetNumber);
+                                    break;
+                                }
+
+                                Preset* currentPreset = &presets[presetNumber - 1]; // Get the preset to update
+
+                                // Determine which stimulus is being updated
+                                char stimulus = tokens[2][0]; // 'T', 't', or 'v'
+
+                                if (stimulus == 'T') {
+                                    // Parse TENS settings
+                                    TensSetting tens;
+                                    tens.amplitude = (uint8_t)atoi(tokens[3]);
+                                    tens.mode = (uint8_t)atoi(tokens[4]);
+                                    tens.play = (uint8_t)atoi(tokens[5]);
+                                    tens.channel = (uint8_t)atoi(tokens[6]);
+                                    tens.phase = (uint8_t)atoi(tokens[7]);
+
+                                    // Update TENS settings in the preset
+                                    currentPreset->tens = tens;
+                                    DBG_PRINTF("Updated TENS for preset %d\r\n", presetNumber);
+
+                                } else if (stimulus == 'v') {
+                                    // Parse Vibration settings
+                                    VibrationSetting vibration;
+                                    vibration.intensity = (uint8_t)atoi(tokens[3]);
+
+                                    // Update Vibration settings in the preset
+                                    currentPreset->vibration = vibration;
+                                    DBG_PRINTF("Updated Vibration for preset %d\r\n", presetNumber);
+
+                                } else if (stimulus == 't') {
+                                    // Parse Temperature settings
+                                    TemperatureSetting temperature;
+                                    temperature.temp = (int16_t)atoi(tokens[3]);
+
+                                    // Update Temperature settings in the preset
+                                    currentPreset->temperature = temperature;
+                                    DBG_PRINTF("Updated Temperature for preset %d\r\n", presetNumber);
+
+                                } else {
+                                    DBG_PRINTF("Invalid stimulus type: %c\r\n", stimulus);
+                                    break;
+                                }
+                            writeToEeprom((uint8_t*)currentPreset, sizeof(currentPreset), presetNumber);
                             DBG_PRINTF("Preset\r\n");
                             break;
                         }
