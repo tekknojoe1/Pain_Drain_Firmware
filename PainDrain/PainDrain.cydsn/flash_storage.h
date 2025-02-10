@@ -41,10 +41,10 @@
 
 void setupEpprom( void );
 void initEeprom( void );
-void processEeprom(void);
 void getEepromPreset(int presetNumber);
 void writeToEeprom(uint8_t* data, size_t size, int preset);
 void readFromEeprom(uint8_t* buffer, size_t size);
+void loadAndApplyPreset(int preset);
 
 // Define a struct for a single preset
 typedef struct {

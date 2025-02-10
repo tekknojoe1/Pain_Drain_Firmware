@@ -343,23 +343,17 @@ void check_power_button_press(){
                         break;
                     case PRESET_1_MODE:
                         DBG_PRINTF("Switched to Preset 1 Mode.\r\n");
-                        //writeFlashStorage[0] = 0x76;
-                        //writeToEeprom(writeFlashStorage, LOGICAL_EEPROM_SIZE);
-                        //readFromEeprom(eepromArray, LOGICAL_EEPROM_SIZE);
+                        loadAndApplyPreset(1);
                       
                         // Perform actions for Preset 1
                         break;
                     case PRESET_2_MODE:
                         DBG_PRINTF("Switched to Preset 2 Mode.\r\n");
-                        processEeprom();
-                        //readFromEeprom(eepromArray, LOGICAL_EEPROM_SIZE);
-                        
-                        //DBG_PRINTF("PRINTED -> %c\r\n", eepromArray[0]);
-                        // Perform actions for Preset 2
+                        loadAndApplyPreset(2);
                         break;
                     case PRESET_3_MODE:
                         DBG_PRINTF("Switched to Preset 3 Mode.\r\n");
-                        // Perform actions for Preset 3
+                        loadAndApplyPreset(3);
                         break;
                     case NO_ACTIVE_PRESET:
                         DBG_PRINTF("No Active Preset.\r\n");
@@ -611,7 +605,7 @@ bool send_data_to_phone(uint8_t* data, uint16_t length, uint8_t characteristic){
 }
 
 void shut_off_all_stimuli(){
-    set_vibe(0, 0); // Turns off vibe motor
+    set_vibe(0); // Turns off vibe motor
     set_tens_signal(0, 0.0, 0, 0, 0); // Turns off tens
     set_temp(0); // Turns off peltier
     

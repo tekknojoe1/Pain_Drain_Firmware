@@ -36,7 +36,7 @@ Packet information contains
 6: int Phase
 */
 typedef struct {
-    uint8_t amplitude;
+    uint8_t intensity;
     uint8_t mode;
     uint8_t play;
     uint8_t channel;

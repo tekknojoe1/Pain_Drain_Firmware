@@ -419,14 +419,14 @@ void AppCallBack(uint32 event, void *eventParam)
                             tensPhase = atoi(tokens[5]);
                             
                             TensSetting tensSetting = {
-                                .amplitude = atoi(tokens[1]),
+                                .intensity = atoi(tokens[1]),
                                 .mode = atoi(tokens[2]),
                                 .play = atoi(tokens[3]),
                                 .channel = atoi(tokens[4]),
                                 .phase = atoi(tokens[5]),
                             };
-                            DBG_PRINTF("Tens Intensity: %d\r\n", tensSetting.amplitude);
-                            DBG_PRINTF("Tens Mode: %s\r\n", tensSetting.mode);
+                            DBG_PRINTF("Tens Intensity: %d\r\n", tensSetting.intensity);
+                            DBG_PRINTF("Tens Mode: %d\r\n", tensSetting.mode);
                             DBG_PRINTF("Tens Play Pause: %d\r\n", tensSetting.play);
                             DBG_PRINTF("Tens Channel: %d\r\n", tensSetting.channel);
                             DBG_PRINTF("Tens Phase: %d\r\n", tensSetting.phase);
@@ -445,14 +445,14 @@ void AppCallBack(uint32 event, void *eventParam)
                             4: int Wavefrom
                             */
                             //char *waveType = tokens[1];
-                            int vibeIntensity = atoi(tokens[1]);
-                            int vibeFreq = atoi(tokens[2]);
+                            //int vibeIntensity = atoi(tokens[1]);
+                            int vibeFreq = atoi(tokens[1]);
                             //int vibeWaveform = atoi(tokens[3]);
                             //DBG_PRINTF("v waveType: %s\r\n", waveType);
-                            DBG_PRINTF("vibration Intensity: %d\r\n", vibeIntensity);
+                            //DBG_PRINTF("vibration Intensity: %d\r\n", vibeIntensity);
                             DBG_PRINTF("vibration frequency: %d\r\n", vibeFreq);
                             //DBG_PRINTF("vibration waveform: %d\r\n", vibeWaveform);
-                            set_vibe(vibeIntensity, vibeFreq);
+                            set_vibe(vibeFreq);
                            
                             break;
                         }
@@ -484,44 +484,37 @@ void AppCallBack(uint32 event, void *eventParam)
                                 // Determine which stimulus is being updated
                                 char stimulus = tokens[2][0]; // 'T', 't', or 'v'
 
+                                // It’s a good idea to initialize your entire struct,
+                                // e.g., by setting header and footer markers.
+                                currentPreset->header = HEADER_MARKER; // Some magic number
+                                currentPreset->preset_id = presetNumber;
+                                currentPreset->footer = FOOTER_MARKER; // Some magic number
+
                                 if (stimulus == 'T') {
-                                    // Parse TENS settings
-                                    TensSetting tens;
-                                    tens.amplitude = (uint8_t)atoi(tokens[3]);
-                                    tens.mode = (uint8_t)atoi(tokens[4]);
-                                    tens.play = (uint8_t)atoi(tokens[5]);
-                                    tens.channel = (uint8_t)atoi(tokens[6]);
-                                    tens.phase = (uint8_t)atoi(tokens[7]);
-
-                                    // Update TENS settings in the preset
-                                    currentPreset->tens = tens;
+                                    // Parse and fill TENS settings
+                                    currentPreset->tens.intensity = (uint8_t)atoi(tokens[3]);
+                                    currentPreset->tens.mode      = (uint8_t)atoi(tokens[4]);
+                                    currentPreset->tens.play      = (uint8_t)atoi(tokens[5]);
+                                    currentPreset->tens.channel   = (uint8_t)atoi(tokens[6]);
+                                    currentPreset->tens.phase     = (uint8_t)atoi(tokens[7]);
                                     DBG_PRINTF("Updated TENS for preset %d\r\n", presetNumber);
-
                                 } else if (stimulus == 'v') {
-                                    // Parse Vibration settings
-                                    VibrationSetting vibration;
-                                    vibration.intensity = (uint8_t)atoi(tokens[3]);
-
-                                    // Update Vibration settings in the preset
-                                    currentPreset->vibration = vibration;
+                                    // Parse and fill Vibration settings
+                                    currentPreset->vibration.frequency = (uint8_t)atoi(tokens[3]);
                                     DBG_PRINTF("Updated Vibration for preset %d\r\n", presetNumber);
-
                                 } else if (stimulus == 't') {
-                                    // Parse Temperature settings
-                                    TemperatureSetting temperature;
-                                    temperature.temp = (int16_t)atoi(tokens[3]);
-
-                                    // Update Temperature settings in the preset
-                                    currentPreset->temperature = temperature;
+                                    // Parse and fill Temperature settings
+                                    currentPreset->temperature.temp = (int16_t)atoi(tokens[3]);
                                     DBG_PRINTF("Updated Temperature for preset %d\r\n", presetNumber);
-
                                 } else {
                                     DBG_PRINTF("Invalid stimulus type: %c\r\n", stimulus);
                                     break;
                                 }
-                            writeToEeprom((uint8_t*)currentPreset, sizeof(currentPreset), presetNumber);
-                            DBG_PRINTF("Preset\r\n");
-                            break;
+
+                                // Now write the entire preset to EEPROM.
+                                // IMPORTANT: Use sizeof(Preset) rather than sizeof(pointer)
+                                writeToEeprom((uint8_t*)currentPreset, sizeof(Preset), presetNumber);
+                                break;
                         }
                         
                         case 'B':

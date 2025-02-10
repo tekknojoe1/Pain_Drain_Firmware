@@ -63,10 +63,10 @@ void vibe_i2c_read_reg(uint8_t reg, uint8_t* d, int num_regs) {
     myI2C_I2CMasterSendStop();   
 }
 
-void set_vibe(int intensity, int frequency){
-    vibe_intensity = intensity;
-    on_time = ((double)intensity / 100.0) * VIBE_TIMER_CYCLES; // Calculates the on_time of the motor
-    off_time = VIBE_TIMER_CYCLES - on_time;                  // Calculates the off_time of the motor
+void set_vibe(int frequency){
+    //vibe_intensity = intensity;
+    //on_time = ((double)intensity / 100.0) * VIBE_TIMER_CYCLES; // Calculates the on_time of the motor
+    //off_time = VIBE_TIMER_CYCLES - on_time;                  // Calculates the off_time of the motor
     //DBG_PRINTF("on time: %d off time: %d\r\n", on_time, off_time);
     
     

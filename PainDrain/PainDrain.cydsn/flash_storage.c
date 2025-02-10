@@ -86,42 +86,90 @@ uint8_t array1[50] = {
 };
 
 
-void getEepromPreset(int presetNumber){
-    switch (presetNumber) {
-        case 1:
-            
-            DBG_PRINTF("PRESET1 \r\n");
-            break;
-        case 2:
-            DBG_PRINTF("PRESET3 \r\n");
-            
-            break;
-        case 3:
-            DBG_PRINTF("PRESET3 \r\n");
-            break;
+void printPreset(const Preset *preset) {
+    DBG_PRINTF("Preset Data:\r\n");
+    DBG_PRINTF("  Header: %d\r\n", preset->header);
+    DBG_PRINTF("  Preset ID: %d\r\n", preset->preset_id);
+    
+    DBG_PRINTF("TENS Settings:\r\n");
+    DBG_PRINTF("  Amplitude: %d\r\n", preset->tens.intensity);
+    DBG_PRINTF("  Mode: %d\r\n", preset->tens.mode);
+    DBG_PRINTF("  Play: %d\r\n", preset->tens.play);
+    DBG_PRINTF("  Channel: %d\r\n", preset->tens.channel);
+    DBG_PRINTF("  Phase: %d\r\n", preset->tens.phase);
+    
+    DBG_PRINTF("Vibration Settings:\r\n");
+    DBG_PRINTF("  Intensity: %d\r\n", preset->vibration.frequency);
+    
+    DBG_PRINTF("Temperature Settings:\r\n");
+    DBG_PRINTF("  Temperature: %d\r\n", preset->temperature.temp);
+    
+    DBG_PRINTF("  Footer: %d\r\n", preset->footer);
+}
+
+
+void applyPreset(const Preset* preset) {
+    if (!preset) {
+        DBG_PRINTF("Preset pointer is NULL!\r\n");
+        return;
+    }
+
+    // Example: Update TENS settings
+    set_tens_signal(preset->tens.intensity,
+                    preset->tens.mode,
+                    preset->tens.play,
+                    preset->tens.channel,
+                    preset->tens.phase);
+
+    // Example: Update Temperature setting
+    set_temp(preset->temperature.temp);
+
+    // Example: Update Vibration setting (if applicable)
+    set_vibe(preset->vibration.frequency);
+
+    DBG_PRINTF("Preset applied: Header=%d, PresetID=%d, Footer=%d\r\n",
+               preset->header, preset->preset_id, preset->footer);
+}
+
+// This is used to specifically get the preset values from EEPROM
+void readPresetFromEeprom(Preset* preset, int presetNumber) {
+    if (presetNumber < 1 || presetNumber > MAX_PRESETS) {
+        DBG_PRINTF("Invalid preset number: %d\r\n", presetNumber);
+        return;
+    }
+
+    // Calculate the EEPROM address for this preset
+    uint32_t presetAddress = LOGICAL_EEPROM_START + ((presetNumber - 1) * sizeof(Preset));
+
+    DBG_PRINTF("Reading preset %d from EEPROM at address %d\r\n", presetNumber, presetAddress);
+    eepromReturnValue = Cy_Em_EEPROM_Read(presetAddress, (uint8_t*)preset, sizeof(Preset), &Em_EEPROM_context);
+
+    if (eepromReturnValue != CY_EM_EEPROM_SUCCESS) {
+        HandleError();
+        DBG_PRINTF("ERROR: %d\r\n", eepromReturnValue);
     }
 }
 
+void loadAndApplyPreset(int presetNumber) {
+    Preset preset;
+    // First, read the preset from EEPROM and store it in our preset pointer
+    readPresetFromEeprom(&preset, presetNumber);
+
+    // Then, set the preset values on the device
+    applyPreset(&preset);
+    
+    // Print Preset used to just check if it was set correctly
+    printPreset(&preset);
+}
+
+
+// Used to write preset to EEPROM or flash memory on device 
 void writeToEeprom(uint8_t* data, size_t size, int preset) {
     
-    if(preset == 1){
-        DBG_PRINTF("Writing to preset 1\r\n");
-    }else if(preset == 2){
-        DBG_PRINTF("Writing to preset 2\r\n");
-    }else if(preset == 3){
-        DBG_PRINTF("Writing to preset 3\r\n");
-    }
-    /* Write data to EEPROM */
-    // Reinterpret data as an array of char* (strings)
-    //char** tokens = (char**)data;
-    
-    // Print the tokens
-    //DBG_PRINTF("Tokens being written:\r\n");
-    //for (size_t i = 0; i < size / sizeof(char*); i++) {
-    //    DBG_PRINTF("Token %d: %s\r\n", (int)i, tokens[i]);
-    //}
-    //DBG_PRINTF("Writing data to EEPROM\r\n");
-    eepromReturnValue = Cy_Em_EEPROM_Write(LOGICAL_EEPROM_START, data, size, &Em_EEPROM_context);
+    // Calculate the EEPROM address offset for this preset
+    uint32_t presetAddress = LOGICAL_EEPROM_START + ((preset - 1) * sizeof(Preset));
+
+    eepromReturnValue = Cy_Em_EEPROM_Write(presetAddress, data, size, &Em_EEPROM_context);
     
     if (eepromReturnValue == CY_EM_EEPROM_SUCCESS) {
         DBG_PRINTF("SUCCESS\r\n", eepromReturnValue);
@@ -139,6 +187,8 @@ void writeToEeprom(uint8_t* data, size_t size, int preset) {
    
 }
 
+
+// This is a general way to read from device flash. Not using it right now but might be nice later for debugging
 void readFromEeprom(uint8_t* buffer, size_t size) {
     /* Read data from EEPROM */
     DBG_PRINTF("Reading data from EEPROM\r\n");
@@ -146,34 +196,6 @@ void readFromEeprom(uint8_t* buffer, size_t size) {
     if (eepromReturnValue != CY_EM_EEPROM_SUCCESS) {
         HandleError();
         DBG_PRINTF("ERROR: %d\r\n", eepromReturnValue);
-    }
-}
-
-void processEeprom(void) {
-    uint8_t defaultValue = 0x54; // Default value to check
-
-    /* Read EEPROM contents */
-    //readFromEeprom(eepromArray, LOGICAL_EEPROM_SIZE);
-    //
-    ///* Check if the first byte is not the expected value */
-    //if (eepromArray[0] != defaultValue) {
-    //    DBG_PRINTF("Overwriting array\r\n");
-    //    writeToEeprom(array1, LOGICAL_EEPROM_SIZE);
-    //} else {
-    //    DBG_PRINTF("EEPROM already initialized, not overwriting\r\n");
-    //}
-
-    /* Verify EEPROM contents after the operation */
-    readFromEeprom(eepromArray, LOGICAL_EEPROM_SIZE);
-
-    /* Print EEPROM contents to console */
-    for (uint8_t i = 0; i < LOGICAL_EEPROM_SIZE; i++) {
-        uint8_t value = eepromArray[i];
-        if (value >= 32 && value <= 126) { // Check for printable ASCII characters
-            DBG_PRINTF("letter %d -> '%c'\r\n", value, value);
-        } else {
-            DBG_PRINTF("letter %d -> Non-printable\r\n", value);
-        }
     }
 }
 
@@ -187,8 +209,6 @@ void initEeprom(){
     if (eepromReturnValue != CY_EM_EEPROM_SUCCESS) {
         HandleError();
     } 
-    
-    //processEeprom();
 }
 
 
