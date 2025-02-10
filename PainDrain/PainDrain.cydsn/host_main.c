@@ -51,6 +51,7 @@
 #include <stdlib.h>
 #include "bitbang_spi.h"
 #include "my_i2c.h"
+#include "flash_storage.h"
 
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
 static volatile uint32_t           mainTimer  = 1u;
@@ -58,11 +59,11 @@ static volatile uint32_t           mainTimer  = 1u;
 static int loopcount = 0;
 
 uint8 newBatteryLevel = 0;
+Preset presets[MAX_PRESETS];
 uint8 value;
 uint8 *respondStringPtr;
 uint8 data[20];
 uint32_t pinReadValue;
-uint8_t data2[] = {0x01, 0x02, 0x03, 0x04}; // Replace with your actual data
 unsigned int MAX_LENGTH = 20;
 uint8 fakeBatteryPercentage = 100;
 int previousValue = -1;
@@ -72,6 +73,7 @@ int tensAmpValue;
 int tensModeValue;
 int tensPlayPauseValue;
 int tensChannel;
+
 
 int getExternalValue() {
     // Simulate getting an external value (e.g., sensor reading)
@@ -143,10 +145,12 @@ void AppCallBack(uint32 event, void *eventParam)
             Cy_BLE_GAP_GenerateKeys(&keyInfo);
             DBG_PRINTF("STACK ON\r\n");
             
-        case CY_BLE_EVT_GAP_DEVICE_DISCONNECTED:      
+        case CY_BLE_EVT_GAP_DEVICE_DISCONNECTED:  
             /* Start BLE advertisement for 180 seconds and update link status on LEDs if not charging*/
             if(!isDeviceCharging()){
+                DBG_PRINTF("HERE FIRST\r\n");
                 Cy_BLE_GAPP_StartAdvertisement(CY_BLE_ADVERTISING_FAST, CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX);
+                isAdvertisingInit = true;
             }
             //Cy_BLE_GAPP_StartAdvertisement(CY_BLE_ADVERTISING_FAST, CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX);
             //UpdateLedState();
@@ -172,12 +176,12 @@ void AppCallBack(uint32 event, void *eventParam)
                  * user event to wake up the device again */
                 //UpdateLedState();   FIXME
                 //UpdateLedState();
-                
+                DBG_PRINTF("ADVERTISEMENT STOPPED\r\n");
                 // If not advertising and not charging then we power off the device
-                if(!isDeviceCharging()){
+                if(!isDeviceCharging() && current_mode == BLUETOOTH_MODE){
                     power_off_device();
                 }
-                DBG_PRINTF("ADVERTISEMENT STOPPED\r\n");
+                
              
                 //power_led_off();
                 //Cy_BLE_Stop(); // Turns off BLE STACK 
@@ -360,11 +364,15 @@ void AppCallBack(uint32 event, void *eventParam)
                     {
                         // Grabs the data that the phone app sent
                         receivedCommand[i] = (char)writeReq->handleValPair.value.val[i];
+                        //writeFlashStorage[i] = writeReq->handleValPair.value.val[i];
+                        //DBG_PRINTF("data: %d\r\n", writeFlashStorage[i]);
                     }
                     // Add a null terminator to mark end of string
                     receivedCommand[length] = '\0';
-                    //DBG_PRINTF("Received string: %s\r\n", receivedCommand);
-                    
+                   
+                    DBG_PRINTF("Received string: %s\r\n", receivedCommand);
+                    //writeToEeprom((uint8_t*)receivedCommand, sizeof(receivedCommand), 1);
+
                     // This splits the received command into sections by single space
                     token = strtok(receivedCommand, delimiter); // Gets the first token
                     
@@ -377,37 +385,51 @@ void AppCallBack(uint32 event, void *eventParam)
                     switch(tokens[0][0]){
                         case 't':
                         {
+                           
                             /*
                             Packet information contains
                             1: char t - Temperature
                             2: int Temperature
                             */
+                            TemperatureSetting tempSetting = {
+                                .temp = atoi(tokens[1]),  
+                            };
                             int temperatureValue = atoi(tokens[1]); // Convert the numeric part after 't'
-                            DBG_PRINTF("temperature: %d\r\n", temperatureValue);
+                            DBG_PRINTF("temperature: %d\r\n", tempSetting.temp);
                             set_temp(temperatureValue);  
                             break;
                         }
                         case 'T':
                         {
+                            
+                           
                             /*
                             Packet information contains
                             1: char T - TENS
                             2: int Amplitude
-                            3: double Mode
-                            4: double Play/Pause
+                            3: int Mode
+                            4: int Play/Pause
                             5: int Channel
                             6: int Phase
                             */
                             tensAmpValue = atoi(tokens[1]);
-                            tensModeValue = atof(tokens[2]);
+                            tensModeValue = atoi(tokens[2]);
                             tensPlayPauseValue = atoi(tokens[3]);
                             tensChannel = atoi(tokens[4]);
                             tensPhase = atoi(tokens[5]);
-                            DBG_PRINTF("Tens Intensity: %d\r\n", tensAmpValue);
-                            DBG_PRINTF("Tens Mode: %s\r\n", tensModeValue);
-                            DBG_PRINTF("Tens Play Pause: %d\r\n", tensPlayPauseValue);
-                            DBG_PRINTF("Tens Channel: %d\r\n", tensChannel);
-                            DBG_PRINTF("Tens Phase: %d\r\n", tensPhase);
+                            
+                            TensSetting tensSetting = {
+                                .intensity = atoi(tokens[1]),
+                                .mode = atoi(tokens[2]),
+                                .play = atoi(tokens[3]),
+                                .channel = atoi(tokens[4]),
+                                .phase = atoi(tokens[5]),
+                            };
+                            DBG_PRINTF("Tens Intensity: %d\r\n", tensSetting.intensity);
+                            DBG_PRINTF("Tens Mode: %d\r\n", tensSetting.mode);
+                            DBG_PRINTF("Tens Play Pause: %d\r\n", tensSetting.play);
+                            DBG_PRINTF("Tens Channel: %d\r\n", tensSetting.channel);
+                            DBG_PRINTF("Tens Phase: %d\r\n", tensSetting.phase);
                             
                             // I think there is a bug in this function. It seems to disconnect the device sometimes
                             set_tens_signal(tensAmpValue, tensModeValue, tensPlayPauseValue, tensChannel,  tensPhase);
@@ -423,16 +445,76 @@ void AppCallBack(uint32 event, void *eventParam)
                             4: int Wavefrom
                             */
                             //char *waveType = tokens[1];
-                            int vibeIntensity = atoi(tokens[1]);
-                            int vibeFreq = atoi(tokens[2]);
+                            //int vibeIntensity = atoi(tokens[1]);
+                            int vibeFreq = atoi(tokens[1]);
                             //int vibeWaveform = atoi(tokens[3]);
                             //DBG_PRINTF("v waveType: %s\r\n", waveType);
-                            DBG_PRINTF("vibration Intensity: %d\r\n", vibeIntensity);
+                            //DBG_PRINTF("vibration Intensity: %d\r\n", vibeIntensity);
                             DBG_PRINTF("vibration frequency: %d\r\n", vibeFreq);
                             //DBG_PRINTF("vibration waveform: %d\r\n", vibeWaveform);
-                            set_vibe(vibeIntensity, vibeFreq);
+                            set_vibe(vibeFreq);
                            
                             break;
+                        }
+                        
+                        case 'p':
+                        {
+                            
+                            /*
+                            Not implemented yet
+                            Used to save a preset to device using flash or EEPROM
+                            1: char p - preset
+                            2: int - preset Number
+                            3: char - Either T, t, or v for any of the stimuli
+                            4-9: This could contain either 1-5 more values. We basically 
+                            are just pulling the tens, temp, or vibe so based on which it is
+                            there could be 1-5 parameters
+                            */
+                            
+                                // Parse the preset number
+                                int presetNumber = atoi(tokens[1]);
+
+                                if (presetNumber < 1 || presetNumber > MAX_PRESETS) {
+                                    DBG_PRINTF("Invalid preset number: %d\r\n", presetNumber);
+                                    break;
+                                }
+
+                                Preset* currentPreset = &presets[presetNumber - 1]; // Get the preset to update
+
+                                // Determine which stimulus is being updated
+                                char stimulus = tokens[2][0]; // 'T', 't', or 'v'
+
+                                // It’s a good idea to initialize your entire struct,
+                                // e.g., by setting header and footer markers.
+                                currentPreset->header = HEADER_MARKER; // Some magic number
+                                currentPreset->preset_id = presetNumber;
+                                currentPreset->footer = FOOTER_MARKER; // Some magic number
+
+                                if (stimulus == 'T') {
+                                    // Parse and fill TENS settings
+                                    currentPreset->tens.intensity = (uint8_t)atoi(tokens[3]);
+                                    currentPreset->tens.mode      = (uint8_t)atoi(tokens[4]);
+                                    currentPreset->tens.play      = (uint8_t)atoi(tokens[5]);
+                                    currentPreset->tens.channel   = (uint8_t)atoi(tokens[6]);
+                                    currentPreset->tens.phase     = (uint8_t)atoi(tokens[7]);
+                                    DBG_PRINTF("Updated TENS for preset %d\r\n", presetNumber);
+                                } else if (stimulus == 'v') {
+                                    // Parse and fill Vibration settings
+                                    currentPreset->vibration.frequency = (uint8_t)atoi(tokens[3]);
+                                    DBG_PRINTF("Updated Vibration for preset %d\r\n", presetNumber);
+                                } else if (stimulus == 't') {
+                                    // Parse and fill Temperature settings
+                                    currentPreset->temperature.temp = (int16_t)atoi(tokens[3]);
+                                    DBG_PRINTF("Updated Temperature for preset %d\r\n", presetNumber);
+                                } else {
+                                    DBG_PRINTF("Invalid stimulus type: %c\r\n", stimulus);
+                                    break;
+                                }
+
+                                // Now write the entire preset to EEPROM.
+                                // IMPORTANT: Use sizeof(Preset) rather than sizeof(pointer)
+                                writeToEeprom((uint8_t*)currentPreset, sizeof(Preset), presetNumber);
+                                break;
                         }
                         
                         case 'B':
@@ -467,6 +549,7 @@ void AppCallBack(uint32 event, void *eventParam)
                                 DBG_PRINTF("Assign B 6\r\n");
                                 //DBG_PRINTF("Assign B 3\r\n", receivedCommand);
                             } 
+                            break;
                             //else if(atoi(tokens[1]) == 7){
                             //    device_status = ADVERTISING;
                             //    DBG_PRINTF("Assign B 7\r\n");
@@ -480,6 +563,7 @@ void AppCallBack(uint32 event, void *eventParam)
                         
                         default:
                         {
+                            DBG_PRINTF("char: %c\r\n", tokens[0][0]);
                             DBG_PRINTF("Error\r\n");
                             break;
                         }
@@ -594,7 +678,6 @@ void Isr_switch(void)
 }
 
 
-
 /*******************************************************************************
 * Function Name: HostMain
 ********************************************************************************
@@ -613,15 +696,8 @@ int HostMain(void)
     DBG_PRINTF("START OF PROGRAM\r\n");
     
     power_init();
-
-    //Testing
-    // If needed remove the LPComp1 component from the top design and unhook it from CHG_STAT pin
     LPComp_1_Start();
-    //Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW); // Change this back to the line below
     Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW | CY_SYSPM_LPCOMP1_LOW); // This allows wakeup on button and lpcomp 1 pin
-    // End of Testing
-    // Comment this back in later
-    //Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW); // This enables the wakeup button
     
     /* Start BLE component and register generic event handler */
     Cy_BLE_Start(AppCallBack);
@@ -687,7 +763,7 @@ int HostMain(void)
     
     int lastValue = 0; // remove after debugging used to track last lpcomp value
     
-    
+    initEeprom();
       
     /***************************************************************************
     * Main polling loop
@@ -698,7 +774,7 @@ int HostMain(void)
         int currentValue = Cy_LPComp_GetCompare(LPCOMP, CY_LPCOMP_CHANNEL_1);
         //DBG_PRINTF("lp comp changed value: %d\r\n", currentValue);
         if(lastValue != currentValue){
-           DBG_PRINTF("@@@@@@@@@@@@@@@lp comp changed value: %d\r\n", currentValue); 
+           DBG_PRINTF("lp comp changed value: %d\r\n", currentValue); 
            lastValue = currentValue;
         }
         power_task();

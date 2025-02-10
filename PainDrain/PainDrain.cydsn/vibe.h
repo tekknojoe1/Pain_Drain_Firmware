@@ -10,8 +10,7 @@
  * ========================================
 */
 #ifndef VIBE_H
-#define VIBE_H
-    
+#define VIBE_H  
 #include <project.h>
     
 void vibe_i2c_read_reg(uint8_t reg, uint8_t* d, int num_regs);
@@ -20,10 +19,14 @@ void vibe_i2c_read_reg(uint8_t reg, uint8_t* d, int num_regs);
     
 void set_vibe_task(void);
 void vibe_init(void);
-void set_vibe(int intensity, int frequency);
+void set_vibe(int frequency);
 void vibe_task( void );
 
 void vibe_i2c_read_reg(uint8_t reg, uint8_t* d, int num_regs);
+
+typedef struct {
+    uint8_t frequency;
+} VibrationSetting;
 
 #endif
 /* [] END OF FILE */

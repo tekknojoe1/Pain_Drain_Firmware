@@ -5,7 +5,7 @@
 
 
 #include <project.h>
-
+#include "flash_storage.h"
 #define POWER_DIAG_DATA_SIZE 11
 
 #define POWER_FLAG_BLE 31
@@ -39,8 +39,19 @@ typedef enum {
     WARNING
 } DeviceStatus;
 
+typedef enum {
+    BLUETOOTH_MODE,
+    PRESET_1_MODE,
+    PRESET_2_MODE,
+    PRESET_3_MODE,
+    NO_ACTIVE_PRESET,
+} DeviceMode;
+
 // Declare an external variable for battery status
 extern DeviceStatus device_status;
+// Declare an external variable for Device mode
+extern DeviceMode current_mode;
+extern bool isAdvertisingInit;
 
 void power_init( void );
 void power_task( void );
