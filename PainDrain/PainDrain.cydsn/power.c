@@ -333,11 +333,12 @@ void check_power_button_press(){
             DBG_PRINTF("power state: %d\r\n", power_state);
             if(power_state == POWER_ACTIVE){
                 // Increment the mode
-                current_mode = (current_mode + 1) % (NO_ACTIVE_PRESET + 1); // Cycle through modes
+                current_mode = (current_mode + 1) % (PRESET_3_MODE + 1); // Cycle through modes
 
                 // Handle actions for the new mode (optional)
                 switch (current_mode) {
                     case BLUETOOTH_MODE:
+                        shut_off_all_stimuli();
                         DBG_PRINTF("Switched to Bluetooth Mode.\r\n");
                         // Perform actions for Bluetooth Mode
                         break;
@@ -354,10 +355,6 @@ void check_power_button_press(){
                     case PRESET_3_MODE:
                         DBG_PRINTF("Switched to Preset 3 Mode.\r\n");
                         loadAndApplyPreset(3);
-                        break;
-                    case NO_ACTIVE_PRESET:
-                        DBG_PRINTF("No Active Preset.\r\n");
-                        // Perform actions for No Active Preset
                         break;
                     default:
                         DBG_PRINTF("Unknown Mode.\r\n");
@@ -519,6 +516,8 @@ void check_charger() {
         switch (device_status) {
             case CHARGING:
                 shut_off_all_stimuli();
+                // Set this to bluetooth mode since when we unplug we'll start from there and not in a preset
+                //current_mode = BLUETOOTH_MODE;
                 //power_off_device();
                 cy_stc_ble_gap_disconnect_info_t disconnectInfo;
                 disconnectInfo.bdHandle = cy_ble_connHandle[0].bdHandle;
@@ -528,6 +527,7 @@ void check_charger() {
                 power_led_off();
                 power_led_green();
                 Cy_BLE_GAPP_StopAdvertisement();
+                current_mode = BLUETOOTH_MODE;
                 //Cy_BLE_Stop(); // Turns off BLE STACK 
                 //Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT);
                 //Cy_SysPm_Hibernate(); // Put system in hibernate
@@ -537,7 +537,6 @@ void check_charger() {
             case NOT_CHARGING:
         
                 if(Cy_BLE_GetAdvertisementState() == CY_BLE_ADV_STATE_STOPPED){
-                    DBG_PRINTF("Here SECOND\r\n");
                    Cy_BLE_GAPP_StartAdvertisement(CY_BLE_ADVERTISING_FAST, CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX); 
                 }
                 //power_led_off();
@@ -756,6 +755,13 @@ void UpdateLedState(void)
         if(current_mode != BLUETOOTH_MODE){
             //DBG_PRINTF("else block\r\n");
             Cy_BLE_GAPP_StopAdvertisement();
+            if(isConnected){
+                cy_stc_ble_gap_disconnect_info_t disconnectInfo;
+                disconnectInfo.bdHandle = cy_ble_connHandle[0].bdHandle;
+                disconnectInfo.reason = CY_BLE_HCI_ERROR_OTHER_END_TERMINATED_USER;
+
+                Cy_BLE_GAP_Disconnect(&disconnectInfo);
+            }
         }
     } 
     

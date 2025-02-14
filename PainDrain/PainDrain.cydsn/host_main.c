@@ -147,8 +147,7 @@ void AppCallBack(uint32 event, void *eventParam)
             
         case CY_BLE_EVT_GAP_DEVICE_DISCONNECTED:  
             /* Start BLE advertisement for 180 seconds and update link status on LEDs if not charging*/
-            if(!isDeviceCharging()){
-                DBG_PRINTF("HERE FIRST\r\n");
+            if(!isDeviceCharging() && current_mode == BLUETOOTH_MODE){
                 Cy_BLE_GAPP_StartAdvertisement(CY_BLE_ADVERTISING_FAST, CY_BLE_PERIPHERAL_CONFIGURATION_0_INDEX);
                 isAdvertisingInit = true;
             }

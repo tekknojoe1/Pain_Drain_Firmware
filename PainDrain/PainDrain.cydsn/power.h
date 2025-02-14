@@ -44,7 +44,6 @@ typedef enum {
     PRESET_1_MODE,
     PRESET_2_MODE,
     PRESET_3_MODE,
-    NO_ACTIVE_PRESET,
 } DeviceMode;
 
 // Declare an external variable for battery status
