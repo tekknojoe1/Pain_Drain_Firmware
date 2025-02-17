@@ -142,6 +142,7 @@ void readPresetFromEeprom(Preset* preset, int presetNumber) {
     uint32_t presetAddress = LOGICAL_EEPROM_START + ((presetNumber - 1) * sizeof(Preset));
 
     DBG_PRINTF("Reading preset %d from EEPROM at address %d\r\n", presetNumber, presetAddress);
+    
     eepromReturnValue = Cy_Em_EEPROM_Read(presetAddress, (uint8_t*)preset, sizeof(Preset), &Em_EEPROM_context);
 
     if (eepromReturnValue != CY_EM_EEPROM_SUCCESS) {
@@ -152,9 +153,11 @@ void readPresetFromEeprom(Preset* preset, int presetNumber) {
 
 void loadAndApplyPreset(int presetNumber) {
     Preset preset;
+    
+    __disable_irq();
     // First, read the preset from EEPROM and store it in our preset pointer
     readPresetFromEeprom(&preset, presetNumber);
-
+    __enable_irq();
     // Then, set the preset values on the device
     applyPreset(&preset);
     
@@ -168,7 +171,7 @@ void writeToEeprom(uint8_t* data, size_t size, int preset) {
     
     // Calculate the EEPROM address offset for this preset
     uint32_t presetAddress = LOGICAL_EEPROM_START + ((preset - 1) * sizeof(Preset));
-
+    
     eepromReturnValue = Cy_Em_EEPROM_Write(presetAddress, data, size, &Em_EEPROM_context);
     
     if (eepromReturnValue == CY_EM_EEPROM_SUCCESS) {
