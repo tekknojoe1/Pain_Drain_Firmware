@@ -509,10 +509,26 @@ void AppCallBack(uint32 event, void *eventParam)
                                     DBG_PRINTF("Invalid stimulus type: %c\r\n", stimulus);
                                     break;
                                 }
+                                
+                                CyDelay(100);
+                                // 🔎 **Print Current Preset Data Before Writing to EEPROM**
+                                //DBG_PRINTF("Preset Data Before EEPROM Write:\r\n");
+                                //DBG_PRINTF("  ID: %d\r\n", currentPreset->preset_id);
+                                //DBG_PRINTF("  Header: 0x%X, Footer: 0x%X\r\n", currentPreset->header, currentPreset->footer);
+                                //DBG_PRINTF("  TENS -> Intensity: %d, Mode: %d, Play: %d, Channel: %d, Phase: %d\r\n",
+                                //           currentPreset->tens.intensity, 
+                                //           currentPreset->tens.mode, 
+                                //           currentPreset->tens.play, 
+                                //           currentPreset->tens.channel, 
+                                //           currentPreset->tens.phase);
+                                //DBG_PRINTF("  Vibration -> Frequency: %d\r\n", currentPreset->vibration.frequency);
+                                //DBG_PRINTF("  Temperature -> Temp: %d\r\n", currentPreset->temperature.temp);
 
                                 // Now write the entire preset to EEPROM.
                                 // IMPORTANT: Use sizeof(Preset) rather than sizeof(pointer)
+                                
                                 writeToEeprom((uint8_t*)currentPreset, sizeof(Preset), presetNumber);
+                               
                                 break;
                         }
                         
