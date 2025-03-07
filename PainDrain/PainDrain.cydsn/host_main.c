@@ -485,9 +485,9 @@ void AppCallBack(uint32 event, void *eventParam)
 
                                 // It’s a good idea to initialize your entire struct,
                                 // e.g., by setting header and footer markers.
-                                currentPreset->header = HEADER_MARKER; // Some magic number
+                                currentPreset->header = HEADER_MARKER;
                                 currentPreset->preset_id = presetNumber;
-                                currentPreset->footer = FOOTER_MARKER; // Some magic number
+                                currentPreset->footer = FOOTER_MARKER;
 
                                 if (stimulus == 'T') {
                                     // Parse and fill TENS settings
@@ -510,7 +510,7 @@ void AppCallBack(uint32 event, void *eventParam)
                                     break;
                                 }
                                 
-                                CyDelay(100);
+                                //CyDelay(100);
                                 // 🔎 **Print Current Preset Data Before Writing to EEPROM**
                                 //DBG_PRINTF("Preset Data Before EEPROM Write:\r\n");
                                 //DBG_PRINTF("  ID: %d\r\n", currentPreset->preset_id);
