@@ -172,22 +172,29 @@ void writeToEeprom(uint8_t* data, size_t size, int preset) {
     // Calculate the EEPROM address offset for this preset
     uint32_t presetAddress = LOGICAL_EEPROM_START + ((preset - 1) * sizeof(Preset));
     
-    eepromReturnValue = Cy_Em_EEPROM_Write(presetAddress, data, size, &Em_EEPROM_context);
+    while (1) {
     
-    if (eepromReturnValue == CY_EM_EEPROM_SUCCESS) {
-        DBG_PRINTF("SUCCESS\r\n", eepromReturnValue);
-    } else if(eepromReturnValue == CY_EM_EEPROM_BAD_CHECKSUM){
-        DBG_PRINTF("BAD CHECKSUM\r\n", eepromReturnValue);
-    } else if(eepromReturnValue == CY_EM_EEPROM_BAD_PARAM){
-        DBG_PRINTF("BAD PARAM\r\n", eepromReturnValue);
-    } else if(eepromReturnValue == CY_EM_EEPROM_BAD_DATA){
-        DBG_PRINTF("BAD DATA\r\n", eepromReturnValue);
-    } else if(eepromReturnValue == CY_EM_EEPROM_WRITE_FAIL){
-        DBG_PRINTF("WRITE FAIL\r\n", eepromReturnValue);
-    } else{
-        DBG_PRINTF("OTHER\r\n", eepromReturnValue);
+        eepromReturnValue = Cy_Em_EEPROM_Write(presetAddress, data, size, &Em_EEPROM_context);
+        
+        if (eepromReturnValue == CY_EM_EEPROM_SUCCESS) {
+            DBG_PRINTF("SUCCESS\r\n", eepromReturnValue);
+            return;
+        } else if(eepromReturnValue == CY_EM_EEPROM_BAD_CHECKSUM){
+            DBG_PRINTF("BAD CHECKSUM\r\n", eepromReturnValue);
+            return;
+        } else if(eepromReturnValue == CY_EM_EEPROM_BAD_PARAM){
+            DBG_PRINTF("BAD PARAM\r\n", eepromReturnValue);
+            return;
+        } else if(eepromReturnValue == CY_EM_EEPROM_BAD_DATA){
+            DBG_PRINTF("BAD DATA\r\n", eepromReturnValue);
+            return;
+        } else if(eepromReturnValue == CY_EM_EEPROM_WRITE_FAIL){
+            DBG_PRINTF("WRITE FAIL\r\n", eepromReturnValue);
+        } else{
+            DBG_PRINTF("OTHER\r\n", eepromReturnValue);
+            return;
+        }
     }
-   
 }
 
 
