@@ -297,6 +297,10 @@ void power_wakeup( void ) {
 }
 void power_off_device(){
     DBG_PRINTF("POWERING OFF DEVICE\r\n");
+    
+    //Turn off all stimulus
+    shut_off_all_stimuli();
+    
     // Turns off Leds
     power_led_off();
     Cy_BLE_Stop(); // Turns off BLE STACK 
