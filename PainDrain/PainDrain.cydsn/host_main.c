@@ -56,7 +56,6 @@
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
 static volatile uint32_t           mainTimer  = 1u;
 
-static int loopcount = 0;
 
 uint8 newBatteryLevel = 0;
 Preset presets[MAX_PRESETS];
@@ -102,7 +101,8 @@ void TimerInterruptHandler(void)
     /* Clear the terminal count interrupt */
     Cy_TCPWM_ClearInterrupt(Timer_HW, Timer_CNT_NUM, CY_TCPWM_INT_ON_TC);
     //DBG_PRINTF("Tens interrupt trigger\r\n");
-    tens_task();
+    tens_timer();
+    temp_timer();
 }
 
 /*******************************************************************************
@@ -144,6 +144,7 @@ void AppCallBack(uint32 event, void *eventParam)
         case CY_BLE_EVT_STACK_ON:
             Cy_BLE_GAP_GenerateKeys(&keyInfo);
             DBG_PRINTF("STACK ON\r\n");
+            power_flags_update(POWER_FLAG_BLE, 1);
             
         case CY_BLE_EVT_GAP_DEVICE_DISCONNECTED:  
             /* Start BLE advertisement for 180 seconds and update link status on LEDs if not charging*/
@@ -164,6 +165,7 @@ void AppCallBack(uint32 event, void *eventParam)
             //DBG_PRINTF("connected \r\n");
             //power_led_connected();
             DBG_PRINTF("CONNECTED\r\n");
+            power_flags_update(POWER_FLAG_BLE, 1);
             //device_status = CONNECTED;
             //UpdateLedState();
             break;
@@ -177,15 +179,18 @@ void AppCallBack(uint32 event, void *eventParam)
                 //UpdateLedState();
                 DBG_PRINTF("ADVERTISEMENT STOPPED\r\n");
                 // If not advertising and not charging then we power off the device
-                if(!isDeviceCharging() && current_mode == BLUETOOTH_MODE){
-                    power_off_device();
-                }
-                
+                //if(!isDeviceCharging() && current_mode == BLUETOOTH_MODE){
+                //    power_off_device();
+                //}
+                power_flags_update(POWER_FLAG_BLE, 0);  //Turn off ble power flag
              
                 //power_led_off();
                 //Cy_BLE_Stop(); // Turns off BLE STACK 
                 //Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT);
                 //Cy_SysPm_Hibernate(); // Put system in hibernate
+            } else {
+                DBG_PRINTF("ADVERTISEMENT STARTED\r\n");
+                power_flags_update(POWER_FLAG_BLE, 1);
             }
             break;
 
@@ -213,10 +218,10 @@ void AppCallBack(uint32 event, void *eventParam)
         case CY_BLE_EVT_STACK_SHUTDOWN_COMPLETE:
             /* Hibernate */
             //UpdateLedState();
+            power_flags_update(POWER_FLAG_BLE, 0);  //Turn off ble power flag
             DBG_PRINTF("shutdown complete\r\n");
             power_led_off();
             Cy_SysPm_Hibernate(); // This is needed to use wakeup button
-            power_flags_update(POWER_FLAG_BLE, 0);  //Turn off ble power flag
             break;
             
         /**********************************************************
@@ -349,7 +354,6 @@ void AppCallBack(uint32 event, void *eventParam)
                 cy_en_ble_api_result_t writeError;
                 //DBG_PRINTF("Length: %d\r\n", length);
                 char receivedCommand[length + 1];
-                int i = 0;
                 char *tokens[10]; // An array to store the tokens, assuming a maximum of 10 tokens
                 int token_count = 0; // To keep track of the number of tokens
                 char *token;
@@ -621,7 +625,7 @@ void AppCallBack(uint32 event, void *eventParam)
                     
                     /* Send the response to the write request received */
                     cy_en_ble_api_result_t rsp;
-                    Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
+                    rsp = Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
                     if( rsp != CY_BLE_SUCCESS ){
                         DBG_PRINTF("Write rsp failed for notifications\r\n");
                     }
@@ -710,9 +714,32 @@ int HostMain(void)
 {  
     DBG_PRINTF("START OF PROGRAM\r\n");
     
+    /* Check the IO status. If current status is frozen, unfreeze the system. */
+    if(Cy_SysPm_GetIoFreezeStatus())
+    {   
+        /* Unfreeze the system */
+        Cy_SysPm_IoUnfreeze();
+        DBG_PRINTF("IOs unfrozen after wake from Hibernate\r\n");
+    }
+    
     power_init();
+    /* Start LPComp */
     LPComp_1_Start();
-    Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW | CY_SYSPM_LPCOMP1_LOW); // This allows wakeup on button and lpcomp 1 pin
+
+    /* Explicitly enable the internal ULP reference voltage */
+    Cy_LPComp_UlpReferenceEnable(LPCOMP);
+
+    /* Configure LPComp Channel 1 inputs:
+       - Positive: CHG_STAT (GPIO)
+       - Negative: Local VREF (internal ~0.4-0.8V)
+    */
+    Cy_LPComp_SetInputs(LPCOMP, CY_LPCOMP_CHANNEL_0, CY_LPCOMP_SW_GPIO, CY_LPCOMP_SW_LOCAL_VREF);
+
+    /* Allow 50us settle time for ULP reference */
+    Cy_SysLib_DelayUs(50u);
+    
+    Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW | CY_SYSPM_LPCOMP0_LOW); // This allows wakeup on button and lpcomp 1 pin
+    //Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW); // This allows wakeup on button and lpcomp 1 pin
     
     /* Start BLE component and register generic event handler */
     Cy_BLE_Start(AppCallBack);
@@ -741,7 +768,7 @@ int HostMain(void)
     
     //power_init();
     
-
+    tens_init();
     
     //AMP_PWM_Start();
     // Enable is high for amp_enable, I2C Testing
@@ -793,10 +820,9 @@ int HostMain(void)
            lastValue = currentValue;
         }
         power_task();
-
         vibe_task();
-        UpdateLedState();
-        
+        tens_task();
+        temp_task();   
         
         /* Update Alert Level value on the blue LED */
         switch(IasGetAlertLevel())
@@ -827,7 +853,7 @@ int HostMain(void)
             Cy_BLE_StartTimer(&timerParam);
         }
         
-        //Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT); // remove after testing
+        
     }
 }
  

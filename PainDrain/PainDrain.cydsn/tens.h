@@ -13,6 +13,7 @@
 #define TENS_H
 #include <project.h>
 
+void tens_init(void);
 void tens_timer(void);
 void tens_task(void);
 void set_tens_amp(int amplitude);

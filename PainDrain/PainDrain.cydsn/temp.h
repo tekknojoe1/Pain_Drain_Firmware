@@ -15,6 +15,8 @@
 
 
 void temp_init( void );
+void temp_timer( void );
+void temp_task( void );
 void set_temp(int value);
 void set_fan(int value);
 

@@ -8,8 +8,15 @@
 #include "flash_storage.h"
 #define POWER_DIAG_DATA_SIZE 11
 
-#define POWER_FLAG_BLE 31
-#define POWER_FLAG_CHG 30
+#define POWER_FLAG_BLE 0
+#define POWER_FLAG_CHG 1
+#define POWER_FLAG_TENS 2  
+#define POWER_FLAG_TEMP 3
+#define POWER_FLAG_VIBE 4
+
+
+
+
 #define LED_ON                          (0u)
 #define LED_OFF                         (1u)
 //#define BATTERY_CHARGING                (0u)
@@ -60,8 +67,8 @@ void power_i2c_read_reg(uint8_t deviceAddr, uint8_t reg, uint8_t* d, int num_reg
 void power_i2c_write_reg(uint8_t deviceAddr, uint8_t reg, uint8_t d);
 void power_get_diag_data(uint8 d[]);
 bool send_data_to_phone(uint8_t* value, uint16_t length, uint8_t characteristic);
-void check_charger();
-void check_power_button_press();
+DeviceStatus check_charger();
+int check_power_button_press();
 void shut_off_all_stimuli();
 void power_flags_update(int flag, int state);
 void power_5v_on( void );
@@ -85,5 +92,7 @@ void power_led_advertising(void);
 void power_led_connected(void);
 void power_led_slow_blink (DeviceStatus status);
 void reset_timer_cycles(void);
+
+bool power_stimulus_active(void);
 
 uint16_t reg_array[38];
