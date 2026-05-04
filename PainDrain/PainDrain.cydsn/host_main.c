@@ -398,10 +398,17 @@ void AppCallBack(uint32 event, void *eventParam)
                                 .temp = atoi(tokens[1]),  
                             };
                             int temperatureValue = atoi(tokens[1]); // Convert the numeric part after 't'
-                            DBG_PRINTF("temperature: %d\r\n", tempSetting.temp);
-                            set_temp(temperatureValue);  
-                            break;
-                        }
+                            DBG_PRINTF("temp value from device: %d\r\n", temperatureValue);
+                            if (temperatureValue == 0) {
+                                DBG_PRINTF("temp 0 — disabling heating\r\n");
+                                temp_disable_heating();
+                            } else {
+                                float desiredTemp = temperatureValue + 72.2f; //Fahrenheit
+                                DBG_PRINTF("calc temp: %d\r\n", (int)desiredTemp);
+                                set_target_temperature_f(desiredTemp);
+                            }
+									 break;
+								}
                         case 'T':
                         {
                             
