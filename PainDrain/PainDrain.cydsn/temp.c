@@ -54,6 +54,7 @@ static const TempPwmPoint_t temp_pwm_table[] = {
 #define TEMP_PWM_POINTS  (sizeof(temp_pwm_table) / sizeof(temp_pwm_table[0]))
 
 #define TEMP_MAX_ALLOWED_C         43.3f  // Hard safety limit — never exceed this
+#define TEMP_ROOM_TEMP_C           25.2f  // Threshold: targets above this are heating, below are cooling
 #define TEMP_ADJUST_RANGE_C         3.0f  // Open trim window when within this many deg C of target
 #define TEMP_DEADBAND_C             1.0f  // Hold zone — no adjustment while inside (deg C)
 #define TEMP_SETTLED_THRESHOLD_C    0.3f  // Max rate (deg C/sample) to be considered settled
@@ -339,7 +340,12 @@ static float feedforward_slope(float temp_c) {
 *   constant so the device can react before the next correction.
 *
 *   Phase 3 — HOLD: inside the deadband the PWM is frozen.  If temp drifts
-*   out, the trim cycle restarts from the current PWM value.
+*   out, the trim cycle re-activates on the next stall.
+*
+*   trim_base_pwm is the feedforward PWM for the target temperature and is
+*   NEVER changed after session start.  All trim adjustments are bounded to
+*   [trim_base - TRIM_LIMIT, trim_base + TRIM_LIMIT], so the PWM can never
+*   drift far from the calibrated table value regardless of how many stalls occur.
 *******************************************************************************/
 static void temp_control_update(void) {
     if (!pel_active) return;
@@ -374,43 +380,51 @@ static void temp_control_update(void) {
     // Phase 1 — RAMP: hold feedforward PWM until within range or stalled.
     if (!trim_active) {
         if (abs_err <= TEMP_ADJUST_RANGE_C || stalled) {
-            trim_active   = 1;
-            trim_base_pwm = pel_pwm;
-            stall_count   = 0;
-            DBG_PRINTF("Trim open: base=%d\r\n", trim_base_pwm);
+            trim_active = 1;
+            stall_count = 0;
+            DBG_PRINTF("Trim open: ff_base=%d\r\n", trim_base_pwm);
         } else {
             return;
         }
     }
 
-    // Phase 3 — HOLD: inside deadband, freeze PWM and reset for next drift.
+    // Phase 3 — HOLD: inside deadband, freeze PWM; reset stall so re-entry
+    // into trim only fires after a genuine new stall outside the deadband.
     if (abs_err <= TEMP_DEADBAND_C) {
-        trim_base_pwm = pel_pwm;
-        stall_count   = 0;
+        stall_count = 0;
         return;
     }
 
     // Phase 2 — TRIM: only act on a stall event; hold between stalls.
     if (!stalled) return;
 
-    // One proportional adjustment per stall: error × local table slope, bounded.
+    // Proportional adjustment: error × local table slope, capped at ±TRIM_LIMIT.
     float slope = feedforward_slope(last_temp_celsius);
     float adj_f = error * slope;
     int adjustment = (adj_f >= 0.0f) ? (int)(adj_f + 0.5f) : (int)(adj_f - 0.5f);
     if (adjustment >  TEMP_PWM_TRIM_LIMIT) adjustment =  TEMP_PWM_TRIM_LIMIT;
     if (adjustment < -TEMP_PWM_TRIM_LIMIT) adjustment = -TEMP_PWM_TRIM_LIMIT;
 
-    pel_pwm      += adjustment;
-    trim_base_pwm = pel_pwm;
+    int new_pwm = pel_pwm + adjustment;
 
+    // Hard bound: PWM must stay within ±TRIM_LIMIT of the feedforward table value.
+    // trim_base_pwm == ff_pwm and is never updated, so this window is permanent.
+    int pwm_floor   = trim_base_pwm - TEMP_PWM_TRIM_LIMIT;
+    int pwm_ceiling = trim_base_pwm + TEMP_PWM_TRIM_LIMIT;
     int mode_floor   = (pel_mode == 1) ? 0    : -100;
     int mode_ceiling = (pel_mode == 1) ? target_to_feedforward_pwm(TEMP_MAX_ALLOWED_C) : 0;
-    if (pel_pwm < mode_floor)   pel_pwm = mode_floor;
-    if (pel_pwm > mode_ceiling) pel_pwm = mode_ceiling;
+    if (pwm_floor   < mode_floor)   pwm_floor   = mode_floor;
+    if (pwm_ceiling > mode_ceiling) pwm_ceiling = mode_ceiling;
+    if (new_pwm < pwm_floor)   new_pwm = pwm_floor;
+    if (new_pwm > pwm_ceiling) new_pwm = pwm_ceiling;
 
     stall_count = 0;
+
+    if (new_pwm == pel_pwm) return;  // already at the limit — nothing to apply
+
+    pel_pwm = new_pwm;
     set_pel_pwm(pel_pwm);
-    DBG_PRINTF("Trim adj=%d pwm=%d\r\n", adjustment, pel_pwm);
+    DBG_PRINTF("Trim adj=%d pwm=%d (ff_base=%d)\r\n", adjustment, pel_pwm, trim_base_pwm);
 }
 
 
@@ -433,11 +447,11 @@ void set_target_temperature_c(float desired_c) {
     trim_active     = 0;
     stall_count     = 0;
 
-    if (desired_c > last_temp_celsius) {
+    if (desired_c > TEMP_ROOM_TEMP_C) {
         pel_mode = 1;   // heating session
         pel_pwm  = target_to_feedforward_pwm(desired_c);
     } else {
-        pel_mode = -1;  // cooling session — ramp up cooling as thermistor settles
+        pel_mode = -1;  // cooling session
         pel_pwm  = 0;
     }
     trim_base_pwm = pel_pwm;
