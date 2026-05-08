@@ -12,6 +12,7 @@
 
 #include "temp.h"
 #include "debug.h"
+#include "power.h"
 #include <stdio.h>
 #include <project.h>
 #include <stdlib.h>
@@ -61,6 +62,12 @@ static const TempPwmPoint_t temp_pwm_table[] = {
 #define TEMP_STALL_SAMPLES             5  // Consecutive settled samples = temperature stalled (~5 sec)
 #define TEMP_PWM_TRIM_LIMIT            5  // Max PWM counts per single stall-triggered adjustment
 
+// Cooling duty cycle: alternate PEL+fan and fan-only to prevent hot-side saturation
+#define COOL_ON_SAMPLES            300     // Seconds with PEL + fan running
+#define COOL_OFF_SAMPLES           30     // Seconds with PEL off, fan only (heat dissipation)
+#define COOL_MAX_PWM               100     // Max magnitude for cooling PWM (prevents hot-side saturation)
+#define COOL_IDLE_PWM               1     // Reduced cooling magnitude during hot-side recovery phase
+
 static int set_fan_based_on_temp(int temp_value);
 static float adc_counts_to_resistance(int16_t counts);
 static float resistance_to_celsius(float resistance);
@@ -68,6 +75,7 @@ static float celsius_to_fahrenheit(float celsius);
 static float adc_counts_to_mvoltage(int16_t counts);
 static float feedforward_slope(float temp_c);
 static void  temp_control_update(void);
+static void  cool_cycle_update(void);
 
 static volatile int temp_acquire_flag = 0;  // Set by temp_timer, cleared by temp_task
 static int32_t temp_timer_count = 0;        // Counts timer ticks
@@ -81,9 +89,12 @@ static float prev_temp_c        = 0.0f;
 static int   pel_pwm            = 0;
 static int   pel_active         = 0;
 static int   pel_mode           = 0;  // 1 = heating session, -1 = cooling session
+static int   direct_pwm_mode    = 0;  // 1 = direct PWM set by user, trim bypassed
 static int   trim_active        = 0;  // 1 = trim window open, 0 = holding feedforward PWM
 static int   trim_base_pwm      = 0;  // PWM reference for bounding the current trim window
 static int   stall_count        = 0;  // Consecutive settled samples (for stall detection)
+static int32_t cool_sample_count = 0; // Samples elapsed in current cooling phase
+static int     cool_pel_on       = 1; // 1 = PEL active, 0 = fan-only phase
 
 void temp_init(void) {
   
@@ -183,7 +194,15 @@ void temp_task(void) {
 			  target_int_c, target_dec_c,
 			  mvoltage_int, mvoltage_dec );
 
+    if (pel_mode == -1 && pel_active) {
+        int phase_limit = cool_pel_on ? COOL_ON_SAMPLES : COOL_OFF_SAMPLES;
+        DBG_PRINTF("Cool cycle: %s %d/%d sec\r\n",
+                   cool_pel_on ? "PEL+fan" : "fan-only",
+                   (int)cool_sample_count, phase_limit);
+    }
+
     temp_control_update();
+    cool_cycle_update();
 }
 
 /*******************************************************************************
@@ -289,14 +308,40 @@ static int target_to_feedforward_pwm(float target_c) {
 * Summary: Immediately stops heating and clears control state.
 *******************************************************************************/
 void temp_disable_heating(void) {
-    pel_active      = 0;
-    pel_mode        = 0;
-    target_actual_c = 0.0f;
-    pel_pwm         = 0;
-    trim_active     = 0;
-    trim_base_pwm   = 0;
-    stall_count     = 0;
+    pel_active        = 0;
+    pel_mode          = 0;
+    direct_pwm_mode   = 0;
+    target_actual_c   = 0.0f;
+    pel_pwm           = 0;
+    trim_active       = 0;
+    trim_base_pwm     = 0;
+    stall_count       = 0;
+    cool_sample_count = 0;
+    cool_pel_on       = 1;
     set_pel_pwm(0);
+}
+
+
+/*******************************************************************************
+* Function Name: temp_set_direct_pwm
+* Summary:
+*   Sets the PEL PWM directly (negative = cooling, positive = heating) without
+*   engaging the trim or temperature control loop.  The cooling duty cycle still
+*   runs so the hot side can dissipate heat normally.  Call temp_disable_heating()
+*   or set_target_temperature_c() to exit this mode.
+*******************************************************************************/
+void temp_set_direct_pwm(int pwm) {
+    pel_active        = 1;
+    pel_mode          = (pwm < 0) ? -1 : 1;
+    direct_pwm_mode   = 1;
+    pel_pwm           = pwm;
+    trim_active       = 0;
+    trim_base_pwm     = pwm;
+    stall_count       = 0;
+    cool_sample_count = 0;
+    cool_pel_on       = 1;
+    set_pel_pwm(pwm);
+    DBG_PRINTF("Direct PWM: %d\r\n", pwm);
 }
 
 
@@ -348,7 +393,7 @@ static float feedforward_slope(float temp_c) {
 *   drift far from the calibrated table value regardless of how many stalls occur.
 *******************************************************************************/
 static void temp_control_update(void) {
-    if (!pel_active) return;
+    if (!pel_active || direct_pwm_mode) return;
 
     float rate  = last_temp_celsius - prev_temp_c;  // positive = rising, negative = falling
     prev_temp_c = last_temp_celsius;
@@ -411,7 +456,7 @@ static void temp_control_update(void) {
     // trim_base_pwm == ff_pwm and is never updated, so this window is permanent.
     int pwm_floor   = trim_base_pwm - TEMP_PWM_TRIM_LIMIT;
     int pwm_ceiling = trim_base_pwm + TEMP_PWM_TRIM_LIMIT;
-    int mode_floor   = (pel_mode == 1) ? 0    : -100;
+    int mode_floor   = (pel_mode == 1) ? 0    : -COOL_MAX_PWM;
     int mode_ceiling = (pel_mode == 1) ? target_to_feedforward_pwm(TEMP_MAX_ALLOWED_C) : 0;
     if (pwm_floor   < mode_floor)   pwm_floor   = mode_floor;
     if (pwm_ceiling > mode_ceiling) pwm_ceiling = mode_ceiling;
@@ -429,6 +474,50 @@ static void temp_control_update(void) {
 
 
 /*******************************************************************************
+* Function Name: cool_cycle_update
+* Summary:
+*   Called once per temperature sample (~1 sec) when in cooling mode.
+*   Alternates between PEL+fan ON (COOL_ON_SAMPLES seconds) and fan-only
+*   (COOL_OFF_SAMPLES seconds) to let the hot side dissipate heat and prevent
+*   the Peltier from saturating.  During the fan-only phase the PEL PWM
+*   registers are forced to zero each sample so any trim write cannot
+*   accidentally re-enable the Peltier mid-cycle.
+*******************************************************************************/
+static void cool_cycle_update(void) {
+    if (!pel_active || pel_mode != -1) {
+        cool_sample_count = 0;
+        cool_pel_on       = 1;
+        return;
+    }
+
+    cool_sample_count++;
+
+    if (cool_pel_on) {
+        if (cool_sample_count >= COOL_ON_SAMPLES) {
+            cool_pel_on       = 0;
+            cool_sample_count = 0;
+            set_pel_pwm(-COOL_IDLE_PWM);
+            set_fan(100);     // full speed during recovery phase
+            power_led_green(); CyDelay(100); power_led_off();  // green = PEL reduced
+            DBG_PRINTF("Cool cycle: PEL -%d (idle), fan on\r\n", COOL_IDLE_PWM);
+        }
+    } else {
+        // Re-assert idle cooling every sample so a trim event cannot override it.
+        set_pel_pwm(-COOL_IDLE_PWM);
+        set_fan(100);   // full speed
+
+        if (cool_sample_count >= COOL_OFF_SAMPLES) {
+            cool_pel_on       = 1;
+            cool_sample_count = 0;
+            set_pel_pwm(pel_pwm);   // restore cooling PWM
+            power_led_blue(); CyDelay(100); power_led_off();   // blue = PEL on
+            DBG_PRINTF("Cool cycle: PEL on\r\n");
+        }
+    }
+}
+
+
+/*******************************************************************************
 * Function Name: set_target_temperature_c
 * Summary:
 *   Sets the desired actual surface temperature (deg C). Immediately applies a
@@ -441,11 +530,14 @@ void set_target_temperature_c(float desired_c) {
         DBG_PRINTF("Temp target clamped to %d C\r\n", (int)TEMP_MAX_ALLOWED_C);
     }
 
-    target_actual_c = desired_c;
-    pel_active      = 1;
-    prev_temp_c     = last_temp_celsius;
-    trim_active     = 0;
-    stall_count     = 0;
+    target_actual_c   = desired_c;
+    pel_active        = 1;
+    direct_pwm_mode   = 0;
+    prev_temp_c       = last_temp_celsius;
+    trim_active       = 0;
+    stall_count       = 0;
+    cool_sample_count = 0;
+    cool_pel_on       = 1;
 
     if (desired_c > TEMP_ROOM_TEMP_C) {
         pel_mode = 1;   // heating session
@@ -470,18 +562,21 @@ void set_target_temperature_f(float desired_f) {
 
 void set_pel_pwm(int value){
 
-    // Limit the value to [-100, 100]
-    value = (value < -100) ? -100 : (value > 100) ? 100 : value;
-    
-    // Scale the value to the PWM range
-    int scaled_pel_pwm = ( abs(value) * MAX_PEL_PWM_VALUE) / 100;
-    DBG_PRINTF("pel value: %d scaled: %d\r\n", value, scaled_pel_pwm);
-    
-    if(value > 0){
-        PWM_PEL1_SetCompare0(0);                //PEL1 off
-        PWM_PEL2_SetCompare0(scaled_pel_pwm);   //PEL2 on
-        set_fan(value);
-    } else if (value < 0) {
+	static int prev_value = 0;
+	// Limit the value to [-COOL_MAX_PWM, 100]
+	value = (value < -COOL_MAX_PWM) ? -COOL_MAX_PWM : (value > 100) ? 100
+																						 : value;
+
+	// Scale the value to the PWM range
+	int scaled_pel_pwm = (abs(value) * MAX_PEL_PWM_VALUE) / 100;
+	DBG_PRINTF("pel value: %d scaled: %d\r\n", value, scaled_pel_pwm);
+
+	if (value > 0)
+	{
+		PWM_PEL1_SetCompare0(0);				  // PEL1 off
+		PWM_PEL2_SetCompare0(scaled_pel_pwm); // PEL2 on
+		set_fan(value);
+	} else if (value < 0) {
         PWM_PEL2_SetCompare0(0);                //PEL2 off
         PWM_PEL1_SetCompare0(scaled_pel_pwm);   //PEL1 on
         set_fan(value);
@@ -490,14 +585,20 @@ void set_pel_pwm(int value){
         // Turn off both PELs to save power
         PWM_PEL1_SetCompare0(0);
         PWM_PEL2_SetCompare0(0);
-        set_fan(0);
+		  if ( prev_value < 0 ) {
+        	set_fan(1);
+		  }
+		  else {
+			  set_fan(0);
+		  }
         //PWM_PEL1_Disable();
         //PWM_PEL2_Disable();
         //Cy_GPIO_Write(TEMP_USER_EN1_PORT, TEMP_USER_EN1_NUM, 0);  //Enable is low
         //DBG_PRINTF("Disabled PWM1 GetCompare: %d\r\n", PWM_PEL1_GetCompare0());
         //DBG_PRINTF("Disabled PWM2 GetCompare: %d\r\n", PWM_PEL2_GetCompare0());
-        set_fan(0);
-    } 
+        //set_fan(0);
+    }
+	 prev_value = value;
 }
 
 void set_fan(int value){

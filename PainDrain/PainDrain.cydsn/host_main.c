@@ -400,12 +400,14 @@ void AppCallBack(uint32 event, void *eventParam)
                             int temperatureValue = atoi(tokens[1]); // Convert the numeric part after 't'
                             DBG_PRINTF("temp value from device: %d\r\n", temperatureValue);
                             if (temperatureValue == 0) {
-                                DBG_PRINTF("temp 0 — disabling heating\r\n");
+                                DBG_PRINTF("temp 0 — disabling\r\n");
                                 temp_disable_heating();
+                            } else if (temperatureValue < 0) {
+                                temp_set_direct_pwm(temperatureValue);
                             } else {
-                                float desiredTemp = temperatureValue + 72.2f; //Fahrenheit
-                                DBG_PRINTF("calc temp: %d\r\n", (int)desiredTemp);
-                                set_target_temperature_f(desiredTemp);
+                                float desiredTemp = temperatureValue + 25.2f;
+                                DBG_PRINTF("calc temp: %d C\r\n", (int)desiredTemp);
+                                set_target_temperature_c(desiredTemp);
                             }
 									 break;
 								}

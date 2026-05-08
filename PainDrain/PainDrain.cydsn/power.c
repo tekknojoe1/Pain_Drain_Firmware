@@ -410,7 +410,7 @@ void power_task( void ) {
                 
             if (charger_status == CHARGING) {
                 reset_timer_cycles();
-                DBG_PRINTF("START_CHARGER");
+                DBG_PRINTF("START_CHARGER\r\n");
                 power_state = START_CHARGER;
                 break;
             }
@@ -420,7 +420,7 @@ void power_task( void ) {
                 reset_timer_cycles();
                 // Connected indication LED
 
-                DBG_PRINTF("POWER_CONNECTED");
+                DBG_PRINTF("POWER_CONNECTED\r\n");
                 power_state = POWER_CONNECTED;
                 break;
             }
@@ -428,13 +428,13 @@ void power_task( void ) {
             if (button_status == 1) {
                 //Single button press. Go to Preset 1
                 DBG_PRINTF("Switched to Preset 1 Mode.\r\n");
-                DBG_PRINTF("POWER_MODE_1");
+                DBG_PRINTF("POWER_MODE_1\r\n");
                 reset_timer_cycles();
                 power_state = POWER_MODE_1;
                 loadAndApplyPreset(1);
             } else if (button_status == 2) {
                 //Press and hold. Power down
-                DBG_PRINTF("POWER_DOWN");
+                DBG_PRINTF("POWER_DOWN\r\n");
                 power_state = POWER_DOWN;
             }
 
@@ -446,20 +446,20 @@ void power_task( void ) {
             
             if (charger_status == CHARGING) {
                 reset_timer_cycles();
-                DBG_PRINTF("START_CHARGER");
+                DBG_PRINTF("START_CHARGER\r\n");
                 power_state = START_CHARGER;
                 break;
             }
 
             if(Cy_BLE_GetNumOfActiveConn() == 0u) {
                 reset_timer_cycles();
-                DBG_PRINTF("POWER_ADV");
+                DBG_PRINTF("POWER_ADV\r\n");
                 power_state = POWER_ADV;
             }
 
             if (button_status == 2) {
                 //Press and hold. Force Power down
-                DBG_PRINTF("POWER_DOWN");
+                DBG_PRINTF("POWER_DOWN\r\n");
                 power_state = POWER_DOWN;
             }
 
@@ -471,7 +471,7 @@ void power_task( void ) {
 
             if (charger_status == CHARGING) {
                 reset_timer_cycles();
-                DBG_PRINTF("START_CHARGER");
+                DBG_PRINTF("START_CHARGER\r\n");
                 power_state = START_CHARGER;
                 break;
             }
@@ -479,13 +479,13 @@ void power_task( void ) {
             if (button_status == 1) {
                 //Single button press. Go to Preset 2
                 DBG_PRINTF("Switched to Preset 2 Mode.\r\n");
-                DBG_PRINTF("POWER_MODE_2");
+                DBG_PRINTF("POWER_MODE_2\r\n");
                 loadAndApplyPreset(2);
                 reset_timer_cycles();
                 power_state = POWER_MODE_2;
             } else if (button_status == 2) {
                 //Press and hold. Power down
-                DBG_PRINTF("POWER_DOWN");
+                DBG_PRINTF("POWER_DOWN\r\n");
                 power_state = POWER_DOWN;
             }
 
@@ -497,7 +497,7 @@ void power_task( void ) {
 
             if (charger_status == CHARGING) {
                 reset_timer_cycles();
-                DBG_PRINTF("START_CHARGER");
+                DBG_PRINTF("START_CHARGER\r\n");
                 power_state = START_CHARGER;
                 break;
             }
@@ -505,13 +505,13 @@ void power_task( void ) {
             if (button_status == 1) {
                 //Single button press. Go to Preset 3
                 DBG_PRINTF("Switched to Preset 3 Mode.\r\n");
-                DBG_PRINTF("POWER_MODE_3");
+                DBG_PRINTF("POWER_MODE_3\r\n");
                 loadAndApplyPreset(3);
                 reset_timer_cycles();
                 power_state = POWER_MODE_3;
             } else if (button_status == 2) {
                 //Press and hold. Power down
-                DBG_PRINTF("POWER_DOWN");
+                DBG_PRINTF("POWER_DOWN\r\n");
                 power_state = POWER_DOWN;
             }
 
@@ -523,7 +523,7 @@ void power_task( void ) {
 
             if (charger_status == CHARGING) {
                 reset_timer_cycles();
-                DBG_PRINTF("START_CHARGER");
+                DBG_PRINTF("START_CHARGER\r\n");
                 power_state = START_CHARGER;
                 break;
             }
@@ -532,12 +532,12 @@ void power_task( void ) {
                 //Single button press. Go to Preset 3
                 DBG_PRINTF("Switched back to Bluetooth Mode.\r\n");
                 shut_off_all_stimuli();
-                DBG_PRINTF("POWER_ADV");
+                DBG_PRINTF("POWER_ADV\r\n");
                 reset_timer_cycles();
                 power_state = POWER_ADV;
             } else if (button_status == 2) {
                 //Press and hold. Power down
-                DBG_PRINTF("POWER_DOWN");
+                DBG_PRINTF("POWER_DOWN\r\n");
                 power_state = POWER_DOWN;
             }
 
@@ -558,18 +558,18 @@ void power_task( void ) {
             data = (uint8_t*)"charging 0";
             result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
             // was successful
-            DBG_PRINTF("POWER_CHARGING");
+            DBG_PRINTF("POWER_CHARGING\r\n");
             power_state = POWER_CHARGING;
         break;
 
         case POWER_CHARGING:
             power_timeout = POWER_DISPLAY_TIMEOUT_INTERVAL;
             if (charger_status == NOT_CHARGING || charger_status == NORMAL) {
-                DBG_PRINTF("STOP_CHARGER");
+                DBG_PRINTF("STOP_CHARGER\r\n");
                 power_state = STOP_CHARGER;
                 break;
             } else if (charger_status == FULLY_CHARGED) {
-                DBG_PRINTF("POWER_CHARGED");
+                DBG_PRINTF("POWER_CHARGED\r\n");
                 power_state = POWER_CHARGED;
                 break;
             }
@@ -579,7 +579,7 @@ void power_task( void ) {
         case POWER_CHARGED:
             power_timeout = POWER_DISPLAY_TIMEOUT_INTERVAL;
             if (charger_status == NOT_CHARGING || charger_status == NORMAL) {
-                DBG_PRINTF("STOP_CHARGER");
+                DBG_PRINTF("STOP_CHARGER\r\n");
                 power_state = STOP_CHARGER;
                 break;
             }
@@ -596,7 +596,7 @@ void power_task( void ) {
             data = (uint8_t*)"charging 1";
             result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
             // was successful
-            DBG_PRINTF("POWER_ADV");
+            DBG_PRINTF("POWER_ADV\r\n");
             power_state = POWER_ADV;
         break;
 
@@ -683,7 +683,7 @@ bool send_data_to_phone(uint8_t* data, uint16_t length, uint8_t characteristic){
 void shut_off_all_stimuli(){
     set_vibe(0); // Turns off vibe motor
     set_tens_signal(0, 0.0, 0, 0, 0); // Turns off tens
-    set_temp(0); // Turns off peltier
+    set_pel_pwm(0); // Turns off peltier
 
     DBG_PRINTF("Shut off all stimuli\r\n");
 
