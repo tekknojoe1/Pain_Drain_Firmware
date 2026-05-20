@@ -13,6 +13,7 @@
 #include "temp.h"
 #include "debug.h"
 #include "power.h"
+#include "bq28Z610.h"
 #include <stdio.h>
 #include <project.h>
 #include <stdlib.h>
@@ -37,6 +38,7 @@
 // Temperature acquisition timer
 // Timer fires every 10ms (matching tens_timer rate), so 100 counts = 1 second
 #define TEMP_SAMPLE_INTERVAL    100         // 100 x 10ms = 1 second
+#define BATT_PRINT_INTERVAL      20         // Print battery level every 20 seconds while charging
 
 typedef struct {
     float  target_c;   // Desired actual surface temperature (deg C)
@@ -63,10 +65,16 @@ static const TempPwmPoint_t temp_pwm_table[] = {
 #define TEMP_PWM_TRIM_LIMIT            5  // Max PWM counts per single stall-triggered adjustment
 
 // Cooling duty cycle: alternate PEL+fan and fan-only to prevent hot-side saturation
-#define COOL_ON_SAMPLES            300     // Seconds with PEL + fan running
-#define COOL_OFF_SAMPLES           30     // Seconds with PEL off, fan only (heat dissipation)
+#define COOL_ON_SAMPLES            300     // Default seconds with PEL + fan running (overridden dynamically)
+#define COOL_OFF_SAMPLES            30     // Default seconds fan-only recovery (overridden dynamically)
 #define COOL_MAX_PWM               100     // Max magnitude for cooling PWM (prevents hot-side saturation)
-#define COOL_IDLE_PWM               1     // Reduced cooling magnitude during hot-side recovery phase
+#define COOL_IDLE_PWM                1     // Reduced cooling magnitude during hot-side recovery phase
+
+#define HEAT_MAX_PWM                26     // Max magnitude for heating PWM (limits surface to ~110 F)
+#define HEAT_LIMIT_SCALE_INTERVAL    5     // Seconds between PWM scale-back steps when at temp limit
+#define HEAT_LIMIT_SCALE_UP_INTERVAL 10    // Seconds between PWM scale-up steps during limit recovery
+#define HEAT_LIMIT_RECOVER_BELOW_C   1.5f  // Degrees C below max that triggers scale-up
+
 
 static int set_fan_based_on_temp(int temp_value);
 static float adc_counts_to_resistance(int16_t counts);
@@ -76,6 +84,8 @@ static float adc_counts_to_mvoltage(int16_t counts);
 static float feedforward_slope(float temp_c);
 static void  temp_control_update(void);
 static void  cool_cycle_update(void);
+static int32_t run_seconds_for_power(float power_level);
+static int32_t estimated_recovery_seconds(float power_level);
 
 static volatile int temp_acquire_flag = 0;  // Set by temp_timer, cleared by temp_task
 static int32_t temp_timer_count = 0;        // Counts timer ticks
@@ -95,6 +105,13 @@ static int   trim_base_pwm      = 0;  // PWM reference for bounding the current 
 static int   stall_count        = 0;  // Consecutive settled samples (for stall detection)
 static int32_t cool_sample_count = 0; // Samples elapsed in current cooling phase
 static int     cool_pel_on       = 1; // 1 = PEL active, 0 = fan-only phase
+static int32_t cool_on_limit     = COOL_ON_SAMPLES;  // Dynamic run time (seconds)
+static int32_t cool_off_limit    = COOL_OFF_SAMPLES; // Dynamic recovery time (seconds)
+static int32_t batt_print_count  = BATT_PRINT_INTERVAL; // Seconds elapsed since last battery level print
+static int32_t heat_limit_count    = 0;  // Seconds elapsed since last over-limit PWM scale-back
+static int32_t heat_scale_up_count = 0;  // Seconds elapsed since last under-limit PWM scale-up
+static int     heat_limit_active   = 0;  // 1 = PWM was reduced by the temp limit
+static int     heat_limit_user_pwm = 0;  // User's original requested PWM (ceiling for scale-up)
 
 void temp_init(void) {
   
@@ -195,11 +212,23 @@ void temp_task(void) {
 			  mvoltage_int, mvoltage_dec );
 
     if (pel_mode == -1 && pel_active) {
-        int phase_limit = cool_pel_on ? COOL_ON_SAMPLES : COOL_OFF_SAMPLES;
+        int32_t phase_limit = cool_pel_on ? cool_on_limit : cool_off_limit;
         DBG_PRINTF("Cool cycle: %s %d/%d sec\r\n",
                    cool_pel_on ? "PEL+fan" : "fan-only",
-                   (int)cool_sample_count, phase_limit);
+                   (int)cool_sample_count, (int)phase_limit);
     }
+
+    //if (isDeviceCharging()) {
+        batt_print_count++;
+        if (batt_print_count >= BATT_PRINT_INTERVAL) {
+            batt_print_count = 0;
+            uint8_t  soc = bq28Z610_get_soc();
+            uint16_t mv  = bq28Z610_get_voltage_mv();
+            DBG_PRINTF("Battery: %d%c %dmV\r\n", (int)soc, '%', (int)mv);
+        }
+    //} else {
+    //    batt_print_count = BATT_PRINT_INTERVAL - 2;
+    //}
 
     temp_control_update();
     cool_cycle_update();
@@ -318,6 +347,12 @@ void temp_disable_heating(void) {
     stall_count       = 0;
     cool_sample_count = 0;
     cool_pel_on       = 1;
+    cool_on_limit      = COOL_ON_SAMPLES;
+    cool_off_limit     = COOL_OFF_SAMPLES;
+    heat_limit_active  = 0;
+    heat_limit_user_pwm = 0;
+    heat_limit_count   = 0;
+    heat_scale_up_count = 0;
     set_pel_pwm(0);
 }
 
@@ -331,17 +366,23 @@ void temp_disable_heating(void) {
 *   or set_target_temperature_c() to exit this mode.
 *******************************************************************************/
 void temp_set_direct_pwm(int pwm) {
+    DBG_PRINTF("Direct PWM: %d\r\n", pwm);
     pel_active        = 1;
     pel_mode          = (pwm < 0) ? -1 : 1;
     direct_pwm_mode   = 1;
     pel_pwm           = pwm;
+    if (pwm > 0) {
+        heat_limit_user_pwm = pwm;
+        heat_limit_active   = 0;
+        heat_limit_count    = 0;
+        heat_scale_up_count = 0;
+    }
     trim_active       = 0;
     trim_base_pwm     = pwm;
     stall_count       = 0;
     cool_sample_count = 0;
     cool_pel_on       = 1;
     set_pel_pwm(pwm);
-    DBG_PRINTF("Direct PWM: %d\r\n", pwm);
 }
 
 
@@ -393,22 +434,46 @@ static float feedforward_slope(float temp_c) {
 *   drift far from the calibrated table value regardless of how many stalls occur.
 *******************************************************************************/
 static void temp_control_update(void) {
-    if (!pel_active || direct_pwm_mode) return;
+    if (!pel_active) return;
 
-    float rate  = last_temp_celsius - prev_temp_c;  // positive = rising, negative = falling
-    prev_temp_c = last_temp_celsius;
-
+    // Safety limit applies regardless of direct_pwm_mode: scale back 1 PWM count every HEAT_LIMIT_SCALE_INTERVAL seconds.
     if (last_temp_celsius >= TEMP_MAX_ALLOWED_C) {
-        if (pel_pwm > 0) {
-            pel_pwm = 0;
-            set_pel_pwm(0);
+        heat_scale_up_count = 0;
+        heat_limit_count++;
+        if (pel_pwm > 0 && heat_limit_count >= HEAT_LIMIT_SCALE_INTERVAL) {
+            heat_limit_count = 0;
+            heat_limit_active = 1;
+            pel_pwm--;
+            set_pel_pwm(pel_pwm);
             int act_int = (int)last_temp_celsius;
             int act_dec = (int)(last_temp_celsius * 10.0f) % 10;
-            DBG_PRINTF("SAFETY CUTOFF: therm %d.%d C >= limit %d C\r\n",
-                       act_int, act_dec, (int)TEMP_MAX_ALLOWED_C);
+            DBG_PRINTF("TEMP LIMIT: %d.%d C, pwm scaled to %d\r\n", act_int, act_dec, pel_pwm);
         }
         return;
     }
+    heat_limit_count = 0;
+
+    // If the temp limit previously reduced the PWM and the temp has now dropped too far
+    // below the max, scale back up 1 count every HEAT_LIMIT_SCALE_UP_INTERVAL seconds.
+    if (heat_limit_active && pel_pwm < heat_limit_user_pwm &&
+        last_temp_celsius < (TEMP_MAX_ALLOWED_C - HEAT_LIMIT_RECOVER_BELOW_C)) {
+        heat_scale_up_count++;
+        if (heat_scale_up_count >= HEAT_LIMIT_SCALE_UP_INTERVAL) {
+            heat_scale_up_count = 0;
+            pel_pwm++;
+            set_pel_pwm(pel_pwm);
+            int act_int = (int)last_temp_celsius;
+            int act_dec = (int)(last_temp_celsius * 10.0f) % 10;
+            DBG_PRINTF("TEMP RECOVER: %d.%d C, pwm scaled to %d\r\n", act_int, act_dec, pel_pwm);
+        }
+    } else {
+        heat_scale_up_count = 0;
+    }
+
+    if (direct_pwm_mode) return;
+
+    float rate  = last_temp_celsius - prev_temp_c;  // positive = rising, negative = falling
+    prev_temp_c = last_temp_celsius;
 
     float error   = target_actual_c - last_temp_celsius;
     float abs_err = (error < 0.0f) ? -error : error;
@@ -493,20 +558,20 @@ static void cool_cycle_update(void) {
     cool_sample_count++;
 
     if (cool_pel_on) {
-        if (cool_sample_count >= COOL_ON_SAMPLES) {
+        if (cool_sample_count >= cool_on_limit) {
             cool_pel_on       = 0;
             cool_sample_count = 0;
-            set_pel_pwm(-COOL_IDLE_PWM);
+            set_pel_pwm(0);
             set_fan(100);     // full speed during recovery phase
-            power_led_green(); CyDelay(100); power_led_off();  // green = PEL reduced
-            DBG_PRINTF("Cool cycle: PEL -%d (idle), fan on\r\n", COOL_IDLE_PWM);
+            power_led_green(); CyDelay(100); power_led_off();  // green = PEL off, recovery
+            DBG_PRINTF("Cool cycle: PEL off (recovery), fan on\r\n");
         }
     } else {
-        // Re-assert idle cooling every sample so a trim event cannot override it.
-        set_pel_pwm(-COOL_IDLE_PWM);
+        // Re-assert PEL off every sample so a trim event cannot accidentally re-enable it.
+        set_pel_pwm(0);
         set_fan(100);   // full speed
 
-        if (cool_sample_count >= COOL_OFF_SAMPLES) {
+        if (cool_sample_count >= cool_off_limit) {
             cool_pel_on       = 1;
             cool_sample_count = 0;
             set_pel_pwm(pel_pwm);   // restore cooling PWM
@@ -563,9 +628,8 @@ void set_target_temperature_f(float desired_f) {
 void set_pel_pwm(int value){
 
 	static int prev_value = 0;
-	// Limit the value to [-COOL_MAX_PWM, 100]
-	value = (value < -COOL_MAX_PWM) ? -COOL_MAX_PWM : (value > 100) ? 100
-																						 : value;
+	// Limit the value to [-COOL_MAX_PWM, HEAT_MAX_PWM]
+	value = (value < -COOL_MAX_PWM) ? -COOL_MAX_PWM : (value > HEAT_MAX_PWM) ? HEAT_MAX_PWM : value;
 
 	// Scale the value to the PWM range
 	int scaled_pel_pwm = (abs(value) * MAX_PEL_PWM_VALUE) / 100;
@@ -641,4 +705,68 @@ int set_fan_based_on_temp(int temp_value) {
     
     return adjusted_value;
 }
+// run_seconds = (-8.87 * power_level) + 56.62, clamped to >= 1
+static int32_t run_seconds_for_power(float power_level) {
+    float run = (-8.87f * power_level) + 56.62f;
+    if (run < 1.0f) run = 1.0f;
+    return (int32_t)(run + 0.5f);
+}
+
+// Piecewise-linear interpolation of measured recovery times vs. normalised power level.
+// Mirrors the Python estimated_recovery() function exactly.
+static int32_t estimated_recovery_seconds(float power_level) {
+    static const float levels[] = {0.25f, 0.50f, 0.75f, 1.00f};
+    static const int   times[]  = {87,    160,   175,   149};
+    int i;
+    if (power_level <= levels[0]) return (int32_t)times[0];
+    if (power_level >= levels[3]) return (int32_t)times[3];
+    for (i = 0; i < 3; i++) {
+        if (power_level <= levels[i + 1]) {
+            float t      = (power_level - levels[i]) / (levels[i + 1] - levels[i]);
+            float result = (float)times[i] + t * (float)(times[i + 1] - times[i]);
+            return (int32_t)(result + 0.5f);
+        }
+    }
+    return (int32_t)times[3];
+}
+
+/*******************************************************************************
+* Function Name: temp_set_power_level
+* Summary:
+*   Main user-facing control entry point. Accepts a power level from -100 to 100
+*   where 0 = off, positive = heat, negative = cold.
+*
+*   User level is scaled to the device PWM range:
+*     heat: user [1,100] → device [1, HEAT_MAX_PWM]
+*     cold: user [-1,-100] → device [-1, -COOL_MAX_PWM]
+*
+*   For cooling sessions the on/off cycle times are computed from the power level
+*   using empirical formulas before the direct-PWM session starts.
+*******************************************************************************/
+void temp_set_power_level(int user_level) {
+    if (user_level == 0) {
+        temp_disable_heating();
+        return;
+    }
+
+    int device_pwm;
+    if (user_level > 0) {
+        device_pwm = (user_level * HEAT_MAX_PWM + 50) / 100;
+        if (device_pwm < 1) device_pwm = 1;
+    } else {
+        int abs_user = -user_level;
+        int abs_dev  = (abs_user * COOL_MAX_PWM + 50) / 100;
+        device_pwm   = -abs_dev;
+        if (device_pwm > -1) device_pwm = -1;
+
+        float power_level = (float)(-device_pwm) / (float)COOL_MAX_PWM;
+        cool_on_limit  = run_seconds_for_power(power_level);
+        cool_off_limit = estimated_recovery_seconds(power_level);
+        DBG_PRINTF("Cool limits: on=%d off=%d sec\r\n", (int)cool_on_limit, (int)cool_off_limit);
+    }
+
+    DBG_PRINTF("Power level: user=%d device=%d\r\n", user_level, device_pwm);
+    temp_set_direct_pwm(device_pwm);
+}
+
 /* [] END OF FILE */

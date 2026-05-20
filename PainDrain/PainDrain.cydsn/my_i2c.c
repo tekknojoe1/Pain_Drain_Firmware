@@ -321,13 +321,15 @@ uint32 myI2C_I2CMasterWriteByte(uint32 theByte)
 	
 	//Ack
 	I2C_SDA_Write(1);
-	
+
 	CyDelayUs(4);
 	I2C_SCL_Write(1);
+	if (myI2C_SCLidle() == myI2C_FAILED)
+		return myI2C_FAILED;
 	CyDelayUs(4);
-	
+
 	ack = I2C_SDA_Read();
-	
+
 	I2C_SCL_Write(0);
 	
 	if (ack) 
