@@ -40,6 +40,14 @@ void bq28Z610_read_all_reg() {
     //power_i2c_read_reg(BQ28Z610_I2C_ADDR, 0x00, &reg_value, 2);
 }
 
+// Returns 0=sealed, 1=unsealed, 2=full-access, -1=read error
+static int bq28Z610_read_sec_mode(void) {
+    uint8_t d[2];
+    bq28Z610_read_reg(0x00, d, 2);
+    uint16_t mac = (uint16_t)((d[1] << 8) | d[0]);
+    return (mac >> 13) & 0x03;  // SEC1:SEC0 at bits 14:13
+}
+
 void bq28Z610_init( void ){
     // BQ28Z610 powers up in SEALED mode — unseal with the two default factory keys
     // sent as consecutive 16-bit word writes to ManufacturerAccess (0x00)
@@ -47,7 +55,14 @@ void bq28Z610_init( void ){
     CyDelay(2);
     bq28Z610_write_word(0x00, 0x3672);
     CyDelay(10);
-    DBG_PRINTF("bq28Z610 init complete\r\n");
+
+    int sec = bq28Z610_read_sec_mode();
+    // SEC1:SEC0: 3=sealed, 2=unsealed, 1=full-access
+    if (sec == 2 || sec == 1) {
+        DBG_PRINTF("bq28Z610 unsealed (SEC=%d)\r\n", sec);
+    } else {
+        DBG_PRINTF("bq28Z610 STILL SEALED (SEC=%d) — unseal failed\r\n", sec);
+    }
 }
 
 uint8_t bq28Z610_get_soc(void) {
