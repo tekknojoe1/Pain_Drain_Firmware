@@ -47,6 +47,11 @@
 #include "project.h"
 #include "common.h"
 
+/* Defined in the GCC linker script (bootload_cm0p.ld) as the CM4 flash entry
+ * point of App1. Taking its address gives the start address to pass to
+ * Cy_SysEnableCM4(). */
+extern uint32_t __cy_app_core1_start_addr;
+
 
 /*******************************************************************************
 * Function Name: main()
