@@ -41,9 +41,7 @@
 * limited by and subject to the applicable Cypress software license agreement.
 *****************************************************************************/
 
-/* NOTE: bootloader/cy_bootload.h is provided by the PSoC Creator Bootloader SDK
- * component. Add that component to this project in PSoC Creator before building. */
-#include "bootloader/cy_bootload.h"
+#include "cy_dfu.h"
 #include "common.h"
 #include "ias.h"
 #include "power.h"
@@ -231,7 +229,7 @@ void AppCallBack(uint32 event, void *eventParam)
             if (ota_requested) {
                 /* Jump to App0 (bootloader) for OTA firmware update */
                 DBG_PRINTF("Jumping to bootloader\r\n");
-                Cy_Bootload_ExecuteApp(0u);
+                Cy_DFU_ExecuteApp(0u);
             }
             Cy_SysPm_Hibernate();
             break;
