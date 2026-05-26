@@ -41,6 +41,9 @@
 * limited by and subject to the applicable Cypress software license agreement.
 *****************************************************************************/
 
+/* NOTE: bootloader/cy_bootload.h is provided by the PSoC Creator Bootloader SDK
+ * component. Add that component to this project in PSoC Creator before building. */
+#include "bootloader/cy_bootload.h"
 #include "common.h"
 #include "ias.h"
 #include "power.h"
@@ -54,8 +57,13 @@
 #include "flash_storage.h"
 #include "bq28Z610.h"
 
-static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
+static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };
 static volatile uint32_t           mainTimer  = 1u;
+
+/* OTA flags: set by either the 'u' BLE command or HIGH_ALERT IAS write.
+ * Actual shutdown + bootloader jump happens in the main loop. */
+static bool ota_requested = false;
+static bool ota_disabling  = false;
 
 
 uint8 newBatteryLevel = 0;
@@ -217,12 +225,15 @@ void AppCallBack(uint32 event, void *eventParam)
             break;
 
         case CY_BLE_EVT_STACK_SHUTDOWN_COMPLETE:
-            /* Hibernate */
-            //UpdateLedState();
-            power_flags_update(POWER_FLAG_BLE, 0);  //Turn off ble power flag
+            power_flags_update(POWER_FLAG_BLE, 0);
             DBG_PRINTF("shutdown complete\r\n");
             power_led_off();
-            Cy_SysPm_Hibernate(); // This is needed to use wakeup button
+            if (ota_requested) {
+                /* Jump to App0 (bootloader) for OTA firmware update */
+                DBG_PRINTF("Jumping to bootloader\r\n");
+                Cy_Bootload_ExecuteApp(0u);
+            }
+            Cy_SysPm_Hibernate();
             break;
             
         /**********************************************************
@@ -577,6 +588,14 @@ void AppCallBack(uint32 event, void *eventParam)
                             //}
                         }
                         
+                        case 'u':
+                        {
+                            /* OTA update request — arm the flag; jump happens in main loop */
+                            DBG_PRINTF("OTA update requested\r\n");
+                            ota_requested = true;
+                            break;
+                        }
+
                         default:
                         {
                             DBG_PRINTF("char: %c\r\n", tokens[0][0]);
@@ -811,6 +830,17 @@ int HostMain(void)
     while(1)
     {
         Cy_BLE_ProcessEvents();
+
+        /* OTA: stop all actuators and hand off to the bootloader (App0). */
+        if (ota_requested && !ota_disabling) {
+            ota_disabling = true;
+            temp_disable_heating();          /* critical — stops PEL PWM immediately */
+            set_vibe(0);
+            set_tens_signal(0, 0, 0, 0, 0);
+            /* Cy_BLE_Disable() fires STACK_SHUTDOWN_COMPLETE where we jump */
+            Cy_BLE_Disable();
+        }
+
         int currentValue = Cy_LPComp_GetCompare(LPCOMP, CY_LPCOMP_CHANNEL_1);
         //DBG_PRINTF("lp comp changed value: %d\r\n", currentValue);
         if(lastValue != currentValue){
@@ -838,7 +868,11 @@ int HostMain(void)
                 break;
 
             case HIGH_ALERT:
-                //Alert_LED_Write(LED_ON);
+                /* IAS high-alert from the phone also triggers OTA mode */
+                if (!ota_requested) {
+                    DBG_PRINTF("IAS HIGH_ALERT: OTA update requested\r\n");
+                    ota_requested = true;
+                }
                 break;
         }
         

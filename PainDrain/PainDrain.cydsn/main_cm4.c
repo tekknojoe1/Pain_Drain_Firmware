@@ -43,6 +43,10 @@
 #include "user_interface.h"
 #include "power.h"
 
+/* App1 signature — placed in .cy_app_signature section so CyMCUElfTool can
+ * compute and embed the CRC-32 that the bootloader verifies on startup. */
+CY_SECTION(".cy_app_signature") __USED static const uint32_t cy_bootload_appSignature[1];
+
 /* WDT demo options */
 #define WDT_RESET_DEMO						1
 #define WDT_INTERRUPT_DEMO 					2
