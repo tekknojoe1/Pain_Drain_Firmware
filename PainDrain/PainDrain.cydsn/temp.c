@@ -70,7 +70,7 @@ static const TempPwmPoint_t temp_pwm_table[] = {
 #define COOL_MAX_PWM               100     // Max magnitude for cooling PWM (prevents hot-side saturation)
 #define COOL_IDLE_PWM                1     // Reduced cooling magnitude during hot-side recovery phase
 
-#define HEAT_MAX_PWM                26     // Max magnitude for heating PWM (limits surface to ~110 F)
+#define HEAT_MAX_PWM                23     // Max magnitude for heating PWM (limits surface to ~110 F)
 #define HEAT_LIMIT_SCALE_INTERVAL    5     // Seconds between PWM scale-back steps when at temp limit
 #define HEAT_LIMIT_SCALE_UP_INTERVAL 10    // Seconds between PWM scale-up steps during limit recovery
 #define HEAT_LIMIT_RECOVER_BELOW_C   1.5f  // Degrees C below max that triggers scale-up
@@ -198,18 +198,15 @@ void temp_task(void) {
 	 int temp_dec_f = (int)(last_temp_fahrenheit * 10) % 10;
 	 int temp_int_c = (int)last_temp_celsius;
 	 int temp_dec_c = (int)(last_temp_celsius * 10) % 10;
-	 int target_int_c = (int)target_actual_c;
-	 int target_dec_c = (int)(target_actual_c * 10) % 10;
 	 int mvoltage_int = (int)mvoltage;
 	 int mvoltage_dec = (int)(mvoltage * 10) % 10;
 
-	 DBG_PRINTF("Counts: %d res: %d.%d ohms temp: %d.%d F %d.%d C target: %d.%d C mv: %d.%d mV\r\n",
+	 DBG_PRINTF("Counts: %d res: %d.%d ohms mv: %d.%d mV temp: %d.%d F %d.%d C\r\n",
            raw_counts,
            resistance_int, resistance_dec,
+           mvoltage_int, mvoltage_dec,
            temp_int_f, temp_dec_f,
-			  temp_int_c, temp_dec_c,
-			  target_int_c, target_dec_c,
-			  mvoltage_int, mvoltage_dec );
+			  temp_int_c, temp_dec_c );
 
     if (pel_mode == -1 && pel_active) {
         int32_t phase_limit = cool_pel_on ? cool_on_limit : cool_off_limit;
