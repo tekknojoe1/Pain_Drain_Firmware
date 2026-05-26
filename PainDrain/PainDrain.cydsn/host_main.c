@@ -52,6 +52,7 @@
 #include "bitbang_spi.h"
 #include "my_i2c.h"
 #include "flash_storage.h"
+#include "bq28Z610.h"
 
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
 static volatile uint32_t           mainTimer  = 1u;
@@ -388,18 +389,14 @@ void AppCallBack(uint32 event, void *eventParam)
                     switch(tokens[0][0]){
                         case 't':
                         {
-                           
                             /*
                             Packet information contains
                             1: char t - Temperature
-                            2: int Temperature
+                            2: int power level (-100 to 100, 0 = off)
                             */
-                            TemperatureSetting tempSetting = {
-                                .temp = atoi(tokens[1]),  
-                            };
-                            int temperatureValue = atoi(tokens[1]); // Convert the numeric part after 't'
-                            DBG_PRINTF("temperature: %d\r\n", tempSetting.temp);
-                            set_temp(temperatureValue);  
+                            int powerLevel = atoi(tokens[1]);
+                            DBG_PRINTF("Temp power level from device: %d\r\n", powerLevel);
+                            temp_set_power_level(powerLevel);
                             break;
                         }
                         case 'T':
@@ -757,6 +754,7 @@ int HostMain(void)
     //PWM_TENS2_Enable();
     
     temp_init();
+    bq28Z610_init();
     
     
     //AMP_PWM_Start();

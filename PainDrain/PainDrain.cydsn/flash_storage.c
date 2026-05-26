@@ -122,7 +122,7 @@ void applyPreset(const Preset* preset) {
                     preset->tens.phase);
 
     // Example: Update Temperature setting
-    set_temp(preset->temperature.temp);
+    set_pel_pwm(preset->temperature.temp);
 
     // Example: Update Vibration setting (if applicable)
     set_vibe(preset->vibration.frequency);
