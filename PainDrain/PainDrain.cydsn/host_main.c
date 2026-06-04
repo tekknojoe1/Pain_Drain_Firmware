@@ -43,6 +43,7 @@
 
 #include "cy_dfu.h"
 #include "common.h"
+#include "version.h"
 #include "ias.h"
 #include "power.h"
 #include "debug.h"
@@ -62,6 +63,15 @@ static volatile uint32_t           mainTimer  = 1u;
  * Actual shutdown + bootloader jump happens in the main loop. */
 static bool ota_requested = false;
 static bool ota_disabling  = false;
+
+/* BLE restart state — set in STACK_SHUTDOWN_COMPLETE, consumed in main loop.
+ * Restart is deferred to the main loop with a delay so the BLESS ECO has
+ * time to settle before the next Cy_BLE_Start call. */
+static bool    ble_restart_needed   = false;
+static uint8_t ble_restart_attempts = 0u;
+#define BLE_MAX_RESTART_ATTEMPTS 5u
+
+static volatile uint8_t ble_last_hw_err = 0xFFu;   /* last CY_BLE_EVT_HARDWARE_ERROR code */
 
 
 uint8 newBatteryLevel = 0;
@@ -149,6 +159,7 @@ void AppCallBack(uint32 event, void *eventParam)
         DBG_PRINTF("e=%d\r\n", event);
         /* Mandatory events to be handled by Find Me Target design */
         case CY_BLE_EVT_STACK_ON:
+            ble_restart_attempts = 0u;  /* reset — stack came up clean */
             Cy_BLE_GAP_GenerateKeys(&keyInfo);
             DBG_PRINTF("STACK ON\r\n");
             power_flags_update(POWER_FLAG_BLE, 1);
@@ -218,20 +229,29 @@ void AppCallBack(uint32 event, void *eventParam)
             }
             break;
             
-        case CY_BLE_EVT_HARDWARE_ERROR:    /* This event indicates that some internal HW error has occurred */
-            DBG_PRINTF("INTERNAL HARDWARE ERROR");
+        case CY_BLE_EVT_HARDWARE_ERROR:
+            if (eventParam != NULL) {
+                ble_last_hw_err = *(const uint8_t *)eventParam;
+            }
+            DBG_PRINTF("HW_ERR %x\r\n", (uint32_t)ble_last_hw_err);
             break;
 
         case CY_BLE_EVT_STACK_SHUTDOWN_COMPLETE:
+            DBG_PRINTF("BLE_SHUTDOWN\r\n");
             power_flags_update(POWER_FLAG_BLE, 0);
-            DBG_PRINTF("shutdown complete\r\n");
             power_led_off();
             if (ota_requested) {
                 /* Jump to App0 (bootloader) for OTA firmware update */
                 DBG_PRINTF("Jumping to bootloader\r\n");
                 Cy_DFU_ExecuteApp(0u);
+            } else if (!power_is_shutting_down()) {
+                /* Schedule a delayed restart from the main loop.  Calling
+                 * Cy_BLE_Start here (without delay) re-triggers the BLESS ECO
+                 * cold-start transient and loops.  power_off_device() hibernates
+                 * directly after Cy_BLE_Stop() so this branch is never reached
+                 * on the intentional power-off path. */
+                ble_restart_needed = true;
             }
-            Cy_SysPm_Hibernate();
             break;
             
         /**********************************************************
@@ -726,7 +746,8 @@ void Isr_switch(void)
 *******************************************************************************/
 int HostMain(void)
 {  
-    DBG_PRINTF("START OF PROGRAM\r\n");
+    DBG_PRINTF("PainDrain App1 v");
+    DBG_PRINTF("%s\r\n", APP1_VERSION_STR);
     
     /* Check the IO status. If current status is frozen, unfreeze the system. */
     if(Cy_SysPm_GetIoFreezeStatus())
@@ -756,7 +777,20 @@ int HostMain(void)
     //Cy_SysPm_SetHibernateWakeupSource(CY_SYSPM_HIBERNATE_PIN1_LOW); // This allows wakeup on button and lpcomp 1 pin
     
     /* Start BLE component and register generic event handler */
-    Cy_BLE_Start(AppCallBack);
+    {
+        cy_en_ble_api_result_t r = Cy_BLE_Start(AppCallBack);
+        DBG_PRINTF("BLE_Start=%x\r\n", (uint32_t)r);
+        /* Shared word written by CM0+ main_cm0p.c after up to 5 attempts.
+         * 0xBBEE0000 = controller OK; 0xBBFE0015 = HARDWARE_FAILURE (WCO/BLESS issue). */
+        DBG_PRINTF("CM0_BLE=%x\r\n", (uint32_t)(*(volatile uint32_t *)0x08000004u));
+        /* BLESS hardware state visible from CM4: MT_CFG bit0=ENABLE_BLERD, MT_STATUS bit0=BLESS_STATE,
+         * RCB.RCBLL.CTRL bit0=LL_OWNS_RCB.  If CM0+ controller started OK, ENABLE_BLERD should be 1. */
+        DBG_PRINTF("BLESS CFG=%x STS=%x INTR=%x RCB=%x\r\n",
+                   (uint32_t)(BLE->BLESS.MT_CFG),
+                   (uint32_t)(BLE->BLESS.MT_STATUS),
+                   (uint32_t)(BLE->BLESS.INTR_MASK),
+                   (uint32_t)(BLE->RCB.RCBLL.CTRL));
+    }
     
     
     /* Initialize BLE Services */
@@ -829,6 +863,15 @@ int HostMain(void)
     {
         Cy_BLE_ProcessEvents();
 
+        /* Option B: 8-second power-button hold triggers OTA — debug builds only.
+         * To disable for production: define PRODUCTION_BUILD in build settings. */
+#ifndef PRODUCTION_BUILD
+        if (!ota_requested && power_debug_ota_requested()) {
+            DBG_PRINTF("DEBUG button hold: OTA update triggered\r\n");
+            ota_requested = true;
+        }
+#endif /* !PRODUCTION_BUILD */
+
         /* OTA: stop all actuators and hand off to the bootloader (App0). */
         if (ota_requested && !ota_disabling) {
             ota_disabling = true;
@@ -837,6 +880,24 @@ int HostMain(void)
             set_tens_signal(0, 0, 0, 0, 0);
             /* Cy_BLE_Disable() fires STACK_SHUTDOWN_COMPLETE where we jump */
             Cy_BLE_Disable();
+        }
+
+        /* BLE restart: STACK_SHUTDOWN_COMPLETE sets this flag instead of calling
+         * Cy_BLE_Start directly.  The 300ms delay lets the BLESS ECO settle so the
+         * cold-start hardware error doesn't repeat on the very next attempt. */
+        if (ble_restart_needed) {
+            ble_restart_needed = false;
+            if (ble_restart_attempts < BLE_MAX_RESTART_ATTEMPTS) {
+                ble_restart_attempts++;
+                DBG_PRINTF("BLE restart %d state=%d err=%x\r\n",
+                           (int)ble_restart_attempts,
+                           (int)Cy_BLE_GetState(),
+                           (uint32_t)ble_last_hw_err);
+                CyDelay(1500u);
+                Cy_BLE_Start(AppCallBack);
+            } else {
+                DBG_PRINTF("BLE restart failed - max attempts reached\r\n");
+            }
         }
 
         int currentValue = Cy_LPComp_GetCompare(LPCOMP, CY_LPCOMP_CHANNEL_1);
