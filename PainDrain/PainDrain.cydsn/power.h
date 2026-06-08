@@ -94,5 +94,10 @@ void power_led_slow_blink (DeviceStatus status);
 void reset_timer_cycles(void);
 
 bool power_stimulus_active(void);
+bool power_is_shutting_down(void);
+
+#ifndef PRODUCTION_BUILD
+bool power_debug_ota_requested(void);
+#endif /* !PRODUCTION_BUILD */
 
 uint16_t reg_array[38];

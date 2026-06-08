@@ -55,6 +55,10 @@ bool just_woke_from_hibernate = true;
 bool isAdvertisingInit = false;
 static int button_state = 1;
 
+bool power_is_shutting_down(void) {
+    return power_state == POWER_DOWN;
+}
+
 bool power_stimulus_active(void) {
     return (power_flags & ((1<<POWER_FLAG_TENS) | 
                            (1<<POWER_FLAG_TEMP) | 
@@ -322,9 +326,22 @@ void power_off_device(){
 
 
 #define BUTTON_HOLD_TIME 100
+
+#ifndef PRODUCTION_BUILD
+/* Extra-long hold (8s) fires OTA mode — debug only, excluded in production builds */
+#define BUTTON_OTA_HOLD_TIME 200u
+static bool debug_ota_button_flag = false;
+
+bool power_debug_ota_requested(void) {
+    bool v = debug_ota_button_flag;
+    debug_ota_button_flag = false;
+    return v;
+}
+#endif /* !PRODUCTION_BUILD */
+
 int check_power_button_press(){
     int ret = 0;
-    
+
     /* Ignore button events immediately after wake-up */
     if(just_woke_from_hibernate)
     {
@@ -352,6 +369,13 @@ int check_power_button_press(){
         } else {
             DBG_PRINTF("Power off cycles: %d\r\n", power_off_cycles);
         }
+
+#ifndef PRODUCTION_BUILD
+        if (power_off_cycles == BUTTON_OTA_HOLD_TIME) {
+            debug_ota_button_flag = true;
+            DBG_PRINTF("DEBUG: OTA button hold triggered\r\n");
+        }
+#endif /* !PRODUCTION_BUILD */
 
     } else if (button_state == 0 && Cy_GPIO_Read(PWR_PORT, PWR_NUM) == 1) {
         //Button upress

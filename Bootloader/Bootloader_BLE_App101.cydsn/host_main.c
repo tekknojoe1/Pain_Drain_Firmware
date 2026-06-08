@@ -430,10 +430,11 @@ int HostMain(void)
     
     /* Initialization the user interface: LEDs, SW2, ect.  */
     InitUserInterface();
-    
-    /* Initialize Debug UART */
+
+    /* UART already started in main_cm0p; reprint banner here in case host core is CM4 */
     UART_START();
-    DBG_PRINTF("BLE HID Keyboard Example\r\n");
+    DBG_PRINTF("\r\n=== HostMain entered ===\r\n");
+    DBG_PRINTF("BLE HID Keyboard / DFU Bootloader\r\n");
     
     /* Start BLE component and register generic event handler */
     apiResult = Cy_BLE_Start(AppCallBack);

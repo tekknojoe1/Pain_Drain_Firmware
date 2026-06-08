@@ -70,7 +70,7 @@ static const TempPwmPoint_t temp_pwm_table[] = {
 #define COOL_MAX_PWM               100     // Max magnitude for cooling PWM (prevents hot-side saturation)
 #define COOL_IDLE_PWM                1     // Reduced cooling magnitude during hot-side recovery phase
 
-#define HEAT_MAX_PWM                23     // Max magnitude for heating PWM (limits surface to ~110 F)
+#define HEAT_MAX_PWM                23      // Max magnitude for heating PWM (limits surface to ~110 F)
 #define HEAT_LIMIT_SCALE_INTERVAL    5     // Seconds between PWM scale-back steps when at temp limit
 #define HEAT_LIMIT_SCALE_UP_INTERVAL 10    // Seconds between PWM scale-up steps during limit recovery
 #define HEAT_LIMIT_RECOVER_BELOW_C   1.5f  // Degrees C below max that triggers scale-up

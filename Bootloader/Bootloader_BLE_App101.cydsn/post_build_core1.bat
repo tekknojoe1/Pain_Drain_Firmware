@@ -8,7 +8,7 @@
 @echo ------------------------------------------
 
 @rem Set proper path to your PDL 3.x and above installation
-@set PDL_PATH="C:\Program Files (x86)\Cypress\PDL\3.0.1"
+@set PDL_PATH="C:\Program Files (x86)\Cypress\PDL\3.1.7"
 
 @set CY_MCU_ELF_TOOL=%PDL_PATH%"\tools\win\elf\cymcuelftool.exe"
 

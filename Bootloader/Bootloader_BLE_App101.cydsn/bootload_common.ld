@@ -38,8 +38,8 @@ MEMORY
     /* note: all the ram_appX_core0 regions has to be 0x100 aligned */
     /* and the ram_appX_core1 regions has to be 0x400 aligned       */
     /* as they contain Interrupt Vector Table Remapped at the start */
-    ram_app0_core0    (rwx) : ORIGIN = 0x08000100, LENGTH = 0x1F00
-    ram_app0_core1    (rwx) : ORIGIN = 0x08002000, LENGTH = 0x8000
+    ram_app0_core0    (rwx) : ORIGIN = 0x08000100, LENGTH = 0x7F00
+    ram_app0_core1    (rwx) : ORIGIN = 0x08008000, LENGTH = 0x8000
 
     ram_app1_core0    (rwx) : ORIGIN = 0x08000100, LENGTH = 0x1FF00
     ram_app1_core1    (rwx) : ORIGIN = 0x08020000, LENGTH = 0x20000
