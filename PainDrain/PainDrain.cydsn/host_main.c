@@ -53,6 +53,7 @@
 #include "my_i2c.h"
 #include "flash_storage.h"
 #include "bq28Z610.h"
+#include "version.h"
 
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
 static volatile uint32_t           mainTimer  = 1u;
@@ -386,6 +387,7 @@ void AppCallBack(uint32 event, void *eventParam)
                         token_count++;
                         token = strtok(NULL, delimiter); // Get the next token
                     }
+                    bool handled = false;
                     switch(tokens[0][0]){
                         case 't':
                         {
@@ -577,6 +579,23 @@ void AppCallBack(uint32 event, void *eventParam)
                             //}
                         }
                         
+                        case 'V':
+                        {
+                            static const char version_resp[] = "V " FIRMWARE_VERSION_STR;
+                            DBG_PRINTF("Version requested: %s\r\n", version_resp);
+                            respondStringPtr = (uint8_t *)version_resp;
+                            writeError = Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
+                            if (writeError != CY_BLE_SUCCESS) {
+                                DBG_PRINTF("Write rsp failed\r\n");
+                            }
+                            bool result = send_data_to_phone((uint8_t *)version_resp, sizeof(version_resp) - 1, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+                            if (!result) {
+                                DBG_PRINTF("Failed to send to phone\r\n");
+                            }
+                            handled = true;
+                            break;
+                        }
+
                         default:
                         {
                             DBG_PRINTF("char: %c\r\n", tokens[0][0]);
@@ -587,30 +606,31 @@ void AppCallBack(uint32 event, void *eventParam)
                         
                     }
                     
-                    // Allocate memory for the string plus one extra byte for the null terminator
-                    respondStringPtr = (uint8_t *)malloc((length + 1) * sizeof(uint8_t));
+                    if (!handled) {
+                        // Allocate memory for the string plus one extra byte for the null terminator
+                        respondStringPtr = (uint8_t *)malloc((length + 1) * sizeof(uint8_t));
 
-                    // Check if memory allocation was successful
-                    if (respondStringPtr != NULL) {
-                        // Copy the string from writeReq->handleValPair.value.val to respondStringPtr
-                        memcpy(respondStringPtr, writeReq->handleValPair.value.val, length);
-                        
-                        // Null-terminate the string
-                        respondStringPtr[length] = '\0';
-                    } else {
-                        // Memory allocation failure
-                        DBG_PRINTF("Memory Allocation Failed\r\n");
-                    }
+                        // Check if memory allocation was successful
+                        if (respondStringPtr != NULL) {
+                            // Copy the string from writeReq->handleValPair.value.val to respondStringPtr
+                            memcpy(respondStringPtr, writeReq->handleValPair.value.val, length);
 
+                            // Null-terminate the string
+                            respondStringPtr[length] = '\0';
+                        } else {
+                            // Memory allocation failure
+                            DBG_PRINTF("Memory Allocation Failed\r\n");
+                        }
 
-                    // Sends a write with response command
-                    writeError = Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
-                    if( writeError != CY_BLE_SUCCESS ){
-                        DBG_PRINTF("Write rsp failed\r\n");
-                    }
-                    bool result = send_data_to_phone(writeReq->handleValPair.value.val, writeReq->handleValPair.value.len, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
-                    if(!result){
-                        DBG_PRINTF("Failed to send to phone\r\n");
+                        // Sends a write with response command
+                        writeError = Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
+                        if( writeError != CY_BLE_SUCCESS ){
+                            DBG_PRINTF("Write rsp failed\r\n");
+                        }
+                        bool result = send_data_to_phone(writeReq->handleValPair.value.val, writeReq->handleValPair.value.len, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+                        if(!result){
+                            DBG_PRINTF("Failed to send to phone\r\n");
+                        }
                     }
                 }
                 
@@ -710,6 +730,7 @@ void Isr_switch(void)
 int HostMain(void)
 {  
     DBG_PRINTF("START OF PROGRAM\r\n");
+    DBG_PRINTF("Firmware version: " FIRMWARE_VERSION_STR "\r\n");
     
     /* Check the IO status. If current status is frozen, unfreeze the system. */
     if(Cy_SysPm_GetIoFreezeStatus())
