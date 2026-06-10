@@ -221,7 +221,17 @@ void temp_task(void) {
             batt_print_count = 0;
             uint8_t  soc = bq28Z610_get_soc();
             uint16_t mv  = bq28Z610_get_voltage_mv();
-            DBG_PRINTF("Battery: %d%c %dmV\r\n", (int)soc, '%', (int)mv);
+            const char* status_str;
+            switch(device_status) {
+                case 0: status_str = "Not Charging"; break;
+                case 1: status_str = "Charging"; break;
+                case 2: status_str = "Full"; break;
+                case 3: status_str = "Low"; break;
+                case 4: status_str = "Medium"; break;
+                case 5: status_str = "Normal"; break;
+                default: status_str = "Unknown"; break;
+            }
+            DBG_PRINTF("Battery: %d%c %dmV %s\r\n", (int)soc, '%', (int)mv, status_str);
         }
     //} else {
     //    batt_print_count = BATT_PRINT_INTERVAL - 2;

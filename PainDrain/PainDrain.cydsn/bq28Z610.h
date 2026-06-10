@@ -24,6 +24,7 @@
 #define BQ28Z610_REG_REMAINING_CAP  0x10  // mAh
 #define BQ28Z610_REG_FULL_CAP       0x12  // mAh
 #define BQ28Z610_REG_AVG_CURRENT    0x14  // mA (signed)
+#define BQ28Z610_REG_TTE            0x16  // Time to empty, minutes
 #define BQ28Z610_REG_SOC            0x2C  // State of charge, 0-100 %
 #define BQ28Z610_REG_SOH            0x2E  // State of health, 0-100 %
 
@@ -33,5 +34,6 @@ void bq28Z610_read_reg(uint8_t reg, uint8_t* d, int num_regs);
 void bq28Z610_read_all_reg();
 uint8_t  bq28Z610_get_soc(void);
 uint16_t bq28Z610_get_voltage_mv(void);
+uint16_t bq28Z610_get_tte(void);
 
 /* [] END OF FILE */

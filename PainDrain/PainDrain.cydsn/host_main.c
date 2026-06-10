@@ -191,7 +191,11 @@ void AppCallBack(uint32 event, void *eventParam)
                 //Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT);
                 //Cy_SysPm_Hibernate(); // Put system in hibernate
             } else {
-                DBG_PRINTF("ADVERTISEMENT STARTED\r\n");
+                extern cy_stc_ble_gap_bd_addr_t cy_ble_deviceAddress;
+                DBG_PRINTF("ADVERTISEMENT STARTED - BLE Address: %x:%x:%x:%x:%x:%x\r\n",
+                    cy_ble_deviceAddress.bdAddr[5], cy_ble_deviceAddress.bdAddr[4],
+                    cy_ble_deviceAddress.bdAddr[3], cy_ble_deviceAddress.bdAddr[2],
+                    cy_ble_deviceAddress.bdAddr[1], cy_ble_deviceAddress.bdAddr[0]);
                 power_flags_update(POWER_FLAG_BLE, 1);
             }
             break;
@@ -581,16 +585,41 @@ void AppCallBack(uint32 event, void *eventParam)
                         
                         case 'V':
                         {
-                            static const char version_resp[] = "V " FIRMWARE_VERSION_STR;
-                            DBG_PRINTF("Version requested: %s\r\n", version_resp);
-                            respondStringPtr = (uint8_t *)version_resp;
+                            static uint8_t version_resp[4] = {0x56, FIRMWARE_VERSION_MAJOR, FIRMWARE_VERSION_MINOR, FIRMWARE_VERSION_PATCH};
+                            DBG_PRINTF("Version requested: %d.%d.%d\r\n", FIRMWARE_VERSION_MAJOR, FIRMWARE_VERSION_MINOR, FIRMWARE_VERSION_PATCH);
                             writeError = Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
                             if (writeError != CY_BLE_SUCCESS) {
                                 DBG_PRINTF("Write rsp failed\r\n");
                             }
-                            bool result = send_data_to_phone((uint8_t *)version_resp, sizeof(version_resp) - 1, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+                            bool result = send_data_to_phone(version_resp, sizeof(version_resp), CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
                             if (!result) {
-                                DBG_PRINTF("Failed to send to phone\r\n");
+                                DBG_PRINTF("Failed to send version to phone\r\n");
+                            }
+                            handled = true;
+                            break;
+                        }
+
+                        case 'b':
+                        {
+                            uint8_t soc = bq28Z610_get_soc();
+                            uint16_t tte = bq28Z610_get_tte();
+                            uint16_t mv = bq28Z610_get_voltage_mv();
+                            static uint8_t batt_resp[7];
+                            batt_resp[0] = 0x62;
+                            batt_resp[1] = soc;
+                            batt_resp[2] = (uint8_t)(tte & 0xFF);
+                            batt_resp[3] = (uint8_t)(tte >> 8);
+                            batt_resp[4] = (uint8_t)device_status;
+                            batt_resp[5] = (uint8_t)(mv & 0xFF);
+                            batt_resp[6] = (uint8_t)(mv >> 8);
+                            DBG_PRINTF("Battery requested: SoC=%u%%, TTE=%u min, mV=%u, Status=%d\r\n", (unsigned)soc, (unsigned)tte, (unsigned)mv, (int)device_status);
+                            writeError = Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
+                            if (writeError != CY_BLE_SUCCESS) {
+                                DBG_PRINTF("Write rsp failed\r\n");
+                            }
+                            bool result = send_data_to_phone(batt_resp, sizeof(batt_resp), CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+                            if (!result) {
+                                DBG_PRINTF("Failed to send battery to phone\r\n");
                             }
                             handled = true;
                             break;

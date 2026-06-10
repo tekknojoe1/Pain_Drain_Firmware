@@ -75,4 +75,10 @@ uint16_t bq28Z610_get_voltage_mv(void) {
     return (uint16_t)((d[1] << 8) | d[0]);  // little-endian mV
 }
 
+uint16_t bq28Z610_get_tte(void) {
+    uint8_t d[2];
+    bq28Z610_read_reg(BQ28Z610_REG_TTE, d, 2);
+    return (uint16_t)((d[1] << 8) | d[0]);  // little-endian minutes
+}
+
 /* [] END OF FILE */
