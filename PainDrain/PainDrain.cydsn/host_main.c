@@ -55,8 +55,9 @@
 #include "bq28Z610.h"
 #include "version.h"
 
-static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
+static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };
 static volatile uint32_t           mainTimer  = 1u;
+static const uint32_t BUILD_NUMBER = 1;
 
 
 uint8 newBatteryLevel = 0;
@@ -757,7 +758,8 @@ void Isr_switch(void)
 *
 *******************************************************************************/
 int HostMain(void)
-{  
+{
+    DBG_PRINTF("APP BUILD %u\r\n", BUILD_NUMBER);
     DBG_PRINTF("START OF PROGRAM\r\n");
     DBG_PRINTF("Firmware version: " FIRMWARE_VERSION_STR "\r\n");
     
