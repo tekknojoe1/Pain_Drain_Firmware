@@ -148,8 +148,8 @@ uint32 myI2C_I2CMasterSendStart(uint32 slaveAddress, uint32 bitRnW) {
 *******************************************************************************/
 uint32 myI2C_I2CMasterSendRestart(uint32 slaveAddress, uint32 bitRnW) {
 	uint8 sa;
-	uint32 ack;
-	
+	uint32 ack = 0;
+
 	sa = (slaveAddress<<1 & 0xFE) | (bitRnW & 0x1);
 		
 	I2C_SDA_Write(1);

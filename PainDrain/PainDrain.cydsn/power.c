@@ -387,7 +387,6 @@ int check_power_button_press(){
 void power_task( void ) {
     DeviceStatus charger_status;
     uint8_t* data;
-    bool result;
     int button_status;
 
     charger_status = check_charger();
@@ -556,7 +555,7 @@ void power_task( void ) {
             Cy_BLE_GAPP_StopAdvertisement();
 
             data = (uint8_t*)"charging 0";
-            result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+            send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
             // was successful
             DBG_PRINTF("POWER_CHARGING\r\n");
             power_state = POWER_CHARGING;
@@ -594,7 +593,7 @@ void power_task( void ) {
             }
 
             data = (uint8_t*)"charging 1";
-            result = send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+            send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
             // was successful
             DBG_PRINTF("POWER_ADV\r\n");
             power_state = POWER_ADV;
@@ -699,14 +698,13 @@ void power_get_diag_data(uint8 d[]) {
 }
 
 void power_i2c_read_reg(uint8_t deviceAddr, uint8_t reg, uint8_t* d, int num_regs) {
-    int status;
     int i;
 
     myI2C_I2CMasterClearStatus();
 
-    status = myI2C_I2CMasterSendStart(deviceAddr, 0);
-    status = myI2C_I2CMasterWriteByte(reg);
-    status = myI2C_I2CMasterSendRestart(deviceAddr, 1);
+    myI2C_I2CMasterSendStart(deviceAddr, 0);
+    myI2C_I2CMasterWriteByte(reg);
+    myI2C_I2CMasterSendRestart(deviceAddr, 1);
 
     for (i=0;i<num_regs-1;i++) {
         CyDelay(10);
@@ -719,12 +717,10 @@ void power_i2c_read_reg(uint8_t deviceAddr, uint8_t reg, uint8_t* d, int num_reg
 }
 
 void power_i2c_write_reg(uint8_t deviceAddr, uint8_t reg, uint8_t d) {
-    int status;
-
     myI2C_I2CMasterClearStatus();
-    status = myI2C_I2CMasterSendStart(deviceAddr, 0);
-	status = myI2C_I2CMasterWriteByte(reg);
-	status = myI2C_I2CMasterWriteByte(d);
+    myI2C_I2CMasterSendStart(deviceAddr, 0);
+	myI2C_I2CMasterWriteByte(reg);
+	myI2C_I2CMasterWriteByte(d);
     myI2C_I2CMasterSendStop();
 }
 

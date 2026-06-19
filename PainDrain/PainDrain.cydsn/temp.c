@@ -76,7 +76,6 @@ static const TempPwmPoint_t temp_pwm_table[] = {
 #define HEAT_LIMIT_RECOVER_BELOW_C   1.5f  // Degrees C below max that triggers scale-up
 
 
-static int set_fan_based_on_temp(int temp_value);
 static float adc_counts_to_resistance(int16_t counts);
 static float resistance_to_celsius(float resistance);
 static float celsius_to_fahrenheit(float celsius);
@@ -91,8 +90,6 @@ static volatile int temp_acquire_flag = 0;  // Set by temp_timer, cleared by tem
 static int32_t temp_timer_count = 0;        // Counts timer ticks
 static float last_temp_celsius = 0.0f;      // Last measured temperature
 static float last_temp_fahrenheit = 0.0f;
-
-static int32_t temp_cnt = 0;
 
 static float target_actual_c    = 0.0f;
 static float prev_temp_c        = 0.0f;
@@ -678,7 +675,7 @@ void set_fan(int value){
     value = ( abs(value) > 100) ? 100 : value;
     
     // scale the value to the PWM range
-    int scaled_fan_pwm = ( abs(value) * MAX_FAN_PWM_VALUE) / 100;
+    //int scaled_fan_pwm = ( abs(value) * MAX_FAN_PWM_VALUE) / 100;
     //DBG_PRINTF("Value: %d\r\n", value);
     //Update Fan
     if (value == 0) {
