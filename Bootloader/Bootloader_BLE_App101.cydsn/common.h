@@ -36,12 +36,26 @@
 /* BAS service defines */
 #define BATTERY_TIMEOUT                 (30u)               /* Battery simulation timeout */
 
-/* Dual-app bootloader constants */
-#define APP0_START_ADDR                 (0x10010000u)       /* App0: 0x10010000-0x10047FFF (416KB) */
-#define APP1_START_ADDR                 (0x10048000u)       /* App1: 0x10048000-0x1007FFFF (416KB) */
-#define APP_SLOT_SIZE                   (0x68000u)          /* 416KB per slot */
-#define APP0_META_ADDR                  (0x10047F00u)       /* Metadata at end of App0 slot */
-#define APP1_META_ADDR                  (0x1007FF00u)       /* Metadata at end of App1 slot */
+/* Dual-app bootloader memory map (1 MB flash, 0x10000000-0x10100000)
+ *
+ *   Bootloader : 0x10000000 - 0x1000FFFF  (64 KB)  this project, CM0+ only, no BLE
+ *   App0 slot  : 0x10010000 - 0x10087FFF  (480 KB) PainDrain built for slot 0
+ *   App1 slot  : 0x10088000 - 0x100FFFFF  (480 KB) PainDrain built for slot 1
+ *
+ * Each 480 KB slot holds a full dual-core app (vector table at slot start):
+ *   App0  CM0+ : 0x10010000 (128 KB)   App0 CM4 : 0x10030000 (~352 KB)
+ *   App1  CM0+ : 0x10088000 (128 KB)   App1 CM4 : 0x100A8000 (~352 KB)
+ *   Metadata is the reserved last 256 B of each slot.
+ */
+#define APP_SLOT_SIZE                   (0x78000u)          /* 480 KB per slot          */
+
+#define APP0_START_ADDR                 (0x10010000u)       /* App0 CM0+ vector table   */
+#define APP0_CM4_ADDR                   (0x10030000u)       /* App0 CM4 vector table    */
+#define APP0_META_ADDR                  (0x10087F00u)       /* App0 metadata (last row) */
+
+#define APP1_START_ADDR                 (0x10088000u)       /* App1 CM0+ vector table   */
+#define APP1_CM4_ADDR                   (0x100A8000u)       /* App1 CM4 vector table    */
+#define APP1_META_ADDR                  (0x100FFF00u)       /* App1 metadata (last row) */
 
 /***************************************
 *        External Function Prototypes

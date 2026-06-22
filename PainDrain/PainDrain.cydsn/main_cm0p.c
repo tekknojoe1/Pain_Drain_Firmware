@@ -42,6 +42,14 @@
 #include "project.h"
 #include "common.h"
 
+/* CM4 vector-table address for the slot this image is built for.
+ * Default = App0 (0x10030000). The App1 build overrides this with
+ *   -D APP_CM4_ADDR=0x100A8000u
+ * in its build configuration (see dual-app memory map in the bootloader common.h). */
+#ifndef APP_CM4_ADDR
+#define APP_CM4_ADDR  (0x10030000u)
+#endif
+
 
 /*******************************************************************************
 * Function Name: main()
@@ -59,8 +67,8 @@ int main(void)
 
 #if(CY_BLE_CONFIG_HOST_CORE == CY_BLE_CORE_CORTEX_M0P)   
     
-    /* Enable CM4.  CY_CORTEX_M4_APPL_ADDR must be updated if CM4 memory layout is changed. */
-    Cy_SysEnableCM4(CY_CORTEX_M4_APPL_ADDR); 
+    /* Enable CM4 at this slot's CM4 vector table (dual-app layout, not the PDL default). */
+    Cy_SysEnableCM4(APP_CM4_ADDR);
     
     /* Run Host main */
     HostMain();
@@ -72,8 +80,8 @@ int main(void)
         Cy_BLE_Start(NULL);
     #endif /* (CY_BLE_STACK_MODE_IPC)*/
     
-    /* Enable CM4.  CY_CORTEX_M4_APPL_ADDR must be updated if CM4 memory layout is changed. */
-    Cy_SysEnableCM4(CY_CORTEX_M4_APPL_ADDR); 
+    /* Enable CM4 at this slot's CM4 vector table (dual-app layout, not the PDL default). */
+    Cy_SysEnableCM4(APP_CM4_ADDR);
     
     for(;;)
     {
