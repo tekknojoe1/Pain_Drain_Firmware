@@ -64,14 +64,15 @@ int main(void)
         Cy_SysPm_IoUnfreeze();
     }
 
-    /* Enable global interrupts. */
-    __enable_irq();
+    /* Minimal chooser bootloader: select an app slot and jump to it
+     * (HostMain never returns). CM4 is intentionally NOT enabled here --
+     * the selected app's CM0+ enables CM4 at the app's own CM4 vector
+     * table address (APP_CM4_ADDR in the app's main_cm0p.c). */
+    HostMain();
 
-    /* Enable CM4 at app start address (0x10010000 after bootloader) */
-    Cy_SysEnableCM4(0x10010000);
-
-    /* Run bootloader main to select and jump to app */
-    HostMain();  
+    for(;;)
+    {
+    }
 }
 
 
