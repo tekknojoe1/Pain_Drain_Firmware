@@ -219,7 +219,11 @@ void AppCallBack(uint32 event, void *eventParam)
             break;
             
         case CY_BLE_EVT_HARDWARE_ERROR:    /* This event indicates that some internal HW error has occurred */
-            DBG_PRINTF("INTERNAL HARDWARE ERROR");
+            /* eventParam points to the BLE hardware error code:
+             *   0x01 = IPC sync lost (CM0+ controller not running)
+             *   0x0C = HW init failure (regulator / ECO / BLESS)
+             *   0x0D = PILO calibration failure (wrong LFCLK source) */
+            DBG_PRINTF("HW ERR code=%x\r\n", (eventParam != NULL) ? *(uint8_t *)eventParam : 0xFF);
             break;
 
         case CY_BLE_EVT_STACK_SHUTDOWN_COMPLETE:
