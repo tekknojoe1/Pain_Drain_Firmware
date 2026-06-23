@@ -42,6 +42,39 @@
 #include "common.h"
 #include "user_interface.h"
 #include "power.h"
+#include <stdint.h>
+
+/*******************************************************************************
+* Dual-app slot metadata
+*
+* Emitted into the reserved last 256 B of this image's app slot (see the
+* .app_metadata section in cy8c6xx7_cm4_dual.ld). The minimal bootloader reads
+* this to decide which slot to boot: it picks the valid slot (magic ==
+* 0xDEADBEEF) with the highest version.
+*
+* The slot address is set by the linker (App0 -> 0x10087F00, App1 ->
+* 0x100FFF00). APP_VERSION is provided per build: the App1 build passes
+* -D APP_VERSION=<n>; App0 defaults to 1.
+*******************************************************************************/
+#ifndef APP_VERSION
+#define APP_VERSION                 (1u)
+#endif
+
+typedef struct {
+    uint32_t magic;     /* 0xDEADBEEF = valid */
+    uint32_t version;   /* higher version wins */
+    uint32_t size;      /* image size in bytes (informational, filled by OTA) */
+    uint32_t crc;       /* CRC32 (not validated yet) */
+} fw_metadata_t;
+
+__attribute__((used, section(".app_metadata")))
+const fw_metadata_t g_app_metadata =
+{
+    .magic   = 0xDEADBEEFu,
+    .version = APP_VERSION,
+    .size    = 0u,
+    .crc     = 0u,
+};
 
 /* WDT demo options */
 #define WDT_RESET_DEMO						1

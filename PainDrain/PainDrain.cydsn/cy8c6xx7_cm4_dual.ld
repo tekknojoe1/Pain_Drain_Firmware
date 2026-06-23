@@ -61,6 +61,11 @@ MEMORY
     ram               (rwx)   : ORIGIN = 0x08024000, LENGTH = 0x23800
     flash             (rx)    : ORIGIN = 0x10030000, LENGTH = 0x57F00
 
+    /* Dual-app slot metadata: reserved last 256 B of the App0 slot.
+     * The bootloader reads {magic, version, ...} here to pick a slot.
+     * App1 build overrides this ORIGIN to 0x100FFF00. */
+    app_meta          (rx)    : ORIGIN = 0x10087F00, LENGTH = 0x100
+
     /* This is a 32K flash region used for EEPROM emulation. This region can also be used as the general purpose flash.
      * You can assign sections to this memory region for only one of the cores.
      * Note some middleware (e.g. BLE, Emulated EEPROM) can place their data into this memory region.
@@ -117,6 +122,12 @@ GROUP(libgcc.a libc.a libm.a libnosys.a)
 
 SECTIONS
 {
+    /* Dual-app slot metadata at the reserved tail of the slot (see app_meta). */
+    .app_metadata :
+    {
+        KEEP(*(.app_metadata))
+    } > app_meta
+
     .text :
     {
         . = ALIGN(4);
