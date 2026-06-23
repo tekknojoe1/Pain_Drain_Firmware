@@ -54,6 +54,45 @@
 #include "flash_storage.h"
 #include "bq28Z610.h"
 #include "version.h"
+#include "cy_flash.h"
+
+/* ---- OTA dual-app slots (must match the bootloader common.h memory map) ---- */
+#ifndef APP_SLOT
+#define APP_SLOT            (0u)            /* App0 default; build_slot.py sets -D APP_SLOT=1 for App1 */
+#endif
+#define OTA_SLOT0_BASE      (0x10010000u)
+#define OTA_SLOT1_BASE      (0x10088000u)
+#define OTA_SLOT_SIZE       (0x78000u)      /* 480 KB */
+#define OTA_INACTIVE_BASE   ((APP_SLOT == 0u) ? OTA_SLOT1_BASE : OTA_SLOT0_BASE)
+#define OTA_FLASH_ROW       (CY_FLASH_SIZEOF_ROW)   /* 512 bytes */
+
+/* Stage 3 flash-write primitive: erase+write+read-back one row of the INACTIVE
+ * slot while the app and BLE are running. This validates the flash driver and
+ * the slot addressing before the full OTA. Triggered by the 'F' BLE command.
+ * Safe: the inactive slot's metadata stays invalid, so the bootloader still
+ * boots the running app. */
+static void ota_flash_self_test(void)
+{
+    uint32_t addr = OTA_INACTIVE_BASE;
+    uint32_t pattern[OTA_FLASH_ROW / 4u];
+    uint32_t i;
+    cy_en_flashdrv_status_t st;
+    bool ok;
+
+    for (i = 0u; i < OTA_FLASH_ROW / 4u; i++) { pattern[i] = 0xA5A50000u | i; }
+
+    DBG_PRINTF("OTA flash test: write inactive-slot row @ %x\r\n", addr);
+    st = Cy_Flash_WriteRow(addr, pattern);   /* erases then programs the row */
+    DBG_PRINTF("  WriteRow status = %x\r\n", (unsigned)st);
+
+    const volatile uint32_t *rb = (const volatile uint32_t *)addr;
+    ok = (st == CY_FLASH_DRV_SUCCESS);
+    for (i = 0u; ok && (i < OTA_FLASH_ROW / 4u); i++)
+    {
+        if (rb[i] != pattern[i]) { ok = false; }
+    }
+    DBG_PRINTF("  readback: %s\r\n", ok ? "PASS" : "FAIL");
+}
 
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };
 static volatile uint32_t           mainTimer  = 1u;
@@ -626,6 +665,19 @@ void AppCallBack(uint32 event, void *eventParam)
                             if (!result) {
                                 DBG_PRINTF("Failed to send battery to phone\r\n");
                             }
+                            handled = true;
+                            break;
+                        }
+
+                        case 'F':
+                        {
+                            /* Stage 3: OTA flash-write self-test on the inactive slot. */
+                            DBG_PRINTF("OTA flash self-test requested\r\n");
+                            writeError = Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
+                            if (writeError != CY_BLE_SUCCESS) {
+                                DBG_PRINTF("Write rsp failed\r\n");
+                            }
+                            ota_flash_self_test();
                             handled = true;
                             break;
                         }
