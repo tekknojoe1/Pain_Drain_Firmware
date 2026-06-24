@@ -106,9 +106,11 @@ static void GetStartEndAddress(uint32_t appId, uint32_t *startAddress, uint32_t 
 cy_en_dfu_status_t Cy_DFU_WriteData (uint32_t address, uint32_t length, uint32_t ctl, 
                                                cy_stc_dfu_params_t *params)
 {
-    /* User Flash Limits */
-    /* Note that App0 is out of range */
-    const uint32_t minUFlashAddress = CY_FLASH_BASE + CY_DFU_APP0_VERIFY_LENGTH;
+    /* Allowed update range = both app slots (App0 start .. end of flash). The
+     * 64 KB bootloader below App0 is protected, and the running app's own slot
+     * is rejected by the GetRunningApp check above -- so writes land only in the
+     * INACTIVE slot, in either A/B direction. */
+    const uint32_t minUFlashAddress = CY_DFU_APP0_VERIFY_START;
     const uint32_t maxUFlashAddress = CY_FLASH_BASE + CY_FLASH_SIZE;
     /* EM_EEPROM Limits*/
     const uint32_t minEmEepromAddress = CY_EM_EEPROM_BASE;
@@ -190,9 +192,11 @@ cy_en_dfu_status_t Cy_DFU_WriteData (uint32_t address, uint32_t length, uint32_t
 cy_en_dfu_status_t Cy_DFU_ReadData (uint32_t address, uint32_t length, uint32_t ctl, 
                                               cy_stc_dfu_params_t *params)
 {
-    /* User Flash Limits */
-    /* Note that App0 is out of range */
-    const uint32_t minUFlashAddress = CY_FLASH_BASE + CY_DFU_APP0_VERIFY_LENGTH;
+    /* Allowed update range = both app slots (App0 start .. end of flash). The
+     * 64 KB bootloader below App0 is protected, and the running app's own slot
+     * is rejected by the GetRunningApp check above -- so writes land only in the
+     * INACTIVE slot, in either A/B direction. */
+    const uint32_t minUFlashAddress = CY_DFU_APP0_VERIFY_START;
     const uint32_t maxUFlashAddress = CY_FLASH_BASE + CY_FLASH_SIZE;
     /* EM_EEPROM Limits*/
     const uint32_t minEmEepromAddress = CY_EM_EEPROM_BASE;

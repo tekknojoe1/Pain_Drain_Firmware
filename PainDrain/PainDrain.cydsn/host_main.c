@@ -55,6 +55,7 @@
 #include "bq28Z610.h"
 #include "version.h"
 #include "cy_flash.h"
+#include "cy_dfu.h"
 
 /* ---- OTA dual-app slots (must match the bootloader common.h memory map) ---- */
 #ifndef APP_SLOT
@@ -94,9 +95,15 @@ static void ota_flash_self_test(void)
     DBG_PRINTF("  readback: %s\r\n", ok ? "PASS" : "FAIL");
 }
 
+/* ---- DFU / OTA: Cypress cy_dfu over the BLE Bootloader service (CySmart) ---- */
+static cy_stc_dfu_params_t  dfuParams;
+static uint32_t             dfuState;
+__attribute__((aligned(4))) static uint8_t dfuDataBuffer[CY_DFU_SIZEOF_DATA_BUFFER];
+__attribute__((aligned(4))) static uint8_t dfuPacketBuffer[CY_DFU_SIZEOF_CMD_BUFFER];
+
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };
 static volatile uint32_t           mainTimer  = 1u;
-static const uint32_t BUILD_NUMBER = 2;
+static const uint32_t BUILD_NUMBER = 3;
 
 
 uint8 newBatteryLevel = 0;
@@ -848,7 +855,21 @@ int HostMain(void)
     
     /* Start BLE component and register generic event handler */
     Cy_BLE_Start(AppCallBack);
-    
+
+    /* Initialize the DFU (OTA) engine and start the BLE DFU transport (the
+     * Bootloader service that CySmart and the mobile app talk to). cy_dfu writes
+     * the received image into the INACTIVE slot; on completion we reset and the
+     * bootloader boots the new slot via our own {magic,version} metadata. */
+    dfuParams.timeout      = 1u;     /* ms. MUST be >0 (Cy_DFU_Continue asserts timeout!=0).
+                                      * Kept at 1ms so the read is effectively a poll and the
+                                      * app main loop stays responsive when no OTA is active;
+                                      * DFU packets are buffered by the BTS callback between calls. */
+    dfuParams.dataBuffer   = dfuDataBuffer;
+    dfuParams.packetBuffer = dfuPacketBuffer;
+    (void)Cy_DFU_Init(&dfuState, &dfuParams);
+    Cy_DFU_TransportStart();
+    DBG_PRINTF("DFU transport started\r\n");
+
     
     /* Initialize BLE Services */
     IasInit();
@@ -919,6 +940,24 @@ int HostMain(void)
     while(1)
     {
         Cy_BLE_ProcessEvents();
+
+        /* Process the OTA/DFU protocol (non-blocking poll). When a transfer
+         * finishes, the new image (incl. its higher-version metadata) is in the
+         * inactive slot -- reset and let the bootloader select it. */
+        Cy_DFU_Continue(&dfuState, &dfuParams);
+        if (dfuState == CY_DFU_STATE_FINISHED)
+        {
+            DBG_PRINTF("DFU complete -> reset into new slot\r\n");
+            Cy_SysLib_Delay(50u);
+            NVIC_SystemReset();
+        }
+        else if (dfuState == CY_DFU_STATE_FAILED)
+        {
+            DBG_PRINTF("DFU failed -> restarting transport\r\n");
+            (void)Cy_DFU_Init(&dfuState, &dfuParams);
+            Cy_DFU_TransportReset();
+        }
+
         int currentValue = Cy_LPComp_GetCompare(LPCOMP, CY_LPCOMP_CHANNEL_1);
         //DBG_PRINTF("lp comp changed value: %d\r\n", currentValue);
         if(lastValue != currentValue){
