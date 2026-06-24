@@ -122,12 +122,12 @@ __cy_boot_signature_size = 4;
 __cy_product_id          = 0x01020304;
 __cy_checksum_type       = 0x00;
 __cy_app0_verify_start   = 0x10010000;
-__cy_app0_verify_length  = (0x20000 + 0x57F00) - __cy_boot_signature_size;
+__cy_app0_verify_length  = (0x20000 + 0x58000) - __cy_boot_signature_size;
 __cy_app1_verify_start   = 0x10088000;
-__cy_app1_verify_length  = (0x20000 + 0x57F00) - __cy_boot_signature_size;
+__cy_app1_verify_length  = (0x20000 + 0x58000) - __cy_boot_signature_size;
 __cy_app_id              = 0;
 __cy_app_verify_start    = 0x10010000;
-__cy_app_verify_length   = (0x20000 + 0x57F00) - __cy_boot_signature_size;
+__cy_app_verify_length   = (0x20000 + 0x58000) - __cy_boot_signature_size;
 __cy_boot_metadata_length = __cy_memory_0_row_size;
 
 

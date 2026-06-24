@@ -59,12 +59,11 @@ MEMORY
      *   - metadata: 0x10087F00-0x10087FFF (256 B, reserved - not part of CM4 region)
      */
     ram               (rwx)   : ORIGIN = 0x08024000, LENGTH = 0x23800
-    flash             (rx)    : ORIGIN = 0x10030000, LENGTH = 0x57F00
-
-    /* Dual-app slot metadata: reserved last 256 B of the App0 slot.
-     * The bootloader reads {magic, version, ...} here to pick a slot.
-     * App1 build overrides this ORIGIN to 0x100FFF00. */
-    app_meta          (rx)    : ORIGIN = 0x10087F00, LENGTH = 0x100
+    /* flash spans the whole CM4 area INCLUDING the 256 B metadata tail so the
+     * .app_metadata section lives inside the app image -- cymcuelftool then emits
+     * it into the .cyacd2. The bootloader reads {magic,version,...} at the tail
+     * (App0 0x10087F00 / App1 0x100FFF00). App1 build overrides ORIGIN. */
+    flash             (rx)    : ORIGIN = 0x10030000, LENGTH = 0x58000
 
     /* This is a 32K flash region used for EEPROM emulation. This region can also be used as the general purpose flash.
      * You can assign sections to this memory region for only one of the cores.
@@ -135,26 +134,22 @@ __cy_checksum_type       = 0x00;
 
 /* App slot verify ranges: CM0+ base .. (CM0+ 128KB + CM4 0x57F00) - signature */
 __cy_app0_verify_start   = 0x10010000;
-__cy_app0_verify_length  = (0x20000 + 0x57F00) - __cy_boot_signature_size;
+__cy_app0_verify_length  = (0x20000 + 0x58000) - __cy_boot_signature_size;
 __cy_app1_verify_start   = 0x10088000;
-__cy_app1_verify_length  = (0x20000 + 0x57F00) - __cy_boot_signature_size;
+__cy_app1_verify_length  = (0x20000 + 0x58000) - __cy_boot_signature_size;
 
-/* This image's app id + verify range (App0). */
+/* This image's app id + verify range (App0). Note: +0x100 over the CM4 region
+ * (0x58000 vs 0x57F00) so @APPINFO/the cyacd2 covers our {magic,version}
+ * .app_metadata row at the slot tail (else cymcuelftool drops it). */
 __cy_app_id              = 0;
 __cy_app_verify_start    = 0x10010000;
-__cy_app_verify_length   = (0x20000 + 0x57F00) - __cy_boot_signature_size;
+__cy_app_verify_length   = (0x20000 + 0x58000) - __cy_boot_signature_size;
 
 __cy_boot_metadata_length = __cy_memory_0_row_size;
 
 
 SECTIONS
 {
-    /* Dual-app slot metadata at the reserved tail of the slot (see app_meta). */
-    .app_metadata :
-    {
-        KEEP(*(.app_metadata))
-    } > app_meta
-
     .text :
     {
         . = ALIGN(4);
@@ -354,7 +349,7 @@ SECTIONS
     /* cy_dfu boot metadata (read-only). Placed after the app code, just below
      * the signature row, with an explicit address so it never precedes .text
      * (which would displace the CM4 vector table at 0x10030000). */
-    .cy_boot_metadata ORIGIN(flash) + LENGTH(flash) - 256 - 0x200 :
+    .cy_boot_metadata ORIGIN(flash) + LENGTH(flash) - 0x400 :
     {
         KEEP(*(.cy_boot_metadata))
     } > flash
@@ -362,9 +357,18 @@ SECTIONS
 
     /* Used for the digital signature of the secure application and the Bootloader SDK application.
     * The size of the section depends on the required data size. */
-    .cy_app_signature ORIGIN(flash) + LENGTH(flash) - 256 :
+    .cy_app_signature ORIGIN(flash) + LENGTH(flash) - 0x200 :
     {
         KEEP(*(.cy_app_signature))
+    } > flash
+
+    /* Our dual-app chooser metadata {magic,version,...} at the very slot tail
+     * (App0 0x10087F00 / App1 0x100FFF00). Inside `flash` (after the code, so the
+     * vector table at ORIGIN is undisturbed) so it is part of the app image and
+     * cymcuelftool emits it into the .cyacd2. */
+    .app_metadata ORIGIN(flash) + LENGTH(flash) - 0x100 :
+    {
+        KEEP(*(.app_metadata))
     } > flash
 
 

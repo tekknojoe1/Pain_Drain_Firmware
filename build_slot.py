@@ -23,6 +23,7 @@ CYDSN = os.path.join(ROOT, "PainDrain", "PainDrain.cydsn")
 GCC_BIN = r"C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\import\gnu\arm\5.4.1\bin"
 GCC = os.path.join(GCC_BIN, "arm-none-eabi-gcc.exe")
 OBJCOPY = os.path.join(GCC_BIN, "arm-none-eabi-objcopy.exe")
+CYMCUELFTOOL = r"C:\Program Files (x86)\Cypress\PDL\3.1.7\tools\win\elf\cymcuelftool.exe"
 CM0P = os.path.join(CYDSN, "CortexM0p", "ARM_GCC_541", "Debug")
 CM4 = os.path.join(CYDSN, "CortexM4", "ARM_GCC_541", "Debug")
 
@@ -35,8 +36,10 @@ CM4_ARCH = ["-mcpu=cortex-m4", "-mfloat-abi=softfp", "-mfpu=fpv4-sp-d16", "-mthu
 # Base (App0) flash origins as they appear in the committed cy8c6xx7_*.ld.
 BASE = dict(cm0="0x10010000", cm4="0x10030000", meta="0x10087F00")
 SLOTS = {
-    0: dict(cm0="0x10010000", cm4="0x10030000", meta="0x10087F00", cm4_addr="0x10030000u"),
-    1: dict(cm0="0x10088000", cm4="0x100A8000", meta="0x100FFF00", cm4_addr="0x100A8000u"),
+    0: dict(cm0="0x10010000", cm4="0x10030000", meta="0x10087F00", cm4_addr="0x10030000u",
+            app_id="0", verify_start="0x10010000"),
+    1: dict(cm0="0x10088000", cm4="0x100A8000", meta="0x100FFF00", cm4_addr="0x100A8000u",
+            app_id="1", verify_start="0x10088000"),
 }
 
 
@@ -60,6 +63,12 @@ def gen_linker(base_name, out_name, slot):
     text = text.replace("ORIGIN = " + BASE["cm0"], "ORIGIN = " + slot["cm0"])
     text = text.replace("ORIGIN = " + BASE["cm4"], "ORIGIN = " + slot["cm4"])
     text = text.replace("ORIGIN = " + BASE["meta"], "ORIGIN = " + slot["meta"])
+    # DFU/cymcuelftool symbols: this image's own app id + verify-region start.
+    # The fixed __cy_app0/app1_verify_* map constants are NOT swapped.
+    text = re.sub(r"__cy_app_id(\s*)=\s*0;",
+                  r"__cy_app_id\g<1>= " + slot["app_id"] + ";", text)
+    text = re.sub(r"__cy_app_verify_start(\s*)=\s*0x10010000;",
+                  r"__cy_app_verify_start\g<1>= " + slot["verify_start"] + ";", text)
     open(os.path.join(CYDSN, out_name), "w", encoding="utf-8").write(text)
 
 
@@ -84,6 +93,15 @@ def to_hex(elf):
     h = elf.replace(".elf", ".hex")
     run([OBJCOPY, "-O", "ihex", elf, h])
     return h
+
+
+def sign(elf):
+    """cymcuelftool --sign: CRC the .cy_boot_metadata + write the app signature
+    (the same step PSoC Creator runs in its post-build). Returns (elf, hex)."""
+    signed = elf.replace("_link.elf", "_signed.elf")
+    h = signed.replace(".elf", ".hex")
+    run([CYMCUELFTOOL, "--sign", elf, "--output", signed, "--hex", h])
+    return signed, h
 
 
 def main():
@@ -113,10 +131,23 @@ def main():
     cm4_elf = relink(CM4, "main_cm4.o", f"main_cm4_{tag}.o",
                      "cy8c6xx7_cm4_dual.ld", f"cy8c6xx7_cm4_dual_{tag}.ld", tag)
 
+    # Sign each core (CRC metadata + app signature), as PSoC Creator's post-build does.
+    cm0_signed, cm0_hex = sign(cm0_elf)
+    cm4_signed, cm4_hex = sign(cm4_elf)
+
+    # Combined app hex (both cores) for direct programming / sanity.
     out = os.path.join(CM4, f"PainDrain_{tag}.hex")
     subprocess.run([sys.executable, os.path.join(ROOT, "merge_hex.py"),
-                    to_hex(cm0_elf), to_hex(cm4_elf), out], check=True)
-    print(f"Slot {n} image (version {version}): {out}")
+                    cm0_hex, cm4_hex, out], check=True)
+
+    # .cyacd2 the DFU host (CySmart / mobile) sends: merge both signed cores into
+    # one app elf, then patch it to a cyacd2 covering the whole slot.
+    merged = os.path.join(CM4, f"PainDrain_{tag}_merged.elf")
+    run([CYMCUELFTOOL, "--merge", cm4_signed, cm0_signed, "--output", merged])
+    cyacd2 = os.path.join(CM4, f"PainDrain_{tag}.cyacd2")
+    run([CYMCUELFTOOL, "--patch", merged, "--output", cyacd2])
+
+    print(f"Slot {n} image (version {version}):\n  hex:    {out}\n  cyacd2: {cyacd2}")
 
 
 if __name__ == "__main__":
