@@ -119,6 +119,33 @@ GROUP(libgcc.a libc.a libm.a libnosys.a)
  *   __Vectors_Size
  */
 
+/* ===================== Cypress cy_dfu (DFU SDK) integration =====================
+ * Symbols + sections that cy_dfu.c / dfu_user.c / cymcuelftool require, mapped to
+ * our dual-app slot layout. The minimal bootloader still selects the boot slot via
+ * our own {magic,version} .app_metadata at the slot tail; these are only for the
+ * cy_dfu BLE transfer + signature verify. THIS IS THE App0 build; build_slot.py
+ * regenerates the App1 variant with the app0/app1 values swapped and __cy_app_id=1.
+ */
+__cy_memory_0_start      = 0x10000000;
+__cy_memory_0_length     = 0x00100000;
+__cy_memory_0_row_size   = 0x200;
+__cy_boot_signature_size = 4;            /* CRC-32 */
+__cy_product_id          = 0x01020304;
+__cy_checksum_type       = 0x00;
+
+/* App slot verify ranges: CM0+ base .. (CM0+ 128KB + CM4 0x57F00) - signature */
+__cy_app0_verify_start   = 0x10010000;
+__cy_app0_verify_length  = (0x20000 + 0x57F00) - __cy_boot_signature_size;
+__cy_app1_verify_start   = 0x10088000;
+__cy_app1_verify_length  = (0x20000 + 0x57F00) - __cy_boot_signature_size;
+
+/* This image's app id + verify range (App0). */
+__cy_app_id              = 0;
+__cy_app_verify_start    = 0x10010000;
+__cy_app_verify_length   = (0x20000 + 0x57F00) - __cy_boot_signature_size;
+
+__cy_boot_metadata_length = __cy_memory_0_row_size;
+
 
 SECTIONS
 {
@@ -323,6 +350,15 @@ SECTIONS
     /* Check if data + heap + stack exceeds RAM limit */
     ASSERT(__StackLimit >= __HeapLimit, "region RAM overflowed with stack")
 
+
+    /* cy_dfu boot metadata (read-only). Placed after the app code, just below
+     * the signature row, with an explicit address so it never precedes .text
+     * (which would displace the CM4 vector table at 0x10030000). */
+    .cy_boot_metadata ORIGIN(flash) + LENGTH(flash) - 256 - 0x200 :
+    {
+        KEEP(*(.cy_boot_metadata))
+    } > flash
+    __cy_boot_metadata_addr = ADDR(.cy_boot_metadata);
 
     /* Used for the digital signature of the secure application and the Bootloader SDK application.
     * The size of the section depends on the required data size. */

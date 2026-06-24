@@ -112,6 +112,24 @@ GROUP(libgcc.a libc.a libm.a libnosys.a)
  *   __Vectors_Size
  */
 
+/* ===================== Cypress cy_dfu (DFU SDK) integration =====================
+ * Same symbol block as the CM4 linker (the DFU sources compile for both cores).
+ * App0 build; build_slot.py swaps app0/app1 + __cy_app_id=1 for App1. */
+__cy_memory_0_start      = 0x10000000;
+__cy_memory_0_length     = 0x00100000;
+__cy_memory_0_row_size   = 0x200;
+__cy_boot_signature_size = 4;
+__cy_product_id          = 0x01020304;
+__cy_checksum_type       = 0x00;
+__cy_app0_verify_start   = 0x10010000;
+__cy_app0_verify_length  = (0x20000 + 0x57F00) - __cy_boot_signature_size;
+__cy_app1_verify_start   = 0x10088000;
+__cy_app1_verify_length  = (0x20000 + 0x57F00) - __cy_boot_signature_size;
+__cy_app_id              = 0;
+__cy_app_verify_start    = 0x10010000;
+__cy_app_verify_length   = (0x20000 + 0x57F00) - __cy_boot_signature_size;
+__cy_boot_metadata_length = __cy_memory_0_row_size;
+
 
 SECTIONS
 {
@@ -313,6 +331,16 @@ SECTIONS
 
     /* Check if data + heap + stack exceeds RAM limit */
     ASSERT(__StackLimit >= __HeapLimit, "region RAM overflowed with stack")
+
+
+    /* cy_dfu boot metadata copy for the CM0+ image (read-only). Placed after the
+     * app code with an explicit address so it never precedes .text (which would
+     * displace the CM0+ vector table at 0x10010000 -- the bootloader jumps there). */
+    .cy_boot_metadata ORIGIN(flash) + LENGTH(flash) - 0x400 :
+    {
+        KEEP(*(.cy_boot_metadata))
+    } > flash
+    __cy_boot_metadata_addr = ADDR(.cy_boot_metadata);
 
 
     /* Emulated EEPROM Flash area */
