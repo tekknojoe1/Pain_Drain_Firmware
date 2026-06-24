@@ -22,7 +22,7 @@
 *******************************************************************************/
 
 #include <string.h>
-#include "transport_uart.h"
+#include "transport_ble.h"
 #include "cy_syslib.h"
 #include "cy_flash.h"
 #include "cy_dfu.h"
@@ -244,7 +244,7 @@ cy_en_dfu_status_t Cy_DFU_ReadData (uint32_t address, uint32_t length, uint32_t 
 *******************************************************************************/
 cy_en_dfu_status_t Cy_DFU_TransportRead (uint8_t *buffer, uint32_t size, uint32_t *count, uint32_t timeout)
 {
-    return (UART_UartCyBtldrCommRead(buffer, size, count, timeout));
+    return (CyBLE_CyBtldrCommRead(buffer, size, count, timeout));
 }
 
 /*******************************************************************************
@@ -257,7 +257,7 @@ cy_en_dfu_status_t Cy_DFU_TransportRead (uint8_t *buffer, uint32_t size, uint32_
 *******************************************************************************/
 cy_en_dfu_status_t Cy_DFU_TransportWrite(uint8_t *buffer, uint32_t size, uint32_t *count, uint32_t timeout)
 {
-    return (UART_UartCyBtldrCommWrite(buffer, size, count, timeout));
+    return (CyBLE_CyBtldrCommWrite(buffer, size, count, timeout));
 }
 
 /*******************************************************************************
@@ -270,7 +270,7 @@ cy_en_dfu_status_t Cy_DFU_TransportWrite(uint8_t *buffer, uint32_t size, uint32_
 *******************************************************************************/
 void Cy_DFU_TransportReset(void)
 {
-    UART_UartCyBtldrCommReset();
+    CyBLE_CyBtldrCommReset();
 }
 
 /*******************************************************************************
@@ -283,7 +283,7 @@ void Cy_DFU_TransportReset(void)
 *******************************************************************************/
 void Cy_DFU_TransportStart(void)
 {
-    UART_UartCyBtldrCommStart();
+    CyBLE_CyBtldrCommStart();
 }
 
 /*******************************************************************************
@@ -296,7 +296,7 @@ void Cy_DFU_TransportStart(void)
 *******************************************************************************/
 void Cy_DFU_TransportStop(void)
 {
-    UART_UartCyBtldrCommStop();
+    CyBLE_CyBtldrCommStop();
 }
 
 
