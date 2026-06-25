@@ -113,7 +113,6 @@ uint8 *respondStringPtr;
 uint8 data[20];
 uint32_t pinReadValue;
 unsigned int MAX_LENGTH = 20;
-uint8 fakeBatteryPercentage = 100;
 int previousValue = -1;
 DeviceStatus device_status;
 int tensPhase;
@@ -343,30 +342,12 @@ void AppCallBack(uint32 event, void *eventParam)
             cy_stc_ble_gatts_char_val_read_req_t *readReq = (cy_stc_ble_gatts_char_val_read_req_t *)eventParam;
             cy_stc_ble_gatt_handle_value_pair_t handleValuePair;
             
-            if (readReq->attrHandle == cy_ble_basConfigPtr->bass->batteryLevelHandle)
-            {
-                // Update your local battery level value (example: increment by 1)
-                if(fakeBatteryPercentage <= 0){
-                 fakeBatteryPercentage = 100;   
-                }
-                else{
-                    fakeBatteryPercentage--;
-                }
-                
-                DBG_PRINTF("entered read case battery service\r\n");
-                // Provide the updated value as the response to the read request
-                handleValuePair.value.val = &fakeBatteryPercentage;
-                handleValuePair.value.len = sizeof(fakeBatteryPercentage);
-                handleValuePair.attrHandle = cy_ble_basConfigPtr->bass->batteryLevelHandle;
-                gattErr = Cy_BLE_GATTS_WriteAttributeValueLocal(&handleValuePair);
+            /* Battery Level reads return the live value maintained by temp.c
+             * (Cy_BLE_BASS_SetCharacteristicValue with the real fuel-gauge SoC).
+             * The stack serves the GATT DB value automatically, so no per-read
+             * handling is needed. (Removed a demo that decremented a fake value
+             * on every read, which overrode the real level.) */
 
-                if (gattErr != CY_BLE_GATT_ERR_NONE)
-                {
-                    // Handle error
-                    DBG_PRINTF("Read error\r\n");
-                }
-            }
-            
             // Checks to see if its requesting the custom service characteristic
             if(CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE == readReq->attrHandle)
             {

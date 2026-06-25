@@ -10,7 +10,7 @@
 #define FIRMWARE_VERSION_MAJOR  1
 #define FIRMWARE_VERSION_MINOR  1
 #define FIRMWARE_VERSION_PATCH  0
-#define FIRMWARE_VERSION_BUILD  7
+#define FIRMWARE_VERSION_BUILD  8
 
 /* String form "MAJOR.MINOR.PATCH.BUILD" derived from the numbers above so they
  * can never drift apart (published in the DIS Firmware Revision String). */
