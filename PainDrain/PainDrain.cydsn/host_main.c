@@ -103,7 +103,7 @@ __attribute__((aligned(4))) static uint8_t dfuPacketBuffer[CY_DFU_SIZEOF_CMD_BUF
 
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };
 static volatile uint32_t           mainTimer  = 1u;
-static const uint32_t BUILD_NUMBER = 3;
+static const uint32_t BUILD_NUMBER = 4;
 
 
 uint8 newBatteryLevel = 0;
@@ -937,6 +937,8 @@ int HostMain(void)
     /***************************************************************************
     * Main polling loop
     ***************************************************************************/
+    uint32_t dfuPrevState = CY_DFU_STATE_NONE;  /* for DFU/OTA progress logging */
+    uint32_t dfuCmdCount  = 0u;
     while(1)
     {
         Cy_BLE_ProcessEvents();
@@ -944,10 +946,33 @@ int HostMain(void)
         /* Process the OTA/DFU protocol (non-blocking poll). When a transfer
          * finishes, the new image (incl. its higher-version metadata) is in the
          * inactive slot -- reset and let the bootloader select it. */
-        Cy_DFU_Continue(&dfuState, &dfuParams);
+        cy_en_dfu_status_t dfuStatus = Cy_DFU_Continue(&dfuState, &dfuParams);
+
+        /* Make OTA activity visible on the debug UART -- log state changes and
+         * throttled progress so an update is observable here and (importantly)
+         * during mobile-app updates where CySmart's log isn't available. */
+        if (dfuState != dfuPrevState)
+        {
+            if (dfuState == CY_DFU_STATE_UPDATING) { dfuCmdCount = 0u; }
+            DBG_PRINTF("DFU state -> %s\r\n",
+                       (dfuState == CY_DFU_STATE_UPDATING) ? "UPDATING (receiving image)" :
+                       (dfuState == CY_DFU_STATE_FINISHED) ? "FINISHED" :
+                       (dfuState == CY_DFU_STATE_FAILED)   ? "FAILED"   : "IDLE");
+            dfuPrevState = dfuState;
+        }
+        if ((dfuState == CY_DFU_STATE_UPDATING) && (dfuStatus == CY_DFU_SUCCESS))
+        {
+            /* One DFU command processed (program/erase/verify a flash row). */
+            if ((++dfuCmdCount % 32u) == 0u)
+            {
+                DBG_PRINTF("DFU: %d commands processed...\r\n", (int)dfuCmdCount);
+            }
+        }
+
         if (dfuState == CY_DFU_STATE_FINISHED)
         {
-            DBG_PRINTF("DFU complete -> reset into new slot\r\n");
+            DBG_PRINTF("DFU complete (%d cmds) -> reset into new slot\r\n",
+                       (int)dfuCmdCount);
             Cy_SysLib_Delay(50u);
             NVIC_SystemReset();
         }

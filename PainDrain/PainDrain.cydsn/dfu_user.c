@@ -47,6 +47,32 @@ static void GetStartEndAddress(uint32_t appId, uint32_t *startAddress, uint32_t 
 
 
 /*******************************************************************************
+* Function Name: Cy_DFU_ValidateApp  (override of the __WEAK SDK default)
+****************************************************************************//**
+*
+* The SDK default verifies a CRC footer stored at (verify_start + verify_length),
+* which our build does not produce. Our dual-app bootloader instead validates a
+* slot by the {magic, version, ...} record in the last 256 B of the slot (App0
+* 0x10087F00 / App1 0x100FFF00). Make the DFU "Verify Application" command agree
+* with that criterion, otherwise the host (CySmart / mobile app) reports the
+* update as FAILED even though the image was written correctly and the chooser
+* boots it. Returns SUCCESS when the just-written slot carries our magic.
+*
+*******************************************************************************/
+#define OTA_META_MAGIC      (0xDEADBEEFu)
+#define OTA_APP0_META_ADDR  (0x10087F00u)
+#define OTA_APP1_META_ADDR  (0x100FFF00u)
+
+cy_en_dfu_status_t Cy_DFU_ValidateApp(uint32_t appId, cy_stc_dfu_params_t *params)
+{
+    (void)params;
+    const uint32_t metaAddr = (appId == 0u) ? OTA_APP0_META_ADDR : OTA_APP1_META_ADDR;
+    const uint32_t magic    = *(const volatile uint32_t *)metaAddr;
+    return (magic == OTA_META_MAGIC) ? CY_DFU_SUCCESS : CY_DFU_ERROR_VERIFY;
+}
+
+
+/*******************************************************************************
 * Function Name: IsMultipleOf
 ****************************************************************************//**
 *
