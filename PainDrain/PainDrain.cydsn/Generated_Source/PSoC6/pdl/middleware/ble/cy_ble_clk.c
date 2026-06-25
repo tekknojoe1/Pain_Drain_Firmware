@@ -265,17 +265,17 @@ cy_en_ble_eco_status_t Cy_BLE_EcoStart(const cy_stc_ble_bless_eco_cfg_params_t *
                                   ((rcbDivider > 0U) ? ((rcbDivider << BLE_RCB_CTRL_DIV_Pos) |
                                                         BLE_RCB_CTRL_DIV_ENABLED_Msk) : 0U));
 
-                /* PATCHED (dual-app bootloader): always configure the BLESS
-                 * internal LDO for BLE RF, regardless of the SRSS SIMO Buck
-                 * state. On this board SIMO Buck Out1 powers VDDD (so the buck
-                 * reads as "enabled"), but BLE RF is fed by the BLESS internal
-                 * LDO -- Buck Out2 (VRF) is not connected. Because the bootloader
-                 * jumps to the app without a full SRSS reset, the buck is still
-                 * enabled at Cy_BLE_EcoStart() time; taking the buck path here
-                 * routes BLE RF to the unconnected Out2 -> CY_BLE_EVT_HARDWARE_ERROR.
-                 * Forcing the LDO path matches a cold (hardware-reset) boot. */
-                BLE->BLESS.MISC_EN_CTRL |= (BLE_BLESS_MISC_EN_CTRL_ACT_REG_EN_CTRL_Msk |
-                                            BLE_BLESS_MISC_EN_CTRL_BUCK_EN_CTRL_Msk);
+                /* If user uses SIMO Buck, enable Buck2 in hardware mode for BLE */
+                if(Cy_SysPm_SimoBuckIsEnabled())
+                {
+                    Cy_SysPm_SimoBuckSetVoltage2(CY_SYSPM_SIMO_BUCK_OUT2_VOLTAGE_1_3V, true);
+                    Cy_SysPm_SimoBuckSetHwControl(true);
+                }
+                else    /* Configure BLE LDO if SIMO Buck2 is not enabled */
+                {
+                    BLE->BLESS.MISC_EN_CTRL |= (BLE_BLESS_MISC_EN_CTRL_ACT_REG_EN_CTRL_Msk |
+                                                BLE_BLESS_MISC_EN_CTRL_BUCK_EN_CTRL_Msk);
+                }
 
                 /* Enable the VIO supply and LDO in standby mode for slow ramp */
                 temp = BLE->BLESS.MT_CFG;
@@ -328,9 +328,10 @@ cy_en_ble_eco_status_t Cy_BLE_EcoStart(const cy_stc_ble_bless_eco_cfg_params_t *
                     /* Clear the BLERD_ACTIVE_INTR */
                     BLE->BLESS.INTR_STAT |= BLE_BLESS_INTR_STAT_BLERD_ACTIVE_INTR_Msk;
 
-                    /* PATCHED (dual-app bootloader): always select the BLESS LDO
-                     * (not Buck Out2) for the active regulator -- see note above. */
-                    temp |= BLE_BLESS_MT_CFG_ACT_LDO_NOT_BUCK_Msk;
+                    if(!Cy_SysPm_SimoBuckOutputIsEnabled(CY_SYSPM_BUCK_VRF))
+                    {
+                        temp |= BLE_BLESS_MT_CFG_ACT_LDO_NOT_BUCK_Msk;
+                    }
                     /* Enable Radio */
                     temp |= BLE_BLESS_MT_CFG_ENABLE_BLERD_Msk;
 

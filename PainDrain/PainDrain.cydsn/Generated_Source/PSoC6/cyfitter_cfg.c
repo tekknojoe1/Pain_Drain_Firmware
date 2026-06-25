@@ -190,22 +190,13 @@ static void ClockInit(void)
 	uint32_t status;
 
 	/* Enable all source clocks */
-	/* PATCHED (dual-app + BLE): use the WCO 32.768 kHz crystal for LFCLK
-	 * instead of PILO. BLE requires an accurate LFCLK; PILO calibration fails
-	 * (CY_BLE_EVT_HARDWARE_ERROR, code 0x0D). The bootloader already runs LFCLK
-	 * on WCO, so switching to PILO across the jump breaks BLESS. The board has a
-	 * WCO crystal (the bootloader enables it successfully). Falls back to PILO
-	 * if WCO ever fails to start. */
+	Cy_SysClk_PiloEnable();
 	status = Cy_SysClk_WcoEnable(500000u);
-	if (status != CY_SYSCLK_SUCCESS)
+	if (CY_RET_SUCCESS != status)
 	{
-		Cy_SysClk_PiloEnable();
-		Cy_SysClk_ClkLfSetSource(CY_SYSCLK_CLKLF_IN_PILO);
+		CyClockStartupError(CYCLOCKSTART_WCO_ERROR);
 	}
-	else
-	{
-		Cy_SysClk_ClkLfSetSource(CY_SYSCLK_CLKLF_IN_WCO);
-	}
+	Cy_SysClk_ClkLfSetSource(CY_SYSCLK_CLKLF_IN_WCO);
 
 	/* Configure CPU clock dividers */
 	Cy_SysClk_ClkFastSetDivider(0u);
@@ -382,6 +373,28 @@ void Cy_SystemInit(void)
 	/* PMIC Control */
 	Cy_SysPm_UnlockPmic();
 	Cy_SysPm_DisablePmicOutput();
+
+	/* Pin0_0 configuration */
+	{
+	    const cy_stc_gpio_pin_config_t pin0_0_cfg =
+	    {
+	        .outVal    = 0x00u,
+	        .driveMode = 0x00u,
+	        .hsiom     = P0_0_GPIO,
+	    };
+	    (void)Cy_GPIO_Pin_Init(GPIO_PRT0, 0, &pin0_0_cfg);
+	}
+
+	/* Pin0_1 configuration */
+	{
+	    const cy_stc_gpio_pin_config_t pin0_1_cfg =
+	    {
+	        .outVal    = 0x00u,
+	        .driveMode = 0x00u,
+	        .hsiom     = P0_1_GPIO,
+	    };
+	    (void)Cy_GPIO_Pin_Init(GPIO_PRT0, 1, &pin0_1_cfg);
+	}
 
 	/* Clock */
 	ClockInit();

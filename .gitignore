@@ -37,3 +37,8 @@
 # Archives
 Backup/*
 Archive/*
+
+# Tooling / local artifacts (Claude Code, Python bytecode, PSoC workspace file)
+.claude/
+__pycache__/
+*.cywrk
