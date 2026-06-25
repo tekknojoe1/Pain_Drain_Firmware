@@ -42,6 +42,7 @@
 #include "common.h"
 #include "user_interface.h"
 #include "power.h"
+#include "version.h"
 #include <stdint.h>
 
 /*******************************************************************************
@@ -53,11 +54,14 @@
 * 0xDEADBEEF) with the highest version.
 *
 * The slot address is set by the linker (App0 -> 0x10087F00, App1 ->
-* 0x100FFF00). APP_VERSION is provided per build: the App1 build passes
-* -D APP_VERSION=<n>; App0 defaults to 1.
+* 0x100FFF00). APP_VERSION defaults to the firmware version in version.h
+* (MAJOR*10000 + MINOR*100 + PATCH) -- the single source of truth. build_slot.py
+* overrides it per slot with -D APP_VERSION using the SAME formula. Bump
+* version.h per release so an OTA of the inactive slot always out-ranks the
+* running one.
 *******************************************************************************/
 #ifndef APP_VERSION
-#define APP_VERSION                 (1u)
+#define APP_VERSION  (FIRMWARE_VERSION_MAJOR * 10000u + FIRMWARE_VERSION_MINOR * 100u + FIRMWARE_VERSION_PATCH)
 #endif
 
 typedef struct {

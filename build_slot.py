@@ -49,6 +49,18 @@ def run(args, cwd=CYDSN):
         sys.exit(f"ERROR: {os.path.basename(args[0])} failed ({r.returncode})")
 
 
+def fw_version():
+    """Integer OTA version from version.h (MAJOR*10000 + MINOR*100 + PATCH) -- the
+    same formula main_cm4.c's APP_VERSION default uses, so the IDE App0 image and
+    these slot images share one monotonic version. Bump version.h per release."""
+    txt = open(os.path.join(CYDSN, "version.h"), encoding="utf-8", errors="replace").read()
+    def field(name):
+        return int(re.search(name + r"\s+(\d+)", txt).group(1))
+    return (field("FIRMWARE_VERSION_MAJOR") * 10000
+            + field("FIRMWARE_VERSION_MINOR") * 100
+            + field("FIRMWARE_VERSION_PATCH"))
+
+
 def includes(core_dir):
     text = open(os.path.join(core_dir, "SOURCE_C__ARM_GCC_GENERIC.txt"),
                 encoding="utf-8", errors="replace").read()
@@ -109,7 +121,7 @@ def main():
         sys.exit("Usage: python build_slot.py <0|1> [--version N]")
     n = int(sys.argv[1])
     slot = SLOTS[n]
-    version = int(sys.argv[sys.argv.index("--version") + 1]) if "--version" in sys.argv else (n + 1)
+    version = int(sys.argv[sys.argv.index("--version") + 1]) if "--version" in sys.argv else fw_version()
     tag = f"slot{n}"
 
     if not os.path.exists(os.path.join(CM4, "main_cm4.o")):

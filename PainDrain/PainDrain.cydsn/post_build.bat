@@ -38,10 +38,23 @@ if errorlevel 1 (
     exit /b 1
 )
 
-REM Production image = bootloader + App0 only. The App1 slot starts empty and
-REM is filled over the air. To build a both-slots A/B test image, run
-REM   python build_slot.py 1 --version 2
-REM and merge PainDrain_slot1.hex in manually (see git history for the block).
+REM Production flash image = bootloader + App0 only. The App1 slot starts empty
+REM and is filled over the air.
+
+REM ---------------------------------------------------------------------------
+REM Generate the per-slot OTA update files (.cyacd2) so they are ready to send
+REM via CySmart / the mobile app with no manual step. Each slot image carries the
+REM version.h version (MAJOR*10000+MINOR*100+PATCH); send the .cyacd2 for the slot
+REM the target device is NOT currently running. Failures here only WARN -- the
+REM flashable image above is already written, so a .cyacd2 hiccup never blocks a
+REM normal build/flash. Output: <OutputDir>\PainDrain_slot0.cyacd2 / _slot1.cyacd2
+REM ---------------------------------------------------------------------------
+echo.
+echo Post-build: generating OTA .cyacd2 files (both slots)
+python "%SCRIPT_DIR%\build_slot.py" 0
+if errorlevel 1 echo WARNING: slot0 .cyacd2 generation failed
+python "%SCRIPT_DIR%\build_slot.py" 1
+if errorlevel 1 echo WARNING: slot1 .cyacd2 generation failed
 
 echo Post-build complete
 
