@@ -56,6 +56,11 @@ if errorlevel 1 echo WARNING: slot0 .cyacd2 generation failed
 python "%SCRIPT_DIR%\build_slot.py" 1
 if errorlevel 1 echo WARNING: slot1 .cyacd2 generation failed
 
+REM Bundle both slot images + a manifest into one OTA zip the mobile app consumes
+REM (Option A: app reads the running slot and uploads the inactive slot's file).
+python "%SCRIPT_DIR%\bundle_ota.py"
+if errorlevel 1 echo WARNING: OTA bundle creation failed
+
 echo Post-build complete
 
 endlocal

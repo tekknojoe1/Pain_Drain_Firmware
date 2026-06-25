@@ -870,6 +870,23 @@ int HostMain(void)
     Cy_DFU_TransportStart();
     DBG_PRINTF("DFU transport started\r\n");
 
+    /* Publish "<version>/<slot>" in the DIS Firmware Revision String (e.g.
+     * "1.0.1/0") so the mobile app can read which slot is running and upload the
+     * OTHER slot's .cyacd2 (Option A). Slot = Cy_DFU_GetRunningApp() -- the
+     * link-time __cy_app_id (0 = App0 @0x10010000, 1 = App1 @0x10088000). */
+    {
+        char fwRev[20];
+        const char *ver = FIRMWARE_VERSION_STR;
+        uint8_t i = 0u;
+        while ((ver[i] != '\0') && (i < (uint8_t)(sizeof(fwRev) - 3u))) { fwRev[i] = ver[i]; i++; }
+        fwRev[i++] = '/';
+        fwRev[i++] = (char)('0' + (Cy_DFU_GetRunningApp() & 0x1u));
+        fwRev[i]   = '\0';   /* terminate for the debug print; length sent = i */
+        cy_en_ble_api_result_t disRes =
+            Cy_BLE_DISS_SetCharacteristicValue(CY_BLE_DIS_FIRMWARE_REV, i, (uint8_t *)fwRev);
+        DBG_PRINTF("DIS firmware rev = %s (status 0x%x)\r\n", fwRev, (unsigned)disRes);
+    }
+
     
     /* Initialize BLE Services */
     IasInit();
