@@ -183,13 +183,16 @@ void temp_task(void) {
 
 	 // Convert counts to resistance
     float resistance = adc_counts_to_resistance(raw_counts);
-    float mvoltage = adc_counts_to_mvoltage(raw_counts);
  
     // Convert resistance to temperature
     last_temp_celsius    = resistance_to_celsius(resistance);
     last_temp_fahrenheit = celsius_to_fahrenheit(last_temp_celsius);
     
-    int resistance_int = (int)resistance;
+    /* 
+	 // Convert counts to millivolts
+    float mvoltage = adc_counts_to_mvoltage(raw_counts);
+
+	 int resistance_int = (int)resistance;
     int resistance_dec = (int)(resistance * 10) % 10;
     int temp_int_f = (int)last_temp_fahrenheit;
 	 int temp_dec_f = (int)(last_temp_fahrenheit * 10) % 10;
@@ -203,7 +206,8 @@ void temp_task(void) {
            resistance_int, resistance_dec,
            mvoltage_int, mvoltage_dec,
            temp_int_f, temp_dec_f,
-			  temp_int_c, temp_dec_c );
+			  temp_int_c, temp_dec_c ); 
+	 /**/
 
     if (pel_mode == -1 && pel_active) {
         int32_t phase_limit = cool_pel_on ? cool_on_limit : cool_off_limit;
@@ -229,6 +233,19 @@ void temp_task(void) {
                 default: status_str = "Unknown"; break;
             }
             DBG_PRINTF("Battery: %d%c %dmV %s\r\n", (int)soc, '%', (int)mv, status_str);
+
+            /* Publish the real charge level on the standard BLE Battery Service
+             * (0x180F / Battery Level 0x2A19) so a phone or BLE browser shows the
+             * actual %. SetCharacteristicValue updates the GATT DB (so reads return
+             * it); the notification pushes it to a subscribed client (skipped when
+             * not connected; harmlessly no-ops if the client hasn't subscribed). */
+            (void)Cy_BLE_BASS_SetCharacteristicValue(0u, CY_BLE_BAS_BATTERY_LEVEL,
+                                                     CY_BLE_BAS_BATTERY_LEVEL_LEN, &soc);
+            if (Cy_BLE_GetConnectionState(cy_ble_connHandle[0]) == CY_BLE_CONN_STATE_CONNECTED)
+            {
+                (void)Cy_BLE_BASS_SendNotification(cy_ble_connHandle[0], 0u, CY_BLE_BAS_BATTERY_LEVEL,
+                                                   CY_BLE_BAS_BATTERY_LEVEL_LEN, &soc);
+            }
         }
     //} else {
     //    batt_print_count = BATT_PRINT_INTERVAL - 2;
