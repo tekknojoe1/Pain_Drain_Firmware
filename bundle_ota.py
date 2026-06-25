@@ -39,7 +39,9 @@ def fw_version():
     maj = field("FIRMWARE_VERSION_MAJOR")
     minor = field("FIRMWARE_VERSION_MINOR")
     patch = field("FIRMWARE_VERSION_PATCH")
-    return (maj * 10000 + minor * 100 + patch, f"{maj}.{minor}.{patch}")
+    build = field("FIRMWARE_VERSION_BUILD")
+    # OTA ordering uses MAJOR*10000+MINOR*100+PATCH (build is display-only).
+    return (maj * 10000 + minor * 100 + patch, f"{maj}.{minor}.{patch}.{build}")
 
 
 def main():

@@ -103,7 +103,7 @@ __attribute__((aligned(4))) static uint8_t dfuPacketBuffer[CY_DFU_SIZEOF_CMD_BUF
 
 static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };
 static volatile uint32_t           mainTimer  = 1u;
-static const uint32_t BUILD_NUMBER = 5;
+static const uint32_t BUILD_NUMBER = FIRMWARE_VERSION_BUILD;  /* from version.h */
 
 
 uint8 newBatteryLevel = 0;
