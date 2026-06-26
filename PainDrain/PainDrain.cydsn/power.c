@@ -442,8 +442,12 @@ void power_task( void ) {
 
         case POWER_CONNECTED:  //Connected to phone
             power_timeout = POWER_DISPLAY_TIMEOUT_INTERVAL;
-            
-            if (charger_status == CHARGING) {
+
+            /* If an OTA is in flight, do NOT switch to charging mode: START_CHARGER
+             * disconnects BLE, which would abort the update. Stay connected and let
+             * the transfer finish (it ends in a reset, after which the charger is
+             * handled normally on the next boot). */
+            if (charger_status == CHARGING && !dfu_in_progress()) {
                 reset_timer_cycles();
                 DBG_PRINTF("START_CHARGER\r\n");
                 power_state = START_CHARGER;
