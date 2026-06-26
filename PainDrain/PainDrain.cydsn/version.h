@@ -8,9 +8,9 @@
  * BUILD is NOT part of it, so a release MUST bump MAJOR/MINOR/PATCH. BUILD is a
  * build counter carried in the display/DIS string for traceability only. */
 #define FIRMWARE_VERSION_MAJOR  1
-#define FIRMWARE_VERSION_MINOR  0
+#define FIRMWARE_VERSION_MINOR  1
 #define FIRMWARE_VERSION_PATCH  0
-#define FIRMWARE_VERSION_BUILD  8
+#define FIRMWARE_VERSION_BUILD  9
 
 /* String form derived from the numbers above so they can never drift apart
  * (published in the DIS Firmware Revision String). DEBUG builds append the build
