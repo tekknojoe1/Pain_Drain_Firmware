@@ -8,17 +8,23 @@
  * BUILD is NOT part of it, so a release MUST bump MAJOR/MINOR/PATCH. BUILD is a
  * build counter carried in the display/DIS string for traceability only. */
 #define FIRMWARE_VERSION_MAJOR  1
-#define FIRMWARE_VERSION_MINOR  1
+#define FIRMWARE_VERSION_MINOR  0
 #define FIRMWARE_VERSION_PATCH  0
 #define FIRMWARE_VERSION_BUILD  8
 
-/* String form "MAJOR.MINOR.PATCH.BUILD" derived from the numbers above so they
- * can never drift apart (published in the DIS Firmware Revision String). */
+/* String form derived from the numbers above so they can never drift apart
+ * (published in the DIS Firmware Revision String). DEBUG builds append the build
+ * number for traceability ("MAJOR.MINOR.PATCH.BUILD"); RELEASE builds (NDEBUG)
+ * omit it ("MAJOR.MINOR.PATCH"). */
 #define FW_VERSION_STR_(x)  #x
 #define FW_VERSION_STR(x)   FW_VERSION_STR_(x)
-#define FIRMWARE_VERSION_STR  FW_VERSION_STR(FIRMWARE_VERSION_MAJOR) "." \
-                              FW_VERSION_STR(FIRMWARE_VERSION_MINOR) "." \
-                              FW_VERSION_STR(FIRMWARE_VERSION_PATCH) "." \
-                              FW_VERSION_STR(FIRMWARE_VERSION_BUILD)
+#define FIRMWARE_VERSION_BASE_STR  FW_VERSION_STR(FIRMWARE_VERSION_MAJOR) "." \
+                                   FW_VERSION_STR(FIRMWARE_VERSION_MINOR) "." \
+                                   FW_VERSION_STR(FIRMWARE_VERSION_PATCH)
+#ifdef DEBUG
+#define FIRMWARE_VERSION_STR  FIRMWARE_VERSION_BASE_STR "." FW_VERSION_STR(FIRMWARE_VERSION_BUILD)
+#else
+#define FIRMWARE_VERSION_STR  FIRMWARE_VERSION_BASE_STR
+#endif
 
 #endif /* VERSION_H */
