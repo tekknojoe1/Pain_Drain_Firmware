@@ -6,11 +6,12 @@
  * the running one. The integer version used by the chooser + slot selection is
  * MAJOR*10000 + MINOR*100 + PATCH (see main_cm4.c APP_VERSION, build_slot.py) --
  * BUILD is NOT part of it, so a release MUST bump MAJOR/MINOR/PATCH. BUILD is a
- * build counter carried in the display/DIS string for traceability only. */
+ * build counter carried in the display/DIS string for traceability only.
+ * RULE: whenever MAJOR, MINOR, or PATCH changes, reset BUILD back to 0. */
 #define FIRMWARE_VERSION_MAJOR  1
 #define FIRMWARE_VERSION_MINOR  1
-#define FIRMWARE_VERSION_PATCH  0
-#define FIRMWARE_VERSION_BUILD  9
+#define FIRMWARE_VERSION_PATCH  1
+#define FIRMWARE_VERSION_BUILD  0
 
 /* String form derived from the numbers above so they can never drift apart
  * (published in the DIS Firmware Revision String). DEBUG builds append the build
