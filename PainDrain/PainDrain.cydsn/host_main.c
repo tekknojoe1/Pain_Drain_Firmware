@@ -859,20 +859,29 @@ int HostMain(void)
     Cy_DFU_TransportStart();
     DBG_PRINTF("DFU transport started\r\n");
 
-    /* Publish "<version>/<slot>" in the DIS Firmware Revision String (e.g.
-     * "1.0.1/0") so the mobile app can read which slot is running and upload the
-     * OTHER slot's .cyacd2 (Option A). Slot = Cy_DFU_GetRunningApp() -- the
-     * link-time __cy_app_id (0 = App0 @0x10010000, 1 = App1 @0x10088000). */
+    /* Publish "<version>/<slot>" in the DIS Firmware Revision String (Debug:
+     * "1.0.0.10/0", Release: "1.0.0/0") so the mobile app reads which slot is
+     * running and uploads the OTHER slot's .cyacd2 (Option A). Slot =
+     * Cy_DFU_GetRunningApp() (link-time __cy_app_id: 0 = App0, 1 = App1).
+     *
+     * Write the FULL attribute width, NULL-PADDED. The attribute is fixed-length,
+     * so a shorter value would leave STALE trailing bytes from the previous value
+     * (the app saw e.g. "1.0.0/01.000.0"): writing all DIS_FW_REV_LEN bytes resets
+     * the whole field and null-terminates the string. DIS_FW_REV_LEN MUST equal the
+     * DIS Firmware Revision default-value length set in the BLE GATT editor
+     * (currently "01.00.00.000/0" = 14). The version is clamped so "/<slot>" always
+     * fits, keeping the slot correct even if the version string grows. */
     {
-        char fwRev[20];
+        enum { DIS_FW_REV_LEN = 14u };   /* MUST match the GATT DB attribute length (0x000E) */
+        char fwRev[DIS_FW_REV_LEN + 1u];
         const char *ver = FIRMWARE_VERSION_STR;
         uint8_t i = 0u;
-        while ((ver[i] != '\0') && (i < (uint8_t)(sizeof(fwRev) - 3u))) { fwRev[i] = ver[i]; i++; }
+        while ((ver[i] != '\0') && (i < (uint8_t)(DIS_FW_REV_LEN - 2u))) { fwRev[i] = ver[i]; i++; }
         fwRev[i++] = '/';
         fwRev[i++] = (char)('0' + (Cy_DFU_GetRunningApp() & 0x1u));
-        fwRev[i]   = '\0';   /* terminate for the debug print; length sent = i */
+        while (i <= DIS_FW_REV_LEN) { fwRev[i++] = '\0'; }   /* null-pad full width (+ print terminator) */
         cy_en_ble_api_result_t disRes =
-            Cy_BLE_DISS_SetCharacteristicValue(CY_BLE_DIS_FIRMWARE_REV, i, (uint8_t *)fwRev);
+            Cy_BLE_DISS_SetCharacteristicValue(CY_BLE_DIS_FIRMWARE_REV, DIS_FW_REV_LEN, (uint8_t *)fwRev);
         DBG_PRINTF("DIS firmware rev = %s (status 0x%x)\r\n", fwRev, (unsigned)disRes);
     }
 

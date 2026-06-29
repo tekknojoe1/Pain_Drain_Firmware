@@ -15,8 +15,14 @@ Usage:  python build_slot.py <0|1> [--version N]
 """
 import os
 import re
+import struct
 import subprocess
 import sys
+import zlib
+
+# CRC covers [slot_start, metadata) = the whole image excluding the 256-B metadata
+# record. Both slots: META - START = 0x77F00. Matches the bootloader + dfu_user.c.
+OTA_CRC_LEN = 0x77F00
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 CYDSN = os.path.join(ROOT, "PainDrain", "PainDrain.cydsn")
@@ -107,6 +113,56 @@ def to_hex(elf):
     return h
 
 
+def patch_cyacd2_crc(cyacd2_path, slot_start):
+    """Reconstruct the slot image from its .cyacd2, CRC-32 (zlib/IEEE) over
+    [slot_start, metadata), and write {size, crc} into the metadata record in place
+    so the bootloader (CRC-at-boot) and the DFU Verify step can check integrity.
+    .cyacd2 rows are ':' + 4-byte little-endian address + 512 data bytes (no
+    per-row checksum), so the metadata bytes patch in place. Also strips the
+    work-flash (Em_EEPROM) rows so an OTA preserves user presets/configs. Returns
+    the CRC."""
+    SIZE = 0x78000
+    meta_addr = slot_start + OTA_CRC_LEN          # the {magic,version,size,crc} record
+    meta_row = meta_addr & ~0x1FF                 # 512-aligned row that contains it
+    raw = open(cyacd2_path, encoding="utf-8").read().splitlines(keepends=True)
+    buf = bytearray(b"\xFF" * SIZE)
+    meta_i = None
+    for i, line in enumerate(raw):
+        s = line.strip()
+        if not s.startswith(":"):
+            continue
+        a = s[1:9]
+        addr = int(a[6:8] + a[4:6] + a[2:4] + a[0:2], 16)   # little-endian
+        if slot_start <= addr < slot_start + SIZE:
+            data = bytes.fromhex(s[9:])
+            buf[addr - slot_start: addr - slot_start + len(data)] = data
+        if addr == meta_row:
+            meta_i = i
+    if meta_i is None:
+        sys.exit(f"ERROR: metadata row 0x{meta_row:08X} not found in {cyacd2_path}")
+    crc = zlib.crc32(bytes(buf[:OTA_CRC_LEN])) & 0xFFFFFFFF
+    struct.pack_into("<II", buf, OTA_CRC_LEN + 8, OTA_CRC_LEN, crc)   # size @+8, crc @+12
+    off = meta_row - slot_start
+    addr_hex = struct.pack("<I", meta_row).hex().upper()
+    newline = raw[meta_i][len(raw[meta_i].rstrip("\r\n")):]
+    raw[meta_i] = ":" + addr_hex + buf[off:off + 512].hex().upper() + newline
+
+    # Strip work-flash rows (Em_EEPROM @ 0x14000000-0x14007FFF) so an OTA does NOT
+    # overwrite persistent user data (presets/configs) stored there. The factory
+    # .hex still seeds the Em_EEPROM defaults for a fresh device; OTA leaves it be.
+    def _in_workflash(line):
+        s = line.strip()
+        if not s.startswith(":") or len(s) < 9:
+            return False
+        h = s[1:9]
+        addr = int(h[6:8] + h[4:6] + h[2:4] + h[0:2], 16)
+        return 0x14000000 <= addr < 0x14008000
+    raw = [ln for ln in raw if not _in_workflash(ln)]
+
+    open(cyacd2_path, "w", encoding="utf-8", newline="").write("".join(raw))
+    return crc
+
+
 def sign(elf):
     """cymcuelftool --sign: CRC the .cy_boot_metadata + write the app signature
     (the same step PSoC Creator runs in its post-build). Returns (elf, hex)."""
@@ -159,7 +215,13 @@ def main():
     cyacd2 = os.path.join(CM4, f"PainDrain_{tag}.cyacd2")
     run([CYMCUELFTOOL, "--patch", merged, "--output", cyacd2])
 
-    print(f"Slot {n} image (version {version}):\n  hex:    {out}\n  cyacd2: {cyacd2}")
+    # Store the integrity CRC in the .cyacd2's metadata so the bootloader/DFU-verify
+    # can reject a corrupt or half-written slot. (The .hex above keeps size=0 -> the
+    # bootloader boots it on magic alone, which is fine for trusted direct-programming.)
+    crc = patch_cyacd2_crc(cyacd2, int(slot["cm0"], 16))
+
+    print(f"Slot {n} image (version {version}):\n  hex:    {out}\n  cyacd2: {cyacd2}"
+          f"\n  crc:    0x{crc:08X} over {OTA_CRC_LEN:#x} bytes (stored in slot metadata)")
 
 
 if __name__ == "__main__":

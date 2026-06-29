@@ -46,29 +46,68 @@ static uint32_t IsMultipleOf(uint32_t value, uint32_t multiple);
 static void GetStartEndAddress(uint32_t appId, uint32_t *startAddress, uint32_t *endAddress);
 
 
+/* Dual-app slot metadata (last 256 B of each slot) -- shared format with the
+ * bootloader chooser and build_slot.py. The CRC covers [slot_start, metadata) =
+ * the whole image excluding this record; both slots span META-START = 0x77F00. */
+#define OTA_META_MAGIC      (0xDEADBEEFu)
+#define OTA_APP0_START      (0x10010000u)
+#define OTA_APP1_START      (0x10088000u)
+#define OTA_APP0_META_ADDR  (0x10087F00u)
+#define OTA_APP1_META_ADDR  (0x100FFF00u)
+#define OTA_CRC_LEN         (OTA_APP0_META_ADDR - OTA_APP0_START)   /* 0x77F00 */
+
+typedef struct {
+    uint32_t magic;     /* OTA_META_MAGIC = valid */
+    uint32_t version;
+    uint32_t size;      /* bytes the crc covers; 0 = no CRC stored (legacy image) */
+    uint32_t crc;       /* CRC-32 (IEEE/zlib) over [slot_start, slot_start+size)  */
+} ota_metadata_t;
+
+/* CRC-32 (IEEE 802.3, poly 0xEDB88320) -- byte-for-byte identical to Python
+ * zlib.crc32 (build_slot.py) and the bootloader's check. Table built on first use. */
+static uint32_t ota_crc32(const uint8_t *data, uint32_t len)
+{
+    static uint32_t table[256];
+    static uint8_t  built = 0u;
+    if (built == 0u)
+    {
+        for (uint32_t i = 0u; i < 256u; i++)
+        {
+            uint32_t c = i;
+            for (uint8_t k = 0u; k < 8u; k++) { c = (c & 1u) ? (0xEDB88320u ^ (c >> 1)) : (c >> 1); }
+            table[i] = c;
+        }
+        built = 1u;
+    }
+    uint32_t crc = 0xFFFFFFFFu;
+    for (uint32_t i = 0u; i < len; i++) { crc = table[(crc ^ data[i]) & 0xFFu] ^ (crc >> 8); }
+    return ~crc;
+}
+
 /*******************************************************************************
 * Function Name: Cy_DFU_ValidateApp  (override of the __WEAK SDK default)
 ****************************************************************************//**
-*
-* The SDK default verifies a CRC footer stored at (verify_start + verify_length),
-* which our build does not produce. Our dual-app bootloader instead validates a
-* slot by the {magic, version, ...} record in the last 256 B of the slot (App0
-* 0x10087F00 / App1 0x100FFF00). Make the DFU "Verify Application" command agree
-* with that criterion, otherwise the host (CySmart / mobile app) reports the
-* update as FAILED even though the image was written correctly and the chooser
-* boots it. Returns SUCCESS when the just-written slot carries our magic.
-*
+* The DFU "Verify Application" command's integrity check. Our bootloader selects
+* a slot by the {magic,version,size,crc} record at the slot tail (the SDK's
+* signature-footer scheme isn't produced by our build). Verify both: magic, and
+* -- when a CRC is stored (size != 0) -- the CRC-32 over the image. size == 0 is
+* a legacy image with no stored CRC: accept on magic alone (brick-safe / backward
+* compatible). Returning SUCCESS lets the host report a successful update.
 *******************************************************************************/
-#define OTA_META_MAGIC      (0xDEADBEEFu)
-#define OTA_APP0_META_ADDR  (0x10087F00u)
-#define OTA_APP1_META_ADDR  (0x100FFF00u)
-
 cy_en_dfu_status_t Cy_DFU_ValidateApp(uint32_t appId, cy_stc_dfu_params_t *params)
 {
     (void)params;
-    const uint32_t metaAddr = (appId == 0u) ? OTA_APP0_META_ADDR : OTA_APP1_META_ADDR;
-    const uint32_t magic    = *(const volatile uint32_t *)metaAddr;
-    return (magic == OTA_META_MAGIC) ? CY_DFU_SUCCESS : CY_DFU_ERROR_VERIFY;
+    const ota_metadata_t *m =
+        (const ota_metadata_t *)((appId == 0u) ? OTA_APP0_META_ADDR : OTA_APP1_META_ADDR);
+    const uint32_t slotStart = (appId == 0u) ? OTA_APP0_START : OTA_APP1_START;
+
+    if (m->magic != OTA_META_MAGIC) { return CY_DFU_ERROR_VERIFY; }
+    if (m->size != 0u)   /* CRC stored -> verify it */
+    {
+        if (m->size > OTA_CRC_LEN) { return CY_DFU_ERROR_VERIFY; }            /* sanity */
+        if (ota_crc32((const uint8_t *)slotStart, m->size) != m->crc) { return CY_DFU_ERROR_VERIFY; }
+    }
+    return CY_DFU_SUCCESS;
 }
 
 
@@ -196,6 +235,21 @@ cy_en_dfu_status_t Cy_DFU_WriteData (uint32_t address, uint32_t length, uint32_t
     
     if (status == CY_DFU_SUCCESS)
     {
+        /* INVALIDATE-FIRST: on the first programmed row of this OTA session, erase
+         * the target (inactive) slot's metadata so the slot is INVALID for the
+         * whole transfer. The image's own metadata row (highest address, written
+         * last) re-validates it only once the update completes -- so an interrupted
+         * or aborted OTA can never leave a bootable, half-written slot. ('app' is
+         * the running slot; the inactive slot is the other one.) */
+        static uint8_t s_meta_invalidated = 0u;
+        if (s_meta_invalidated == 0u)
+        {
+            uint32_t metaRow = ((app == 0u) ? OTA_APP1_META_ADDR : OTA_APP0_META_ADDR)
+                               & ~(CY_FLASH_SIZEOF_ROW - 1u);
+            (void) Cy_Flash_EraseRow(metaRow);
+            s_meta_invalidated = 1u;
+        }
+
         if ((ctl & CY_DFU_IOCTL_ERASE) != 0u)
         {
             (void) memset(params->dataBuffer, 0, CY_FLASH_SIZEOF_ROW);

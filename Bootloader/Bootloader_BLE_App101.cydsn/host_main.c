@@ -70,9 +70,62 @@ static void dbg_hex32(uint32_t val)
 typedef struct {
     uint32_t magic;     /* APP_VALID_MAGIC = valid */
     uint32_t version;   /* higher version wins */
-    uint32_t size;      /* image size in bytes (informational) */
-    uint32_t crc;       /* CRC32 (not validated yet) */
+    uint32_t size;      /* bytes the crc covers; 0 = no CRC stored (legacy image) */
+    uint32_t crc;       /* CRC-32 (IEEE/zlib) over [slot_start, slot_start+size)  */
 } fw_metadata_t;
+
+/* ====================================================================== *
+ *  CRC-at-boot: reject a slot whose image CRC does not match its metadata,
+ *  so a corrupt or half-written slot is never booted. Set BOOT_VERIFY_CRC
+ *  to 0 to DISABLE it (e.g. if the CRC ever makes boot too slow) -- then a
+ *  slot is "valid" on magic alone, the pre-CRC behaviour.
+ * ====================================================================== */
+#ifndef BOOT_VERIFY_CRC
+#define BOOT_VERIFY_CRC   (1)
+#endif
+
+#if BOOT_VERIFY_CRC
+/* CRC-32 (IEEE 802.3, poly 0xEDB88320) -- identical to Python zlib.crc32
+ * (build_slot.py) and dfu_user.c so the stored and recomputed CRCs match. */
+static uint32_t boot_crc32(const uint8_t *data, uint32_t len)
+{
+    static uint32_t table[256];
+    static uint8_t  built = 0u;
+    if (built == 0u)
+    {
+        for (uint32_t i = 0u; i < 256u; i++)
+        {
+            uint32_t c = i;
+            for (uint8_t k = 0u; k < 8u; k++) { c = (c & 1u) ? (0xEDB88320u ^ (c >> 1)) : (c >> 1); }
+            table[i] = c;
+        }
+        built = 1u;
+    }
+    uint32_t crc = 0xFFFFFFFFu;
+    for (uint32_t i = 0u; i < len; i++) { crc = table[(crc ^ data[i]) & 0xFFu] ^ (crc >> 8); }
+    return ~crc;
+}
+#endif /* BOOT_VERIFY_CRC */
+
+/* A slot is bootable if magic is valid AND (CRC on) its stored CRC matches.
+ * size == 0 means no CRC was stored (legacy/factory image) -> accept on magic
+ * alone, so enabling the check never bricks an already-deployed image. */
+static bool slot_valid(uint32_t slot_start, const fw_metadata_t *m)
+{
+    if (m->magic != APP_VALID_MAGIC) { return false; }
+#if BOOT_VERIFY_CRC
+    if (m->size != 0u)
+    {
+        if (m->size > (APP0_META_ADDR - APP0_START_ADDR)) { return false; }   /* sanity (0x77F00) */
+        if (boot_crc32((const uint8_t *)slot_start, m->size) != m->crc)
+        {
+            dbg_print("  slot CRC FAIL\r\n");
+            return false;
+        }
+    }
+#endif
+    return true;
+}
 
 /*****************************************************************************
 * Jump into the selected app's CM0+ image.
@@ -97,8 +150,8 @@ int HostMain(void)
 {
     const fw_metadata_t *m0 = (const fw_metadata_t *)APP0_META_ADDR;
     const fw_metadata_t *m1 = (const fw_metadata_t *)APP1_META_ADDR;
-    bool     v0 = (m0->magic == APP_VALID_MAGIC);
-    bool     v1 = (m1->magic == APP_VALID_MAGIC);
+    bool     v0 = slot_valid(APP0_START_ADDR, m0);
+    bool     v1 = slot_valid(APP1_START_ADDR, m1);
     uint32_t boot_addr;
 
     dbg_init();
