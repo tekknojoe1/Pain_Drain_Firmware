@@ -53,9 +53,65 @@
 #include "my_i2c.h"
 #include "flash_storage.h"
 #include "bq28Z610.h"
+#include "version.h"
+#include "cy_flash.h"
+#include "cy_dfu.h"
 
-static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };        
+/* ---- OTA dual-app slots (must match the bootloader common.h memory map) ---- */
+#ifndef APP_SLOT
+#define APP_SLOT            (0u)            /* App0 default; build_slot.py sets -D APP_SLOT=1 for App1 */
+#endif
+#define OTA_SLOT0_BASE      (0x10010000u)
+#define OTA_SLOT1_BASE      (0x10088000u)
+#define OTA_SLOT_SIZE       (0x78000u)      /* 480 KB */
+#define OTA_INACTIVE_BASE   ((APP_SLOT == 0u) ? OTA_SLOT1_BASE : OTA_SLOT0_BASE)
+#define OTA_FLASH_ROW       (CY_FLASH_SIZEOF_ROW)   /* 512 bytes */
+
+/* Stage 3 flash-write primitive: erase+write+read-back one row of the INACTIVE
+ * slot while the app and BLE are running. This validates the flash driver and
+ * the slot addressing before the full OTA. Triggered by the 'F' BLE command.
+ * Safe: the inactive slot's metadata stays invalid, so the bootloader still
+ * boots the running app. */
+static void ota_flash_self_test(void)
+{
+    uint32_t addr = OTA_INACTIVE_BASE;
+    uint32_t pattern[OTA_FLASH_ROW / 4u];
+    uint32_t i;
+    cy_en_flashdrv_status_t st;
+    bool ok;
+
+    for (i = 0u; i < OTA_FLASH_ROW / 4u; i++) { pattern[i] = 0xA5A50000u | i; }
+
+    DBG_PRINTF("OTA flash test: write inactive-slot row @ %x\r\n", addr);
+    st = Cy_Flash_WriteRow(addr, pattern);   /* erases then programs the row */
+    DBG_PRINTF("  WriteRow status = %x\r\n", (unsigned)st);
+
+    const volatile uint32_t *rb = (const volatile uint32_t *)addr;
+    ok = (st == CY_FLASH_DRV_SUCCESS);
+    for (i = 0u; ok && (i < OTA_FLASH_ROW / 4u); i++)
+    {
+        if (rb[i] != pattern[i]) { ok = false; }
+    }
+    DBG_PRINTF("  readback: %s\r\n", ok ? "PASS" : "FAIL");
+}
+
+/* ---- DFU / OTA: Cypress cy_dfu over the BLE Bootloader service (CySmart) ---- */
+static cy_stc_dfu_params_t  dfuParams;
+static uint32_t             dfuState;
+__attribute__((aligned(4))) static uint8_t dfuDataBuffer[CY_DFU_SIZEOF_DATA_BUFFER];
+__attribute__((aligned(4))) static uint8_t dfuPacketBuffer[CY_DFU_SIZEOF_CMD_BUFFER];
+
+/* Exposed to power.c (prototype in power.h): true only while an OTA is actively
+ * receiving an image. Lets the charging state machine keep BLE alive when the
+ * charger is plugged in mid-update, so the transfer isn't aborted. */
+bool dfu_in_progress(void)
+{
+    return (dfuState == CY_DFU_STATE_UPDATING);
+}
+
+static cy_stc_ble_timer_info_t     timerParam = { .timeout = ADV_TIMER_TIMEOUT };
 static volatile uint32_t           mainTimer  = 1u;
+static const uint32_t BUILD_NUMBER = FIRMWARE_VERSION_BUILD;  /* from version.h */
 
 
 uint8 newBatteryLevel = 0;
@@ -65,7 +121,6 @@ uint8 *respondStringPtr;
 uint8 data[20];
 uint32_t pinReadValue;
 unsigned int MAX_LENGTH = 20;
-uint8 fakeBatteryPercentage = 100;
 int previousValue = -1;
 DeviceStatus device_status;
 int tensPhase;
@@ -190,7 +245,11 @@ void AppCallBack(uint32 event, void *eventParam)
                 //Cy_SysPm_DeepSleep(CY_SYSPM_WAIT_FOR_INTERRUPT);
                 //Cy_SysPm_Hibernate(); // Put system in hibernate
             } else {
-                DBG_PRINTF("ADVERTISEMENT STARTED\r\n");
+                extern cy_stc_ble_gap_bd_addr_t cy_ble_deviceAddress;
+                DBG_PRINTF("ADVERTISEMENT STARTED - BLE Address: %x:%x:%x:%x:%x:%x\r\n",
+                    cy_ble_deviceAddress.bdAddr[5], cy_ble_deviceAddress.bdAddr[4],
+                    cy_ble_deviceAddress.bdAddr[3], cy_ble_deviceAddress.bdAddr[2],
+                    cy_ble_deviceAddress.bdAddr[1], cy_ble_deviceAddress.bdAddr[0]);
                 power_flags_update(POWER_FLAG_BLE, 1);
             }
             break;
@@ -213,7 +272,11 @@ void AppCallBack(uint32 event, void *eventParam)
             break;
             
         case CY_BLE_EVT_HARDWARE_ERROR:    /* This event indicates that some internal HW error has occurred */
-            DBG_PRINTF("INTERNAL HARDWARE ERROR");
+            /* eventParam points to the BLE hardware error code:
+             *   0x01 = IPC sync lost (CM0+ controller not running)
+             *   0x0C = HW init failure (regulator / ECO / BLESS)
+             *   0x0D = PILO calibration failure (wrong LFCLK source) */
+            DBG_PRINTF("HW ERR code=%x\r\n", (eventParam != NULL) ? *(uint8_t *)eventParam : 0xFF);
             break;
 
         case CY_BLE_EVT_STACK_SHUTDOWN_COMPLETE:
@@ -287,30 +350,12 @@ void AppCallBack(uint32 event, void *eventParam)
             cy_stc_ble_gatts_char_val_read_req_t *readReq = (cy_stc_ble_gatts_char_val_read_req_t *)eventParam;
             cy_stc_ble_gatt_handle_value_pair_t handleValuePair;
             
-            if (readReq->attrHandle == cy_ble_basConfigPtr->bass->batteryLevelHandle)
-            {
-                // Update your local battery level value (example: increment by 1)
-                if(fakeBatteryPercentage <= 0){
-                 fakeBatteryPercentage = 100;   
-                }
-                else{
-                    fakeBatteryPercentage--;
-                }
-                
-                DBG_PRINTF("entered read case battery service\r\n");
-                // Provide the updated value as the response to the read request
-                handleValuePair.value.val = &fakeBatteryPercentage;
-                handleValuePair.value.len = sizeof(fakeBatteryPercentage);
-                handleValuePair.attrHandle = cy_ble_basConfigPtr->bass->batteryLevelHandle;
-                gattErr = Cy_BLE_GATTS_WriteAttributeValueLocal(&handleValuePair);
+            /* Battery Level reads return the live value maintained by temp.c
+             * (Cy_BLE_BASS_SetCharacteristicValue with the real fuel-gauge SoC).
+             * The stack serves the GATT DB value automatically, so no per-read
+             * handling is needed. (Removed a demo that decremented a fake value
+             * on every read, which overrode the real level.) */
 
-                if (gattErr != CY_BLE_GATT_ERR_NONE)
-                {
-                    // Handle error
-                    DBG_PRINTF("Read error\r\n");
-                }
-            }
-            
             // Checks to see if its requesting the custom service characteristic
             if(CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE == readReq->attrHandle)
             {
@@ -386,6 +431,7 @@ void AppCallBack(uint32 event, void *eventParam)
                         token_count++;
                         token = strtok(NULL, delimiter); // Get the next token
                     }
+                    bool handled = false;
                     switch(tokens[0][0]){
                         case 't':
                         {
@@ -577,6 +623,61 @@ void AppCallBack(uint32 event, void *eventParam)
                             //}
                         }
                         
+                        case 'V':
+                        {
+                            static uint8_t version_resp[4] = {0x56, FIRMWARE_VERSION_MAJOR, FIRMWARE_VERSION_MINOR, FIRMWARE_VERSION_PATCH};
+                            DBG_PRINTF("Version requested: %d.%d.%d\r\n", FIRMWARE_VERSION_MAJOR, FIRMWARE_VERSION_MINOR, FIRMWARE_VERSION_PATCH);
+                            writeError = Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
+                            if (writeError != CY_BLE_SUCCESS) {
+                                DBG_PRINTF("Write rsp failed\r\n");
+                            }
+                            bool result = send_data_to_phone(version_resp, sizeof(version_resp), CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+                            if (!result) {
+                                DBG_PRINTF("Failed to send version to phone\r\n");
+                            }
+                            handled = true;
+                            break;
+                        }
+
+                        case 'b':
+                        {
+                            uint8_t soc = bq28Z610_get_soc();
+                            uint16_t tte = bq28Z610_get_tte();
+                            uint16_t mv = bq28Z610_get_voltage_mv();
+                            static uint8_t batt_resp[7];
+                            batt_resp[0] = 0x62;
+                            batt_resp[1] = soc;
+                            batt_resp[2] = (uint8_t)(tte & 0xFF);
+                            batt_resp[3] = (uint8_t)(tte >> 8);
+                            batt_resp[4] = (uint8_t)device_status;
+                            batt_resp[5] = (uint8_t)(mv & 0xFF);
+                            batt_resp[6] = (uint8_t)(mv >> 8);
+                            DBG_PRINTF("Battery requested: SoC=%u%%, TTE=%u min, mV=%u, Status=%d\r\n", (unsigned)soc, (unsigned)tte, (unsigned)mv, (int)device_status);
+                            writeError = Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
+                            if (writeError != CY_BLE_SUCCESS) {
+                                DBG_PRINTF("Write rsp failed\r\n");
+                            }
+                            bool result = send_data_to_phone(batt_resp, sizeof(batt_resp), CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+                            if (!result) {
+                                DBG_PRINTF("Failed to send battery to phone\r\n");
+                            }
+                            handled = true;
+                            break;
+                        }
+
+                        case 'F':
+                        {
+                            /* Stage 3: OTA flash-write self-test on the inactive slot. */
+                            DBG_PRINTF("OTA flash self-test requested\r\n");
+                            writeError = Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
+                            if (writeError != CY_BLE_SUCCESS) {
+                                DBG_PRINTF("Write rsp failed\r\n");
+                            }
+                            ota_flash_self_test();
+                            handled = true;
+                            break;
+                        }
+
                         default:
                         {
                             DBG_PRINTF("char: %c\r\n", tokens[0][0]);
@@ -587,30 +688,31 @@ void AppCallBack(uint32 event, void *eventParam)
                         
                     }
                     
-                    // Allocate memory for the string plus one extra byte for the null terminator
-                    respondStringPtr = (uint8_t *)malloc((length + 1) * sizeof(uint8_t));
+                    if (!handled) {
+                        // Allocate memory for the string plus one extra byte for the null terminator
+                        respondStringPtr = (uint8_t *)malloc((length + 1) * sizeof(uint8_t));
 
-                    // Check if memory allocation was successful
-                    if (respondStringPtr != NULL) {
-                        // Copy the string from writeReq->handleValPair.value.val to respondStringPtr
-                        memcpy(respondStringPtr, writeReq->handleValPair.value.val, length);
-                        
-                        // Null-terminate the string
-                        respondStringPtr[length] = '\0';
-                    } else {
-                        // Memory allocation failure
-                        DBG_PRINTF("Memory Allocation Failed\r\n");
-                    }
+                        // Check if memory allocation was successful
+                        if (respondStringPtr != NULL) {
+                            // Copy the string from writeReq->handleValPair.value.val to respondStringPtr
+                            memcpy(respondStringPtr, writeReq->handleValPair.value.val, length);
 
+                            // Null-terminate the string
+                            respondStringPtr[length] = '\0';
+                        } else {
+                            // Memory allocation failure
+                            DBG_PRINTF("Memory Allocation Failed\r\n");
+                        }
 
-                    // Sends a write with response command
-                    writeError = Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
-                    if( writeError != CY_BLE_SUCCESS ){
-                        DBG_PRINTF("Write rsp failed\r\n");
-                    }
-                    bool result = send_data_to_phone(writeReq->handleValPair.value.val, writeReq->handleValPair.value.len, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
-                    if(!result){
-                        DBG_PRINTF("Failed to send to phone\r\n");
+                        // Sends a write with response command
+                        writeError = Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
+                        if( writeError != CY_BLE_SUCCESS ){
+                            DBG_PRINTF("Write rsp failed\r\n");
+                        }
+                        bool result = send_data_to_phone(writeReq->handleValPair.value.val, writeReq->handleValPair.value.len, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+                        if(!result){
+                            DBG_PRINTF("Failed to send to phone\r\n");
+                        }
                     }
                 }
                 
@@ -708,8 +810,10 @@ void Isr_switch(void)
 *
 *******************************************************************************/
 int HostMain(void)
-{  
+{
+    DBG_PRINTF("APP BUILD %d\r\n", BUILD_NUMBER);
     DBG_PRINTF("START OF PROGRAM\r\n");
+    DBG_PRINTF("Firmware version: " FIRMWARE_VERSION_STR "\r\n");
     
     /* Check the IO status. If current status is frozen, unfreeze the system. */
     if(Cy_SysPm_GetIoFreezeStatus())
@@ -740,7 +844,47 @@ int HostMain(void)
     
     /* Start BLE component and register generic event handler */
     Cy_BLE_Start(AppCallBack);
-    
+
+    /* Initialize the DFU (OTA) engine and start the BLE DFU transport (the
+     * Bootloader service that CySmart and the mobile app talk to). cy_dfu writes
+     * the received image into the INACTIVE slot; on completion we reset and the
+     * bootloader boots the new slot via our own {magic,version} metadata. */
+    dfuParams.timeout      = 1u;     /* ms. MUST be >0 (Cy_DFU_Continue asserts timeout!=0).
+                                      * Kept at 1ms so the read is effectively a poll and the
+                                      * app main loop stays responsive when no OTA is active;
+                                      * DFU packets are buffered by the BTS callback between calls. */
+    dfuParams.dataBuffer   = dfuDataBuffer;
+    dfuParams.packetBuffer = dfuPacketBuffer;
+    (void)Cy_DFU_Init(&dfuState, &dfuParams);
+    Cy_DFU_TransportStart();
+    DBG_PRINTF("DFU transport started\r\n");
+
+    /* Publish "<version>/<slot>" in the DIS Firmware Revision String (Debug:
+     * "1.0.0.10/0", Release: "1.0.0/0") so the mobile app reads which slot is
+     * running and uploads the OTHER slot's .cyacd2 (Option A). Slot =
+     * Cy_DFU_GetRunningApp() (link-time __cy_app_id: 0 = App0, 1 = App1).
+     *
+     * Write the FULL attribute width, NULL-PADDED. The attribute is fixed-length,
+     * so a shorter value would leave STALE trailing bytes from the previous value
+     * (the app saw e.g. "1.0.0/01.000.0"): writing all DIS_FW_REV_LEN bytes resets
+     * the whole field and null-terminates the string. DIS_FW_REV_LEN MUST equal the
+     * DIS Firmware Revision default-value length set in the BLE GATT editor
+     * (currently "01.00.00.000/0" = 14). The version is clamped so "/<slot>" always
+     * fits, keeping the slot correct even if the version string grows. */
+    {
+        enum { DIS_FW_REV_LEN = 14u };   /* MUST match the GATT DB attribute length (0x000E) */
+        char fwRev[DIS_FW_REV_LEN + 1u];
+        const char *ver = FIRMWARE_VERSION_STR;
+        uint8_t i = 0u;
+        while ((ver[i] != '\0') && (i < (uint8_t)(DIS_FW_REV_LEN - 2u))) { fwRev[i] = ver[i]; i++; }
+        fwRev[i++] = '/';
+        fwRev[i++] = (char)('0' + (Cy_DFU_GetRunningApp() & 0x1u));
+        while (i <= DIS_FW_REV_LEN) { fwRev[i++] = '\0'; }   /* null-pad full width (+ print terminator) */
+        cy_en_ble_api_result_t disRes =
+            Cy_BLE_DISS_SetCharacteristicValue(CY_BLE_DIS_FIRMWARE_REV, DIS_FW_REV_LEN, (uint8_t *)fwRev);
+        DBG_PRINTF("DIS firmware rev = %s (status 0x%x)\r\n", fwRev, (unsigned)disRes);
+    }
+
     
     /* Initialize BLE Services */
     IasInit();
@@ -808,9 +952,52 @@ int HostMain(void)
     /***************************************************************************
     * Main polling loop
     ***************************************************************************/
+    uint32_t dfuPrevState = CY_DFU_STATE_NONE;  /* for DFU/OTA progress logging */
+    uint32_t dfuCmdCount  = 0u;
     while(1)
     {
         Cy_BLE_ProcessEvents();
+
+        /* Process the OTA/DFU protocol (non-blocking poll). When a transfer
+         * finishes, the new image (incl. its higher-version metadata) is in the
+         * inactive slot -- reset and let the bootloader select it. */
+        cy_en_dfu_status_t dfuStatus = Cy_DFU_Continue(&dfuState, &dfuParams);
+
+        /* Make OTA activity visible on the debug UART -- log state changes and
+         * throttled progress so an update is observable here and (importantly)
+         * during mobile-app updates where CySmart's log isn't available. */
+        if (dfuState != dfuPrevState)
+        {
+            if (dfuState == CY_DFU_STATE_UPDATING) { dfuCmdCount = 0u; }
+            DBG_PRINTF("DFU state -> %s\r\n",
+                       (dfuState == CY_DFU_STATE_UPDATING) ? "UPDATING (receiving image)" :
+                       (dfuState == CY_DFU_STATE_FINISHED) ? "FINISHED" :
+                       (dfuState == CY_DFU_STATE_FAILED)   ? "FAILED"   : "IDLE");
+            dfuPrevState = dfuState;
+        }
+        if ((dfuState == CY_DFU_STATE_UPDATING) && (dfuStatus == CY_DFU_SUCCESS))
+        {
+            /* One DFU command processed (program/erase/verify a flash row). */
+            if ((++dfuCmdCount % 32u) == 0u)
+            {
+                DBG_PRINTF("DFU: %d commands processed...\r\n", (int)dfuCmdCount);
+            }
+        }
+
+        if (dfuState == CY_DFU_STATE_FINISHED)
+        {
+            DBG_PRINTF("DFU complete (%d cmds) -> reset into new slot\r\n",
+                       (int)dfuCmdCount);
+            Cy_SysLib_Delay(50u);
+            NVIC_SystemReset();
+        }
+        else if (dfuState == CY_DFU_STATE_FAILED)
+        {
+            DBG_PRINTF("DFU failed -> restarting transport\r\n");
+            (void)Cy_DFU_Init(&dfuState, &dfuParams);
+            Cy_DFU_TransportReset();
+        }
+
         int currentValue = Cy_LPComp_GetCompare(LPCOMP, CY_LPCOMP_CHANNEL_1);
         //DBG_PRINTF("lp comp changed value: %d\r\n", currentValue);
         if(lastValue != currentValue){

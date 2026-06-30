@@ -177,21 +177,21 @@ void writeToEeprom(uint8_t* data, size_t size, int preset) {
         eepromReturnValue = Cy_Em_EEPROM_Write(presetAddress, data, size, &Em_EEPROM_context);
         
         if (eepromReturnValue == CY_EM_EEPROM_SUCCESS) {
-            DBG_PRINTF("SUCCESS\r\n", eepromReturnValue);
+            DBG_PRINTF("SUCCESS: %d\r\n", eepromReturnValue);
             return;
         } else if(eepromReturnValue == CY_EM_EEPROM_BAD_CHECKSUM){
-            DBG_PRINTF("BAD CHECKSUM\r\n", eepromReturnValue);
+            DBG_PRINTF("BAD CHECKSUM: %d\r\n", eepromReturnValue);
             return;
         } else if(eepromReturnValue == CY_EM_EEPROM_BAD_PARAM){
-            DBG_PRINTF("BAD PARAM\r\n", eepromReturnValue);
+            DBG_PRINTF("BAD PARAM: %d\r\n", eepromReturnValue);
             return;
         } else if(eepromReturnValue == CY_EM_EEPROM_BAD_DATA){
-            DBG_PRINTF("BAD DATA\r\n", eepromReturnValue);
+            DBG_PRINTF("BAD DATA: %d\r\n", eepromReturnValue);
             return;
         } else if(eepromReturnValue == CY_EM_EEPROM_WRITE_FAIL){
-            DBG_PRINTF("WRITE FAIL\r\n", eepromReturnValue);
+            DBG_PRINTF("WRITE FAIL: %d\r\n", eepromReturnValue);
         } else{
-            DBG_PRINTF("OTHER\r\n", eepromReturnValue);
+            DBG_PRINTF("OTHER: %d\r\n", eepromReturnValue);
             return;
         }
     }

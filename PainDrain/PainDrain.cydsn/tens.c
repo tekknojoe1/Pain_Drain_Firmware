@@ -56,7 +56,6 @@ static int tens_two_state = 0;
 
 
 
-static void set_channel_one(void);
 
 void tens_init(void) {
    

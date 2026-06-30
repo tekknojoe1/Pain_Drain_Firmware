@@ -95,4 +95,8 @@ void reset_timer_cycles(void);
 
 bool power_stimulus_active(void);
 
+/* Defined in host_main.c: true while an OTA is actively receiving an image, so
+ * the charging state machine can keep BLE alive when plugged in mid-update. */
+bool dfu_in_progress(void);
+
 uint16_t reg_array[38];

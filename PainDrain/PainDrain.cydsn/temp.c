@@ -76,7 +76,6 @@ static const TempPwmPoint_t temp_pwm_table[] = {
 #define HEAT_LIMIT_RECOVER_BELOW_C   1.5f  // Degrees C below max that triggers scale-up
 
 
-static int set_fan_based_on_temp(int temp_value);
 static float adc_counts_to_resistance(int16_t counts);
 static float resistance_to_celsius(float resistance);
 static float celsius_to_fahrenheit(float celsius);
@@ -91,8 +90,6 @@ static volatile int temp_acquire_flag = 0;  // Set by temp_timer, cleared by tem
 static int32_t temp_timer_count = 0;        // Counts timer ticks
 static float last_temp_celsius = 0.0f;      // Last measured temperature
 static float last_temp_fahrenheit = 0.0f;
-
-static int32_t temp_cnt = 0;
 
 static float target_actual_c    = 0.0f;
 static float prev_temp_c        = 0.0f;
@@ -186,13 +183,16 @@ void temp_task(void) {
 
 	 // Convert counts to resistance
     float resistance = adc_counts_to_resistance(raw_counts);
-    float mvoltage = adc_counts_to_mvoltage(raw_counts);
  
     // Convert resistance to temperature
     last_temp_celsius    = resistance_to_celsius(resistance);
     last_temp_fahrenheit = celsius_to_fahrenheit(last_temp_celsius);
     
-    int resistance_int = (int)resistance;
+    /* 
+	 // Convert counts to millivolts
+    float mvoltage = adc_counts_to_mvoltage(raw_counts);
+
+	 int resistance_int = (int)resistance;
     int resistance_dec = (int)(resistance * 10) % 10;
     int temp_int_f = (int)last_temp_fahrenheit;
 	 int temp_dec_f = (int)(last_temp_fahrenheit * 10) % 10;
@@ -206,7 +206,8 @@ void temp_task(void) {
            resistance_int, resistance_dec,
            mvoltage_int, mvoltage_dec,
            temp_int_f, temp_dec_f,
-			  temp_int_c, temp_dec_c );
+			  temp_int_c, temp_dec_c ); 
+	 /**/
 
     if (pel_mode == -1 && pel_active) {
         int32_t phase_limit = cool_pel_on ? cool_on_limit : cool_off_limit;
@@ -221,7 +222,30 @@ void temp_task(void) {
             batt_print_count = 0;
             uint8_t  soc = bq28Z610_get_soc();
             uint16_t mv  = bq28Z610_get_voltage_mv();
-            DBG_PRINTF("Battery: %d%c %dmV\r\n", (int)soc, '%', (int)mv);
+            const char* status_str;
+            switch(device_status) {
+                case 0: status_str = "Not Charging"; break;
+                case 1: status_str = "Charging"; break;
+                case 2: status_str = "Full"; break;
+                case 3: status_str = "Low"; break;
+                case 4: status_str = "Medium"; break;
+                case 5: status_str = "Normal"; break;
+                default: status_str = "Unknown"; break;
+            }
+            DBG_PRINTF("Battery: %d%c %dmV %s\r\n", (int)soc, '%', (int)mv, status_str);
+
+            /* Publish the real charge level on the standard BLE Battery Service
+             * (0x180F / Battery Level 0x2A19) so a phone or BLE browser shows the
+             * actual %. SetCharacteristicValue updates the GATT DB (so reads return
+             * it); the notification pushes it to a subscribed client (skipped when
+             * not connected; harmlessly no-ops if the client hasn't subscribed). */
+            (void)Cy_BLE_BASS_SetCharacteristicValue(0u, CY_BLE_BAS_BATTERY_LEVEL,
+                                                     CY_BLE_BAS_BATTERY_LEVEL_LEN, &soc);
+            if (Cy_BLE_GetConnectionState(cy_ble_connHandle[0]) == CY_BLE_CONN_STATE_CONNECTED)
+            {
+                (void)Cy_BLE_BASS_SendNotification(cy_ble_connHandle[0], 0u, CY_BLE_BAS_BATTERY_LEVEL,
+                                                   CY_BLE_BAS_BATTERY_LEVEL_LEN, &soc);
+            }
         }
     //} else {
     //    batt_print_count = BATT_PRINT_INTERVAL - 2;
@@ -668,7 +692,7 @@ void set_fan(int value){
     value = ( abs(value) > 100) ? 100 : value;
     
     // scale the value to the PWM range
-    int scaled_fan_pwm = ( abs(value) * MAX_FAN_PWM_VALUE) / 100;
+    //int scaled_fan_pwm = ( abs(value) * MAX_FAN_PWM_VALUE) / 100;
     //DBG_PRINTF("Value: %d\r\n", value);
     //Update Fan
     if (value == 0) {

@@ -253,10 +253,8 @@ void ST7735_Commands (const uint8_t * initializers)
  */
 uint8_t ST7735_CommandSend (uint8_t data)
 {
-    uint32_t masterStatus;
-    uint8_t d;
-    int count;
-    
+    uint8_t d = 0;
+
     // chip enable - active low
     //CLR_BIT (*(lcd->cs->port), lcd->cs->pin);
     //Cy_GPIO_Write(CS_PORT, CS_NUM, 0);
@@ -277,21 +275,11 @@ uint8_t ST7735_CommandSend (uint8_t data)
     
     
     //Cy_SCB_SPI_Write(SPI_HW, data);
-    
-    do {
-        //count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
-    } while (count < 1);
-        
-    //do
-    //{
-    //    masterStatus  = Cy_SCB_SPI_GetSlaveMasterStatus(SPI_HW);
-    //    
-    //}while ( (masterStatus != (CY_SCB_SPI_MASTER_DONE)) );
-    
-    //d = Cy_SCB_SPI_Read(SPI_HW);  
-    
-    
-    
+    //while (Cy_SCB_SPI_GetNumInRxFifo(SPI_HW) < 1) {}
+    //d = Cy_SCB_SPI_Read(SPI_HW);
+
+
+
     //SPDR = data;
     // wait till data transmit
     //WAIT_UNTIL_BIT_IS_SET (SPSR, SPIF);
@@ -312,10 +300,8 @@ uint8_t ST7735_CommandSend (uint8_t data)
  */
 uint8_t ST7735_Data8BitsSend (uint8_t data)
 {
-    uint32_t masterStatus;
-    uint8_t d;
-    int count;
-    
+    uint8_t d = 0;
+
     // chip enable - active low
     //CLR_BIT (*(lcd->cs->port), lcd->cs->pin);
     //Cy_GPIO_Write(CS_PORT, CS_NUM, 0);
@@ -336,21 +322,11 @@ uint8_t ST7735_Data8BitsSend (uint8_t data)
     
     
     //Cy_SCB_SPI_Write(SPI_HW, data);
-    
-    do {
-        //count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
-    } while (count < 1);
-        
-    //do
-    //{
-    //    masterStatus  = Cy_SCB_SPI_GetSlaveMasterStatus(SPI_HW);
-    //    
-    //}while ( (masterStatus != (CY_SCB_SPI_MASTER_DONE)) );
-    
-    //d = Cy_SCB_SPI_Read(SPI_HW);  
-    
-    
-    
+    //while (Cy_SCB_SPI_GetNumInRxFifo(SPI_HW) < 1) {}
+    //d = Cy_SCB_SPI_Read(SPI_HW);
+
+
+
     //SPDR = data;
     // wait till data transmit
     //WAIT_UNTIL_BIT_IS_SET (SPSR, SPIF);
@@ -371,10 +347,8 @@ uint8_t ST7735_Data8BitsSend (uint8_t data)
  */
 uint8_t ST7735_Data16BitsSend (uint16_t data)
 {
-    uint32_t masterStatus;
     uint8_t d[2];
-    int count;
-        
+
     // chip enable - active low
     //CLR_BIT (*(lcd->cs->port), lcd->cs->pin);
     //Cy_GPIO_Write(CS_PORT, CS_NUM, 0);
@@ -394,21 +368,12 @@ uint8_t ST7735_Data16BitsSend (uint16_t data)
     
     d[0] = data>>8;
     d[1] = data & 0xFF;
-    
+    (void)d;
+
     //Cy_SCB_SPI_WriteArray(SPI_HW, d, 2);
-    
-    do {
-        //count = Cy_SCB_SPI_GetNumInRxFifo(SPI_HW);
-    } while (count < 2);
-    
-    //do
-    //{
-    //    masterStatus  = Cy_SCB_SPI_GetSlaveMasterStatus(SPI_HW);
-    //    
-    //}while ( (masterStatus != (CY_SCB_SPI_MASTER_DONE)) );
-    
-    //d[0] = Cy_SCB_SPI_Read(SPI_HW); 
-    //d[1] = Cy_SCB_SPI_Read(SPI_HW); 
+    //while (Cy_SCB_SPI_GetNumInRxFifo(SPI_HW) < 2) {}
+    //d[0] = Cy_SCB_SPI_Read(SPI_HW);
+    //d[1] = Cy_SCB_SPI_Read(SPI_HW);
     
     
     // transmitting data high byte
