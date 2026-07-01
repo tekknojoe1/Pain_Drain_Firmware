@@ -736,7 +736,21 @@ void AppCallBack(uint32 event, void *eventParam)
                     }
                 }
                 else {
-                 DBG_PRINTF("Characterisitic handle: %d\r\n", writeReq->handleValPair.attrHandle);   
+                    /* Any OTHER writable attribute the client touches -- notably the
+                     * Battery Level CCCD (0x0015) it writes to subscribe to Battery
+                     * Service notifications. Because the app registered for
+                     * CY_BLE_EVT_GATTS_WRITE_REQ, IT owns answering EVERY write; if we
+                     * don't persist the value and send a WriteRsp, the client's write
+                     * gets no response -> "Write characteristic descriptor timed out".
+                     * Persisting the CCCD value is also what lets
+                     * Cy_BLE_BASS_SendNotification actually deliver. */
+                    Cy_BLE_GATTS_WriteAttributeValuePeer(cy_ble_connHandle, &writeReq->handleValPair);
+                    writeError = Cy_BLE_GATTS_WriteRsp(writeReq->connHandle);
+                    if (writeError != CY_BLE_SUCCESS) {
+                        DBG_PRINTF("Write rsp failed for handle %d\r\n", (int)writeReq->handleValPair.attrHandle);
+                    } else {
+                        DBG_PRINTF("Write ack for handle %d\r\n", (int)writeReq->handleValPair.attrHandle);
+                    }
                 }
             //call a function to process the data received in the eventParam
                  break;

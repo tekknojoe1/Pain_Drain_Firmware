@@ -384,6 +384,31 @@ int check_power_button_press(){
 }
 
 
+/*
+notify_pending_disconnect() - Tell the phone we are ABOUT to drop the BLE link,
+and why, BEFORE we actually disconnect / power off. This lets the app show the
+right message (e.g. "charging", "powering off") instead of waiting for a generic
+connection-timeout. Sent on the custom characteristic as the string
+"disconnect <reason>":
+    0 = power off (user hold / idle timeout / low battery)
+    1 = entering charging mode (BLE is torn down while charging)
+No-ops if we are not currently connected. Blocks ~50 ms so the notification
+actually goes out on air before the caller tears the link down.
+*/
+static void notify_pending_disconnect(const char* msg, uint16_t len) {
+    if (Cy_BLE_GetConnectionState(cy_ble_connHandle[0]) != CY_BLE_CONN_STATE_CONNECTED) {
+        return;
+    }
+    (void)send_data_to_phone((uint8_t*)msg, len,
+                             CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
+    /* Flush the notification to the controller and give it airtime before the
+     * caller calls Cy_BLE_GAP_Disconnect() / powers off. */
+    Cy_BLE_ProcessEvents();
+    CyDelay(50);
+    (void)len;
+    DBG_PRINTF("BLE NOTIFY: pending disconnect -> \"%s\"\r\n", msg);   /* msg is null-terminated */
+}
+
 void power_task( void ) {
     DeviceStatus charger_status;
     uint8_t* data;
@@ -452,6 +477,26 @@ void power_task( void ) {
                 DBG_PRINTF("START_CHARGER\r\n");
                 power_state = START_CHARGER;
                 break;
+            }
+
+            /* Charger plugged/unplugged WHILE an OTA is in flight: we must NOT enter
+             * START_CHARGER (it disconnects BLE and aborts the update). Instead stay
+             * connected and just tell the app the charging state changed on the live
+             * link, so it can show "charging" while the battery level keeps updating
+             * over the standard Battery Service. Edge-triggered on charging<->not so
+             * a CHARGING<->FULLY_CHARGED flip doesn't re-send. */
+            if (dfu_in_progress()) {
+                bool chg_now  = (charger_status      == CHARGING || charger_status      == FULLY_CHARGED);
+                bool chg_prev = (last_charger_status == CHARGING || last_charger_status == FULLY_CHARGED);
+                if (chg_now != chg_prev) {
+                    data = (uint8_t*)(chg_now ? "charging 0" : "charging 1");
+                    if (send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE)) {
+                        DBG_PRINTF("BLE NOTIFY: charging state during OTA -> %s\r\n",
+                                   chg_now ? "CHARGING" : "NOT CHARGING");
+                    } else {
+                        DBG_PRINTF("BLE NOTIFY: charging state change during OTA NOT delivered\r\n");
+                    }
+                }
             }
 
             if(Cy_BLE_GetNumOfActiveConn() == 0u) {
@@ -550,6 +595,11 @@ void power_task( void ) {
         case START_CHARGER:
             power_timeout = POWER_DISPLAY_TIMEOUT_INTERVAL;
             shut_off_all_stimuli();
+
+            /* Heads-up to the app that we're dropping the link to enter charging
+             * mode, sent WHILE still connected (before the disconnect below). */
+            notify_pending_disconnect("disconnect 1", 12);
+
             // Set this to bluetooth mode since when we unplug we'll start from there and not in a preset
             cy_stc_ble_gap_disconnect_info_t disconnectInfo;
             disconnectInfo.bdHandle = cy_ble_connHandle[0].bdHandle;
@@ -559,8 +609,9 @@ void power_task( void ) {
             Cy_BLE_GAPP_StopAdvertisement();
 
             data = (uint8_t*)"charging 0";
-            send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
-            // was successful
+            if (!send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE)) {
+                DBG_PRINTF("BLE NOTIFY: \"charging 0\" NOT delivered (no connection - BLE was just disconnected)\r\n");
+            }
             DBG_PRINTF("POWER_CHARGING\r\n");
             power_state = POWER_CHARGING;
         break;
@@ -597,13 +648,18 @@ void power_task( void ) {
             }
 
             data = (uint8_t*)"charging 1";
-            send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE);
-            // was successful
+            if (!send_data_to_phone(data, 10, CY_BLE_CUSTOM_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE)) {
+                DBG_PRINTF("BLE NOTIFY: \"charging 1\" NOT delivered (no connection - advertising just restarted, phone not reconnected yet)\r\n");
+            }
             DBG_PRINTF("POWER_ADV\r\n");
             power_state = POWER_ADV;
         break;
 
         case POWER_DOWN:
+
+            /* Heads-up to the app that we're powering off, sent while still
+             * connected (before Cy_BLE_Stop()/hibernate inside power_off_device). */
+            notify_pending_disconnect("disconnect 0", 12);
 
             //FIXME: Disable WDT
             //FIXME: Configure power button as wakeup source
@@ -666,6 +722,8 @@ bool send_data_to_phone(uint8_t* data, uint16_t length, uint8_t characteristic){
     if(Cy_BLE_GetConnectionState(cy_ble_connHandle[0]) == CY_BLE_CONN_STATE_CONNECTED){
         gattErr = Cy_BLE_GATTS_SendNotification(cy_ble_connHandle, &handleValuePair);
         if(gattErr == CY_BLE_SUCCESS){
+            DBG_PRINTF("BLE NOTIFY: sent %d bytes on handle 0x%x\r\n",
+                       (int)length, (int)characteristic);
             return true;
         } else if(gattErr == CY_BLE_ERROR_NO_DEVICE_ENTITY){
             DBG_PRINTF("There is no connection for the corresponding bdHandle\r\n");

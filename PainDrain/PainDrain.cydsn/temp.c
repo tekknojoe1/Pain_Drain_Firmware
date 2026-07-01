@@ -245,12 +245,40 @@ void temp_task(void) {
             (void)Cy_BLE_BASS_SetCharacteristicValue(0u, CY_BLE_BAS_BATTERY_LEVEL,
                                                      CY_BLE_BAS_BATTERY_LEVEL_LEN, &soc);
             static uint8_t last_notified_soc = 0xFFu;   /* 0xFF = nothing sent yet */
-            if ((soc != last_notified_soc) &&
-                (Cy_BLE_GetConnectionState(cy_ble_connHandle[0]) == CY_BLE_CONN_STATE_CONNECTED))
+            if (soc != last_notified_soc)
             {
-                (void)Cy_BLE_BASS_SendNotification(cy_ble_connHandle[0], 0u, CY_BLE_BAS_BATTERY_LEVEL,
-                                                   CY_BLE_BAS_BATTERY_LEVEL_LEN, &soc);
-                last_notified_soc = soc;
+                if (Cy_BLE_GetConnectionState(cy_ble_connHandle[0]) == CY_BLE_CONN_STATE_CONNECTED)
+                {
+                    /* Only advance last_notified_soc when the notification is actually
+                     * delivered; if the send fails (e.g. CCCD not enabled yet, queue
+                     * full) we retry on the next poll so the client isn't left stale. */
+                    cy_en_ble_api_result_t nres =
+                        Cy_BLE_BASS_SendNotification(cy_ble_connHandle[0], 0u, CY_BLE_BAS_BATTERY_LEVEL,
+                                                     CY_BLE_BAS_BATTERY_LEVEL_LEN, &soc);
+                    if (nres == CY_BLE_SUCCESS)
+                    {
+                        DBG_PRINTF("BLE NOTIFY: Battery Level -> %d%c (was %d%c)\r\n",
+                                   (int)soc, '%', (int)last_notified_soc, '%');
+                        last_notified_soc = soc;
+                    }
+                    else if (nres == CY_BLE_ERROR_NTF_DISABLED)
+                    {
+                        /* Client is connected but has NOT enabled notifications on
+                         * the Battery Level CCCD (0x2A19). Nothing to retry until it
+                         * subscribes -- the value is still readable via GATT read. */
+                        DBG_PRINTF("BLE NOTIFY: Battery Level not delivered - client hasn't subscribed (0x2A19 CCCD disabled)\r\n");
+                    }
+                    else
+                    {
+                        DBG_PRINTF("BLE NOTIFY: Battery Level send failed (0x%x), will retry\r\n",
+                                   (int)nres);
+                    }
+                }
+                else
+                {
+                    DBG_PRINTF("BLE NOTIFY: Battery Level changed to %d%c but not connected; deferring\r\n",
+                               (int)soc, '%');
+                }
             }
         }
     //} else {

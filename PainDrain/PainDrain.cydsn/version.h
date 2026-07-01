@@ -10,8 +10,8 @@
  * RULE: whenever MAJOR, MINOR, or PATCH changes, reset BUILD back to 0. */
 #define FIRMWARE_VERSION_MAJOR  1
 #define FIRMWARE_VERSION_MINOR  1
-#define FIRMWARE_VERSION_PATCH  1
-#define FIRMWARE_VERSION_BUILD  0
+#define FIRMWARE_VERSION_PATCH  2
+#define FIRMWARE_VERSION_BUILD  1
 
 /* String form derived from the numbers above so they can never drift apart
  * (published in the DIS Firmware Revision String). DEBUG builds append the build
