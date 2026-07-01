@@ -38,7 +38,7 @@
 // Temperature acquisition timer
 // Timer fires every 10ms (matching tens_timer rate), so 100 counts = 1 second
 #define TEMP_SAMPLE_INTERVAL    100         // 100 x 10ms = 1 second
-#define BATT_PRINT_INTERVAL      20         // Print battery level every 20 seconds while charging
+#define BATT_PRINT_INTERVAL      30         // Battery poll/print + BLE Battery Service update cadence (seconds)
 
 typedef struct {
     float  target_c;   // Desired actual surface temperature (deg C)
@@ -235,16 +235,22 @@ void temp_task(void) {
             DBG_PRINTF("Battery: %d%c %dmV %s\r\n", (int)soc, '%', (int)mv, status_str);
 
             /* Publish the real charge level on the standard BLE Battery Service
-             * (0x180F / Battery Level 0x2A19) so a phone or BLE browser shows the
-             * actual %. SetCharacteristicValue updates the GATT DB (so reads return
-             * it); the notification pushes it to a subscribed client (skipped when
-             * not connected; harmlessly no-ops if the client hasn't subscribed). */
+             * (0x180F / Battery Level 0x2A19). SetCharacteristicValue keeps the GATT
+             * DB value current so any read returns the actual %.
+             * NOTIFY-ON-CHANGE: only push a notification when the level actually
+             * changes (and a client is connected), so the mobile app is woken only
+             * on real changes, not on every poll. A change that happens while
+             * disconnected is notified on the next poll after reconnect (last-sent
+             * value only advances when a notification is actually sent). */
             (void)Cy_BLE_BASS_SetCharacteristicValue(0u, CY_BLE_BAS_BATTERY_LEVEL,
                                                      CY_BLE_BAS_BATTERY_LEVEL_LEN, &soc);
-            if (Cy_BLE_GetConnectionState(cy_ble_connHandle[0]) == CY_BLE_CONN_STATE_CONNECTED)
+            static uint8_t last_notified_soc = 0xFFu;   /* 0xFF = nothing sent yet */
+            if ((soc != last_notified_soc) &&
+                (Cy_BLE_GetConnectionState(cy_ble_connHandle[0]) == CY_BLE_CONN_STATE_CONNECTED))
             {
                 (void)Cy_BLE_BASS_SendNotification(cy_ble_connHandle[0], 0u, CY_BLE_BAS_BATTERY_LEVEL,
                                                    CY_BLE_BAS_BATTERY_LEVEL_LEN, &soc);
+                last_notified_soc = soc;
             }
         }
     //} else {
